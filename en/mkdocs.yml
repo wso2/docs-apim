@@ -260,6 +260,75 @@ nav:
                   - Monetizing an API: learn/api-monetization/monetizing-an-api.md
     - Integrate:              
           - Integration Overview: use-cases/learn-overview.md
+          - Develop Integrations:
+                  - Developing Integration Solutions: develop/intro-integration-development.md
+                  - WSO2 Integration Studio:
+                        - Quick Tour - WSO2 Integration Studio: develop/WSO2-Integration-Studio.md
+                        - Installing WSO2 Integration Studio: develop/installing-WSO2-Integration-Studio.md
+                        - Working with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
+                        - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-WSO2-Integration-Studio.md
+                  - Service Catalog:
+                        - Integration with Service Catalogs: develop/service-catalog.md
+                  - Creating Projects:
+                        - Creating an Integration Project: develop/create-integration-project.md
+                        - Creating Data Service Configs: develop/create-data-services-configs.md
+                        - Creating Datasource Configs: develop/create-datasources.md
+                        - Importing Projects: develop/importing-projects.md
+                        - Exporting Projects: develop/export_project.md
+                        - Creating Docker Exporter: develop/create-docker-project.md
+                        - Creating Kubernetes Exporter: develop/create-kubernetes-project.md
+                  - Creating Artifacts:
+                        - Importing Artifacts: develop/importing-artifacts.md
+                        - Creating a REST API: develop/creating-artifacts/creating-an-api.md
+                        - Creating a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
+                        - Creating an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+                        - Creating Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
+                        - Creating a Message Store: develop/creating-artifacts/creating-a-message-store.md
+                        - Creating a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
+                        - Creating an Endpoint: develop/creating-artifacts/creating-endpoints.md
+                        - Creating an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
+                        - Creating a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
+                        - Creating a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
+                        - Creating a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
+                        - Creating Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
+                        - Creating a Smooks Configuration: develop/creating-artifacts/creating-smooks-artifacts.md
+                        - Creating a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
+                        - Creating a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
+                        - Creating a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
+                        - Adding Connectors: develop/creating-artifacts/adding-connectors.md
+                  - Creating Custom Artifacts:
+                        - Creating a Custom Inbound Endpoint: develop/customizations/creating-custom-Inbound-endpoint.md
+                        - Creating a Custom Mediator: develop/customizations/creating-custom-mediators.md
+                        - Creating a Synapse Handler: develop/customizations/creating-synapse-handlers.md
+                        - Creating a New Connector: develop/customizations/creating-new-connector.md
+                        - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
+                        - Exporting Artifacts: develop/exporting-artifacts.md
+                  - Securing Artifacts:
+                        - Using Docker Secrets in Synapse Configurations: develop/creating-artifacts/using_docker_secrets.md
+                        - Using Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using_k8s_secrets.md
+                        - Applying Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
+                        - Applying Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
+                        - Applying Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
+                        - Packaging Artifacts: develop/packaging-artifacts.md
+                        - Deploying Artifacts: develop/deploy-artifacts.md
+                  - Testing Integrations:
+                        - Using the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
+                        - Using a Remote Micro Integrator: develop/using-remote-micro-integrator.md
+                        - Hot Deploying Artifacts: develop/hot-deployment.md
+                        - Creating a Unit Test Suite: develop/creating-unit-test-suite.md
+                        - Using the HTTP REST Client: develop/using-http_rest_client.md
+                        - Generating Docker Images: develop/generate-docker-image.md
+                  - Debugging Integrations:
+                        - Mediation Debugging: develop/debugging-mediation.md
+                        - Using Wire Logs: develop/using-wire-logs.md
+                        - Endpoint Tracing: develop/endpoint-trace-logs.md
+                  - Running on WSO2 Integration Cloud: develop/deploying-in-integration-cloud.md
+                  - Advanced Development Tasks:
+                        - Injecting Parameters': develop/injecting-parameters.md
+                        - Changing the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
+                        - Using Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
+                        - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
+                        - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
           - Integration Tutorials:
                   - Sending a Simple Message to a Service: use-cases/tutorials/sending-a-simple-message-to-a-service.md
                   - Message Routing: use-cases/tutorials/routing-requests-based-on-message-content.md
@@ -274,51 +343,57 @@ nav:
                   - Reusing Mediation Sequences: use-cases/tutorials/using-templates.md
                   - Integrating with SAP: use-cases/tutorials/sap-integration.md
           - Message Routing:
-                 - Routing Based on Message Headers: use-cases/examples/routing_examples/routing_based_on_headers.md
-                 - Routing Based on Message Payload: use-cases/examples/routing_examples/routing_based_on_payloads.md
-                 - Splitting Messages and Aggregating Responses: use-cases/examples/routing_examples/splitting_aggregating_messages.md
+                  - Message Routing and Transformation: use-cases/integration-use-case/message-routing-overview.md
+                  - Routing Based on Message Headers: use-cases/examples/routing_examples/routing_based_on_headers.md
+                  - Routing Based on Message Payload: use-cases/examples/routing_examples/routing_based_on_payloads.md
+                  - Splitting Messages and Aggregating Responses: use-cases/examples/routing_examples/splitting_aggregating_messages.md
           - Message Transformation:
-                 - Converting JSON Messages to SOAP: use-cases/examples/message_transformation_examples/json-to-soap-conversion.md
-                 - Converting POX Messages to JSON: use-cases/examples/message_transformation_examples/pox-to-json-conversion.md
+                  - Message Transformation Overview: use-cases/integration-use-case/message-transformation-overview.md
+                  - Converting JSON Messages to SOAP: use-cases/examples/message_transformation_examples/json-to-soap-conversion.md
+                  - Converting POX Messages to JSON: use-cases/examples/message_transformation_examples/pox-to-json-conversion.md
           - Protocol Switching:
-                 - Switching from JMS to HTTP/S: use-cases/examples/protocol-switching/switching_from_JMS_to_HTTP.md
-                 - Switching from HTTP/S to JMS: use-cases/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
-                 - Switching from FTP Listener to Mail Sender: use-cases/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
-                 - Switching from HTTP to FIX: use-cases/examples/protocol-switching/switching_from_HTTP_to_FIX.md
-                 - Switch from FIX to HTTP: use-cases/examples/protocol-switching/switching_from_FIX_to_HTTP.md
-                 - Switch from FIX to AMQP: use-cases/examples/protocol-switching/switching_from_FIX_to_AMQP.md
-                 - Switching between FIX Versions: use-cases/examples/protocol-switching/switching_between_FIX_versions.md
-                 - Switching from TCP to HTTP/S: use-cases/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
-                 - Switching from UDP to HTTP/S: use-cases/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
-                 - Switching between HTTP to MSMQ: use-cases/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
+                  - Protocol Switching Overview: use-cases/integration-use-case/protocol-switching-overview.md
+                  - Switching from JMS to HTTP/S: use-cases/examples/protocol-switching/switching_from_JMS_to_HTTP.md
+                  - Switching from HTTP/S to JMS: use-cases/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
+                  - Switching from FTP Listener to Mail Sender: use-cases/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
+                  - Switching from HTTP to FIX: use-cases/examples/protocol-switching/switching_from_HTTP_to_FIX.md
+                  - Switch from FIX to HTTP: use-cases/examples/protocol-switching/switching_from_FIX_to_HTTP.md
+                  - Switch from FIX to AMQP: use-cases/examples/protocol-switching/switching_from_FIX_to_AMQP.md
+                  - Switching between FIX Versions: use-cases/examples/protocol-switching/switching_between_FIX_versions.md
+                  - Switching from TCP to HTTP/S: use-cases/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
+                  - Switching from UDP to HTTP/S: use-cases/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
+                  - Switching between HTTP to MSMQ: use-cases/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
           - File Processing:
-                 - Using VFS for File Transferring: use-cases/examples/file-processing/vfs-transport-examples.md
-                 - Accessing a Windows Share Using VFS: use-cases/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
-                 - Sending and Receiving Emails: use-cases/examples/file-processing/mailto-transport-examples.md
+                  - File Processing Overview: use-cases/integration-use-case/file-processing-overview.md
+                  - Using VFS for File Transferring: use-cases/examples/file-processing/vfs-transport-examples.md
+                  - Accessing a Windows Share Using VFS: use-cases/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
+                  - Sending and Receiving Emails: use-cases/examples/file-processing/mailto-transport-examples.md
           - Data Integration:
-                 - Exposing an RDBMS datasource: use-cases/examples/data_integration/rdbms-data-service.md
-                 - Exposing Other Datasources:
+                  - Data Integration Overview: use-cases/integration-use-case/data-integration-overview.md
+                  - Exposing an RDBMS datasource: use-cases/examples/data_integration/rdbms-data-service.md
+                  - Exposing Other Datasources:
                         - Exposing a CSV datasource: use-cases/examples/data_integration/csv-data-service.md
                         - Exposing a Carbon datasource: use-cases/examples/data_integration/carbon-data-service.md
-                 - Exposing Data in JSON Format: use-cases/examples/data_integration/json-with-data-service.md
-                 - Using an OData Service: use-cases/examples/data_integration/odata-service.md
-                 - Using Nested Data Queries: use-cases/examples/data_integration/nested-queries-in-data-service.md
-                 - Batch Requesting: use-cases/examples/data_integration/batch-requesting.md
-                 - Invoking Multiple Operations as a Request Box: use-cases/examples/data_integration/request-box.md
-                 - Using Distributed Transactions in Data Services: use-cases/examples/data_integration/distributed-trans-data-service.md
-                 - Validating Data Input: use-cases/examples/data_integration/data-input-validator.md
-                 - Swagger Documents of RESTful Data Services: use-cases/examples/data_integration/swagger-data-services.md
+                  - Exposing Data in JSON Format: use-cases/examples/data_integration/json-with-data-service.md
+                  - Using an OData Service: use-cases/examples/data_integration/odata-service.md
+                  - Using Nested Data Queries: use-cases/examples/data_integration/nested-queries-in-data-service.md
+                  - Batch Requesting: use-cases/examples/data_integration/batch-requesting.md
+                  - Invoking Multiple Operations as a Request Box: use-cases/examples/data_integration/request-box.md
+                  - Using Distributed Transactions in Data Services: use-cases/examples/data_integration/distributed-trans-data-service.md
+                  - Validating Data Input: use-cases/examples/data_integration/data-input-validator.md
+                  - Swagger Documents of RESTful Data Services: use-cases/examples/data_integration/swagger-data-services.md
           - Asynchronous Messaging:
-                 - RabbitMQ Examples:
+                  - Asynchronous Message Processing Overview: use-cases/integration-use-case/asynchronous-message-overview.md
+                  - RabbitMQ Examples:
                         - Point to Point: use-cases/examples/rabbitmq_examples/point-to-point-rabbitmq.md
                         - Publish/Subscribe: use-cases/examples/rabbitmq_examples/pub-sub-rabbitmq.md
-                 - Guaranteed Delivery:
+                  - Guaranteed Delivery:
                         - Message Store and Message Processor: use-cases/examples/rabbitmq_examples/store-forward-rabbitmq.md
                         - Retry failed messages with a delay: use-cases/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
                         - Requeue a message preserving the order: use-cases/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
                         - Publish messages to DLX: use-cases/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
-                 - Dual Channel: use-cases/examples/rabbitmq_examples/request-response-rabbitmq.md
-                 - JMS Examples:
+                  - Dual Channel: use-cases/examples/rabbitmq_examples/request-response-rabbitmq.md
+                  - JMS Examples:
                         - Consuming JMS Messages: use-cases/examples/jms_examples/consuming-jms.md
                         - Producing JMS Messages: use-cases/examples/jms_examples/producing-jms.md
                         - Consuming and Producing JMS Messages: use-cases/examples/jms_examples/consume-produce-jms.md
@@ -404,74 +479,6 @@ nav:
                 - Working with Transactions: use-cases/examples/working-with-transactions.md
                 - JSON Examples: use-cases/examples/json_examples/json-examples.md
     #- Customize Product:
-    #            - Developing Integration Solutions: develop/intro-integration-development.md
-    #            - WSO2 Integration Studio:
-    #                    - Quick Tour - WSO2 Integration Studio: develop/WSO2-Integration-Studio.md
-    #                    - Installing WSO2 Integration Studio: develop/installing-WSO2-Integration-Studio.md
-    #                    - Working with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
-    #                    - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-WSO2-Integration-Studio.md
-    #            - Service Catalog:
-    #                    - Integration with Service Catalogs: develop/service-catalog.md
-    #            - Creating Projects:
-    #                    - Creating an Integration Project: develop/create-integration-project.md
-    #                    - Creating Data Service Configs: develop/create-data-services-configs.md
-    #                    - Creating Datasource Configs: develop/create-datasources.md
-    #                    - Importing Projects: develop/importing-projects.md
-    #                    - Exporting Projects: develop/export_project.md
-    #                    - Creating Docker Exporter: develop/create-docker-project.md
-    #                    - Creating Kubernetes Exporter: develop/create-kubernetes-project.md
-    #            - Creating Artifacts:
-    #                    - Importing Artifacts: develop/importing-artifacts.md
-    #                    - Creating a REST API: develop/creating-artifacts/creating-an-api.md
-    #                    - Creating a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
-    #                    - Creating an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
-    #                    - Creating Scheduled Tasks: develop/creating-artifacts/creating-scheduled-task.md
-    #                    - Creating a Message Store: develop/creating-artifacts/creating-a-message-store.md
-    #                    - Creating a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
-    #                    - Creating an Endpoint: develop/creating-artifacts/creating-endpoints.md
-    #                    - Creating an Endpoint Template: develop/creating-artifacts/creating-endpoint-templates.md
-    #                    - Creating a Sequence Template: develop/creating-artifacts/creating-sequence-templates.md
-    #                    - Creating a Reusable Sequence: develop/creating-artifacts/creating-reusable-sequences.md
-    #                    - Creating a Registry Resource: develop/creating-artifacts/creating-registry-resources.md
-    #                    - Creating Local Registry Entries: develop/creating-artifacts/registry/creating-local-registry-entries.md
-    #                    - Creating a Smooks Configuration: develop/creating-artifacts/creating-smooks-artifacts.md
-    #                    - Creating a Data Service: develop/creating-artifacts/data-services/creating-data-services.md
-    #                    - Creating a Datasource: develop/creating-artifacts/data-services/creating-datasources.md
-    #                    - Creating a Data Service Input Validator: develop/creating-artifacts/data-services/creating-input-validators.md
-    #                    - Adding Connectors: develop/creating-artifacts/adding-connectors.md
-    #            - Creating Custom Artifacts:
-    #                    - Creating a Custom Inbound Endpoint: develop/customizations/creating-custom-Inbound-endpoint.md
-    #                    - Creating a Custom Mediator: develop/customizations/creating-custom-mediators.md
-    #                    - Creating a Synapse Handler: develop/customizations/creating-synapse-handlers.md
-    #                    - Creating a New Connector: develop/customizations/creating-new-connector.md
-    #                    - Customizing Task Scheduling: develop/customizations/creating-custom-task-scheduling.md
-    #                    - Exporting Artifacts: develop/exporting-artifacts.md
-    #            - Securing Artifacts:
-    #                    - Using Docker Secrets in Synapse Configurations: develop/creating-artifacts/using_docker_secrets.md
-    #                    - Using Kubernetes Secrets in Synapse Configurations: develop/creating-artifacts/using_k8s_secrets.md
-    #                    - Applying Security to a REST API: develop/advanced-development/applying-security-to-an-api.md
-    #                    - Applying Security to a Proxy Service: develop/advanced-development/applying-security-to-a-proxy-service.md
-    #                    - Applying Security to a Data Service: develop/creating-artifacts/data-services/securing-data-services.md
-    #                    - Packaging Artifacts: develop/packaging-artifacts.md
-    #                    - Deploying Artifacts: develop/deploy-artifacts.md
-    #            - Testing Integrations:
-    #                    - Using the Embedded Micro Integrator: develop/using-embedded-micro-integrator.md
-    #                    - Using a Remote Micro Integrator: develop/using-remote-micro-integrator.md
-    #                    - Hot Deploying Artifacts: develop/hot-deployment.md
-    #                    - Creating a Unit Test Suite: develop/creating-unit-test-suite.md
-    #                    - Using the HTTP REST Client: develop/using-http_rest_client.md
-    #                    - Generating Docker Images: develop/generate-docker-image.md
-    #            - Debugging Integrations:
-    #                    - Mediation Debugging: develop/debugging-mediation.md
-    #                    - Using Wire Logs: develop/using-wire-logs.md
-    #                    - Endpoint Tracing: develop/endpoint-trace-logs.md
-    #            - Running on WSO2 Integration Cloud: develop/deploying-in-integration-cloud.md
-    #            - Advanced Development Tasks:
-    #                    - Injecting Parameters': develop/injecting-parameters.md
-    #                    - Changing the Endpoint of a Deployed Service: develop/advanced-development/changing-the-endpoint-of-deployed-service.md
-    #                    - Using Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
-    #                    - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
-    #                    - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
     #      - Product REST APIs:
     #            - Overview: develop/product-apis/overview.md
     #            - Publisher APIs:
