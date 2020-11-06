@@ -43,8 +43,13 @@ Now a new user role `adminPortalManager` has been created without any associated
 Assign the scopes listed in the table below according to the role of the user.
 
     !!! note
-            Assign the scopes according to the role of the user. For example, if you want to restrict an Admin Portal user to manage **deny policies** then assign `apim:bl_view` and `apim:bl_manage` scopes only.
-
+            You need to assign `apim:api_workflow_view`, `apim:api_workflow_approve`, `apim:admin_settings`, `apim:tenantInfo` to any user to login and access a minimum version of admin portal.
+             ![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
+             
+            A user with these scopes will get access to manage workflow tasks.  To perform other functions, relevant scopes need to be assigned on top of these 4 scopes. For example, if you want to restrict an Admin Portal user to manage **deny policies** then assign `apim:bl_view` and `apim:bl_manage` scopes with the above scopes mentioned.
+    
+    Assign the Scopes according to the role of the user as given in the table below:
+    
     <table>
     <thead>
     <tr class="header">
