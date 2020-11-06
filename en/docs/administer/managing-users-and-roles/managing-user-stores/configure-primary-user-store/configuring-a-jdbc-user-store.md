@@ -494,7 +494,6 @@ read_groups = true
     The properties given below can be configured for a secondary user store through the management console.
 
 <table>
-
 <tr>
 <th><b>Property ID</b></th>
 <td><code>ReadGroups</code></td></tr>
@@ -514,8 +513,8 @@ read_groups = true
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -538,8 +537,8 @@ read_groups = true
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -564,8 +563,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -584,8 +583,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -604,8 +603,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -624,8 +623,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -644,8 +643,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -664,8 +663,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -684,8 +683,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -704,8 +703,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -724,8 +723,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -744,8 +743,8 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -766,8 +765,8 @@ In some user stores, there are policies to limit the number of records that can 
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -788,8 +787,8 @@ In some user stores, there are policies to limit the number of records that can 
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
@@ -811,8 +810,8 @@ In some user stores, there are policies to limit the number of records that can 
 </tr>
 
 <tr>
-<th></th>
-<th></th>
+<td style="background-color:#d1cfcf"></td>
+<td style="background-color:#d1cfcf"></td>
 </tr>
 
 <tr>
