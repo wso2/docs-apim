@@ -7,7 +7,7 @@ You can use the aliases instead of the actual passwords in your configuration fi
 You need to enter the password after a space to `plainText` . If not error will be thrown when running the cipher tool.
 
     ```
-    wso2.sample.password1=plainText ABC@123
+    auth.configs.password=plainText ABC@123
     ```
               
 2. Navigate to `<API-M_ANALYTICS_HOME>/conf/worker/deployment.toml`. Enter the alias to be used in the required configuration file instead of the actual value of sensitive data you specified in the previous step. 
@@ -23,7 +23,7 @@ For example if you need to secure the password in Authentication configuration y
            -
              user:
                username: admin
-               password: ${sec:wso2.sample.password1}
+               password: ${sec:auth.configs.password}
                roles: 1
           roles:
            -
