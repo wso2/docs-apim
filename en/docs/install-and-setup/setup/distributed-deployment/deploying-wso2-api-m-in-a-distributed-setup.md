@@ -244,9 +244,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
      1.  If you need to configure High Availability (HA) for the Traffic Manager, use a copy of the existing Traffic Manager instance as the second Traffic Manager active instance and configure a load balancer fronting the two Traffic Manager instances.
 
-     2.  Mount the `<API-M_HOME>/repository/deployment/server/executionplans` directory of all Traffic Manager nodes to a shared file system. This will synchronize the content among nodes allowing the throttling policies to be shared among them.
-
-     3. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and add the following configuration to publish events to the other node.
+     2.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and add the following configuration to publish events to the other node.
 
  
          ``` toml tab="Node1"
