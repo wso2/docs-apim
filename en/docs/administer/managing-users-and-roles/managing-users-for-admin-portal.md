@@ -40,84 +40,13 @@ Now a new user role `adminPortalManager` has been created without any associated
     ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
     
 4. In **Select permissions** select **Custom Permissions** and  navigate to  **Permissions** --> **admin**. 
-Assign the scopes listed in the table below according to the role of the user.
+Assign the scopes according to the role of the user.
 
-    !!! note
-            You need to assign `apim:api_workflow_view`, `apim:api_workflow_approve`, `apim:admin_settings`, `apim:tenantInfo` to any user to login and access a minimum version of admin portal.
-             ![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
+    - You need to assign `apim:api_workflow_view`, `apim:api_workflow_approve`, `apim:admin_settings`, `apim:tenantInfo` to any user to login and access a minimum version of admin portal. A user with these scopes will get access to manage workflow tasks.  
              
-            A user with these scopes will get access to manage workflow tasks.  To perform other functions, relevant scopes need to be assigned on top of these 4 scopes. For example, if you want to restrict an Admin Portal user to manage **deny policies** then assign `apim:bl_view` and `apim:bl_manage` scopes with the above scopes mentioned.
-    
-    Assign the Scopes according to the role of the user as given in the table below:
-    
-    <table>
-    <thead>
-    <tr class="header">
-    <th><b>Workflow</b></th>
-    <th><b>Associated Scopes</b></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Manage workflow requests</td>
-    <td><ul>
-    <li>apim:api_workflow_view</li>
-    <li>apim:api_workflow_approve</li>
-    <li>apim:admin_settings</li>
-    <li>apim:tenantInfo</li>
-    </ul></td>
-    </tr>
-    <tr class="even">
-    <td>Manage Deny Policies</td>
-    <td><ul>
-    <li>apim:bl_view</li>
-    <li>apim:bl_manage</li>
-    </ul></td>
-    </tr>
-    <tr class="odd">
-    <td>Manage Gateway Labels</td>
-    <td><ul>
-    <li>apim:label_read</li>
-    <li>apim:label_manage</li>
-    </ul></td>
-    </tr>
-    <tr class="even">
-    <td>Retrieve Bot detection Data</td>
-    <td><ul>
-    <li>apim:bot_data</li>
-    </ul></td>
-    </tr>
-    <tr class="odd">
-    <td>Manage API categories and Key Managers related operations</td>
-    <td><ul>
-    <li>apim:admin_operations</li>
-    </ul></td>
-    </tr>
-    <tr class="even">
-    <td>Manage applications</td>
-    <td><ul>
-    <li>apim:app_owner_change</li>
-    </ul></td>
-    </tr>
-    <tr class="odd">
-    <td>Manage Throttling Policies</td>
-    <td><ul>
-    <li>apim:tier_view</li>
-    <li>apim:tier_manage</li>
-    </ul></td>
-    </tr>
-    <tr class="odd">
-    <td>Manage role permissions</td>
-    <td><ul>
-    <li>apim:scope_manage</li>
-    </ul></td>
-    </tr>
-    </tbody>
-    </table>
-
-    !!! tip
-           To allow a user to perform all Admin Portal functions assign `apim:admin` scope to the associated role.
-
+    ![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
+                 
+    - To allow a user to perform all Admin Portal functions assign `apim:admin` scope to the associated role.
 
 ### Step-3- Create a user to access Admin Portal
 
