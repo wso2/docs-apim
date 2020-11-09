@@ -33,9 +33,6 @@ Follow the instructions below to generate/renew application keys:
      
      [![Application Consumer Key Secret]({{base_path}}/assets/img/learn/application-key-secret-view.png)]({{base_path}}/assets/img/learn/application-key-secret-view.png)
      
-!!! tip
-    In the Access token validity period field, you can set an expiration period to determine the validity period of 
-    the token after generation. Set this to a negative value to ensure that the token never expires. For more information, see [Changing the default token expiration time]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time/).
 
 !!! tip
     When you generate access tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and thereafter, generate the token for it.
