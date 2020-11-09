@@ -178,6 +178,16 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **Developer Portal and Publisher v0.17 based REST APIs**.
 
+- **Out-of-the-box support for the opaque access token in the Developer Portal**
+
+     Out-of-the-box support to generate an opaque access token via the Developer Portal has been removed. Application Developers can create applications that only generate a **JWT** type access tokens. Applications that are migrated from older versions, will have the support to generate either an opaque access token or a JWT type access token. 
+     
+     Similar to previous versions, application developers will get the OAuth2 bearer tokens while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.  
+     
+- **WSO2 Identity Server as a Key Manager** 
+     
+       The prepackaged WSO2 Identity Server as a Key Manager has been removed. When needed, make sure to use WSO2 Identity Server 5.10.0 as the Key Manager.
+
 ## Compatible WSO2 product versions
 
 WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).

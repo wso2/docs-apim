@@ -72,16 +72,16 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
 -   **Command**
 
     ```go
-    apictl set mode <mode>
+    apictl set --mode <mode>
     ```
 
     !!! example
 
         ``` go
-        apictl set mode default
+        apictl set --mode default
         ```
         ``` go
-        apictl set mode kubernetes
+        apictl set --mode kubernetes
         ```
 
 ## Add an environment
@@ -115,18 +115,16 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         !!! info
             **Flags:**  
             
-            -    Required :  
-
+            -    Required :     
                 `--environment` or `-e` : Name of the environment to be added   
-                AND (either)
-                `--apim` : API Manager endpoint for the environments
-                OR (the following 4)
-                `--registration` : Registration endpoint for the environment 
-                `--admin` : Admin endpoint for the environment  
-                `--publisher` : Publisher endpoint for the environment  
+                AND (either)     
+                `--apim` : API Manager endpoint for the environments     
+                OR (the following 4)     
+                `--registration` : Registration endpoint for the environment     
+                `--admin` : Admin endpoint for the environment     
+                `--publisher` : Publisher endpoint for the environment     
                 `--devportal` : Developer Portal endpoint for the environment 
-            -   Optional :
-
+            -   Optional :     
                 `--token` : Token endpoint for the environment
             
         !!! tip

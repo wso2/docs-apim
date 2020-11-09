@@ -2,28 +2,22 @@
 
 This section walks you through how to redirect to a third party entity using the redirect URL as part of a custom workflow extension. For example, consider an API Manager user publishes an API and wants to make that API a chargeable API. If there are no payment details of the subscriber, that subscriber is forwarded to a third party entity that handles the payment detail collection etc.
 
--   [Writing the custom workflow executor](#writing-the-custom-workflow-executor)
--   [Deploying the custom workflow executor](#deploying-the-custom-workflow-executor)
--   [Using the workflow](#using-the-workflow)
--   [Invoking the API Manager](#invoking-the-api-manager)
+Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor`** abstract class, which has the following abstract methods:
 
-Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor         `** abstract class, which has the following abstract methods:
+-   **`execute`** : contains the implementation of the workflow execution
+-   **`complete`** : contains the implementation of the workflow completion
+-   **`getWorkflowType`** : abstract method that returns the type of the workflow as a String
+-   **`getWorkflowDetails(String workflowStatus)`** : abstract method that returns a list of `WorkflowDTO` objects. This method is not used at the moment and it returns null for the time being.
 
--   **`execute          `** : contains the implementation of the workflow execution
--   **`complete          `** : contains the implementation of the workflow completion
--   **`getWorkflowType          `** : abstract method that returns the type of the workflow as a String
--   **`getWorkflowDetails(String workflowStatus)          `** : abstract method that returns a list of `WorkflowDTO` objects. This method is not used at the moment and it returns null for the time being.
-
-To customize the default workflow extension, you override the **`execute()         `** and **`complete()         `** methods with your custom implementation.
+To customize the default workflow extension, you override the **`execute()`** and **`complete()`** methods with your custom implementation.
 
 ### Writing the custom workflow executor
 
-1.  Extend the **`WorkflowExecutor          `** class found in the **`org.wso2.carbon.apimgt.impl.workflow          `** package.
-2.  Upon extension of the **`WorkflowExecutor          `** class, override the **`complete()          `** and **`execute()          `** methods.
-3.  The **`execute()          `** method is the first method called by API Manager. Call the **`super.execute          `** method inside the `execute()` method to add the workflow entry to the database.
+1.  Extend the **`WorkflowExecutor`** class found in the **`org.wso2.carbon.apimgt.impl.workflow`** package.
+2.  Upon extension of the **`WorkflowExecutor`** class, override the **`complete()`** and **`execute()`** methods.
+3.  The **`execute()`** method is the first method called by API Manager. Call the **`super.execute`** method inside the `execute()` method to add the workflow entry to the database.
 4.  In the **`execute()`** method define the callback URL, RedirectUrl, workflowRefId, and RedirectConfirmationMsg. The callback URL should ideally be an open endpoint accepting workflow reference ID as a parameter. Once the endpoint is invoked, it should in-turn invoke the Admin REST APIs callback method ({{base_path}}/develop/product-apis/admin-v1/#/Workflows%20(Individual)/post_workflows_update_workflow_status). Note that the Admin REST API resources require authentication before invocation.
-                                                                            
-5.  Create a response of type **`WorkflowResponse           `** . For HTTP responses, WSO2 API Manager has an inbuilt object named **`HttpWorkflowResponse           `** found at `org.wso2.carbon.apimgt.api.WorkflowResponse` . When creating the HTTP workflow response object, specify the additional parameters and the redirect URL. The usage of these parameters are listed below.
+5.  Create a response of type **`WorkflowResponse`** . For HTTP responses, WSO2 API Manager has an inbuilt object named **`HttpWorkflowResponse`** found at `org.wso2.carbon.apimgt.api.WorkflowResponse`. When creating the HTTP workflow response object, specify the additional parameters and the redirect URL. The usage of these parameters are listed below.
 
     <table>
     <colgroup>
@@ -57,7 +51,7 @@ To customize the default workflow extension, you override the **`execute()      
     </tbody>
     </table>
 
-6.  Implement the **`complete()           `** method, which the third party entity invokes to complete the workflow. Update the workflow status with the workflow status received by the third party entity.
+6.  Implement the **`complete()`** method, which the third party entity invokes to complete the workflow. Update the workflow status with the workflow status received by the third party entity.
 
 7.  A sample implementation of a custom workflow executor is shown below:
 
@@ -185,4 +179,4 @@ To customize the default workflow extension, you override the **`execute()      
 
 ### Invoking the API Manager
 
-To invoke the API Manager from a third party entity, see [Invoking the API Manager from the BPEL Engine](invoking-the-api-manager-from-the-bpel-engine) .
+To invoke the API Manager from a third party entity, see [Invoking the API Manager from the BPEL Engine]({{base_path}}/develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine/) .
