@@ -66,10 +66,23 @@
       color: white;
       white-space: initial;
     }
+
+     .menu-content{
+      top: 5.9rem !important;
+    }
+
+     .md-nav{
+       display:none;
+    }
+
+     @media only screen and (max-width: 76.1875em){
+        .md-nav--primary, .md-nav--primary .md-nav {
+           display: block !important;
+      }
+
   </style>
 {% endblock %}
 
-{% block site_nav %}<!-- Removed Nav -->{% endblock %}
 
 {% block content %}
   {{ page.content }}
