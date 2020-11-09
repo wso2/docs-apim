@@ -13,6 +13,7 @@ foreach ($file in $configFiles)
 {
     (Get-Content $file.PSPath) |    
     Foreach-Object { $_ -replace "<handler class=`"org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler`"/>", "<handler class=`"org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler`">`n`t`t<property name=`"RemoveOAuthHeadersFromOutMessage`" value=`"true`"/>`n`t</handler>" } |
+    Foreach-Object { $_ -replace "org.wso2.carbon.apimgt.usage.publisher.APIMgtResponseHandler", "org.wso2.carbon.apimgt.gateway.handlers.analytics.APIMgtResponseHandler" } |
     Set-Content $file.PSPath
 }
 
