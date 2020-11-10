@@ -124,7 +124,10 @@ Follow the instructions below to create a REST API using the basic flow.
      | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
      | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
 
-4. Optionally view the API definition.
+    !!! note
+            APIs can invoke without using an Access Token. To create non-secure APIs, you have to create an API with the resource having **security: off** .
+          
+9. Optionally view the API definition.
 
      Click **API Definition**. The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
 
