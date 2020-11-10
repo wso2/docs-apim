@@ -39,6 +39,7 @@
     .md-tabs{
       z-index: 2 !important;
     }
+
     .md-header {
       transition: background-color .25s,color .25s, box-shadow .25s;
       box-shadow: 0 0 0.2rem rgba(0, 0, 0, .1), 0 0.2rem 0.4rem rgba(0, 0, 0, .2);
@@ -66,10 +67,23 @@
       color: white;
       white-space: initial;
     }
+
+    .menu-content{
+      top: 5.9rem !important;
+    }
+
+    .md-nav{
+       display:none;
+    }
+
+    @media only screen and (max-width: 76.1875em){
+     .md-nav--primary, .md-nav--primary .md-nav {
+      display: block !important;
+      }
+    }
+
   </style>
 {% endblock %}
-
-{% block site_nav %}<!-- Removed Nav -->{% endblock %}
 
 {% block content %}
     {{ page.content }}
