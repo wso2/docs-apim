@@ -33,7 +33,7 @@ To customize the default workflow extension, you override the **`execute()`** an
        public WorkflowResponse execute(WorkflowDTO workflowDTO) throws WorkflowException {
            super.execute(workflowDTO);
     ```
-4.  In the **`execute()`** method define the `CallbackUrl`, `RedirectUrl`, `workflowRefId`, and `RedirectConfirmationMsg`. The CallbackUrl should ideally be an open endpoint accepting workflowRefId as a parameter. Once the endpoint is invoked, it should in-turn invoke the [Admin REST APIs callback method]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Note that the Admin REST API resources require authentication before invocation.
+4.  In the **`execute()`** method define the `CallbackUrl`, `RedirectUrl`, `workflowRefId`, and `RedirectConfirmationMsg`. The CallbackUrl should ideally be an open endpoint accepting workflowRefId as a parameter. Once the endpoint is invoked, it should in-turn invoke the [Admin REST APIs callback method]({{base_path}}/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Note that the Admin REST API resources require authentication before invocation.
     ``` java
         @Override
         public WorkflowResponse execute(WorkflowDTO workflowDTO) throws WorkflowException {
@@ -244,4 +244,4 @@ To customize the default workflow extension, you override the **`execute()`** an
     ```
 ### Invoking the API Manager from a third party BPEL engine
 
-The API Manager can be invoked from a third party entity through the [update workflow status method]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Refer the [Admin REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post) to learn how to invoke it.  Note that the Admin REST API resources require authentication before invocation.
+The API Manager can be invoked from a third party entity through the [update workflow status method]({{base_path}}/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Refer the [Admin REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post) to learn how to invoke it.  Note that the Admin REST API resources require authentication before invocation.
