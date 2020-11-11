@@ -251,6 +251,7 @@ nav:
               - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
           - Setup & Configuration:
               - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+              - Encrypting Sensitive Data in the API-M Analytics Server: learn/analytics/securing-sensitive-data-via-the-secure-vault.md
               - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
               - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
               - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
