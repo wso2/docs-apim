@@ -125,8 +125,11 @@ Follow the instructions below to create a REST API using the basic flow.
      | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
     
     !!! note
-           APIs can invoke without using an Access Token. To create non-secure APIs, you have to create an API with the resource having **security: off** .
-     
+           If you  have a public API and do not want to subscribe to the application or pass an authorization key to invoke API (without access token), then you can invoke the API successfully by disabling the **security**. 
+           
+           APIs can invoke without using an Access Token. To create non-secure APIs, you have to create an API with the resource having **security: off**.
+           [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
+           
 9. Optionally view the API definition.
 
      Click **API Definition**. The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
