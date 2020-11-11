@@ -1,18 +1,10 @@
 # Supported Cipher Suites
 
-Given below are the cipher suites that are functional in Tomcat (Tomcat version 9 with the JSSE provider 11) for the following SSL protocols: 
-
--   TLSv1
--   TLSv1.1 
--   TLSv1.2
+Given below are the cipher suites that are functional in Tomcat (Tomcat version 9 with the JSSE provider 11) for the TLSv1.2 protocols. 
 
 See [Configuring Transport-Level Security]({{base_path}}/install-and-setup/setup/security/configuring-transport-level-security) for instructions on how to enable the required ciphers and to disable the weak ciphers in API Manager.
 
 ## Cipher suites supported by Tomcat 9 and  Oracle JDK 11
-
--    TLS_AES_256_GCM_SHA384 (TLSv1.3)
-
--    TLS_AES_128_GCM_SHA256 (TLSv1.3)
 
 -    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
@@ -59,17 +51,17 @@ See [Configuring Transport-Level Security]({{base_path}}/install-and-setup/setup
 
 The following cipher suites are weak for Tomcat version 9 and JDK version 11:
 
--    TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+-   TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
 
--    TLS_ECDHE_RSA_WITH_RC4_128_SHA
+-   TLS_ECDHE_RSA_WITH_RC4_128_SHA
 
--    SSL_RSA_WITH_RC4_128_SHA
+-   SSL_RSA_WITH_RC4_128_SHA
 
--    TLS_ECDH_ECDSA_WITH_RC4_128_SHA
+-   TLS_ECDH_ECDSA_WITH_RC4_128_SHA
 
--    TLS_ECDH_RSA_WITH_RC4_128_SHA
+-   TLS_ECDH_RSA_WITH_RC4_128_SHA
 
--    SSL_RSA_WITH_RC4_128_MD5
+-   SSL_RSA_WITH_RC4_128_MD5
 
 -   TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA
 
