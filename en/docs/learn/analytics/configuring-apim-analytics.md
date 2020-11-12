@@ -78,6 +78,8 @@ You can now start using the WSO2 API Manager for its usual operations and the re
 
 ## Standard Setup
 
+![]({{base_path}}/assets/img/learn/analytics-standard-architecture-diagram.png)
+
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
 -   [Step 1 - Download and install WSO2 API-M](#step-1-download-and-install-wso2-api-m)
@@ -257,6 +259,13 @@ Configuring databases allow you to persist data relating to APIs, process them a
             validationTimeout: 30000
             isAutoCommit: false
     ```
+#### Configure Analytics
+   API-M Analytics contains two runtime, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. 
+   Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. 
+   However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtime.
+    
+   The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/) deployment.
+   As the dashboard is used only to render the data there is no active-active or active-passive concept. However, based on the High-availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the loadbalance configuration. 
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
