@@ -125,9 +125,7 @@ Follow the instructions below to create a REST API using the basic flow.
      | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
 
     !!! note
-            If you  have a public API and do not want to subscribe to the application or pass an authorization key to invoke API (without access token), then you can invoke the API successfully by disabling the **security**. 
-                   
-            APIs can invoke without using an Access Token. To create non-secure APIs, you have to create an API with the resource having **security: off**.
+            If you want to make certain operations of the API accessible without passing an access token, turn the **Security** setting **Off**  in each of those operations. To make the API fully accessible without an access token, turn it off in all the operations of the API.
             [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
             
 9. Optionally view the API definition.
