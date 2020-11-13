@@ -79,12 +79,12 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
 
 ## Set proxy environment variables for CTL
 
-You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with/without basic authentication as below to send the requests initiated from CTL via a proxy server. Once one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
+You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
 
 !!! Note
     Support for setting proxy environment variables is available **from APICTL 3.1.5 release onwards**.
 
--   **Format**
+-   **Formats**
 
     ``` bash tab="Without Basic Authentication"
     export HTTP_PROXY="http://<host-name>:<port>"
@@ -106,7 +106,7 @@ You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_
     export https_proxy="https://<username>:<password>@<host-name>:<port>"
     ```
 
--   **Example**
+-   **Examples**
 
     ``` bash tab="Without Basic Authentication"
     export HTTP_PROXY="http://localhost:3128"
