@@ -30,7 +30,7 @@ Follow the instructions below to initialize an API Project with environment vari
     SET APIVERSION=1.0.0
     ```
 
-3.  Initialize the API Project with the api.yaml
+3.  Initialize the API Project with the api-env-config.yaml
 
     ```
     apictl init PetstoreProject -d api-env-config.yaml --oas https://petstore.swagger.io/v2/swagger.json
