@@ -1,6 +1,6 @@
 # Invoking the API Manager from the BPEL Engine
 
-Once the workflow configurations are finalized at the BPEL, the call-back URL of the APIM, which is originally configured in the `<APIM_HOME>/repository/conf/api-manager.xml` file and sent to the BPEL engine in the outflow will be called to progress the workflow. In APIM, the endpoint is available in both SOAP and REST variants as follows:
+Once the workflow configurations are finalized at the BPEL, the call-back URL of the APIM, which is originally configured in the `<API-M_HOME>/repository/conf/api-manager.xml` file and sent to the BPEL engine in the outflow will be called to progress the workflow. In APIM, the endpoint is available in both SOAP and REST variants as follows:
 
 <table>
 <colgroup>
@@ -26,7 +26,11 @@ Once the workflow configurations are finalized at the BPEL, the call-back URL of
 </tbody>
 </table>
 
-Both the endpoints are secured via basic authentication. Therefore, when you invoke either endpoint, you need to include an authorization header with a base64-encoded value of the username and password with the request. E.g., `Authorization: Basic <base64 encoded                   username:password                  >` .
+Both the endpoints are secured via basic authentication. Therefore, when you invoke either endpoint, you need to include an authorization header with a base64-encoded value of the username and password with the request. An example is shown below.
+
+```xml
+   Authorization: Basic <base64 encoded username:password>
+```
 
 The endpoint expects the following list of parameters:
 
@@ -64,13 +68,13 @@ The endpoint expects the following list of parameters:
 
 A sample curl request for invoking the REST endpoint is as follows:
 
-``` html/xml
-    curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST http://localhost:9763/store/site/blocks/workflow/workflow-listener/ajax/workflow-listener.jag -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
+```
+   curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST http://localhost:9763/store/site/blocks/workflow/workflow-listener/ajax/workflow-listener.jag -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
 ```
 
 A sample SOAP request is given below:
 
-``` html/xml
+``` html
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://callback.workflow.apimgt.carbon.wso2.org">
        <soapenv:Header/>
        <soapenv:Body>
