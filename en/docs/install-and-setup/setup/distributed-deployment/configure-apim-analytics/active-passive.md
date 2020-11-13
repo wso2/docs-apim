@@ -16,7 +16,7 @@ operates in the passive state. In the passive node, sources are in an inactive m
 into the system. 
 
 !!! note
-    The dashboard profile startup depends on the deployment. In Active-passive worker setup, You can have 2 JVMs for HA. Since you have only 2 nodes, it is fine to use the dashboard of the same binary (pack).
+    The dashboard profile setup depends on the deployment. In Active-passive worker setup, You can have 2 JVMs for HA. Since you have only 2 nodes, it is fine to use the dashboard of the same binary (pack).
     
 !!! note
     The ports that are open only in the active node at a given time include the Siddhi Store Query API endpoint to which 
