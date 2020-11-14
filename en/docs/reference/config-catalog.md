@@ -3051,7 +3051,8 @@ enable_header_based_throttling = true
 enable_jwt_claim_based_throttling = true
 enable_query_param_based_throttling = true
 enable_unlimited_tier = false
-throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</code></pre>
+throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]
+skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerMin"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3190,6 +3191,26 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
                                      </div>
                                  </div>
                             </div>                                     
+                            <div class="param">
+                                <div class="param-name">
+                                     <span class="param-name-wrap"> <code>skip_redeploying_policies</code> </span>
+                                </div>    
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Define an array of throttle policies which don't need to redeploy 
+                                        on startup</p>
+                                    </div>
+                                </div>   
+                            </div>      
+                          </div>                         
                         </div>
                     </div>
                 </div>
