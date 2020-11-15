@@ -256,6 +256,17 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
          [apim.throttling]
          event_duplicate_url = ["tcp://Traffic-Manager-1-host:5672"]
          ```
+         
+    !!! note
+        In each startup of a traffic manager node, the throttle policies will be redeployed by retrieving the latest 
+        policy details from the database. This will maintain the consistency between traffic manager nodes. If you 
+        need to avoid redeploying certain throttle policies, please add the below configuration to the 
+        `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node.  
+               
+        ```
+        [apim.throttling]
+        skip_redeploying_policies = ["throttle_policy_1","throttle_policy_2"]
+        ```                   
 
 3.  Start the WSO2 API-M Traffic Manager node(s) by running the following command in the command prompt. 
 
