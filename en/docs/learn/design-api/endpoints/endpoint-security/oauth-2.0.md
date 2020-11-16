@@ -56,7 +56,7 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
       
       Editing and removing parameter name-value pairs are also supported.
 
-     [![oauth-2-add-parameter]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png)
+     [![oauth-2-add-parameter]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png)]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png)
 
 6. Click **Submit** to confirm the details of the respective endpoint, and then click **Save** in the **Endpoints** page to save all the changes.
 
