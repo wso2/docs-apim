@@ -78,13 +78,13 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.0.15`
+     - `wso2is.key.manager.core-1.0.16.1`
 
-     - `wso2is.notification.event.handlers_1.0.15`
+     - `wso2is.notification.event.handlers_1.0.16.1`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
