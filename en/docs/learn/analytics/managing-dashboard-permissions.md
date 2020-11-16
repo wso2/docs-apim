@@ -19,19 +19,36 @@ Now let's see how we can change the default permissions that is set for each of 
 + Log in to the Analytics Dashboard by accessing `<Protocol>://<Host>:<Port>/analytics-dashboard` (ex: [https://localhost:9643/analytics-dashboard](https://localhost:9643/analytics-dashboard)). 
 + After login in, you will see the **APIM Publisher** and the **APIM Developer Portal** dashboards listed.
   
-       ![](../../assets/img/learn/analytics-dashboard-listing.png)
+       ![]({{base_path}}/assets/img/learn/analytics-dashboard-listing.png)
 
 + Click on the three dots at the bottom right corner of the preferred dashboard card and select **Settings**
 
-       ![](../../assets/img/learn/dashboard-settings.png)
+       ![]({{base_path}}/assets/img/learn/dashboard-settings.png)
      
 !!! Note
       Settings option will be visible only if you have owner permission of the selected dashboard.
       
 + The Dashboard Settings page opens and you can assign scopes for different permission levels.
 
-      ![](../../assets/img/learn/dashboard-settings-dev-portal.png)
+      ![]({{base_path}}/assets/img/learn/dashboard-settings-dev-portal.png)
       
 !!! Info
       List of available scopes will be populated for each permission level. Dashboard owners can set the required scopes for each of those permission levels. Each permission level can have multiple scopes.
 
+!!! Note
+    The users are not allowed to modify the default dashboards - i.e modify the layout of the widget or add custom widgets to a particular dashboard. If you need to modify one of the default dashboards, you need to make a copy of the dashboard and do modifications to the copy of the dashboard.
+    
+    In order to make it possible for other users to create dashboards, you need to append `_<tenant domain>` to existing scopes in the `deployment.yaml` file which resides in `<Analytics_HOME>/conf/dashboard` directory. 
+    
+    !!! example
+        ``` bash tab="Format"
+        apim_analytics:admin_<tenant-domain>
+        ```
+    
+        ``` bash tab="Sample"
+        wso2.dashboard:
+          roles:
+            creators:
+              - apim_analytics:admin_carbon.super 
+              - apim_analytics:admin_abc.com
+        ```
