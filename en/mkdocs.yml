@@ -470,7 +470,6 @@ nav:
     - Streaming:
           - Streaming Overview: use-cases/streaming-usecase/use-cases.md
           - Streaming Use Cases:
-                  - 'Use Cases': use-cases/streaming-use-case/use-cases.md
                   - 'Extracting Data from static Sources in Real Time': use-cases/streaming-use-case/extracting-data-from-static-sources-in-real-time.md
                   - 'Receiving Data in Transit': use-cases/streaming-use-case/receiving-data-in-transit.md
                   - 'Loading and Writing Data': use-cases/streaming-use-case/loading-and-writing-date.md
