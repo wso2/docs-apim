@@ -1,3 +1,5 @@
+# Using OKTA as an External IDP with OIDC
+
 This section explains how to connect OKTA as a third-party Identity provier to WSO2 API Manager.
 
 ### Pre-requisites
@@ -14,7 +16,7 @@ Before you begin, make sure you do the following.
     You need to enable this because OKTA uses the email as a username by default. To  use the email as the username in WSO2 API Manager you have to enable it, since it not enabled by default. Once enabled, you can use your email or a normal username as your username.
 4. Start the Server.
 
-### Setup OKTA
+### Configure OKTA
 
 1. Go to the OKTA admin portal and navigate to **Applications** and click **Add Application**.
 [![]({{base_path}}/assets/img/learn/okta-add-new-application.png)]({{base_path}}/assets/img/learn/okta-add-new-application.png)
@@ -61,7 +63,7 @@ Before you begin, make sure you do the following.
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit3.png"/>
 
 
-### Setup API Manager
+### Configure API Manager
 
 1. Log in to `https://localhost:9443/carbon`.
 
