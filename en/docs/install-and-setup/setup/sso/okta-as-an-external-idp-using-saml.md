@@ -1,18 +1,22 @@
-In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API-Manager. Before we start first make sure you have all the pre-requisites mentioned below.
+# Using OKTA as an External IDP with SAML
+
+In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API Manager.
 
 ### Pre-requisites
 
+Before you begin, make sure you do the following.
+
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
-2. Download the latest API-Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
+2. Download the latest API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
 3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/` and add the following configuration
     ```
     [tenant_mgt]
     enable_email_domain= true
     ```
-    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API-Manager we have to enable it since it not enabled by default.
+    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API Manager we have to enable it since it not enabled by default.
 4. Start the Server.
 
-### Setup OKTA
+### Configure OKTA
 
 1. Login to the okta developer console and switch to the classic UI. 
     [![]({{base_path}}/assets/img/learn/okta-classic-ui.png)]({{base_path}}/assets/img/learn/okta-classic-ui.png)
@@ -37,7 +41,7 @@ In the following document we will explain how to connect OKTA as a third party I
     [![]({{base_path}}/assets/img/learn/okta-saml-create-saml-app-details.png)]({{base_path}}/assets/img/learn/okta-saml-create-saml-app-details.png)
 
     !!!warning
-        **Audience URI** should be same as the identity provider entity id name that is created in WSO2 API-Manager
+        **Audience URI** should be same as the identity provider entity id name that is created in WSO2 API Manager
 
 3. Inside the saml app you created go to sign on -> view setup instructions which will redirect you to a another page which contains okta saml related configurations. 
 
@@ -72,10 +76,10 @@ In the following document we will explain how to connect OKTA as a third party I
     <br/>
     <br/>
 
-    add the following role value. This will be used in the API-Manager to map an internal role to user that will be provisioned.
+    add the following role value. This will be used in the API Manager to map an internal role to user that will be provisioned.
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit3.png"/>
 
-### Setup API-Manager
+### Configure API Manager
 1. Login in to `https://localhost:9443/carbon`.
 
 2. First we need to create a role that needs to be assinged to users that will be provisioned from okta. click on add in Users and Roles section and add a new role.
@@ -175,7 +179,7 @@ In the following document we will explain how to connect OKTA as a third party I
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"/>
 
-7. Enable Just in time provisioning so that the user will be saved in the API-Manager user store
+7. Enable Just in time provisioning so that the user will be saved in the API Manager user store
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"/>
 
