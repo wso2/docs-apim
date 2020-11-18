@@ -1,6 +1,6 @@
 # Synchronizing Artifacts in a Gateway Cluster
 
-In an API-M Gateway cluster, artifact synchronization is critical to maintain consistency among the nodes. WSO2 API-M provides three mechanisms for artifact synchronization. 
+In an API-M Gateway cluster, artifact synchronization is critical to maintain consistency among the nodes. WSO2 API-M provides three mechanisms for artifact synchronization.
 
 1. [Shared file system (e.g., NFS)]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/#artifact-synchronization-with-a-shared-file-system)
 2. [Inbuilt artifact synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/#inbuilt-artifact-synchronization) 
@@ -12,8 +12,9 @@ To enable synchronization for runtime artifacts of two all-in-one WSO2 API-M ins
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
 system such as Network File System (NFS) or any other shared file system that is available. 
 
-You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, 
-in order to share all the APIs and throttling policies between all the nodes.
+You need to mount the following directories of the two nodes to the shared file system, in order to share all the APIs and throttling policies between all the nodes.
+    1. `<API-M_HOME>/repository/deployment/server/synapse-configs`
+    2. `<API-M_HOME>/repository/deployment/server/executionplans`
 
 ## Inbuilt artifact synchronization
 
