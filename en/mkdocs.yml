@@ -257,6 +257,16 @@ nav:
                   - Monetizing an API: learn/api-monetization/monetizing-an-api.md
     - Integrate:              
           - Integration Overview: use-cases/learn-overview.md
+          - Integration Use Cases:
+                  - Message Routing and Transformation: use-cases/integration-use-case/message-routing-overview.md
+                  - Service Orchestration: use-cases/integration-use-case/service-orchestration-overview.md
+                  - Asynchronous Message Processing: use-cases/integration-use-case/asynchronous-message-overview.md
+                  - SaaS and B2B Connectivity: use-cases/integration-use-case/connectors.md
+                  - Data Integration: use-cases/integration-use-case/data-integration-overview.md
+                  - Protocol Switching: use-cases/integration-use-case/protocol-switching-overview.md
+                  - Gateway: use-cases/integration-use-case/gateway-overview.md
+                  - File Processing: use-cases/integration-use-case/file-processing-overview.md
+                  - Periodic Execution of Integration Processes: use-cases/integration-use-case/scheduled-task-overview.md
           - Develop Integrations:
                   - Developing Integration Solutions: develop/intro-integration-development.md
                   - WSO2 Integration Studio:
@@ -326,338 +336,273 @@ nav:
                         - Using Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
                         - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
                         - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
-          - Integration Tutorials:
-                  - Sending a Simple Message to a Service: use-cases/tutorials/sending-a-simple-message-to-a-service.md
-                  - Message Routing: use-cases/tutorials/routing-requests-based-on-message-content.md
-                  - Message Transformation: use-cases/tutorials/transforming-message-content.md
-                  - Service Orchestration: use-cases/tutorials/exposing-several-services-as-a-single-service.md
-                  - Asynchronous Messaging: use-cases/tutorials/storing-and-forwarding-messages.md
-                  - Connecting Web APIs/Cloud Services: use-cases/tutorials/using-the-gmail-connector.md
-                  - Data Integration: use-cases/tutorials/sending-a-simple-message-to-a-datasource.md
-                  - File Processing: use-cases/tutorials/file-processing.md
-                  - Periodic Execution of Integration Process: use-cases/tutorials/using-scheduled-tasks.md
-                  - Using Inbound Endpoints: use-cases/tutorials/using-inbound-endpoints.md
-                  - Reusing Mediation Sequences: use-cases/tutorials/using-templates.md
-                  - Integrating with SAP: use-cases/tutorials/sap-integration.md
-          - Message Routing:
-                  - Message Routing and Transformation: use-cases/integration-use-case/message-routing-overview.md
-                  - Routing Based on Message Headers: use-cases/examples/routing_examples/routing_based_on_headers.md
-                  - Routing Based on Message Payload: use-cases/examples/routing_examples/routing_based_on_payloads.md
-                  - Splitting Messages and Aggregating Responses: use-cases/examples/routing_examples/splitting_aggregating_messages.md
-          - Message Transformation:
-                  - Message Transformation Overview: use-cases/integration-use-case/message-transformation-overview.md
-                  - Converting JSON Messages to SOAP: use-cases/examples/message_transformation_examples/json-to-soap-conversion.md
-                  - Converting POX Messages to JSON: use-cases/examples/message_transformation_examples/pox-to-json-conversion.md
-          - Protocol Switching:
-                  - Protocol Switching Overview: use-cases/integration-use-case/protocol-switching-overview.md
-                  - Switching from JMS to HTTP/S: use-cases/examples/protocol-switching/switching_from_JMS_to_HTTP.md
-                  - Switching from HTTP/S to JMS: use-cases/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
-                  - Switching from FTP Listener to Mail Sender: use-cases/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
-                  - Switching from HTTP to FIX: use-cases/examples/protocol-switching/switching_from_HTTP_to_FIX.md
-                  - Switch from FIX to HTTP: use-cases/examples/protocol-switching/switching_from_FIX_to_HTTP.md
-                  - Switch from FIX to AMQP: use-cases/examples/protocol-switching/switching_from_FIX_to_AMQP.md
-                  - Switching between FIX Versions: use-cases/examples/protocol-switching/switching_between_FIX_versions.md
-                  - Switching from TCP to HTTP/S: use-cases/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
-                  - Switching from UDP to HTTP/S: use-cases/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
-                  - Switching between HTTP to MSMQ: use-cases/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
-          - File Processing:
-                  - File Processing Overview: use-cases/integration-use-case/file-processing-overview.md
-                  - Using VFS for File Transferring: use-cases/examples/file-processing/vfs-transport-examples.md
-                  - Accessing a Windows Share Using VFS: use-cases/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
-                  - Sending and Receiving Emails: use-cases/examples/file-processing/mailto-transport-examples.md
-          - Data Integration:
-                  - Data Integration Overview: use-cases/integration-use-case/data-integration-overview.md
-                  - Exposing an RDBMS datasource: use-cases/examples/data_integration/rdbms-data-service.md
-                  - Exposing Other Datasources:
-                        - Exposing a CSV datasource: use-cases/examples/data_integration/csv-data-service.md
-                        - Exposing a Carbon datasource: use-cases/examples/data_integration/carbon-data-service.md
-                  - Exposing Data in JSON Format: use-cases/examples/data_integration/json-with-data-service.md
-                  - Using an OData Service: use-cases/examples/data_integration/odata-service.md
-                  - Using Nested Data Queries: use-cases/examples/data_integration/nested-queries-in-data-service.md
-                  - Batch Requesting: use-cases/examples/data_integration/batch-requesting.md
-                  - Invoking Multiple Operations as a Request Box: use-cases/examples/data_integration/request-box.md
-                  - Using Distributed Transactions in Data Services: use-cases/examples/data_integration/distributed-trans-data-service.md
-                  - Validating Data Input: use-cases/examples/data_integration/data-input-validator.md
-                  - Swagger Documents of RESTful Data Services: use-cases/examples/data_integration/swagger-data-services.md
-          - Asynchronous Messaging:
-                  - Asynchronous Message Processing Overview: use-cases/integration-use-case/asynchronous-message-overview.md
-                  - RabbitMQ Examples:
-                        - Point to Point: use-cases/examples/rabbitmq_examples/point-to-point-rabbitmq.md
-                        - Publish/Subscribe: use-cases/examples/rabbitmq_examples/pub-sub-rabbitmq.md
-                  - Guaranteed Delivery:
-                        - Message Store and Message Processor: use-cases/examples/rabbitmq_examples/store-forward-rabbitmq.md
-                        - Retry failed messages with a delay: use-cases/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
-                        - Requeue a message preserving the order: use-cases/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
-                        - Publish messages to DLX: use-cases/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
-                  - Dual Channel: use-cases/examples/rabbitmq_examples/request-response-rabbitmq.md
-                  - JMS Examples:
-                        - Consuming JMS Messages: use-cases/examples/jms_examples/consuming-jms.md
-                        - Producing JMS Messages: use-cases/examples/jms_examples/producing-jms.md
-                        - Consuming and Producing JMS Messages: use-cases/examples/jms_examples/consume-produce-jms.md
-                        - Dual Channel HTTP-to-JMS: use-cases/examples/jms_examples/dual-channel-http-to-jms.md
-                        - Quad Channel JMS-to-JMS: use-cases/examples/jms_examples/quad-channel-jms-to-jms.md
-                        - Guaranteed Delivery with Failover: use-cases/examples/jms_examples/guaranteed-delivery-with-failover.md
-                        - Publish and Subscribe with JMS: use-cases/examples/jms_examples/publish-subscribe-with-jms.md
-                        - Shared Topic Subscription: use-cases/examples/jms_examples/shared-topic-subscription.md
-                        - Detecting Repeatedly Redelivered Messages: use-cases/examples/jms_examples/detecting-repeatedly-redelivered-messages.md
-                        - Specifying Delivery Delay on Messages: use-cases/examples/jms_examples/specifying-a-delivery-delay-on-messages.md
-                        #- 'JMS Map Messaging': 'use-cases/examples/jms_examples/jms-map-message.md'
-          - Components:
-                - REST APIs:
-                        - Using a Simple REST API: use-cases/examples/rest_api_examples/introduction-rest-api.md
-                        - Setting Query Parameters on Outgoing Messages: use-cases/examples/rest_api_examples/setting-query-params-outgoing-messages.md
-                        - Exposing a SOAP Endpoint as a RESTful API: use-cases/examples/rest_api_examples/enabling-rest-to-soap.md
-                        - Exposing Non-HTTP Services as RESTful APIs: use-cases/examples/rest_api_examples/configuring-non-http-endpoints.md
-                        - Handling Non-Matching Resources: use-cases/examples/rest_api_examples/handling-non-matching-resources.md
-                        - Handling HTTP Status Codes: use-cases/examples/rest_api_examples/setting-https-status-codes.md
-                        - Transforming Content Types: use-cases/examples/rest_api_examples/transforming-content-type.md
-                        - Securing a REST API: use-cases/examples/rest_api_examples/securing-rest-apis.md
-                        - Publishing a Custom Swagger Document: use-cases/examples/rest_api_examples/publishing-a-swagger-api.md
-                - Handling Special Cases:
-                        - Using GET with a Message Body: use-cases/examples/rest_api_examples/using-get-with-a-body.md
-                        - Using POST with Empty Message Body: use-cases/examples/rest_api_examples/using-post-with-no-body.md
-                        - Using POST with Query Parameters: use-cases/examples/rest_api_examples/using-post-with-query-param.md
-                - Proxy Services:
-                        - Using a Simple Proxy Service: use-cases/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
-                        - Publishing a Custom WSDL: use-cases/examples/proxy_service_examples/publishing-a-custom-wsdl.md
-                        #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
-                        - Exposing a Proxy Service via Inbound Endpoints: use-cases/examples/proxy_service_examples/exposing-proxy-via-inbound.md
-                        - Securing a Proxy Service: use-cases/examples/proxy_service_examples/securing-proxy-services.md
-                - Inbound Endpoints:
-                        - JMS Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol.md
-                        - File Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/file-inbound-endpoint.md
-                        - HTTP Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol.md
-                        - HTTPS Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol.md
-                        - HL7 Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack.md
-                        - MQTT Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol.md
-                        - RabbitMQ Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol.md
-                        #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md'
-                        - Kafka Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-kafka.md
-                        - Secured WebSocket Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket.md
-                        - Using Inbound Endpoints with Registry: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-with-registry.md
-                - Scheduled Tasks:
-                        - Task Scheduling using a Simple Trigger: use-cases/examples/scheduled-tasks/task-scheduling-simple-trigger.md
-                        - Injecting Messages to a RESTful Endpoint: use-cases/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
-                - Local Registry Entries: use-cases/examples/registry_examples/local-registry-entries.md
-                - Templates:
-                        - Using Sequence Templates: use-cases/examples/template_examples/using-sequence-templates.md
-                        - Using Endpoint Templates: use-cases/examples/template_examples/using-endpoint-templates.md
-                - Message Stores & Processors:
-                        - Introduction to Message Stores and Processors: use-cases/examples/message_store_processor_examples/intro-message-stores-processors.md
-                        - JDBC Message Store: use-cases/examples/message_store_processor_examples/using-jdbc-message-store.md
-                        - JMS Message Store: use-cases/examples/message_store_processor_examples/using-jms-message-stores.md
-                        - RabbitMQ Message Store: use-cases/examples/message_store_processor_examples/using-rabbitmq-message-stores.md
-                        - Message Sampling Processor: use-cases/examples/message_store_processor_examples/using-message-sampling-processor.md
-                        - Message Forwarding Processor: use-cases/examples/message_store_processor_examples/using-message-forwarding-processor.md
-                        - Securing the Message Forwarding Processor: use-cases/examples/message_store_processor_examples/securing-message-processor.md
-                        - Load Balancing with Message Forwarding Processor: use-cases/examples/message_store_processor_examples/loadbalancing-with-message-processor.md
-                - Endpoints:
-                        - Address Endpoint: use-cases/examples/endpoint_examples/using-address-endpoints.md
-                        - Failover Endpoints: use-cases/examples/endpoint_examples/using-failover-endpoints.md
-                        - HTTP Endpoint: use-cases/examples/endpoint_examples/using-http-endpoints.md
-                        - WebSocket Endpoint: use-cases/examples/endpoint_examples/using-websocket-endpoints.md
-                        - WSDL Endpoint: use-cases/examples/endpoint_examples/using-wsdl-endpoints.md
-                        - Load Balance Endpoint: use-cases/examples/endpoint_examples/using-loadbalancing-endpoints.md
-                        - Recipient List of Endpoints:
-                              - Static List of Recepients: use-cases/examples/endpoint_examples/using-static-recepient-list-endpoints.md
-                              - Dynamic List of Recepients: use-cases/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-1.md
-                              - Dynamic List of Recepients with Aggregated Responses: use-cases/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-2.md
-                        - Reusing Endpoints: use-cases/examples/endpoint_examples/reusing-endpoints.md
-                        - Endpoint Error Handling: use-cases/examples/endpoint_examples/endpoint-error-handling.md
-                        - MTOM and SwA Optimizations: use-cases/examples/endpoint_examples/mtom-swa-with-endpoints.md
-                - Sequences:
-                        - Breaking Complex Flows into Multiple Sequences: use-cases/examples/sequence_examples/using-multiple-sequences.md
-                        - Using Fault Sequences: use-cases/examples/sequence_examples/using-fault-sequences.md
-                        - Reusing Sequences: use-cases/examples/sequence_examples/custom-sequences-with-proxy-services.md
-                - Transports:
-                        - Using the TCP Transport: use-cases/examples/transport_examples/tcp-transport-examples.md
-                        - Using the FIX Transport: use-cases/examples/transport_examples/fix-transport-examples.md
-                        - Using the MQTT Transport: use-cases/examples/transport_examples/Pub_Sub_using_MQTT.md
-                - Working with Transactions: use-cases/examples/working-with-transactions.md
-                - JSON Examples: use-cases/examples/json_examples/json-examples.md
-    #- Customize Product:
-    #      - Product REST APIs:
-    #            - Overview: develop/product-apis/overview.md
-    #            - Publisher APIs:
-    #                - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-    #            - Developer Portal APIs:
-    #                - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-    #            - Admin APIs:
-    #                - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
-    #                - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
-    #            - Gateway APIs:
-    #                - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-    #            - Advanced Configurations: develop/product-apis/advanced-configurations.md
-    #      - Extending WSO2 API Manager:
-    #            - Extending Key Management:
-    #                  - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
-    #                 - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
-    #                 - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-    #                 - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
-    ###            - Extending API Gateway:
-    #                  - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-    #                  - Writing Custom Handlers: develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
-    #            - Extending Workflows:
-    #                  - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
-    #                  - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
-    #                  - Configuring HTTP Redirection for Workflows: develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
-    #                  - Configuring Workflows for Tenants: develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
-    #                  - Configuring Workflows in a Cluster: develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
-    #                  - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
-    #                  - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
-    #            - SAML2 SSO:
-    #                  - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
-    #                  - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-    #                  - Configuring Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-    #                  - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-    #      - Customizations:
-    #            - Customizing the Developer Portal:
-    #                  - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
-    #                  - Customize API Listing:
-    #                        - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-    #                        - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-    #                  - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-    ##                  - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-    #                  - Enable or Disable Rating: develop/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-    #                  - Enable or Disable Home Page: develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-    #                  - Enable or Disable Tag Cloud: develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-    #                  - Enable or Disable Footer: develop/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-    #                  - Enable or Disable Banner: develop/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-    #                  - Styling API Details Left Menu: develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-    #                  - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
-    #                  - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-    #                  - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-    ##                  - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
-    #            - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
-    #            - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
-    #            - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
-    #            - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-    #            - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
-    ##            - Adding internationalization: develop/customizations/adding-internationalization.md
-    #      - Admin Services: develop/wso2-admin-services.md
-    #      - Working with the Source Code: develop/working-with-the-source-code.md
-    #      - Java Documentation: develop/java-documentation.md
+          - Integration Examples:
+                  - Message Routing:
+                        - Routing Based on Message Headers: use-cases/examples/routing_examples/routing_based_on_headers.md
+                        - Routing Based on Message Payload: use-cases/examples/routing_examples/routing_based_on_payloads.md
+                        - Splitting Messages and Aggregating Responses: use-cases/examples/routing_examples/splitting_aggregating_messages.md
+                  - Message Transformation:
+                        - Converting JSON Messages to SOAP: use-cases/examples/message_transformation_examples/json-to-soap-conversion.md
+                        - Converting POX Messages to JSON: use-cases/examples/message_transformation_examples/pox-to-json-conversion.md
+                  - Protocol Switching:
+                        - Switching from JMS to HTTP/S: use-cases/examples/protocol-switching/switching_from_JMS_to_HTTP.md
+                        - Switching from HTTP/S to JMS: use-cases/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
+                        - Switching from FTP Listener to Mail Sender: use-cases/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
+                        - Switching from HTTP to FIX: use-cases/examples/protocol-switching/switching_from_HTTP_to_FIX.md
+                        - Switch from FIX to HTTP: use-cases/examples/protocol-switching/switching_from_FIX_to_HTTP.md
+                        - Switch from FIX to AMQP: use-cases/examples/protocol-switching/switching_from_FIX_to_AMQP.md
+                        - Switching between FIX Versions: use-cases/examples/protocol-switching/switching_between_FIX_versions.md
+                        - Switching from TCP to HTTP/S: use-cases/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
+                        - Switching from UDP to HTTP/S: use-cases/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
+                        - Switching between HTTP to MSMQ: use-cases/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
+                  - File Processing:
+                        - Using VFS for File Transferring: use-cases/examples/file-processing/vfs-transport-examples.md
+                        - Accessing a Windows Share Using VFS: use-cases/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
+                        - Sending and Receiving Emails: use-cases/examples/file-processing/mailto-transport-examples.md
+                  - Data Integration:
+                        - Exposing an RDBMS datasource: use-cases/examples/data_integration/rdbms-data-service.md
+                        - Exposing Other Datasources:
+                            - Exposing a CSV datasource: use-cases/examples/data_integration/csv-data-service.md
+                            - Exposing a Carbon datasource: use-cases/examples/data_integration/carbon-data-service.md
+                        - Exposing Data in JSON Format: use-cases/examples/data_integration/json-with-data-service.md
+                        - Using an OData Service: use-cases/examples/data_integration/odata-service.md
+                        - Using Nested Data Queries: use-cases/examples/data_integration/nested-queries-in-data-service.md
+                        - Batch Requesting: use-cases/examples/data_integration/batch-requesting.md
+                        - Invoking Multiple Operations as a Request Box: use-cases/examples/data_integration/request-box.md
+                        - Using Distributed Transactions in Data Services: use-cases/examples/data_integration/distributed-trans-data-service.md
+                        - Validating Data Input: use-cases/examples/data_integration/data-input-validator.md
+                        - Swagger Documents of RESTful Data Services: use-cases/examples/data_integration/swagger-data-services.md
+                  - Asynchronous Messaging:
+                        - RabbitMQ Examples:
+                            - Point to Point: use-cases/examples/rabbitmq_examples/point-to-point-rabbitmq.md
+                            - Publish/Subscribe: use-cases/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                        - Guaranteed Delivery:
+                            - Message Store and Message Processor: use-cases/examples/rabbitmq_examples/store-forward-rabbitmq.md
+                            - Retry failed messages with a delay: use-cases/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
+                            - Requeue a message preserving the order: use-cases/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
+                            - Publish messages to DLX: use-cases/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
+                        - Dual Channel: use-cases/examples/rabbitmq_examples/request-response-rabbitmq.md
+                        - JMS Examples:
+                            - Consuming JMS Messages: use-cases/examples/jms_examples/consuming-jms.md
+                            - Producing JMS Messages: use-cases/examples/jms_examples/producing-jms.md
+                            - Consuming and Producing JMS Messages: use-cases/examples/jms_examples/consume-produce-jms.md
+                            - Dual Channel HTTP-to-JMS: use-cases/examples/jms_examples/dual-channel-http-to-jms.md
+                            - Quad Channel JMS-to-JMS: use-cases/examples/jms_examples/quad-channel-jms-to-jms.md
+                            - Guaranteed Delivery with Failover: use-cases/examples/jms_examples/guaranteed-delivery-with-failover.md
+                            - Publish and Subscribe with JMS: use-cases/examples/jms_examples/publish-subscribe-with-jms.md
+                            - Shared Topic Subscription: use-cases/examples/jms_examples/shared-topic-subscription.md
+                            - Detecting Repeatedly Redelivered Messages: use-cases/examples/jms_examples/detecting-repeatedly-redelivered-messages.md
+                            - Specifying Delivery Delay on Messages: use-cases/examples/jms_examples/specifying-a-delivery-delay-on-messages.md
+                            #- 'JMS Map Messaging': 'use-cases/examples/jms_examples/jms-map-message.md'
+                  - Components:
+                        - REST APIs:
+                            - Using a Simple REST API: use-cases/examples/rest_api_examples/introduction-rest-api.md
+                            - Setting Query Parameters on Outgoing Messages: use-cases/examples/rest_api_examples/setting-query-params-outgoing-messages.md
+                            - Exposing a SOAP Endpoint as a RESTful API: use-cases/examples/rest_api_examples/enabling-rest-to-soap.md
+                            - Exposing Non-HTTP Services as RESTful APIs: use-cases/examples/rest_api_examples/configuring-non-http-endpoints.md
+                            - Handling Non-Matching Resources: use-cases/examples/rest_api_examples/handling-non-matching-resources.md
+                            - Handling HTTP Status Codes: use-cases/examples/rest_api_examples/setting-https-status-codes.md
+                            - Transforming Content Types: use-cases/examples/rest_api_examples/transforming-content-type.md
+                            - Securing a REST API: use-cases/examples/rest_api_examples/securing-rest-apis.md
+                            - Publishing a Custom Swagger Document: use-cases/examples/rest_api_examples/publishing-a-swagger-api.md
+                        - Handling Special Cases:
+                            - Using GET with a Message Body: use-cases/examples/rest_api_examples/using-get-with-a-body.md
+                            - Using POST with Empty Message Body: use-cases/examples/rest_api_examples/using-post-with-no-body.md
+                            - Using POST with Query Parameters: use-cases/examples/rest_api_examples/using-post-with-query-param.md
+                        - Proxy Services:
+                            - Using a Simple Proxy Service: use-cases/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
+                            - Publishing a Custom WSDL: use-cases/examples/proxy_service_examples/publishing-a-custom-wsdl.md
+                            #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
+                            - Exposing a Proxy Service via Inbound Endpoints: use-cases/examples/proxy_service_examples/exposing-proxy-via-inbound.md
+                            - Securing a Proxy Service: use-cases/examples/proxy_service_examples/securing-proxy-services.md
+                        - Inbound Endpoints:
+                            - JMS Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol.md
+                            - File Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/file-inbound-endpoint.md
+                            - HTTP Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol.md
+                            - HTTPS Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol.md
+                            - HL7 Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack.md
+                            - MQTT Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol.md
+                            - RabbitMQ Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol.md
+                            #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md'
+                            - Kafka Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-kafka.md
+                            - Secured WebSocket Inbound Endpoint: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket.md
+                            - Using Inbound Endpoints with Registry: use-cases/examples/inbound_endpoint_examples/inbound-endpoint-with-registry.md
+                        - Scheduled Tasks:
+                            - Task Scheduling using a Simple Trigger: use-cases/examples/scheduled-tasks/task-scheduling-simple-trigger.md
+                            - Injecting Messages to a RESTful Endpoint: use-cases/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
+                        - Local Registry Entries: use-cases/examples/registry_examples/local-registry-entries.md
+                        - Templates:
+                            - Using Sequence Templates: use-cases/examples/template_examples/using-sequence-templates.md
+                            - Using Endpoint Templates: use-cases/examples/template_examples/using-endpoint-templates.md
+                        - Message Stores & Processors:
+                            - Introduction to Message Stores and Processors: use-cases/examples/message_store_processor_examples/intro-message-stores-processors.md
+                            - JDBC Message Store: use-cases/examples/message_store_processor_examples/using-jdbc-message-store.md
+                            - JMS Message Store: use-cases/examples/message_store_processor_examples/using-jms-message-stores.md
+                            - RabbitMQ Message Store: use-cases/examples/message_store_processor_examples/using-rabbitmq-message-stores.md
+                            - Message Sampling Processor: use-cases/examples/message_store_processor_examples/using-message-sampling-processor.md
+                            - Message Forwarding Processor: use-cases/examples/message_store_processor_examples/using-message-forwarding-processor.md
+                            - Securing the Message Forwarding Processor: use-cases/examples/message_store_processor_examples/securing-message-processor.md
+                            - Load Balancing with Message Forwarding Processor: use-cases/examples/message_store_processor_examples/loadbalancing-with-message-processor.md
+                        - Endpoints:
+                            - Address Endpoint: use-cases/examples/endpoint_examples/using-address-endpoints.md
+                            - Failover Endpoints: use-cases/examples/endpoint_examples/using-failover-endpoints.md
+                            - HTTP Endpoint: use-cases/examples/endpoint_examples/using-http-endpoints.md
+                            - WebSocket Endpoint: use-cases/examples/endpoint_examples/using-websocket-endpoints.md
+                            - WSDL Endpoint: use-cases/examples/endpoint_examples/using-wsdl-endpoints.md
+                            - Load Balance Endpoint: use-cases/examples/endpoint_examples/using-loadbalancing-endpoints.md
+                            - Recipient List of Endpoints:
+                                - Static List of Recepients: use-cases/examples/endpoint_examples/using-static-recepient-list-endpoints.md
+                                - Dynamic List of Recepients: use-cases/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-1.md
+                                - Dynamic List of Recepients with Aggregated Responses: use-cases/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-2.md
+                            - Reusing Endpoints: use-cases/examples/endpoint_examples/reusing-endpoints.md
+                            - Endpoint Error Handling: use-cases/examples/endpoint_examples/endpoint-error-handling.md
+                            - MTOM and SwA Optimizations: use-cases/examples/endpoint_examples/mtom-swa-with-endpoints.md
+                        - Sequences:
+                            - Breaking Complex Flows into Multiple Sequences: use-cases/examples/sequence_examples/using-multiple-sequences.md
+                            - Using Fault Sequences: use-cases/examples/sequence_examples/using-fault-sequences.md
+                            - Reusing Sequences: use-cases/examples/sequence_examples/custom-sequences-with-proxy-services.md
+                        - Transports:
+                            - Using the TCP Transport: use-cases/examples/transport_examples/tcp-transport-examples.md
+                            - Using the FIX Transport: use-cases/examples/transport_examples/fix-transport-examples.md
+                            - Using the MQTT Transport: use-cases/examples/transport_examples/Pub_Sub_using_MQTT.md
+                        - Working with Transactions: use-cases/examples/working-with-transactions.md
+                        - JSON Examples: use-cases/examples/json_examples/json-examples.md
     - Streaming:
-          - Streaming Overview: streaming/streaming-overview.md
+          - Streaming Overview: use-cases/streaming-usecase/use-cases.md
+          - Streaming Use Cases:
+                  - 'Use Cases': use-cases/streaming-use-case/use-cases.md
+                  - 'Extracting Data from static Sources in Real Time': use-cases/streaming-use-case/extracting-data-from-static-sources-in-real-time.md
+                  - 'Receiving Data in Transit': use-cases/streaming-use-case/receiving-data-in-transit.md
+                  - 'Loading and Writing Data': use-cases/streaming-use-case/loading-and-writing-date.md
+                  - 'Publishing Data': use-cases/streaming-use-case/publishing-data-to-event-stream-consumers.md
+                  - 'Processing Data': use-cases/streaming-use-case/processing-data.md
+                  - 'Handling Errors': use-cases/streaming-use-case/handling-errors.md
+                  - 'Performing ETL Operations': use-cases/streaming-use-case/performing-etl-tasks.md
+                  - 'Triggering Integration Flows': use-cases/streaming-use-case/triggering-integration-flows.md
           - Quick Start: streaming/streaming-qsg.md
-          - 'Consuming Data':
-              - 'Consuming Data': 'guides/consuming-messages.md'
-              - 'Receiving JSON Events via TCP': 'samples/ReceiveTCPinJSONFormat.md'
-              - 'Publishing Events to a Google Pub/Sub Topic': 'samples/PublishGooglePubSubMessagesInTextFormat.md'
-              - 'Publishing and Receiving CSV Events via Files': 'samples/CSVDefaultMapping.md'
-              - 'Capturing MySQL Inserts via CDC': 'samples/CDCWithListeningMode.md'
-              - 'Receiving Messages from a Google Pub/Sub Topic': 'samples/ReceiveGooglePubSubMessagesInTextFormat.md'
-              - 'Receiving XML events via MQTT': 'samples/ReceiveMQTTInXMLFormat.md'
-              - 'Receiving Binary Events via TCP': 'samples/ReceiveTCPinBinaryFormat.md'
-              - 'Receiving Binary Events via Kafka': 'samples/ReceiveKafkaInBinaryFormat.md'
-              - 'Receiving XML Events via HTTP': 'samples/ReceiveHTTPInXMLFormatWithDefaultMapping.md'
-              - 'Working with an influxDB Store': 'samples/store-influxdb.md'
-              - 'Capturing MySQL Inserts and Updates via CDC Polling Mode': 'samples/CDCWithPollingMode.md'
-              - 'Retrieving Historical Tweets for a Given Time Period': 'samples/TwitterPolling-sample.md'
-              - 'Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type': 'samples/PublishHttpOAuthRequestWithRefreshToken.md'
-              - 'Publishing HTTP Events via an OAuth-protected Endpoint': 'samples/PublishHttpOAuthRequestResponse.md'
-              - 'Receiving Events via Simulator and Persisting in SOLR Store': 'samples/Store-solr.md'
-              - 'Receiving Events via HTTP Transport': 'samples/ReceiveAndCount.md'
-              - 'Receiving Events via File': 'samples/ReceiveEventsFromFile.md'
-              - 'Receiving XML Events via Email': 'samples/ReceiveEmailInXmlFormat.md'
-              - 'Receiving JSON Events via RabbitMQ': 'samples/ReceiveRabbitmqInJSONFormat.md'
-              - 'Receive Events via Simulator and Persist in Cassandra Store': 'samples/Store-cassandra.md'
-          - 'Transforming Data':
-              - 'Publishing HTTP Events to to an OAuth-protected Endpoint': 'samples/PublishHttpOAuthRequest.md'
-              - 'Publishing HTTP Events to to an OAuth-protected Endpoint without an Access Token': 'samples/PublishHttpOAuthRequestWithoutAccessToken.md'
-              - 'Receiving ER7 Events via HL7': 'samples/ReceiveHl7InER7Format.md'
-              - 'Preprocessing Data Received via TCP': 'samples/DataPreprocessing.md'
-              - 'Publishing ER7 Events via HL7': 'samples/PublishHl7InER7Format.md'
-              - 'Receiving Data via TCP and Preprocessing': 'samples/SweetProductionDataPreprocessing.md'
-              - 'Receiving and Publishing Events in Custom CSV Format': 'samples/CSVCustomMapping.md'
-              - 'Sending Custom JSON Events via HTTP': 'samples/PublishHTTPInJsonFormatWithCustomMapping.md'
-              - 'Publishing Text Events via Email': 'samples/PublishEmailInTextFormat.md'
-              - 'Receiving Custom Text Events via Kafka': 'samples/ReceiveKafkaInTextFormatWithCustomMapping.md'
-              - 'Using Javascript Functions in Siddhi Applications': 'samples/Script-js-sample.md'
-              - 'Publishing Custom Avro Events via Kafka': 'samples/PublishKafkaInCustomAvroFormat.md'
-              - 'Receiving Custom XML Messages via HL7': 'samples/ReceiveHl7InXmlFormat.md'
-              - 'Receiving Custom Text Events via TCP': 'samples/ReceiveTCPInTextFormatWithCustomMapping.md'
-              - 'Identifying Sub-sequences in Input Sequences': 'samples/RegexExecutionSample.md'
-              - 'Publishing XML messages via HL7': 'samples/PublishHl7InXmlFormat.md'
-              - 'Publishing JSON Events via Kafka': 'samples/PublishKafkaInJsonFormat.md'
-              - 'Publishing JSON Events to Files': 'samples/PublishEventsToFile.md'
-              - 'Receiving Custom XML Events via HTTP': 'samples/ReceiveHTTPinXMLFormatWithCustomMapping.md'
-              - 'Publishing XML Events via RabbitMQ': 'samples/PublishRabbitmqInXmlFormat.md'
-              - 'Rounding up Amounts via the Math Function': 'samples/MathExtensionSample.md'
-              - 'Receiving Text Events via TCP': 'samples/ReceiveTCPinTextFormat.md'
-              - 'Publishing Emails in XML Format': 'samples/PublishEmailInXmlFormat.md'
-              - 'Converting String Values to Lowercase': 'samples/StringExtensionSample.md'
-              - 'Text Mapping with In-memory Transport': 'samples/TextMappingWithInmemoryTransport.md'
-              - 'Receiving JSON Events via HTTP': 'samples/ReceiveHTTPInJsonFormatWithDefaultMapping.md'
-              - 'Consuming Events from a Kafka Topic and Publishing to Another Kafka Topic': 'samples/HelloKafka.md'
-              - 'Publishing Custom XML Events via HTTP': 'samples/PublishHttpInXmlFormatWithCustomMapping.md'
-              - 'Sending Custom Keyvalue Events via SNMP': 'samples/SNMPSetRequestApp.md'
-              - 'Publishing JSON Events via TCP': 'samples/PublishTcpInJsonFormat.md'
-              - 'Publishing HTTP Events to an OAuth-protected Endpoint': 'samples/PublishHttpOAuthRequestWithOAuthUser.md'
-              - 'Inserting and Accessing Data in a Map': 'samples/MapExtensionSample.md'
-              - 'Publishing XML Events via JMS': 'samples/PublishJmsInXmlFormat.md'
-              - 'Receiving JSON Events via JMS': 'samples/ReceiveJMSInJsonFormat.md'
-              - 'Receiving Custom JSON Events via HTTP': 'samples/ReceiveHTTPInJsonFormatWithCustomMapping.md'
-          - 'Enriching Data':
-              - 'Counting the Frequency of Values with BottomK': 'samples/ExtremaBottomK.md'
-              - 'Extracting Values from a String': 'samples/GplNLPFindNameEntityType.md'
-              - 'Joining Streaming Data with Stored Data in RDBMS': 'samples/JoinWithStoredData.md'
-              - 'Using Javascript Functions in Siddhi Applications': 'samples/Script-js-sample.md'
-              - 'Receiving Events via Simulator and Persisting in a Store': 'samples/store-hbase.md'
-              - 'Publishing HTTP Requests, Receiving Responses, and Processing Them': 'samples/HttpRequestResponseSample.md'
-              - 'Converting Units': 'samples/UnitConversionExtentionSample.md'
-              - 'Calculating the Sentiment Value for a Given String': 'samples/sentimentExtensionSample.md'
-              - 'Processing Geo Data': 'samples/execution-geo-sample.md'
-              - 'Performing Streaming Learning Using a Clustree Model': 'samples/ClusTreeTestApp.md'
-              - 'Receiving XML Events via Websocket': 'samples/ReceiveWebSocketInXMLFormat.md'
-          - 'Aggregating Data':
-              - 'Preprocessing Data Received via TCP': 'samples/DataPreprocessing.md'
-              - 'Receiving Data via TCP and Preprocessing': 'samples/SweetProductionDataPreprocessing.md'
-              - 'Publishing Text Events via Email': 'samples/PublishEmailInTextFormat.md'
-              - 'Calculating Aggregations Over Time': 'samples/AggregateOverTime.md'
-              - 'Calculating the Number of Distinct Events without a Siddhi Window': 'samples/approximate-distinctCountEver-sample.md'
-              - 'Calculating the Number of Distinct Events within a Siddhi Window': 'samples/approximate-distinctCount-sample.md'
-              - 'Receiving Events via HTTP Transport': 'samples/ReceiveAndCount.md'
-              - 'Aggregating Data Incrementally': 'samples/AggregateDataIncrementally.md'
-              - 'Receiving Events and Persisting Them in Redis Store': 'samples/Store-redis.md'
-              - 'Receiving Events and Persisting in MongoDB Store': 'samples/store-mongodb.md'
-          - 'Correlating Data':
-              - 'Making Predictions via PMML Model': 'samples/PmmlModelProcessor.md'
-              - 'Making Predictions via a Regressor Model': 'samples/StreamingRegressor.md'
-              - 'Extracting Values from a String': 'samples/GplNLPFindNameEntityType.md'
-              - 'Performing Regression Tasks via an Imported Tensorflow Model': 'samples/TensorFlowTestApp.md'
-              - 'Calculating the Sentiment Value for a Given String': 'samples/sentimentExtensionSample.md'
-              - 'Publishing XML Events via MQTT': 'samples/PublishMqttInXmlFormat.md'
-              - 'Identifying Event Patterns Based On Order of Event Arrival': 'samples/PatternMatching.md'
-              - 'Using StreamingML Kmeans for Clustering': 'samples/StreamingKMeansSample.md'
-              - 'Receiving Prometheus Metrics': 'samples/ReceivePrometheusMetrics.md'
-              - 'Making Predictions via Hoeffding Classifier Model': 'samples/hoeffding-adaptive-tree-sample.md'
-              - 'Receiving Custom Key Value Events via SNMP': 'samples/SNMPGetRequestApp.md'
-              - 'Receiving Key Value Events via JMS': 'samples/ReceiveJMSInKeyvalueFormat.md'
-              - 'Consuming Messages from IBM Message Queues': 'samples/IBMMessageQueue.md'
-              - 'Receiving Email Alerts': 'samples/AlertsAndThresholds.md'
-              - 'Making Predictions via a Streaming Perceptron Model': 'samples/streaming-perceptron-sample.md'
-              - 'Calculating the Distance Between Two Locations': 'samples/GeoDistanceCalculation.md'
-          - 'Publishing Data':
-              - 'Publishing Text Events via TCP': 'samples/PublishTcpInTextFormat.md'
-              - 'Receiving ER7 Events via HL7': 'samples/ReceiveHl7InER7Format.md'
-              - 'Publishing Events to a Google Pub/Sub Topic': 'samples/PublishGooglePubSubMessagesInTextFormat.md'
-              - 'Publishing Binary Events via TCP': 'samples/PublishTcpInBinaryFormat.md'
-              - 'Publishing XML Events via WebSocket': 'samples/PublishWebSocketInXmlFormat.md'
-              - 'Publishing Consumed Events to Prometheus Metrics and Exposing then via HTTP': 'samples/PublishPrometheusMetricsHTTPServer.md'
-              - 'Working with an influxDB Store': 'samples/store-influxdb.md'
-              - 'Publishing Binary Events via Kafka': 'samples/PublishKafkaInBinaryFormat.md'
-              - 'Publishing Key-value events via JMS': 'samples/PublishJmsInKeyvalueFormat.md'
-              - 'Publishing XML Events via HTTP': 'samples/PublishHttpInXmlFormat.md'
-              - 'Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type': 'samples/PublishHttpOAuthRequestWithRefreshToken.md'
-              - 'Publishing HTTP Events via an OAuth-protected Endpoint': 'samples/PublishHttpOAuthRequestResponse.md'
-              - 'Receiving Events via Simulator and Persisting in SOLR Store': 'samples/Store-solr.md'
-              - 'Publishing JSON Events via HTTP': 'samples/PublishHttpInJsonFormat.md'
-              - 'Receiving Events via Simulator and Persisting in RDBMS Store': 'samples/Store-rdbms.md'
-              - 'Receive Events via Simulator and Persist in Cassandra Store': 'samples/Store-cassandra.md'
-              - 'Publishing Avro Events via Kafka': 'samples/PublishKafkaInAvroFormatUsingSchemaRegistry.md'
-              - 'Publishing Aggregated Events to the Amazon AWS S3 Bucket': 'samples/AmazonS3SinkSample.md'
-              - 'Publishing Events to a GCS Bucket': 'samples/GCSSinkSample.md'
+          - Develop Streaming Solutions:
+                  - 'Developing Streaming Integrator Solutions': develop/streaming-apps/developing-streaming-integration-solutions.md
+                  - 'Streaming Integrator Tooling':
+                        - 'Streaming Integrator Tooling Overview': develop/streaming-apps/streaming-integrator-studio-overview.md
+                        - 'Working with the Design View': develop/streaming-apps/working-with-the-Design-View.md
+                  - 'Creating Siddhi Applications': develop/streaming-apps/creating-a-Siddhi-Application.md
+                  - 'Installing Siddhi Extensions': develop/streaming-apps/installing-siddhi-extensions.md
+                  - 'Testing Siddhi Applications': develop/streaming-apps/testing-a-Siddhi-Application.md
+                  - 'Deploying Siddhi Applications': develop/streaming-apps/deploying-Streaming-Applications.md
+                  - 'Exporting Siddhi Applications': develop/streaming-apps/exporting-Siddhi-Applications.md
+          - 'Streaming Examples':
+                  - 'Extracting Data from Static Sources in Real Time':
+                        - 'Capturing MySQL Inserts via CDC': use-cases/examples/streaming_examples/CDCWithListeningMode.md
+                        - 'Capturing MySQL Inserts and Updates via CDC Polling Mode': use-cases/examples/streaming_examples/CDCWithPollingMode.md
+                        - 'Publishing and Receiving CSV Events via Files': use-cases/examples/streaming_examples/CSVDefaultMapping.md
+                        - 'Receiving Events via File': use-cases/examples/streaming_examples/ReceiveEventsFromFile.md
+                        - 'Text Mapping with In-memory Transport': use-cases/examples/streaming_examples/TextMappingWithInmemoryTransport.md
+                  - 'Receiving Data in Transit':
+                        - 'Publishing HTTP Requests, Receiving Responses, and Processing Them': use-cases/examples/streaming_examples/HttpRequestResponseSample.md
+                        - 'Consuming Messages from IBM Message Queues': use-cases/examples/streaming_examples/IBMMessageQueue.md
+                        - 'Receiving Events via HTTP Transport': use-cases/examples/streaming_examples/ReceiveAndCount.md
+                        - 'Receiving XML Events via Email': use-cases/examples/streaming_examples/ReceiveEmailInXmlFormat.md
+                        - 'Receiving Messages from a Google Pub/Sub Topic': use-cases/examples/streaming_examples/ReceiveGooglePubSubMessagesInTextFormat.md
+                        - 'Receiving ER7 Events via HL7': use-cases/examples/streaming_examples/ReceiveHl7InER7Format.md
+                        - 'Receiving Custom XML Messages via HL7': use-cases/examples/streaming_examples/ReceiveHl7InXmlFormat.md
+                        - 'Receiving XML Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPInXMLFormatWithDefaultMapping.md
+                        - 'Receiving Custom XML Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPinXMLFormatWithCustomMapping.md
+                        - 'Receiving JSON Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPInJsonFormatWithDefaultMapping.md
+                        - 'Receiving Custom JSON Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPInJsonFormatWithCustomMapping.md
+                        - 'Receiving JSON Events via JMS': use-cases/examples/streaming_examples/ReceiveJMSInJsonFormat.md
+                        - 'Receiving Key Value Events via JMS': use-cases/examples/streaming_examples/ReceiveJMSInKeyvalueFormat.md
+                        - 'Receiving Binary Events via Kafka': use-cases/examples/streaming_examples/ReceiveKafkaInBinaryFormat.md
+                        - 'Receiving Custom Text Events via Kafka': use-cases/examples/streaming_examples/ReceiveKafkaInTextFormatWithCustomMapping.md
+                        - 'Receiving XML events via MQTT': use-cases/examples/streaming_examples/ReceiveMQTTInXMLFormat.md
+                        - 'Receiving Prometheus Metrics': use-cases/examples/streaming_examples/ReceivePrometheusMetrics.md
+                        - 'Receiving JSON Events via RabbitMQ': use-cases/examples/streaming_examples/ReceiveRabbitmqInJSONFormat.md
+                        - 'Receiving JSON Events via TCP': use-cases/examples/streaming_examples/ReceiveTCPinJSONFormat.md
+                        - 'Receiving Binary Events via TCP': use-cases/examples/streaming_examples/ReceiveTCPinBinaryFormat.md
+                        - 'Receiving Custom Text Events via TCP': use-cases/examples/streaming_examples/ReceiveTCPInTextFormatWithCustomMapping.md
+                        - 'Receiving Text Events via TCP': use-cases/examples/streaming_examples/ReceiveTCPinTextFormat.md
+                        - 'Receiving XML Events via Websocket': use-cases/examples/streaming_examples/ReceiveWebSocketInXMLFormat.md
+                        - 'Receiving Custom Key Value Events via SNMP': use-cases/examples/streaming_examples/SNMPGetRequestApp.md
+                        - 'Receiving Data via TCP and Preprocessing': use-cases/examples/streaming_examples/SweetProductionDataPreprocessing.md
+                        - 'Receiving Email Alerts': use-cases/examples/streaming_examples/AlertsAndThresholds.md
+                  - 'Loading and Writing Data':
+                        - 'Publishing Aggregated Events to the Amazon AWS S3 Bucket': use-cases/examples/streaming_examples/AmazonS3SinkSample.md
+                        - 'Publishing and Receiving CSV Events via Files': use-cases/examples/streaming_examples/CSVDefaultMapping.md
+                        - 'Publishing Events to a GCS Bucket': use-cases/examples/streaming_examples/GCSSinkSample.md
+                        - 'Publishing JSON Events to Files': use-cases/examples/streaming_examples/PublishEventsToFile.md
+                        - 'Receive Events via Simulator and Persist in Cassandra Store': use-cases/examples/streaming_examples/Store-cassandra.md'
+                        - 'Receiving Events via Simulator and Persisting in a Store': use-cases/examples/streaming_examples/store-hbase.md
+                        - 'Working with an influxDB Store': use-cases/examples/streaming_examples/store-influxdb.md
+                        - 'Receiving Events and Persisting in MongoDB Store': use-cases/examples/streaming_examples/store-mongodb.md
+                        - 'Receiving Events via Simulator and Persisting in RDBMS Store': use-cases/examples/streaming_examples/Store-rdbms.md
+                        - 'Receiving Events and Persisting Them in Redis Store': use-cases/examples/streaming_examples/Store-redis.md
+                        - 'Receiving Events via Simulator and Persisting in SOLR Store': use-cases/examples/streaming_examples/Store-solr.md
+                        - 'Receiving Data via TCP and Preprocessing': use-cases/examples/streaming_examples/SweetProductionDataPreprocessing.md
+                        - 'Text Mapping with In-memory Transport': use-cases/examples/streaming_examples/TextMappingWithInmemoryTransport.md
+                  - 'Publishing Data':
+                        - 'Consuming Events from a Kafka Topic and Publishing to Another Kafka Topic': use-cases/examples/streaming_examples/HelloKafka.md
+                        - 'Publishing Text Events via Email': use-cases/examples/streaming_examples/PublishEmailInTextFormat.md
+                        - 'Publishing Emails in XML Format': use-cases/examples/streaming_examples/PublishEmailInXmlFormat.md
+                        - 'Publishing Events to a Google Pub/Sub Topic': use-cases/examples/streaming_examples/PublishGooglePubSubMessagesInTextFormat.md
+                        - 'Publishing ER7 Events via HL7': use-cases/examples/streaming_examples/PublishHl7InER7Format.md
+                        - 'Publishing XML messages via HL7': use-cases/examples/streaming_examples/PublishHl7InXmlFormat.md
+                        - 'Publishing JSON Events via HTTP': use-cases/examples/streaming_examples/PublishHttpInJsonFormat.md
+                        - 'Sending Custom JSON Events via HTTP': use-cases/examples/streaming_examples/PublishHTTPInJsonFormatWithCustomMapping.md
+                        - 'Publishing XML Events via HTTP': use-cases/examples/streaming_examples/PublishHttpInXmlFormat.md
+                        - 'Publishing Custom XML Events via HTTP': use-cases/examples/streaming_examples/PublishHttpInXmlFormatWithCustomMapping.md
+                        - 'Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type': use-cases/examples/streaming_examples/PublishHttpOAuthRequestWithRefreshToken.md
+                        - 'Publishing HTTP Events via an OAuth-protected Endpoint': use-cases/examples/streaming_examples/PublishHttpOAuthRequestResponse.md
+                        - 'Publishing HTTP Events to to an OAuth-protected Endpoint': use-cases/examples/streaming_examples/PublishHttpOAuthRequest.md
+                        - 'Publishing HTTP Events to an OAuth-protected Endpoint': use-cases/examples/streaming_examples/PublishHttpOAuthRequestWithOAuthUser.md
+                        - 'Publishing HTTP Events to to an OAuth-protected Endpoint without an Access Token': use-cases/examples/streaming_examples/PublishHttpOAuthRequestWithoutAccessToken.md
+                        - 'Publishing XML Events via JMS': use-cases/examples/streaming_examples/PublishJmsInXmlFormat.md
+                        - 'Publishing Key-value events via JMS': use-cases/examples/streaming_examples/PublishJmsInKeyvalueFormat.md
+                        - 'Publishing Custom Avro Events via Kafka': use-cases/examples/streaming_examples/PublishKafkaInCustomAvroFormat.md
+                        - 'Publishing JSON Events via Kafka': use-cases/examples/streaming_examples/PublishKafkaInJsonFormat.md
+                        - 'Publishing Binary Events via Kafka': use-cases/examples/streaming_examples/PublishKafkaInBinaryFormat.md
+                        - 'Publishing Avro Events via Kafka': use-cases/examples/streaming_examples/PublishKafkaInAvroFormatUsingSchemaRegistry.md
+                        - 'Publishing XML Events via MQTT': use-cases/examples/streaming_examples/PublishMqttInXmlFormat.md
+                        - 'Publishing Consumed Events to Prometheus Metrics and Exposing them via HTTP': use-cases/examples/streaming_examples/PublishPrometheusMetricsHTTPServer.md
+                        - 'Publishing XML Events via RabbitMQ': use-cases/examples/streaming_examples/PublishRabbitmqInXmlFormat.md
+                        - 'Publishing JSON Events via TCP': use-cases/examples/streaming_examples/PublishTcpInJsonFormat.md
+                        - 'Publishing Text Events via TCP': use-cases/examples/streaming_examples/PublishTcpInTextFormat.md
+                        - 'Publishing Binary Events via TCP': use-cases/examples/streaming_examples/PublishTcpInBinaryFormat.md
+                        - 'Publishing XML Events via WebSocket': use-cases/examples/streaming_examples/PublishWebSocketInXmlFormat.md
+                        - 'Sending Custom Keyvalue Events via SNMP': use-cases/examples/streaming_examples/SNMPSetRequestApp.md
+                  - 'Processing Data':
+                        - 'Aggregating Data Incrementally': use-cases/examples/streaming_examples/AggregateDataIncrementally.md
+                        - 'Receiving Email Alerts': use-cases/examples/streaming_examples/Receiving Email Alerts.md
+                        - 'Performing Streaming Learning Using a Clustree Model': use-cases/examples/streaming_examples/ClusTreeTestApp.md
+                        - 'Receiving and Publishing Events in Custom CSV Format': use-cases/examples/streaming_examples/CSVCustomMapping.md
+                        - 'Publishing and Receiving CSV Events via Files': use-cases/examples/streaming_examples/CSVDefaultMapping.md
+                        - 'Preprocessing Data Received via TCP': use-cases/examples/streaming_examples/DataPreprocessing.md
+                        - 'Processing Geo Data': use-cases/examples/streaming_examples/execution-geo-sample.md
+                        - 'Counting the Frequency of Values with BottomK': use-cases/examples/streaming_examples/ExtremaBottomK.md
+                        - 'Calculating the Distance Between Two Locations': use-cases/examples/streaming_examples/GeoDistanceCalculation.md
+                        - 'Extracting Values from a String': use-cases/examples/streaming_examples/GplNLPFindNameEntityType.md
+                        - 'Making Predictions via Hoeffding Classifier Model': use-cases/examples/streaming_examples/hoeffding-adaptive-tree-sample.md
+                        - 'Joining Streaming Data with Stored Data in RDBMS': use-cases/examples/streaming_examples/JoinWithStoredData.md
+                        - 'Inserting and Accessing Data in a Map': use-cases/examples/streaming_examples/MapExtensionSample.md
+                        - 'Rounding up Amounts via the Math Function': use-cases/examples/streaming_examples/MathExtensionSample.md
+                        - 'Identifying Event Patterns Based On Order of Event Arrival': use-cases/examples/streaming_examples/PatternMatching.md
+                        - 'Making Predictions via PMML Model': use-cases/examples/streaming_examples/PmmlModelProcessor.md
+                        - 'Sending Custom JSON Events via HTTP': use-cases/examples/streaming_examples/PublishHTTPInJsonFormatWithCustomMapping.md
+                        - 'Publishing Custom XML Events via HTTP': use-cases/examples/streaming_examples/PublishHttpInXmlFormatWithCustomMapping.md
+                        - 'Publishing Custom Avro Events via Kafka': use-cases/examples/streaming_examples/PublishKafkaInCustomAvroFormat.md
+                        - 'Receiving Custom XML Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPinXMLFormatWithCustomMapping.md
+                        - 'Receiving Custom JSON Events via HTTP': use-cases/examples/streaming_examples/ReceiveHTTPInJsonFormatWithCustomMapping.md
+                        - 'Receiving Custom Text Events via Kafka': use-cases/examples/streaming_examples/ReceiveKafkaInTextFormatWithCustomMapping.md
+                        - 'Receiving Custom Text Events via TCP': use-cases/examples/streaming_examples/ReceiveTCPInTextFormatWithCustomMapping.md
+                        - 'Identifying Sub-sequences in Input Sequences': use-cases/examples/streaming_examples/RegexExecutionSample.md
+                        - 'Using Javascript Functions in Siddhi Applications': use-cases/examples/streaming_examples/Script-js-sample.md
+                        - 'Making Predictions via a Streaming Perceptron Model': use-cases/examples/streaming_examples/streaming-perceptron-sample.md
+                        - 'Using StreamingML Kmeans for Clustering': use-cases/examples/streaming_examples/StreamingKMeansSample.md
+                        - 'Making Predictions via a Regressor Model': use-cases/examples/streaming_examples/StreamingRegressor.md
+                        - 'Converting String Values to Lowercase': use-cases/examples/streaming_examples/StringExtensionSample.md
+                        - 'Receiving Data via TCP and Preprocessing': use-cases/examples/streaming_examples/SweetProductionDataPreprocessing.md
+                        - 'Performing Regression Tasks via an Imported Tensorflow Model': use-cases/examples/streaming_examples/TensorFlowTestApp.md
+                        - 'Text Mapping with In-memory Transport': use-cases/examples/streaming_examples/TextMappingWithInmemoryTransport.md
+                        - 'Converting Units': use-cases/examples/streaming_examples/UnitConversionExtentionSample.md
+                        - 'Calculating Aggregations Over Time': use-cases/examples/streaming_examples/AggregateOverTime.md
           - 'Tutorials':
               - 'Tutorials Overview': 'examples/tutorials-overview.md'
               - 'Performing Real-time ETL with MySQL': 'examples/performing-real-time-etl-with-mysql.md'
@@ -669,16 +614,6 @@ nav:
               - 'Managing Streaming Data with Errors': 'examples/handling-requests-with-errors.md'
               - 'Triggering Integrations via MI': 'examples/triggering-integrations-via-micro-integrator.md'
               - 'Running SI with Docker and Kubernetes': 'examples/running-si-with-docker-and-kubernetes.md'
-          - Develop:
-              - 'Developing Streaming Integrator Solutions': 'develop/developing-streaming-integration-solutions.md'
-              - 'Streaming Integrator Tooling':
-                  - 'Streaming Integrator Tooling Overview': 'develop/streaming-integrator-studio-overview.md'
-                  - 'Working with the Design View': 'develop/working-with-the-Design-View.md'
-              - 'Creating Siddhi Applications': 'develop/creating-a-Siddhi-Application.md'
-              - 'Installing Siddhi Extensions': 'develop/installing-siddhi-extensions.md'
-              - 'Testing Siddhi Applications': 'develop/testing-a-Siddhi-Application.md'
-              - 'Deploying Siddhi Applications': 'develop/deploying-Streaming-Applications.md'
-              - 'Exporting Siddhi Applications': 'develop/exporting-Siddhi-Applications.md'
     - Observe:
           - Observe and Manage Overview: learn/analytics/observe-overview.md
           - Analytics:
@@ -717,6 +652,19 @@ nav:
         - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
         - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
         - Edit an API by Modifying the API Definition: learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md
+        - Integration Tutorials:
+                  - Sending a Simple Message to a Service: use-cases/tutorials/sending-a-simple-message-to-a-service.md
+                  - Message Routing: use-cases/tutorials/routing-requests-based-on-message-content.md
+                  - Message Transformation: use-cases/tutorials/transforming-message-content.md
+                  - Service Orchestration: use-cases/tutorials/exposing-several-services-as-a-single-service.md
+                  - Asynchronous Messaging: use-cases/tutorials/storing-and-forwarding-messages.md
+                  - Connecting Web APIs/Cloud Services: use-cases/tutorials/using-the-gmail-connector.md
+                  - Data Integration: use-cases/tutorials/sending-a-simple-message-to-a-datasource.md
+                  - File Processing: use-cases/tutorials/file-processing.md
+                  - Periodic Execution of Integration Process: use-cases/tutorials/using-scheduled-tasks.md
+                  - Using Inbound Endpoints: use-cases/tutorials/using-inbound-endpoints.md
+                  - Reusing Mediation Sequences: use-cases/tutorials/using-templates.md
+                  - Integrating with SAP: use-cases/tutorials/sap-integration.md
     - Install and Setup:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
@@ -873,6 +821,68 @@ nav:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
           - FAQ: reference/faq.md
+          - Customize Product:
+                  - Product REST APIs:
+                        - Overview: develop/product-apis/overview.md
+                        - Publisher APIs:
+                              - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                        - Developer Portal APIs:
+                              - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                        - Admin APIs:
+                              - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
+                              - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+                        - Gateway APIs:
+                              - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+                        - Advanced Configurations: develop/product-apis/advanced-configurations.md
+                  - Extending WSO2 API Manager:
+                        - Extending Key Management:
+                              - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
+                              - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
+                              - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                              - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                        - Extending API Gateway:
+                              - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                              - Writing Custom Handlers: develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                        - Extending Workflows:
+                              - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                              - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                              - Configuring HTTP Redirection for Workflows: develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                              - Configuring Workflows for Tenants: develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                              - Configuring Workflows in a Cluster: develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                              - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                              - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
+                        - SAML2 SSO:
+                              - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
+                              - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
+                              - Configuring Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                              - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+                  - Customizations:
+                        - Customizing the Developer Portal:
+                              - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                              - Customize API Listing:
+                                    - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
+                                    - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                              - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                              - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                              - Enable or Disable Rating: develop/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                              - Enable or Disable Home Page: develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                              - Enable or Disable Tag Cloud: develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                              - Enable or Disable Footer: develop/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                              - Enable or Disable Banner: develop/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                              - Styling API Details Left Menu: develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                              - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                              - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                              - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                              - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
+                        - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
+                        - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
+                        - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
+                        - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                        - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
+                        - Adding internationalization: develop/customizations/adding-internationalization.md
+                  - Admin Services: develop/wso2-admin-services.md
+                  - Working with the Source Code: develop/working-with-the-source-code.md
+                  - Java Documentation: develop/java-documentation.md
           - Guides:
                 - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
                 - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md

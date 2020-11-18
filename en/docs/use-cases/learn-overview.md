@@ -1,5 +1,11 @@
 # Integration Overview
 
+## API-led Integration
+
+API Manager enables you to build integration services from the ground up using [Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. These integration services can 
+
+<img src="../../assets/img/intro/API-led-integration.png" width="700">
+
 ## Integration Use Cases
 
 The following are the main use cases of WSO2 Micro Integrator. These help you understand what you can do with the product.
