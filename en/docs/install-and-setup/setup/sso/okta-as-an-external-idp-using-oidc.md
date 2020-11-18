@@ -1,20 +1,22 @@
-In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API-Manager. Before we start first make sure you have all the pre-requisites mentioned below.
+This section explains how to connect OKTA as a third-party Identity provier to WSO2 API Manager.
 
 ### Pre-requisites
 
+Before you begin, make sure you do the following.
+
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
-2. Download the latest API-Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
-3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/` and add the following configuration
+2. Download the latest API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
+3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/` folder. Add the following configuration
     ```
     [tenant_mgt]
     enable_email_domain= true
     ```
-    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API-Manager we have to enable it since it not enabled by default. Once enabled both email as username and normal usernames can be used.
+    You need to enable this because OKTA uses the email as a username by default. To  use the email as the username in WSO2 API Manager you have to enable it, since it not enabled by default. Once enabled, you can use your email or a normal username as your username.
 4. Start the Server.
 
 ### Setup OKTA
 
-1. Go to the OKTA admin portal and navigate to Applications -> Add Application
+1. Go to the OKTA admin portal and navigate to **Applications** and click **Add Application**.
 [![]({{base_path}}/assets/img/learn/okta-add-new-application.png)]({{base_path}}/assets/img/learn/okta-add-new-application.png)
 
 2. Select type web and use the following details
@@ -22,44 +24,48 @@ In the following document we will explain how to connect OKTA as a third party I
     [![]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)
-3. Next we need to add a new attribute to the default user profile of OKTA to epresent the user role. Navigate to Users -> Profile Editor and click on the pencil icon to edit the default profile
+
+3. Add a new attribute to the default user profile of OKTA to represent the user role. Navigate to **Users** -> **Profile Editor**. Click **Profile** to edit the default profile.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
 
+    You will be able to see the user attributes in the Profile Editor. Click **Add Attribute** to add new user attributes.
+
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
 
-4. Enter the following details and click save
+4. Enter the user role details and click **Save**.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png) 
 
-5. Next we need to add the claims that needs to be returned from the ID Token in okta. These are the claims we will be used to map the user details to WSO2 API-Manager side. Navigate to API -> Authorization Servers and select the default server
+5. You need to add the claims that needs to be returned from the ID Token in Okta. These claims we will be used to map the user details with WSO2 API Manager. Navigate to **API** -> **Authorization Servers** and select the default server.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-claims.png)]({{base_path}}/assets/img/learn/okta-add-new-claims.png) 
 
-6. Add the following two claims
+6. Add the following two claims as shown in the images below.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-claims-user.png)]({{base_path}}/assets/img/learn/okta-add-new-claims-user.png) 
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-claims-role.png)]({{base_path}}/assets/img/learn/okta-add-new-claims-role.png) 
 
-7. Go to Users -> People and click on your profile name. And navigate to the profile edit page as shown below
+7. Go to **Users** -> **People** and click on your profile name.
 
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit.png" />
     <br/>
-    <br/>
+
+    Navigate to the profile edit page as shown below
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit2.png" width="600" height="400"/>
     <br/>
     <br/>
 
-    add the following role value. This will be used in the API-Manager to map an internal role to user that will be provisioned.
+    Add **any** as the role value as shown below. This will be used by API Manager to map an internal role to a provisioned user.
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit3.png"/>
 
 
-### Setup API-Manager
+### Setup API Manager
 
-1. Login in to `https://localhost:9443/carbon`.
+1. Log in to `https://localhost:9443/carbon`.
 
-2. First we need to create a role that needs to be assinged to users that will be provisioned from okta. click on add in Users and Roles section and add a new role.
+2. Create a role that needs to be assinged to users that will be provisioned from Okta. Go to **Users and Roles** and click **Add** to add a new role.
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width="400" height="200"/>
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/>
@@ -74,15 +80,15 @@ In the following document we will explain how to connect OKTA as a third party I
     <br/>
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width="300" height="300"/>
 
-3. Login to `https://localhost:9443/admin` and navigate to **Role Permissions** section under the **Settings** tab in the left menu bar.
+3. Log in to `https://localhost:9443/admin` and navigate to **Role Permissions** section under the **Settings** tab in the left menu bar.
 
     [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
 
-    Click on the **Add role permission** button in the above screen and a popup dialog will be opened as shown below. Enter `okta_role` in the **Provide role name** field and click on **Next** button.
+    Click **Add role permission**, a popup dialog will be opened as shown below. Enter `okta_role` in the **Provide role name** field and click **Next**.
 
     [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png) 
 
-    Now, under the **Select permissions** section, click on **Custom permissions** radio button and start assigning the permissions as shown below.
+    Go to **Select permissions**, click  **Custom permissions** and start assigning the permissions as shown below. These permissions will allow a user having the `okta_role` to login to Publisher and Developer Portals.
 
     [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)
 
@@ -96,10 +102,10 @@ In the following document we will explain how to connect OKTA as a third party I
 
     [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)
 
-    Now, click on **Save** button. (These permissions will allow a user having the `okta_role` to login to Publisher and Developer Portals)
+    Click **Save** to save your changes.
 
     !!! note
-        If you want your user to do analytics based tasks, you should add the `okta_role` to the required analytics scopes according to your choice. You can follow the below steps as an example.
+        If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes according to your preference. The steps below are given as an example.
 
         -   Login to `https://localhost:9443/carbon`. 
         -   Navigate to **Main > Resources > Browse**. 
@@ -117,13 +123,13 @@ In the following document we will explain how to connect OKTA as a third party I
             ```
         - Click on **Save Content** button.
 
-4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name.  
+4. Log in to `https://localhost:9443/carbon`. Go to  **Identity Providers**. Click on **Add** to enter Identity Provider Name.  
 
     [![]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
     <br/>
     <br/>
 
-    Expand Federated authenticators -> OAuth2/OpenID connect configuration add the following details.
+    Expand **Federated authenticators** -> **OAuth2/OpenID Connect Configuration**. Add the following details.
     [![]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png) 
 <table>
     <colgroup>
@@ -183,28 +189,28 @@ In the following document we will explain how to connect OKTA as a third party I
     </tbody>
 </table>
 
-5. Expand Claim configuration -> Basic claim configuration and add the following claim configurations
+5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below.
     [![]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png) 
 
-6. Expand Role configuration and add the following role. Here we check if the user that is being logged in has the role `any` and assign him the local role okta_role
+6. Expand **Role configuration** and add `okta_role` as shown below. You can check if the user logged in has the role `any` and assign the local `okta_role`.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"/>
 
-7. Enable Just in time provisioning so that the user will be saved in the API-Manager user store
+7. Enable **Just-in-Time Provisioning** for the user to be saved in the API Manager user store.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"/>
 
-8. Navigate to Service providers -> list as shown below. There are two service providers created apim_publisher, apim_devportal. Click on edit on apim_publisher.
+8. Go to **Service Providers** -> **List**. There are two service providers available by default; `apim_publisher` and `apim_devportal`. Click **Edit** to edit `apim_publisher`.
 
     !!!warning
-        You will have to logged into the Developer Portal and Publisher at least once for the two service providers to appear as it is created during first login.
+        You need to be logged into the Developer Portal and Publisher at least once for the two service providers to appear, as it is created during first login.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png"/>
 
-    Expand local and outbound authentication configuration and under federated authentication select the name of the identity provider you created.
+    Expand **Local & Outbound Authentication Configuration**. Under **Federated Authentication** select the identity provider you created.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png"/>
     
-    Repeat the same for apim_devportal service provider.
+    Repeat this step for `apim_devportal`.
 
-Now you are able to login to the Publisher & Developer Portal using OKTA.
+Now you will be able to login to the Publisher & Developer Portal using OKTA.
