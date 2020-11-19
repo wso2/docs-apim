@@ -94,7 +94,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
          [![Overview page resource section]({{base_path}}/assets/img/learn/overview-page-resource-section.jpg)]({{base_path}}/assets/img/learn/overview-page-resource-section.jpg)
 
-      2. Modify the resources as follows and click **SAVE** to update the resources.
+     2. Modify the resources as follows and click **SAVE** to update the resources.
 
           1. Click delete, as shown below, to remove all the existing resources.
 
@@ -108,23 +108,26 @@ Follow the instructions below to create a REST API using the basic flow.
          
              [![Newly added resource]({{base_path}}/assets/img/learn/newly-added-resource.jpg)]({{base_path}}/assets/img/learn/newly-added-resource.jpg)
 
-3. Expand the created **GET** operation to add **Summary and Description** and **Operation governance**.
+     3. Expand the created **GET** operation to add **Summary and Description** and **Operation governance**.
 
-     In addition, you can add the resource **Parameters** using the **Parameters** section.
+          1. Turn the **Security** setting **Off** if you want to **make a certain operation of the API non secured** and accessible without passing an access token. To make the **whole API non secured**, and fully accessible without an access token, turn  the security setting **off** in **all the operations** of the API.
+                         [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)       
+     
+           2. In addition, you can add the resource **Parameters** using the **Parameters** section.
 
-      [![]({{base_path}}/assets/img/learn/adding-params-to-resources.jpg)]({{base_path}}/assets/img/learn/adding-params-to-resources.jpg)
+              [![]({{base_path}}/assets/img/learn/adding-params-to-resources.jpg)]({{base_path}}/assets/img/learn/adding-params-to-resources.jpg)
 
-    
-     You can define the following parameter types based on the resource parameters that you add.
-
-     | Parameter Type                          | Description                                                                                                                                                                                     |
-     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     | `query`| Contains the fields added as part of the invocation URL that contains the data to be used to call the backend service.                                                                             |
-     | `header`| Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request, which defines the operating parameters of the transaction. |
-     | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
-     | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
-
-4. Optionally view the API definition.
+              You can define the following parameter types based on the resource parameters that you add.
+           
+        
+             | Parameter Type                          | Description                                                                                                                                                                                     |
+             |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+             | `query`| Contains the fields added as part of the invocation URL that contains the data to be used to call the backend service.                                                                             |
+             | `header`| Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request, which defines the operating parameters of the transaction. |
+             | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
+             | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
+          
+8. Optionally, view the API definition.
 
      Click **API Definition**. The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
 
