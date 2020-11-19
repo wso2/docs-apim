@@ -5,10 +5,10 @@ WSO2 products are managed internally using SOAP Web services known as **admin se
 A service in WSO2 products is defined by the following components:
 
 -   **Service component**: provides the actual service
--   **UI component**: provides the Web user interface to the service
+-   **UI component**: provides the web user interface to the service
 -   **Service stub**: provides the interface to invoke the service generated from the service WSDL
 
-There can be instances where you want to call back-end web services directly. For example, in test automation, to minimize the overhead of having to change automation scripts whenever a UI change happens, developers prefer to call the underlying services in scripts. The topics below explain how to discover and invoke these services from your applications.
+There can be instances where you want to call back-end web services directly. For example, during test automation, to minimize the overhead of changing automation scripts whenever a UI change happens, developers prefer to call the underlying services in scripts. The topics below explain how to discover and invoke these services from your applications.
 
 ## Discovering the admin services
 
@@ -34,7 +34,7 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
 
 3.  When the server starts, press the Enter/Return key several times to get the OSGi shell in the console.
 
-4. View the list of admin services of your product. 
+4. View the list of admin services of your product.
 
      Type `listAdminServices` in the OSGi shell and press `Enter`.
 
@@ -42,24 +42,20 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
     osgi> listAdminServices
     ```
     
-     The list of admin services related to WSO2 API Manager product appear. 
+     The list of admin services related to WSO2 API Manager product will appear as shown below. 
      
-     For example:
-
      ![Discover Admin Services]({{base_path}}/assets/img/develop/discover-admin-services.png)
     
 5.  If required, view the service contract of an admin service.
 
-     Select the admin service's URL, copy it, and paste it in your browser with **?wsdl** at the end. 
-
-     For example:
+     Select the admin service's URL, copy and paste it in your browser with **?wsdl** at the end. An example is given below.
 
      ``` shell
      https://localhost:9443/services/RemoteUserStoreManagerService?wsdl
      ```
 
     !!! tip
-        In products such as WSO2 Enterprise Integrator and WSO2 API Manager, the port is 8243 (assuming port offset is 0). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
+        In products such as WSO2 Enterprise Integrator and WSO2 API Manager, the port used is 8243 (assuming that the port offset is 0). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
 
      The admin service's URL appears as follows in the previous list that you discovered:
 
@@ -68,11 +64,11 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
      ```
 
 !!! note
-    After discovering admin service, you can restart the server without `-DosgiConsole`
+    After discovering the admin service, you can restart the server without `-DosgiConsole`
 
 ## Invoking an admin service
 
-For the purpose of preventing anonymous invocations admin services are secured using common types of security protocols such as HTTP basic authentication, WS-Security username token, and session-based authentication. For example, the `UserAdmin` web service is secured using HTTP basic authentication. 
+For the purpose of preventing anonymous invocations, admin services are secured using common types of security protocols such as HTTP basic authentication, WS-Security username token, and session-based authentication. For example, the `UserAdmin` web service is secured using HTTP basic authentication.
 
 Follow the instructions below to invoke a service:
 
@@ -84,12 +80,12 @@ Follow the instructions below to invoke a service:
 
 The wsdl2java tool, which is shipped with WSO2 products by default, hides all the complexity and presents you with a proxy to the back-end service. The stub generation happens during the project build process within the Maven POM files. It uses the Apache Maven AntRun plugin to execute the wsdl2java tool.
 
-You can also use the Java client program given [here](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/remote-user-api/4.2.X/) to invoke admin services. All dependency JAR files that you need to run the latter mentioned Java client are available in the `<API-M_HOME>/lib` directory.
+You can also use the Java client program given [here](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/remote-user-api/4.2.X/) to invoke admin services. All dependency JAR files required to run the Java client are available in the `<API-M_HOME>/lib` directory.
 
 
 ### Authenticating the user
 
-The example code below authenticates the user and gets the session cookie:
+The sample code given below authenticates the user and gets the session cookie:
 
 ``` java
 import org.apache.axis2.AxisFault;  
