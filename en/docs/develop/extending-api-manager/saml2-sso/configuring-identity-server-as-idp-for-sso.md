@@ -232,9 +232,17 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 6.  If you sign in to the Publisher, then access the Developer Portal application, click **Login** and verify that the same user is already authenticated in the Developer Portal.
 
+!!!info
+    When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be update via federation following each login event. To preserve the user profile details without any changes you need to enable the `SystemRolesRetainedProvisionHandler`.
+    Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+    ```
+        [authentication.framework.extensions]
+        provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
+    ```
+
 !!! note
     Even with SSO enabled, if the users do not have sufficient privileges to access API Publisher/Developer Portal/Admin Portal or any other application, they will not be authorized to access them.
 
 !!! info
     For more information on Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
-
