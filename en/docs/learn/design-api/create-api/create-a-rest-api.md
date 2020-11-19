@@ -108,7 +108,7 @@ Follow the instructions below to create a REST API using the basic flow.
          
              [![Newly added resource]({{base_path}}/assets/img/learn/newly-added-resource.jpg)]({{base_path}}/assets/img/learn/newly-added-resource.jpg)
 
-3. Expand the created **GET** operation to add **Summary and Description** and **Operation governance**.
+8. Expand the created **GET** operation to add **Summary and Description** and **Operation governance**.
 
      In addition, you can add the resource **Parameters** using the **Parameters** section.
 
@@ -124,7 +124,11 @@ Follow the instructions below to create a REST API using the basic flow.
      | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
      | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
 
-4. Optionally view the API definition.
+    !!! note
+            If you want to make certain operations of the API accessible without passing an access token, turn the **Security** setting **Off**  in each of those operations. To make the API fully accessible without an access token, turn it off in all the operations of the API.  
+            [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
+               
+9. Optionally view the API definition.
 
      Click **API Definition**. The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
 
