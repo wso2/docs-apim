@@ -602,17 +602,6 @@ nav:
                         - 'Text Mapping with In-memory Transport': use-cases/examples/streaming_examples/TextMappingWithInmemoryTransport.md
                         - 'Converting Units': use-cases/examples/streaming_examples/UnitConversionExtentionSample.md
                         - 'Calculating Aggregations Over Time': use-cases/examples/streaming_examples/AggregateOverTime.md
-          - 'Tutorials':
-              - 'Tutorials Overview': 'examples/tutorials-overview.md'
-              - 'Performing Real-time ETL with MySQL': 'examples/performing-real-time-etl-with-mysql.md'
-              - 'Performing Real-time ETL with Files': 'examples/performing-real-time-etl-with-files.md'
-              - 'Creating an ETL Application via SI Tooling': 'examples/creating-etl-application-via-tooling.md'
-              - 'Working with Kafka': 'examples/working-with-kafka.md'
-              - 'Working with Business Rules': 'admin/creating-business-rules-templates.md'
-              - 'Exposing Processed Data as API': 'examples/exposing-processed-data-as-api.md'
-              - 'Managing Streaming Data with Errors': 'examples/handling-requests-with-errors.md'
-              - 'Triggering Integrations via MI': 'examples/triggering-integrations-via-micro-integrator.md'
-              - 'Running SI with Docker and Kubernetes': 'examples/running-si-with-docker-and-kubernetes.md'
     - Observe:
           - Observe and Manage Overview: learn/analytics/observe-overview.md
           - Analytics:
@@ -664,6 +653,17 @@ nav:
                   - Using Inbound Endpoints: use-cases/tutorials/using-inbound-endpoints.md
                   - Reusing Mediation Sequences: use-cases/tutorials/using-templates.md
                   - Integrating with SAP: use-cases/tutorials/sap-integration.md
+        - Streaming Tutorials:
+                  - 'Tutorials Overview': use-cases/streaming-tutorials/tutorials-overview.md
+                  - 'Performing Real-time ETL with MySQL': use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
+                  - 'Performing Real-time ETL with Files': use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
+                  - 'Creating an ETL Application via Wizard': use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
+                  - 'Working with Kafka': use-cases/streaming-tutorials/working-with-kafka.md
+                  - 'Working with Business Rules': admin/creating-business-rules-templates.md
+                  - 'Exposing Processed Data as API': use-cases/streaming-tutorials/exposing-processed-data-as-api.md
+                  - 'Managing Streaming Data with Errors': use-cases/streaming-tutorials/handling-requests-with-errors.md
+                  - 'Triggering Integrations via MI': use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md
+                  - 'Running SI with Docker and Kubernetes': use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md
     - Install and Setup:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
