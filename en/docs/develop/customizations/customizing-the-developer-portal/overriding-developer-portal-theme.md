@@ -1,21 +1,20 @@
 # Overriding Developer Portal Theme
 
-WSO2 provides the developers with an easier approach to customize the UI. You do not need to have React, CSS, or HTML knowledge to customize the UI. We have a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family via the JSON file so that the changes appear throughout the Developer Portal. When updating the Developer Portal theme, you can update not only the look and feel but also behaviors such as making the listing view default instead of grid view, hiding social features, etc.
+Developers can easily customize the Developer Portal UI by modifying a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family for the entire Developer Portal by modifying the JSON file.  Hence, developers are not required to have any prior knowledge on React, CSS, or HTML to customize the UI.
+The Developer Portal theme can be customized not only for the look and feel but also for changing the listing view from default to grid view or vice versa, hiding social features, etc.
 
-## Devportal
+### Global Theming
 
-You can find default theme from the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
+You can find default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
-The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal.
-
-You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
-    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 
-    You can refer to `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
+    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
+    You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
     The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file.
 
-Ex: Enable landing page. **defaultTheme.js**.
+E.g., Enable landing page. **defaultTheme.js**.
 
 ```sh
 const Configurations = {
@@ -26,7 +25,7 @@ const Configurations = {
     },
 };
 ```
-Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
+E.g., Enable landing page. **defaultTheme.json** (Tenant theming).
 
 ```sh
 {
@@ -46,8 +45,8 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 1.  Download the sample theme here [sample-theme.zip]({{base_path}}/assets/attachments/learn/sample-theme.zip). 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
-     You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
-     Uses of resources in `login` folder will be discussed in [Applying thems for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages) section.
+     You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `defaultTheme.json` file name remains the same.
+     Uses of resources in `login` folder will be discussed in [Applying thems for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
 
       ```
       └──apim
@@ -72,7 +71,7 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 3.  Sign in to the WSO2 Admin Portal (`https://<server-host>:<server-port>/admin`) with your tenant username (format: `<username>@<domain>.com`) and password.
 
 4.  Click **Tenant Theme** under **Settings** category and click **Browse File to Upload** to upload your ZIP file.
-    Alternatively, you can drag and drop your ZIP file to upload. 
+    Alternatively, you can drag and drop your ZIP file to upload.
 
     ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
@@ -81,7 +80,7 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
     Note the new theme is applied.
     
 !!!Note
-    From API-M 3.1.0 onwards, defaultTheme.json can contain only the custom modifications done to the default theme. 
+    From API-M 3.1.0 onwards, `defaultTheme.json` can contain only the custom modifications done to the default theme. 
     Therefore the following are valid `defaultTheme.json` files.
     
     ```
