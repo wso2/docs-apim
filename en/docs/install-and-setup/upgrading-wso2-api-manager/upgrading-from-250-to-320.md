@@ -2611,7 +2611,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         password = "password"
         ```
 
-    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based previous datasource migrated WSO2AM_STATS_DB for statistics**.
+    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based previous datasource WSO2AM_STATS_DB for statistics** .
 
         ``` java
         [[datasource]]
