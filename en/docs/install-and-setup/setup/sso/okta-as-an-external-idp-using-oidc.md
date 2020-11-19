@@ -202,6 +202,15 @@ Before you begin, make sure you do the following.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"/>
 
+    !!!info
+        When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be update via federation following each login event. To preserve the user profile details without any changes you need to enable the `SystemRolesRetainedProvisionHandler`.
+        Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+        ```
+            [authentication.framework.extensions]
+            provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
+        ```
+
 8. Go to **Service Providers** -> **List**. There are two service providers available by default; `apim_publisher` and `apim_devportal`. Click **Edit** to edit `apim_publisher`.
 
     !!!warning
