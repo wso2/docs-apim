@@ -26,6 +26,7 @@ const Configurations = {
     },
 };
 ```
+
 | Option | type | Description |
 | ------ | -- | ----------- |
 | logo | string | Relative path to logo |
