@@ -1,12 +1,13 @@
 # Overriding Developer Portal Theme
 
-WSO2 provides the developers with an easier approach to customize the UI. You do not need to have React, CSS, or HTML knowledge to customize the UI. We have a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family via the JSON file so that the changes appear throughout the Developer Portal. When updating the Developer Portal theme, you can update not only the look and feel but also behaviors such as making the listing view default instead of grid view, hiding social features, etc.
+Developers can easily customize the Developer Portal UI by modifying a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family for the entire Developer Portal by modifying the JSON file.  Hence, developers are not required to have any prior knowledge on React, CSS, or HTML to customize the UI.
+The Developer Portal theme can be customized not only for the look and feel but also for changing the listing view from default to grid view or vice versa, hiding social features, etc.
 
-## Devportal
+### Global Theming
 
 You can find default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
-The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
