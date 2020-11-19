@@ -2601,7 +2601,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     The following in an example of how the configurations should be defined when using MySQL.
 
-    -   The first datasource points to the **previous API-M version's AM_DB datasource.**
+    -   The first datasource points to the **newly migrated AM_DB datasource.**
 
         ``` java
         [database.apim_db]
@@ -2611,7 +2611,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         password = "password"
         ```
 
-    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based previous datasource WSO2AM_STATS_DB for statistics** .
+    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based newly migrated WSO2AM_STATS_DB for statistics**.
 
         ``` java
         [[datasource]]
