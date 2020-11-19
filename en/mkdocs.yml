@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -281,6 +281,7 @@ nav:
           - API Controller:
                 - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
                 - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
+                - Importing apis from AWS API Gateway to the WSO2 developer portal : learn/api-controller/Importing-apis-from-aws-api-gateway-to-the-wso2-developers-portal.md
                 - Migrating APIs to Different Environments: learn/api-controller/migrating-apis-to-different-environments.md
                 - Migrating API Products (with or without dependent APIs) to Different Environments: learn/api-controller/migrating-api-products-to-different-environments.md
                 - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
