@@ -610,7 +610,7 @@ nav:
               - 'Deploying Siddhi Applications': 'develop/deploying-Streaming-Applications.md'
               - 'Exporting Siddhi Applications': 'develop/exporting-Siddhi-Applications.md'
     - Observe:
-          - Observe and Manage Overview: learn/analytics/observe-overview.md
+          - Observability Overview: learn/analytics/observe-overview.md
           - Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
                 - Viewing API Statistics:
