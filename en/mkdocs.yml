@@ -634,6 +634,11 @@ nav:
                       - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
                 - Analytics Event Streams and Aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
+          - Monitoring the Streaming Integrator:
+              - Configuring Grafana Dashboards: learn/analytics/observe-si/setting-up-grafana-dashboards.md
+              - Managing Grafana Dashboards: learn/analytics/observe-si/managing-grafana-dashboards.md
+              - Monitoring Streaming Components: learn/analytics/observe-si/monitoring-si-performance-via-grafana.md
+              - Monitoring ETL Flows: learn/analytics/observe-si/viewing-dashboards.md
     - Tutorials:
         - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
         - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
