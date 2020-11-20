@@ -2,9 +2,11 @@
 
 ## API-led Integration
 
-API Manager enables you to build integration services from the ground up using [Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. These integration services can 
+API Manager enables you to build integration services from the ground up using [Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the Service Catalog at the time of deployment.
 
 <img src="../../assets/img/intro/API-led-integration.png" width="700">
+
+As indicated in the diagram above, integrations are a building block that enables connectivity with SaaS applications, services and microservices, databases, files, message brokers, and also propriety and legacy systems.
 
 ## Integration Use Cases
 
