@@ -611,7 +611,7 @@ nav:
               - 'Exporting Siddhi Applications': 'develop/exporting-Siddhi-Applications.md'
     - Observe:
           - Observability Overview: learn/analytics/observe-overview.md
-          - Analytics:
+          - API Manager Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
                 - Viewing API Statistics:
                       - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
@@ -641,6 +641,25 @@ nav:
                       - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
                 - Analytics Event Streams and Aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
+          - Micro Integrator Observability:
+                - 'Micro Integrator Dashboard': 'observe/working-with-monitoring-dashboard.md'
+                - 'Micro Integrator CLI': 'observe/using-the-command-line-interface.md'
+                - 'Monitoring Message Round Trip': 'observe/observability.md'
+                - 'Analyzing Statistics and Tracing': 'observe/using-the-analytics-dashboard.md'
+                - 'Using the Management API': 'observe/working-with-management-api.md'
+                - Logging:
+                    #- 'Logs in WSO2 Micro Integrator' : 'administer-and-observe/logs/monitoring_logs.md'
+                    #- 'Configuring Log4j2 Properties' : 'administer-and-observe/logs/configuring_log4j_properties.md'
+                    - 'Managing Log Growth' : 'observe/logs/managing_log_growth.md'
+                    - 'Masking Sensitive Information in Logs' : 'observe/logs/masking_sensitive_info_in_logs.md'
+                - Metrics:
+                    - 'JMX Monitoring': 'observe/jmx_monitoring.md'
+                    - 'SNMP Monitoring': 'observe/snmp_monitoring.md'
+                    - 'Prometheus for Monitoring': 'observe/monitoring_with_prometheus.md'
+                - TCP Messages:
+                    - 'Starting TCPMon' : 'observe/tcp/starting_tcp_mon.md'
+                    - 'Message Monitoring with TCPMon' : 'observe/tcp/message_monitoring_with_tcpmon.md'
+                    - 'Other Usages of TCPMon' : 'observe/tcp/other_usages_of_tcpmon.md'
     - Tutorials:
         - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
         - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
