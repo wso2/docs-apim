@@ -470,7 +470,6 @@ nav:
     - Streaming:
           - Streaming Overview: use-cases/streaming-usecase/use-cases.md
           - Streaming Use Cases:
-                  - 'Use Cases': use-cases/streaming-use-case/use-cases.md
                   - 'Extracting Data from static Sources in Real Time': use-cases/streaming-use-case/extracting-data-from-static-sources-in-real-time.md
                   - 'Receiving Data in Transit': use-cases/streaming-use-case/receiving-data-in-transit.md
                   - 'Loading and Writing Data': use-cases/streaming-use-case/loading-and-writing-date.md
@@ -603,20 +602,9 @@ nav:
                         - 'Text Mapping with In-memory Transport': use-cases/examples/streaming_examples/TextMappingWithInmemoryTransport.md
                         - 'Converting Units': use-cases/examples/streaming_examples/UnitConversionExtentionSample.md
                         - 'Calculating Aggregations Over Time': use-cases/examples/streaming_examples/AggregateOverTime.md
-          - 'Tutorials':
-              - 'Tutorials Overview': 'examples/tutorials-overview.md'
-              - 'Performing Real-time ETL with MySQL': 'examples/performing-real-time-etl-with-mysql.md'
-              - 'Performing Real-time ETL with Files': 'examples/performing-real-time-etl-with-files.md'
-              - 'Creating an ETL Application via SI Tooling': 'examples/creating-etl-application-via-tooling.md'
-              - 'Working with Kafka': 'examples/working-with-kafka.md'
-              - 'Working with Business Rules': 'admin/creating-business-rules-templates.md'
-              - 'Exposing Processed Data as API': 'examples/exposing-processed-data-as-api.md'
-              - 'Managing Streaming Data with Errors': 'examples/handling-requests-with-errors.md'
-              - 'Triggering Integrations via MI': 'examples/triggering-integrations-via-micro-integrator.md'
-              - 'Running SI with Docker and Kubernetes': 'examples/running-si-with-docker-and-kubernetes.md'
     - Observe:
-          - Observe and Manage Overview: learn/analytics/observe-overview.md
-          - Analytics:
+          - Observability Overview: learn/analytics/observe-overview.md
+          - API Manager Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
                 - Viewing API Statistics:
                       - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
@@ -646,6 +634,30 @@ nav:
                       - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
                 - Analytics Event Streams and Aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
+          - Micro Integrator Observability:
+                - 'Micro Integrator Dashboard': 'observe/working-with-monitoring-dashboard.md'
+                - 'Micro Integrator CLI': 'observe/using-the-command-line-interface.md'
+                - 'Monitoring Message Round Trip': 'observe/observability.md'
+                - 'Analyzing Statistics and Tracing': 'observe/using-the-analytics-dashboard.md'
+                - 'Using the Management API': 'observe/working-with-management-api.md'
+                - Logging:
+                    #- 'Logs in WSO2 Micro Integrator' : 'administer-and-observe/logs/monitoring_logs.md'
+                    #- 'Configuring Log4j2 Properties' : 'administer-and-observe/logs/configuring_log4j_properties.md'
+                    - 'Managing Log Growth' : 'observe/logs/managing_log_growth.md'
+                    - 'Masking Sensitive Information in Logs' : 'observe/logs/masking_sensitive_info_in_logs.md'
+                - Metrics:
+                    - 'JMX Monitoring': 'observe/jmx_monitoring.md'
+                    - 'SNMP Monitoring': 'observe/snmp_monitoring.md'
+                    - 'Prometheus for Monitoring': 'observe/monitoring_with_prometheus.md'
+                - TCP Messages:
+                    - 'Starting TCPMon' : 'observe/tcp/starting_tcp_mon.md'
+                    - 'Message Monitoring with TCPMon' : 'observe/tcp/message_monitoring_with_tcpmon.md'
+                    - 'Other Usages of TCPMon' : 'observe/tcp/other_usages_of_tcpmon.md'
+          - Monitoring the Streaming Integrator:
+              - Configuring Grafana Dashboards: learn/analytics/observe-si/setting-up-grafana-dashboards.md
+              - Managing Grafana Dashboards: learn/analytics/observe-si/managing-grafana-dashboards.md
+              - Monitoring Streaming Components: learn/analytics/observe-si/monitoring-si-performance-via-grafana.md
+              - Monitoring ETL Flows: learn/analytics/observe-si/viewing-dashboards.md
     - Tutorials:
         - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
         - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
@@ -665,6 +677,17 @@ nav:
                   - Using Inbound Endpoints: use-cases/tutorials/using-inbound-endpoints.md
                   - Reusing Mediation Sequences: use-cases/tutorials/using-templates.md
                   - Integrating with SAP: use-cases/tutorials/sap-integration.md
+        - Streaming Tutorials:
+                  - 'Tutorials Overview': use-cases/streaming-tutorials/tutorials-overview.md
+                  - 'Performing Real-time ETL with MySQL': use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
+                  - 'Performing Real-time ETL with Files': use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
+                  - 'Creating an ETL Application via Wizard': use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
+                  - 'Working with Kafka': use-cases/streaming-tutorials/working-with-kafka.md
+                  - 'Working with Business Rules': admin/creating-business-rules-templates.md
+                  - 'Exposing Processed Data as API': use-cases/streaming-tutorials/exposing-processed-data-as-api.md
+                  - 'Managing Streaming Data with Errors': use-cases/streaming-tutorials/handling-requests-with-errors.md
+                  - 'Triggering Integrations via MI': use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md
+                  - 'Running SI with Docker and Kubernetes': use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md
     - Install and Setup:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
@@ -681,7 +704,14 @@ nav:
             - Installing Micro Integrator:
                   - Installing via the Installer: install-and-setup/installation/install_in_vm_installer.md
                   - Installing via the Binary: install-and-setup/installation/install_in_vm_binary.md
-                  - Installing as a Windows Service: setup/installation/install_as_service.md'd
+                  - Installing as a Windows Service: setup/installation/install_as_service.md
+            - Installing Streaming Integrator:
+                  - 'Installing via the Installer': install-and-setup/install/installing-the-product/installing-si-in-vm.md
+                  - 'Installing via the Binary': install-and-setup/install/installing-the-product/installing-si-binary.md
+                  - 'Installing as a Windows Service': install-and-setup/install/installing-the-product/installing-the-binary/installing-si-as-windows-service.md
+                  - 'Running the Streaming Integrator in Containers':
+                        - 'Installing in Docker': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
+                        - 'Installing in Kubernetes': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md'
             - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
