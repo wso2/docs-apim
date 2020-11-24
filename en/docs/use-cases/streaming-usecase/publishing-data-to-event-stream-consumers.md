@@ -6,7 +6,7 @@ This guide covers how WSO2 Streaming Integrator publishes data to destinations a
 
 Publishing to destinations involve using transports such as HTTP, TCP, email, etc., where the data is sent to an endpoint that is available to listen to messages and respond. 
 
-![Publishing to destinations](../images/publishing-data/publishing-to-destination.png)
+![Publishing to destinations](../../assets/img/streaming/publishing-data/publishing-to-destination.png)
 
 To understand this, consider a warehouse that needs to publish each stock update to a specific endpoint so that the stock can be monitored by the warehouse manager. To address this requirement via the WSO2 Streaming Integrator, you can define an output [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) and connect a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) to it as shown below. In this example, let's use an HTTP sink.
 
@@ -22,7 +22,7 @@ The above sink configuration publishes all the events in the `StockStream` outpu
 
 To try out the above example, follow the steps below:
 
-1. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
    
 2. Open a new file and copy the following Siddhi Application to it.
 
@@ -67,9 +67,9 @@ To try out the above example, follow the steps below:
     
 4. Start both the Siddhi applications. To do this, open each siddhi application and click the **Play** icon.
 
-    ![Play](../images/extracting-data-from-static-sources/play.png)
+    ![Play](../../assets/img/streaming/extracting-data-from-static-sources/play.png)
     
-5. Simulate an event with the following values for the `InputStream` stream of the `PublishStockUpdatesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/testing-a-Siddhi-Application.md).
+5. Simulate an event with the following values for the `InputStream` stream of the `PublishStockUpdatesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).
 
     | **Attribute** | **Value** |
     |---------------|-----------|
@@ -113,7 +113,7 @@ The following are the supported mappers when you publish data to destinations.
 
 WSO2 Streaming Integrator allows you to publish data to messaging systems such as Kafka, JMS, NATS, GooglePubSub, etc. so that you can expose streaming data to applications that cannot read streaming data, but are able to subscribe for data in messaging systems.
 
-![Publishing to messaging systems](../images/publishing-data/publishing-to-message-broker.png)
+![Publishing to messaging systems](../../assets/img/streaming/publishing-data/publishing-to-message-broker.png)
 
 To understand this, consider a scenario where temperature readings from a sensor are published into a Kafka topic so that other devices that need to consume that data can subscribe for it. You can address this requirement via WSO2 Streaming Integrator by defining an output [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) and then connecting a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) to it as shown in the example below.
 
@@ -148,9 +148,9 @@ To try out the example in the previous subtopic, follow the steps below:
         
 3. Prepare WSO2 Streaming Integrator Tooling to publish data to a Kafka topic as follows:
 
-    1. Start and access [WSO2 Streaming Integrator Tooling](../develop/streaming-integrator-studio-overview.md). 
+    1. Start and access [WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md). 
     
-    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions](../develop/installing-siddhi-extensions.md).
+    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions](../develop/streaming-apps/installing-siddhi-extensions.md).
     
     3. Open a new file and add the following Siddhi application to it.
 
@@ -173,11 +173,11 @@ To try out the example in the previous subtopic, follow the steps below:
        
     4. Start the Siddhi application by clicking the **Play** icon in the top panel for it.
     
-        ![Play](../images/extracting-data-from-static-sources/play.png)
+        ![Play](../../assets/img/streaming/extracting-data-from-static-sources/play.png)
         
     5. Simulate an event for the `TemperatureStream` stream of the `TemperaturePublishingApp` Siddhi application. In this example, let's enter `30` as the value for the `temperature` attribute.
 
-        For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/testing-a-Siddhi-Application.md).
+        For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).
         
     6. To retrieve the events published to the Kafka topic, issue the following command from `<KAFKA_HOME>`
     
@@ -187,7 +187,7 @@ To try out the example in the previous subtopic, follow the steps below:
               
         You can see the following in the Kafka consumer log.
         
-        ![Kafka Log](../images/publishing-data/kafka-log.png)
+        ![Kafka Log](../../assets/img/streaming/publishing-data/kafka-log.png)
         
 ### Supported messaging systems
 

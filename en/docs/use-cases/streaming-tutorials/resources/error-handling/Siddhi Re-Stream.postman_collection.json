@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "42d50060-052c-42fc-bb6c-756b878eee1e",
+		"name": "Siddhi Re-Stream",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Erroneous Events from Error Store",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/error-handler/erroneous-events?siddhiApp=SinkTransportErrorTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"error-handler",
+						"erroneous-events"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "siddhiApp",
+							"value": "SinkTransportErrorTest"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReStream Event(s)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"event\": {\n            \"timestamp\": 1593723508932,\n            \"data\": [\n                \"Cake2\",\n                20.222\n            ],\n            \"isExpired\": false\n        },\n        \"id\": 2,\n        \"timestamp\": 1593723509006,\n        \"siddhiAppName\": \"SinkTransportErrorTest\",\n        \"streamName\": \"TestPublisherStream\",\n        \"cause\": \"Connection refused: localhost/127.0.0.1:8090\",\n        \"stackTrace\": \"io.siddhi.core.exception.ConnectionUnavailableException: HTTP sink on stream SinkTransportErrorTest:@sink( type = \\\"http\\\", on.error = \\\"STORE\\\", blocking.io = \\\"true\\\", publisher.url = \\\"http://localhost:8090/msssssseoSSSddd\\\", method = \\\"POST\\\", @map( type = \\\"json\\\"))define stream TestPublisherStream (name string, amount double) of Siddhi App 'SinkTransportErrorTest' failed to publish events to endpoint 'http://localhost:8090/msssssseoSSSddd'. Connection refused: localhost/127.0.0.1:8090\\n\\tat io.siddhi.extension.io.http.sink.HttpSink$HTTPResponseListener.onError(HttpSink.java:1107)\\n\\tat org.wso2.transport.http.netty.contractimpl.DefaultHttpResponseFuture.notifyHttpListener(DefaultHttpResponseFuture.java:129)\\n\\tat org.wso2.transport.http.netty.contractimpl.DefaultHttpClientConnector$1.onFailure(DefaultHttpClientConnector.java:292)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyErrorState(ConnectionAvailabilityFuture.java:151)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyFailure(ConnectionAvailabilityFuture.java:105)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture$1.operationComplete(ConnectionAvailabilityFuture.java:68)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture$1.operationComplete(ConnectionAvailabilityFuture.java:54)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:502)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:495)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:474)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:415)\\n\\tat io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:540)\\n\\tat io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:533)\\n\\tat io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:114)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:327)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:343)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:665)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:612)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:529)\\n\\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:491)\\n\\tat io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)\\n\\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\\n\\tat java.lang.Thread.run(Thread.java:748)\\nCaused by: org.wso2.transport.http.netty.contract.exceptions.ClientConnectorException: Connection refused: localhost/127.0.0.1:8090\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyErrorState(ConnectionAvailabilityFuture.java:146)\\n\\t... 19 more\\nCaused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/127.0.0.1:8090\\n\\tat sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)\\n\\tat sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)\\n\\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)\\n\\t... 7 more\\nCaused by: java.net.ConnectException: Connection refused\\n\\t... 11 more\\n\",\n        \"originalPayload\": \"{\\\"event\\\":{\\\"name\\\":\\\"Cake2\\\",\\\"amount\\\":20.222}}\",\n        \"errorOccurrence\": \"STORE_ON_SINK_ERROR\",\n        \"eventType\": \"EVENT\",\n        \"errorType\": \"TRANSPORT\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/error-handler",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"error-handler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"event\": {\n            \"timestamp\": 1593723508932,\n            \"data\": [\n                \"Cake2\",\n                20.222\n            ],\n            \"isExpired\": false\n        },\n        \"id\": 2,\n        \"timestamp\": 1593723509006,\n        \"siddhiAppName\": \"SinkTransportErrorTest\",\n        \"streamName\": \"TestPublisherStream\",\n        \"cause\": \"Connection refused: localhost/127.0.0.1:8090\",\n        \"stackTrace\": \"io.siddhi.core.exception.ConnectionUnavailableException: HTTP sink on stream SinkTransportErrorTest:@sink( type = \\\"http\\\", on.error = \\\"STORE\\\", blocking.io = \\\"true\\\", publisher.url = \\\"http://localhost:8090/msssssseoSSSddd\\\", method = \\\"POST\\\", @map( type = \\\"json\\\"))define stream TestPublisherStream (name string, amount double) of Siddhi App 'SinkTransportErrorTest' failed to publish events to endpoint 'http://localhost:8090/msssssseoSSSddd'. Connection refused: localhost/127.0.0.1:8090\\n\\tat io.siddhi.extension.io.http.sink.HttpSink$HTTPResponseListener.onError(HttpSink.java:1107)\\n\\tat org.wso2.transport.http.netty.contractimpl.DefaultHttpResponseFuture.notifyHttpListener(DefaultHttpResponseFuture.java:129)\\n\\tat org.wso2.transport.http.netty.contractimpl.DefaultHttpClientConnector$1.onFailure(DefaultHttpClientConnector.java:292)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyErrorState(ConnectionAvailabilityFuture.java:151)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyFailure(ConnectionAvailabilityFuture.java:105)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture$1.operationComplete(ConnectionAvailabilityFuture.java:68)\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture$1.operationComplete(ConnectionAvailabilityFuture.java:54)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:502)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:495)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:474)\\n\\tat io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:415)\\n\\tat io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:540)\\n\\tat io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:533)\\n\\tat io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:114)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:327)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:343)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:665)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:612)\\n\\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:529)\\n\\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:491)\\n\\tat io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:905)\\n\\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\\n\\tat java.lang.Thread.run(Thread.java:748)\\nCaused by: org.wso2.transport.http.netty.contract.exceptions.ClientConnectorException: Connection refused: localhost/127.0.0.1:8090\\n\\tat org.wso2.transport.http.netty.contractimpl.sender.ConnectionAvailabilityFuture.notifyErrorState(ConnectionAvailabilityFuture.java:146)\\n\\t... 19 more\\nCaused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/127.0.0.1:8090\\n\\tat sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)\\n\\tat sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)\\n\\tat io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)\\n\\tat io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)\\n\\t... 7 more\\nCaused by: java.net.ConnectException: Connection refused\\n\\t... 11 more\\n\",\n        \"originalPayload\": \"{\\\"event\\\":{\\\"name\\\":\\\"Cake2\\\",\\\"amount\\\":20.222}}\",\n        \"errorOccurrence\": \"STORE_ON_SINK_ERROR\",\n        \"eventType\": \"EVENT\",\n        \"errorType\": \"TRANSPORT\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/error-handler/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"error-handler",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Discard Event",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/error-handler/erroneous-events/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"error-handler",
+						"erroneous-events",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

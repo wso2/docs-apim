@@ -6,7 +6,7 @@ Loading and writing data involves publishing the data in a destination where it 
 
 WSO2 Streaming allows you to load data into databases so that the data can be available in a static manner for further processing. You can load the data received from another source unchanged or after processing it. This is achieved by defining [Siddhi tables](https://siddhi.io/en/v5.1/docs/query-guide/#table) that are connected to database tables, and then writing queries to publish data into those tables so that it can be transferred to the connected database tables.
 
-![Loading Data to Databases](../images/loading-and-writing-data/load-data-to_database.png)
+![Loading Data to Databases](../../assets/img/streaming/loading-and-writing-data/load-data-to_database.png)
 
 To understand this, consider an example of an sweet shop that needs to save all its sales records in a database table. To address this, you can write a Siddhi application as follows:
 
@@ -67,9 +67,9 @@ To try out the example given above, follow the steps below:
               PRIMARY KEY (ref));
             ```
         
-2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
-3. Install the `RDBMS - MySQL` extension in Streaming Integrator tooling. For instructions to install an extension, see [Installing Siddhi Extensions](../develop/installing-siddhi-extensions.md).
+3. Install the `RDBMS - MySQL` extension in Streaming Integrator tooling. For instructions to install an extension, see [Installing Siddhi Extensions](../develop/streaming-apps/installing-siddhi-extensions.md).
 
 4. Open a new file in WSO2 Streaming Integrator Tooling and add the following Siddhi content to it.
 
@@ -90,7 +90,7 @@ To try out the example given above, follow the steps below:
    
    Save the Siddhi application.   
     
-5. Simulate an event with the following values for the `SalesRecordsStream` stream of the `SalesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/testing-a-Siddhi-Application.md).
+5. Simulate an event with the following values for the `SalesRecordsStream` stream of the `SalesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).
     
     | **Attribute** | **Value**        |
     |---------------|------------------|
@@ -104,7 +104,7 @@ To try out the example given above, follow the steps below:
     
     The table is displayed as follows, indicating that the event you generated is added as a record.
     
-    ![Updated MySQL Table](../images/loading-and-writing-data/updated-mysql-table.png)
+    ![Updated MySQL Table](../../assets/img/streaming/loading-and-writing-data/updated-mysql-table.png)
     
 ### Publishing data on demand via store queries
 
@@ -131,7 +131,7 @@ The mapper available for loading data to databases is [Keyvalue](https://siddhi-
 
 WSO2 Streaming allows you to write data into files so that the data can be available in a static manner for further processing. You can write the data received from another source unchanged or after processing it. This is achieved by defining an output [stream](https://ei.docs.wso2.com/en/7.2.0/streaming-integrator/guides/loading-and-writing-date/) and then connecting a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) of the [file](https://siddhi-io.github.io/siddhi-io-file/api/2.0.10/#sink) type.
 
-![Loading Data to Databases](../images/loading-and-writing-data/load-data-to-file.png)
+![Loading Data to Databases](../../assets/img/streaming/loading-and-writing-data/load-data-to-file.png)
 
 To understand this, consider the example of a lab with a sensor that reports the temperature at different times. These temperature readings need to be saved in a file for reference when carrying out further analysis.  
 
@@ -149,7 +149,7 @@ Here, any event directed to the `TemperatureLogStream` is written into the `/use
 
 To try out the above example by including the given output stream and the sink configuration in a complete Siddhi application, follow the steps below:
 
-1. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file and copy the following Siddhi Application to it.
 
@@ -172,7 +172,7 @@ To try out the above example by including the given output stream and the sink c
     !!! tip
         If required, you can replace the value for the `file.uri` parameter to a preferred location in your machine.
    
-3. Simulate an event with the following values for the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/testing-a-Siddhi-Application.md).  
+3. Simulate an event with the following values for the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).  
     
     | **Attribute**   | **Value**       |
     |-----------------|-----------------|
@@ -181,7 +181,7 @@ To try out the above example by including the given output stream and the sink c
     
 4. Open the `/users/temperature/temperature.csv` file. It contains a line as shown below.
 
-    ![Updated File](../images/loading-and-writing-data/updated-file.png)
+    ![Updated File](../../assets/img/streaming/loading-and-writing-data/updated-file.png)
 
     This is the event that you simulated that has been written into the file by WSO2 Streaming Integrator.
     
@@ -201,7 +201,7 @@ The following mappers are supported for the File extension.
 
 WSO2 SI allows you to store data in cloud storages in a static manner so that it can be accessed for further processing. The data you store can be the unprocessed data you received from another source or output data generated by WSO2 Streaming Integrator. This is achieved by defining an output [stream](https://ei.docs.wso2.com/en/7.2.0/streaming-integrator/guides/loading-and-writing-date/) and then connecting a [sink](https://siddhi.io/en/v5.1/docs/query-guide/#sink) of a type that links to cloud storages.
 
-![Saving Data in Cloud Storages](../images/loading-and-writing-data/load-data-to-cloud.png)
+![Saving Data in Cloud Storages](../../assets/img/streaming/loading-and-writing-data/load-data-to-cloud.png)
 
 To understand this, To understand this, consider the example of a lab with a sensor that reports the temperature at different times. These temperature readings need to be uploaded to a cloud-based application for reference when carrying out further analysis. 
 
@@ -228,7 +228,7 @@ To try out the above example, follow the steps below:
     
     3. Create a bucket named `temperaturelog` in the Google Cloud Console.
     
-2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 3. Open a new file and copy the following Siddhi Application to it.
 
@@ -251,7 +251,7 @@ To try out the above example, follow the steps below:
    
    The above Siddhi application gets all the events in the `LabTemperatureStream` stream and inserts them into the `TemperatureLogStream` stream so that they can be stored in the `temperaturelog` bucket in the Google Cloud Console via the sink connected to the `TemperatureLogStream` stream.
    
-4. Simulate an event to the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application with the following values via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/testing-a-Siddhi-Application.md). 
+4. Simulate an event to the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application with the following values via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md). 
     
     | **Attribute**   | **Value**       |
     |-----------------|-----------------|
