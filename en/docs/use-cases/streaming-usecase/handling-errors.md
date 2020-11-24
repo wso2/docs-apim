@@ -36,7 +36,7 @@ This can be used with the following:
 
 - Siddhi Streams
 
-    ![Store Stream Errors](../images/handling-errors/store-stream-error.png)
+    ![Store Stream Errors](../../assets/img/streaming/handling-errors/store-stream-error.png)
 
     This on-error action can be specified for a  stream via the `@OnError()` annotation. 
 
@@ -54,7 +54,7 @@ This can be used with the following:
     
 - Sinks
 
-    ![Store Sink Errors](../images/handling-errors/store-sink-error.png)
+    ![Store Sink Errors](../../assets/img/streaming/handling-errors/store-sink-error.png)
 
     You can specify an on-error action by including the `on-error` parameter within the sink configuration as shown below.
     
@@ -123,7 +123,7 @@ To try out storing errors in the store, follow the steps below:
 
 2. Download the [productions.csv file](https://github.com/wso2/docs-ei/blob/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice in your machine.
 
-3. [Create a Siddhi application](../develop/creating-a-Siddhi-Application.md) as follows and [deploy it in the Streaming Integrator server](../develop/deploying-Streaming-Applications.md).
+3. [Create a Siddhi application](../develop/streaming-apps/creating-a-Siddhi-Application.md) as follows and [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
@@ -156,13 +156,13 @@ To try out storing errors in the store, follow the steps below:
    
     The Error Store Explorer opens as shown below. 
       
-    ![Access Error Store](../images/handling-requests-with-errors/error-store-explorer-without-server.png)
+    ![Access Error Store](../../assets/img/streaming/handling-requests-with-errors/error-store-explorer-without-server.png)
     
 7. Click **Connect to Server**. Then enter information as follows:
 
     To check the port of the Streaming Integrator Server, Open <SI_HOME>/conf/server/deployment.yaml file. Under Listener Configurations of wso2.transport.http, locate the listener configuration with msf4j-https as the ID and specify its port as shown in the extract below.
    
-    ![Server Configuration](../images/quick-start-guide-101/connect-error-store.png)
+    ![Server Configuration](../../assets/img/streaming/quick-start-guide-101/connect-error-store.png)
     
     |**Parameter**|**Value**    |
     |-------------|-------------|
@@ -185,7 +185,7 @@ To try out storing errors in the store, follow the steps below:
         
     3. Access Streaming Integrator Tooling and click **Tools** -> **Error Store Explorer**. Then in the **Siddhi App** section, select **CopyingProductionStatsApp** Siddhi application from the drop down list. The error store displays the sink error as follows.
     
-        ![Sink Error](../images/handling-errors/sink-error.png
+        ![Sink Error](../../assets/img/streaming/handling-errors/sink-error.png)
     
     4. To correct the error and replay it, follow the procedure below:
     
@@ -205,13 +205,13 @@ To try out storing errors in the store, follow the steps below:
         
     2. Access Streaming Integrator Tooling and click **Tools** -> **Error Store Explorer**. Then in the **Siddhi App** section, select **CopyingProductionStatsApp** Siddhi application from the drop down list. The error store displays the mapping error as follows.
     
-        ![Mapping Error](../images/handling-errors/mapping-error.png)
+        ![Mapping Error](../../assets/img/streaming/handling-errors/mapping-error.png)
         
     3. To correct this error and replay the event, follow the procedure below:
     
         1. Click **Detailed Info**. This opens the **Error Entry** dialog box where the event is displayed in a text field as shown below.
         
-            ![Mapping Error Details](../images/handling-errors/mapping-error-details.png)
+            ![Mapping Error Details](../../assets/img/streaming/handling-errors/mapping-error-details.png)
             
         2. In the text field, edit the event and correct the format by removing one of the string values.
             
@@ -224,7 +224,7 @@ This involves logging the event with details of the error and then dropping it. 
 
 - Siddhi Streams
 
-    ![Log Stream Errors](../images/handling-errors/log-stream-error.png)
+    ![Log Stream Errors](../../assets/img/streaming/handling-errors/log-stream-error.png)
 
     You can specify this on-error action for streams via the `@OnError` annotation as shown below.
 
@@ -236,7 +236,7 @@ This involves logging the event with details of the error and then dropping it. 
     
 - Sinks
 
-    ![Log Sink Errors](../images/handling-errors/log-sink-error.png)
+    ![Log Sink Errors](../../assets/img/streaming/handling-errors/log-sink-error.png)
 
     You can specify this on-error action by including the `on-error` parameter within the sink configuration as shown below.
     ```
@@ -255,7 +255,7 @@ This involves logging the event with details of the error and then dropping it. 
 
 To try out logging events with errors, consider the same example previously used where production statistics is copied from one file to another.
 
-1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/deploying-Streaming-Applications.md).
+1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
@@ -307,7 +307,7 @@ This can be used with the following:
 
 - Siddhi Streams
 
-    ![Stream Stream Errors](../images/handling-errors/stream-stream-error.png)
+    ![Stream Stream Errors](../../assets/img/streaming/handling-errors/stream-stream-error.png)
 
     This on-error action can be specified for a  stream via the `@OnError()` annotation. 
     
@@ -329,7 +329,7 @@ This can be used with the following:
     
 - Sinks
 
-    ![Stream Sink Errors](../images/handling-errors/log-sink-error.png)
+    ![Stream Sink Errors](../../assets/img/streaming/handling-errors/log-sink-error.png)
 
     You can specify this on-error action by including the `on-error` parameter within the sink configuration as shown below.
 
@@ -353,7 +353,7 @@ This can be used with the following:
 
 To try out streaming events with errors, follow the procedure below.
 
-1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/deploying-Streaming-Applications.md).
+1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
