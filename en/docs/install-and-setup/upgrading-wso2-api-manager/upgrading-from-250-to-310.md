@@ -1877,6 +1877,23 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     !!! note
         When performing Analytics migration in WSO2 API-M Analytics 3.1.0, you need to set the **defaultAutoCommit** value to **true** in the `APIM_ANALYTICS_DB` and `WSO2AM_STATS_DB` datasource configurations.
 
+    !!! info
+        Sometimes due to primary key length exceeding, we have to use different encoding types which take lower bytes (than UTF8). Adding encoding and collation to database should be done when Analytics DB is created (i.e. before the tables are created). Please refer the sample commands provided below.    
+    
+        If you are using MySQL,
+    
+        ```sql
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+        For more information about collation in MySQL, see [this](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html).
+    
+        If you are using MSSQL,
+        
+        ```sql
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
+        For more information about collation in MSSQL, see [this](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15).
+
     ??? attention "If you are using another DB type"
         If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
  
