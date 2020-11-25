@@ -85,8 +85,8 @@ The users of your APIs can subscribe to analytics-related alerts from the API Pu
           Note that you might have to bypass a security warning to configure this with a private email address.
 
 
-3.  Go to the `<API-M_ANALYTICS_HOME>/resources/apim-analytics/` directory. Copy the `APIM_ALERT_EMAIL_NOTIFICATION.siddhi` file and paste it in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
-4.  Restart the servers.
+4.  Go to the `<API-M_ANALYTICS_HOME>/resources/apim-analytics/` directory. Copy the `APIM_ALERT_EMAIL_NOTIFICATION.siddhi` file and paste it in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
+5.  Restart the servers.
 
 ### Configure alerts as business rules
 
@@ -122,7 +122,7 @@ You can configure alerts as a business rule by using the features listed below.
     -   On Linux: `sh dashboard.sh`
 
 3.  Sign in to the Business Rules. (e.g., `https://<API-M_ANALYTICS_HOST>:9643/business-rules`)
-6.  You can view the existing business rules that are applied for WSO2 API Manager. Depending on your privileges, you can view, edit, and delete business rules.
+4.  You can view the existing business rules that are applied for WSO2 API Manager. Depending on your privileges, you can view, edit, and delete business rules.
     For more details on working with business rules, see [Managing Business Rules](https://ei.docs.wso2.com/en/latest/streaming-integrator/admin/creating-business-rules-templates/#managing-business-rules).
     ![Alerts business rules]({{base_path}}/assets/img/learn/alerts-business-rules.png)
 
@@ -146,10 +146,10 @@ Follow the instructions below to manage alerts via the Publisher:
 ![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
 
 4.  Click **New Configuration** to add a new configuration
-![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-response-time-config-new.png)
+    ![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-response-time-config-new.png)
 
 5.  Select the API name and version for which you need to set up the alerts and define the time period (in milliseconds).
-![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-response-time-config.png)
+    ![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-response-time-config.png)
 
 6.  Click on **Add** to save the alert configuration <br />
     <html>
@@ -165,16 +165,16 @@ Immediately after the response period of the API exceeds the above defined time 
 
 1.  Sign in to the API Publisher with the username and password of a user with the required permission.
 2.  Click on the **SETTINGS** menu, to open the Manage Alert Subscriptions page.
-![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
+    ![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
 
 3.  Click on the **Configuration** option that corresponds to the Abnormal Backend Time option.
-![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
+    ![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
 
 4.  Click **New Configuration** to add a new configuration
-![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-backend-time-config-new.png)
+    ![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-backend-time-config-new.png)
 
 5.  Select the API name and version for which you need to set up the alerts and define the time period (in milliseconds).
-![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-backend-time-config.png)
+    ![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-backend-time-config.png)
 
 6.  Click on **Add** to save the alert configuration <br />
     <html>
@@ -198,16 +198,16 @@ Follow the instructions below to manage alert types via the Developer Portal:
 
 1.  Sign in to the API Developer Portal with the username and password of a user with the required permission.
 2.  Click on the **SETTINGS** menu, to open the Manage Alert Subscriptions page.
-![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-devportal.png)
+    ![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-devportal.png)
 
 3.  Click on the **Configuration** option that corresponds to the Abnormal Requests per Minute option. <br />
-![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
+    ![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
 
 4.  Click **New Configuration** to add a new configuration.
-![Add new abnormal request count configuration]({{base_path}}/assets/img/learn/alerts-abnormal-request-per-min-config-new.png)
+    ![Add new abnormal request count configuration]({{base_path}}/assets/img/learn/alerts-abnormal-request-per-min-config-new.png)
 
 5.  Select the API name and version for which you need to set up the alerts and define the request count per minute.
-![Add new abnormal request count configuration]({{base_path}}/assets/img/learn/alerts-abnormal-request-per-min-config.png)
+     ![Add new abnormal request count configuration]({{base_path}}/assets/img/learn/alerts-abnormal-request-per-min-config.png)
 
 6.  Click on **Add** to save the alert configuration <br />
     <html>
