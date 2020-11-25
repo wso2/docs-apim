@@ -2601,7 +2601,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     The following in an example of how the configurations should be defined when using MySQL.
 
-    -   The first datasource points to the **previous API-M version's AM_DB datasource.**
+    -   The first datasource points to the **migrated 3.2.0 AM_DB datasource.**
 
         ``` java
         [database.apim_db]
