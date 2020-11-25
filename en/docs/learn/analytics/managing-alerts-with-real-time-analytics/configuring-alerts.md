@@ -79,11 +79,10 @@ The users of your APIs can subscribe to analytics-related alerts from the API Pu
         ...
         ```
 
-    For more details on the email sender configurations, see the [Siddhi IO Email configurations](https://siddhi-io.github.io/siddhi-io-email/api/2.0.3/#email-sink) in the official Siddhi documentation.
+    For more details on the email sender configurations, see the [Siddhi IO Email configurations](https://siddhi-io.github.io/siddhi-io-email/api/2.0.5/#email-sink) in the official Siddhi documentation.
 
     !!! warning
           Note that you might have to bypass a security warning to configure this with a private email address.
-
 
 3.  Go to the `<API-M_ANALYTICS_HOME>/resources/apim-analytics/` directory. Copy the `APIM_ALERT_EMAIL_NOTIFICATION.siddhi` file and paste it in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
 4.  Restart the servers.
@@ -122,7 +121,8 @@ You can configure alerts as a business rule by using the features listed below.
     -   On Linux: `sh dashboard.sh`
 
 3.  Sign in to the Business Rules. (e.g., `https://<API-M_ANALYTICS_HOST>:9643/business-rules`)
-6.  You can view the existing business rules that are applied for WSO2 API Manager. Depending on your privileges, you can view, edit, and delete business rules.
+
+4.  You can view the existing business rules that are applied for WSO2 API Manager. Depending on your privileges, you can view, edit, and delete business rules.
     For more details on working with business rules, see [Managing Business Rules](https://ei.docs.wso2.com/en/latest/streaming-integrator/admin/creating-business-rules-templates/#managing-business-rules).
     ![Alerts business rules]({{base_path}}/assets/img/learn/alerts-business-rules.png)
 
@@ -138,12 +138,16 @@ Follow the instructions below to manage alerts via the Publisher:
 
 #### Create an abnormal response time alert
 
-1.  Sign in to the API Publisher with the username and password of a user with the required permission.
-2.  Click on the **SETTINGS** menu, to open the Manage Alert Subscriptions page.
-![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
+1. Sign in to the API Publisher with the username and password of a user with the required permission.
+2. Click **SETTINGS**.
 
-3.  Click on the **Configuration** option that corresponds to the Abnormal Response Time option.
-![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
+     The Manage Alert Subscriptions page appears.
+     
+     ![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
+
+3. Click on the **Configuration** option that corresponds to the Abnormal Response Time option.
+    
+    ![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
 
 4.  Click **New Configuration** to add a new configuration
 ![Add new abnormal response time configuration]({{base_path}}/assets/img/learn/alerts-abnormal-response-time-config-new.png)
@@ -164,8 +168,11 @@ Immediately after the response period of the API exceeds the above defined time 
 #### Create an abnormal backend time alert
 
 1.  Sign in to the API Publisher with the username and password of a user with the required permission.
-2.  Click on the **SETTINGS** menu, to open the Manage Alert Subscriptions page.
-![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
+2.  Click **SETTINGS**. 
+
+     The Manage Alert Subscriptions page.
+     
+     ![Publisher alerts settings]({{base_path}}/assets/img/learn/alerts-settings-publisher.png)
 
 3.  Click on the **Configuration** option that corresponds to the Abnormal Backend Time option.
 ![Alerts configuration icon]({{base_path}}/assets/img/learn/alerts-config-icon.png)
@@ -185,6 +192,7 @@ Immediately after the response period of the API exceeds the above defined time 
     </html>
     
 Immediately after the backend time of the API exceeds the above defined time period an alert gets triggered, such alerts could be treated as an indication of a slow backend. In technical terms, if the backend time of a particular API of a tenant lies outside the predefined value, an alert is sent.
+
 ### Configure alerts via the Developer Portal
 
 Follow the instructions below to manage alert types via the Developer Portal:
