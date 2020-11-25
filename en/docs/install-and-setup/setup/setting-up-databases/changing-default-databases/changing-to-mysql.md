@@ -147,7 +147,10 @@ Follow the  instructions below to set up a MySQL database:
     In the sample commands above, it is assumed that the username and password defined in the datasource configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file are **wso2user** and **wso2123** respectively.
     
 !!! note
-    If you are using NDB engine instead of INNODB engine, you can use the DB scripts in `<API-M_HOME>/dbscripts/mysql_cluster.sql` for SHARED_DB and `<API-M_HOME>/dbscripts/apimgt/mysql_cluster.sql` for WSO2AM_DB.
+    If you are using NDB engine instead of INNODB engine, you can use the following DB scripts.
+
+     - **`SHARED_DB`** - `<API-M_HOME>/dbscripts/mysql_cluster.sql` 
+     - **`WSO2AM_DB`** - `<API-M_HOME>/dbscripts/apimgt/mysql_cluster.sql`
     
 !!! note
     If you are using MySQL with group replication, it is mandatory to have primary keys for all the tables.
