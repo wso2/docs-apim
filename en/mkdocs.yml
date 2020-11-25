@@ -499,6 +499,7 @@ nav:
                       - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
                       - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
                       - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                      - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
                 - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
@@ -657,6 +658,7 @@ plugins:
               'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
               'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
               'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
+              'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging//masking-sensitive-information-in-logs.md/'
               'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
               'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
               'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.2.0/troubleshooting/capturing-system-data-in-error-situations/'
