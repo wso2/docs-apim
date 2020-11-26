@@ -466,13 +466,13 @@ auth.configs:
 | `grantType`| authorization_code | The grant type used in the OAuth application token request.|
 | `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
 | `storeUrl`| https://localhost:9443 | Url which the API Manager Developer Portal is running. Add this config if the Developer Portal and Publisher are running in two separate nodes.|
-| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node URL.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
 
-!!! note 
-    The password should be admin for `adminUsername` otherwise you will get an invalid username error in the Publisher logs.
 
 #### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
 If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
+
+
