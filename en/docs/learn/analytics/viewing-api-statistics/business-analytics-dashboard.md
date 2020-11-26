@@ -163,7 +163,7 @@ The top faulty APIs widget displays the APIs with the highest faulty request cou
 
 Click on an API on the pie chart or the table to see the representation of the faulty invocations over time of the selected API.
 
-![Top faulty APIs]({{base_path}}/assets/img/learn/analytics/analytics_top_faulty_apis_widget.png)
+[![Top faulty APIs]({{base_path}}/assets/img/learn/analytics/analytics_top_faulty_apis_widget.png)]({{base_path}}/assets/img/learn/analytics/analytics_top_faulty_apis_widget.png)
 
 ### API errors
 The API errors page provides information about the throttled out requests(refer [analysing throttled out API requests]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#api-errors) section for more details) and faulty requests of a selected API. The API faults over time widget provides an overtime representation of the faulty invocations of the selected API.
@@ -174,7 +174,7 @@ API faults over time widget shows the faulty invocations of the selected API ove
 - A timeline graph which shows the faulty request count over time
 - A table which shows an application wise breakdown of the faulty request count
 
-![API faults over time]({{base_path}}/assets/img/learn/analytics/analytics_api_fault_analytics_widget.png)
+[![API faults over time]({{base_path}}/assets/img/learn/analytics/analytics_api_fault_analytics_widget.png)]({{base_path}}/assets/img/learn/analytics/analytics_api_fault_analytics_widget.png)
 
 ## Devices and User agent analysis
 
@@ -182,7 +182,7 @@ Platforms(OS) and User agent-based analytics are presented on the devices page i
 
 ### Top platforms
 
-![Top platforms]({{base_path}}/assets/img/learn/analytics/top_platforms.png)
+[![Top platforms]({{base_path}}/assets/img/learn/analytics/top_platforms.png)]({{base_path}}/assets/img/learn/analytics/top_platforms.png)
 
 This shows the top platform APIs are accessed. It is represented in a pie chart for easy comparison and shows the percentage of the API invocation count. This widget can be used to identify the top platform used to access the APIs and top platform applications use.
 
@@ -190,7 +190,7 @@ This shows the top platform APIs are accessed. It is represented in a pie chart 
 
 This is represented in a pie chart and shows the top agents this API is accessed. It shows the percentage of the invocations and pie chart makes it easy to easily compare the agent types.
 
-![Top user agents]({{base_path}}/assets/img/learn/analytics/top_user_agents.png)
+[![Top user agents]({{base_path}}/assets/img/learn/analytics/top_user_agents.png)]({{base_path}}/assets/img/learn/analytics/top_user_agents.png)
 
 Platforms and user agents are extracted from the information in the API request. The `X-forwarded-for` header is used in this case. This header needs to be included in the request headers to make these widgets work correctly. There are some scenarios where header values can be injected into the request when it flows through the network hops. But it is required to send this header via the actual end-user or device to make the chart populate correctly.
 
@@ -205,4 +205,4 @@ Here, Geolocation based statistics are used to carry out detailed monitoring of 
 Geographic location is identified from X-Forwarded-For header with the relevant IP in the API request. 
 For more information, see [Using Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/).
 
-![Geo location based invocations]({{base_path}}/assets/img/learn/analytics/geo-location-stats.png)
+[![Geo location based invocations]({{base_path}}/assets/img/learn/analytics/geo-location-stats.png)]({{base_path}}/assets/img/learn/analytics/geo-location-stats.png)
