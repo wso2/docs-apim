@@ -71,7 +71,7 @@ nav:
                   #- File Processing: use-cases/integration-use-case/file-processing-overview.md
                   #- Periodic Execution of Integration Processes: use-cases/integration-use-case/scheduled-task-overview.md
     - Design:
-          - Create APIs Overview: learn/create-api-overview.md
+          - Create APIs Overview: learn/design-api/create-api-overview.md
           - Create a New API:
                   - Create a REST API: learn/design-api/create-api/create-a-rest-api.md
                   - Create a REST API from an OpenAPI Definition: learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md
@@ -1111,4 +1111,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: https://apim.docs.wso2.com/en/3.2.0
+    base_path: http://localhost:8000
