@@ -441,6 +441,7 @@ nav:
                      - Monitoring HTTP access logs: administer/product-administration/monitoring/logging/monitoring-http-access-logs.md
                      - Monitoring audit Logs: administer/product-administration/monitoring/logging/monitoring-audit-logs.md
                      - Managing log growth: administer/product-administration/monitoring/logging/managing-log-growth.md
+                     - Masking sensitive information in logs: administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md
                 - Working with Observability: administer/product-administration/monitoring/working-with-observability.md
                 - Capturing System Data in Error Situations: administer/product-administration/monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: administer/product-administration/monitoring/jmx-based-monitoring.md
