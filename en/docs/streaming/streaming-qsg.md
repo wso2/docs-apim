@@ -37,7 +37,7 @@ Let's create a simple Siddhi application that reads data from a CSV file, does a
 2. Open a text file and copy-paste following Siddhi application into it.
 
     !!! tip
-        Here, you are instructed to use a text editor to deploy a Siddhi Application that is already tested in order to minimize the time you spend to follow this guide. It is recommended to design Siddhi application via Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information, see [Streaming Integrator Tooling Overview](../develop/streaming-integrator-studio-overview.md).
+        Here, you are instructed to use a text editor to deploy a Siddhi Application that is already tested in order to minimize the time you spend to follow this guide. It is recommended to design Siddhi application via Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information, see [Streaming Integrator Tooling Overview](../develop/streaming-apps/streaming-integrator-studio-overview.md).
 
     ```
     @App:name('ManageProductionStats')
