@@ -4,13 +4,17 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
 ## Download and initialize the CTL Tool
 
-1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>
-2.  Under **Dev-Ops Tooling**, click **Download** based on your preferred platform (i.e., Mac, Windows, Linux).
-3.  Extract the downloaded archive of the CTL Tool to the desired location.
+1.  Download **API Controller** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-4.  Navigate to the working directory where the executable CTL Tool resides.
+    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-macosx-x64.tar.gz)
+    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-linux-i586.tar.gz)
+    - [For Linux 64-bit](http://localhost:8000/assets/attachments/learn/api-controller/apictl-3.2.1-linux-x64.tar.gz)
+    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-i586.zip)
+    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-x64.zip)
 
-5.  Execute the following command to start the CTL Tool.
+2.  Extract the downloaded archive of the CTL Tool to the desired location.
+3.  Navigate to the working directory where the executable CTL Tool resides.
+4.  Execute the following command to start the CTL Tool.
 
     !!! Warn
         From API Manager Tooling 3.1.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below in [Add an environment](#add-an-environment) section.
@@ -27,7 +31,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
         export APICTL_CONFIG_DIR="/home/wso2user/CLI"
         ```
 
-6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
 
     !!! Tip    
