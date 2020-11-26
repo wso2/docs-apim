@@ -1,4 +1,4 @@
-# Control API Visibility and Subscription Availability in the Developer Portal
+# Control API Visibility, Subscription Availability and API documentation visibility in the Developer Portal
 
 By default, the APIs created in the API Publisher Portal are visible to anyone (even anonymous users) who visits the Developer Portal. However, API Publishers can control the visibility of APIs using two approaches. API Publishers can select as to which users can view their APIs and which users can subscribe to their APIs.
 
@@ -123,7 +123,7 @@ When using the REST API directly, the subscription availability options are avai
     </tr>
     </tbody>
     </table>
-
-
+    
+    
 
 

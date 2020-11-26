@@ -2,12 +2,6 @@
 
 This section describes some recommended performance tuning configurations to optimize WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment.
 
--   [OS-level settings](#os-level-settings)
--   [JVM-level settings](#jvm-level-settings)
--   [WSO2 Carbon platform-level settings](#wso2-carbon-platform-level-settings)
--   [APIM-level settings](#apim-level-settings)
--   [Rate limit data and Analytics-related settings](#rate-limit-data-and-analytics-related-settings)
-
 !!! warning
     Performance tuning requires you to modify important system files, which affect all programs running on the server. WSO2 recommends that you familiarize yourself with these files using Unix/Linux documentation before editing them.
 
@@ -29,7 +23,7 @@ When it comes to performance, the OS that the server runs plays an important rol
 
 Following are the configurations that can be applied to optimize the OS-level performance:
 
-1.  To optimize etwork and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
+1.  To optimize network and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
 
     !!! info
         It is **not recommended** to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
@@ -60,7 +54,7 @@ Following are the configurations that can be applied to optimize the OS-level pe
 
     Optimal values for these parameters depend on the environment.
 
-3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each Carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each Carbon server (both hard and soft).
+3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each Carbon server instance you run would require up to 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each Carbon server (both hard and soft).
 
     ``` java
     * soft nproc 20000
@@ -90,12 +84,7 @@ In multi-tenant mode, the WSO2 Carbon runtime limits the thread execution time. 
 -   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve`.
 -   The `threshold` gives the minimum duration in seconds after which a thread is considered stuck. The default value is 600 seconds.
 
-## APIM-level settings
-
--   [Timeout configurations for an API call](#timeout-configurations-for-an-api-call)
--   [General APIM-level recommendations](#general-apim-level-recommendations)
--   [Registry indexing configurations](#registry-indexing-configurations)
--   [Tuning data-agent parameters](#tuning-data-agent-parameters)
+## API-M-level settings
 
 ### Timeout configurations for an API call
 
@@ -121,19 +110,19 @@ The following diagram shows the communication/network paths that occur when an A
 
 -   **Client call API Gateway + API Gateway call Backend**
 
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
             ``` java
-            [passthru_http]
-            http.socket.timeout=180000
+                [passthru_http]
+                http.socket.timeout=180000
             ```
 
     !!! info
         The default value for `http.socket.timeout` differs between WSO2 products. In WSO2 API-M, the default value for `http.socket.timeout` is 180000ms.
 
 
-### General APIM-level recommendations
+### General API-M-level recommendations
 
-Some general APIM-level recommendations are listed below:
+Some general API-M-level recommendations are listed below:
 
 <table>
 <thead>

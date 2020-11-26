@@ -144,7 +144,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
 14. Log in to the API Publisher and [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 15. Attach the custom sequence to the inflow of the message as shown below.
-    ![]({{base_path}}/assets/img/learn/attach-the-custom-sequence.png)
+    ![]({{base_path}}/assets/img/learn/attach-custom-in-sequence.png)
 16. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.
 
     !!! note

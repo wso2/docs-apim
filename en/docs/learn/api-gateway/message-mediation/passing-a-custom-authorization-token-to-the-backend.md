@@ -62,7 +62,7 @@ the **`Authorization`** header.
         ```
 
         ``` bash tab="Sample"
-        curl -k -H "Authorization: Bearer 2e25097b2b3fbbfb44f5642fa8a495a1" -H "Custom: Bearer 1234" https://localhost:8243/test/1.0.0
+        curl -k -H "Authorization: Bearer 2e25097b2b3fbbfb44f5642fa8a495a1" -H "Custom: Bearer 1234" https://localhost:8243/testcustomheader/1.0.0
         ```
 
     !!! info

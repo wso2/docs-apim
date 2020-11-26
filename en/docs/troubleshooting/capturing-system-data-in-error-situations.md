@@ -24,8 +24,8 @@ When using the tool, you have to provide the process ID (pid) of the Carbon inst
 For example,
 
 ``` java
-    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.1.0/ -pid 5151
-In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.1.0\ -pid 5151
+    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.2.0/ -pid 5151
+    In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.2.0\ -pid 5151
 ```
 The tool captures the following information about the system:
 

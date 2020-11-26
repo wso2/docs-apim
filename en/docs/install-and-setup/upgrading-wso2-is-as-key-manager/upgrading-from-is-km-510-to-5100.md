@@ -1,49 +1,27 @@
 # Upgrading WSO2 IS as Key Manager to 5.10.0
 
-The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 1.10.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
+The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 1.10.0 to 3.2.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager** in the pre migrated setup.
+
+!!! note
+    -   You can follow the below information in either one of the following situations:
+        -   You are currently using a WSO2 IS 5.1.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
+        -   You are currently using a pre-packaged WSO2 Identity Server as Key Manager 5.1.0 distribution.
+
+-   [Step 1 - Upgrade WSO2 IS as Key Manager 5.1.0 to 5.7.0](#step-1-upgrade-5.1.0-to-5.7.0)
+-   [Step 2 - Upgrade WSO2 IS as Key Manager 5.7.0 to WSO2 5.10.0](#step2-upgrade-5.7.0-to-5.10.0)        
+
+## Step 1 - Upgrade WSO2 IS as Key Manager 5.1.0 to 5.7.0
+
+!!! note
+    It is not possible to directly upgrade from WSO2 IS as Key Manager 5.1.0 to WSO2 IS 5.10.0 along with WSO2 API Manager 1.10.0 to 3.2.0.
+
+[Upgrade your current WSO2 IS as KM version (5.1.0) to 5.7.0](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release+when+WSO2+IS+is+the+Key+Manager#110) as expained in the WSO2 API-M 2.6.0 documentation.
+
+## Step 2 - Upgrade WSO2 IS as Key Manager 5.7.0 to WSO2 IS 5.10.0
+
+After you have successfully migrated your current IS as KM version to 5.7.0 and WSO2 API-M version to 2.6.0, upgrade IS as KM 5.7.0 to IS 5.10.0 and API-M 2.6.0 to API-M 3.2.0. For more information, see [Upgrading WSO2 IS as Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100/).
+
+This concludes the upgrade process.
 
 !!! tip
-    You can download the **pre-packaged WSO2 Identity Server 5.10.0, which is also known as Identity Server as the Key Manager 5.10.0** from [here](https://wso2.com/api-management/install/key-manager/). Make sure you are using the latest [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack.
-
-!!! note
-    -   You can use the following steps in either one of the following situations:
-        -   You are currently using a WSO2 IS 5.1.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
-        -   You are currently using a pre-packaged WSO2 Identity Server 5.1.0 distribution.
-
-    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 1.10.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-1100-to-310.md) to upgrade your APIM environment from API-M 1.10.0 to 3.1.0.
-
-Before executing the IS migration client, keep in mind to follow the below steps.
-
-1. Remove the following entries from migration-config.yaml in the migration-resources directory.
-                
-        - version: "5.10.0"
-            migratorConfigs:
-            -
-                name: "MigrationValidator"
-                order: 2
-            -
-                name: "SchemaMigrator"
-                order: 5
-                parameters:
-                location: "step2"
-                schema: "identity"
-               
-
-2. Update <IS-KM-HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
-
-        [user_store]
-        type = "database"
-
-Now, follow the WSO2 Identity Server 5.10.0 documentation [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.1.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) to migrate the WSO2 Identity Server (WSO2 IS) from version 5.1.0 to 5.10.0.
-
-!!! note
-    
-    Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
-
-!!! note
-    
-    Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
-        ```
-        [user_store]
-        type = "database_unique_id"
-        ```
+    The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.

@@ -38,7 +38,7 @@ Follow the instructions below to change the ownership of an application:
     4.  Update the **Owner** field with the new owner's username (Kim).
 
         !!! Troubleshooting
-            If you get a "`<username> is not a subscriber`" error (e.g., Kim is not a subscriber) in the Admin Portal, make sure to request that specific user (e.g., Kim) to sign in to the WSO2 Developer Portal, because users are not added as subscribers until they sign in to the Developer Portal at least once.
+            If you get a "`Error while updating ownership to <username> `" error (e.g., Error while updating ownership to Kim) in the Admin Portal, make sure to request that specific user (e.g., Kim) to sign in to the WSO2 Developer Portal, because users are not added as subscribers until they sign in to the Developer Portal at least once.
 
 
          The application page shows the new ownership.

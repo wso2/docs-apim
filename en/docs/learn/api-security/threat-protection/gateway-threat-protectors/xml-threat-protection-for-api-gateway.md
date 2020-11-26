@@ -24,6 +24,7 @@ The xml\_validator sequence specifies the properties to be limited in the payloa
         <property name="maxAttributeLength" value="100"/>
         <property name="entityExpansionLimit" value="100"/>
         <property name="maxChildrenPerElement" value="100"/>
+        <property name="entityExpansionLimit" value="100"/>
         <property name="schemaValidation" value="true"/>
         <switch source="get-property('To')">
             <case regex=".*/addResource.*">

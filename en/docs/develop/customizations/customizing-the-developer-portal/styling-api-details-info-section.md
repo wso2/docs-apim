@@ -1,16 +1,20 @@
-# Styling API Details Info Section
+# Styling API and Application Details Info Section
 
-The API details info section can be customized to match with your design needs.
+The "API Details Info" section shown below, can be customized according to your design needs.
 
- ![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png) 
+ [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)
 
-You can change themes.light.custom.infoBar attributes to change the api detials info section styling. Note these changes will effect the same way to application details info section.
+Edit the attributes in `themes.light.custom.infoBar` to change the styling "API Details Info" section and the "Application Details Info" section.
 
-1. Go to  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory, open the `defaultTheme.js` file and update `themes.light.custom.infoBar` attributes.
+1. Go to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory.
 
-2. Refresh the Developer Portal to view the changes.
+2. Open the `defaultTheme.js` file and update the `themes.light.custom.infoBar` attributes.
 
-### Following attributes available for infoBar.
+3. Refresh the Developer Portal to view the changes.
+
+### Attributes available for infoBar
+
+The JSON sample code given below defines the default look and feel.
 
 ```js
 const Configurations = {
@@ -30,9 +34,7 @@ const Configurations = {
 };
 ```
 
-Above JSON defines the default look and feel.
-
-Following example demostrate a use case of changing the colors of UI elements.
+#### Example: Change the colors of UI elements
 
 ```js
 const Configurations = {
@@ -51,28 +53,29 @@ const Configurations = {
 
 ```
 
- ![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
-
+ [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
+ 
+### Attribute options
 
 | Option | type | Description |
 | ------ | -- | ----------- |
-| height | integer | Height of the top most row with api name and back to api link given in pixles |
+| height | integer | Height of the top most row with the API name up to the API link, given in pixels. |
 | background | string | Background color of the component |
-| showThumbnail | boolean | Show hide the API thumbnail. By default it's visible. Setting it to false will hide it. | 
+| showThumbnail | boolean | Show/hide the API thumbnail. Set to visible, by default.|
 | starColor | string | Set the color of the star rating. |
-| sliderBackground | string | Set the background color of the "SHOW"/"HIDE" colopsible section at the bottom. |
-| iconOddColor | strng | Set the color of the icons displayed on the left side of the  odd rows |
-| iconEvenColor | strng | Set the color of the icons displayed on the left side of the  even rows |
-| listGridSelectedColor | string | Defines color of the selected icon ( grid/ list ) view of the api listing page |
-| tagChipBackground | string | Set the background of the tags |
+| sliderBackground | string | Set the background color of the 'SHOW'/'HIDE' collapsible section at the bottom. |
+| iconOddColor | string | Change the color of the icons displayed on the left of the odd-numbered rows. |
+| iconEvenColor | string | Change the color of the icons displayed on the left of the even-numbered rows. |
+| listGridSelectedColor | string | Define the color of a selected icon (Grid/List) view of the API listing page. |
+| tagChipBackground | string | Change the background color of the tags. |
 
-With these configurations, we tried to handle most of the use cases for rebranding. But if someone wants to do a change that is not supported by defaultTheme.js then they need to override the relevant React component. Refer to the [Advanced Customization](advanced-customization.md) for more information.
+You can handle most of the use cases with regard to rebranding using these configurations. However, if you need to make a change that is not supported by the defaultTheme.js file, then you need to override the relevant React component. For more information, see [Advanced Customization]({{base_path}}/develop/customizations/customizing-the-developer-portal/advanced-customization/) for more information.
 
-### Known issues
+### Known issues and workarounds
 
-API details page tags are not visible. [https://github.com/wso2/product-apim/issues/7849](https://github.com/wso2/product-apim/issues/7849).
+The API details page tags are not visible- [https://github.com/wso2/product-apim/issues/7849](https://github.com/wso2/product-apim/issues/7849).
 
-Add the following as a workaround to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`.
+As a workaround, add the following to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
 
 ```js
 const Configurations = {
@@ -83,5 +86,3 @@ const Configurations = {
     },
 };
 ```
-
-

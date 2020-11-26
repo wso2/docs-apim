@@ -36,10 +36,10 @@ If you installed the product using the **installer**, this directory is located
 </th>
 </tr>
 <tr><td>
-Mac OS </td><td> <code> /Library/WSO2/APIManager/3.1.0 </code> </tr>
-<tr><td> Windows </td><td> <code> C:\Program Files\WSO2\APIManager\3.1.0\ </code> </tr>
-<tr><td>Ubuntu </td><td> <code> /usr/lib/wso2/APIManager/3.1.0 </code> </tr>
-<tr><td> CentOS </td><td> <code> /usr/lib64/APIManager/3.1.0 </code></tr>
+Mac OS </td><td> <code> /Library/WSO2/APIManager/3.2.0 </code> </tr>
+<tr><td> Windows </td><td> <code> C:\Program Files\WSO2\APIManager\3.2.0\ </code> </tr>
+<tr><td>Ubuntu </td><td> <code> /usr/lib/wso2/APIManager/3.2.0 </code> </tr>
+<tr><td> CentOS </td><td> <code> /usr/lib64/APIManager/3.2.0 </code></tr>
 </table>
 </html>
 
@@ -65,12 +65,12 @@ Instructions
 Open a terminal and run the following command as the root user:
 
 <code>
-sudo bash /Library/WSO2/APIManager/3.1.0/uninstall.sh
+sudo bash /Library/WSO2/APIManager/3.2.0/uninstall.sh
 </code>
 </td>
 </tr>
 <tr>
-<td> Windows </td><td> Go to the  <b>Start Menu -> Programs -> WSO2 -> Uninstall API Manager 3.1.0</b>  or search  <b>Uninstall API Manager 3.1.0</b>  and click the shortcut icon. This will uninstall the product from your computer. </td>
+<td> Windows </td><td> Go to the  <b>Start Menu -> Programs -> WSO2 -> Uninstall API Manager 3.2.0</b>  or search  <b>Uninstall API Manager 3.2.0</b>  and click the shortcut icon. This will uninstall the product from your computer. </td>
 </tr>
 <tr>
 <td> Ubuntu </td><td>
@@ -78,7 +78,7 @@ sudo bash /Library/WSO2/APIManager/3.1.0/uninstall.sh
 Open a terminal and run the following command:
 
 
-<code>sudo apt-get purge wso2am-3.1.0
+<code>sudo apt-get purge wso2am-3.2.0
 </code>
 </td>
  </tr>
@@ -87,7 +87,7 @@ Open a terminal and run the following command:
 
 Open a terminal and run the following command:
 
-<code>sudo yum remove wso2am-3.1.0-x86_64
+<code>sudo yum remove wso2am-3.2.0-x86_64
 </code>
 </td>
  <tr>

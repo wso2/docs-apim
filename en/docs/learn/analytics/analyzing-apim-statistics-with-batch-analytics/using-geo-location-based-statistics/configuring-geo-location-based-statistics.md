@@ -9,7 +9,7 @@
 1.  Use the Geo Location dataset that you created [here]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/) when configuring geo location based statistics.
 2.  Create a database with name `GEO_LOCATION_DATA` and create tables in it by executing one of the following scripts. 
 
-    | [mysql.sql]({{base_path}}/assets/attachments/103335136/mysql.sql) | [mssql.sql]({{base_path}}/assets/attachments/103335136/mssql.sql) | [oracle.sql]({{base_path}}/assets/attachments/103335136/oracle.sql) | [postgres.sql]({{base_path}}/assets/attachments/103335136/postgres.sql) | [db2.sql]({{base_path}}/assets/attachments/103335136/db2.sql) |
+    | [mysql.sql]({{base_path}}/assets/attachments/learn/analytics/geo-location/mysql.sql) | [mssql.sql]({{base_path}}/assets/attachments/learn/analytics/geo-location/mssql.sql) | [oracle.sql]({{base_path}}/assets/attachments/learn/analytics/geo-location/oracle.sql) | [postgresql.sql]({{base_path}}/assets/attachments/learn/analytics/geo-location/postgresql.sql) | [db2.sql]({{base_path}}/assets/attachments/learn/analytics/geo-location/db2.sql) |
 
     In this example, `mysql.sql` is executed.
 

@@ -22,6 +22,7 @@ is given below.
     <property name="maxAttributeLength" value="100"/>
     <property name="entityExpansionLimit" value="100"/>
     <property name="maxChildrenPerElement" value="100"/>
+    <property name="entityExpansionLimit" value="100"/>
     <property name="schemaValidation" value="true"/>
     <switch source="get-property('To')">
         <case regex=".*/addResource.*">

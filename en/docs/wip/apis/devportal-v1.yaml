@@ -225,7 +225,7 @@ paths:
 
   /apis/{apiId}/swagger:
 #-----------------------------------------------------
-# Retrieve the API swagger definition
+# Retrieve the APIs OpenAPI definition
 #-----------------------------------------------------
     get:
       security:
@@ -236,14 +236,14 @@ paths:
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1.0/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-tier\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"x-wso2-security\": {\"apim\": {\"x-wso2-scopes\": []}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"2.0.0\"\n   }\n}\n"
       summary: |
-        Get swagger definition
+        Get OpenAPI definition
       description: |
-        You can use this operation to retrieve the swagger definition of an API.
+        You can use this operation to retrieve the OpenAPI definition of an API.
 
-         `X-WSO2-Tenant` header can be used to retrive the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+         `X-WSO2-Tenant` header can be used to retrive the OpenAPI definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
-        * This operation does not require an Authorization header by default. But in order to see a restricted API's swagger definition, you need to provide Authorization header.
+        * This operation does not require an Authorization header by default. But in order to see a restricted API's OpenAPI definition, you need to provide Authorization header.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/labelName'
@@ -259,7 +259,7 @@ paths:
             example: ""
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             ETag:
               description: |
@@ -302,12 +302,12 @@ paths:
       summary: |
         Get graphQL definition
       description: |
-        You can use this operation to retrieve the swagger definition of an API.
+        You can use this operation to retrieve the OpenAPI definition of an API.
 
-         `X-WSO2-Tenant` header can be used to retrive the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+         `X-WSO2-Tenant` header can be used to retrive the OpenAPI definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
-        * This operation does not require an Authorization header by default. But in order to see a restricted API's swagger definition, you need to provide Authorization header.
+        * This operation does not require an Authorization header by default. But in order to see a restricted API's OpenAPI definition, you need to provide Authorization header.
       parameters:
       - $ref: '#/parameters/apiId'
       - $ref: '#/parameters/If-None-Match'
@@ -318,7 +318,7 @@ paths:
         200:
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             ETag:
               description: |
@@ -424,7 +424,7 @@ paths:
         $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
       summary: Get API WSDL definition
       description: |
-        This operation can be used to retrieve the swagger definition of an API.
+        This operation can be used to retrieve the OpenAPI definition of an API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/labelName'
@@ -2952,7 +2952,7 @@ paths:
       summary:  |
         Get a list of supported SDK languages
       description:  |
-        This operation will provide a list of programming languages that are supported by the swagger codegen library for generating System Development Kits (SDKs) for APIs available in the API Manager Store
+        This operation will provide a list of programming languages that are supported by the OpenAPI codegen library for generating System Development Kits (SDKs) for APIs available in the API Manager Store
       tags:
         - SDKs
       responses:
@@ -3796,7 +3796,7 @@ definitions:
         example: admin
       apiDefinition:
         description: |
-          Swagger definition of the API which contains details about URI templates and scopes
+          OpenAPI definition of the API which contains details about URI templates and scopes
         type: string
         example: "{\"paths\":{\"\\/substract\":{\"get\":{\"x-auth-type\":\"Application & Application User\",\"x-throttling-tier\":\"Unlimited\",\"parameters\":[{\"name\":\"x\",\"required\":true,\"type\":\"string\",\"in\":\"query\"},{\"name\":\"y\",\"required\":true,\"type\":\"string\",\"in\":\"query\"}],\"responses\":{\"200\":{}}}},\"\\/add\":{\"get\":{\"x-auth-type\":\"Application & Application User\",\"x-throttling-tier\":\"Unlimited\",\"parameters\":[{\"name\":\"x\",\"required\":true,\"type\":\"string\",\"in\":\"query\"},{\"name\":\"y\",\"required\":true,\"type\":\"string\",\"in\":\"query\"}],\"responses\":{\"200\":{}}}}},\"swagger\":\"2.0\",\"info\":{\"title\":\"CalculatorAPI\",\"version\":\"1.0.0\"}}"
       wsdlUri:

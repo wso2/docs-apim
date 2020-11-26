@@ -9,14 +9,15 @@ Follow the instructions below to configure and deploy API-M by using an Active-A
 -   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
 -   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
 -   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure the Artifact Synchronization](#step-4-configure-the-artifact-synchronization)
--   [Step 5 - Configure Publisher with the Gateway](#step-5-configure-publisher-with-the-gateway)
--   [Step 6 - Configure Gateway URLs to Expose APIs](#step-6-configure-gateway-urls-to-expose-apis)
--   [Step 7 - Configure Throttling](#step-7-configure-throttling)
--   [Step 8 - Configure the Second WSO2 API-M Node](#step-8-configure-the-second-wso2-api-m-node)
--   [Step 9 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
--   [Step 10 - Configure Production Hardening](#step-10-configure-production-hardening)
--   [Step 11 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
+-   [Step 4 - Configure the Second WSO2 API-M Node](#step-4-configure-the-second-wso2-api-m-node)
+-   [Step 5 - Configure the Artifact Synchronization](#step-5-configure-the-artifact-synchronization)
+-   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
+-   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
+-   [Step 8 - Configure Throttling](#step-8-configure-throttling)
+-   [Step 9 - Optionally, enable distributed cache invalidation](#step-9-optionally-enable-distributed-cache-invalidation)  
+-   [Step 10 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
+-   [Step 11 - Configure Production Hardening](#step-10-configure-production-hardening)
+-   [Step 12 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
 
 ___________________________________
 
@@ -83,7 +84,16 @@ information on default databases and changing them into RDBMS databases, see [Wo
     driver="com.mysql.cj.jdbc.Driver"
     ```
 
-## Step 4 - Configure the Artifact Synchronization 
+## Step 4 - Configure the Second WSO2 API-M Node
+
+Make a copy of the active instance configured above and use this copy as the second active instance.
+
+!!! info
+    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
+    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
+
+
+## Step 5 - Configure the Artifact Synchronization 
 
 To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
@@ -103,7 +113,7 @@ in order to share all APIs and throttling policies between all the nodes.
         because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the  vulnerability 
         of a single point of failure that is present when using remote synchronization (rsync).
     
-## Step 5 - Configure Publisher with the Gateway
+## Step 6 - Configure Publisher with the Gateway
 
 When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
 can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
@@ -143,7 +153,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
         ```
         Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
-## Step 6 - Configure Gateway URLs to Expose APIs
+## Step 7 - Configure Gateway URLs to Expose APIs
 
 You need to configure the environment URLs which are used to expose the deployed APIs in the Gateways of both nodes. 
 Add the Gateway hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file in both
@@ -160,50 +170,90 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 7 - Configure Throttling
+## Step 8 - Configure Throttling
 
-1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
-    You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node 
-    and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
-    The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver 
-    and processes the data to come up with Throttling decisions.
+    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
 
-    ``` tab="Format"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
-    traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
-    type = "loadbalance"
+        The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
-    traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
-    type = "loadbalance"
-    ```
+        Node1
 
-    ``` tab="Example"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://127.0.0.1:9611"]
-    traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
-    type = "loadbalance"
+        ``` tab="Format"
+        [apim.throttling]
+        event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://127.0.0.1:9612"]
-    traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
-    type = "loadbalance"
-    ```
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+        type = "loadbalance"
 
-2.  Save your changes.
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+        type = "loadbalance"
+        ```
 
-## Step 8 - Configure the Second WSO2 API-M Node
+        ``` tab="Example"
+        [apim.throttling]
+        event_duplicate_url = ["tcp://127.0.0.1:5673"]
 
-Make a copy of the active instance configured above and use this copy as the second active instance.
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+        type = "loadbalance"
 
-!!! info
-    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
-    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+        type = "loadbalance"
+        ```
 
-## Step 9 - Configure API-M Analytics
+        Node2
+        
+        ``` tab="Format"
+        [apim.throttling]
+        event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+        type = "loadbalance"
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+        type = "loadbalance"
+        ```
+
+        ``` tab="Example"
+        [apim.throttling]
+        event_duplicate_url = ["tcp://127.0.0.1:5672"]
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+        type = "loadbalance"
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+        type = "loadbalance"
+        ```
+
+    2.  Save your changes.
+
+## Step 9 - Optionally, enable distributed cache invalidation
+
+Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
+
+``` toml
+[apim.cache_invalidation]
+enabled = true
+```
+
+## Step 10 - Configure API-M Analytics
 
 If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
 configure API-M Analytics. If not, you can **skip this step**.
@@ -212,7 +262,7 @@ Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analy
 [Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
 to configure API-M Analytics in a production setup.
 
-## Step 10 - Configure Production Hardening
+## Step 11 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -222,7 +272,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
 
-## Step 11 - Start the WSO2 API-M Servers
+## Step 12 - Start the WSO2 API-M Servers
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 

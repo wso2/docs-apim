@@ -6,7 +6,10 @@ specifically developed for WSO2 products. You can use the Message Tracer to deri
 related information with regard to message content and it’s direction. The Message Tracer is a part of carbon-analytics 
 and it is built into WSO2 API Manager.
 
-### Configuring message tracing
+!!! warning
+    It is not recommended to enable tracing in production environments as it generates a large number of events that reduces the performance of the analytics profile. Therefore, tracing should only be enabled in development environments.
+
+## Configuring message tracing
 
 Follow the steps below to configure the Message Tracer in API Manager to dump trace events to WSO2 APIM logs, which 
 can be viewed via the terminal or the `wso2carbon` log file.

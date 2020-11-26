@@ -1,14 +1,14 @@
 # Monthly API Usage Report
-PDF reporting is useful for an organization if reports of API analytics data need to be sent to various stakeholders. This is supported via the Monthly API Usage Report widget which can be accessed through the **APIM Admin** dashboard.
+PDF reporting is useful for an organization if reports of API analytics data need to be sent to various stakeholders. This is supported via the Monthly API Usage Report widget which can be accessed through the **Reports** dashboard.
 
-![APIM Analytics Dashboard](../../assets/img/learn/apim-analytics-dashboard.png)
+![APIM Analytics Reports Dashboard]({{base_path}}/assets/img/learn/apim-analytics-reports-dashboards-highlight.png)
 
 !!! note
-    Here the permission to access the **APIM Admin** component of analytics dashboard is only available for users with admin roles.
+    Here the permission to access the **Reports** dashboard is only available for users with admin roles.
 
 The following UI widget supports generating a PDF report of a specific year,month combination. The report can be downloaded by clicking on the download button.
 
-![API Usage Summary Widget](../../assets/img/learn/api-usage-summary-widget.png)
+![API Usage Summary Widget]({{base_path}}/assets/img/learn/apim-analytics-api-usage-summary-widget.png)
 
 The PDF report presents a table with the following information.
 
@@ -19,7 +19,7 @@ The PDF report presents a table with the following information.
             4) Application Owner
             5) Request Count
 
-![Monthly Usage Summary](../../assets/img/learn/monthly-usage-summary.png)
+![Monthly Usage Summary]({{base_path}}/assets/img/learn/api-manager-analytics-monthly-usage-summary.png)
 
 
 ##Customizing the Report

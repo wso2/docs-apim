@@ -35,7 +35,7 @@ If you have Lazy loading enabled, you can configure the allowed tenant idle time
 
         ``` java
         [tenant_mgt]
-        tenant_idle_timeout='30m'
+        tenant_idle_timeout='30'
         ```
 
 -   Alternatively, you can specify the tenant idle time when you start the server:

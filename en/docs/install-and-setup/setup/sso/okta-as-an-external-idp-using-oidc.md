@@ -74,21 +74,48 @@ In the following document we will explain how to connect OKTA as a third party I
     <br/>
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width="300" height="300"/>
 
-3. Login to `https://localhost:9443/admin` expand settings & click on scope mapping
+3. Login to `https://localhost:9443/admin` and navigate to **Role Permissions** section under the **Settings** tab in the left menu bar.
 
-    <img src="{{base_path}}/assets/img/learn/okta-apim-role-scope-mapping.png" width="300" height="500"/>
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
 
-    Update the following scopes with the okta_role
+    Click on the **Add role permission** button in the above screen and a popup dialog will be opened as shown below. Enter `okta_role` in the **Provide role name** field and click on **Next** button.
 
-    [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png) 
-    <br/>
-    <br/>
-    [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png) 
-    <br/>
-    <br/>
-    [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png) 
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png) 
 
-    This will allow the user a user having the okta_role to login to Publisher and Developer Portal
+    Now, under the **Select permissions** section, click on **Custom permissions** radio button and start assigning the permissions as shown below.
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)
+
+    [![]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)
+
+    Now, click on **Save** button. (These permissions will allow a user having the `okta_role` to login to Publisher and Developer Portals)
+
+    !!! note
+        If you want your user to do analytics based tasks, you should add the `okta_role` to the required analytics scopes according to your choice. You can follow the below steps as an example.
+
+        -   Login to `https://localhost:9443/carbon`. 
+        -   Navigate to **Main > Resources > Browse**. 
+        -   Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
+        -   Update the `RESTAPIScopes` JSON field by adding `okta_role` to the `Roles` field under the corresponding `Name` fields as shown below for the analytics related scopes.
+            ```bash
+            {
+                "Name": "apim_analytics:api_analytics:view",
+                "Roles": "admin,Internal/creator,Internal/publisher,okta_role"
+            },
+            {
+                "Name": "apim_analytics:application_analytics:view",
+                "Roles": "admin,Internal/subscriber,okta_role"
+            },
+            ```
+        - Click on **Save Content** button.
 
 4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name.  
 

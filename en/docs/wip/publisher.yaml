@@ -455,7 +455,7 @@ paths:
 
   /apis/{apiId}/swagger:
 #-----------------------------------------------------
-# Retrieve the API swagger definition
+# Retrieve the APIs OpenAPI  definition
 #-----------------------------------------------------
     get:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1.0/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/swagger"
@@ -463,9 +463,9 @@ paths:
         GET https://127.0.0.1:9443/api/am/publisher/v1.0/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/swagger
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 329\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-policy\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
-      summary: Get swagger definition
+      summary: Get OpenAPI definition
       description: |
-        This operation can be used to retrieve the swagger definition of an API.
+        This operation can be used to retrieve the OpenAPI definition of an API.
       security:
         - OAuth2Security:
             - apim:api_view
@@ -481,7 +481,7 @@ paths:
              example: ""
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             Content-Type:
               description: |
@@ -514,7 +514,7 @@ paths:
             $ref: '#/definitions/Error'
 
 #-----------------------------------------------------
-# Update the API swagger definition
+# Update the OpenAPI  definition
 #-----------------------------------------------------
     put:
       consumes:
@@ -535,22 +535,22 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_create
-      summary: Update swagger definition
+      summary: Update OpenAPI definition
       description: |
-        This operation can be used to update the swagger definition of an existing API. Swagger definition to be updated is passed as a form data parameter `apiDefinition`.
+        This operation can be used to update the OpenAPI definition of an existing API. OpenAPI definition to be updated is passed as a form data parameter `apiDefinition`.
       parameters:
         - $ref: '#/parameters/apiId'
         - in: formData
           name: apiDefinition
-          description: Swagger definition of the API
+          description: OpenAPI definition of the API
           type: string
         - in: formData
           name: url
-          description: Swagger definition URL of the API
+          description: OpenAPI definition URL of the API
           type: string
         - in: formData
           name: file
-          description: Swagger definitio as a file
+          description: OpenAPI definitio as a file
           type: file
           required: false
         - $ref: '#/parameters/If-Match'
@@ -563,7 +563,7 @@ paths:
             example: ""
           description: |
             OK.
-            Successful response with updated Swagger definition
+            Successful response with updated OpenAPI definition
           headers:
             Location:
               description: |
@@ -5124,20 +5124,20 @@ paths:
           schema:
             $ref: '#/definitions/Error'
   ################################################################
-  # The swagger resource of "Individual API" resource APIs
+  # The OpenAPI resource of "Individual API" resource APIs
   ################################################################
 
   /api-products/{apiProductId}/swagger:
     #-----------------------------------------------------
-    # Retrieve the API swagger definition
+    # Retrieve the APIs OpenAPI definition
     #-----------------------------------------------------
     get:
       security:
         - OAuth2Security:
           - apim:api_publish
-      summary: Get swagger definition
+      summary: Get OpenAPI definition
       description: |
-        This operation can be used to retrieve the swagger definition of an API.
+        This operation can be used to retrieve the OpenAPI definition of an API.
       parameters:
         - $ref: '#/parameters/apiProductId'
         - $ref: '#/parameters/Accept'
@@ -5148,7 +5148,7 @@ paths:
         200:
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             Content-Type:
               description: |
@@ -5205,7 +5205,7 @@ paths:
         200:
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             Content-Type:
               description: |

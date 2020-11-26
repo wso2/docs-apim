@@ -47,7 +47,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 5.  Navigate to  **Main > Resources > Browse**.
 
-    ![Menu option to navigate to the Browse option]({{base_path}}/assets/attachments/103332470/103332465.png)
+    ![Menu option to navigate to the Browse option]({{base_path}}/assets/img/learn/navigate-main-resources.png)
     
      The Registry opens.
 
