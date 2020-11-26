@@ -370,8 +370,8 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
       |-------------------------------------------------------|-------------------------------------|--------------------------------|
       | `adminScope` | apim_analytics:admin_carbon.super | The Admin scope that is used for the permissions in the dashboards.|
       | `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
-      | `adminUsername`| admin | The username for the admin services.|
-      | `adminPassword`| admin | The password for the admin services.|
+      | `adminUsername`| admin | The username for the admin services, which correspond to the credentials defined under the super tenant in the API Manager's `deployment.toml` file.|
+      | `adminPassword`| admin | The password for the admin services, which correspond to the credentials defined under the super tenant in the API Manager's `deployment.toml` file.|
       | `kmDcrUrl`| https://localhost:9443/client-registration/v0.17/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node URL.|
       | `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirection. This should be pointed to the API Manager Publisher node URL.|
       | `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node URL.|
