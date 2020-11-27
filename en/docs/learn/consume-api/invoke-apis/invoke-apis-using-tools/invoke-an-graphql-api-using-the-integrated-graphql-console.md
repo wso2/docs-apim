@@ -108,7 +108,7 @@ Let's see how to download a GraphQL as a Postman collection.
     
 2.  As the Postman collection is secure obtain the authentication code. 
 
-     **Generate** the authentication code and **copy** the access token that you generated as mentioned above in <a href="#generatetoken">step 9</a>.
+     **Generate** the authentication code and **copy** the access token that you generated as mentioned above in <a href="#generatetoken">step 7</a>.
 
 3. Open the Postman application and click **Import** to import the Postman collection file that you downloaded.
 
