@@ -521,16 +521,18 @@ The following is the Devportal app theme object merging with the React Material 
 
 ## Publisher
 
-The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/theme/` directory. 
+The default theme of the publisher portal is built into the portal bundle file.You can find the pre-packed default theme file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/source/src/app/data/defaultTheme.js` source directory.
 
-The `defaultTheme.js` file has all the parameters defining the look and feel of the Publisher app.
+This can be used as a reference to identified the custom extention points available in the publisher theme file.
 
-Make sure to take a backup of the `defaultTheme.js` before making any changes.
+To override the default theme parameters, You have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.js` file in the 
+```
+<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/userThemes.js
+```
 
-Changes done in the `defaultTheme.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code). 
+Changes done in the `userThemes.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code).
 
-!!!Note
-      It's required to keep the complete configuration in the site/public/theme/defaultTheme.js for **publisher** app. 
+When modifing the them,You can only provide the custom parameter that you want to override in default theme, rest of the theme parameters will be inherited from the built-in default theme configuration. 
 
 #### Content of defaultTheme.js
 
