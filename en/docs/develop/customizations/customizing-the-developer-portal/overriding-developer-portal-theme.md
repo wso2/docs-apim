@@ -3,18 +3,20 @@
 Developers can easily customize the Developer Portal UI by modifying a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family for the entire Developer Portal by modifying the JSON file.  Hence, developers are not required to have any prior knowledge on React, CSS, or HTML to customize the UI.
 The Developer Portal theme can be customized not only for the look and feel but also for changing the listing view from default to grid view or vice versa, hiding social features, etc.
 
-### Global Theming
+## Global Theming
 
-You can find default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
+You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
-    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
+    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
     You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
     The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file.
 
-E.g., Enable landing page. **defaultTheme.js**.
+Example:
+
+Enable landing page. **defaultTheme.js**.
 
 ```sh
 const Configurations = {
@@ -25,7 +27,10 @@ const Configurations = {
     },
 };
 ```
-E.g., Enable landing page. **defaultTheme.json** (Tenant theming).
+
+Example:
+
+Enable landing page. **defaultTheme.json** (Tenant theming).
 
 ```sh
 {
@@ -36,9 +41,9 @@ E.g., Enable landing page. **defaultTheme.json** (Tenant theming).
   }
 }
 ```
-### Tenant Theming 
+## Tenant Theming 
 
-#### Uploading Devportal theme via the Admin Portal (Tenants Only)
+### Uploading Devportal theme via the Admin Portal (Tenants Only)
 
 **If you do not have access to the file system** , you can upload/download the Devportal theme via the Admin Portal as shown below:
 
@@ -73,7 +78,7 @@ E.g., Enable landing page. **defaultTheme.json** (Tenant theming).
 4.  Click **Tenant Theme** under **Settings** category and click **Browse File to Upload** to upload your ZIP file.
     Alternatively, you can drag and drop your ZIP file to upload.
 
-    ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
+    [![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
 5.  Access the API Developer Portal (`https://<server-host>:<server-port>/devportal`) using your tenant username and password.
 
@@ -114,7 +119,7 @@ E.g., Enable landing page. **defaultTheme.json** (Tenant theming).
     }
     ```
 
-#### Adding custom logo for the tenant
+### Adding custom logo for the tenant
 
 In your tenant theme, you can refer to an image from the `defaultTheme.json` file as follows. The examples below uses the `custom-logo.png` image from the `sample-theme.zip`. The image can be referred using one of the following URL patterns.
 
@@ -135,11 +140,11 @@ The following defines the logo image from an external URL.
 "logo": "https://dummyimage.com/208x19/66aad1/ffffff&text=testlogo",
 ```
 
-#### Applying CSS rules to change the look and feel
+### Applying CSS rules to change the look and feel
 
 If you prefer to change the styling using CSS rules, you can use the `custom.css` file. The above sample theme also has a custom CSS file. In the CSS file, let's change the top header background color to black. 
 
-Note that we have injected IDs into the dom elements. You can use them to apply CSS rules. However, be aware about the dynamically generated CSS class names. These class names have a number suffix which changes from version to version. Therefore, it is recommended not to use them for styling purposes. 
+Note that we have injected IDs into the dom elements. You can use them to apply CSS rules. However, be aware of the dynamically generated CSS class names. These class names have a number suffix that changes from version to version. Therefore, it is recommended not to use them for styling purposes. 
 
 The CSS file is referenced in the `defaultTheme.json` in the following manner. It is not a must to replace the `<tenant-domain> ` in the following line, as at runtime the Developer Portal will automatically replace it with the current tenant domain.
 
@@ -147,7 +152,7 @@ The CSS file is referenced in the `defaultTheme.json` in the following manner. I
    "tenantCustomCss": "/site/public/tenant_themes/<tenant-domain>/apim/css/custom.css",
 ```
 
-#### Content of defaultTheme.json
+### Content of defaultTheme.json
 
 The following is the Devportal app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
 
@@ -464,11 +469,11 @@ The following is the Devportal app theme object merging with the React Material 
 </div>
 
 
-#### Applying themes for tenant login pages
+### Applying themes for tenant login pages
 
-1. Configure a custom URL for tenant.
+1. Configure a custom URL for the tenant.
 
-2. Login to tenant's carbon console and add following property to `/_system/config/apimgt/applicationdata/tenant-conf.json` file.
+2. Sign in to tenant's Carbon Console and add the following property to `/_system/config/apimgt/applicationdata/tenant-conf.json` file.
 
 ```json
 "EnablePerTenantServiceProviderCreation" : "true" 
@@ -517,24 +522,21 @@ The following is the Devportal app theme object merging with the React Material 
     Please note that it is not allowed to define both a header.title and a logo for the login customizations. You can only define either a header.title or a logo.
     
 4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fileds. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
-5. Zip this file along with other resources in the tenant theme and upload via admin portal. Or you can make changes manually if you have access to the server's file system.
+5. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.
 
 ## Publisher
 
-The default theme of the publisher portal is built into the portal bundle file.You can find the pre-packed default theme file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/source/src/app/data/defaultTheme.js` source directory.
+The default theme of the Publisher portal is built into the portal bundle file. You can find the pre-packed default theme file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/source/src/app/data/defaultTheme.js` source directory.
 
-This can be used as a reference to identified the custom extention points available in the publisher theme file.
+This can be used as a reference to identify the custom extension points that are available in the Publisher theme file.
 
-To override the default theme parameters, You have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.js` file in the 
-```
-<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/userThemes.js
-```
+To override the default theme parameters, you have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.js` file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/userThemes.js` file.
 
-Changes done in the `userThemes.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code).
+Changes done in the `userThemes.js` file are reflected directly in the Publisher app (You do not need to restart the server or rebuild the source code).
 
-When modifing the them,You can only provide the custom parameter that you want to override in default theme, rest of the theme parameters will be inherited from the built-in default theme configuration. 
+When modifying the theme, you can only provide the custom parameter that you want to override in the default theme, the rest of the theme parameters will be inherited from the built-in default theme configuration. 
 
-#### Content of defaultTheme.js
+### Content of defaultTheme.js
 
 The following is the Publisher app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
 
@@ -671,4 +673,3 @@ The following is the Publisher app theme object merging with the React Material 
 }
 </textarea>
 </div>
-
