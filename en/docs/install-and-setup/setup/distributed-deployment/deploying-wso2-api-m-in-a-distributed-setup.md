@@ -258,10 +258,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
          ```
          
     !!! note
-        In each startup of a traffic manager node, the throttle policies will be redeployed by retrieving the latest 
-        policy details from the database. This will maintain the consistency between traffic manager nodes. If you 
-        need to avoid redeploying certain throttle policies, please add the below configuration to the 
-        `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node.  
+        In each startup of a Traffic Manager node, the throttle policies will be redeployed by retrieving the latest policy details from the database. This will maintain the consistency between the Traffic Manager nodes. If you need to avoid redeploying certain throttle policies, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node.  
                
         ```
         [apim.throttling]

@@ -3209,8 +3209,7 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                         on startup</p>
                                     </div>
                                 </div>   
-                            </div>      
-                          </div>                         
+                            </div>                      
                         </div>
                     </div>
                 </div>
