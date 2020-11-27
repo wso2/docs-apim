@@ -4,20 +4,24 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
 ## Download and initialize the CTL Tool
 
-1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>, click on **PREVIOUS RELEASES** and select **Version 3.0.0** as the API Manager version.
-2.  Under **Tooling** -> **CLI**, click on your preferred platform (i.e., Mac, Windows, Linux) to download the archive.
-3.  Extract the downloaded archive of the CTL Tool to the desired location.
+1.  Download **API Controller** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-4.  Navigate to the working directory where the executable CTL Tool resides.
+    - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.0.1-macosx-x64.tar.gz)
+    - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.0.1-linux-i586.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.0.1-linux-x64.tar.gz)
+    - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.0.1-windows-i586.zip)
+    - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.0.1-windows-x64.zip)
 
-5.  Execute the following command to start the CTL Tool.
+2.  Extract the downloaded archive of the CTL Tool to the desired location.
+3.  Navigate to the working directory where the executable CTL Tool resides.
+4.  Execute the following command to start the CTL Tool.
 
     ``` go
     ./apictl
     ```
     The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
 
-6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
+5.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
 
     !!! Tip    
