@@ -477,6 +477,7 @@ nav:
                 - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
                 - Managing Users: administer/managing-users-and-roles/managing-users.md
                 - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
+                - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
           - Managing User Stores:
                 - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                 - Configuring Primary User Stores:
