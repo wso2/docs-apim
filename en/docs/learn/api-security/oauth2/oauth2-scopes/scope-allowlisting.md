@@ -5,7 +5,7 @@ A scope is not always used for controlling access to a resource. You can also us
 If you do not want a role validation for a scope in an API's request, add the scope as `allowed_scopes` in the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server. It will be allowlisted. For example,
 
 ```
-[apim.oauth_config]
+[oauth]
 allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
 ```
 
