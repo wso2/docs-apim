@@ -23,6 +23,8 @@ Follow the instructions below to enable notifications for new API versions:
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
     | password               | Password used to authenticate the mail server.                                                                            |
 
+    For more information, see [Enable Notifications]({{base_path}}/reference/config-catalog/#enable-notifications).
+
 2.  Sign in to the Management Console.
 
     `https://<hostname>:9443/carbon` 
