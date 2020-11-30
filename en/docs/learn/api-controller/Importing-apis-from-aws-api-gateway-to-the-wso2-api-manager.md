@@ -1,16 +1,13 @@
-# Importing APIs from AWS API Gateway to the WSO2 developers portal
+# Importing APIs from AWS API Gateway to the WSO2 API Manager 
 
 ## Introduction
 
-`aws init` is a apictl command which will use the AWS CLI to download the OAS of an API from the AWS API Gateway to initialize a WSO2 API project. The user has to provide the name of the AWS API and a specific API Stage.
+`aws init` is a apictl command which will use the AWS CLI in the background to download the OAS of an API from the AWS API Gateway to initialize a WSO2 API Manager project. The user has to provide the name of the AWS API and a specific API Stage. The `aws init` command will be executing two AWS CLI commands in the backgroung to get the OAS of an API.
 
-!!! example
-    ```bash
-    apictl aws init --name PetStore --stagename demo
-    ```
-    ```bash
-    apictl aws init -n PetStore -s demo
-    ```
+1. `aws apigateway get-rest-apis` This command will return all the AWS APIs a user has in their AWS account. The `aws init` command will match the API name provided when the `aws init` command was executed and get it's ID to execute the `aws get-export` command.
+
+2. `aws apigateway get-export api-id <api_id> stage-name <stage_name> --export-type oas30 <path>` This command will download the swagger of the API and store it in a temporary directory till the API Manager project is innitialized. After initializing the API Manager project the temporary directory along with the OAS of the AWS API will be deleted.
+
 Then the user can use the `apictl import-api` command to import the initialized project as an API to the WSO2 API Manager. For more information refer [Import an API project](https://apim.docs.wso2.com/en/latest/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).
 
 ## Prerequisites 
@@ -19,10 +16,10 @@ Then the user can use the `apictl import-api` command to import the initialized 
 
 2. After successfully installing the AWS CLI it needs to be configured. Refer [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
-3. Disable aws cli pagination. By default the AWS CLI returns all objects in the output, but if you have disabled pagination you will have to enable pagination for the `aws init` command to successfully work. 
+3. Disable AWS CLI pagination. By default the AWS CLI returns all objects in the output, but if you have disabled pagination you will have to enable pagination for the `aws init` command to successfully work. 
 For more information, refer [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html).
 
-## Using the aws init command
+## Importing an API from AWS Apigateway to the WSO2 API Manager  
 
 Usage of this command is quite simple. Two flags are associated with the `aws init` command, `name` and `stagename`. Both of these flags are mandatory.
 
@@ -90,7 +87,7 @@ Usage of this command is quite simple. Two flags are associated with the `aws in
     Temporary directory deleted
     ```
 
-## Importing the initialized API project to the WSO2 API Manager as an API
+### Importing the initialized API project to the WSO2 API Manager as an API
 
 !!! NOTE
     The initial state of the API will be set to `CREATED`. 
@@ -118,3 +115,5 @@ The most common reason for this is due to a incorrect stage name provided.
 !!! tip
     Make sure you provide the correct stage name and the spellings are correct.
     It is also important to remember the name and stagename are case sensitive.
+
+For a more detailed report execute the `aws init` command with the `--verbose` flag. 
