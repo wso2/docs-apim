@@ -1,50 +1,54 @@
-# Invoke an GraphQL API using the Integrated GraphQL Console
+# Invoke a GraphQL API using the Integrated GraphQL Console
 
-WSO2 API Manager(WSO2 API-M) has an integrated GraphiQL UI for the GraphQL APIs.
+WSO2 API Manager (WSO2 API-M) has an integrated GraphiQL UI for the GraphQL APIs.
 
-[GraphiQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and It is reference implementation from the GraphQL foundation. 
+[GraphiQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. 
 
-GraphiQL UI supports full GraphQL Language Specification (Queries, Mutations, Subscriptions, Fragments, Unions, directives, multiple operations per query, etc) and it provides interactive schema documentation, real-time error highlighting and reporting for queries and variables, automatic query and variables completion, automatically adds required fields to queries, query History using local storage. 
+GraphiQL UI supports full GraphQL Language Specification (Queries, Mutations, Subscriptions, Fragments, Unions, directives, multiple operations per query, etc.) and it provides interactive schema documentation, real-time error highlighting and reporting for queries and variables, automatic query and variables completion, it automatically adds the required fields to the queries, and also queries the history using local storage. 
 
-Let's see how to use the GraphQL Console in the Store to invoke an GraphQL API.
+Let's see how to use the GraphQL Console in the Developer Portal to invoke a GraphQL API.
 
 !!! Note
     You can only try out HTTPS based APIs via the GraphQL Console because the API Store runs on HTTPS.
 
+The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/learn/design-api/create-api/create-a-graphql-api/).
 
-The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/learn/design-api/create-api/create-a-graphql-api/) .
+1. Sign in to the WSO2 Developer Portal and click on an API (e.g., `StarWarsAPI`).
 
-1.  Sign in to the WSO2 Develeoper Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `StarWarsAPI` ).
+     `https://<hostname>:9443/devportal`
 
-2.  Subscribe to the GraphQL API (e.g., `StarWarsAPI` 1.0.0) using an application and an available tier.
+2. Subscribe to the GraphQL API (e.g., `StarWarsAPI` 1.0.0) using an application and an available throttling policy.
 
-    [![Subscribe to the GraphQL API]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)
+     [![Subscribe to the GraphQL API]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)
 
-3.  On the **Applications** menu, open the application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
+3. Click **Applications** and open the application that you used to subscribe to the API.
 
-    [![Generate production key]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)
+4. Click **Production Keys** and click **Generate keys** to generate a production key.
 
-    !!! tip
-        **Production and Sandbox Tokens**
+     [![Generate production key]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)
+
+    !!! tip "Production and Sandbox Tokens"
 
         To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
-    !!! tip
-        **JWT vs Oauth tokens**
+    !!! tip "JWT vs OAuth tokens"
 
-        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the graphql console will be automatically populated with the generated token in the authorization field. 
+        If the application you are using for this example is self-contained (JWT), then **copy the generated access token** before proceeding to the next step. If the application is of OAuth type, then the GraphQL console will be automatically populated with the generated token in the authorization field.
 
+5. Click **APIs** to navigate to the APIs and select the GraphQL API that you want to invoke. 
 
-4.  On the **APIs** menu, select the GraphQL API that you want to invoke.When the API opens, click on **Test** button under operations section.
+6. Click **Test** under the **operations** section.
 
     [![Test GraphQL API]({{base_path}}/assets/img/learn/graphql-console-test-button.png)]({{base_path}}/assets/img/learn/graphql-console-test-button.png)
 
-5. This will open the GraphiQL UI(GraphQL Console) to test the StarWarsAPI. Copy the generated access token to the Authorization field as depicted in the following figure.
+    This opens the GraphiQL UI (GraphQL Console) to test the StarWarsAPI.
+
+7. Copy the generated access token to the Authorization field as shown below.
 
     [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
 
-6.  Enter the following sample query. Then click on execute button as follows.
+8. Enter the following sample query.
 
     ```
     query{
@@ -63,19 +67,22 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
           
     ```
  
-    [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
+9. Click **Execute**.
 
+     [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
 
-    !!! Note
-        **Troubleshooting**
-
-        If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception** ), it could be because the security certificate issued by the server is not trusted by your browser. To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
+    !!! info "Troubleshooting"
+        If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
         
-        If the API Manager has a **certificate signed by a Certificate Authority** (CA), the HTTPS endpoints should work out of the box.
+        To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
+        
+        If the API Manager has a **certificate signed by a Certificate Authority (CA)**, the HTTPS endpoints should work out-of-the-box.
 
+     Note the successful response for the API invocation. 
 
-    Note the successful response for the API invocation. 
+     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
 
-    [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+You have now successfully invoked a GraphQL API using the GraphQL API Console.
 
-You have now succesfully invoked a GraphQL API using the GraphQL API Console.
+!!! Info "Try out using Postman"
+    You can also try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
