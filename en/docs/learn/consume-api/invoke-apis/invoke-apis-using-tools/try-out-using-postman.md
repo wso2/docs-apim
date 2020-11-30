@@ -1,56 +1,79 @@
 # Try out using Postman
 
-Let`s see how to download a Postman collection.
+You can download a Postman collection for either an **Open API** or a **GraphQL Schema** using WSO2 API Manager, and try out the API using Postman.
 
-1.  Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `Pizza` ) to go to the API overview.
+For example, let's download an OpenAPI as a Postman collection and try it out using Postman.
 
-    ![[API overview]({{base_path}}/assets/img/learn/postman_api_overview.png)]({{base_path}}/assets/img/learn/postman_api_overview.png)
+## Step 1 - Download a Postman collection for the API
+
+Follow the instructions below to download an OpenAPI as a Postman collection:
+
+1.  Sign in to the WSO2 Developer Portal.
+
+     `https://<hostname>:9443/devportal`
+
+2. Click an API (e.g., `Pizza`) to go to the API overview.
+
+    [![API overview]({{base_path}}/assets/img/learn/postman_api_overview.png)]({{base_path}}/assets/img/learn/postman_api_overview.png)
 
 2.  Click **Try Out** to go to the Try out section.
 
-    ![[Postman try out]({{base_path}}/assets/img/learn/postman_try_out.png)]({{base_path}}/assets/img/learn/postman_try_out.png)
+    [![Postman try out]({{base_path}}/assets/img/learn/postman_try_out.png)]({{base_path}}/assets/img/learn/postman_try_out.png)
 
-3.  If you haven't subscribed to this API, you should [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api).
+3.  [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) if you have not done so already.
 
-    Then choose the application name and click the `Postman collection` button to download the Postman collection.
+4. Select the application name and click **Postman collection**.
+     
+     This downloads the Postman collection.
 
-    ![[Collection download]({{base_path}}/assets/img/learn/postman_download_collection.png)]({{base_path}}/assets/img/learn/postman_download_collection.png)
+    [![Collection download]({{base_path}}/assets/img/learn/postman_download_collection.png)]({{base_path}}/assets/img/learn/postman_download_collection.png)
     
-## Try out collection in postman
+## Step 2 - Try out the collection in Postman
 
+Follow the instructions below to try out the Postman collection that contains the Open API.
 
-1.  As there's a security for the Postman collection, you have to get the authentication code. First go to `Subscriptions`.
+1. Get the authentication code.
+     
+     This is required because the Postman collection is secured.
 
-2. Then click the `PROD KEYS` to generate an Access Token.
+     1. Click **Subscriptions**.
 
-    ![[Subscriptions]({{base_path}}/assets/img/learn/postman_subscriptions.png)]({{base_path}}/assets/img/learn/postman_subscriptions.png)
+     2. Click the **PROD KEYS** to generate an Access Token.
 
-3. Click on `Generate Access Token` to generate a new token. 
+         [![Subscriptions]({{base_path}}/assets/img/learn/postman_subscriptions.png)]({{base_path}}/assets/img/learn/postman_subscriptions.png)
 
-    ![[Generate token]({{base_path}}/assets/img/learn/postman_generate_token.png)]({{base_path}}/assets/img/learn/postman_generate_token.png)
+     3. Click **Generate Access Token** to generate a new token. 
+
+         [![Generate token]({{base_path}}/assets/img/learn/postman_generate_token.png)]({{base_path}}/assets/img/learn/postman_generate_token.png)
     
-4. Click `Generate` in the popup dialog you get.
+     4. Click **Generate**.
 
-    ![[Generate dialog]({{base_path}}/assets/img/learn/postman_generate_dialog.png)]({{base_path}}/assets/img/learn/postman_generate_dialog.png)
+         [![Generate dialog]({{base_path}}/assets/img/learn/postman_generate_dialog.png)]({{base_path}}/assets/img/learn/postman_generate_dialog.png)
     
-5. **Copy** the access token you generted.
+     5. **Copy** the access token you generated.
 
-6. Open the Postman application and **Import** the Postman collection file you downloaded.
+2. Open the Postman application and click **Import** to import the Postman collection file that you downloaded.
 
-    ![[Import Postman]({{base_path}}/assets/img/learn/postman_import.png)]({{base_path}}/assets/img/learn/postman_import.png)
+     [![Import Postman]({{base_path}}/assets/img/learn/postman_import.png)]({{base_path}}/assets/img/learn/postman_import.png)
 
-7. Select a resource from the Postman collection to test.
+3. Select a resource from the Postman collection to test.
 
-8. Click the **Authorization** tab and select `Bearer Token` as the token type.
+4. Click on the **Authorization** tab and select **Bearer Token** as the token type.
 
-    ![[Token type]({{base_path}}/assets/img/learn/postman_token_type.png)]({{base_path}}/assets/img/learn/postman_token_type.png)
+     [![Token type]({{base_path}}/assets/img/learn/postman_token_type.png)]({{base_path}}/assets/img/learn/postman_token_type.png)
 
-9. Paste the copied token.
+5. Paste the copied token.
 
-10. Click **Send** to proceed.
+6. Click **Send** to proceed.
 
-    ![[Put token]({{base_path}}/assets/img/learn/postman_put_token.png)]({{base_path}}/assets/img/learn/postman_put_token.png)
+     [![Put token]({{base_path}}/assets/img/learn/postman_put_token.png)]({{base_path}}/assets/img/learn/postman_put_token.png)
 
-11. You can see the result under the `Body` tab.
+     You can now see the result under the **Body** tab.
 
-    ![[Postman result]({{base_path}}/assets/img/learn/postman_result.png)]({{base_path}}/assets/img/learn/postman_result.png)
+     [![Postman result]({{base_path}}/assets/img/learn/postman_result.png)]({{base_path}}/assets/img/learn/postman_result.png)
+
+!!! Info "Try out using the integrated console"
+    You can also try out your APIs using the WSO2 API Manager integrated consoles that correspond to your API as mentioned below.
+
+    - REST API - [Integrated API Console]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md)
+    - GraphQL API - [Integrated GraphQL Console]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md)
