@@ -2,7 +2,7 @@
 
 Follow the instructions below to change the default token expiry time based on your requirements.
 
-## Change the Default Token Expiration Time from Global level.
+## Changing the default token expiration time at the global-level
 
 !!! note
     The changes that you do here will be applied only to the new applications that you create.
@@ -52,20 +52,19 @@ Refresh access tokens have an expiration time, which is set to 24 hours by defau
         refresh_token_validity = 86400
     ```
 
-## Change the Default Token Expiration Time from Application level.
+## Changing the default token expiration time at the application-level
 
-You can configure the token expiration time in Application level as follows.
+You can configure the token expiration time in application-level as follows.
 
 1. Sign in to the Developer Portal.  
     
      `https://<hostname>:9443/devportal`
 
-2. Click Applications to navigate to the applications listing page and click on the respective application for which you want to generate keys.
+2. Click "Applications" to navigate to the applications listing page and click on the respective application for which you want to generate keys.
 
-3. Click Oauth2 Tokens under Production Keys,set the validity period as follows.
+3. Click "Oauth2 Tokens" under "Production Keys", and set the validity period as follows.
 
      [![Configure custom token expiration time]({{base_path}}/assets/img/learn/generate-token-with-custom-validity.png)]({{base_path}}/assets/img/learn/generate-token-with-custom-validity.png)
-
 
 
 In addition, see [Configuring Caching]({{base_path}}/administer/product-configurations/configuring-caching/) for several caching options that you can use to optimize key validation.
