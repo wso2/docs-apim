@@ -1,0 +1,4 @@
+[multi_tenancy.stratos.manager_service]
+url = "https://am.cloud.wso2.com/services/"
+admin_username = "admin"
+admin_password = "admin"
