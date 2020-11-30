@@ -28,14 +28,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export-api -n <API-name> -v <version> -r <provider> -e <environment> -k 
+        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> -k 
         ``` 
         ```go
-        apictl export-api --name <API-name> --version <version> --provider <provider> --environment <environment> -k 
+        apictl export api --name <API-name> --version <version> --provider <provider> --environment <environment> -k 
         ```
 
         ```go
-        apictl export-api -n <API-name> -v <version> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format> -k 
+        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format> -k 
         ``` 
 
         !!! info
@@ -52,11 +52,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             
         !!! example
             ```go
-            apictl export-api -n PhoneVerification -v 1.0.0 -e dev -k
+            apictl export api -n PhoneVerification -v 1.0.0 -e dev -k
             ```
             ```go
-            apictl export-api -n PizzaShackAPI -v 1.0.0 -r Alice -e dev --preserveStatus=true --format JSON -k
+            apictl export api -n PizzaShackAPI -v 1.0.0 -r Alice -e dev --preserveStatus=true --format JSON -k
             ```            
+
+        !!!note
+            `apictl export-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
 
     -   **Response**
 
@@ -119,13 +122,13 @@ You can use the below command to export all the APIs belong to the currently log
 - **Command**
 
     ``` go
-    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> -k
     ```
     ``` go
-    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --force -k
     ```
     ``` go
-    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force -k
     ```
 
     !!! info
@@ -140,11 +143,14 @@ You can use the below command to export all the APIs belong to the currently log
 
     !!! example
         ```go
-        apictl export-apis -e production -k
+        apictl export apis -e production -k
         ```
         ```go
-        apictl export-apis --environment production --format json  --preserveStatus --force -k
+        apictl export apis --environment production --format json  --preserveStatus --force -k
         ```
+
+    !!!note
+        `apictl export-apis` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export apis` as shown above.
 
 - **Response**
 
@@ -156,7 +162,7 @@ You can use the below command to export all the APIs belong to the currently log
     Total number of APIs exported: <number-of-APIs>
     API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-    Command: export-apis execution completed !
+    Command: export apis execution completed !
     ```
 
     ``` go tab="Example Response"
@@ -167,7 +173,7 @@ You can use the below command to export all the APIs belong to the currently log
     Total number of APIs exported: 5
     API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
 
-    Command: export-apis execution completed !
+    Command: export apis execution completed !
     ```
 
 ### Import an API
@@ -198,13 +204,13 @@ You can use the API archive exported from the previous section (or you can extra
 
     -   **Command**
         ``` bash
-        apictl import-api -f <path-to-API-archive> -e <environment> -k
+        apictl import api -f <path-to-API-archive> -e <environment> -k
         ```
         ``` bash
-        apictl import-api --file <path-to-API-archive> --environment <environment> -k
+        apictl import api --file <path-to-API-archive> --environment <environment> -k
         ```
         ``` bash
-        apictl import-api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  -k
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  -k
         ```
 
         !!! info
@@ -221,20 +227,22 @@ You can use the API archive exported from the previous section (or you can extra
 
         !!! example
             ```bash
-            apictl import-api -f dev/PhoneVerification_1.0.0.zip -e production -k
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production -k
             ```
             ```bash
-            apictl import-api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production -k
+            apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production -k
             ```    
             ``` go
-            apictl import-api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml -k 
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml -k 
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.
 
         !!! tip
-            When using `--update` flag with `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
+            When using `--update` flag with `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment.
 
+        !!!note
+            `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
        
      -   **Response**
         

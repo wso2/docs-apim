@@ -14,9 +14,10 @@ Follow the instructions below to configure and deploy API-M by using an Active-A
 -   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
 -   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
 -   [Step 8 - Configure Throttling](#step-8-configure-throttling)
--   [Step 9 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
--   [Step 10 - Configure Production Hardening](#step-10-configure-production-hardening)
--   [Step 11 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
+-   [Step 9 - Optionally, enable distributed cache invalidation](#step-9-optionally-enable-distributed-cache-invalidation)  
+-   [Step 10 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
+-   [Step 11 - Configure Production Hardening](#step-10-configure-production-hardening)
+-   [Step 12 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
 
 ___________________________________
 
@@ -243,7 +244,16 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     2.  Save your changes.
 
-## Step 9 - Configure API-M Analytics
+## Step 9 - Optionally, enable distributed cache invalidation
+
+Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
+
+``` toml
+[apim.cache_invalidation]
+enabled = true
+```
+
+## Step 10 - Configure API-M Analytics
 
 If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
 configure API-M Analytics. If not, you can **skip this step**.
@@ -252,7 +262,7 @@ Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analy
 [Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
 to configure API-M Analytics in a production setup.
 
-## Step 10 - Configure Production Hardening
+## Step 11 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -262,7 +272,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
 
-## Step 11 - Start the WSO2 API-M Servers
+## Step 12 - Start the WSO2 API-M Servers
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 

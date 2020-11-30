@@ -1101,3 +1101,11 @@ html .md-footer-meta.md-typeset a,
   .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
     background-color: #ffaa001f !important;
   }
+
+  .beta-badge {
+    display: inline-block;
+    background: #ffd600;
+    font-size: 14px;
+    padding: 5px;
+    line-height: 1;
+}

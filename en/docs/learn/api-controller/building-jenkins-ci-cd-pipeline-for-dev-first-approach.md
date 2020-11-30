@@ -107,7 +107,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 !!! info
     -   When there are multiple environments, to allow easily configuring environment-specific details, `apictl` supports an additional parameter file.
 
-    -   Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. 
+    -   Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import api` command and create an environment-based artifact for API Manager. 
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
@@ -148,20 +148,23 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
 
     !!! example
         ```bash
-        apictl add-env -e dev \
+        apictl add env dev \
         --registration https://dev.apim.wso2.com \
         --apim https://dev.apim.wso2.com \
         --token https://dev.apim.wso2.com/token
         ```
         
         ```bash
-        apictl add-env -e prod \
+        apictl add env prod \
         --registration https://prod.apim.wso2.com \
         --apim https://prod.apim.wso2.com \
         --token https://prod.apim.wso2.com/token
         ```
 
-     For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
+     For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+
+    !!!note
+        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
     
      You can also add an environment manually beforehand or provide the details as a shell script in the same pipeline.
 
@@ -179,13 +182,13 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
     !!! info
         -   The `RETRY` variable is defined with 80 milliseconds so that the production and sandbox endpoints of the API deployed in the dev environment has an endpoint retry timeout value of 80 milliseconds. 
         -   As the first step, this will log in to the dev environment using the provided Jenkins credentials and 
-        then deploy the API into the dev environment using the `import-api` command. 
+        then deploy the API into the dev environment using the `import api` command. 
         -   The `preserve-provider` and `update` flags, will preserve the API provider in the given API project and import the API to the development environment seamlessly.
         -   The next stage `Run Tests` will run the test script that you committed to the project in the Git repository using `Newman`. 
         -   If you need to use the same test script to run it against multiple environments, you can maintain a separate 
         environment file and provide that as an argument for the `Newman` run command. For more information, see [Using environments in collection runs](https://learning.getpostman.com/docs/postman/collection-runs/using-environments-in-collection-runs/).
         -   After the tests are passed, the next stage will deploy the API to the prod environment using the 
-        `import-api` command. Similar to the dev environment, you can provide any environment-specific variable 
+        `import api` command. Similar to the dev environment, you can provide any environment-specific variable 
         values here so that they will be injected into the API during the deployment.
     
 

@@ -481,13 +481,13 @@ After editing the mandatory fields in the API Project, you can import the API to
 
 -   **Command**
     ``` bash
-    apictl import-api -f <path to API Project> -e <environment> -k
+    apictl import api -f <path to API Project> -e <environment> -k
     ```
     ``` bash
-    apictl import-api --file <path to API Project> --environment <environment> -k
+    apictl import api --file <path to API Project> --environment <environment> -k
     ```
     ``` bash
-    apictl import-api --file <path to API Project> --environment <environment> --params=<environment params file> -k
+    apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> -k
     ```
 
     !!! info
@@ -505,18 +505,20 @@ After editing the mandatory fields in the API Project, you can import the API to
 
     !!! example
         ```bash
-        apictl import-api -f ~/myapi -e production -k
+        apictl import api -f ~/myapi -e production -k
         ```
         ```bash
-        apictl import-api --file ~/myapi --environment production -k
+        apictl import api --file ~/myapi --environment production -k
         ```    
         ``` go
-        apictl import-api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
+        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
         ```
         
     !!! tip
-        When using the `--update` flag with the `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
+        When using the `--update` flag with the `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
 
+    !!!note
+        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
        
 -   **Response**
     ``` bash

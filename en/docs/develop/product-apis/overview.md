@@ -1,4 +1,4 @@
-# Overview
+# RESTful APIs
 
 The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal and Gateway, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 

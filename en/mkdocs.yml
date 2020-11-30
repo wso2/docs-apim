@@ -143,9 +143,10 @@ nav:
                             - Adding an API Subscription Tier Update Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
                 - Invoke APIs:
                       - Invoke an API Using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
-                      - Invoke an GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
+                      - Invoke a GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
                       - Include Additional Headers in the API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
                       - Invoke an API Using a SOAP Client: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+                      - Try out using Postman: learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
                 - Collaborations:
                       - Use the Community Features: learn/consume-api/collaboration/use-the-community-features.md
                 - Generating SDKs:
@@ -291,6 +292,7 @@ nav:
                       - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                      - Configuring Git Integration: learn/api-controller/advanced-topics/configuring-git-integration.md
           - Kubernetes Operators:
                 - K8s API Operator:
                     - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
@@ -304,7 +306,7 @@ nav:
                 - Edit an API by Modifying the API Definition: learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md
     - Develop:
           - Product REST APIs:
-                - Overview: develop/product-apis/overview.md
+                - RESTful APIs: develop/product-apis/overview.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
                 - Developer Portal APIs:
@@ -476,6 +478,7 @@ nav:
                 - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
                 - Managing Users: administer/managing-users-and-roles/managing-users.md
                 - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
+                - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
           - Managing User Stores:
                 - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                 - Configuring Primary User Stores:
@@ -496,15 +499,18 @@ nav:
                       - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
                       - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
                       - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                      - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
                 - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
-                - Configure WSO2 IS as A Key Manager: administer/key-managers/configure-wso2is-connector.md
-                - Configure Keycloak as A Key Manager: administer/key-managers/configure-keycloak-connector.md
-                - Configure Okta as A Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
+                - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
@@ -652,6 +658,7 @@ plugins:
               'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
               'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
               'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
+              'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/'
               'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
               'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
               'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.2.0/troubleshooting/capturing-system-data-in-error-situations/'
