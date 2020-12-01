@@ -146,6 +146,193 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     In the sample commands above, it is assumed that the username and password defined in the datasource configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file are **wso2user** and **wso2123** respectively.
 
+!!! note
+    If you are using NDB engine instead of INNODB engine, you can use the following DB scripts.
+
+     - **`SHARED_DB`** - `<API-M_HOME>/dbscripts/mysql_cluster.sql` 
+     - **`WSO2AM_DB`** - `<API-M_HOME>/dbscripts/apimgt/mysql_cluster.sql`
+
+!!! note
+    If you are using MySQL with group replication, it is mandatory to have primary keys for all the tables.
+
+    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql` and `<API-M_HOME>/dbscripts/apimgt/mysql.sql`)
+
+    ??? info "Creating tables"
+        ```tab="SHARED_DB"
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_COMMENT (
+                REG_RESOURCE_COMMENT_ID     INTEGER NOT NULL AUTO_INCREMENT,
+                REG_COMMENT_ID              INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_COMMENT_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_PROPERTY (
+                REG_RESOURCE_PROPERTY_ID    INTEGER NOT NULL AUTO_INCREMENT,
+                REG_PROPERTY_ID             INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_PROPERTY_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_RATING (
+                REG_RESOURCE_RATING_ID      INTEGER NOT NULL AUTO_INCREMENT,
+                REG_RATING_ID               INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_RATING_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_TAG (
+                REG_RESOURCE_TAG_ID     INTEGER NOT NULL AUTO_INCREMENT,
+                REG_TAG_ID              INTEGER NOT NULL,
+                REG_VERSION             INTEGER,
+                REG_PATH_ID             INTEGER,
+                REG_RESOURCE_NAME       VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_TAG_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE UM_SHARED_USER_ROLE(
+                UM_SHARED_USER_ROLE_ID      INTEGER NOT NULL AUTO_INCREMENT,
+                UM_ROLE_ID                  INTEGER NOT NULL,
+                UM_USER_ID                  INTEGER NOT NULL,
+                UM_USER_TENANT_ID           INTEGER NOT NULL,
+                UM_ROLE_TENANT_ID           INTEGER NOT NULL,
+                UNIQUE(UM_USER_ID,UM_ROLE_ID,UM_USER_TENANT_ID, UM_ROLE_TENANT_ID),
+                FOREIGN KEY(UM_ROLE_ID,UM_ROLE_TENANT_ID) REFERENCES UM_ROLE(UM_ID,UM_TENANT_ID) ON DELETE CASCADE,
+                FOREIGN KEY(UM_USER_ID,UM_USER_TENANT_ID) REFERENCES UM_USER(UM_ID,UM_TENANT_ID) ON DELETE CASCADE,
+                PRIMARY KEY(UM_SHARED_USER_ROLE_ID)
+        )ENGINE INNODB;
+        ```
+
+        ```tab="WSO2AM_DB"
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_ACCESS_TOKEN_AUDIT (
+                IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID INTEGER NOT NULL AUTO_INCREMENT,
+                TOKEN_ID VARCHAR (255),
+                ACCESS_TOKEN VARCHAR(2048),
+                REFRESH_TOKEN VARCHAR(2048),
+                CONSUMER_KEY_ID INTEGER,
+                AUTHZ_USER VARCHAR (100),
+                TENANT_ID INTEGER,
+                USER_DOMAIN VARCHAR(50),
+                USER_TYPE VARCHAR (25),
+                GRANT_TYPE VARCHAR (50),
+                TIME_CREATED TIMESTAMP NULL,
+                REFRESH_TOKEN_TIME_CREATED TIMESTAMP NULL,
+                VALIDITY_PERIOD BIGINT,
+                REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+                TOKEN_SCOPE_HASH VARCHAR(32),
+                TOKEN_STATE VARCHAR(25),
+                TOKEN_STATE_ID VARCHAR (128) ,
+                SUBJECT_IDENTIFIER VARCHAR(255),
+                ACCESS_TOKEN_HASH VARCHAR(512),
+                REFRESH_TOKEN_HASH VARCHAR(512),
+                INVALIDATED_TIME TIMESTAMP NULL,
+                IDP_ID INTEGER DEFAULT -1 NOT NULL,
+                PRIMARY KEY (IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_SCOPE_BINDING (
+                IDN_OAUTH2_SCOPE_BINDING_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SCOPE_ID INTEGER NOT NULL,
+                SCOPE_BINDING VARCHAR(255) NOT NULL,
+                BINDING_TYPE VARCHAR(255) NOT NULL,
+                FOREIGN KEY (SCOPE_ID) REFERENCES IDN_OAUTH2_SCOPE (SCOPE_ID) ON DELETE CASCADE,
+                PRIMARY KEY (IDN_OAUTH2_SCOPE_BINDING_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_USER_SESSION_MAPPING (
+                IDN_AUTH_USER_SESSION_MAPPING_ID INTEGER NOT NULL AUTO_INCREMENT,
+                USER_ID VARCHAR(255) NOT NULL,
+                SESSION_ID VARCHAR(255) NOT NULL,
+                CONSTRAINT USER_SESSION_STORE_CONSTRAINT UNIQUE (USER_ID, SESSION_ID),
+                PRIMARY KEY (IDN_AUTH_USER_SESSION_MAPPING_ID)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_CIBA_REQUEST_SCOPES (
+                IDN_OAUTH2_CIBA_REQUEST_SCOPES_ID INTEGER NOT NULL AUTO_INCREMENT,
+                AUTH_CODE_KEY CHAR (36),
+                SCOPE VARCHAR (255),
+                FOREIGN KEY (AUTH_CODE_KEY) REFERENCES IDN_OAUTH2_CIBA_AUTH_CODE(AUTH_CODE_KEY) ON DELETE CASCADE,
+                PRIMARY KEY (IDN_OAUTH2_CIBA_REQUEST_SCOPES)
+        )ENGINE INNODB;
+    
+        CREATE TABLE CM_SP_PURPOSE_PURPOSE_CAT_ASSC (
+                CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SP_PURPOSE_ASSOC_ID INTEGER NOT NULL,
+                PURPOSE_CATEGORY_ID INTEGER NOT NULL,
+                UNIQUE KEY (SP_PURPOSE_ASSOC_ID, PURPOSE_CATEGORY_ID),
+                PRIMARY KEY (CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID)
+        );
+        
+        CREATE TABLE CM_PURPOSE_PII_CAT_ASSOC (
+                CM_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                PURPOSE_ID         INTEGER NOT NULL,
+                CM_PII_CATEGORY_ID INTEGER NOT NULL,
+                IS_MANDATORY       INTEGER NOT NULL,
+                UNIQUE KEY (PURPOSE_ID, CM_PII_CATEGORY_ID),
+                PRIMARY KEY (CM_PURPOSE_PII_CAT_ASSOC_ID)
+        );
+        
+        CREATE TABLE CM_SP_PURPOSE_PII_CAT_ASSOC (
+                CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SP_PURPOSE_ASSOC_ID INTEGER NOT NULL,
+                PII_CATEGORY_ID     INTEGER NOT NULL,
+                VALIDITY            VARCHAR(1023),
+                UNIQUE KEY (SP_PURPOSE_ASSOC_ID, PII_CATEGORY_ID),
+                PRIMARY KEY (CM_SP_PURPOSE_PII_CAT_ASSOC_ID)
+        );
+        
+        CREATE TABLE CM_CONSENT_RECEIPT_PROPERTY (
+                CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT,
+                CONSENT_RECEIPT_ID VARCHAR(255)  NOT NULL,
+                NAME               VARCHAR(255)  NOT NULL,
+                VALUE              VARCHAR(1023) NOT NULL,
+                UNIQUE KEY (CONSENT_RECEIPT_ID, NAME),
+                PRIMARY KEY (CM_CONSENT_RECEIPT_PROPERTY_ID)
+        );
+        ```
+
+    If the tables are already created use the following scripts to update the existing tables in the respective databases.
+
+    ??? info "Updating tables"
+        ```tab="SHARED_DB"
+        ALTER TABLE REG_RESOURCE_COMMENT ADD COLUMN REG_RESOURCE_COMMENT_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_PROPERTY ADD COLUMN REG_RESOURCE_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_RATING ADD COLUMN REG_RESOURCE_RATING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_TAG ADD COLUMN REG_RESOURCE_TAG_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE UM_SHARED_USER_ROLE ADD COLUMN UM_SHARED_USER_ROLE_ID INTEGER NOT NULL AUTO_INCREMENT;
+        ```
+
+        ```tab="WSO2AM_DB"
+        ALTER TABLE IDN_OAUTH2_ACCESS_TOKEN_AUDIT ADD COLUMN IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_OAUTH2_SCOPE_BINDING ADD COLUMN IDN_OAUTH2_SCOPE_BINDING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_AUTH_USER_SESSION_MAPPING ADD COLUMN IDN_AUTH_USER_SESSION_MAPPING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_OAUTH2_CIBA_REQUEST_SCOPES ADD COLUMN IDN_OAUTH2_CIBA_REQUEST_SCOPES_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_SP_PURPOSE_PURPOSE_CAT_ASSC ADD COLUMN CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_CONSENT_RECEIPT_PROPERTY ADD COLUMN CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+        ```
+
 ## Changing the Carbon database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
