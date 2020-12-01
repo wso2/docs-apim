@@ -68,14 +68,14 @@ The users of your APIs can subscribe to analytics-related alerts from the API Pu
                 name: email
                 namespace: sink
                 properties:
-                username: <senders-email-username>
-                address: <senders-email-address>
-                password: <senders-email-password>
-                mail.smtp.host: <senders-email-host>
-                port: 25
-                ssl.enable : false
-                auth : false
-                mail.store.protocol: pop3
+                    username: <senders-email-username>
+                    address: <senders-email-address>
+                    password: <senders-email-password>
+                    mail.smtp.host: <senders-email-host>
+                    port: 25
+                    ssl.enable : false
+                    auth : false
+                    mail.store.protocol: pop3
         ...
         ```
 
