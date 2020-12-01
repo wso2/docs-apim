@@ -14,7 +14,7 @@ To understand how data is extracted from a database into a streaming flow, consi
 
 Change data capture involves extracting any change that takes place in a selected database (i.e., any insert, update or a deletion) in real-time.
 
-To capture change data via the [WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md), define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) with the appropriate schema to capture the information you require, and then connect a [source](https://siddhi.io/en/v5.1/docs/query-guide/#source) of the `cdc` type as shown in the example below.
+To capture change data via the [WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md), define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) with the appropriate schema to capture the information you require, and then connect a [source](https://siddhi.io/en/v5.1/docs/query-guide/#source) of the `cdc` type as shown in the example below.
 
 ```
 @source(type = 'cdc', 
@@ -115,9 +115,9 @@ Let's try out the example where you want to view the online bookings saved in a 
           people INT NULL,
           PRIMARY KEY (ref));`
           
-    4. [Start the Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+    4. [Start the Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
     
-    5. Download the `cdc-mysql`Siddhi extension for Streaming Integrator Tooling. For instructions, see [Installing Siddhi Extensions](../develop/streaming-apps/installing-siddhi-extensions.md/#installing-an-extension).
+    5. Download the `cdc-mysql`Siddhi extension for Streaming Integrator Tooling. For instructions, see [Installing Siddhi Extensions](../../develop/streaming-apps/installing-siddhi-extensions.md/#installing-an-extension).
     
     6. In Streaming Integrator Tooling, open a new file. Copy and paste the following Siddhi application to it.
     
@@ -331,7 +331,7 @@ Capturing file events is supported via the [fileeventlistener Siddhi extension](
 
 To try out reading the content of a file and file events, let's address the requirement of the example mentioned before of a sweet factory that publishes production details in a file. 
 
-1. Start and access [WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md).
+1. Start and access [WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md).
 
 2. Open a new file and add the following Siddhi application. 
 

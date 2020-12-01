@@ -1,8 +1,5 @@
 # Streaming Integrator Tooling Overview
 
-!!! info
-    This page describes the latest publicly-available version of Streaming Integrator Tooling. If you cannot see some of the user interface elements described here, [update your Streaming Integrator Tooling installation](https://docs.wso2.com/display/updates/Getting+Continuous+Updates).
-
 The Streaming Integrator Tooling is a developer tool that is shipped with
 the Streaming Integrator to develop Siddhi applications. It allows provides three
 interfaces to develop Siddhi applications
