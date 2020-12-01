@@ -520,7 +520,7 @@
             "exampleFile": "apim.cache.resource.toml"
         },
         {
-            "title": "Cache Keymanager token",
+            "title": "Keymanager token cache",
             "options": [
                 {
                     "name": "apim.cache.km_token",
@@ -1138,6 +1138,14 @@
                             "default": "false",
                             "possible": "",
                             "description": "Specifying this config to true will enable a user to define Query parameter condition throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "skip_redeploying_policies",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define an array of throttle policies which don't need to redeploy on startup"
                         }
                     ]
                 }
@@ -1649,7 +1657,7 @@
                         {
                             "name": "from_address",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The email address you use to send emails."
@@ -1657,7 +1665,7 @@
                         {
                             "name": "username",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The email address used to authenticate the mail server. This can be the same email address as the from_address."
@@ -1665,7 +1673,7 @@
                         {
                             "name": "password",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
                             "description": "Password used to authenticate the mail server."
@@ -1692,7 +1700,7 @@
                             "required": false,
                             "default": false,
                             "possible": "",
-                            "description": "If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must configured so that the client will trust the certificate of the server. Defaults to false."
+                            "description": "If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must be configured so that the client will trust the certificate of the server. Defaults to false."
                         },
                         {
                             "name": "enable_authentication",
