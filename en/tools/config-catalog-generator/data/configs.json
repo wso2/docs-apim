@@ -1569,6 +1569,76 @@
                 }
             ],
             "exampleFile": "apim.token.revocation.toml"
+        },
+        {
+            "title": "Enable Notifications",
+            "options": [
+                {
+                    "name": "apim.notifications",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "from_address",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address you use to send emails."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address used to authenticate the mail server. This can be the same email address as the from_address."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password used to authenticate the mail server."
+                        },
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "port",
+                            "type": "string",
+                            "required": false,
+                            "default": "25",
+                            "possible": "",
+                            "description": "The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25."
+                        },
+                        {
+                            "name": "enable_start_tls",
+                            "type": "string",
+                            "required": false,
+                            "default": false,
+                            "possible": "",
+                            "description": "If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must configured so that the client will trust the certificate of the server. Defaults to false."
+                        },
+                        {
+                            "name": "enable_authentication",
+                            "type": "string",
+                            "required": false,
+                            "default": false,
+                            "possible": "",
+                            "description": "If true, it attempts to authenticate the user using the AUTH command. Defaults to false."
+                        }
+                        
+                    ]
+                }
+            ],
+            "exampleFile": "apim.notification.toml"
         }
     ]
 }
