@@ -22,12 +22,11 @@ To access the Extension installer and find the extensions you need to install/un
 
 2. Click **Tools** menu option, and then click **Extension Installer**.
 
-    ![Extensions Installer option in the Tools menu](../images/installing-siddhi-extensions/tools-menu.png)
-
+    ![Extensions Installer option in the Tools menu](../../assets/img/streaming/installing-siddhi-extensions/tools-menu.png)
 
     The **Extension Installer** dialog box opens as shown below.
 
-    ![Extension Installer](../images/streaming-integrator-studio-overview/extension-installer.png)
+    ![Extension Installer](../../assets/img/streaming/streaming-integrator-studio-overview/extension-installer.png)
 
 
 3. Locate the extension that you want to install/un-install. You can enter the name, or a part of the name of the relevant extension in the **Search** field. It filters one or more extensions that match the entered key word.
@@ -44,7 +43,7 @@ To access the Extension installer and find the extensions you need to install/un
 
 1. To install an extension, click **Install** for it.
 
-    ![Not Installed Extension](../images/installing-siddhi-extensions/a-not-installed-extension.png)
+    ![Not Installed Extension](../../assets/img/streaming/installing-siddhi-extensions/a-not-installed-extension.png)
 
     Then click **Install** in the confirmation dialog box that appears to confirm whether you want to proceed with the installation.
 
@@ -53,21 +52,21 @@ To access the Extension installer and find the extensions you need to install/un
 
     After restarting Streaming Integrator Tooling, you can open the Extension installer and view the extension you installed with the updated status.
 
-    ![Status Change as Installed](../images/installing-siddhi-extensions/installed-status.png)
+    ![Status Change as Installed](../../assets/img/streaming/installing-siddhi-extensions/installed-status.png)
 
 
 ### Un-installing an extension
 
 1. To un-install an extension, click **UnInstall** for it.
 
-    ![Installed Extension](../images/installing-siddhi-extensions/an-installed-extension.png)
+    ![Installed Extension](../../assets/img/streaming/installing-siddhi-extensions/an-installed-extension.png)
 
     Then click **UnInstall** in the confirmation dialog box that appears to confirm whether you want to proceed to un-install the extension.
 
 
 2. If the extension you are un-installing has shared dependencies with one or more other extensions, a message appears with information as shown in the example below.
 
-    ![Shared Dependencies Exist Dialog Box](../images/installing-siddhi-extensions/shared-dependencies-exist-dialog-box.png)
+    ![Shared Dependencies Exist Dialog Box](../../assets/img/streaming/installing-siddhi-extensions/shared-dependencies-exist-dialog-box.png)
 
     The names of the other extensions are in bold. The dependencies each extension shares with the extension you are deleting are listed under the extension name. In this example, the extension being un-installed shares the `mysql-connector-java` dependency with the `rdbms-mysql` extension, and the `siddhi-io-cdc` dependency with the `cdc-oracle`, `cdc-postgresql`, `cdc-mssql`, and `cdc-mongodb` extensions.
 
@@ -89,11 +88,11 @@ Certain dependencies of some extensions cannot be automatically downloaded via t
 
 When there is at least one such dependency for an extension, an icon is displayed next to the status of the extension as shown below.
     
-![Manually Installable Dependencies Available for Extension](../images/installing-siddhi-extensions/manually-installable-dependencies-available.png)
+![Manually Installable Dependencies Available for Extension](../../assets/img/streaming/installing-siddhi-extensions/manually-installable-dependencies-available.png)
 
 Click this information to open a dialog box as shown below with information about the dependency.
     
-![Manually Installable Dependency Instructions](../images/installing-siddhi-extensions/manually-installable-instructions.png)
+![Manually Installable Dependency Instructions](../../assets/img/streaming/installing-siddhi-extensions/manually-installable-instructions.png)
 
 The dialog box displays all the dependencies that need to be manually installed. For each dependency, the dialog box provides the following information.
 

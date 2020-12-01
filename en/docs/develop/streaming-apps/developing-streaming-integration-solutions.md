@@ -5,7 +5,7 @@ This section provides an overview of the development flow in the Streaming Integ
 Developing a Streaming Integrator solution involves the following four steps.
 
 
-![Streaming Integrator Development Flow](../../images/developing-si-solutions/si-development-workflow.png)
+![Streaming Integrator Development Flow](../../assets/img/streaming/developing-si-solutions/si-development-workflow.png)
 
 | **Step**                          | **Description**                                                                                                                   |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|

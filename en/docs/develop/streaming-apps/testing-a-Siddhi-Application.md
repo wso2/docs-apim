@@ -37,7 +37,7 @@ To validate a Siddhi application, follow the procedure below:
     the cursor over the error icon, it indicates that
     `countNew` is an invalid function name as shown
     below.  
-    ![Source View indicates a syntax error](../images/Testing-Siddhi-Applications/Syntax_Error_Indicated.png)
+    ![Source View indicates a syntax error](../../assets/img/streaming/Testing-Siddhi-Applications/Syntax_Error_Indicated.png)
 
 ## Running a Siddhi application
 
@@ -53,17 +53,17 @@ you have written is correct. To start a Siddhi application, follow the procedure
     you can see the **Run** -> **Run** menu option enabled as shown
     below.
 
-    ![Run and Debug options enabled](../images/Testing-Siddhi-Applications/Enable_Run_Debug.png)
+    ![Run and Debug options enabled](../../assets/img/streaming/Testing-Siddhi-Applications/Enable_Run_Debug.png)
 
     To start the application, click the **Run** menu option. This logs the following output in the console.
 
-        ![Run log](../images/Testing-Siddhi-Applications/Run-Log.png)
+    ![Run log](../../assets/img/streaming/Testing-Siddhi-Applications/Run-Log.png)
 
 5.  To create an error for demonstration purposes, change the `count()` function in the
     `query1` query to `countNew()`, and save. Then click **Run** -> **Run**. As a result, the
     following output is logged in the console.
 
-    ![Siddhi application in a faulty state](../images/Testing-Siddhi-Applications/Faulty_Siddhi_Application_Message.png)
+    ![Siddhi application in a faulty state](../../assets/img/streaming/Testing-Siddhi-Applications/Faulty_Siddhi_Application_Message.png)
 
 <a name="simulate"></a>
 ## Simulating events
@@ -101,16 +101,16 @@ To simulate a single event, follow the steps given below.
     !!! info
         The default URL is`http://localhost:9090/editor`.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page](../../assets/img/streaming/Creating-Siddhi-Applications/Welcome-Page.png)
 
 2.  Click the **Event Simulator** icon in the left pane of the editor to
     open the **Single Simulation** panel.
 
-    ![Event Simulation icon](../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulation icon](../../assets/img/streaming/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
 
     It opens the left panel for event simulation as follows.
 
-    ![Event Simulation Panel](../images/Testing-Siddhi-Applications/Event_Simulation_Panel.png)
+    ![Event Simulation Panel](../../assets/img/streaming/Testing-Siddhi-Applications/Event_Simulation_Panel.png)
 
 3.  Enter Information in the **Single Simulation** panel as described
      below.
@@ -121,7 +121,7 @@ To simulate a single event, follow the steps given below.
 
     3.  If you want to simulate the event for a specific time different to the current time, enter a valid timestamp in the **Timestamp** field. To select a timestamp, click the time and calendar icon next to the **Timestamp** field.
 
-        ![Time and Calendar icon](../images/Testing-Siddhi-Applications/Time_And_Calendar.png) <br/>
+        ![Time and Calendar icon](../../assets/img/streaming/Testing-Siddhi-Applications/Time_And_Calendar.png) <br/>
 
         Then select the required date, hour, minute, second and millisecond. Click **Done** to select the time stamp entered. If you want to select the current time, you can click **Now**.
 
@@ -129,7 +129,7 @@ To simulate a single event, follow the steps given below.
 
 4.  Click **Send** to start sending the event. The simulated event is logged similar to the sample log given below.
 
-    ![Output Log](../images/Testing-Siddhi-Applications/Output_Log.png)
+    ![Output Log](../../assets/img/streaming/Testing-Siddhi-Applications/Output_Log.png)
 
 
 ### Simulating multiple events via CSV files
@@ -148,20 +148,20 @@ below.
     !!! info
         The default URL is`http://localhost:9090/editor`.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page](../../assets/img/streaming/Creating-Siddhi-Applications/Welcome-Page.png)
 
 2.  Click the **Event Simulator** icon in the left pane of the editor.
 
-    ![Event Simulator Icon](../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon](../../assets/img/streaming/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
 
 3.  In the event simulation left panel that opens, click on the **Feed Simulation** tab.
 
-    ![Feed Simulation tab](../images/Testing-Siddhi-Applications/Feed_Simulation_Tab.png)  
+    ![Feed Simulation tab](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation_Tab.png)  
       
 4.  To create a new simulation, click **Create** . This opens the
     following panel.
 
-    ![New feed simulatioin](../images/Testing-Siddhi-Applications/Feed_Simulation.png)
+    ![New feed simulatioin](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation.png)
 
 5.  Enter values for the displayed fields as follows.
 
@@ -175,7 +175,7 @@ below.
 
         1.  If you want to include only events that belong to a specific time interval in the simulation feed, enter the start time and the end time  in the **Starting Event's Timestamp** and **Ending Event's Timestamp** fields respectively. To select a timestamp, click the time and calendar icon next to the field.
 
-            ![Time and calendar icon](../images/Testing-Siddhi-Applications/Time_And_Calendar.png)
+            ![Time and calendar icon](../../assets/img/streaming/Testing-Siddhi-Applications/Time_And_Calendar.png)
 
             Then select the required date, hour, minute, second and millisecond. Click **Done** to select the time stamp entered. If you want to select the current time, you can click **Now**.
 
@@ -185,12 +185,12 @@ below.
 
     6.  Click **Add Simulation Source** to open the following section.
 
-        ![Simulation Source](../images/Testing-Siddhi-Applications/Simulation_Source.png)
+        ![Simulation Source](../../assets/img/streaming/Testing-Siddhi-Applications/Simulation_Source.png)
 
         In the **Siddhi App Name** field, select the required Siddhi
         application. Then more fields as shown below.
 
-        ![Feed simulation details](../images/Testing-Siddhi-Applications/Feed_Simulation_Details.png)
+        ![Feed simulation details](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation_Details.png)
 
         Enter details as follows:
 
@@ -198,7 +198,7 @@ below.
 
         2.  In the **CSV File** field, select an available CSV file. If no CSV files are currently uploaded, select **Upload File** from the list. This opens the **Upload File** dialog box.
 
-            ![Uploading the CSV file](../images/Testing-Siddhi-Applications/Upload_CSV.png)
+            ![Uploading the CSV file](../../assets/img/streaming/Testing-Siddhi-Applications/Upload_CSV.png)
 
             Click **Choose File** and browse for the CSV file you want to upload. Then click **Upload**.
 
@@ -232,19 +232,19 @@ To simulate multiple events from a database, follow the procedure below:
     !!! info
         The default URL is`http://localhost:9090/editor`.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page](../../assets/img/streaming/Creating-Siddhi-Applications/Welcome-Page.png)
      
 2.  Click the **Event Simulator** icon in the left pane of the editor.
 
-    ![Event Simulator Icon](../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon](../../assets/img/streaming/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
 
 3.  Click the **Feed** tab to open the **Feed Simulation** panel.
 
-    ![Feed Simulation tab](../images/Testing-Siddhi-Applications/Feed_Simulation.png)
+    ![Feed Simulation tab](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation.png)
 
 4.  To create a new simulation, click **Create**. This opens the following panel.
 
-    ![New Simulation](../images/Testing-Siddhi-Applications/Database_Simulation.png)
+    ![New Simulation](../../assets/img/streaming/Testing-Siddhi-Applications/Database_Simulation.png)
 
 5.  Enter values for the displayed fields as follows.
 
@@ -256,13 +256,13 @@ To simulate multiple events from a database, follow the procedure below:
 
     4.  If you want to enter more advanced conditions to simulate the events, click **Advanced Configurations**. As a result, the following section is displayed.
 
-        ![Advanced onfigurations](../images/Testing-Siddhi-Applications/Feed_Simulation_Database_Advanced.png)
+        ![Advanced onfigurations](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation_Database_Advanced.png)
 
         Then enter details as follows:
 
         1.  If you want to include only events that belong to a specific time interval in the simulation feed, enter the start time and the end time  in the **Starting Event's Timestamp** and **Ending Event's Timestamp** fields respectively. To select a timestamp, click the time and calendar icon next to the field.
 
-            ![Time and Calendar icon](../images/Testing-Siddhi-Applications/Time_And_Calendar.png)
+            ![Time and Calendar icon](../../assets/img/streaming/Testing-Siddhi-Applications/Time_And_Calendar.png)
 
             Then select the required date, hour, minute, second and millisecond. Click **Done** to select the time stamp entered. If you want to select the current time, you can click **Now**.
 
@@ -270,7 +270,7 @@ To simulate multiple events from a database, follow the procedure below:
 
     5.  In the **Simulation Source** field, select **Database**. To connect to a new database, click **Add Simulation Source** to open the following section.
 
-        ![Configuring the database](../images/Testing-Siddhi-Applications/Configure_Database_For_Simulation.png)
+        ![Configuring the database](../../assets/img/streaming/Testing-Siddhi-Applications/Configure_Database_For_Simulation.png)
 
         Enter information as follows:
 
@@ -285,7 +285,7 @@ To simulate multiple events from a database, follow the procedure below:
 
     6.  Once you have entered the above information, click **Connect to Database**. If the datasource is correctly configured, the following is displayed to indicate that Streaming Integrator can successfully connect to the database.
 
-        ![Successfully connected to database](../images/Testing-Siddhi-Applications/Successfully_Connected_Message.png)
+        ![Successfully connected to database](../../assets/img/streaming/Testing-Siddhi-Applications/Successfully_Connected_Message.png)
 
     7.  To use the index value as the event timestamp, select the **Timestamp Index** option. Then enter the relevant index. If you want the vents in the CSV file to be sorted based on the timestamp, select the **Yes** option under **CSV File is Ordered by Timestamp**.
 
@@ -293,11 +293,11 @@ To simulate multiple events from a database, follow the procedure below:
 
 6.  Click **Save**. This adds the fed simulation you created as an active simulation in the **Feed Simulation** tab of the left panel as shown below.
 
-    ![Feed simulation added](../images/Testing-Siddhi-Applications/Created_Feed_Simulation.png)
+    ![Feed simulation added](../../assets/img/streaming/Testing-Siddhi-Applications/Created_Feed_Simulation.png)
 
 7.  Click on the play button of this simulation to open the **Start the Siddhi Application** dialog box.
 
-    ![Start the Siddhi Application dialog box](../images/Testing-Siddhi-Applications/start-siddhi-application.png)
+    ![Start the Siddhi Application dialog box](../../assets/img/streaming/Testing-Siddhi-Applications/start-siddhi-application.png)
 
 8.  Click **Start Simulation**. A message appears to inform you that the feed simulation started successfully. Similarly, when the simulation is completed, a message appears to inform you that the event simulation has finished.
  
@@ -318,19 +318,19 @@ To simulate random events, follow the steps given below:
     !!! info
         The default URL is`http://localhost:9090/editor`.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page](../../assets/img/streaming/Creating-Siddhi-Applications/Welcome-Page.png)
 
 2.  Click the **Event Simulator** icon in the left pane of the editor.
 
-    ![Event Simulator Icon](../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon](../../assets/img/streaming/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
 
 3. Click the **Feed** tab to open the **Feed Simulation** panel.
 
-    ![Feed Simulation](../images/Testing-Siddhi-Applications/Feed_Simulation_Panel.png)
+    ![Feed Simulation](../../assets/img/streaming/Testing-Siddhi-Applications/Feed_Simulation_Panel.png)
 
 4.  To create a new simulation, click **Create** . This opens the following panel.
 
-    ![Create feed simulation](../images/Testing-Siddhi-Applications/WSO2_Feed_Simulation.png)
+    ![Create feed simulation](../../assets/img/streaming/Testing-Siddhi-Applications/WSO2_Feed_Simulation.png)
 
 5.  Enter values for the displayed fields as follows.
 
@@ -340,7 +340,7 @@ To simulate random events, follow the steps given below:
 
     3.  If you want to include only events that belong to a specific time interval in the simulation feed, enter the start time and the end time  in the **Starting Event's Timestamp** and **Ending Event's Timestamp** fields respectively. To select a timestamp, click the time and calendar icon next to the field.
 
-        ![Time and Calendar icon](../images/Testing-Siddhi-Applications/Time_And_Calendar.png)
+        ![Time and Calendar icon](../../assets/img/streaming/Testing-Siddhi-Applications/Time_And_Calendar.png)
 
         Then select the required date, hour, minute, second and millisecond. Click **Done** to select the time stamp entered. If you want to select the current time, you can click **Now**.
 
@@ -352,7 +352,7 @@ To simulate random events, follow the steps given below:
 
     7.  If the random simulation source from which you want to simulate events does not already exist in the **Feed Simulation** pane, click **Add New** to open the following section.
 
-        ![Random Simulation Source](../images/Testing-Siddhi-Applications/Random_Simulation_Source.png)
+        ![Random Simulation Source](../../assets/img/streaming/Testing-Siddhi-Applications/Random_Simulation_Source.png)
 
     8.  Enter information relating to the random source as follows:
 
@@ -372,8 +372,8 @@ To simulate random events, follow the steps given below:
                 **Custom data based** from the list. When you select
                 this value, data field in which the required value can
                 be entered appears as shown in the example below.  
-                ![Custom data based simulation](../images/Testing-Siddhi-Applications/Custom-data-based.png){width="235"
-                height="88"}
+                ![Custom data based simulation](../../assets/img/streaming/Testing-Siddhi-Applications/Custom-data-based.png)
+
             -   To enter a primitive based value, select **Primitive
                 based** from the list. The information to be entered
                 varies depending on the data type of the attribute. The
@@ -419,7 +419,7 @@ To simulate random events, follow the steps given below:
 
             -   To randomly assign values based on a pre-defined set of meaningful values, select **Property based** from the list. When you select this value, a field in which the set of available values are listed appears as shown in the example below.
 
-                ![Property-based simulation](../images/Testing-Siddhi-Applications/Property-based.png)
+                ![Property-based simulation](../../assets/img/streaming/Testing-Siddhi-Applications/Property-based.png)
 
             -   To assign a regex value, select **Regex based** from the list.
 
@@ -427,9 +427,9 @@ To simulate random events, follow the steps given below:
 
 7.  To simulate events, click the arrow to the right of the saved simulation (shown in the example below).
 
-    ![Simulating random events](../images/Testing-Siddhi-Applications/Simulate_Events.png)
+    ![Simulating random events](../../assets/img/streaming/Testing-Siddhi-Applications/Simulate_Events.png)
 
     The simulated events are logged in the CLI as shown in the extract
     below.
 
-    ![Random Events Output Log](../images/Testing-Siddhi-Applications/Random_Events_Output_Log.png)  
+    ![Random Events Output Log](../../assets/img/streaming/Testing-Siddhi-Applications/Random_Events_Output_Log.png)  
