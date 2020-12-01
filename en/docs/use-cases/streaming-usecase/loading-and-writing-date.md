@@ -67,9 +67,9 @@ To try out the example given above, follow the steps below:
               PRIMARY KEY (ref));
             ```
         
-2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and access WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
-3. Install the `RDBMS - MySQL` extension in Streaming Integrator tooling. For instructions to install an extension, see [Installing Siddhi Extensions](../develop/streaming-apps/installing-siddhi-extensions.md).
+3. Install the `RDBMS - MySQL` extension in Streaming Integrator tooling. For instructions to install an extension, see [Installing Siddhi Extensions](../../develop/streaming-apps/installing-siddhi-extensions.md).
 
 4. Open a new file in WSO2 Streaming Integrator Tooling and add the following Siddhi content to it.
 
@@ -90,7 +90,7 @@ To try out the example given above, follow the steps below:
    
    Save the Siddhi application.   
     
-5. Simulate an event with the following values for the `SalesRecordsStream` stream of the `SalesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).
+5. Simulate an event with the following values for the `SalesRecordsStream` stream of the `SalesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
     
     | **Attribute** | **Value**        |
     |---------------|------------------|
@@ -149,7 +149,7 @@ Here, any event directed to the `TemperatureLogStream` is written into the `/use
 
 To try out the above example by including the given output stream and the sink configuration in a complete Siddhi application, follow the steps below:
 
-1. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and access WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file and copy the following Siddhi Application to it.
 
@@ -172,7 +172,7 @@ To try out the above example by including the given output stream and the sink c
     !!! tip
         If required, you can replace the value for the `file.uri` parameter to a preferred location in your machine.
    
-3. Simulate an event with the following values for the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md).  
+3. Simulate an event with the following values for the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).  
     
     | **Attribute**   | **Value**       |
     |-----------------|-----------------|
@@ -228,7 +228,7 @@ To try out the above example, follow the steps below:
     
     3. Create a bucket named `temperaturelog` in the Google Cloud Console.
     
-2. [Start and access WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and access WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 3. Open a new file and copy the following Siddhi Application to it.
 
@@ -251,7 +251,7 @@ To try out the above example, follow the steps below:
    
    The above Siddhi application gets all the events in the `LabTemperatureStream` stream and inserts them into the `TemperatureLogStream` stream so that they can be stored in the `temperaturelog` bucket in the Google Cloud Console via the sink connected to the `TemperatureLogStream` stream.
    
-4. Simulate an event to the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application with the following values via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../develop/streaming-apps/testing-a-Siddhi-Application.md). 
+4. Simulate an event to the `LabTemperatureStream` stream of the `LabTemperatureApp` Siddhi application with the following values via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md). 
     
     | **Attribute**   | **Value**       |
     |-----------------|-----------------|

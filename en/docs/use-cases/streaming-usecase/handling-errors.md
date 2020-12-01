@@ -123,7 +123,7 @@ To try out storing errors in the store, follow the steps below:
 
 2. Download the [productions.csv file](https://github.com/wso2/docs-ei/blob/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice in your machine.
 
-3. [Create a Siddhi application](../develop/streaming-apps/creating-a-Siddhi-Application.md) as follows and [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
+3. [Create a Siddhi application](../../develop/streaming-apps/creating-a-Siddhi-Application.md) as follows and [deploy it in the Streaming Integrator server](../../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
@@ -255,7 +255,7 @@ This involves logging the event with details of the error and then dropping it. 
 
 To try out logging events with errors, consider the same example previously used where production statistics is copied from one file to another.
 
-1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
+1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
@@ -353,7 +353,7 @@ This can be used with the following:
 
 To try out streaming events with errors, follow the procedure below.
 
-1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../develop/streaming-apps/deploying-Streaming-Applications.md).
+1. In Streaming Integrator Tooling, open the `CopyingProductionStatsApp`  Siddhi application that you created in the [Storing events with errors section](#storing-events-with-errors) and update it as follows. Then [deploy it in the Streaming Integrator server](../../develop/streaming-apps/deploying-Streaming-Applications.md).
 
     ```
     @App:name("CopyingProductionStatsApp")
