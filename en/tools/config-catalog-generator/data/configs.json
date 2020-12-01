@@ -520,7 +520,7 @@
             "exampleFile": "apim.cache.resource.toml"
         },
         {
-            "title": "Cache Keymanager token",
+            "title": "Keymanager token cache",
             "options": [
                 {
                     "name": "apim.cache.km_token",
@@ -1138,6 +1138,14 @@
                             "default": "false",
                             "possible": "",
                             "description": "Specifying this config to true will enable a user to define Query parameter condition throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "skip_redeploying_policies",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define an array of throttle policies which don't need to redeploy on startup"
                         }
                     ]
                 }
@@ -1692,15 +1700,15 @@
                             "required": false,
                             "default": false,
                             "possible": "",
-                            "description": "If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false."
+                            "description": "If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must be configured so that the client will trust the certificate of the server. Defaults to false."
                         },
                         {
-                            "name": "enable_athentication",
+                            "name": "enable_authentication",
                             "type": "string",
                             "required": false,
                             "default": false,
                             "possible": "",
-                            "description": "If true, attempt to authenticate the user using the AUTH command. Defaults to false."
+                            "description": "If true, it attempts to authenticate the user using the AUTH command. Defaults to false."
                         }
                         
                     ]
