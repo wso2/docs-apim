@@ -55,16 +55,18 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: rest
-        endpoints:
-            production:
-                url: https://dev.wso2.com
-            sandbox:
-                url: https://dev.sandbox.wso2.com
+        configs: 
+            endpointType: rest
+            endpoints:
+                production:
+                    url: https://dev.wso2.com
+                sandbox:
+                    url: https://dev.sandbox.wso2.com
     ```
 
 #### 2. HTTP/REST Endpoint - With load balancing
@@ -75,21 +77,23 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: rest
-        endpointRoutingPolicy: load_balanced
-        loadBalanceEndpoints:
-            production:
-                - url: https://dev1.wso2.com
-                - url: https://dev2.wso2.com
-            sandbox:
-                - url: https://dev1.sandbox.wso2.com
-                - url: https://dev2.sandbox.wso2.com
-            sessionManagement: transport
-            sessionTimeOut: 5000
+        configs:
+            endpointType: rest
+            endpointRoutingPolicy: load_balanced
+            loadBalanceEndpoints:
+                production:
+                    - url: https://dev1.wso2.com
+                    - url: https://dev2.wso2.com
+                sandbox:
+                    - url: https://dev1.sandbox.wso2.com
+                    - url: https://dev2.sandbox.wso2.com
+                sessionManagement: transport
+                sessionTimeOut: 5000
     ```
 
 #### 3. HTTP/REST Endpoint - With failover
@@ -100,23 +104,25 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: rest
-        endpointRoutingPolicy: failover
-        failoverEndpoints:
-            production:
-                url: https://dev.wso2.com
-            productionFailovers:
-                - url: https://dev1.wso2.com
-                - url: https://dev2.wso2.com
-            sandbox:
-                url: https://dev.sandbox.wso2.com
-            sandboxFailovers:
-                - url: https://dev1.sandbox.wso2.com
-                - url: https://dev2.sandbox.wso2.com
+        configs:
+            endpointType: rest
+            endpointRoutingPolicy: failover
+            failoverEndpoints:
+                production:
+                    url: https://dev.wso2.com
+                productionFailovers:
+                    - url: https://dev1.wso2.com
+                    - url: https://dev2.wso2.com
+                sandbox:
+                    url: https://dev.sandbox.wso2.com
+                sandboxFailovers:
+                    - url: https://dev1.sandbox.wso2.com
+                    - url: https://dev2.sandbox.wso2.com
     ```
 
 ### HTTP/SOAP Endpoints
@@ -131,16 +137,18 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: soap
-        endpoints:
-            production:
-                url: https://dev.wso2.com
-            sandbox:
-                url: https://dev.sandbox.wso2.com
+        configs:
+            endpointType: soap
+            endpoints:
+                production:
+                    url: https://dev.wso2.com
+                sandbox:
+                    url: https://dev.sandbox.wso2.com
     ```
 
 #### 2. HTTP/SOAP Endpoint - With load balancing
@@ -151,21 +159,23 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: soap
-        endpointRoutingPolicy: load_balanced
-        loadBalanceEndpoints:
-            production:
-                - url: https://dev1.wso2.com
-                - url: https://dev2.wso2.com
-            sandbox:
-                - url: https://dev1.sandbox.wso2.com
-                - url: https://dev2.sandbox.wso2.com
-            sessionManagement: soap
-            sessionTimeOut: 5000
+        configs:
+            endpointType: soap
+            endpointRoutingPolicy: load_balanced
+            loadBalanceEndpoints:
+                production:
+                    - url: https://dev1.wso2.com
+                    - url: https://dev2.wso2.com
+                sandbox:
+                    - url: https://dev1.sandbox.wso2.com
+                    - url: https://dev2.sandbox.wso2.com
+                sessionManagement: soap
+                sessionTimeOut: 5000
     ```
 
 #### 3. HTTP/SOAP Endpoint - With failover
@@ -176,23 +186,25 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: dev
-        endpointType: soap
-        endpointRoutingPolicy: failover
-        failoverEndpoints:
-            production:
-                url: https://dev.wso2.com
-            productionFailovers:
-                - url: https://dev1.wso2.com
-                - url: https://dev2.wso2.com
-            sandbox:
-                url: https://dev.sandbox.wso2.com
-            sandboxFailovers:
-                - url: https://dev1.sandbox.wso2.com
-                - url: https://dev2.sandbox.wso2.com
+        configs:
+            endpointType: soap
+            endpointRoutingPolicy: failover
+            failoverEndpoints:
+                production:
+                    url: https://dev.wso2.com
+                productionFailovers:
+                    - url: https://dev1.wso2.com
+                    - url: https://dev2.wso2.com
+                sandbox:
+                    url: https://dev.sandbox.wso2.com
+                sandboxFailovers:
+                    - url: https://dev1.sandbox.wso2.com
+                    - url: https://dev2.sandbox.wso2.com
     ```
 
 ### Dynamic Endpoints
@@ -203,11 +215,13 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
         - name: test
-          endpoints:
-              production:
-              sandbox:
+          configs:
+            endpoints:
+                production:
+                sandbox:
         - name: development
-          endpointType: dynamic
+          configs:
+            endpointType: dynamic
     ```
 
 !!! tip
@@ -225,13 +239,15 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: development
-        endpointType: aws
-        awsLambdaEndpoints:
-            accessMethod: role_supplied
+        configs:
+            endpointType: aws
+            awsLambdaEndpoints:
+                accessMethod: role_supplied
     ```
 
 #### 2. AWS Lambda - Using stored AWS credentials
@@ -242,14 +258,16 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
     ```go   
     environments:
       - name: test
-        endpoints:
-            production:
-            sandbox:
+        configs:
+            endpoints:
+                production:
+                sandbox:
       - name: development
-        endpointType: aws
-        awsLambdaEndpoints:
-            accessMethod: stored
-            amznRegion: us-west-1
-            amznAccessKey: jdej3kj34jk3l353k553535b353
-            amznSecretKey: 453653nk46j43kewrkj35j2kk32
+        configs:
+            endpointType: aws
+            awsLambdaEndpoints:
+                accessMethod: stored
+                amznRegion: us-west-1
+                amznAccessKey: jdej3kj34jk3l353k553535b353
+                amznSecretKey: 453653nk46j43kewrkj35j2kk32
     ```
