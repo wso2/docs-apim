@@ -9,34 +9,35 @@ The following is the structure of the parameter file.
 ```go
 environments:
     - name: <environment_name>
-      endpoints:
-          production:
-              url: <production_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-          sandbox:
-              url: <sandbox_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-      security:
-          enabled: <whether_security_is_enabled>
-          type: <endpoint_authentication_type_basic_or_digest>
-          username: <endpoint_username>
-          password: <endpoint_password>
-      gatewayEnvironments:
-          - <gateway_environment_name>           
-      certs:
-          - hostName: <endpoint_url>
-            alias: <certificate_alias>
-            path: <certificate_file_path>
-      mutualSslCerts:
-          - tierName: <subscription_tier_name>
-            alias: <certificate_alias>
-            path: <certificate_file_path>
+      configs: <multiple_configurations_relevant_to_the_specific_environment>
+        endpoints:
+            production:
+                url: <production_endpoint_url>
+                config:
+                    retryTimeOut: <no_of_retries_before_suspension>
+                    retryDelay: <retry_delay_in_ms>
+                    factor: <suspension_factor>
+            sandbox:
+                url: <sandbox_endpoint_url>
+                config:
+                    retryTimeOut: <no_of_retries_before_suspension>
+                    retryDelay: <retry_delay_in_ms>
+                    factor: <suspension_factor>
+        security:
+            enabled: <whether_security_is_enabled>
+            type: <endpoint_authentication_type_basic_or_digest>
+            username: <endpoint_username>
+            password: <endpoint_password>
+        gatewayEnvironments:
+            - <gateway_environment_name>           
+        certs:
+            - hostName: <endpoint_url>
+                alias: <certificate_alias>
+                path: <certificate_name>
+        mutualSslCerts:
+            - tierName: <subscription_tier_name>
+                alias: <certificate_alias>
+                path: <certificate_name>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
@@ -44,44 +45,47 @@ The following code snippet contains sample configuration of the parameter file.
     ```go
     environments:
         - name: dev
-          endpoints:
-              production:
-                  url: 'https://dev.wso2.com'
-          security:
-              enabled: true
-              type: basic
-              username: admin
-              password: admin
-          certs:
-              - hostName: 'https://dev.wso2.com'
-                alias: Dev
-                path: ~/.certs/dev.pem 
-          gatewayEnvironments:
-              - Production and Sandbox    
+          configs:
+            endpoints:
+                production:
+                    url: 'https://dev.wso2.com'
+            security:
+                enabled: true
+                type: basic
+                username: admin
+                password: admin
+            certs:
+                - hostName: 'https://dev.wso2.com'
+                  alias: Dev
+                  path: dev.crt 
+            gatewayEnvironments:
+                - Production and Sandbox    
         - name: test
-          endpoints:
-              production:
-                  url: 'https://test.wso2.com'
-                  config:
-                      retryTimeOut: $RETRY
-              sandbox:
-                  url: 'https://test.sandbox.wso2.com'
-          security:
-              enabled: true
-              type: digest
-              username: admin
-              password: admin
+          configs:
+            endpoints:
+                production:
+                    url: 'https://test.wso2.com'
+                    config:
+                        retryTimeOut: $RETRY
+                sandbox:
+                    url: 'https://test.sandbox.wso2.com'
+            security:
+                enabled: true
+                type: digest
+                username: admin
+                password: admin
         - name: production
-          endpoints:
-            production:
-                  url: 'https://prod.wso2.com'
-            mutualSslCerts:
-                - tierName: Unlimited
-                  alias: Prod1
-                  path: ~/.certs/prod1.crt
-                - tierName: Gold
-                  alias: Prod2
-                  path: ~/.certs/prod2.crt
+          configs:
+            endpoints:
+                production:
+                    url: 'https://prod.wso2.com'
+                mutualSslCerts:
+                    - tierName: Unlimited
+                      alias: Prod1
+                      path: prod1.crt
+                    - tierName: Gold
+                      alias: Prod2
+                      path: prod2.crt
     ```
 Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
 
