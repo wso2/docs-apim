@@ -32,7 +32,7 @@
                     ]
                 }
             ],
-            "exampleFile": "super-admin.toml"
+            "exampleFile": "_super-admin.toml"
         },
         {
             "title": "Connecting to the primary data store",
@@ -60,7 +60,7 @@
                     ]
                 }
             ],
-            "exampleFile": "primary-data-store.toml"
+            "exampleFile": "_primary-data-store.toml"
         },
         {
             "title": "Enabling the H2 database console",
@@ -81,7 +81,7 @@
                     ]
                 }
             ],
-            "exampleFile": "enable_h2_console.toml"
+            "exampleFile": "_enable_h2_console.toml"
         },
         {
             "title": "Database configurations",
@@ -180,7 +180,7 @@
                     ]
                 }
             ],
-            "exampleFile": "database_apim_db.toml"
+            "exampleFile": "_database_apim_db.toml"
         },
         {
             "title": "Shared database configurations",
@@ -222,7 +222,7 @@
                     ]
                 }
             ],
-            "exampleFile": "database_shared_db.toml"
+            "exampleFile": "_database_shared_db.toml"
         },
         {
             "title": "JWT Configurations",
@@ -306,7 +306,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim_jwt.toml"
+            "exampleFile": "_apim_jwt.toml"
         },
         {
             "title": "API-M gateway environment configurations",
@@ -460,7 +460,7 @@
             "exampleFile": "apim.cache.resource.toml"
         },
         {
-            "title": "Cache Keymanager token",
+            "title": "Keymanager token cache",
             "options": [
                 {
                     "name": "apim.cache.km_token",
@@ -481,7 +481,7 @@
                             "required": false,
                             "default": "15 m",
                             "possible": "",
-                            "description": "Set the cache expiry time."
+                            "description": "Set the cache expiry time"
                         }
                     ]
                 }
@@ -502,7 +502,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Enable cache for recently added apis in the API Store. This expires in 15 minutes by default."
+                            "description": "Enable cache for recently added apis in the API Store. This expires in 15 minutes by default"
                         }
                     ]
                 }
@@ -523,7 +523,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Enabel cache for scopes. This expires in 15 minutes by default."
+                            "description": "Enable cache for scopes. This expires in 15 minutes by default."
                         }
                     ]
                 }
@@ -661,7 +661,7 @@
                             "name": "store_api_username",
                             "type": "string",
                             "required": false,
-                            "default": "use apim.analytics.username",
+                            "default": "Uses the \"apim.analytics.username\"",
                             "possible": "",
                             "description": "Change this if a specific user is required to access the Store REST API."
                         },
@@ -669,7 +669,7 @@
                             "name": "store_api_password",
                             "type": "string",
                             "required": false,
-                            "default": "use apim.analytics.password",
+                            "default": "Uses the \"apim.analytics.password\"",
                             "possible": "",
                             "description": "Change this if a specific user is required to access the Store REST API."
                         },
@@ -679,7 +679,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "If you have defined a custom \"event_publisher_type\", the custom publisher needs to be defined to the following value \n\n 'event_publisher_impl = \"org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher\""
+                            "description": "If you have defined a custom \"event_publisher_type\", the custom publisher needs to be defined to the following value event_publisher_impl = \"org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher\""
                         },
                         {
                             "name": "publish_response_size",
@@ -716,7 +716,7 @@
                             "required": true,
                             "default": "tcp://localhost:7612",
                             "possible": "",
-                            "description": "The list of server URLs \n\n e.g.,: analytics_url = [\"tcp: //localhost:7611, tcp://localhost:7611\"]\""
+                            "description": "The list of server URLs e.g.,: analytics_url = [\"tcp: //localhost:7611\", \"tcp://localhost:7611\"]"
                         },
                         {
                             "name": "analytics_auth_url",
@@ -724,7 +724,7 @@
                             "required": true,
                             "default": "ssl://localhost:7712",
                             "possible": "",
-                            "description": "The list of auth server URLs \n\n e.g.,: analytics_auth_url = [\"ssl: //localhost:7711,ssl://localhost:7711\"]"
+                            "description": "The list of auth server URLs e.g.,: analytics_auth_url = [\"ssl: //localhost:7711\", \"ssl://localhost:7711\"]"
                         },
                         {
                             "name": "type",
@@ -759,7 +759,7 @@
                             "name": "username",
                             "type": "string",
                             "required": false,
-                            "default": "Credentials of the super admin user.",
+                            "default": "Credentials of the super admin user",
                             "possible": "",
                             "description": "Credentials of the super admin user, in the Key Manager node."
                         },
@@ -767,7 +767,7 @@
                             "name": "password",
                             "type": "string",
                             "required": false,
-                            "default": "Credentials of the super admin user.",
+                            "default": "Credentials of the super admin user",
                             "possible": "",
                             "description": "Credentials of the super admin user, in the Key Manager node."
                         },
@@ -837,7 +837,7 @@
                             "type": "string",
                             "required": false,
                             "default": "https://localhost:8243/revoke",
-                            "possible": "Valid URL for revocation endpoint.",
+                            "possible": "Valid URL for revocation endpoint",
                             "description": "Token revocation endpoint used in the API Store"
                         },
                         {
@@ -846,7 +846,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "If set to TRUE, the token stored in the database will be encrypted/decrypted when reading and storing. \n\n RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs"
+                            "description": "If set to TRUE, the token stored in the database will be encrypted/decrypted when reading and storing. RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs"
                         },
                         {
                             "name": "enable_token_hashing",
@@ -899,7 +899,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implmentation. If it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
@@ -976,7 +976,7 @@
                 {
                     "name": "apim.cors",
                     "required": true,
-                    "description": "Configures CORS headers on the Publisher and the Gateway.",
+                    "description": "Configures CORS headers on the Publisher and the GW.",
                     "params": [
                         {
                             "name": "enable",
@@ -1016,7 +1016,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Specifying this header to true means that the server allows cookies (or other user credentials) to be included on cross-origin requests.\n\n It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (*)"
+                            "description": "Specifying this header to true means that the server allows cookies (or other user credentials) to be included on cross-origin requests. It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (*)"
                         }
                     ]
                 }
@@ -1072,7 +1072,7 @@
                             "name": "username",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "Credentials of the Traffic Manager user."
                         },
@@ -1082,13 +1082,13 @@
                             "required": false,
                             "default": "super user password",
                             "possible": "",
-                            "description": "Credentials of the Traffic Manager user."
+                            "description": "Credentials of the Traffic Manager user"
                         },
                         {
                             "name": "receiver_username",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "If the username of the receiver is different, use the username of the receiver configured on the Traffic Manager."
                         },
@@ -1104,7 +1104,7 @@
                             "name": "policy_deploy.username",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "If the credentials of the user is different, use the credentials of the user configured for deploying policies."
                         },
@@ -1120,7 +1120,7 @@
                             "name": "jms.username",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "If the credentials of the user is different, use the credentials of the user configured for the JMS connection."
                         },
@@ -1186,7 +1186,7 @@
                             "required": false,
                             "default": "not defined",
                             "possible": "",
-                            "description": "Define the delay time to get the blacklist conditions from the Keymanager."
+                            "description": "Define the delay time to get the blacklist conditions from the Keymanager"
                         },
                         {
                             "name": "jms.destination",
@@ -1200,7 +1200,7 @@
                             "name": "jms.start_delay",
                             "type": "string",
                             "required": false,
-                            "default": "not define",
+                            "default": "not defined",
                             "possible": "",
                             "description": "Connection delay to read the Traffic Manager at startup."
                         },
@@ -1226,7 +1226,7 @@
                             "required": false,
                             "default": "andes",
                             "possible": "",
-                            "description": "Define the JMS type e.g.,: andes"
+                            "description": "Define JMS type e.g.,: andes"
                         },
                         {
                             "name": "jms.java_naming_factory_initial",
@@ -1242,7 +1242,7 @@
                             "required": true,
                             "default": "",
                             "possible": "",
-                            "description": "Define array of JMS connection as a array."
+                            "description": "Define array of JMS connection as an array."
                         },
                         {
                             "name": "enable_unlimited_tier",
@@ -1250,7 +1250,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Enable the unlimited tier."
+                            "description": "Enable unlimited tier"
                         },
                         {
                             "name": "enable_header_based_throttling",
@@ -1332,13 +1332,13 @@
                             "required": false,
                             "default": "https://localhost:9445/bpmn",
                             "possible": "",
-                            "description": "The service URL of the workflow engine."
+                            "description": "The service URL of the workflow engine"
                         },
                         {
                             "name": "wf_engine_user",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "Workflow username."
                         },
@@ -1356,7 +1356,7 @@
                             "required": false,
                             "default": "https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.14/workflows/update-workflow-status",
                             "possible": "",
-                            "description": "Callback URL for the workflow engine."
+                            "description": "Callback URL for the workflow engine"
                         },
                         {
                             "name": "token_endpoint",
@@ -1364,13 +1364,13 @@
                             "required": false,
                             "default": "https://localhost:${https.nio.port}/token",
                             "possible": "",
-                            "description": "Token endpoint used for the workflow."
+                            "description": "Token endpoint used for the workflow.."
                         },
                         {
                             "name": "client_registration_endpoint",
                             "type": "string",
                             "required": false,
-                            "default": "https://localhost:${mgt.transport.https.port}/client-registration/v0.14/register",
+                            "default": "https://localhost:${mgt.transport.https.port}/client-registration/v0.15/register",
                             "possible": "",
                             "description": "DCR endpoint"
                         },
@@ -1378,7 +1378,7 @@
                             "name": "client_registration_username",
                             "type": "string",
                             "required": false,
-                            "default": "super username",
+                            "default": "super user username",
                             "possible": "",
                             "description": "DCR username"
                         }
@@ -1438,7 +1438,7 @@
                     ]
                 }
             ],
-            "exampleFile": "sample.toml"
+            "exampleFile": "apim.sdk.toml"
         },
         {
             "title": "API-M Open tracer configurations",
@@ -1446,7 +1446,7 @@
                 {
                     "name": "apim.open_tracer",
                     "required": true,
-                    "description": "Configurations related to tracing.",
+                    "description": "",
                     "params": [
                         {
                             "name": "remote_tracer.enable",
@@ -1454,7 +1454,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Enable tracing in API Manager. Traces the execution time upto message level."
+                            "description": "Enable tracing on APIM. Traces the execution time upto message level."
                         },
                         {
                             "name": "remote_tracer.name",
@@ -1462,7 +1462,7 @@
                             "required": false,
                             "default": "zipkin",
                             "possible": "",
-                            "description": "Tracer name."
+                            "description": "Tracer name"
                         },
                         {
                             "name": "remote_tracer.properties.hostname",
@@ -1470,7 +1470,7 @@
                             "required": false,
                             "default": "localhost",
                             "possible": "",
-                            "description": "Hostname of the zipkin tool (tracer)"
+                            "description": "Hostname of the zipkin tool (tracer)."
                         },
                         {
                             "name": "remote_tracer.properties.port",
@@ -1491,7 +1491,7 @@
                     ]
                 }
             ],
-            "exampleFile": "sample.toml"
+            "exampleFile": "apim.open_tracer.toml"
         },
         {
             "title": "API-M token revocation",
@@ -1507,7 +1507,7 @@
                             "required": false,
                             "default": "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl",
                             "possible": "",
-                            "description": "This config is required only during a custom implementation. \n\nIf a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
+                            "description": "This config is required only during a custom implementation. If a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
                         },
                         {
                             "name": "enable_realtime_notifier",
@@ -1515,7 +1515,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "(Only applicable if the Microgateway is used)If set to FALSE, works as persistent."
+                            "description": "(Only applicable if the MGW is used) If FALSE, works as persistent."
                         },
                         {
                             "name": "enable_persistent_notifier",
@@ -1523,7 +1523,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway."
+                            "description": "Notifications will be persisted to etcd. At MGW server startup, the etcd will be queried by the MGW."
                         },
                         {
                             "name": "realtime_notifier.ttl",
