@@ -260,7 +260,7 @@ The following responses are possible error responses that you may receive when m
             {  
                 "code":"HC_00003",
                 "message": "Error while checking the health of USM with domain: SEC",
-                "description":"Access denied for user 'roott'@'localhost' (using password: YES)"
+                "description":"Access denied for user 'root'@'localhost' (using password: YES)"
             }
         ]
     }
