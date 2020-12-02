@@ -1356,7 +1356,18 @@ these alerts are persisted individually as well in tables specific for the type 
 data related to alerts by dropping this table.
 
 ??? info "DB Scripts"
+     ```sql
      DROP TABLE APIMALLALERT;
+     ```
+
+!!! note
+    Only the `ANALYTICS_DB` need to be migrated and the other DBs (e.g. `DASHBOARD_DB`) can either be pointed to a new DB or be cleaned. If there are custom dashboards, those dashboards need to be exported and imported accordingly.
+
+    To export a dashboard, you need to login as an admin to dashboard listing page and select **Export** from the dashboard options menu next to the dashboard name.
+
+    <img src="{{base_path}}/assets/img/setup-and-install/analytics_dashboard_export.png" alt="Dashboard_export" width="750"/>
+
+    This will download the relevant `<dashboard-name>.json` file. To import the dashboard, copy the generated JSON file to `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard`. 
      
 The GRAPHQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
 improvement. If you use GRAPHQL APIs please follow the instruction below to sort the already existing data on above
