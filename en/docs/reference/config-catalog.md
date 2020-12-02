@@ -1,5 +1,6 @@
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 API Manager.
+
 ## Instructions for use
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 
@@ -929,8 +930,8 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="7" type="checkbox" id="_tab_31">
-                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
+                <input name="50" type="checkbox" id="_tab_50">
+                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[[apim.jwt.issuer]]
@@ -966,7 +967,7 @@ name = "https://test.apim.integration"</code></pre>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -974,8 +975,8 @@ name = "https://test.apim.integration"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="7" type="checkbox" id="_tab_32">
-                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
+                <input name="51" type="checkbox" id="_tab_51">
+                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[apim.jwt.issuer.jwks]
@@ -1011,7 +1012,7 @@ url = "https://localhost:8743/jwks/1.0"</code></pre>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -1019,8 +1020,8 @@ url = "https://localhost:8743/jwks/1.0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="7" type="checkbox" id="_tab_33">
-                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
+                <input name="52" type="checkbox" id="_tab_52">
+                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[[apim.jwt.issuer.claim_mapping]]
@@ -1491,7 +1492,7 @@ expiry_time = "900s"</code></pre>
 </div>
 
 
-## Cache Keymanager token
+## Keymanager token cache
 
 <div class="mb-config-catalog">
     <section>
@@ -3046,6 +3047,10 @@ enable_data_publishing = true
 enable_policy_deploy = true
 enable_blacklist_condition = true
 enable_persistence = true
+enable_header_based_throttling = true
+enable_jwt_claim_based_throttling = true
+enable_query_param_based_throttling = true
+enable_unlimited_tier = false
 throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</code></pre>
                     </div>
                 </div>
@@ -3095,19 +3100,19 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default:
-                                                <code>if None of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}</code></span>
+                                                <code>tcp://${carbon.local.ip}:${receiver.url.port}</code></span>
                                         </div>
 
                                     </div>
                                     <div class="param-description">
                                         <p>Define traffic manager connection url inline. If none of this is defined
-                                            consider it as tcp://${carbon.local.ip}:${receiver.url.port}</p>
+                                            consider it as <code>tcp://${carbon.local.ip}:${receiver.url.port}</code></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                                                                         
                             <div class="param">
                                 <div class="param-name">
-                                    <span class="param-name-wrap"> <code>receiver_url</code> </span>
+                                    <span class="param-name-wrap"> <code>enable_header_based_throttling</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -3116,15 +3121,75 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
 
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Define array of traffic manager connections</p>
+                                        <p>Specifying this header to true will enable a user to define header condition throttling policies in the Admin Portal.</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>enable_unlimited_tier</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations.</p>
+                                    </div>
+                                </div>
+                            </div>                                                                                                                 
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>enable_jwt_claim_based_throttling</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifying this config to true will enable a user to define JWT condition throttling policies in the Admin Portal.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                 <div class="param-name">
+                                     <span class="param-name-wrap"> <code>enable_query_param_based_throttling</code> </span>
+                                 </div>
+                                 <div class="param-info">
+                                     <div>
+                                         <p>
+                                             <span class="param-type string"> string </span>
+ 
+                                         </p>
+                                         <div class="param-default">
+                                             <span class="param-default-value">Default: <code>false</code></span>
+                                         </div>
+ 
+                                     </div>
+                                     <div class="param-description">
+                                         <p>Specifying this config to true will enable a user to define Query parameter condition throttling policies in the Admin Portal.</p>
+                                     </div>
+                                 </div>
+                            </div>                                     
                         </div>
                     </div>
                 </div>
@@ -3665,49 +3730,7 @@ type = "failover"</code></pre>
                                         <p>Enable the unlimited tier.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="param">
-                                <div class="param-name">
-                                    <span class="param-name-wrap"> <code>enable_header_based_throttling</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable the header condition based throttling. Advanced policies allow you to
-                                            apply limits to APIs by filtering requests based on HTTP headers.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param">
-                                <div class="param-name">
-                                    <span class="param-name-wrap"> <code>enable_jwt_claim_based_throttling</code>
-                                    </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable JWT claim based throtlling.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                                                  
                         </div>
                     </div>
                 </div>
@@ -4337,6 +4360,7 @@ supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "g
     </section>
 </div>
 
+
 ## API-M token revocation
 
 <div class="mb-config-catalog">
@@ -4598,6 +4622,7 @@ enable_email_domain = true</code></pre>
     </section>
 </div>
 
+
 ## Multi-tenancy Configurations
 
 <div class="mb-config-catalog">
@@ -4605,8 +4630,8 @@ enable_email_domain = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="50" type="checkbox" id="_tab_50">
-                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
+                <input name="31" type="checkbox" id="_tab_31">
+                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos]
@@ -4830,8 +4855,8 @@ sso_loading_message = "Loading..."
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="51" type="checkbox" id="_tab_51">
-                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
+                <input name="32" type="checkbox" id="_tab_32">
+                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos.paypal]
@@ -4938,8 +4963,8 @@ environment = "live"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="52" type="checkbox" id="_tab_52">
-                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
+                <input name="33" type="checkbox" id="_tab_33">
+                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos.manager_service]
@@ -6145,6 +6170,180 @@ overuse_charge= "0"
                                     </div>
                                     <div class="param-description">
                                         <p> The charge for over usage based on the billing package. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Enable Notifications
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="30" type="checkbox" id="_tab_30">
+                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.notification]
+from_address = "abcd@gmail.com"
+username = "abcd@gmail.com"
+password = "xxxxxx"
+hostname = "smtp.gmail.com"
+port = "587"
+enable_start_tls = true
+enable_authentication = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.notifications]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>from_address</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The email address you use to send emails.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The email address used to authenticate the mail server. This can be the same email address as the from_address.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Password used to authenticate the mail server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>hostname</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server to connect to.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>25</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_start_tls</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must configured so that the client will trust the certificate of the server. Defaults to false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_authentication</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, it attempts to authenticate the user using the AUTH command. Defaults to false.</p>
                                     </div>
                                 </div>
                             </div>
