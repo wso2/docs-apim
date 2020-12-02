@@ -1,0 +1,9 @@
+[apim.analytics]
+enable = false
+store_api_url = "https://localhost:7444"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+event_publisher_type = "default"
+event_publisher_type = "custom"
+event_publisher_impl = "org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher"
+publish_response_size = true
