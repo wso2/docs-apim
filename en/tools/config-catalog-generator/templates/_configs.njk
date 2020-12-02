@@ -1,7 +1,9 @@
 {% set tabid = 1 %}
 {% for config in configs %}
 
+{% if config.title %}
 ## {{ config.title | safe }}
+{% endif %}
 
 <div class="mb-config-catalog">
     <section>
