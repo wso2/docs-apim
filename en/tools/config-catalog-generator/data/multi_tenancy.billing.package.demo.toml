@@ -1,0 +1,3 @@
+[multi_tenancy.billing.package.demo]
+name = "Demo"
+subscription_charge = 0
