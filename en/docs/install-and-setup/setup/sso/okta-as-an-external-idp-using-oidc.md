@@ -13,7 +13,7 @@ Before you begin, make sure you do the following.
     [tenant_mgt]
     enable_email_domain= true
     ```
-    You need to enable this because OKTA uses the email as a username by default. To  use the email as the username in WSO2 API Manager you have to enable it, since it not enabled by default. Once enabled, you can use your email or a normal username as your username.
+    You need to enable this because OKTA uses the email as the username by default. To  use the email as the username in WSO2 API Manager you have to enable it, since it not enabled by default. Once enabled, you can use your email or a normal username as your username.
 4. Start the Server.
 
 ### Configure OKTA
