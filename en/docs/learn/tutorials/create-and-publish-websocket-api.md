@@ -146,7 +146,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
            ```
 
            ``` java tab="WSS"
-           wscat -c -n wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           wscat -n -c wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
            ```
 
           <html>
@@ -160,7 +160,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
            ```
   
            ``` java tab="WSS"
-           wscat -c -n "wss://localhost:8099/echowebsocket/1.0.0?access_token=[accesstoken]"
+           wscat -n -c "wss://localhost:8099/echowebsocket/1.0.0?access_token=[accesstoken]"
            ```
 
       <html>
