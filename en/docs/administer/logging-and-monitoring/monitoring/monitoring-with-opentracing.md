@@ -42,13 +42,22 @@ remote_tracer.properties.port = "6831"
 
 1. Copy following configuration into the deployment.toml and start the server.
 
-```toml
+```toml tab="Config"
 [apim.open_tracer]
 remote_tracer.enable = true
 remote_tracer.name = "zipkin"
 remote_tracer.properties.hostname = "<hostname of zikin endpoint>"
 remote_tracer.properties.port = "<port of zipkin endpoint>"
 ```
+
+```toml tab="Sample"
+[apim.open_tracer]
+remote_tracer.enable = true
+remote_tracer.name = "zipkin"
+remote_tracer.properties.hostname = "localhost"
+remote_tracer.properties.port = "9411"
+```
+
 2. Start the Server.
 3. Once you invoke the APIS you'll be able to see tracing data in zipkin as follow.
 
