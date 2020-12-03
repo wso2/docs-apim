@@ -104,7 +104,7 @@ in order to share all APIs and throttling policies between all the nodes.
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
-    Please note that these configurations may change depending on the OS.
+    Note that these configurations may change depending on the OS.
 
 ??? info "If you are unable to maintain a shared file system"
 
