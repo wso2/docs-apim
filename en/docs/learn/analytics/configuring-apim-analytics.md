@@ -259,21 +259,17 @@ Configuring databases allow you to persist data relating to APIs, process them a
     ```
 
 !!! info
-    Sometimes due to primary key length exceeding, we have to use different encoding types which take lower bytes (than UTF8). Adding encoding and collation to database should be done when Analytics DB is created (i.e. before the tables are created). Please refer the sample commands provided below.    
+    Sometimes due to the primary key length exceeding, you have to use different encoding types that take lower bytes (than UTF8). You need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
 
-    If you are using MySQL,
+    !!! example
 
-    ```sql
-    ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
-    ```
-    For more information about collation in MySQL, see [this](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html).
-
-    If you are using MSSQL,
-    
-    ```sql
-    ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
-    ```
-    For more information about collation in MSSQL, see [this](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15).
+        ```sql tab="MySQL"
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+        
+        ```sql tab="MS SQL"
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
