@@ -1,0 +1,5 @@
+[multi_tenancy.throttling_manager_tasks]
+data_providers = [
+    "org.wso2.carbon.throttling.manager.dataproviders.BillingDataProvider",
+    "org.wso2.carbon.throttling.manager.dataproviders.UsageDataProvider"
+]

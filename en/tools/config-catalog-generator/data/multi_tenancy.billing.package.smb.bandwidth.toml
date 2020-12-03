@@ -1,0 +1,3 @@
+[multi_tenancy.billing.package.smb.bandwidth]
+limit= "150"
+overuse_charge= "0"

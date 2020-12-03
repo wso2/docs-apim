@@ -1,0 +1,12 @@
+[multi_tenancy.stratos]
+disable_tenant_management_emails = true
+email_validation_mandatory_for_login = false
+tenant_activation_moderated = false
+super_admin_email = "super-admin-email"
+skip_summary_generator = false
+notification_email = "notification-email"
+finance_notification_email = "finance-notification-email"
+charge_on_registration = false
+public_cloud_setup = true
+google_analytics_url = "http://google-analytics.js"
+sso_loading_message = "Loading..."
