@@ -43,7 +43,7 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 
 ### Persistent Configuration Artifacts
 
-1. `<API-M_HOME>/repository/resources` - This folder/artifact contains such as keystores, templates, scripts, synapse configurations and custom sequences etc.
+1. `<API-M_HOME>/repository/resources` - This folder/artifact contains such as keystores, templates, scripts, Synapse configurations and custom sequences etc.
 
 2. `<API-M_HOME>/repository/conf` - This folder contains the configuration files related to servers, datasources, registry, user management, etc.
 
@@ -53,7 +53,7 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 
 ### Persistent Runtime Artifacts
 
-1. `<API-M_ANALYTICS_HOME>/repository/deployment/server` - Contains webapps, execution plans, event receivers, etc that are related to customizing WSO2 APIM Analytics during a deployment. Required for deploying a super tenant. It is sufficient to only share the synapse configurations and execution plans between the nodes.
+1. `<API-M_ANALYTICS_HOME>/repository/deployment/server` - Contains webapps, execution plans, event receivers, etc that are related to customizing WSO2 APIM Analytics during a deployment. Required for deploying a super tenant. It is sufficient to only share the Synapse configurations and execution plans between the nodes.
 
 2. `<API-M_ANALYTICS_HOME>/repository/data` - Contains the indexing files
 
