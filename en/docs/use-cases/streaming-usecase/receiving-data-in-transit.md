@@ -29,7 +29,7 @@ In this example, an online student registration results in an HTTP request in JS
 
 To try out the example given above, let's include the source configuration in a Siddhi application and simulate an event to it.
 
-1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file and add the following Siddhi application to it.
 
@@ -164,9 +164,9 @@ To try the above example, follow the steps below.
         
 3. Prepare WSO2 Streaming Integrator Tooling to consume Kafka messages as follows:
 
-    1. Start and access [WSO2 Streaming Integrator Tooling](../develop/streaming-apps/streaming-integrator-studio-overview.md). 
+    1. Start and access [WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md). 
     
-    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions](../develop/streaming-apps/installing-siddhi-extensions.md).
+    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions](../../develop/streaming-apps/installing-siddhi-extensions.md).
     
     3. Open a new file and add the following Siddhi application to it.
 

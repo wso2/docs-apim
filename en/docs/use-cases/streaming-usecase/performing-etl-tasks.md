@@ -228,11 +228,11 @@ The following diagram depicts how the above changes scaled the ETL flow.
        
 ## Multiple platforms for ETL application design
 
-WSO2 Streaming Integrator provides the Source View, Design View and the Wizard View for application design. For more information, see [Streaming Integrator Tooling Overview](../develop/streaming-apps/streaming-integrator-studio-overview.md).
+WSO2 Streaming Integrator provides the Source View, Design View and the Wizard View for application design. For more information, see [Streaming Integrator Tooling Overview](../../develop/streaming-apps/streaming-integrator-studio-overview.md).
 
 Out of these three views, the Wizard View is dedicated for designing ETL applications without writing many Siddhi queries. This platform mainly caters for application designers who prefer to use Siddhi constructs without writing code. Therefore, it guides you to write multiple simple Siddhi applications that contribute to the same ETL flow instead of heavy applications embodying multiple components of the ETL flow. A single Siddhi application designed using the ETL wizard can only incorporate one source and one destination to the ETL flow. 
 
-To learn how to design an ETL application via the Wizard view, see the [Creating an ETL Application via SI Tooling tutorial](../../use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
+To learn how to design an ETL application via the Wizard view, see the [Creating an ETL Application via SI Tooling tutorial](../streaming-tutorials/creating-etl-application-via-tooling.md).
 
 ## Visualizing ETL Performance Statistics
 
