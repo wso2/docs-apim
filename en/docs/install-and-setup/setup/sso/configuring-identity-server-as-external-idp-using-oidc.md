@@ -1,6 +1,6 @@
 # Configuring Identity Server as External IDP using OIDC
 
-WSO2 API Manager uses OIDC Single Sign-On feature by default. This document explains how to connect an WSO2 Identity Server (or WSO2 IS-KM) as a third party Identity provider to API-Manager.
+WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager.
 
 ## Pre-requisites
 
@@ -8,7 +8,7 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 -   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
-        For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 IS server on the same server, then you can go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
+        For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 Identity Server on the same server, go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
 
         ``` toml
         [server]
@@ -29,7 +29,7 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
 ### Step - 1 Configure the Service Provider
 
-1.  Login to the Management Console of IS server by browsing the following URL:  
+1.  Sign in to the Management Console of WSO2 IS by browsing the following URL:  
 
     ```
     https://{is-ip}:9444/carbon
@@ -45,7 +45,7 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
     2.  Expand the **Inbound Authentication Configuration** secition and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
 
-        ??? Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
+        !!! Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
 
             To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
 
@@ -89,16 +89,16 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
 ### Step - 1 Configure the Identity Provider
 
-1.  Login to the Management Console of API Manager by browsing the following URL: 
+1.  Sign in to the Management Console of API Manager by browsing the following URL: 
 
 
     ```
     https://{apim-ip}:9443/carbon
     ```
 
-2.  Navigate to the **Identity Providers** section under Main → Identity and create new Identity Provider.
+2.  Navigate to the **Identity Providers** section under Main → Identity and create a new Identity Provider.
 
-    1.  Expand the **Federated Authenticators** section and add following configurations under **OAuth2/OpenIDConnect Configuration**:
+    1.  Expand the **Federated Authenticators** section and add the following configurations under **OAuth2/OpenIDConnect Configuration**:
 
         <table>
             <tbody>
@@ -137,15 +137,15 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
             </tbody>
         </table>
 
-        Following image shows the sample values for OAuth2/OpenIDConnect Configurations:
+        The following image shows the sample values for OAuth2/OpenIDConnect Configurations:
 
         [![sp]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
 
-    2.  Enable Just-in-Time Provisioning to provision the users in API Manager: 
+    2.  Enable Just-in-Time Provisioning to provision the users in API Manager:
 
         [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
-    3.  Add the following role mapping under **Role Configuration** section:
+    3.  Add the following role mapping under the **Role Configuration** section:
     
         <table>
         <thead>
@@ -182,18 +182,18 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
     [![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
 
-3.  Repeat the same step for apim_devportal Service Provider as well.
+3.  Repeat the same step for `apim_devportal` Service Provider as well.
 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
 
 !!! Tip "Troubleshooting"
-    When using Identity Server as external IdP, following error can be observed in API Manager, when login to Portals. 
+    When using Identity Server as external IdP, following error can be observed in API Manager, when logging in to Portals.
 
     ``` code
         invalid_request, The client MUST NOT use more than one authentication method in each
     ```
 
-    It is because MutualTLS authenticator is enabled by default in, from IS 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with above error. In order to resolve this issue, add following configuration in the deployment.toml resides in <IS-Home>/repository/conf directory to disable the MutualTLS authenticator in IS.
+    This is because the MutualTLS authenticator is enabled by default in the Identity Server, from version 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with the above error. To resolve this issue, add following the configuration in the `deployment.toml` file in the `<IS-Home>/repository/conf` directory to disable the MutualTLS authenticator in the Identity Server.
 
     ``` toml
     [[event_listener]]
