@@ -25,7 +25,7 @@ const Configurations = {
 #### Example
 
 We can change the logo and header background as follows by changing the above parameters.
- ![changing the logo and header]({{base_path}}/assets/img/learn/changing-the-logo-and-header2.png) 
+ ![changing the logo and header]({{base_path}}/assets/img/learn/changing-the-logo-and-header3.png) 
 
 ```js
 const Configurations = {
