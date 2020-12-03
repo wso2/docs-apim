@@ -478,6 +478,7 @@ nav:
                 - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
                 - Managing Users: administer/managing-users-and-roles/managing-users.md
                 - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
+                - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
           - Managing User Stores:
                 - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                 - Configuring Primary User Stores:
@@ -498,10 +499,12 @@ nav:
                       - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
                       - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
                       - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                      - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
                 - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
-                - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
-                - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
-                - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+                - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
+                - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+                - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+                - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
                 - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
@@ -656,6 +659,7 @@ plugins:
               'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
               'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
               'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
+              'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging//masking-sensitive-information-in-logs.md/'
               'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
               'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
               'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.2.0/troubleshooting/capturing-system-data-in-error-situations/'

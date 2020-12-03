@@ -1,0 +1,6 @@
+[multi_tenancy.stratos.paypal]
+url = "Paypal URL"
+username = "username"
+password = "password"
+signature = "signature"
+environment = "live"

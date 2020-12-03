@@ -6,8 +6,6 @@ The topics below explain how to generate access tokens and authorize them. WSO2 
 
 For more information on Token APIs, see the following topics.
 
-/\*\*/ Revoking access tokens Configuring the token expiration time Token Persistence
-
 ### Revoking access tokens
 
 After issuing an access token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <http://localhost:8280/revoke> .

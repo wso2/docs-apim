@@ -1,0 +1,7 @@
+[apim.open_tracer]
+remote_tracer.enable = true
+remote_tracer.name = "zipkin"
+remote_tracer.properties.hostname = "localhost"
+remote_tracer.properties.port = 9411
+log_tracer.enable = true
+                    
