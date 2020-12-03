@@ -1,6 +1,8 @@
 # Configuring Identity Server as External IDP using SAML
 
-The Single Sign-On with SAML 2.0 feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server. This feature is available in any WSO2 IS version from 4.1.0 onwards. WSO2 IS 5.10.0 is used in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
+The Single Sign-On with the SAML 2.0 feature in WSO2 API Manager is implemented according to the SAML 2.0 browser-based SSO support facilitated by WSO2 Identity Server(WSO2 IS). This feature is available in all WSO2 IS packs from 4.1.0 onwards. The version used in this guide is WSO2 IS 5.10.0.
+
+WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or the API Publisher with a single authentication attempt.
 
 ## Pre-requisites
 
@@ -9,14 +11,14 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 -   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Info
-        To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features as follows:
+        To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features. The instructions are given below:
 
         1. Access the [previous WSO2 API Manager related releases](https://wso2.com/api-management/previous-releases/).
         2. Select version 3.1.0.
-        3. Click on the Identity Server as a Key Manager download option.
+        3. Click on the **Identity Server as a Key Manager** download option.
 
     !!! Tip
-        For testing purposes if you want to run both the WSO2 API Manager and WSO2 IS server on the same server, then you can go to the `<IS-Home>/repository/conf/deployment.toml` file and offset the port by 1 to Identity Server, by adding following configuration:
+        For testing purposes, if you want to run both the WSO2 API Manager and WSO2 IS server on the same server, go to the `<IS-Home>/repository/conf/deployment.toml` file and offset the port by 1 to Identity Server, by adding following configuration:
 
         ``` toml
         [server]
@@ -37,10 +39,10 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
 ### Step - 1 Configure the Service Provider
 
-1.  Login to the Management Console of IS server by browsing the following URL:  
+1.  Login to the Management Console of the Identity server by accessing the following URL:  
 
     ```
-    https://{is-ip}:9444/carbon
+        https://{is-ip}:9444/carbon
     ```
 
 2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
@@ -102,7 +104,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
     3.  Update the Service Provider configurations.
 
-        !!! Info "In Mutl-tenanted environments"
+        !!! Info "In Multi-tenanted environments"
             Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
 
             1.  Click the **SaaS Application** option that appears after registering the service provider.
@@ -117,7 +119,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
 ### Step - 2 Create users and roles
 
-1. Create the required users and roles in Identity Server. Assume, following users are created in Identity Servers with the given roles.
+1. Create the required users and roles in Identity Server. Assume that the following users are created in Identity Servers with the given roles.
 
     <table>
         <thead>
@@ -205,7 +207,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
             Example:
 
             -   If the **Response Signing Algorithm** in Identity Server is **rsa-sha256**, then the Signature Algorithm in API Manager should be **RSA with SHA256**.
-            -   If you enabled **Enable Single Logout** in the Service Provider created in the Identity Server, then enable **Single Logout Profile** in the Identity Provider created in API Manager.
+            -   If you have enabled **Enable Single Logout** in the Service Provider created in the Identity Server, then you have to enable **Single Logout Profile** in the Identity Provider created in API Manager.
 
     3.  Enable Just-in-Time Provisioning to provision the users in API Manager.
 
@@ -235,20 +237,20 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
         [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
-            Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
+            Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users.
 
     ### Step - 2 Configure the Service Provider
 
-    1.  Navigate to **Service Providers** section and list the Service Providers. There are two service providers created for Publisher portal and Developer portal named as `apim_publisher` and `apim_devportal`. Edit the `apim_publisher` service provider.
+    1.  Navigate to the **Service Providers** section and list the Service Providers. There are two service providers created for Publisher portal and Developer portal named as `apim_publisher` and `apim_devportal`. Edit the `apim_publisher` service provider.
 
         !!! Attention
-            You will have to log into the Developer Portal and Publisher at least once for the two service providers to appear as it is created during first login.
+            The service providers are created during the first login. Therefore, you will have to log into the Developer Portal and Publisher at least once for the two service providers to appear.
 
-    2.  Expand the **Local & Outbound Authentication Configuration** section and select **Federated Authentication** as Authentication Type and select the name of the Identity Provider you created and update. 
+    2.  Expand the **Local & Outbound Authentication Configuration** section and select **Federated Authentication** as the **Authentication Type** and select the name of the Identity Provider you created. Update the configurations with your selection.
 
         [![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
 
-    3.  Repeat the same step for apim_devportal Service Provider as well.
+    3.  Repeat the same step for the apim_devportal Service Provider as well.
 
     Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
 
