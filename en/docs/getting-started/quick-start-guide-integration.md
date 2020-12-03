@@ -2,6 +2,20 @@
 
 Let's get started with WSO2 API Manager by running a simple use case in your local environment. 
 
+## Before you begin...
+
+1. Go to the [website](https://wso2.com/api-management/) to download WSO2 Micro Integrator. 
+
+    When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
+
+    !!! Info
+        For more information, see the [installation instructions](../../setup/install_and_setup_overview/#install).
+
+2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
+3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
+
+## Objectives
+
 This is a simple service orchestration scenario that is added to the service catalog. The scenario is about a basic healthcare system where the Micro Integrator is used to integrate two back-end hospital services to provide information to the client.
 
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated for a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
@@ -42,19 +56,7 @@ The expected payload should be in the following JSON format:
 
 Let’s implement a simple integration solution that can be used to query the availability of doctors for a particular category from all the available healthcare centers.
 
-## Before you begin
-
-1. Go to the [website](https://wso2.com/integration/) to download WSO2 Enteprise Integrator. 
-
-    When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
-
-    !!! Info
-        For more information, see the [installation instructions](../../setup/install_and_setup_overview/#install).
-
-2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
-3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
-
-## Set up the workspace
+## Step 1 - Set up the workspace
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
@@ -115,11 +117,11 @@ Go to the `<MI_QSG_HOME>` directory. The following project files and executable 
 
 - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
-## Running the integration artifacts
+## Step 2 - Run the integration artifacts
 
 Follow the steps given below to run the integration artifacts we developed on a Micro Integrator instance that is installed on a VM.
 
-#### Start back-end services
+### Start back-end services
 
 Two mock hospital information services are available in the `DoctorInfo-JDK11.jar` file located in the `<MI_QSG_HOME>/Backend/` directory. 
 
@@ -129,14 +131,14 @@ Open a terminal window, navigate to the `<MI_QSG_HOME>/Backend/` folder and use 
 java -jar DoctorInfo-JDK11.jar
 ```
 
-#### Deploy the healthcare service
+### Deploy the healthcare service
 
 Copy the CAR file of the healthcare service (HealthcareCompositeExporter_1.0.0.car) from the `<MI_QSG_HOME>/HealthcareCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
 !!! Note
     If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location](../../setup/installation/install_in_vm_installer/#accessing-the-home-directory) is specific to your OS.
 
-#### Start the Micro Integrator
+## Step 3 - Start the Micro Integrator
 
 If you set up the product using the **installer**, follow the steps relevant to your OS as shown below.
 
@@ -158,14 +160,14 @@ sh micro-integrator.sh
 micro-integrator.bat
 ```
 
-#### (Optional) Start the Dashboard
+### (Optional) Start the Dashboard
 
 If you want to view the integrations artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
 - Running the [MI dashboard using the installer](../../setup/installation/install_in_vm_installer/#running-the-mi-dashboard)
 - Running the [MI dashboard using the binary](../../setup/installation/install_in_vm_binary/#running-the-mi-dashboard)
 
-#### Invoke the healthcare service
+## Step 4 - Invoke the healthcare service
 
 Open a terminal and execute the following curl command to invoke the service:
 
@@ -204,11 +206,7 @@ Upon invocation, you should be able to observe the following response:
 ]
 ```
 
-## Streaming Integration
-
-To get started with the Streaming Integrator of WSO2 Enterprise Integrator, see the [Streaming Integrator Quick Start Guide](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/quick-start-guide/quick-start-guide/)
-
 ## What's next?
 
 - [Develop your first integration solution](../../develop/integration-development-kickstart/).
-- Try out the **tutorials** and **examples** available in the [Learn section of our documentation](../../use-cases/learn-overview).
+- Try out the **tutorials** and **examples** available in the [Integrate section of our documentation](../../use-cases/learn-overview).

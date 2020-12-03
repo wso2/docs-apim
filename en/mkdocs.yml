@@ -51,10 +51,9 @@ nav:
           - Overview: getting-started/overview.md
           - Key Concepts: getting-started/key-concepts.md
           - Quick Start Guide:
-                  - Quick Start Guide Options: getting-started/quick-start-guide.md
                   - Quick Start Guide API Proxy: getting-started/quick-start-guide-APIProxy.md
                   - Quick Start Guide Integration: getting-started/quick-start-guide-integration.md
-                  - Quick Start Guide Streaming: streaming/streaming-qsg.md
+                  - Quick Start Guide Streaming: getting-started/streaming-qsg.md
           - About this Release: getting-started/about-this-release.md
     #- Use Cases:
           #- Create APIs:
