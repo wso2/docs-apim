@@ -37,7 +37,7 @@ See [Configuring Transport-Level Security]({{base_path}}/install-and-setup/setup
 
     Listed below are the relatively weaker cipher suites (which use DES/3DES, RC4 and MD5). It is not recommended to use these cipher suites for the following reasons:
 
-    -   DES/3DES are deprecated and should not be used. Eg: TLS_RSA_WITH_3DES_EDE_CBC_SHA, DES-CBC3-SHA
+    -   DES/3DES are deprecated and should not be used. (e.g., TLS_RSA_WITH_3DES_EDE_CBC_SHA, DES-CBC3-SHA)
 
     -   MD5 should not be used, due to known collision attacks.
 
