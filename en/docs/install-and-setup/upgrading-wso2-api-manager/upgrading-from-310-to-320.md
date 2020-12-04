@@ -1361,16 +1361,22 @@ data related to alerts by dropping this table.
     ```
 
 !!! note
-    Only the `ANALYTICS_DB` need to be migrated and the other DBs (e.g. `DASHBOARD_DB`) can either be pointed to a new DB or be cleaned. If there are custom dashboards, those dashboards need to be exported and imported accordingly.
+    Only the `ANALYTICS_DB` need to be migrated and the other DBs (e.g., `DASHBOARD_DB`) can either be pointed to a new DB or be cleaned. If there are custom dashboards, those dashboards need to be exported and imported accordingly as mentioned below:
 
-    To export a dashboard, you need to login as an admin to dashboard listing page and select **Export** from the dashboard options menu next to the dashboard name.
+    1. Export the custom dashboard.
+        1. Sign in as an admin to the dashboard listing page.
+        2. Select **Export** from the dashboard options menu next to the dashboard name.
 
-    <img src="{{base_path}}/assets/img/setup-and-install/analytics_dashboard_export.png" alt="Dashboard_export" width="750"/>
+            <img src="{{base_path}}/assets/img/setup-and-install/analytics_dashboard_export.png" alt="Dashboard_export" width="750"/>
 
-    This will download the relevant `<dashboard-name>.json` file. To import the dashboard, copy the generated JSON file to `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard`.
+            This will download the relevant `<dashboard-name>.json` file.
+
+    2. Import the custom dashboard.
+         
+         Copy the generated JSON file to the `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard` directory.
      
-The GRAPHQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
-improvement. If you use GRAPHQL APIs please follow the instruction below to sort the already existing data on above
+The GraphQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
+improvement. If you use GraphQL APIs please follow the instruction below to sort the already existing data on above
 columns
 
 1.  Configure the datasource used for WSO2 API Manager Analytics in the 
@@ -1586,4 +1592,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 
