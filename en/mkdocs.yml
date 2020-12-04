@@ -497,8 +497,9 @@ nav:
               - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
           - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
           - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
-          - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
-          - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+          - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+          - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
   - Reference:
       - Configuration Catalog: reference/config-catalog.md
       - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
@@ -652,6 +653,7 @@ plugins:
         'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
         'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/capturing-system-data-in-error-situations/'
         'administer/product-administration/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/jmx-based-monitoring/'
+        'administer/product-administration/monitoring/monitoring-server-health.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-server-health/'
         'administer/product-administration/monitoring/monitoring-tcp-based-messages.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages/'
         'administer/product-administration/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/removing-unused-tokens-from-the-database/'
         'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
