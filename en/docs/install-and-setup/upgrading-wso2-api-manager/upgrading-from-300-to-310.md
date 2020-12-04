@@ -885,6 +885,19 @@ Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.
     -   Now with API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
 
+!!! info
+    Sometimes due to the primary key length exceeding, you have to use different encoding types that take lower bytes (than UTF8). You need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
+
+    !!! example
+
+        ```sql tab="MySQL"
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+        
+        ```sql tab="MS SQL"
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
+
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
 1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.1.0](http://wso2.com/api-management/).
@@ -1024,4 +1037,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 
