@@ -232,13 +232,14 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 6.  If you sign in to the Publisher, then access the Developer Portal application, click **Login** and verify that the same user is already authenticated in the Developer Portal.
 
-!!!info
-    When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be update via federation following each login event. To preserve the system roles(Application/, Workflow/) assigned previously in the user profile without any changes you need to enable the `SystemRolesRetainedProvisionHandler`.
+!!! info
+    When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be update via federation following each login event. To preserve the system roles (Application/, Workflow/) assigned previously in the user profile without any changes you need to enable the `SystemRolesRetainedProvisionHandler`.
+    
     Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
 
     ```
-        [authentication.framework.extensions]
-        provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
+    [authentication.framework.extensions]
+    provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
     ```
 
 !!! note
