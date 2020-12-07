@@ -4,7 +4,7 @@ API Monetization allows organizations to expand their business and generate high
 
 WSO2 API Manager (WSO2 API-M) allows API Publishers to manage, govern, and monetize their APIs based on their business monetization goals. API Publishers can use the monetization capability in WSO2 API Manager to define various business plans for the same service; therefore, API subscribers have the freedom of selecting a preferred business plan as their subscription. 
 
-WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans. 
+WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans.
 
 WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine to handle the payments for API monetization. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
 
@@ -22,7 +22,7 @@ Let's use the
 
 ### Before you begin
 
-#### (A.) - Configure the billing engine
+#### (A) - Configure the billing engine
 
  Create a connected account to configure the Stripe billing engine.  
 
@@ -50,7 +50,7 @@ Let's use the
 
      2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
 
-        ![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
+        [![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
         
  2.  Create an account for the API Publisher.  
     
@@ -65,27 +65,25 @@ Let's use the
     1. Sign in to the Tenant Admin's Stripe account.
     2. Click **Connected accounts** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
 
-        ![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
+        [![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
 
-    3. In the prompted screen click on **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click on **enable OAuth for Standard Accounts** in the popup that appears on **Continue** button.
+    3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
 
-        ![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png) 
+        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
     
-    4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account.
-     
-    5. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
+    4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
         ```
         https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>&state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
         ```
  
-    6.  The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
+      The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-        ![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)
+        [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
-    7. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
+    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
 
-#### (B.) - Configure WSO2 API-M Analytics
+#### (B) - Configure WSO2 API-M Analytics
 
  <html>
       <div class="admonition note">
@@ -144,7 +142,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      - On Linux/Mac OS:  `sh worker.sh`
 
-#### (C.) - Configure WSO2 API Manager
+#### (C) - Configure WSO2 API Manager
 
 <html>
 <div class="admonition note">
@@ -771,7 +769,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v0.17]({{base_path}}/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/).
+     For more information, see [Admin REST API v1.0]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -798,7 +796,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 3.  Publish usage data to the Stripe billing engine.
 
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.17/monetization/publish-usage
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage
     ```
 
     -   `<monetization-usage-publish-token>` - Token obtained using client credentials with `monetization_usage_publish` scope in the previous step.
@@ -818,7 +816,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     When you call the Admin API to publish usage data, a separate job in a separate thread is created to publish usage data to the billing engine. The status of the above job can be monitored as follows.
   
     ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.17/monetization/publish-usage/status
+    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v1/monetization/publish-usage/status
     ```
     -   `<monetization-usage-publish-token>` - The same token that you got with the monetization usage scope in previous steps.
 
@@ -902,4 +900,3 @@ Follow the instructions below to disable monetization for an API:
 6.  Click **Save**.  
     
      The products and plans are removed in the Stripe billing engine based on the business plan attached to the API.
-
