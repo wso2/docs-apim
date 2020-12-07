@@ -76,17 +76,18 @@ $ pip install mssql-cli
     ```
 
 !!! note
-    Since WSO2_MB_STORE DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB`, even in production.
-
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
 !!! warning "Troubleshooting"
-    If you encounter below error while using default H2 database as the MB store database, please follow the steps in this section. Please note that this error could occur only if the MB store databse is corrupted.
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
+
     ```
     ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
     ```
-    
-    i. Replace the MB store database with the defaut H2 MB store database from fresh APIM 3.2.0 pack.
-    
-    ii. Restart the server
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 ## Changing the Carbon database to MSSQL
 
