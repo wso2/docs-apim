@@ -1,0 +1,2 @@
+[apim.jwt.issuer.jwks]
+url = "https://localhost:8743/jwks/1.0"
