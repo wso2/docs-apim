@@ -113,7 +113,7 @@ Follow the  instructions below to set up a MySQL database:
 
 ### Executing DB scripts to create tables on MySQL database
 
-1.  Execute the relevant scrip to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
+1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
     $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
@@ -126,13 +126,24 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MySQL, then you need to have separate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
+
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 !!! note
     Additional notes
 
     -   Ensure that MySQL is configured so that all nodes can connect to it.
-    -   To access the databases from remote instances, it is required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
+    -   To access the databases from remote instances, it is required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command as shown in the following sample commands.
 
     ```tab="Format"
     mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
@@ -387,9 +398,9 @@ Follow the  instructions below to change the type of the default datasources.
         ``` java
         driver="com.mysql.cj.jdbc.Driver"
         ```
-    
-    !!! note "Recommendation"
-        It is **not recommended** to disable the SSL connection in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in Production Environment. For more information, see [the official MySQL guide](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html) to establish an SSL connection with the MySQL server.
+
+    !!! Tip "Recommendation"
+        It is **not recommended to disable the SSL connection** in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in a Production Environment. For more information on establishing an SSL connection with the MySQL server, see [the official MySQL documentation](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html).   
 
 3.  You can update the configuration elements given below for your database connection.
 
@@ -420,7 +431,7 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
     pool_options.maxActive = 100
@@ -429,7 +440,7 @@ Follow the  instructions below to change the type of the default datasources.
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     pool_options.maxActive = 50
@@ -447,7 +458,7 @@ Follow the  instructions below to change the type of the default datasources.
     !!! info
         **Changing WSO2CARBON_DB to MySQL**
         
-        By default, `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the Carbon database, make sure that **each server node has its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the Carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
         
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mysql.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details similarly as explained before.
