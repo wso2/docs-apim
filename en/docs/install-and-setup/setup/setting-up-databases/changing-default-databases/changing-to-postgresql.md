@@ -69,7 +69,17 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/postgresql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to PostgreSQL, then you need to have seperate databases for each API-M Traffic Manager node.
+    `Since WSO2_MB_STORE DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB`, even in production.
+     
+!!! warning "Troubleshooting"
+     If you encounter below error while using default H2 database as the MB store database, please follow the steps in this section. Please note that this error could occur only if the MB store databse is corrupted.
+     ```
+     ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+     ```
+    
+     i. Replace the MB store database with the defaut H2 MB store database from fresh APIM 3.2.0 pack.
+    
+     ii. Restart the server
 
 ## Changing the database to PostgreSQL
 
