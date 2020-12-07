@@ -4,11 +4,9 @@ API Monetization allows organizations to expand their business and generate high
 
 WSO2 API Manager (WSO2 API-M) allows API Publishers to manage, govern, and monetize their APIs based on their business monetization goals. API Publishers can use the monetization capability in WSO2 API Manager to define various business plans for the same service; therefore, API subscribers have the freedom of selecting a preferred business plan as their subscription. 
 
-WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans. 
+WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans.
 
 WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine to handle the payments for API monetization. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
-
-## Monetize an API
 
 <html>
       <div class="admonition warning">
@@ -22,7 +20,7 @@ Let's use the
 
 ### Before you begin
 
-#### (A.) - Configure the billing engine
+#### (A) - Configure the billing engine
 
  Create a connected account to configure the Stripe billing engine.  
 
@@ -50,7 +48,7 @@ Let's use the
 
      2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
 
-        ![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
+        [![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
         
  2.  Create an account for the API Publisher.  
     
@@ -65,11 +63,11 @@ Let's use the
     1. Sign in to the Tenant Admin's Stripe account.
     2. Click **Connected accounts** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
 
-        ![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
+        [![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
 
     3. In the prompted screen click on **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click on **enable OAuth for Standard Accounts** in the popup that appears on **Continue** button.
 
-        ![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png) 
+        [![Enable oauth]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)]({{base_path}}/assets/img/learn/monetization_enable_oauth.png)
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account.
      
@@ -81,11 +79,11 @@ Let's use the
  
     6.  The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-        ![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)
+        [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
     7. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
 
-#### (B.) - Configure WSO2 API-M Analytics
+#### (B) - Configure WSO2 API-M Analytics
 
  <html>
       <div class="admonition note">
@@ -132,7 +130,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
          **Example:**
 
-         If we want to publish the usage to Stripe only once in a week, but want to query data from the seconds table, based on the API-M monetization granularity for more accuracy, then you need to preserve the data of the seconds table for one week by editing the purging timeframe to 7 days as shown in the above example. 
+         If you want to publish the usage to Stripe only once in a week, but want to query data from the seconds table, based on the API-M monetization granularity for more accuracy, then you need to preserve the data of the seconds table for one week by editing the purging timeframe to 7 days as shown in the above example. 
          
          Otherwise, the seconds table will be purged based on the default value set in the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_MONETIZATION_SUMMARY.siddhi` file with regard to the `@purge` section.
 
@@ -144,7 +142,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      - On Linux/Mac OS:  `sh worker.sh`
 
-#### (C.) - Configure WSO2 API Manager
+#### (C) - Configure WSO2 API Manager
 
 <html>
 <div class="admonition note">
@@ -601,7 +599,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
 
-5.  When the usage publishing API is invoked, it publishes all the data that is between the range of current time
+5.  When the usage-publishing API is invoked, it publishes all the data that is between the range of current time
     and the last time the usage is successfully published. But when you invoke the API for the first
     time there will be no data about the last published time. So you can configure the time range to reduce 
     from the current time to derive the last publish time. This configuration is provided in days and the 
@@ -709,7 +707,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
 
-     ![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/monetization_subscription.png)
+     [![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/monetization_subscription.png)]({{base_path}}/assets/img/learn/monetization_subscription.png)
      
      When you update the details of this business plan, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete a business plan, the plan in Stripe will get deleted.
 
@@ -719,7 +717,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
     `https://<hostname>:9443/publisher`
 
 2.  Click on the API that you wish to monetize.  
-    ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
+    [![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)]({{base_path}}/assets/img/learn/enable-monetization.png)
 
 3.  Click **Monetization** to navigate to the Monetization configurations.
 
@@ -736,20 +734,20 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
 
-![Customer created in stripe]({{base_path}}/assets/img/learn/monetization_customer_created.png)
+[![Customer created in stripe]({{base_path}}/assets/img/learn/monetization_customer_created.png)]({{base_path}}/assets/img/learn/monetization_customer_created.png)
 
 The following screenshot depicts the details of the newly created customer in the platform Stripe account.
 
-![New customer details]({{base_path}}/assets/img/learn/monetization_new_customer_details.png)
+[![New customer details]({{base_path}}/assets/img/learn/monetization_new_customer_details.png)]({{base_path}}/assets/img/learn/monetization_new_customer_details.png)
 
 Thereafter, the customer details are copied to the Stripe account of the API Publisher, which is the connected account.
 
-![Shared customer in connected account]({{base_path}}/assets/img/learn/monetization_shared_customer.png)
+[![Shared customer in connected account]({{base_path}}/assets/img/learn/monetization_shared_customer.png)]({{base_path}}/assets/img/learn/monetization_shared_customer.png)
 
 The following are the details of the shared customer that appears in the
 Stripe UI.
 
-![Shared customer details]({{base_path}}/assets/img/learn/monetization_shared_customer_details.png)
+[![Shared customer details]({{base_path}}/assets/img/learn/monetization_shared_customer_details.png)]({{base_path}}/assets/img/learn/monetization_shared_customer_details.png)
 
 Specific Stripe billing plans correspond to specific WSO2 API Manager business plans. Therefore, when an App developer subscribes to an API via the API Developer Portal, Stripe will use the information in their business plan to create a corresponding subscription for the App developer in Stripe.  
 
@@ -807,7 +805,9 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
     After making an admin API call the bill gets generated in the Stripe connected account.
 
-    ![Pricing]({{base_path}}/assets/img/learn/monetization_pricing_bill.png) The charging process takes place at the end of the billing cycle. As this example scenario uses a usage-based business plan, the payment that the subscribers make for their bills are sent to the API Publisher via the billing engine.
+    [![Pricing]({{base_path}}/assets/img/learn/monetization_pricing_bill.png)]({{base_path}}/assets/img/learn/monetization_pricing_bill.png) 
+    
+    The charging process takes place at the end of the billing cycle. As this example scenario uses a usage-based business plan, the payment that the subscribers make for their bills are sent to the API Publisher via the billing engine.
 
 4.  Monitor the status of the last usage publishing job.
 
@@ -841,7 +841,7 @@ The Application Developers who are subscribed to a dynamic business plan can sig
 
      The list of subscriptions that correspond to the API appears.
 
-     ![Subscription details via the API Publisher Portal]({{base_path}}/assets/img/learn/subscription-dev-portal.png)
+     [![Subscription details via the API Publisher Portal]({{base_path}}/assets/img/learn/subscription-dev-portal.png)]({{base_path}}/assets/img/learn/subscription-dev-portal.png)
 
 3. Click **View Invoice** to view the invoice corresponding to a specific API.
 
@@ -867,7 +867,7 @@ The API Publisher can access the billing information related to each of the subs
 
      The list of subscriptions that correspond to the API appears.
 
-     ![Subscription details via the API Publisher Portal]({{base_path}}/assets/img/learn/subscription-details-publisher.png)
+     [![Subscription details via the API Publisher Portal]({{base_path}}/assets/img/learn/subscription-details-publisher.png)]({{base_path}}/assets/img/learn/subscription-details-publisher.png)
 
 4. Click **View Invoice** to view the invoice that corresponds to a specific subscriber.
 
@@ -889,7 +889,7 @@ Follow the instructions below to disable monetization for an API:
 2.  Click on the monetized API for which you need to disable monetization.
 
 3.  Click **Monetization** to go to the Monetization configurations.  
-    ![Disable monetization]({{base_path}}/assets/img/learn/disable-monetization.png)
+    [![Disable monetization]({{base_path}}/assets/img/learn/disable-monetization.png)]({{base_path}}/assets/img/learn/disable-monetization.png)
 
 4.  Click **Enable Monetization** to unselect the enable monetization option.
 
