@@ -95,12 +95,13 @@ You can either use the default configuration or you can change it in the followi
     AddUserPropertySQL-openedge = "INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) SELECT UM_ID, ?, ?, ?, ? FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?"
     DomainName = "wso2.org"
     Description = "This is an external JDBC primary user store"
+    UserCoreCacheTimeOut = 5
     ```
 
     !!! info
         The sample for the external JDBC user store configuration, consists of properties pertaining to various SQL statements. This is because the schema may be different for an external user store, and these adjustments need to be made in order to streamline the configurations with WSO2 products.
 
-3.  Add the `PasswordHashMethod` property to the `UserStoreManager` configuration for `JDBCUserStoreManager` . For example:
+3.  Add the `PasswordHashMethod` property to the `UserStoreManager` configuration for `JDBCUserStoreManager`. For example:
 
     ``` toml
     [user_store.properties]
@@ -113,7 +114,7 @@ You can either use the default configuration or you can change it in the followi
     - **MD5** - Uses MD 5 digest method.
     - **PLAIN_TEXT** - Plain text passwords.
 
-    In addition, it also supports all digest methods in <http://docs.oracle.com/javase/6/docs/api/java/security/MessageDigest.html> .
+    In addition, it also supports all digest methods in <http://docs.oracle.com/javase/6/docs/api/java/security/MessageDigest.html>.
 
 4.  If you are setting up an external JDBC user store, you need to set the following property to 'true' to be able to create roles in the primary user store.
 
