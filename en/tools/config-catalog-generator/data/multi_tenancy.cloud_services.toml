@@ -1,0 +1,7 @@
+[multi_tenancy.cloud_services]
+name = "WSO2 API Manager"
+default = true
+key = "AM"
+label = "API Manager"
+link = "https://am.cloud.wso2.com"
+description = "API Manager in the cloud"

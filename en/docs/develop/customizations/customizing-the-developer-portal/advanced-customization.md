@@ -13,10 +13,20 @@ Follow the instructions below to add advanced UI customizations to the Developer
 1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
 
      ```js
-     lerna bootstrap
+     npm install
      ```
 
-2. Run the command given below in the relevant app.
+     This will install the dependencies for the `lerna` package manager.
+     
+2. Run the following command from the same directory in a terminal.
+
+     ```js
+     npm run bootstrap
+     ```
+
+     This will install the local package dependencies in the Publisher and Developer Portal applications.
+
+3. Run the command given below in the relevant application.
 
      If it is a Developer Portal, run `npm run build:dev` from the `devportal` folder or else run the command from the `publisher` folder), to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
 

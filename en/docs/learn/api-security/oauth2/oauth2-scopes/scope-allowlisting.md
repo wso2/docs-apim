@@ -9,6 +9,12 @@ If you do not want a role validation for a scope in an API's request, add the sc
 allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
 ```
 
+The config for allowed scopes is changed as below from the WUM Update effective from 24/10/2020.
+```
+[oauth]
+allowed_scopes = ["scope1", "scope2"]
+```
+
 Next, invoke the Token API to get a token for the scope that you just allowlisted. For example,
 
 ```
