@@ -58,7 +58,7 @@ Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/oracle-rac.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to Oracle RAC, then you need to have seperate databases for each API-M Traffic Manager node.
+    It is recommended to use H2 for `WSO2_MB_STORE_DB` database, even when working in production.
 
 ## Changing the Carbon database to Oracle RAC
 
