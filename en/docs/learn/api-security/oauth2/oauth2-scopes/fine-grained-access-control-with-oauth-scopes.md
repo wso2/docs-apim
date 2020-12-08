@@ -16,9 +16,9 @@ In WSO2 API-M, an OAuth scope can be created before the API is created and share
      By default, only an `admin` user can perform create, update and delete operations of shared scopes. For more information on changing the default behavior, see [Scope To Role Mappings]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings).
 ### Creating a Shared Scope
 
-The shared scope need to be created before API creation/update time. Follow below steps to create a new shared scope.
+The shared scope need to be created before API creation/update time. Follow the steps below to create a new shared scope:
 
-1. Login to API Publisher (https://localhost:9443/publisher). 
+1. Sign in to API Publisher (https://localhost:9443/publisher). 
 
 2. Navigate to **Scopes** from the top menu and click on **Create a new scope** button.
 
@@ -198,12 +198,9 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
-     <a href="../../../../../assets/img/learn/unauthorized-access.png" ><img src="../../../../../assets/img/learn/unauthorized-access.png" alt="Token scopes" 
+     <a href="{{base_path}}/assets/img/learn/unauthorized-access.png" ><img src="{{base_path}}/assets/img/learn/unauthorized-access.png" alt="Token scopes" 
          title="Token Scopes" width="50%" /></a>
 
 !!! info
 
      If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes.
-
-
-
