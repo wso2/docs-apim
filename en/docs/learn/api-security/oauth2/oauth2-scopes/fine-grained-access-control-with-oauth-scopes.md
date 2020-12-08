@@ -13,13 +13,13 @@ In WSO2 API-M, an OAuth scope can be created before the API is created and share
      REST API scope. Shared scope create, update and delete operations are only allowed for user roles associated with 
      `apim:shared_scope_manage` Publisher REST API scope. 
      
-     By default, only an `admin` user can perform create, update and delete operations of shared scopes.
+     By default, only an `admin` user can perform create, update and delete operations of shared scopes. For more information on changing the default behavior, see  [Scope To Role Mappings]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings).
 
 ### Creating a Shared Scope
 
-The shared scope need to be created before API creation/update time. Follow below steps to create a new shared scope.
+The shared scope need to be created before API creation/update time. Follow the steps below to create a new shared scope:
 
-1. Login to API Publisher (https://localhost:9443/publisher). 
+1.  Sign in to API Publisher (https://localhost:9443/publisher). 
 
 2. Navigate to **Scopes** from the top menu and click on **Create a new scope** button.
 
@@ -33,7 +33,7 @@ The shared scope need to be created before API creation/update time. Follow belo
      <tbody>
           <tr class="odd">
                <td><strong>Scope Name</strong></td>
-               <td>A unique key for identifying the scope.</td>
+               <td>A unique key for identifying the scope. This should be unique for the tenant.</td>
           </tr>
           <tr class="even">
                <td><strong>Scope Display Name</strong></td>
@@ -86,11 +86,6 @@ A shared scope has to be applied to a resource, in order to restrict the access 
 
 ## Local Scopes 
 
-!!! warning
-     
-    This feature is **DEPRECATED** from **WSO2 API-M 3.2 onwards** and, it is recommended to use 
-    [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
-
 In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. These scopes are local and unique to the relevant API. 
 
 ### Creating a Local Scope
@@ -111,7 +106,7 @@ A local scope can be created and applied to a resource at API creation time by f
      <tbody>
           <tr class="odd">
                <td><strong>Scope Name</strong></td>
-               <td>A unique key for identifying the scope. This should be unique across all the APIs of the tenant.</td>
+               <td>A unique key for identifying the scope. This should be unique for the tenant.</td>
           </tr>
           <tr class="even">
                <td><strong>Scope Description</strong></td>
@@ -204,12 +199,9 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
-     <a href="../../../../../assets/img/learn/unauthorized-access.png" ><img src="../../../../../assets/img/learn/unauthorized-access.png" alt="Token scopes" 
+     <a href="{{base_path}}/assets/img/learn/unauthorized-access.png" ><img src="{{base_path}}/assets/img/learn/unauthorized-access.png" alt="Token scopes" 
          title="Token Scopes" width="50%" /></a>
 
 !!! info
 
-     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes. Hence, we recommend you to use Shared Scopes only from 3.2 onwards. Local scopes are deprecated and will be removed in future release.
-
-
-
+     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes.
