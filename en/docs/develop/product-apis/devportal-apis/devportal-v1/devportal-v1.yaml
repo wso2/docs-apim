@@ -4582,7 +4582,7 @@ components:
         firstName:
           type: string
           example: John
-        LastName:
+        lastName:
           type: string
           example: David
         fullName:
@@ -5256,7 +5256,7 @@ components:
       name: includeCommenterInfo
       in: query
       description: |
-        Whether we need to display commentor details.
+        Specify whether we need commenter details in the response or not.
       schema:
         type: boolean
         default: false
