@@ -120,7 +120,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **Shared scopes within the tenant**
 
-     Adds more improvements for this by supporting shared scopes per tenant and allowing multiple scopes to be attached to each API resource. This feature ensures that only privileged users can create, modify, and manage the shared scopes in a particular tenant space
+     Adds more improvements for this by supporting shared scopes per tenant and allowing multiple scopes to be attached to each API resource. This feature ensures that only privileged users can create, modify, and manage the shared scopes in a particular tenant space.
 
 - **Re-skinned admin portal UI**
 
@@ -157,12 +157,6 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      
 ### Deprecated features and functionalities
-
-- **Local scopes**
-
-     The local scopes feature allows users to create per API scopes locally. Even though the local scope usage is limited to the API that it belongs to, the same scope key cannot be used for a local scope of any other API. Local scopes are created and updated in the Key Manager; thereby, making the number of Key Manager calls comparatively high. Therefore, this feature provides inferior support during scope update and scope validation when used across multiple versions of the same API. 
-     
-     From API Manager 3.2 onwards, it is recommended to use the [shared scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) feature to create scopes per tenant and share them across multiple APIs in the tenant. Shared scopes will address these limitations by sharing the same scope across multiple APIs (including multiple versions of the same API) while making the management of scopes separate from API creation/update.
 
 - **Cross tenant Subscription**
 
