@@ -834,6 +834,7 @@ paths:
       - $ref: '#/components/parameters/requestedTenant'
       - $ref: '#/components/parameters/limit'
       - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/includeCommenterInfo'
       responses:
         200:
           description: |
@@ -917,6 +918,7 @@ paths:
       - $ref: '#/components/parameters/apiId'
       - $ref: '#/components/parameters/requestedTenant'
       - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/includeCommenterInfo'
       responses:
         200:
           description: |
@@ -4007,6 +4009,8 @@ components:
           type: string
           readOnly: true
           example: admin
+        commenterInfo:
+          $ref: '#/components/schemas/CommenterInfo'
     CommentList:
       title: Comments List
       type: object
@@ -4572,6 +4576,18 @@ components:
             example: admin
           apiUUID:
             type: string
+    CommenterInfo:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+        LastName:
+          type: string
+          example: David
+        fullName:
+          type: string
+          example: John David
     Pagination:
       title: Pagination
       type: object
@@ -5236,6 +5252,14 @@ components:
       required: true
       schema:
         type: string
+    includeCommenterInfo:
+      name: includeCommenterInfo
+      in: query
+      description: |
+        Whether we need to display commentor details.
+      schema:
+        type: boolean
+        default: false
     apiProductId:
       name: apiProductId
       in: path
