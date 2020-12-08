@@ -17,9 +17,9 @@ In WSO2 API-M, an OAuth scope can be created before the API is created and share
 
 ### Creating a Shared Scope
 
-The shared scope need to be created before API creation/update time. Follow below steps to create a new shared scope.
+The shared scope need to be created before API creation/update time. Follow the steps below to create a new shared scope:
 
-1. Login to API Publisher (https://localhost:9443/publisher). 
+1.  Sign in to API Publisher (https://localhost:9443/publisher). 
 
 2. Navigate to **Scopes** from the top menu and click on **Create a new scope** button.
 
