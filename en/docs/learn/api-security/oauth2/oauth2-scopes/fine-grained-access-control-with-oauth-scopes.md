@@ -13,7 +13,7 @@ In WSO2 API-M, an OAuth scope can be created before the API is created and share
      REST API scope. Shared scope create, update and delete operations are only allowed for user roles associated with 
      `apim:shared_scope_manage` Publisher REST API scope. 
      
-     By default, only an `admin` user can perform create, update and delete operations of shared scopes. Refer [Scope To Role Mappings]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings) for more information on changing the default behavior.
+     By default, only an `admin` user can perform create, update and delete operations of shared scopes. For more information on changing the default behavior, see [Scope To Role Mappings]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings).
 ### Creating a Shared Scope
 
 The shared scope need to be created before API creation/update time. Follow below steps to create a new shared scope.
