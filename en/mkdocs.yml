@@ -485,12 +485,12 @@ nav:
                   - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
                   - Streaming Integrator Tooling:
                         - Streaming Integrator Tooling Overview: develop/streaming-apps/streaming-integrator-studio-overview.md
-                        - Working with the Design View: develop/streaming-apps/working-with-the-Design-View.md
-                  - Creating Siddhi Applications: develop/streaming-apps/creating-a-Siddhi-Application.md
+                        - Working with the Design View: develop/streaming-apps/working-with-the-design-view.md
+                  - Creating Siddhi Applications: develop/streaming-apps/creating-a-siddhi-application.md
                   - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
-                  - Testing Siddhi Applications: develop/streaming-apps/testing-a-Siddhi-Application.md
-                  - Deploying Siddhi Applications: develop/streaming-apps/deploying-Streaming-Applications.md
-                  - Exporting Siddhi Applications: develop/streaming-apps/exporting-Siddhi-Applications.md
+                  - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
+                  - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
+                  - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
           - Streaming Examples:
                   - Extracting Data from Static Sources in Real Time:
                         - Capturing MySQL Inserts via CDC: use-cases/examples/streaming_examples/CDCWithListeningMode.md

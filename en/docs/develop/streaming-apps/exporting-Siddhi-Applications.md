@@ -16,17 +16,17 @@ To export one or more Siddhi applications as a Docker image, follow the procedur
 
     The Streaming Integrator Tooling opens as shown below.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page]({{base_path}}/assets/img/streaming/creating-siddhi-applications/welcome-page.png)
 
-2. Create the required Siddhi files. The rest of the documentation assumes that you have one or more Siddhi applications to be exported as a Docker image. For more information, see [Creating a Siddhi Application](creating-a-Siddhi-Application.md).
+2. Create the required Siddhi files. The rest of the documentation assumes that you have one or more Siddhi applications to be exported as a Docker image. For more information, see [Creating a Siddhi Application](creating-a-siddhi-application.md).
 
 3. Click **Export** menu option and then click **For Docker**.
 
-    ![Export as Docker/Kubernetes Menu](../images/exporting-Siddhi-Applications/Export_Docker_k8s_Menu.png)
+    ![Export as Docker/Kubernetes Menu]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/export-docker-k8s-menu.png)
 
     As a result, the following wizard opens.
 
-    ![Export Siddhi App for Docker image dialog](../images/exporting-Siddhi-Applications/Export_Docker_1.png)
+    ![Export Siddhi App for Docker image dialog]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/export-docker-1.png)
 
 4. In **Step 1: Select Siddhi Apps**, select one or more Siddhi applications to be included in the Docker image.
 
@@ -74,7 +74,7 @@ To export one or more Siddhi applications as a Docker image, follow the procedur
         This functionality differs based on the web browser you are using and its settings. e.g., if you have set a default
         download location and disabled the **Ask where to save each file before downloading** feature as shown below, the
         file is downloaded to the default location without prompting you for any further input.<br/>
-        ![Download Settings](../images/exporting-Siddhi-Applications/Download_Settings.png)
+        ![Download Settings]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/download-settings.png)
 
 ## Exporting Siddhi Applications for Kubernetes
 
@@ -88,17 +88,17 @@ To export one or more Siddhi applications for Kubernetes, follow the procedure b
 
     The Streaming Integrator Tooling opens as shown below.
 
-    ![Welcome Page](../images/Creating-Siddhi-Applications/Welcome-Page.png)
+    ![Welcome Page]({{base_path}}/assets/img/streaming/creating-siddhi-applications/welcome-page.png)
 
-2. Create the required Siddhi files. The rest of the documentation assumes that you have one or more Siddhi applications to be exported as a Kubernetes artifact. For more information, see [Creating a Siddhi Application](creating-a-Siddhi-Application.md).
+2. Create the required Siddhi files. The rest of the documentation assumes that you have one or more Siddhi applications to be exported as a Kubernetes artifact. For more information, see [Creating a Siddhi Application](creating-a-siddhi-application.md).
 
 3. Click **Export** menu option and then click **For Kubernetes**.
 
-    ![Export as Docker/Kubernetes Menu](../images/exporting-Siddhi-Applications/export-kubernetes-k8s-menu.png)
+    ![Export as Docker/Kubernetes Menu]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/export-kubernetes-k8s-menu.png)
 
     As a result, the following wizard opens.
 
-    ![Export Siddhi App for Docker image dialog](../images/exporting-Siddhi-Applications/Export_k8s_1.png)
+    ![Export Siddhi App for Docker image dialog]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/Export_k8s_1.png)
 
 4. In **Step 1: Select Siddhi Apps**, select one or more Siddhi applications to be included in the Kubernetes artifact.
 
@@ -158,4 +158,4 @@ To export one or more Siddhi applications for Kubernetes, follow the procedure b
         This functionality differs based on the web browser you are using and its settings. e.g., if you have set a default
         download location and disabled the **Ask where to save each file before downloading** feature as shown below, the
         file is downloaded to the default location without prompting you for any further input.<br/>
-        ![Download Settings](../images/exporting-Siddhi-Applications/Download_Settings.png)
+        ![Download Settings]({{base_path}}/assets/img/streaming/exporting-siddhi-applications/download-settings.png)

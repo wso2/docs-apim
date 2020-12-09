@@ -14,11 +14,11 @@ To deploy your Siddhi application in the Streaming Integrator server, follow the
 
 2. In the Streaming Integrator Tooling, click **Deploy** and then click **Deploy to Server**.
 
-    ![Deploy to Server Menu Option](../images/quick-start-guide-101/deploy-to-server-menu.png)
+    ![Deploy to Server Menu Option]({{base_path}}/assets/img/streaming/quick-start-guide-101/deploy-to-server-menu.png)
 
     The **Deploy Siddhi Apps to Server** dialog box opens as follows.
 
-    ![Deploy Siddhi Apps to Server](../images/quick-start-guide-101/deploy-to-server-dialog-box.png)
+    ![Deploy Siddhi Apps to Server](creating-siddhi-applications/assets/img/streaming/quick-start-guide-101/deploy-to-server-dialog-box.png)
 
 3. In the **Add New Server** section, enter information as follows:
 
@@ -29,16 +29,16 @@ To deploy your Siddhi application in the Streaming Integrator server, follow the
     | **User Name**   | `admin`                          |
     | **Password**    | `admin`                          |
 
-    ![Add Server](../images/quick-start-guide-101/add-server.png)
+    ![Add Server]({{base_path}}/assets/img/streaming/quick-start-guide-101/add-server.png)
 
     Then click **Add**.
 
 4. Select the check boxes for the Siddhi applications that you want to deploy as shown below. Then select the check boxes for the servers in which you want to deploy them.
 
-    ![Deploy Siddhi Apps to Server](../images/quick-start-guide-101/select-siddhi-app-and-server.png)
+    ![Deploy Siddhi Apps to Server]({{base_path}}/assets/img/streaming/quick-start-guide-101/select-siddhi-app-and-server.png)
 
 5. Click **Deploy**.
 
     As a result, the Siddhi application(s) yoiu selected is saved in the `<SI_HOME>/deployment/siddhi-files` directory, and the following is message displayed in the dialog box.
 
-    ![Siddhi App successfully deployed](../images/quick-start-guide-101/siddhi-app-successfully-deployed.png)
+    ![Siddhi App successfully deployed]({{base_path}}/assets/img/streaming/quick-start-guide-101/siddhi-app-successfully-deployed.png)
