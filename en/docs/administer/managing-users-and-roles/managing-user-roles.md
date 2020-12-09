@@ -180,6 +180,7 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
     | apim:sub_alert_manage                         | &check; |                      |                    | &check;               |                      |                     |
     | apim:tenantInfo                               | &check; |                      |                    |                       |                      |                     |
     | apim:admin_operations                         | &check; |                      |                    |                       |                      |                     |
+    | apim:shared_scope_manage                      | &check; |                      |                    |                       |                      |                     |    
 
 ## Editing or deleting a role
 
