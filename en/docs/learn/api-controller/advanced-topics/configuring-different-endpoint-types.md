@@ -41,7 +41,7 @@ API Manager supports four (4) main types of endpoints as follows.
         - `amznAccessKey`: Access Key for endpoint
         - `amznSecretKey`: Access Secret for endpoint
 
-Let us discuss configuring each of the above endpoint type with examples, seperately, in the following sections.
+Let us discuss configuring each of the above endpoint types with seperate examples in the following sections.
 
 ### HTTP/REST Endpoints
 
@@ -229,7 +229,7 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
 
 ### AWS Lambda Endpoints
 
-This can be subdivided into three (2) main scenarios.
+This can be subdivided into two (2) main scenarios.
 
 #### 1. AWS Lambda - Using IAM role-supplied temporary AWS credentials
 
