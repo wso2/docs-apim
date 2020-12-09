@@ -57,12 +57,14 @@ JWT token validation is done by the API Gateway. The API Gateway validates it's 
  The Key Manager is the identity provider for the WSO2 API Manager and acts as the Secure Token Service(STS). 
  
  In WSO2 API Manager, tokens are generated for an application. The Key manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Manager. Furthermore, 
- The Key Manager exposes a revoke API to revoke any access token. The Key Manager supports OAuth2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
+ The Key Manager exposes a revoke API to revoke any access token. WSO2 API Manager supports OAuth2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
  
  WSO2 API Manager only supports creating applications that support JWT formatted OAuth2.0 type tokens.
  A client can generate a JWT formatted OAuth 2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token.
  
  When a client invokes an API with a JWT formatted OAuth2.0 access token or an API Key,  the Gateway validates the token by validating its signature and subscription.
+ 
+ Additionally, the Key Manager performs scope validation as well. It could also generate JWT tokens to pass end user attributes to the backend, if configured. 
  
  WSO2 API Manager 3.2.0 can accommodate a third-party Key Manager in place of its Key Manager component and also accommodate multiple Key Managers such as Okta, OAuth0, KeyCloak, etc. 
  
