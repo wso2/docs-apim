@@ -834,6 +834,7 @@ paths:
       - $ref: '#/components/parameters/requestedTenant'
       - $ref: '#/components/parameters/limit'
       - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/includeCommenterInfo'
       responses:
         200:
           description: |
@@ -917,6 +918,7 @@ paths:
       - $ref: '#/components/parameters/apiId'
       - $ref: '#/components/parameters/requestedTenant'
       - $ref: '#/components/parameters/If-None-Match'
+      - $ref: '#/components/parameters/includeCommenterInfo'
       responses:
         200:
           description: |
@@ -955,6 +957,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+
 
     delete:
       tags:
@@ -4007,6 +4010,8 @@ components:
           type: string
           readOnly: true
           example: admin
+        commenterInfo:
+          $ref: '#/components/schemas/CommenterInfo'
     CommentList:
       title: Comments List
       type: object
@@ -4572,6 +4577,18 @@ components:
             example: admin
           apiUUID:
             type: string
+    CommenterInfo:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: David
+        fullName:
+          type: string
+          example: John David
     Pagination:
       title: Pagination
       type: object
@@ -5236,6 +5253,14 @@ components:
       required: true
       schema:
         type: string
+    includeCommenterInfo:
+      name: includeCommenterInfo
+      in: query
+      description: |
+        Specify whether we need commenter details in the response or not.
+      schema:
+        type: boolean
+        default: false
     apiProductId:
       name: apiProductId
       in: path
