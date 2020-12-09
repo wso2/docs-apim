@@ -95,17 +95,18 @@ Instead of the default `api_params.yaml`, you can a provide custom parameter fil
     ```
 
 !!!note
-    `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+    `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead, use `apictl import api` as shown above.
 
 !!! info
     -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
     -   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then non of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
     -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
-    - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, refer the section [Configuring Different Endpoint Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-types).
+    - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-types).
 
-!!!note
+!!! note
 
-        Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the parameter file. When configuring these certificates the following steps should be followed:
-       -   Create a directory as "certificates" at the location where the parameter file is stored. (Both certificates directory and parameter file should exist at the same directory level)
-       -   Move all the certificates (Endpoint certificates and MutualSSL certificates) to that directory.
-       -   The name of the certificate should be provided at the "path" field of the parameters file and valid name to the certificate file is required.
+    Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the parameter file. When configuring these certificates the following steps should be followed:
+       
+      -   Create a directory named `certificates` at the location where the parameter file is stored. (Both the `certificates` directory and the parameter file should exist at the same directory level.)
+      -   Move all the certificates (Endpoint certificates and MutualSSL certificates) to that directory.
+      -   You need to provide the name of the certificate at the `path` field of the parameters file and also a valid name for the certificate file.
