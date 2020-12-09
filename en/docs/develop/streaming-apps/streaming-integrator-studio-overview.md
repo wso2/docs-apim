@@ -12,7 +12,7 @@ interfaces to develop Siddhi applications
     Siddhi application, and allows you to compose the applications by
     dragging and dropping Siddhi components to a graph.
     
--   **Wizard View**: This is a wizard with a page for each component of a Siddhi application that displays the relevant configuration parameters as fields. This wizard can be directly accessed from the [Welcome Page](#welcome-page). Only ETL (Extract, Transform, Load) applications can be created/viewed in this interface. For a Siddhi application to be considered an ETL application, it must include all of the following components:<br/><br/> - A source configuration<br/><br/> - A sink configuration (the sink type can be any of the [supported sink types](https://siddhi.io/en/v5.1/docs/query-guide/#sink) other than `log`)<br/><br/> - A Siddhi query that performs a transformation. <br/><br/> For more information, see [Creating an ETL Application via SI Tooling tutorial](../../use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
+-   **Wizard View**: This is a wizard with a page for each component of a Siddhi application that displays the relevant configuration parameters as fields. This wizard can be directly accessed from the [Welcome Page](#welcome-page). Only ETL (Extract, Transform, Load) applications can be created/viewed in this interface. For a Siddhi application to be considered an ETL application, it must include all of the following components:<br/><br/> - A source configuration<br/><br/> - A sink configuration (the sink type can be any of the [supported sink types](https://siddhi.io/en/v5.1/docs/query-guide/#sink) other than `log`)<br/><br/> - A Siddhi query that performs a transformation. <br/><br/> For more information, see [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
 
 Once a Siddhi application is created, you can simulate events via the
 Streaming Integrator Tooling to test whether it works as expected.
@@ -31,12 +31,12 @@ To start and access the Streaming Integrator Tooling, follow the steps below:
     URL. The Streaming Integrator Tooling opens as shown below.
 
     !!! info
-        The default URL is `http://localhost:9390/editor`. If required, you can change the host name (i.e., `localhost`) or the web UI application name (i.e., `editor`). For instructions, see [Changing the Host Name and Context Path of SI Tooling](../setup/change-hostname-and-context-path.md).
+        The default URL is `http://localhost:9390/editor`. If required, you can change the host name (i.e., `localhost`) or the web UI application name (i.e., `editor`). For instructions, see [Changing the Host Name and Context Path of SI Tooling]({{base_path}}/setup/change-hostname-and-context-path.md).
     
 
 ## Welcome Page
 
-![Streaming Integrator Tooling Welcome Page](../../assets/img/streaming/streaming-integrator-studio-overview/streaming-integrator-tooling-welcome-page.png)
+![Streaming Integrator Tooling Welcome Page]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/streaming-integrator-tooling-welcome-page.png)
 
 The **Welcome to the Streaming Integrator Tooling Tour Guide** is open by
 default. You can take a tour by following the instructions on the dialog
@@ -54,7 +54,7 @@ following:
     the `workspace` directory is `<SI_Home>/wso2/server/deployment`.
     
 -   **New ETL Flow**
-    Click this to open a wizard with which you can create a Siddhi application with ETL functionality by entering values for the required parameters instead of constructing Siddhi queries by writing code or via a graphical interface. To understand how this is done, follow the [Creating an ETL Application via SI Tooling tutorial](../../use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
+    Click this to open a wizard with which you can create a Siddhi application with ETL functionality by entering values for the required parameters instead of constructing Siddhi queries by writing code or via a graphical interface. To understand how this is done, follow the [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
 
 -   **Try out samples**  
     The pre-created samples provided out of the box are listed in this
@@ -79,10 +79,10 @@ This section explains the options that are available in the **File** ,
 
 The **File** menu includes the following options.
 
-![File menu](../../assets/img/streaming/streaming-integrator-studio-overview/FileMenu.png)
+![File menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/file-menu.png)
 
 -   **New**  
-    Click this to open a new untitled Siddhi file. For more information, see the [Creating an ETL Application via SI Tooling tutorial](../../use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
+    Click this to open a new untitled Siddhi file. For more information, see the [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling.md).
     
 -   **New ETL Flow**
     Click this to create a new ETL application via the ETL wizard. For instructions, 
@@ -93,11 +93,11 @@ The **File** menu includes the following options.
     the `workspace` directory is `<SI_Home>/wso2/server/deployment`.         ` .  
       
     When a Siddhi file is opened, its source view is displayed by default.  
-    ![The source view of a Siddhi application](../../assets/img/streaming/streaming-integrator-studio-overview/Siddhi-App-Source-View.png)  
+    ![The source view of a Siddhi application]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/siddhi-app-source-view.png)  
     To view a design view where the elements of the Siddhi application are graphically represented, click 
     **Design View**. As a result, a graphical view of the Siddhi application is displayed as shown in the following 
     example.  
-    ![The design view of Siddhi application](../../assets/img/streaming/streaming-integrator-studio-overview/Siddhi-App-Design-View.png)
+    ![The design view of Siddhi application]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/siddhi-app-design-view.png)
      
 -   **Import Sample**  
     Click this to import a sample from the samples diretory to a new tab. The sample opens in an untitled Siddhi file.
@@ -135,7 +135,7 @@ The **File** menu includes the following options.
 
 The **Edit** menu includes the following options.
 
-![Edit menu](../../assets/img/streaming/streaming-integrator-studio-overview/Editor_Menu.png)
+![Edit menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/editor-menu.png)
 
 -   **Undo**  
     Click this to undo the last edit made to the Siddhi application that
@@ -173,7 +173,7 @@ The **Edit** menu includes the following options.
 
 The **Run** menu includes the following options.
 
-![Run menu](../../assets/img/streaming/streaming-integrator-studio-overview/Run_Menu_Option.png)
+![Run menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/run-menu-option.png)
 
 
 -   **Run**  
@@ -193,7 +193,7 @@ The **Run** menu includes the following options.
 
 The **Tools** menu provides access to the following tools that are shipped with the Streaming Integrator Tooling.
 
-![Tools menu](../../assets/img/streaming/streaming-integrator-studio-overview/Tools_Menu.png)
+![Tools menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/tools-menu.png)
 
 - **File Explorer** 
 
@@ -203,7 +203,7 @@ The **Tools** menu provides access to the following tools that are shipped with 
 
     This opens the **Extension Installer** dialog box (shown below) where you can search for the required extension and install/uninstall it by clicking **Install** or **Uninstall** as appropriate. Once you install/uninstall an extension, you need to restart the Streaming Integrator Tooling. For detailed instructions, see [Installing Siddhi Extensions](installing-siddhi-extensions.md).
 
-     ![Extension Installer](../../assets/img/streaming/streaming-integrator-studio-overview/extension-installer.png)   
+     ![Extension Installer]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/extension-installer.png)   
     
 - **Event Simulator**  
 
@@ -221,18 +221,18 @@ The **Tools** menu provides access to the following tools that are shipped with 
     
     In order to use it, first you need to connect it to the SI server by clicking **Connect to Server** and then entering the server configurations in the dialog box that appears.
     
-    ![Connect to Server](../../assets/img/streaming/streaming-integrator-studio-overview/connect-error-store-explorer.png)
+    ![Connect to Server]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/connect-error-store-explorer.png)
      
     Once the Error Store Explorer is connected to an SI server, you can get an overview of events with errors as shown in the example below.
     
-    ![Error Store Explorer](../../assets/img/streaming/streaming-integrator-studio-overview/view-basic-error-info.png)
+    ![Error Store Explorer]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/view-basic-error-info.png)
     
     Here, you can do the following:
     
     - **Fetch Errors**: At a given time, the Error Store Explorer displays the number of events with errors from the time it was last fetched/refreshed. To get the latest errors, select the required Siddhi application in the **Siddhi app** field and click **Fetch**.
     
     - **View details**: To view details of a specific error, click **Detailed Info** for the relevant event. Then the details of the error are displayed in the **Error Entry** dialog box as shown in the example below.
-           ![Error Entry](../../assets/img/streaming/handling-requests-with-errors/error-entry.png)
+           ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry.png)
            
     - **Replay events**: This can be done in one of the following three methods:
     
@@ -245,15 +245,15 @@ The **Tools** menu provides access to the following tools that are shipped with 
             !!!info
                 Note that only mapping errors can be corrected before replaying.
         
-            ![Correct and Replay Event](../../assets/img/streaming/handling-requests/correct-and-replay-event.png)
+            ![Correct and Replay Event]({{base_path}}/assets/img/streaming/handling-requests/correct-and-replay-event.png)
             
     - **Discard events**: To discard all the erroneous events for the selected Siddhi application, click **Discard All**. To discard a specific erroneous event, click **Discard** for the relevant event.
     
     - **Purge Events**: To periodically purge events, click **Purge**. This opens the **Purge Error Store** dialog box. In the **Retention Period (days)** field, enter the number of past days for which you want to retain the erroneous events in the store and then click **Purge**. As a result, all the events except the ones stored in the specified number of past days are removed from the error store.
     
-    To understand how to save messages with errors in the error store, see [Handling Errors](../../use-cases/streaming-usecase/handling-errors.md).
+    To understand how to save messages with errors in the error store, see [Handling Errors]({{base_path}}/use-cases/streaming-usecase/handling-errors.md).
     
-    To try out an error handling tutorial, see [Handling Requests with Errors](../../use-cases/streaming-tutorials/handling-requests-with-errors.md).
+    To try out an error handling tutorial, see [Handling Requests with Errors]({{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors.md).
       
 - **Console**
 
@@ -262,19 +262,19 @@ The **Tools** menu provides access to the following tools that are shipped with 
 - **Sample Event Generator**
 
     This opens the Sample Event Generator as follows.  
-    ![Sample event generator](../../assets/img/streaming/streaming-integrator-studio-overview/Sample_Event_Generator.png)  
+    ![Sample event generator]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/sample-event-generator.png)  
     Here, you can generate sample events for a selected stream within a selected Siddhi application in a specified format.  
       
 - **On-Demand Query**
 
     This opens the **On-Demand Query** dialog box.
     
-    ![Siddhi Store Query](../../assets/img/streaming/streaming-integrator-studio-overview/on-demand-query.png)
+    ![Siddhi Store Query]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/on-demand-query.png)
     Here, you can select a Siddhi application, and then enter a query to
     manipulate the store in which that Siddhi Application saves data.
     You can enter queries that can update record, insert/update records,
     retrieve records and delete records. For more information about
-    actions you can carry out for stores, see [Store APIs](../../develop/store-APIs.md).
+    actions you can carry out for stores, see [Store APIs]({{base_path}}/develop/store-APIs.md).
       
 - **Tour Guide**
 
@@ -287,13 +287,13 @@ The **Tools** menu provides access to the following tools that are shipped with 
 The **Deploy** menu has the following option to select one or more Siddhi applications and deploy them to one or more 
 Streaming Integrator servers. For more information, see [Deploying Siddhi Applications](deploying-StreamingApplications.md).
 
-![Deploy menu](../../assets/img/streaming/streaming-integrator-studio-overview/Deploy_Menu.png)
+![Deploy menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/deploy-menu.png)
 
 #### Export menu items
 
 The **Export** menu has the following options that allow you to export Siddhi applications in a format that can be deployed in a containerized environment.
 
-![Export menu](../../assets/img/streaming/streaming-integrator-studio-overview/Export_Menu.png)
+![Export menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/export-menu.png)
 
 - **For Docker**
     This opens the **Export Siddhi Apps for Docker image** wizard. For more information, see [Exporting Siddhi Applications - Exporting Siddhi applications as a Docker Image](exporting-Siddhi-Files.md#exporting-siddhi-applications-as-a-docker-image).
@@ -305,13 +305,13 @@ The **Export** menu has the following options that allow you to export Siddhi ap
 
 **File Explorer**
 
-![File Explorer menu](../../assets/img/streaming/streaming-integrator-studio-overview/File Explorer.png)
+![File Explorer menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/file-explorer.png)
 
 This provides a view of all the files saved as shown in the example above.
 
 ### Event Simulator
 
-![Event Simulator](../../assets/img/streaming/streaming-integrator-studio-overview/Event_Simulator.png)
+![Event Simulator]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/event-simulator.png)
 
 Simulation can be carried out in two ways:
 
@@ -322,13 +322,13 @@ For detailed information about event simulation, see [Simulating Events](_Simula
 
 ### Output Console
 
-![Output Console](../../assets/img/streaming/streaming-integrator-studio-overview/outputConsole.png)
+![Output Console]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/output-console.png)
 
 This provides feedback on various user activities carried out on the Streaming Integrator.
 
 ### Operator Finder
 
-![Operator Finder](../../assets/img/streaming/streaming-integrator-studio-overview/Operator_Finder.png)
+![Operator Finder]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/operator-finder.png)
 
 Click the **Operator Finder** icon to search for the Siddhi extensions
 that you want to use in your Siddhi applications.
@@ -340,19 +340,19 @@ that you want to use in your Siddhi applications.
 
 ### Template Variables
 
- ![Template Variables](../../assets/img/streaming/streaming-integrator-studio-overview/template_variables-icon.png)
+ ![Template Variables]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/template_variables-icon.png)
 
 
 Click this icon to open the **Templated Variables** side panel (shown below) where you can open the templated attributes in the currently saved Siddhi applications and provide variables to be applied when running the Siddhi applications.
 
 
- ![Templated Variables](../../assets/img/streaming/streaming-integrator-studio-overview/templated-variables.png)
+ ![Templated Variables]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/templated-variables.png)
 
 For more information about templated variables, see [Siddhi Documentation - Siddhi as a Local Microservice - Running with environmental/system variables](https://siddhi.io/en/v5.1/docs/siddhi-as-a-local-microservice/#running-with-environmentalsystem-variables).
 
 ## Toolbar
 
-  ![Tool Bar menu](../../assets/img/streaming/streaming-integrator-studio-overview/Editor_Toolbar.png)
+  ![Tool Bar menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/editor-toolbar.png)
 
 -   **Run icon**  
     Click this to start a currently open Siddhi application in the Run
