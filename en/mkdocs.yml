@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -730,4 +730,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/3.2.0
