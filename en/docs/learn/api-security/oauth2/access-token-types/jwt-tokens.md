@@ -77,7 +77,7 @@ Sign in to the Developer Portal.
 
 2. Click **ADD NEW APPLICATION**.
 
-     ![Add new application option](../../../../assets/img/learn/add-new-application-option.png)
+     [![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)]({{base_path}}/assets/img/learn/add-new-application-option.png)
 
 3. Enter the application details.
 
@@ -92,7 +92,7 @@ Sign in to the Developer Portal.
      </table>
      </html>
 
-     ![Add new Application](../../../../assets/img/learn/add-new-application.png)
+     [![Add new Application]({{base_path}}/assets/img/learn/add-new-application.png)]({{base_path}}/assets/img/learn/add-new-application.png)
 
 ### Step 3 - Generate a JWT access token
 
@@ -103,11 +103,11 @@ Sign in to the Developer Portal.
 3. Select the application that you created and select a throttling policy.
 
 4. Click **Subscribe**.
-     ![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)
+     [![Subscribe to the API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
 5. Click **PROD KEYS**, which corresponds to the application.
 
-     ![View list of credentials](../../../../assets/img/learn/view-credentials-list.png)
+     [![View list of credentials]({{base_path}}/assets/img/learn/view-credentials-list.png)]({{base_path}}/assets/img/learn/view-credentials-list.png)
 
 6. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT.
 
