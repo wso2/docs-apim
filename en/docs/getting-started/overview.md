@@ -2,7 +2,7 @@
 
 <div style="width: 100%; overflow: hidden;">
   
-<div class="rightContentOverview" style="width:40% !important;"> WSO2 API Manager is a fully open-source API management platform. It supports API designing, API Publishing,  lifecycle management, application development, API security,  rate limiting, viewing statistics of APIs, as well as connecting APIs,  API Products, and endpoints.
+<div class="rightContentOverview" style="width:40% !important;"> WSO2 API Manager is a fully open-source API management platform. It supports API designing, API publishing,  lifecycle management, application development, API security,  rate limiting, viewing statistics of APIs, as well as connecting APIs, API Products, and endpoints.
   </div>
   
    <iframe width="450" height="260" src="https://www.youtube.com/embed/JejVjoaAc38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -15,7 +15,7 @@
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">AA well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing while adhering to the respective API’s specification. The API Publisher‘s user-friendly UI helps you create APIs, manage the API life cycle, secure your APIs, apply rate-limiting policies, connect to endpoints, and publish your APIs easily. Additionally, you can create and publish API Products as well.
+<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing while adhering to the respective API’s specification. The API Publisher‘s user-friendly UI helps you create APIs, manage the API life cycle, secure your APIs, apply rate limiting policies, connect to endpoints, and publish your APIs easily. Additionally, you can create and publish API Products as well.
   </div>
   
   <div class="rightImageOverview">
@@ -30,7 +30,7 @@
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="rightContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. With WSO2 API Managers API Publisher, you can create categories or use tags to categorize the APIs. The API Developer portal includes a text-full search engine that helps your customers find APIs easily.
+<div class="rightContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a text-full search engine that helps your customers find APIs easily.
   </div>
   
   <div class="leftImageOverview">
@@ -45,7 +45,7 @@
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">A well-documented, easy-to-use API can help developers be more productive in building applications. Via WSO2 API Manager’s API Publisher, you can add and maintain API documentation, providing information as much as possible to its users. The API Developer Portal’s user-friendly UIs help developers find, test, and securely use APIs in their applications. 
+<div class="leftContentOverview" style="width:75% !important;">A well-documented, easy-to-use API can help developers be more productive in building applications. You can use the WSO2 API Manager API Publisher to add and maintain API documentation to provide information as much as possible to your users. The API Developer Portal’s user-friendly UIs help developers find, test, and securely use APIs in their applications. 
   </div>
   
   <div class="rightImageOverview">
@@ -60,7 +60,7 @@
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="rightContentOverview" style="width:75% !important;">Control your APIs by securing them thoroughly in a user-friendly manner. API Security is more than API authentication and authorization. WSO2 API Manager allows you to secure your APIs fully via visibility control, threat protection, validating API payloads, adhering to well-defined protocols,  applying rate-limiting policies, and verifying APIs against specifications in addition to API authentication and authorization.
+<div class="rightContentOverview" style="width:75% !important;">Control your APIs by securing them thoroughly in a user-friendly manner. API Security is more than API authentication and authorization. WSO2 API Manager allows you to secure your APIs fully by using visibility control, threat protection, API payload validation, adhering to well-defined protocols, applying rate limiting policies, and verifying APIs against specifications in addition to API authentication and authorization.
   </div>
   
   <div class="leftImageOverview">
@@ -75,12 +75,12 @@
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate-limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
+<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
   </div>
   
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/rate-limiting.png'>
-              <img src='{{base_path}}/assets/img/get_started/rate-limiting.png' alt="Balance your APIs Demand" />
+              <img src='{{base_path}}/assets/img/get_started/rate-limiting.png' width="100%" height="100%" alt="Balance your APIs demand" />
           </a>
       </div>
 </div>
