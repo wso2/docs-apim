@@ -8,7 +8,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
     - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.1.4-macosx-x64.tar.gz)
     - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.1.4-linux-i586.tar.gz)
-    - [For Linux 64-bit](http://localhost:8000/assets/attachments/learn/api-controller/apictl-3.1.4-linux-x64.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.1.4-linux-x64.tar.gz)
     - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.1.4-windows-i586.zip)
     - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.1.4-windows-x64.zip)
 
