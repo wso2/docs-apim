@@ -29,7 +29,7 @@ Monitoring and analytics of APIs deployed on WSO2 API Manager are provided by th
 
 ## Data Plane
 
-The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. (policy enforcement point).
+The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. 
 
 ### Components
 
@@ -39,7 +39,7 @@ The Data Plane is where the created API is exposed to the public consumers and a
 
 WSO2 API Gateway acts as the entry point for an API request made to an API managed by WSO2 API Manager.
 
-The API Gateway does the JWT token validation. The API Gateway validates it's signature and subscription using the information it has in it's an in-memory map. This in-memory map includes API-related information, application-related information, subscription-related information, etc. which is updated each time an artifact (API/application) is updated.
+The API Gateway does the JWT token validation by validating the signature, issuer, expiry time, and subscription. The subscription is validated using the in-memory map. This in-memory map includes API-related information, application-related information, subscription-related information, etc., and is updated each time an artifact (API/application) is updated.
 
  Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a pre-configured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a pre-configured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
  
