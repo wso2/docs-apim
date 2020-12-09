@@ -54,20 +54,13 @@ JWT token validation is done by the API Gateway. The API Gateway validates it's 
  
  ![Key Manager]({{base_path}}/assets/img/get_started/key-manager-overview.png)
 
- The Key Manager is the identity provider for the WSO2 API Manager and acts as the Secure Token Service(STS). 
+ The Key Manager is the identity provider for WSO2 API Manager and acts as the Secure Token Service(STS). WSO2 API Manager supports OAuth2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
  
- In WSO2 API Manager, tokens are generated for an application. The Key manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Manager. Furthermore, 
- The Key Manager exposes a revoke API to revoke any access token. WSO2 API Manager supports OAuth2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
+ In WSO2 API Manager, tokens are generated for an application. The Key manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Manager. The Key Manager also exposes a revoke token API that clients can use to revoke an access token. A client can generate an OAuth2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token. When a client invokes an API with an OAuth2.0 access token or an API Key, the Gateway validates the token by validating its signature and subscription.
  
- WSO2 API Manager only supports creating applications that support JWT formatted OAuth2.0 type tokens.
- A client can generate a JWT formatted OAuth 2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token.
+ The Key Manager performs scope validation as well. It could also generate JWT tokens to pass end user attributes to the backend, if configured. 
  
- When a client invokes an API with a JWT formatted OAuth2.0 access token or an API Key,  the Gateway validates the token by validating its signature and subscription.
- 
- Additionally, the Key Manager performs scope validation as well. It could also generate JWT tokens to pass end user attributes to the backend, if configured. 
- 
- WSO2 API Manager 3.2.0 can accommodate a third-party Key Manager in place of its Key Manager component and also accommodate multiple Key Managers such as Okta, OAuth0, KeyCloak, etc. 
- 
+ In addition to using the built-in Key Manager as the IDP, WSO2 API Manager also supports integrating with third-party IDPs such as Okta, Auth0, KeyCloak, etc., for OAuth2.0 based security for APIs.
  
 #### Traffic Manager
  
@@ -75,6 +68,6 @@ JWT token validation is done by the API Gateway. The API Gateway validates it's 
  
 The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate-limiting of API requests. 
 
-In addition to the above, the traffic manager also helps to keep the API Gateway's in-memory map, used for key validation, up-to-date. The traffic manager updates the databases based on artifact(API/application) update events received from the API Publisher and API Developer Portal.  The Traffic Manager then goes on to notify the API Gateway and help it update its in-memory map via REST APIs.
+In addition to the above, the traffic manager also helps to keep the API Gateway's in-memory map, used for key-validation, up-to-date via a JMS topic. The traffic manager publishes artifact(API/application) update events received from the API Publisher and API Developer Portal to a JMS topic. The  API Gateway receives these events via the JMS topic and updates its in-memory map.
 
 For more information, see Working with Throttling.
