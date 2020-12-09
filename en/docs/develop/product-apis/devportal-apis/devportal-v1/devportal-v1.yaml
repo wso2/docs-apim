@@ -852,7 +852,7 @@ paths:
       - OAuth2Security: []
       x-code-samples:
       - lang: Curl
-        source: curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments
+        source: curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
 
     post:
       tags:
@@ -956,7 +956,7 @@ paths:
       - OAuth2Security: []
       x-code-samples:
       - lang: Curl
-        source: curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4
+        source: curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
 
 
     delete:
