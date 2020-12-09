@@ -43,12 +43,13 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
     - Get Started:
           - Overview: getting-started/overview.md
+          - Basic Architecture: getting-started/basic-architecture.md
           - Key Concepts: getting-started/key-concepts.md
           - Quick Start Guide: getting-started/quick-start-guide.md
           - About this Release: getting-started/about-this-release.md
@@ -729,4 +730,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: https://apim.docs.wso2.com/en/3.2.0
+    base_path: http://localhost:8000

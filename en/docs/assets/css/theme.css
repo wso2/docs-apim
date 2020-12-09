@@ -1036,6 +1036,47 @@ html .md-footer-meta.md-typeset a,
     }
  }
 
+@media screen and (min-width: 767px) {
+    .leftContentOverview {
+        float:left;
+        width: 65%;
+        text-align:justify;
+        max-height:100%;
+    }
+    .rightContentOverview {
+            float:right;
+            width: 65%;
+            text-align:justify;
+            max-height:100%;
+     }
+
+    .rightImageOverview {
+            float:right;
+            width: 15% !important;
+            text-align:right;
+            flex-shrink: 0;
+            min-width: 15% !important;
+            max-height: 15% !important;
+            max-width: 15% !important;
+            margin-right:10px !important;
+            margin-top:20px !important;
+    }
+
+    .leftImageOverview {
+            float:center;
+            width: 12% !important;
+            text-align:left;
+            flex-shrink: 0;
+            min-width: 12% !important;
+            max-height: 15% !important;
+            max-width:12%  0% !important;
+            margin-right:10px !important;
+            margin-top:20px !important;
+
+     }
+ }
+
+
 .md-sidebar ::-webkit-scrollbar {
     width: 5px;
 }
