@@ -9,7 +9,13 @@ This sample demonstrates how to capture change data from MySQL using Siddhi. The
         1. Download the JDBC driver from the [MySQL website](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).<br/>
         2. Unzip the archive.<br/>
         3. Copy the `mysql-connector-java-5.1.45-bin.jar` JAR and place it in the `<SI_TOOLING_HOME>/lib` directory.<br/>
-    3. Configure MySQL to [enable binary logging](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
+    3. Enable binary logging in the MySQL server. For detailed instructions, see [Debezium documentation - Enabling the binlog](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
+        !!! info
+            If you are using MySQL 8.0, use the following query to check the binlog status.<br/>
+            ```
+            SELECT variable_value as "BINARY LOGGING STATUS (log-bin) ::"
+            FROM performance_schema.global_variables WHERE variable_name='log_bin';
+            ```<br/>
     4. Enable state persistence in siddhi applications. To do this, open the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file and set the `state.persistence enabled=true` property.<br/>
     5. Create a database named `production` by issuing the following command.<br/>
         `create database production;`<br/>

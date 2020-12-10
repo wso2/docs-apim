@@ -16,7 +16,13 @@ In this tutorial, let's create the same Siddhi application created in [Performin
 
 !!!info "Before you begin:"
     - You need to have access to a MySQL instance.<br/>
-    - Enable binary logging in the MySQL server. For detailed instructions, see [Enabling the Binlog tutorial by debezium](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
+    - Enable binary logging in the MySQL server. For detailed instructions, see [Debezium documentation - Enabling the binlog](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
+        !!! info
+            If you are using MySQL 8.0, use the following query to check the binlog status.<br/>
+            ```
+            SELECT variable_value as "BINARY LOGGING STATUS (log-bin) ::"
+            FROM performance_schema.global_variables WHERE variable_name='log_bin';
+            ```<br/>
     - Add the MySQL JDBC driver into the `<SI_HOME>/lib` directory as follows:<br/>
         1. Download the MySQL JDBC driver from [the MySQL site](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).<br/>
         2. Unzip the archive.<br/>
