@@ -1,0 +1,3 @@
+[multi_tenancy.billing.package.smb.resource_volume]
+limit= "50"
+overuse_charge= "0"

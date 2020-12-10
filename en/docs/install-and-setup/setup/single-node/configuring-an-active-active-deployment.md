@@ -102,6 +102,10 @@ system such as Network File System (NFS) or any other shared file system that is
 You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, 
 in order to share all APIs and throttling policies between all the nodes.
 
+??? note "NFS configuration"
+    For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
+    Note that these configurations may change depending on the OS.
+
 ??? info "If you are unable to maintain a shared file system"
 
     However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For 
