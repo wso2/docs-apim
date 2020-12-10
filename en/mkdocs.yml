@@ -49,6 +49,7 @@ nav:
     - Welcome to WSO2 API Manager Documentation: index.md
     - Get Started:
           - Overview: getting-started/overview.md
+          - Basic Architecture: getting-started/basic-architecture.md
           - Key Concepts: getting-started/key-concepts.md
           - Quick Start Guide: getting-started/quick-start-guide.md
           - About this Release: getting-started/about-this-release.md
