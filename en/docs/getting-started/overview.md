@@ -2,10 +2,10 @@
 
 <div style="width: 100%; overflow: hidden;">
   
-<div class="rightContentOverview" style="width:40% !important;"> WSO2 API Manager is a fully open-source API management platform. It supports API designing, API publishing,  lifecycle management, application development, API security,  rate limiting, viewing statistics of APIs, as well as connecting APIs, API Products, and endpoints.
+<div class="rightContentOverview" style="width:40% !important; margin-left10px !important;"> WSO2 API Manager is a fully open-source API management platform. It supports API designing, API publishing,  lifecycle management, application development, API security,  rate limiting, viewing statistics of APIs, as well as connecting APIs, API Products, and endpoints.
   </div>
   
-   <iframe width="450" height="260" src="https://www.youtube.com/embed/JejVjoaAc38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="430" height="260" src="https://www.youtube.com/embed/JejVjoaAc38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 
@@ -80,7 +80,7 @@
   
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/rate-limiting.png'>
-              <img src='{{base_path}}/assets/img/get_started/rate-limiting.png' width="100%" height="100%" alt="Balance your APIs demand" />
+              <img src='{{base_path}}/assets/img/get_started/rate-limiting.png'  alt="Balance your APIs demand" />
           </a>
       </div>
 </div>

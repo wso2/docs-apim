@@ -1051,26 +1051,26 @@ html .md-footer-meta.md-typeset a,
      }
 
     .rightImageOverview {
-            float:right;
+            float:left;
             width: 15% !important;
-            text-align:right;
+            text-align:center;
             flex-shrink: 0;
             min-width: 15% !important;
             max-height: 15% !important;
             max-width: 15% !important;
-            margin-right:10px !important;
+            margin-left:40px !important;
             margin-top:20px !important;
     }
 
     .leftImageOverview {
-            float:center;
+            float:left;
             width: 12% !important;
-            text-align:left;
+            text-align:center;
             flex-shrink: 0;
             min-width: 12% !important;
             max-height: 15% !important;
             max-width:12%  0% !important;
-            margin-right:10px !important;
+            margin-left:40px !important;
             margin-top:20px !important;
 
      }
