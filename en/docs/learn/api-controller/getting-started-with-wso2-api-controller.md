@@ -89,7 +89,7 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
 You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
 
 !!! Note
-    Support for setting proxy environment variables is available **from APICTL 3.2.2 release onwards**.
+    Support for setting proxy environment variables is available **from the APICTL 3.2.2 release onwards**.
 
 -   **Formats**
 
