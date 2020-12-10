@@ -1,6 +1,6 @@
-# Using OKTA as an External IDP with SAML
+# Using Okta as an External IDP with SAML
 
-In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API Manager.
+Follow the instructions below to connect Okta as a third party Identity Provier to WSO2 API Manager.
 
 ### Pre-requisites
 
@@ -13,15 +13,15 @@ Before you begin, make sure you do the following.
     [tenant_mgt]
     enable_email_domain= true
     ```
-    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API Manager we have to enable it since it not enabled by default.
+    This is needed as Okta uses the email as the username by default,  therefore to  use the email as the username in WSO2 API Manager we have to enable it since it not enabled by default.
 4. Start the Server.
 
-### Configure OKTA
+### Configure Okta
 
 1. Login to the okta developer console and switch to the classic UI. 
     [![]({{base_path}}/assets/img/learn/okta-classic-ui.png)]({{base_path}}/assets/img/learn/okta-classic-ui.png)
 
-2. Go to Applications -> add application -> create new application and follow the details below
+2. Go to Applications -> add application -> create new application and follow the details below.
     [![]({{base_path}}/assets/img/learn/okta-saml-add-app.png)]({{base_path}}/assets/img/learn/okta-saml-add-app.png)
     <br/>
     <br/>
@@ -43,7 +43,7 @@ Before you begin, make sure you do the following.
     !!!warning
         **Audience URI** should be same as the identity provider entity id name that is created in WSO2 API Manager
 
-3. Inside the saml app you created go to sign on -> view setup instructions which will redirect you to a another page which contains okta saml related configurations. 
+3. Inside the saml app you created go to sign on -> view setup instructions which will redirect you to a another page which contains Okta SAML related configurations. 
 
     [![]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)
 
@@ -55,19 +55,19 @@ Before you begin, make sure you do the following.
 
     [![]({{base_path}}/assets/img/learn/okta-saml-create-new-app-assign.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-assign.png)
     
-4. Switch back to the developer console same as step 1
+4. Switch back to the developer console same as step 1.
 
-5. Next we need to add a new attribute to the default user profile of OKTA to epresent the user role. Navigate to Users -> Profile Editor and click on the pencil icon to edit the default profile
+5. Next we need to add a new attribute to the default user profile of Okta to epresent the user role. Navigate to Users -> Profile Editor and click on the pencil icon to edit the default profile.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
 
-6. Enter the following details and click save
+6. Enter the following details and click save.
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-details.png) 
 
-7. Go to Users -> People and click on your profile name. And navigate to the profile edit page as shown below
+7. Go to Users -> People and click on your profile name. And navigate to the profile edit page as shown below.
 
     <img src="{{base_path}}/assets/img/learn/okta-profile-edit.png" />
     <br/>
@@ -82,7 +82,7 @@ Before you begin, make sure you do the following.
 ### Configure API Manager
 1. Login in to `https://localhost:9443/carbon`.
 
-2. First we need to create a role that needs to be assinged to users that will be provisioned from okta. click on add in Users and Roles section and add a new role.
+2. First we need to create a role that needs to be assinged to users that will be provisioned from Okta. click on add in Users and Roles section and add a new role.
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width="400" height="200"/>
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/>
@@ -171,15 +171,15 @@ Before you begin, make sure you do the following.
         </tbody>
     </table>
 
-5. Expand Claim configuration -> Basic claim configuration and add the following claim configurations
+5. Expand Claim configuration -> Basic claim configuration and add the following claim configurations.
 
     [![]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png)]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png) 
 
-6. Expand Role configuration and add the following role. Here we check if the user that is being logged in has the role `any` and assign him the local role okta_role
+6. Expand Role configuration and add the following role. Here we check if the user that is being logged in has the role `any` and assign him the local role `okta_role`.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"/>
 
-7. Enable Just in time provisioning so that the user will be saved in the API Manager user store
+7. Enable Just in time provisioning so that the user will be saved in the API Manager user store.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"/>
 
@@ -196,4 +196,4 @@ Before you begin, make sure you do the following.
     
     Repeat the same for apim_devportal service provider.
 
-Now you are able to login to the Publisher & Developer Portal using OKTA.
+Now you are able to login to the Publisher and Developer Portal using Okta.
