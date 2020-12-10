@@ -20,7 +20,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
     WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md).
     
-    ![]({{base_path}}/assets/img/learn/apim-download-page.png)
+     [![apim download page]({{base_path}}/assets/img/learn/apim-download-page.png)]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 2.  Download and install WSO2 API-M Analytics.
 
@@ -77,6 +77,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
 ## Standard Setup
+
+![]({{base_path}}/assets/img/learn/analytics-standard-architecture-diagram.png)
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
@@ -257,6 +259,12 @@ Configuring databases allow you to persist data relating to APIs, process them a
             validationTimeout: 30000
             isAutoCommit: false
     ```
+#### Configure Analytics
+API-M Analytics contains two runtime, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtime.
+    
+The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/) deployment. 
+
+As the dashboard is used only to render the data there is no Active-Active or Active-Passive concept. However, based on the High Availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the load balancer related configurations. 
 
 !!! info
     Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing one. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
@@ -388,12 +396,11 @@ auth.configs:
 | `devPortalUrl`| https://localhost:9443 | Url which the API Manager Developer Portal  is running.|
 | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. This should be pointed to the API Manager Publisher node url.|
 
-
 ### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, see [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate).
 
 For more information follow [Configuring Keystores in APIM Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/).
 
