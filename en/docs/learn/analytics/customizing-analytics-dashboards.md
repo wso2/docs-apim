@@ -1,10 +1,10 @@
-#Customizing Analytics Dashboards
+# Customizing Analytics Dashboards
 
-API Manager analytics provides three types of dashboards which are APIM Admin, APIM Developer Portal and APIM Publisher.
+WSO2 API Manager Analytics provides three types of dashboards: API-M Admin, API-M Developer Portal, and API-M Publisher.
 
-The users are not allowed to modify the default dashboards - i.e modify the layout of the widget or add custom widgets to a particular dashboard. If you need to modify one of the default dashboards, you need to make a copy of the dashboard and do modifications to the copy of the dashboard as described in steps 1 to 5.
+You are not allowed to modify the default dashboards (i.e., modify the layout of the widget or add custom widgets of a particular dashboard). If you need to modify one of the default dashboards, you need to make a copy of the dashboard and do the required modifications to the copy of the dashboard as described in steps 1 to 5.
 
-In order to make it possible for other users to create dashboards, you need to append `_<tenant domain>` to existing scopes in the `deployment.yaml` file which resides in `<Analytics_HOME>/conf/dashboard` directory. 
+In order to make it possible for other users to create dashboards, you need to append `_<tenant domain>` to the existing scopes in the `<ANALYTICS-HOME>/conf/dashboard/deployment.yaml` file.
 
 !!! example
     ``` bash tab="Format"
@@ -19,24 +19,26 @@ In order to make it possible for other users to create dashboards, you need to a
           - apim_analytics:admin_abc.com
     ```
 
-1.  Click on the button at the bottom right corner of the dashboard that needs to be customized as shown below.
+1.  Click on the **more options** link as shown below.
 
-    ![API Manager default dashboards]({{base_path}}/assets/img/learn/apim-analytics-default-dashboards.png)
+    [![API Manager default dashboards]({{base_path}}/assets/img/learn/apim-analytics-default-dashboards.png)]({{base_path}}/assets/img/learn/apim-analytics-default-dashboards.png)
     
-2.  A dropdown menu will appear as shown below and click the `Duplicate` button from the dropdown.
+2.   Click **Duplicate**.
     
-    ![APIM Analytics dashboard dropdown]({{base_path}}/assets/img/learn/apim-analytics-dashboard-dropdown.png)
+    [![APIM Analytics dashboard dropdown]({{base_path}}/assets/img/learn/apim-analytics-dashboard-dropdown.png)]({{base_path}}/assets/img/learn/apim-analytics-dashboard-dropdown.png)
     
-3.  A form will be displayed as shown below. Add a valid `Name` and `URL` for the dashboard according to the preference and click the `ok` button.
+3.  Add a valid **name** and **URL** for the dashboard based on your preference and click **OK**.
 
-    ![Dashboard duplication form]({{base_path}}/assets/img/learn/apim-analytics-dashboard-duplication-form.png)
+    [![Dashboard duplication form]({{base_path}}/assets/img/learn/apim-analytics-dashboard-duplication-form.png)]({{base_path}}/assets/img/learn/apim-analytics-dashboard-duplication-form.png)
     
-4.  Now a copy of the dashboard is created with the provided `Name` as shown below.
+     A copy of the dashboard is created with the provided name as shown below.
     
-    ![Duplicated dashboard]({{base_path}}/assets/img/learn/apim-analytics-duplicated-dashboard.png)
+    [![Duplicated dashboard]({{base_path}}/assets/img/learn/apim-analytics-duplicated-dashboard.png)]({{base_path}}/assets/img/learn/apim-analytics-duplicated-dashboard.png)
     
-5.  Click the dropdown button at the bottom right corner of the created dashboard and click the `design` button as shown below.
+4.  Click on the **more options** link of the newly created dashboard as shown below.
     
-    ![Dashboard dropdown]({{base_path}}/assets/img/learn/apim-analytics-design-dropdown.png)
+    [![Dashboard dropdown]({{base_path}}/assets/img/learn/apim-analytics-design-dropdown.png)]({{base_path}}/assets/img/learn/apim-analytics-design-dropdown.png)
+
+5. Click **Design**.
     
-6.  Now it will be directed to the design portal where the customization of the selected dashboard can be done.
+     Now you are directed to the design portal where you can do the required customization of the selected dashboard.
