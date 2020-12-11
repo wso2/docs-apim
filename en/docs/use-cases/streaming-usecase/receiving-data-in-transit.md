@@ -12,7 +12,7 @@ The sources from which data in transit/flight are received can be classified int
 
 Data publishers are transports from which WSO2 SI can receive messages without subscribing for them. In a typical scenario, you are required to open a port in the WSO2 Streaming Integrator that is dedicated to listen to messages from the data publisher.
 
-![receiving data from a data publisher](../../assets/img/streaming/receiving-data-in-transit/push-data-sources.png)
+![receiving data from a data publisher]({{base_path}}/assets/img/streaming/receiving-data-in-transit/push-data-sources.png)
 
 To receive data from a data publisher, define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) and connect a [source] annotation of a type that receives data from a data publisher as shown in the example below.
 
@@ -29,7 +29,7 @@ In this example, an online student registration results in an HTTP request in JS
 
 To try out the example given above, let's include the source configuration in a Siddhi application and simulate an event to it.
 
-1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file and add the following Siddhi application to it.
 
@@ -57,7 +57,7 @@ To try out the example given above, let's include the source configuration in a 
     
 3. Start the Siddhi application by clicking on the play icon in the top panel.
 
-    ![Play](../../assets/img/streaming/extracting-data-from-static-sources/play.png)
+    ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
     
 4. To simulate an event, issue the following two CURL commands.
 
@@ -123,7 +123,7 @@ The following are the supported mappers when you receive data from data publishe
 
 This section explains how to receive input data from messaging systems where WSO2 Streaming Integrator needs to subscribe to specific queues/topics in order to receive the required data.
 
-![receiving data from a messaging system](../../assets/img/streaming/receiving-data-in-transit/pull-data-sources.png)
+![receiving data from a messaging system]({{base_path}}/assets/img/streaming/receiving-data-in-transit/pull-data-sources.png)
 
 To receive data from a messaging system, define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) and connect a [source] annotation of a type that receives data from a messaging system.
 
@@ -164,9 +164,9 @@ To try the above example, follow the steps below.
         
 3. Prepare WSO2 Streaming Integrator Tooling to consume Kafka messages as follows:
 
-    1. Start and access [WSO2 Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md). 
+    1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md). 
     
-    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions](../../develop/streaming-apps/installing-siddhi-extensions.md).
+    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).
     
     3. Open a new file and add the following Siddhi application to it.
 

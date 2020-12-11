@@ -2,7 +2,7 @@
 
 WSO2 Streaming Integrator receives input data, processes it and presents an output as shown in the diagram below.
 
-![Streaming Integrator Use cases](../../assets/img/streaming/use-cases-overview/use-cases-overview.png)
+![Streaming Integrator Use cases]({{base_path}}/assets/img/streaming/use-cases-overview/use-cases-overview.png)
 
 As shown in the diagram above, WSO2 Streaming Integrator first extracts/receives input data, processes them and then presents the output by publishing/loading/writing it. You can perform supporting activities such as error handling, performing queries via API and analyzing metrics.
 
@@ -48,7 +48,7 @@ The following guides cover the supporting tasks that can be performed by WSO2 St
 
 - [Error Handling](handling-errors.md)
 
-- [Metrics (Monitoring )](../admin/monitoring-si-performance-via-grafana.md)
+- [Metrics (Monitoring )]({{base_path}}/admin/monitoring-si-performance-via-grafana.md)
 
-- [Query API](../ref/store-APIs.md)
+- [Query API]({{base_path}}/ref/store-APIs.md)
  
