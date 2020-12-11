@@ -1,4 +1,4 @@
-# Use Cases
+# Streaming Integrator Use Cases Overview
 
 WSO2 Streaming Integrator receives input data, processes it and presents an output as shown in the diagram below.
 
