@@ -23,7 +23,7 @@ The following are some actions that you are required to perform in order to iden
     
     The following is a sample response log for this command.
     
-    ![List of Installed Extensions](../images/downloading-and-installing-siddhi-extensions/list-response.png)
+    ![List of Installed Extensions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/list-response.png)
     
     
 - **Viewing the installation status of all the supported Siddhi extensions**
@@ -45,7 +45,7 @@ The following are some actions that you are required to perform in order to iden
     
     The following is a sample response for this command.
     
-    ![List of installed Siddhi extensions with status](../images/downloading-and-installing-siddhi-extensions/list-and-status-response.png)
+    ![List of installed Siddhi extensions with status]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/list-and-status-response.png)
         
 - **Checking the installation status of a specific Siddhi extension**
 
@@ -66,7 +66,7 @@ The following are some actions that you are required to perform in order to iden
     
     The sample response is as follows.
     
-    ![List status for specific exension](../images/downloading-and-installing-siddhi-extensions/list-status-for-specific-extension.png)
+    ![List status for specific exension]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/list-status-for-specific-extension.png)
     
 ### Installing Siddhi Extensions
 
@@ -79,11 +79,11 @@ If the Siddhi applications deployed in your WSO2 Streaming Integrator setup use 
 
 e.g., If a Siddhi application that is currently deployed in your WSO2 Streaming Integrator setup uses the Amazon S3 extension, and if this extension is not already installed, you can issue the command given above. As a result, the following message appears in the terminal informing you of extensions that are used in Siddhi applications, but not installed. It also prompts you to specify whether you want to install them.
 
-![Not-installed extensions in Siddhi applications](../images/downloading-and-installing-siddhi-extensions/not-installed-but-used-extensions.png)
+![Not-installed extensions in Siddhi applications]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/not-installed-but-used-extensions.png)
 
 If you enter `y` to specify that you want to proceed with the installation, the following message appears to inform you of the status of the installation and to prompt you to restart the WSO2 Streaming Integrator server once the installation is complete.
 
-![installed missing extension](../images/downloading-and-installing-siddhi-extensions/installed-missing-extension-message.png)
+![installed missing extension]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/installed-missing-extension-message.png)
 
 #### Installing a specific Siddhi extension
 
@@ -102,7 +102,7 @@ e.g., To install the `grpc` Siddhi extension, issue the following command.
 
 The following message appears to inform you of the status of the installation and to prompt you to restart the WSO2 Streaming Integrator server once the installation is complete.
 
-![install extension log](../images/downloading-and-installing-siddhi-extensions/install-extension-log.png)
+![install extension log]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/install-extension-log.png)
 
 ### Uninstalling Siddhi Extensions
 
@@ -121,11 +121,11 @@ e.g., To un-install the `grpc` Siddhi extension, issue the following command.
 
 A message appears to inform you of any other extension that shares dependencies with the extension being uninstalled. The message also prompts you to confirm whether you want to proceed with the installation or not.
 
-![uninstall extension log](../images/downloading-and-installing-siddhi-extensions/uninstall-extension-log.png)
+![uninstall extension log]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/uninstall-extension-log.png)
 
 If you enter `y` and proceed with the un-installation, the following log appears to inform you of the progress of the un-installation and then prompt you to restart the Streaming Integrator server once the un-installation is complete.
 
-![uninstall extension](../images/downloading-and-installing-siddhi-extensions/uninstall-extension.png)
+![uninstall extension]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/uninstall-extension.png)
 
 ## Downloading and installing Siddhi extensions manually
 
@@ -137,10 +137,10 @@ To download the Siddhi extensions, follow the steps below
 
 1. Open the [Siddhi Extensions page](https://store.wso2.com/store/assets/analyticsextension/list).
    The available Siddhi extensions are displayed as follows.  
-   ![Siddhi Extension Home Page](../images/downloading-and-installing-siddhi-extensions/Siddhi_Extensions.png)
+   ![Siddhi Extension Home Page]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/siddhi-extensions.png)
 
 2. Click on the required extension. In this example, let's click on the **IBM MQ** extension.  
-   ![Download Extension](../images/downloading-and-installing-siddhi-extensions/Download_Extension.png)
+   ![Download Extension]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/download-extension.png)
 
    In the dialog box that appears, enter your e-mail address and click **Submit**. The extension JAR is downloaded to 
    the default location in your machine (based on your settings).
@@ -151,18 +151,18 @@ To download the Siddhi extensions, follow the steps below
 
     !!! tip 
         Each extension has a separate **Version Support** navigator item for the Streaming Integrator, SP, CEP and DAS.
-    ![Version Support](../images/downloading-and-installing-siddhi-extensions/Extension_Left_Navigator.png)
+    ![Version Support]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/extension-left-navigator.png)
 
 4. If you need to download an older version of an extension, follow the substeps below.
    1. Once you have clicked on the required extension, click on the **Older Versions** tab. Then click on the link 
    displayed within the tab.  
-    ![Older Versions](../images/downloading-and-installing-siddhi-extensions/Extensions_Older_Versions.png)
+    ![Older Versions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/extensions-older-versions.png)
 
     You are directed to the maven central page where all the available versions of the extension are listed.  
-    ![All available versions](../images/downloading-and-installing-siddhi-extensions/Central Maven Repository.png)
+    ![All available versions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/central-maven-repository.png)
 
    2. Click on the relavent version. It directs you to the download page. To download the bundle, click on it.  
-    ![Download Bundle](../images/downloading-and-installing-siddhi-extensions/Maven_Bundle.png)
+    ![Download Bundle]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/maven-bundle.png)
 
 ### Installing Siddhi extensions
 
