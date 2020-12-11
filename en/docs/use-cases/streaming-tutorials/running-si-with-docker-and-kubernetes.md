@@ -61,17 +61,17 @@ To run the Streaming Integrator in the  open source image that is available for 
         1. Start and access the Streaming Integrator Tooling. Open a new file and copy-paste the `MySimpleApp.siddhi` Siddhi application in the Source View.<br/>
             Then save the Siddhi application.<br/>
         2. To deploy the Siddhi application, click the **Deploy** menu option and then click **Deploy to Server**. The **Deploy Siddhi Apps to Server** dialog box opens as shown in the example below.<br/>
-            ![Deploy to Server dialog box](../images/getting-si-run-with-mi/deploy-to-server-dialog-box.png)<br/>
+            ![Deploy to Server dialog box]({{base_path}}/assets/img/streaming/getting-si-run-with-mi/deploy-to-server-dialog-box.png)<br/>
             1. In the **Add New Server** section, enter information as follows:<br/>
-                ![Add New Server](../images/getting-si-run-with-mi/add-new-server.png)<br/>
+                ![Add New Server]({{base_path}}/assets/img/streaming/getting-si-run-with-mi/add-new-server.png)<br/>
                 Then click **Add**.<br/>
             2. Select the check boxes for the **MySimpleApp** Siddhi application and the server you added as shown below.<br/>
-                ![Deploy Siddhi Apps to Server](../images/getting-si-run-with-mi/select-siddhi-app-and-server.png)<br/>
+                ![Deploy Siddhi Apps to Server]({{base_path}}/assets/img/streaming/getting-si-run-with-mi/select-siddhi-app-and-server.png)<br/>
             3. Click **Deploy**.<br/>
                 When the Siddhi application is successfully deployed, the following message appears in the **Deploy Siddhi Apps to Server** dialog box.<br/>
-                ![Deployment Status](../images/getting-si-run-with-mi/siddhi-application-deployment-status.png)<br/>
+                ![Deployment Status]({{base_path}}/assets/img/streaming/getting-si-run-with-mi/siddhi-application-deployment-status.png)<br/>
                 The following is logged in the console in which you started the Streaming Integrator in Docker.<br/>
-                ![Deployment Status](../images/hello-world-with-docker/siddhi-app-deployed-in-docker-log.png)
+                ![Deployment Status]({{base_path}}/assets/img/streaming/hello-world-with-docker/siddhi-app-deployed-in-docker-log.png)
 
 
 Now the Streaming Integrator has started in the Docker environment.
@@ -95,7 +95,7 @@ curl -X POST -d "{\"event\": {\"name\":\"sugar\",\"amount\": 20.5}}"  http://0.0
 
 The following output appears in the console in which you started the Streaming Integrator in Docker.
 
-![HTTP Response](../images/hello-world-with-docker/http-response.png)
+![HTTP Response]({{base_path}}/assets/img/streaming/hello-world-with-docker/http-response.png)
 
 
 ## Running the Streaming Integrator with Kubernetes
@@ -127,7 +127,7 @@ To install the Siddhi Operator, follow the procedure below:
 
     If the installation is successful, the following deployments should be running in the Kubernetes cluster.
 
-    ![Siddhi Operator Installment](../images/hello-world-with-kubernetes/verify-siddhi-operator-installation.png)
+    ![Siddhi Operator Installment]({{base_path}}/assets/img/streaming/hello-world-with-kubernetes/verify-siddhi-operator-installation.png)
 
 
 ### Deploying Siddhi applications in Kubernetes

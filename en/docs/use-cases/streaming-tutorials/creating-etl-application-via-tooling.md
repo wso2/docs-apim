@@ -45,7 +45,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
             `CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));`<br/> 
     - Download `productions.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice. (e.g., in `/Users/foo`).<br/>    
     - Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)<br/>          
-    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors](../connectors/downloading-and-Installing-Siddhi-Extensions/).
+    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions.md).
 
 ## Tutorial steps
 
@@ -63,11 +63,11 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
     
 2. In the Welcome screen, click **New ETL Flow**.
 
-    ![Open New ETL Flow](../../images/create-etl-application-via-tooling/open-new-etl-flow.png)
+    ![Open New ETL Flow]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/open-new-etl-flow.png)
     
     This opens the wizard to create ETL task flows as follows.
     
-    ![ETL Task Flow Wizard](../../images/create-etl-application-via-tooling/etl-task-flow.png)
+    ![ETL Task Flow Wizard]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/etl-task-flow.png)
     
 3. Change the title of the ETL task flow from `UntitledETLTaskFlow` to `SweetFactoryETLTaskFlow`.
 
@@ -75,7 +75,7 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
 
     1. Under **Transport Properties**, select **CDC** as the source. Then enter values for the properties relating to the CDC source as follows.
     
-        ![Transport Properties](../../images/create-etl-application-via-tooling/source-transport-properties.png)
+        ![Transport Properties]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/source-transport-properties.png)
     
         |**Property** |**Value**                                |
         |-------------|-----------------------------------------|
@@ -93,7 +93,7 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
         
         2. Under **Enter input stream name**, enter `InsertSweetProductionStream`. Then add two attributes as follows:
         
-            ![Configure Schema](../../images/create-etl-application-via-tooling/configure-schema.png)
+            ![Configure Schema]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/configure-schema.png)
         
             1. Move the cursor over the **+** sign next to **input stream attributes** and select **STRING**. As a result, a new row is created for the attribute. Enter `name` as the attribute name.
             
@@ -103,7 +103,7 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
             
     3. In the **Configure Input Mapping** section, select **keyvalue** as the source mapper type.
         
-        ![select-source-mapper-type](../../images/create-etl-application-via-tooling/select-source-mapper-type.png)
+        ![select-source-mapper-type]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-source-mapper-type.png)
         
         Then click **Next**.
             
@@ -113,13 +113,13 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
 
     1. Under **Transport Properties**, select **file** as the sink type. Then enter the path to the `productioninserts.csv` file which you saved as an empty CSV file (in this example, `/Users/foo/productioninserts.csv`).
     
-        ![Transport Properties](../../images/create-etl-application-via-tooling/sink-transport-properties.png)
+        ![Transport Properties]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/sink-transport-properties.png)
         
         Then click **Next**.
     
     2. In the **Configure Schema** section, enter information as follows to create an output stream that defines the schema of the outgoing events.
     
-        ![Configure output schema](../../images/create-etl-application-via-tooling/configure-output-event-schema.png)
+        ![Configure output schema]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/configure-output-event-schema.png)
     
         1. Click the tick (**✓**) for the **Add log sink for testing** parameter in order to log the output events in the console.
         
@@ -133,13 +133,13 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
         
     3. In the **Configure Output Mapping** section, select **text** as the sink mapper type.
     
-        ![Configure Output Mapping](../../images/create-etl-application-via-tooling/configure-output-mapping.png)
+        ![Configure Output Mapping]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/configure-output-mapping.png)
         
         Then click **Next**.
 
 4. In **Step 4 Process Output Data**, move the cursor over the **+** sign under **Group Output by Fields**, and then click **name**. This groups the output events by the name of the product.
 
-    ![Group Events By](../../images/create-etl-application-via-tooling/group-by.png)
+    ![Group Events By]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/group-by.png)
 
     Then click **Next**.
     
@@ -147,76 +147,76 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
 
     1. Click the following button to map all the attributes.
     
-        ![Select all attributes](../../images/create-etl-application-via-tooling/select-atributes.png)
+        ![Select all attributes]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-atributes.png)
         
         As a result, the attributes in the input stream and the output stream are joined together by lines as shown below.
         
-        ![Matched attributes](../../images/create-etl-application-via-tooling/matched-attributes.png)
+        ![Matched attributes]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/matched-attributes.png)
         
         This indicates that the value for each input attribute is directed to the output stream without any further processing to be published. However, since you need to do a simple conversion for the `name` attribute. Therefore, remove the matching for that attribute by clicking the following icon for it under **Output Attributes**. Move the cursor to the right of the attribute to make this icon appear.
         
-        ![Remove Matching](../../images/create-etl-application-via-tooling/remove-matching.png)
+        ![Remove Matching]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/remove-matching.png)
     
     2. Click on **name** under **Output Attributes**.
 
-        ![Select Name Attribute](../../images/create-etl-application-via-tooling/select-name-attribute.png)
+        ![Select Name Attribute]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-name-attribute.png)
     
         This opens a dialog box named **Create expression for name of ProductionUpdatesStream**. 
     
     3. In the **Create expression for name of ProductionUpdatesStream** dialog box, click **Function**. Scroll to find the **str.upper()** function, and then click on it to select it.
     
-        ![Select Function](../../images/create-etl-application-via-tooling/select-function.png)
+        ![Select Function]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-function.png)
         
         Once select the function, it is displayed as follows. Click on the selected function again.
         
-        ![Click Selected Function](../../images/create-etl-application-via-tooling/click-selected-function.png)
+        ![Click Selected Function]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/click-selected-function.png)
         
     4. When the function is added as shown below, click on it again.
     
-        ![Click Selected Expression](../../images/create-etl-application-via-tooling/configure-function-parameters.png)
+        ![Click Selected Expression]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/configure-function-parameters.png)
         
         Another bar appears below the selected function with the function expression in the clickable mode between the brackets.
         
     5. To specify the attribute to which the function should be applied, click on the dots between the brackets.
     
-        ![Select Attribute for Function](../../images/create-etl-application-via-tooling/select-attribute-for-function.png)
+        ![Select Attribute for Function]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-attribute-for-function.png)
         
     6. Click on **name** attribute to select it as the attribute to which the function applies.
     
-        ![Select Attribute for Function](../../images/create-etl-application-via-tooling/select-attribute.png)
+        ![Select Attribute for Function]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-attribute.png)
         
     7. Once the `name` attribute is selected and displayed, click the arrow pointing upwards to the right of the attribute. This adds the `name` attribute to the function expression.
     
-        ![Add Attribute to function expression](../../images/create-etl-application-via-tooling/add-attribute-to-function-expression.png)
+        ![Add Attribute to function expression]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/add-attribute-to-function-expression.png)
         
     8. Once the function is displayed with both the expression and the attribute, click the arrow pointing upwards to the right of it. This completes the function configuration.
     
-        ![Complete Function Configuration](../../images/create-etl-application-via-tooling/complete-function-configuration.png)
+        ![Complete Function Configuration]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/complete-function-configuration.png)
         
     9. Click **Submit**.
     
         Now both the attributes appear matched again, and the function expression is displayed for the **name** attribute.
     
-        ![Matched Attributes](../../images/create-etl-application-via-tooling/joined-attributes.png)
+        ![Matched Attributes]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/joined-attributes.png)
         
     10. Click **Save**.
      
     
 7. In **Step 6 Finalize**, deploy the Siddhi application you just completed by clicking **Deploy to Worker**.
 
-    ![Complete ETL Application](../../images/create-etl-application-via-tooling/deploy-etl-app-to-worker.png)
+    ![Complete ETL Application]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/deploy-etl-app-to-worker.png)
     
     This opens the **Deploy Siddhi Apps to Server** dialog box.
     
     1. In the **Add New Server** section, enter the host, port, user name and the password of your Streaming Integrator server as shown below.
     
-        ![Adding a New Server](../../images/create-etl-application-via-tooling/add-a-new-server.png)
+        ![Adding a New Server]({{base_path}}/assets/img/streaming/-etl-application-via-tooling/add-a-new-server.png)
         
         Then click **Add**.
         
     2. In the **Siddhi Apps to Deploy** section, select the checkbox for the **SweetFactoryETLTaskFlow.siddhi** application. In the **Servers** section, select the check box for the server you added. Then click **Deploy**.
     
-        ![Select Siddhi Application and Server](../../images/create-etl-application-via-tooling/select-siddhi-app-and-server.png)
+        ![Select Siddhi Application and Server]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/select-siddhi-app-and-server.png)
         
         The following message appears in the **Deploy Siddhi Apps to Server** dialog box.
         
@@ -236,7 +236,7 @@ INFO {org.wso2.siddhi.core.stream.output.sink.LogSink} - CDCWithListeningMode : 
 
 If you open the `/Users/foo/productions.csv` file, the `Chocalate, 100.0` record is displayed as shown below.
 
-![Updated File](../../images/create-etl-application-via-tooling/updated-file.png)
+![Updated File]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/updated-file.png)
 
 ## What's Next?
 
@@ -244,4 +244,4 @@ Once you develop an ETL application, you may need to carry out following tasks:
 
 - **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial](handling-requests-with-errors.md).
 
-- **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana](../admin/viewing-dashboards.md).
+- **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards.md).
