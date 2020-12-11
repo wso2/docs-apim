@@ -57,7 +57,7 @@ To understand this, consider a scenario where you receive the temperature of mul
 
 To try out the query used in the above example, let's include it in a Siddhi Application and run it.
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -143,7 +143,7 @@ Here, the `cast()` function presents the value for the `roomNo` attribute as a s
 
 To try out the above example, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -190,7 +190,7 @@ insert into CleansedDataStream
 
 To try out the above example, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -383,7 +383,7 @@ In this example, the input event that reports only the name of the product and t
 
 When you want to perform more advanced transformations that are not supported by the inline operators of the WSO2 Streaming Integrator, you can use one or more of the Siddhi extensions from the [Siddhi Store](https://store.wso2.com/store/assets/analyticsextension/list).
 
-Some of these extensions are shipped with the WSO2 Streaming Integrator by default. If you want to use a Siddhi extension that is not shipped by default, you need to download and install it following the instructions in [Downloading and Installing Siddhi Extensions](../../admin/downloading-and-Installing-Siddhi-Extensions.md).
+Some of these extensions are shipped with the WSO2 Streaming Integrator by default. If you want to use a Siddhi extension that is not shipped by default, you need to download and install it following the instructions in [Downloading and Installing Siddhi Extensions]({{base_path}}/admin/downloading-and-installing-siddhi-extensions.md).
 
 The following table describes the complete list of extensions that provide data transformation functionality.
 
@@ -416,7 +416,7 @@ Here, `js:eval("amount > average", 'bool') as exceedsAverage` is a custom functi
 
 To try out the transformations described above with some of the given examples, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -711,7 +711,7 @@ To try out the example given above, follow the procedure below:
             isAutoCommit: false
     ```
     
-2. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 3. Open a new file in Streaming Integrator Tooling. Then add and save the following Siddhi application.
 
@@ -746,7 +746,7 @@ To try out the example given above, follow the procedure below:
    
    This is the complete `ProductionAggregatesApp` Siddhi application with the queries given in the examples to store and retrieve aggregates. You are annotating a sink of the `log` type to the `ProductionSummaryStream` stream to which the retrieved aggregates are sent so that you can view the retrieved information in the terminal logs.
    
-4. To store aggregates, simulate five events with the following values for the `ProductionStream` stream via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+4. To store aggregates, simulate five events with the following values for the `ProductionStream` stream via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     | **name**  | **amount** | **timestamp**   |
     |-----------|------------|-----------------|
@@ -759,15 +759,15 @@ To try out the example given above, follow the procedure below:
     The above events are stored in the `production` database that you previously defined.
     
     
-5. To retrieve the information you stored, simulate an event for the `ProductionSummaryRetrievalStream` stream with `brownie` as the value for `name'. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+5. To retrieve the information you stored, simulate an event for the `ProductionSummaryRetrievalStream` stream with `brownie` as the value for `name'. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     The Streaming Integrator Tooling terminal displays the following logs.
     
-    ![Aggregate Logs](../../assets/img/streaming/processing-data/aggregate-logs.png)
+    ![Aggregate Logs]({{base_path}}/assets/img/streaming/processing-data/aggregate-logs.png)
 
 ### Performing short term summarizations
 
-This section explains how to apply Siddhi logic to process a subset of events received to a stream based on time or the number of events. This is achieved via [Siddi Windows]().
+This section explains how to apply Siddhi logic to process a subset of events received to a stream based on time or the number of events. This is achieved via [Siddi Windows](https://siddhi-io.github.io/siddhi-execution-unique/).
 The window can apply to a batch of events or in a sliding manner. 
 
 The following are a few examples of how short time summarizations can be performed based on time or the number of events.
@@ -776,7 +776,7 @@ The following are a few examples of how short time summarizations can be perform
 
     This involves selecting a subset of events based on a specified duration of time in a sliding manner as illustrated via an example in the diagram below.
     
-    ![Time Sliding Window](../../assets/img/streaming/processing-data/time-sliding-window.png)
+    ![Time Sliding Window]({{base_path}}/assets/img/streaming/processing-data/time-sliding-window.png)
     
     For example, consider that the factory foreman of a sweet factory wants to calculate the production total and average per product every four minutes in a sliding manner. To address this, you can write a query as follows.
 
@@ -792,7 +792,7 @@ The following are a few examples of how short time summarizations can be perform
 
     This involves selecting a subset of events based on a specified duration of time in a tumbling manner as illustrated via an example in the diagram below.
     
-    ![Time Batch Window](../../assets/img/streaming/processing-data/time-batch-window.png)
+    ![Time Batch Window]({{base_path}}/assets/img/streaming/processing-data/time-batch-window.png)
     
     For example, consider that the factory foreman of a sweet factory wants to calculate the production total and average per product every four minutes in a tumbling manner. To address this, you can write a query as follows.
 
@@ -808,7 +808,7 @@ The following are a few examples of how short time summarizations can be perform
 
     This involves selecting a batch of events based on the number of events specified in a sliding manner as illustrated via an example in the diagram below.
     
-    ![Length Sliding Window](../../assets/img/streaming/processing-data/length-sliding-window.png)
+    ![Length Sliding Window]({{base_path}}/assets/img/streaming/processing-data/length-sliding-window.png)
     
     For example, consider that the factory foreman of a sweet factory wants to calculate the production total and average per product for every three events in a sliding manner. To address this, you can write a query as follows.
 
@@ -824,7 +824,7 @@ The following are a few examples of how short time summarizations can be perform
 
     This involves selecting a batch of events based on the number of events specified in a sliding manner as illustrated via an example in the diagram below.
     
-    ![Length Batch Window](../../assets/img/streaming/processing-data/length-batch-window.png)
+    ![Length Batch Window]({{base_path}}/assets/img/streaming/processing-data/length-batch-window.png)
     
     For example, consider that the factory foreman of a sweet factory wants to calculate the production total and average per product for every three events in a sliding manner. To address this, you can write a query as follows.
 
@@ -840,7 +840,7 @@ The following are a few examples of how short time summarizations can be perform
 
 To try out the four sample queries given above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -893,7 +893,7 @@ To try out the four sample queries given above, follow the steps below:
    
    The above Siddhi application has all four sample queries used as examples in this section. Those queries insert their output into four different output streams connected to log sinks to log the output of each query.
    
-3. Simulate eight events for the `ProductionStream` input stream of the above Siddhi application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/testing-a-Siddhi-Application.md).
+3. Simulate eight events for the `ProductionStream` input stream of the above Siddhi application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/testing-a-siddhi-application.md).
 
     | **name**    | **amount** | **timestamp**   |
     |-------------|------------|-----------------|
@@ -908,7 +908,7 @@ To try out the four sample queries given above, follow the steps below:
     
     The above simulation results in the following logs.
     
-    ![Summarization Logs](../../assets/img/streaming/processing-data/summary-logs.png)
+    ![Summarization Logs]({{base_path}}/assets/img/streaming/processing-data/summary-logs.png)
     
 #### Supported methods of summarization
 
@@ -1039,7 +1039,7 @@ To try out the examples given above, follow the steps below.
                 isAutoCommit: false
         ```
     
-2. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 3. Open a new file in Streaming Integrator Tooling. Then add and save the following Siddhi application.
 
@@ -1130,7 +1130,7 @@ To try out the examples given above, follow the steps below.
     ```
     This application functions as the external service for testing purposes.
     
-5. Simulate events for the `StockValuingApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+5. Simulate events for the `StockValuingApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     1. First, simulate two events for the `ProductionStream` stream with the following values.
     
@@ -1190,7 +1190,7 @@ To try out the examples given above, follow the steps below.
 
 The streaming integrator can correlate data in order to detect patterns and trends in streaming data. Correlating can be done via patterns as well as sequences.
 
-![patterns-sequences-matrix](../../assets/img/streaming/correlating-events/patterns-sequences-matrix.png)
+![patterns-sequences-matrix]({{base_path}}/assets/img/streaming/correlating-events/patterns-sequences-matrix.png)
 
 The difference between patterns and sequence is that sequences require all the matching events to arrive consecutively to
  match the sequence condition, whereas patterns identify events that match the pattern condition irrespective of the order in which they arrive.
@@ -1236,7 +1236,7 @@ In the `Calculate Shelf Life` query, `every e1 = ProductionStream -> e2 = SalesT
 
 To try out the Siddhi application given in the sample above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file, add the following content to it and save.
 
@@ -1262,7 +1262,7 @@ To try out the Siddhi application given in the sample above, follow the steps be
     insert into ShelfLifeStream;
     ```
    
-3. Simulate events for the `ShelfLifeApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+3. Simulate events for the `ShelfLifeApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     - For the `ProductionStream` stream
     
@@ -1310,7 +1310,7 @@ insert into LowStockLevelAlertStream;
 
 To try out the Siddhi application given in the sample above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file, add the following content to it and save.
 
@@ -1330,7 +1330,7 @@ To try out the Siddhi application given in the sample above, follow the steps be
     insert into LowStockLevelAlertStream;
     ```
    
-3. Simulate events for the `DetectingLowStockApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+3. Simulate events for the `DetectingLowStockApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     - For the `LatestStockStream` stream
     
@@ -1389,7 +1389,7 @@ In the `Detect Wastage` query, the `from` clause detects a pattern where the sal
 
 To try out the Siddhi application given in the sample above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file, add the following content to it and save.
 
@@ -1416,7 +1416,7 @@ To try out the Siddhi application given in the sample above, follow the steps be
     ```
    For testing purposes, the above Siddhi application detects thye non occurrence of a matching event within three seconds instead of three days.
    
-3. Simulate events for the `ProductionStream` stream of the `DetectWastageApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+3. Simulate events for the `ProductionStream` stream of the `DetectWastageApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     | **name**  | **amount** |
     |-----------|------------|
@@ -1461,7 +1461,7 @@ The above Siddhi application compares  three events (i.e., e1, e2 and e3) that o
 
 To try out the Siddhi application given in the sample above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file, add the following content to it and save.
 
@@ -1480,7 +1480,7 @@ To try out the Siddhi application given in the sample above, follow the steps be
     insert into DecreasingProductionAlertStream;
     ```
    
-3. Simulate three events for the `ProductionStream` stream of the `DecreasingProductionAlertApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+3. Simulate three events for the `ProductionStream` stream of the `DecreasingProductionAlertApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     | **name**      | **amount** |
     |---------------|------------|
@@ -1522,7 +1522,7 @@ The above Siddhi application matches every event in the `ProductionStream` strea
 
 To try out the Siddhi application given in the sample above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling](../../develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
 
 2. Open a new file, add the following content to it and save.
 
@@ -1541,7 +1541,7 @@ To try out the Siddhi application given in the sample above, follow the steps be
     insert into DecreasingProductionAlertStream;
     ```
    
-3. Simulate events for the `ProductionStream` steeam of the `ObserveProductionTrendsApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events](../../develop/streaming-apps/testing-a-Siddhi-Application.md).
+3. Simulate events for the `ProductionStream` steeam of the `ObserveProductionTrendsApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
 
     | **name**      | **amount** |
     |---------------|------------|
