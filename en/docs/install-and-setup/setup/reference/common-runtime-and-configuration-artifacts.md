@@ -9,7 +9,7 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 !!! info
         Persistent runtime artifacts could be updated at the runtime, and are expected to be available across instance restarts, VM re-creation or container re-spawning. Persistent file storage systems should be used to ensure this.
 
-    E.g.,: In a Kubernetes based container environment, its possible to use Persistent Volumes to persist these artifacts.
+    Example: In a Kubernetes based container environment, its possible to use Persistent Volumes to persist these artifacts.
 
 
 1. [API Manager](##api-manager)
