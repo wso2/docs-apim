@@ -1,8 +1,8 @@
 # Application analytics
 
 !!! info
-      Similar to the other dashboards, Application analytics dashboard can be viewed by admin users and users who are having internal/subscriber role. By default, dashboard cannot be viewed by users having analytics role. 
-      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/) page.
+      Similar to the other dashboards, the Application Analytics Dashboard can be viewed by admin users and users who have the `internal/subscriber` role. By default, the dashboard cannot be viewed by users having the `analytics` role. 
+      However, these permissions can be changed based on your preferences using the **Settings** option in the dashboard. For more information, see [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/).
 
 
 Log into the analytics-dashboard application and access application analytics dashboard (ex: [https://localhost:9643/analytics-dashboard/dashboards/application](https://localhost:9643/analytics-dashboard/dashboards/application)) dashboard from there.
