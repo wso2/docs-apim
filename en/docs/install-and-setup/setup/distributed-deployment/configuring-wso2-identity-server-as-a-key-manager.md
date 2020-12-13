@@ -145,13 +145,13 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.17.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.0.16.1>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.0.17>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.0.16.1.jar`
+     - `wso2is.key.manager.core-1.0.17.jar`
 
-     - `wso2is.notification.event.handlers_1.0.16.1.jar`
+     - `wso2is.notification.event.handlers_1.0.17.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.0.16.1>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.0.17>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 

@@ -82,9 +82,9 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.0.16.1`
+     - `wso2is.key.manager.core-1.0.17`
 
-     - `wso2is.notification.event.handlers_1.0.16.1`
+     - `wso2is.notification.event.handlers_1.0.17
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
