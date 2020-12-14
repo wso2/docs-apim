@@ -21,7 +21,7 @@ To execute the sample, follow the steps below:
 
 2. Start the sample by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-    ![Start button](../../images/amazon-s3-sink-sample/start.png)
+    ![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
     If the Siddhi application starts successfully, the following message appears in the console.
 

@@ -10,7 +10,7 @@ This application demonstrates how to retrieve the longitude and latitude based o
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -22,13 +22,13 @@ To test the sample Siddhi application, simulate single events for it via the Str
 
 1. To open the Event Simulator, click the **Event Simulator** icon.
 
-    ![Event Simulator Icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
     This opens the event simulation panel.
 
 2. To simulate events for the `geocodeStream` stream of the `execution-geo-sample`  Siddhi application, enter information in the **Single Simulation** tab of the event simulation panel as follows.
 
-    ![Select Siddhi Application and Stream](../../images/execution-geo-sample/siddhi-app-and-stream.png)
+    ![Select Siddhi Application and Stream]({{base_path}}/assets/img/streaming/execution-geo-sample/siddhi-app-and-stream.png)
 
     | **Field**                   | **Value**                              |
     |-----------------------------|----------------------------------------|
@@ -39,7 +39,7 @@ To test the sample Siddhi application, simulate single events for it via the Str
 
 3. Enter attribute values as follows.
 
-    ![Attribute Values](../../images/execution-geo-sample/attribute-values.png).
+    ![Attribute Values]({{base_path}}/assets/img/streaming/execution-geo-sample/attribute-values.png).
 
     | **Attribute**         | **Value**                     |
     |-----------------------|-------------------------------|

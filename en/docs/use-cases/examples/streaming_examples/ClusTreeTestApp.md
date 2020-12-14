@@ -15,7 +15,7 @@ This sample demonstrates how to perform unsupervised streaming learning on a set
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -27,14 +27,12 @@ To test the sample Siddhi application, simulate multiple events via CSV file in 
 
 1. To open the Event Simulator, click the **Event Simulator** icon.
 
-    ![Event Simulator Icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
     This opens the event simulation panel.
 
-
-
-1. Open event simulator by clicking on the second icon or press Ctrl+Shift+I.
 2. In the Feed Simulation tab of the panel you can see that the clusTreeTestFeed.csv file is loaded.
+
 3. Press the play button to start simulation.
 
 ## Viewing the Results

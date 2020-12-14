@@ -27,7 +27,7 @@ This example demonstrates how to get running statistics using Siddhi. The sample
 
 To execute the sample Siddhi application, open it in Streaming Integrator Tooling and click the **Start** button (shown below) or click **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -39,7 +39,7 @@ To test the sample Siddhi application, simulate single events for it via the Str
 
 1. To open the Event Simulator, click the **Event Simulator** icon.
 
-    ![Event Simulator Icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
     This opens the event simulation panel.
 
@@ -50,7 +50,7 @@ To test the sample Siddhi application, simulate single events for it via the Str
     | **Siddhi App Name**         | `AggregateDataIncrementally`           |
     | **StreamName**              | `RawMaterialStream`                    |
 
-    ![Select Siddhi Application and Stream](../../images/aggregate-data-incrementally-sample/aggregate-data-incrementally-event-simulation.png)
+    ![Select Siddhi Application and Stream]({{base_path}}/assets/img/streaming/aggregate-data-incrementally-sample/aggregate-data-incrementally-event-simulation.png)
 
     As a result, the attributes of the `RawMaterialStream` stream appear as marked in the image above.
 

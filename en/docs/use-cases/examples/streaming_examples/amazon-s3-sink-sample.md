@@ -25,7 +25,7 @@ To execute the sample, follow the procedure below:
 
 2. Start the Siddhi application by clicking the **Start** button (shown below) or by clicking by clicking **Run** => **Run**.
 
-    ![Start button](../../images/amazon-s3-sink-sample/start.png)
+    ![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
     If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -38,15 +38,15 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
 1. To open the Event Simulator, click the **Event Simulator** icon.
 
-       ![Event Simulator Icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+       ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
 2. In the Event Simulator panel, click **Feed Simulation** -> **Create**.
 
-        ![Feed Simulation tab](../../images/aggregate-over-time-sample/feed-simulation-tab.png)
+        ![Feed Simulation tab]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/feed-simulation-tab.png)
 
 3. In the new panel that opens, enter information as follows.
 
-    ![Feed Simulation](../../images/amazon-s3-sink-sample/AmazonS3SinkSample-feed-simulation.png)
+    ![Feed Simulation]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/amazon-s3-sink-sample-feed-simulation.png)
 
     1. In the **Simulation Name** field, enter `AmazonS3SinkSample` as the name for the simulation.
 
@@ -67,7 +67,7 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
     8. Save the simulator configuration by clicking **Save**. Th.e simulation is added to the list of saved feed simulations as shown below.
 
-        ![saved simulation](../../images/amazon-s3-sink-sample/simulation-list.png)
+        ![saved simulation]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/simulation-list.png)
 
 4. To simulate random events, click the **Start** button next to the **AmazonS3SinkSample** simulator.
 
