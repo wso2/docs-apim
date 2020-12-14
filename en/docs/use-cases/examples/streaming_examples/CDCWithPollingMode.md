@@ -37,7 +37,7 @@ By changing the database type, you can also try out this example for the followi
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -56,7 +56,7 @@ To test the sample Siddhi application, insert a record to the `SweetProductionTa
 
 The insert operation is logged in the Streaming Integrator console as shown below.
 
-![Polling Log](../../images/cdc-with-polling-mode-sample/cdc-with-polling-mode.png)
+![Polling Log]({{base_path}}/assets/img/streaming/cdc-with-polling-mode-sample/cdc-with-polling-mode.png)
 
 !!!info
     You can also update the existing row and observe the change data events.

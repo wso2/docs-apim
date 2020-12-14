@@ -32,7 +32,7 @@ This sample demonstrates how to capture change data from MySQL using Siddhi. The
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -52,7 +52,7 @@ To test the sample Siddhi application, insert a record to the `SweetProductionTa
 
 This insert is logged in the Streaming Integrator console as follows.
 
-![Insert Log](../../images/cdc-with-listening-mode-sample/insert-log.png)
+![Insert Log]({{base_path}}/assets/img/streaming/cdc-with-listening-mode-sample/insert-log.png)
 
 !!!info
     Optionally, you can use this sample to also capture `update` and `delete` operations.<br/>

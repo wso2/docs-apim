@@ -10,7 +10,7 @@ This application demonstrates how to use the `siddhi-execution-extrema` extensio
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 

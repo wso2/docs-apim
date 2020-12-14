@@ -11,7 +11,7 @@ This application demonstrates how to simulate random events via Feed Simulation 
 
 To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
 
-![Start button](../../images/amazon-s3-sink-sample/start.png)
+![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
 If the Siddhi application starts successfully, the following message appears in the console.
 
@@ -23,15 +23,15 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
 1. To open the Event Simulator, click the **Event Simulator** icon.
 
-    ![Event Simulator Icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulator Icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
 2. In the Event Simulator panel, click **Feed Simulation** -> **Create**.
 
-    ![Feed Simulation tab](../../images/aggregate-over-time-sample/feed-simulation-tab.png)
+    ![Feed Simulation tab]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/feed-simulation-tab.png)
 
 3. In the new panel that opens, enter information as follows:
 
-    ![Random Simulation](../../images/aggregate-over-time-sample/aggregate-over-time-random-simulation.png)
+    ![Random Simulation]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/aggregate-over-time-random-simulation.png)
 
     1. In the **Simulation Name** field, enter `AggregateOverTime` as the name for the simulation.
 
@@ -52,21 +52,21 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
     The newly created simulation is now listed under the **Active Feed Simulations** list as shown below.
 
-    ![Newly Created Simulation](../../images/aggregate-over-time-sample/active-feed-simulation-list.png)
+    ![Newly Created Simulation]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/active-feed-simulation-list.png)
 
 4. Click the start button next to the **AggregateOverTime** simulation to start generating random events.
 
-    ![Start](../../images/aggregate-over-time-sample/start.png)
+    ![Start]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/start.png)
 
     In the **Run or Debug** dialog box that appears, select **Run** and click **Start Similation**.
 
-    ![Start Simulation](../../images/aggregate-over-time-sample/start-simulation-dialog-box.png)
+    ![Start Simulation]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/start-simulation-dialog-box.png)
 
 ## Viewing the Results
 
 Once you start the simulator, the output is logged in the console as shown in the sample below. The output reflects the aggregation for the events sent during the last 10 seconds.
 
-![Sample Random Events](../../images/aggregate-over-time-sample/sample-random-events.png)
+![Sample Random Events]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/sample-random-events.png)
 
 ???info "Click here to view the sample Siddhi application."
     ```sql
