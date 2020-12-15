@@ -77,23 +77,39 @@ The exported ZIP file has the following structure:
 
 ``` java
 <APIName>-version
-├── Meta-information
-│    ├── api.yaml
+├── api.yaml
+├── Client-certificates
+│   ├── Alias1.crt
+│   ├── Alias2.crt
+│   └── client_certificates.yaml
+├── Definitions
 │    |── swagger.yaml
-|    |── endpoint_certificates.yaml
 |    └── schema.graphql 
 ├── Docs
-|    |── FileContents
-│    |── InlineContents
-|    └── docs.yaml
+│   ├── Doc1
+│   │   ├── document-file.pdf
+│   │   └── document.yaml
+│   ├── Doc2
+│   │   ├── Doc2
+│   │   └── document.yaml
+│   ├── Doc3
+│   │   ├── Doc3
+│   │   └── document.yaml
+│   └── Doc4
+│       └── document.yaml
+├── Endpoint-certificates
+│   ├── Alias3.crt
+│   ├── Alias4.crt
+│   └── endpoint_certificates.yaml
 ├── Image
-|    └── icon.extension
+|    └── <imageName>.extension
 ├── WSDL   
 |    └── <APIName>-<version>.wsdl  
 └── Sequences
     ├── fault-sequence
     |    |── Custom 
-    |    |    └── <custom-sequence-name.xml>      
+    |    |    |── <custom-sequence-1-name.xml>     
+    |    |    └── <custom-sequence-2-name.xml>   
     |    └── <sequence-name.xml> 
     ├── in-sequence
     |    |── Custom
@@ -106,14 +122,127 @@ The exported ZIP file has the following structure:
 ```
 
 The structure of an exported API ZIP file is explained below:
-                                                                                                                  
-| Sub Directory/File | Description                                                                                                                                                                                                                                                                                                                                                                       |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Meta-information   | **api.yaml**: It contains all the basic information required for an API to be imported to another environment. <br/> **swagger.yaml**: It contains the API Swagger definition. <br/> **endpoint_certificates.yaml**: If the API is secured using backend certificates, this file contains all endpoint certificates information. <br> **schema.graphql**: If API is a GraphQL API, this contains the GraphQL schema definition. |
-| Docs               | **docs.yaml**: It contains the summary of all the documents available for the API <br/> **FileContents**: It contains the uploaded file type documents available for the API <br/> **InlineContents**: It contains inline and Markdown type documents available for the API.                                                                                                                                        |
-| Image              | Thumbnail image of the API                                                                                                                                                                                                                                                                                                                                                        |
-| WSDL               | WSDL file of the API                                                                                                                                                                                                                                                                                                                                                              |
-| Sequences          | **fault-sequence**: It contains the specific API fault sequence. <br/> **in-sequence**: It contains the specific API in sequence. <br/> **out-sequence**: It contains the specific API out sequence.                                                                                                                                                                                                                  |    
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Sub Directory/File</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>api.yaml</code></td>
+            <td>It contains all the basic information required for an API to be imported to another environment.</td>
+        </tr>
+        <tr class="even">
+            <td>Client-certificates</td>
+            <td>If the API is secured using MutualSSL, this folder will contain the information related to those.
+                <ul>
+                    <li>
+                        <code>client_certificates.yaml</code>: This will contain the information such as alias, certificate file name, tier name and the API Identifier (with the API name, version and the provider name). 
+                    </li>
+                </ul>
+            Apart from the above <code>client_certificates.yaml</code> file, this folder will contain the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
+            <pre><code>
+type: client_certificates
+version: v4
+data:
+-
+alias: Alias1
+certificate: Alias1.crt
+tierName: Bronze
+apiIdentifier:
+    providerName: admin
+    apiName: PizzaShackAPI
+    version: 1.0.0
+    id: 0
+-
+alias: Alias2
+certificate: Alias2.crt
+tierName: Gold
+apiIdentifier:
+    providerName: admin
+    apiName: PizzaShackAPI
+    version: 1.0.0
+    id: 0
+            </code></pre>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>Definitions</td>
+            <td> This folder will contain the definition file associated to a particular API.
+                <ul>
+                    <li><code>swagger.yaml</code>: It contains the API Swagger definition.</li>
+                    <li><code>schema.graphql</code>: If API is a GraphQL API, this contains the GraphQL schema definition.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>Docs</td>
+            <td> This folder will contain documentation attached to a particular API. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
+            <pre><code>
+type: document
+version: v4
+data:
+  documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
+  name: Doc1
+  type: HOWTO
+  summary: This is the sample summary
+  sourceType: FILE
+  fileName: document-file.pdf
+  visibility: API_LEVEL
+            </pre></code>
+            The above example denotes a document for a <b>FILE</b> named <code>document-file.pdf</code>. The corresponding file will be inside the individual folder of the <b>Docs</b> directory. 
+            <br>If the user have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc2</code>).
+            <br> Similarly if the user have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc3</code>).
+            <br> If the document is just a URL, the <code>sourceType</code> will be changed to <b>URL</b> and a field named <code>sourceURL</code> will be there which will consist the URL of the document.
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>Endpoint-certificates</td>
+            <td>If the API is secured using endpoint certificates, this folder will contain the information related to those.
+                <ul>
+                    <li>
+                        <code>endpoint_certificates.yaml</code>: This will contain the information such as alias, certificate file name and the endpoint to which the certificate is attached to. 
+                    </li>
+                </ul>
+            Apart from the above <code>endpoint_certificates.yaml</code> file, this folder will contain the certificate files (.crt). Those file names should be included in the  <code>endpoint_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>endpoint_certificates.yaml</code> file which has mapped the certificates Alias3.crt and Alias4.crt to the corresponding aliases Alias3 and Alias4 accordingly. 
+            <pre><code>
+type: endpoint_certificates
+version: v4
+data:
+ -
+  alias: Alias4
+  endpoint: https://prod.wso2.com
+  certificate: Alias4.crt
+ -
+  alias: Alias3
+  endpoint: https://sand.wso2.com
+  certificate: Alias3.crt
+            </code></pre>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>Image</td>
+            <td>Thumbnail image of the API.</td>
+        </tr>
+        <tr class="even">
+            <td>WSDL</td>
+            <td>WSDL file of the API.</td>
+        </tr>
+        <tr class="odd">
+            <td>Sequences</td>
+            <td>
+                <ul>
+                    <li><b>fault-sequence</b>: It contains the specific API fault sequence.</li>
+                    <li><b>in-sequence</b>: It contains the specific API in sequence.</li>
+                    <li><b>out-sequence</b>: It contains the specific API out sequence.</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ### Export all the APIs of a tenant at once
 
