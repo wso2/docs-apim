@@ -1356,10 +1356,27 @@ these alerts are persisted individually as well in tables specific for the type 
 data related to alerts by dropping this table.
 
 ??? info "DB Scripts"
-     DROP TABLE APIMALLALERT;
+    ```sql
+    DROP TABLE APIMALLALERT;
+    ```
+
+!!! note
+    Only the `ANALYTICS_DB` need to be migrated and the other DBs (e.g., `DASHBOARD_DB`) can either be pointed to a new DB or be cleaned. If there are custom dashboards, those dashboards need to be exported and imported accordingly as mentioned below:
+
+    1. Export the custom dashboard.
+        1. Sign in as an admin to the dashboard listing page.
+        2. Select **Export** from the dashboard options menu next to the dashboard name.
+
+            <img src="{{base_path}}/assets/img/setup-and-install/analytics_dashboard_export.png" alt="Dashboard_export" width="750"/>
+
+            This will download the relevant `<dashboard-name>.json` file.
+
+    2. Import the custom dashboard.
+         
+         Copy the generated JSON file to the `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard` directory.
      
-The GRAPHQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
-improvement. If you use GRAPHQL APIs please follow the instruction below to sort the already existing data on above
+The GraphQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
+improvement. If you use GraphQL APIs please follow the instruction below to sort the already existing data on above
 columns
 
 1.  Configure the datasource used for WSO2 API Manager Analytics in the 
@@ -1438,6 +1455,19 @@ columns
     -   In API-M 3.0.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   Now with API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+
+!!! info
+    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
+
+    !!! example
+
+        ```sql tab="MySQL"
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+
+        ```sql tab="MS SQL"
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
@@ -1575,4 +1605,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 
