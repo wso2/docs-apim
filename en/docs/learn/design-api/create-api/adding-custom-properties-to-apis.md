@@ -47,6 +47,24 @@ Use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to
 
 <a name="Searchusingcustomproperties"></a>
 
+### Display custom properties on API overview page
+
+!!! warning
+    This feature is only available with the **WUM** updates and is effective from 7th December 2020 (2020-12-07). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+
+1. Click **Properties** and click **ADD NEW PROPERTY**.
+
+2. Enter the Custom Property Name and value. Set the `Visibility` and the `Show in Devportal` parameters as shown below. Click **ADD**.
+
+    [![Add new property with display suffix]({{base_path}}/assets/img/learn/set-property-visibility-to-true.png)]({{base_path}}/assets/img/learn/set-property-visibility-to-true.png)
+
+3. Click **SAVE** to save the API.
+
+4. From the Developer Portal's API overview page, the changes will be displayed as follows.
+
+    [![View custom properties on API overview page]({{base_path}}/assets/img/learn/view-properties-in-overview-page.png)]({{base_path}}/assets/img/learn/view-properties-in-overview-page.png)
+
+
 ### Search using custom properties
 
 You can use the following format to search for an API using the custom properties:
