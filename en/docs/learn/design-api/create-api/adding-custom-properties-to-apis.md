@@ -54,13 +54,13 @@ Use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to
 
 1. Click **Properties** and click **ADD NEW PROPERTY**.
 
-2. Enter custom property name, value and set `visibility`, `show in devportal` as selected and click **ADD**.
+2. Enter the Custom Property Name and value. Set the `Visibility` and the `Show in Devportal` parameters as shown below. Click **ADD**.
 
     [![Add new property with display suffix]({{base_path}}/assets/img/learn/set-property-visibility-to-true.png)]({{base_path}}/assets/img/learn/set-property-visibility-to-true.png)
 
 3. Click **SAVE** to save the API.
 
-4. From devportal API overview page, it will be displayed as follows.
+4. From the Developer Portal's API overview page, the changes will be displayed as follows.
 
     [![View custom properties on API overview page]({{base_path}}/assets/img/learn/view-properties-in-overview-page.png)]({{base_path}}/assets/img/learn/view-properties-in-overview-page.png)
 
