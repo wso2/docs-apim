@@ -309,18 +309,6 @@ You can use the below command to export all the APIs belong to the currently log
 
 You can use the API archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API, you can either **deploy the API as a new API** or **seamlessly update an existing API** in the environment with it.   
 
-!!! warning
-    **For Secure Endpoint Enabled APIs:**
-
-    If you have enabled secure endpoints when creating the API and your username or/and password differs in the two environments, please follow the steps below before importing the API.    
-
-    1. Unzip the .zip archive created in the previous section.
-    2. Go to the `<API-name-version>/Meta-information` directory and open the `api.<json/yaml>` file.  
-    For example, go to `PhoneVerification_1.0.0/Meta-information` directory and open the `api.yaml` file.  
-    3. Modify the `endpointUTPassword` with your endpoint password and save the `api.yaml` file.
-    4. Compress the `<API-name-version>` directory. (or you can import the extracted folder)
-    For example, compress the `PhoneVerification_1.0.0` directory.
-
 1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
     !!! tip
@@ -411,15 +399,6 @@ You can use the API archive exported from the previous section (or you can extra
     2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
     3.  Restart API Manager 4.0.0 server.
-
-!!! warning
-    If you have enabled Secure Endpoint (Refer [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information), the endpoint password will be removed when exporting an API causing an error when you try to import the same API to an environment. There are 2 solutions for this.
-
-    1.  If Secure Endpoint is enabled and if the endpoint password should be exposed;
-    `ExposeEndpointPassword` should be set to `true` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry so that the exported API will contain the endpoint password.
-
-    2.  Or else, if Secure Endpoint is enabled and if the endpoint password should not be exposed;
-    `ExposeEndpointPassword` should be set to `false` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry (by default this is set to `false`). Here, the secure endpoint password is removed while exporting the API, since it may cause security issues. Hence, the password needs to be added manually when importing the API.
 
 ### Import/Export APIs in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.
