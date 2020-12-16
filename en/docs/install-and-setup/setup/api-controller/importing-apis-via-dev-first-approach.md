@@ -425,12 +425,23 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
         ├── in-sequence
         └── out-sequence</code></pre>
             </td>
-            <td>To add custom sequences, save them in XML format and add them to the corresponding folder. For example, to add a custom in-sequence, save the custom sequence as <code>       SampleSequence.xml</code> and add it to the <code>Sequences/in-sequence/</code>directory.</td>
+            <td>To add custom sequences, save them in XML format and add them to the corresponding folder. For example, to add a custom in-sequence, save the custom sequence as <code>       SampleSequence.xml</code> and add it to the <code>Sequences/in-sequence/Custom</code>directory.</td>
         </tr>
         <tr class="even">
-        <td><pre><code>Docs</code></pre>
-        </td>
+        <td>Client-certificates</td>
+        <td>Contains the client certificates for Mutual SSL enabled APIs.</td>
+        </tr>
+        <tr class="odd">
+        <td>Docs</td>
         <td>Contains the documents.</td>
+        </tr>
+        <tr class="even">
+        <td>Endpoint-certificates</td>
+        <td>Contains the endpoint certificates for endpoint security enabled APIs.</td>
+        </tr>
+        <tr class="odd">
+        <td><Image</td>
+        <td>Contains the thumbnail image of the API.</td>
         </tr>
         </tbody>
     </table>
