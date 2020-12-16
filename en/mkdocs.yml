@@ -476,7 +476,13 @@ nav:
                   - Receiving Data in Transit: use-cases/streaming-usecase/receiving-data-in-transit.md
                   - Loading and Writing Data: use-cases/streaming-usecase/loading-and-writing-date.md
                   - Publishing Data: use-cases/streaming-usecase/publishing-data-to-event-stream-consumers.md
-                  - Processing Data: use-cases/streaming-usecase/processing-data.md
+                  - Stream Processing:
+                        - Stream Processing Overview: use-cases/streaming-usecase/processing-data.md
+                        - Cleansing Data: use-cases/streaming-usecase/cleansing-data.md
+                        - Transforming Data: use-cases/streaming-usecase/transforming-data.md
+                        - Enriching Data: use-cases/streaming-usecase/enriching-data.md
+                        - Summarizing Data: use-cases/streaming-usecase/summarizing-data.md
+                        - Correlating Data: use-cases/streaming-usecase/correlating-data.md
                   - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                   - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                   - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
