@@ -3,11 +3,11 @@
 WSO2 API Controller, **apictl** allows you to maintain multiple environments running on the same WSO2 API-M version. This allows you to import and export APIs between your environments. For example, if you have an API running in the development environment, you can export it and import it to the production environment. Thereby, APIs do not have to be created from scratch in different environments.
 
 !!! info
-    **Before you begin** 
+    **Before you begin**
 
-    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure the WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
-    -  Make sure to add an environment before you start working with the following CTL commands, because all APIs need to be imported or exported to/from a specific environment.      
+    -  Add an environment before you start working with the following CTL commands, because all APIs need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! tip
@@ -137,13 +137,13 @@ The structure of an exported API ZIP file is explained below:
         </tr>
         <tr class="even">
             <td>Client-certificates</td>
-            <td>If the API is secured using MutualSSL, this folder will contain the information related to those.
+            <td>If the API is secured using MutualSSL, this folder contains the information related to those.
                 <ul>
                     <li>
-                        <code>client_certificates.yaml</code>: This will contain the information such as alias, certificate file name, tier name and the API Identifier (with the API name, version and the provider name). 
+                        <code>client_certificates.yaml</code>: This contains the information such as alias, certificate file name, tier name and the API Identifier (with the API name, version and the provider name). 
                     </li>
                 </ul>
-            Apart from the above <code>client_certificates.yaml</code> file, this folder will contain the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
+            Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
 version: v4
@@ -171,7 +171,7 @@ apiIdentifier:
         </tr>
         <tr class="odd">
             <td>Definitions</td>
-            <td> This folder will contain the definition file associated to a particular API.
+            <td> This folder contains the definition file associated to a particular API.
                 <ul>
                     <li><code>swagger.yaml</code>: It contains the API Swagger definition.</li>
                     <li><code>schema.graphql</code>: If API is a GraphQL API, this contains the GraphQL schema definition.</li>
@@ -180,7 +180,7 @@ apiIdentifier:
         </tr>
         <tr class="even">
             <td>Docs</td>
-            <td> This folder will contain documentation attached to a particular API. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
+            <td> This folder contains documentation attached to a particular API. Each document will have a seperate folder by its name. Each folder contains a file named <code>document.yaml</code> which contains the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
 version: v4
@@ -194,20 +194,20 @@ data:
   visibility: API_LEVEL
             </pre></code>
             The above example denotes a document for a <b>FILE</b> named <code>document-file.pdf</code>. The corresponding file will be inside the individual folder of the <b>Docs</b> directory. 
-            <br>If the user have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc2</code>).
-            <br> Similarly if the user have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc3</code>).
+            <br>If the you have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc2</code>).
+            <br> Similarly if the you have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc3</code>).
             <br> If the document is just a URL, the <code>sourceType</code> will be changed to <b>URL</b> and a field named <code>sourceURL</code> will be there which will consist the URL of the document.
             </td>
         </tr>
         <tr class="odd">
             <td>Endpoint-certificates</td>
-            <td>If the API is secured using endpoint certificates, this folder will contain the information related to those.
+            <td>If the API is secured using endpoint certificates, this folder contains the information related to those.
                 <ul>
                     <li>
-                        <code>endpoint_certificates.yaml</code>: This will contain the information such as alias, certificate file name and the endpoint to which the certificate is attached to. 
+                        <code>endpoint_certificates.yaml</code>: This contains the information such as alias, certificate file name and the endpoint to which the certificate is attached to. 
                     </li>
                 </ul>
-            Apart from the above <code>endpoint_certificates.yaml</code> file, this folder will contain the certificate files (.crt). Those file names should be included in the  <code>endpoint_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>endpoint_certificates.yaml</code> file which has mapped the certificates Alias3.crt and Alias4.crt to the corresponding aliases Alias3 and Alias4 accordingly. 
+            Apart from the above <code>endpoint_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>endpoint_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>endpoint_certificates.yaml</code> file which has mapped the certificates Alias3.crt and Alias4.crt to the corresponding aliases Alias3 and Alias4 accordingly. 
             <pre><code>
 type: endpoint_certificates
 version: v4
