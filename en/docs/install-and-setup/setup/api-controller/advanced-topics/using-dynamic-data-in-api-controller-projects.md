@@ -11,11 +11,12 @@ Follow the instructions below to initialize an API Project with environment vari
 1.  Create a file `api-env-config.yaml` with the below content.
 
     ```bash
-    id:
-        apiName: $APINAME
+    type: api
+    version: v4
+    data:
+        name: $APINAME
+        context: /petstore/$APIVERSION
         version: $APIVERSION
-    context: /petstore/$APIVERSION
-    contextTemplate: /petstore/{version}
     ```
 
 2.  Export the environment variables with required values.
@@ -38,17 +39,18 @@ Follow the instructions below to initialize an API Project with environment vari
 
     !!! tip
 
-        Upon successful completion of the above command, the CTL will automatically inject the environment variable values to the API artifact in the API project. Open `PetstoreProject/Meta-information/api.yaml` and check the above values are correctly injected.
+        Upon successful completion of the above command, the CTL will automatically inject the environment variable values to the API artifact in the API project. Open `PetstoreProject/api.yaml` and check the above values are correctly injected.
 
         ```
-        id:
-            providerName: admin
-            apiName: Petstore
+        type: api
+        version: v4
+        data:
+            name: Petstore
+            description: 'This is a sample server Petstore server.  You can find out more about
+                Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For
+                this sample, you can use the api key `special-key` to test the authorization filters.'
+            context: /petstore/1.0.0
             version: 1.0.0
-        description: 'This is a sample server Petstore server.  You can find out more ..'
-        type: HTTP
-        context: /petstore/1.0.0
-        contextTemplate: /petstore/{version}
         ...
         ```
 
@@ -143,24 +145,36 @@ For example, consider we need to send a special header to the backend when calli
     </sequence>
     ```
 
-2. Open `PetstoreProject/Meta-information/api.yaml` and change below settings.
+2. Open `PetstoreProject/api.yaml` and change below settings.
 
-    1. Replace `status` value from `CREATED` to `PUBLISHED`. This is to ensure that the API will be Published once imported.
-    2. Add `inSequence: custom-header-in`
+    1. Replace `lifeCycleStatus` value from `CREATED` to `PUBLISHED`. This is to ensure that the API will be Published once imported.
+    2. Add the mediation policy under the field (list) `mediationPolicies` as shown below. (Since you are adding an `IN` sequence the `type` should be specified as `IN`)
+
+       ```yaml
+       mediationPolicies:
+       -
+            name: custom-header-in
+            type: IN
+            shared: false
+       ```
 
     A sample configuration after applying the above changes is shown below.
 
     ```yaml
-    id:
-        providerName: admin
-        apiName: Petstore
+    type: api
+    version: v4
+    data:
+        name: Petstore
+        description: 'This is a sample server Petstore server.  You can find out more about
+            Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For
+            this sample, you can use the api key `special-key` to test the authorization filters.'
+        context: /petstore/1.0.0
         version: 1.0.0
-    description: 'This is a sample server Petstore server...'
-    type: HTTP
-    context: /petstore/1.0.0
-    contextTemplate: /petstore/{version}
-    inSequence: custom-header-in
-    status: PUBLISHED
+        mediationPolicies:
+        -
+            name: custom-header-in
+            type: IN
+            shared: false
     ...
     ```
 

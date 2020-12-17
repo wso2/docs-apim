@@ -34,73 +34,109 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
             !!! note
-                Note that API definition is different from Swagger2 or OpenAPI3 specification. The following is a sample API definition used to generate an API Project.
+                Note that API definition is different from Swagger2 or OpenAPI3 specification. The following is a sample API definition that can be used to generate an API Project.
     
                 !!! example
                        ```yaml
-                       id:
-                         providerName: admin
-                         apiName: PizzaShackAPI
-                         version: 1.0.0
-                       uuid: 8d87e646-f7c5-4dc2-9f45-64903ecccca4
-                       description: This is a simple API for Pizza Shack online pizza delivery store.
-                       type: HTTP
-                       context: /pizzashack/1.0.0
-                       contextTemplate: /pizzashack/{version}
-                       tags:
-                       - pizza
-                       availableTiers:
-                       - name: Unlimited
-                         displayName: Unlimited
-                         description: Allows unlimited requests
-                         requestsPerMin: 2147483647
-                         requestCount: 2147483647
-                         timeUnit: ms
-                         tierPlan: FREE
-                         stopOnQuotaReached: true
-                       status: PUBLISHED
-                       technicalOwner: John Doe
-                       technicalOwnerEmail: architecture@pizzashack.com
-                       businessOwner: Jane Roe
-                       businessOwnerEmail: marketing@pizzashack.com
-                       visibility: public
-                       transports: http,https
-                       corsConfiguration:
-                         accessControlAllowOrigins:
-                         - '*'
-                         accessControlAllowHeaders:
-                         - authorization
-                         - Access-Control-Allow-Origin
-                         - Content-Type
-                         - SOAPAction
-                         - apikey
-                         - testKey
-                         accessControlAllowMethods:
-                         - GET
-                         - PUT
-                         - POST
-                         - DELETE
-                         - PATCH
-                         - OPTIONS
-                       productionUrl: http://localhost:8080
-                       sandboxUrl: http://localhost:8081
-                       endpointConfig: '{"endpoint_type":"http","sandbox_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"},"production_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"}}'
-                       responseCache: Disabled
-                       cacheTimeout: 300
-                       implementation: ENDPOINT
-                       authorizationHeader: Authorization
-                       environments:
-                       - Production and Sandbox
-                       createdTime: "1599638524995"
-                       environmentList:
-                       - SANDBOX
-                       - PRODUCTION
-                       apiSecurity: oauth2,oauth_basic_auth_api_key_mandatory
-                       accessControl: all
-                       isLatest: true
-                       enableStore: true
-                       keyManagers:
-                       - all
+                        type: api
+                        version: v4
+                        data:
+                            name: PizzaShackAPI
+                            description: This is a simple API for Pizza Shack online pizza delivery store.
+                            context: /pizzashack
+                            version: 1.0.0
+                            provider: admin
+                            lifeCycleStatus: PUBLISHED
+                            cacheTimeout: 300
+                            enableStore: true
+                            type: HTTP
+                            transport:
+                            - http
+                            - https
+                            tags:
+                            - pizza
+                            policies:
+                            - Unlimited
+                            authorizationHeader: Authorization
+                            securityScheme:
+                            - oauth2
+                            - oauth_basic_auth_api_key_mandatory
+                            visibility: PUBLIC
+                            gatewayEnvironments:
+                            - Production and Sandbox
+                            subscriptionAvailability: CURRENT_TENANT
+                            accessControl: NONE
+                            businessInformation:
+                                businessOwner: Jane Roe
+                                businessOwnerEmail: marketing@pizzashack.com
+                                technicalOwner: John Doe
+                                technicalOwnerEmail: architecture@pizzashack.com
+                            corsConfiguration:
+                                accessControlAllowCredentials: false
+                                accessControlAllowHeaders:
+                                - authorization
+                                - Access-Control-Allow-Origin
+                                - Content-Type
+                                - SOAPAction
+                                - apikey
+                                - testKey
+                                accessControlAllowMethods:
+                                - GET
+                                - PUT
+                                - POST
+                                - DELETE
+                                - PATCH
+                                - OPTIONS
+                                accessControlAllowOrigins:
+                                - '*'
+                                corsConfigurationEnabled: false
+                            createdTime: Dec 14, 2020 3:52:06 PM
+                            lastUpdatedTime: Dec 14, 2020 3:52:28 PM
+                            endpointConfig:
+                                endpoint_type: http
+                                production_endpoints:
+                                    url: https://localhost:9443/am/sample/pizzashack/v1/api/
+                                sandbox_endpoints:
+                                    url: https://localhost:9443/am/sample/pizzashack/v1/api/
+                            endpointImplementationType: ENDPOINT
+                            operations:
+                            - authType: Application & Application User
+                                id: ""
+                                scopes: []
+                                target: /order
+                                throttlingPolicy: Unlimited
+                                usedProductIds: []
+                                verb: POST
+                            - authType: Application & Application User
+                                id: ""
+                                scopes: []
+                                target: /menu
+                                throttlingPolicy: Unlimited
+                                usedProductIds: []
+                                verb: GET
+                            - authType: Application & Application User
+                                id: ""
+                                scopes: []
+                                target: /order/{orderId}
+                                throttlingPolicy: Unlimited
+                                usedProductIds: []
+                                verb: GET
+                            - authType: Application & Application User
+                                id: ""
+                                scopes: []
+                                target: /order/{orderId}
+                                throttlingPolicy: Unlimited
+                                usedProductIds: []
+                                verb: PUT
+                            - authType: Application & Application User
+                                id: ""
+                                scopes: []
+                                target: /order/{orderId}
+                                throttlingPolicy: Unlimited
+                                usedProductIds: []
+                                verb: DELETE
+                            keyManagers:
+                            - all
                        ```
 
             
@@ -354,14 +390,13 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
      A project folder with the following default structure will be created in the given directory.
 
     ``` java
-    ├── api_params.yaml
+    ├── api.yaml
+    ├── Client-certificates
+    ├── Definitions
+    │   └── swagger.yaml
     ├── Docs
-    │    └── FileContents
+    ├── Endpoint-certificates
     ├── Image
-    ├── Meta-information
-    │    ├── api.yaml
-    │    └── swagger.yaml
-    ├── README.md
     └── Sequences
         ├── fault-sequence
         ├── in-sequence
@@ -384,23 +419,29 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
                 <td><code>swagger.yaml</code></td>
                 <td>The Swagger file that is generated when the API is created.</td>
             </tr>
-            <tr class="odd">
-                <td><code>api_params.yaml</code></td>
-                <td>Contains environment-specific details.</td>
-            </tr>
-        <tr class="even">
+        <tr class="odd">
             <td><pre><code>Sequences
         ├── fault-sequence
         ├── in-sequence
         └── out-sequence</code></pre>
             </td>
-            <td>To add custom sequences, save them in XML format and add them to the corresponding folder. For example, to add a custom in-sequence, save the custom sequence as <code>       SampleSequence.xml</code> and add it to the <code>Sequences/in-sequence/</code>directory.</td>
+            <td>To add custom sequences, save them in XML format and add them to the corresponding folder. For example, to add a custom in-sequence, save the custom sequence as <code>       SampleSequence.xml</code> and add it to the <code>Sequences/in-sequence/Custom</code>directory.</td>
         </tr>
         <tr class="even">
-        <td><pre><code>Docs
-      |── FileContents</code></pre>
-        </td>
-        <td>Contains the documents. To add a new document, add the document in the <code>Docs/FileContents/</code>directory.</td>
+        <td>Client-certificates</td>
+        <td>Contains the client certificates for Mutual SSL enabled APIs.</td>
+        </tr>
+        <tr class="odd">
+        <td>Docs</td>
+        <td>Contains the documents.</td>
+        </tr>
+        <tr class="even">
+        <td>Endpoint-certificates</td>
+        <td>Contains the endpoint certificates for endpoint security enabled APIs.</td>
+        </tr>
+        <tr class="odd">
+        <td><Image</td>
+        <td>Contains the thumbnail image of the API.</td>
         </tr>
         </tbody>
     </table>
@@ -411,22 +452,32 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
         When you create an API Project, APIs are generated using the default template specified in `<USER_HOME>/.wso2apictl/default_api.yaml` file. Following is the default template used to generate API Projects.  
 
         ```bash
-        id:
-            providerName: admin
+        type: api
+        version: v4
+        data:
+            name : null
             version: 1.0.0
-            apiName:
-        context:
-        type: HTTP
-        availableTiers:
-            - name: Unlimited
-        status: CREATED
-        visibility: public
-        transports: http,https
-        productionUrl: http://localhost:8080
-        sandboxUrl: http://localhost:8081
+            context: null
+            enableStore: true
+            endpointConfig:
+                endpoint_type: http
+                production_endpoints:
+                    url: http://localhost:8080
+                sandbox_endpoints:
+                    url: http://localhost:8081
+            endpointImplementationType: ENDPOINT
+            lifeCycleStatus: CREATED
+            policies:
+            - Unlimited
+            provider: admin
+            transport:
+            - http
+            - https
+            type: HTTP
+            visibility: PUBLIC
         ```
 
-        This file contains the same notation as the `<API-Project>/Meta-information/api.yaml`. Organization-specific common API related details can be put into this template file and shared across developers.
+        This file contains the same notation as the `<API-Project>/api.yaml`. Organization-specific common API related details can be put into this template file and shared across developers.
 
         To further finetune API creation, a custom API Definition file can be used. If you need to use a specific definition file when generating a certain API project, use the `--definition` or `-d` flag along with `apictl init` command. The custom definition file should be in YAML format only.
 
@@ -434,33 +485,43 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
         When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data).
 
-4. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
+4. Open the `<API Project>/api.yaml` file. You can edit the **mandatory configurations** in the field named `data` as listed below.
 
     | Field                                        | Description                                             |
     |----------------------------------------------|---------------------------------------------------------|
-    | `apiName`| The name of API without spaces.                         |
+    | `name`| The name of API without spaces.                         |
     | `context`| Context of the API in API Manager with a leading slash. |
-    | `productionUrl` | Production endpoint for API.                            |
-    | `sandboxUrl`| Sandbox endpoint for API.                               |
+    | `production_endpoints` | Production endpoints for API.                            |
+    | `sandbox_endpoints`| Sandbox endpoint for API.                               |
 
     For more information about the configurations, see the [Sample_Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/box/resources/init/sample_api.yaml).
 
     **api.yaml**
 
     ``` bash
-    id:
-        providerName: admin
-        apiName: "SampleAPI"
-        version: 1.0.0
-    type: HTTP
-    context: "/samplecontext"
-    availableTiers:
-        - name: Unlimited
-    status: PUBLISHED
-    visibility: public
-    transports: http,https
-    productionUrl: http://localhost:8080
-    sandboxUrl: http://localhost:8081
+        type: api
+        version: v4
+        data:
+            name : SampleAPI
+            version: 1.0.0
+            context: /sampleapi
+            enableStore: true
+            endpointConfig:
+                endpoint_type: http
+                production_endpoints:
+                    url: http://prod.wso2.com
+                sandbox_endpoints:
+                    url: http://sand.wso2.com
+            endpointImplementationType: ENDPOINT
+            lifeCycleStatus: CREATED
+            policies:
+            - Unlimited
+            provider: admin
+            transport:
+            - http
+            - https
+            type: HTTP
+            visibility: PUBLIC
     ```
 
 

@@ -9,12 +9,6 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 
     -  Make sure to add an environment before you start working with the following CTL commands, because all API Products need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
-    
-!!! tip
-    -  Only the following types of users are allowed to export and import API Products.  
-        -   A user with the `admin` role.
-        -   A user with a role having `apim:api_product_import_export` Admin REST API scope with `API Create` and `API Publish` permissions.
-    - Refer [Creating Custom Users to Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations) for more information.
 
 ### Export an API Product
 
@@ -75,30 +69,121 @@ The exported ZIP file has the following structure:
 
 ``` java
 <APIProductName>-version
+├── api.yaml
+├── Client-certificates
+│   ├── Alias1.crt
+│   ├── Alias2.crt
+│   └── client_certificates.yaml
 ├── APIs
 │    ├── <1stAPIName>_version
 │    |── <2ndAPIName>_version
 |    |── 
 |    └── <NthAPIName>_version
-├── Meta-information
-│    ├── api.yaml
+├── Definitions
 |    └── swagger.yaml
 ├── Docs
-|    |── FileContents
-│    |── InlineContents
-|    └── docs.yaml
+│   ├── Doc1
+│   │   ├── document-file.pdf
+│   │   └── document.yaml
+│   ├── Doc2
+│   │   ├── Doc2
+│   │   └── document.yaml
+│   ├── Doc3
+│   │   ├── Doc3
+│   │   └── document.yaml
+│   └── Doc4
+│       └── document.yaml
 └── Image
-     └── icon.extension   
+     └── <imageName>.extension 
 ```
 
 The structure of an exported API Product ZIP file is explained below:
-                                                                                                                  
-| Sub Directory/File | Description                                                                                                                                                                                                                                                                                                                                                                       |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| APIs   | Dependent APIs (the APIs which the resources of the API Product belong to) will be exported into subfolders with the name format <APIName\>_version. |
-| Meta-information   | **api.yaml**: It contains all the basic information required for an API Product to be imported to another environment. <br/> **swagger.yaml**: It contains the API Product Swagger definition. |
-| Docs               | **docs.yaml**: It contains the summary of all the documents available for the API Product <br/> **FileContents**: It contains the uploaded file type documents available for the API Product <br/> **InlineContents**: It contains inline and Markdown type documents available for the API Product.                                                                                                                                        |
-| Image              | Thumbnail image of the API Product                                                                                                                                                                                                   |    
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Sub Directory/File</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>api.yaml</code></td>
+            <td>Contains all the basic information required for an API Product to be imported to another environment.</td>
+        </tr>
+        <tr class="even">
+            <td>APIs</td>
+            <td>Dependent APIs (the APIs which the resources of the API Product belong to) will be exported into subfolders with the name format <code>&lt;APIName&gt;_version</code>.</td>
+        </tr>
+        <tr class="odd">
+            <td>Client-certificates</td>
+            <td>If the API Product is secured using MutualSSL, this folder will contain the information related to the API Product.
+                <ul>
+                    <li>
+                        <code>client_certificates.yaml</code>: Contains the information such as alias, certificate file name, tier name and the API Identifier (with the API Product name, version which is 1.0.0 by default and the provider name). 
+                    </li>
+                </ul>
+            Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). These file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
+            <pre><code>
+type: client_certificates
+version: v4
+data:
+-
+alias: Alias1
+certificate: Alias1.crt
+tierName: Bronze
+apiIdentifier:
+    providerName: admin
+    apiName: LeasingAPIProduct
+    version: 1.0.0
+    id: 0
+-
+alias: Alias2
+certificate: Alias2.crt
+tierName: Gold
+apiIdentifier:
+    providerName: admin
+    apiName: LeasingAPIProduct
+    version: 1.0.0
+    id: 0
+            </code></pre>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>Definitions</td>
+            <td> This folder will contain the definition file associated to a particular API Product.
+                <ul>
+                    <li><code>swagger.yaml</code>: It contains the API Product Swagger definition.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>Docs</td>
+            <td> This folder will contain documentation attached to a particular API Product. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
+            <pre><code>
+type: document
+version: v4
+data:
+  documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
+  name: Doc1
+  type: HOWTO
+  summary: This is the sample summary
+  sourceType: FILE
+  fileName: document-file.pdf
+  visibility: API_LEVEL
+            </pre></code>
+            The above example denotes a document for a <b>FILE</b> named <code>document-file.pdf</code>. The corresponding file will be inside the individual folder of the <b>Docs</b> directory. 
+            <br>If the you have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc2</code>).
+            <br> Similarly if you have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc3</code>).
+            <br> If the document is just a URL, the <code>sourceType</code> will be changed to <b>URL</b> and a field named <code>sourceURL</code> will be there which will consist the URL of the document.
+            </td>
+        </tr>
+        <tr class="even">
+            <td>Image</td>
+            <td>Thumbnail image of the API Product.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Import an API Product
 
@@ -211,11 +296,11 @@ You can use the API Product archive exported from the previous section (or you c
         
     After importing, if the API Products or the dependent APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the API Manager 3.2.0, backup and delete the `<API-M_3.2.0_HOME>/solr` directory.
+    1.  Shut down the API Manager 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.2.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart API Manager 3.2.0 server.
+    3.  Restart API Manager 4.0.0 server.
 
 ### Import/Export API Products in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing API Products between tenanted environments.
