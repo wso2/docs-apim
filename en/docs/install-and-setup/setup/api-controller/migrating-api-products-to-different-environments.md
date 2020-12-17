@@ -109,7 +109,7 @@ The structure of an exported API Product ZIP file is explained below:
     <tbody>
         <tr class="odd">
             <td><code>api.yaml</code></td>
-            <td>It contains all the basic information required for an API Product to be imported to another environment.</td>
+            <td>Contains all the basic information required for an API Product to be imported to another environment.</td>
         </tr>
         <tr class="even">
             <td>APIs</td>
@@ -117,13 +117,13 @@ The structure of an exported API Product ZIP file is explained below:
         </tr>
         <tr class="odd">
             <td>Client-certificates</td>
-            <td>If the API Product is secured using MutualSSL, this folder will contain the information related to those.
+            <td>If the API Product is secured using MutualSSL, this folder will contain the information related to the API Product.
                 <ul>
                     <li>
-                        <code>client_certificates.yaml</code>: This will contain the information such as alias, certificate file name, tier name and the API Identifier (with the API Product name, version which is 1.0.0 by default and the provider name). 
+                        <code>client_certificates.yaml</code>: Contains the information such as alias, certificate file name, tier name and the API Identifier (with the API Product name, version which is 1.0.0 by default and the provider name). 
                     </li>
                 </ul>
-            Apart from the above <code>client_certificates.yaml</code> file, this folder will contain the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
+            Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). These file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
 version: v4
@@ -173,8 +173,8 @@ data:
   visibility: API_LEVEL
             </pre></code>
             The above example denotes a document for a <b>FILE</b> named <code>document-file.pdf</code>. The corresponding file will be inside the individual folder of the <b>Docs</b> directory. 
-            <br>If the user have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc2</code>).
-            <br> Similarly if the user have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (Example:- <code>Doc3</code>).
+            <br>If the you have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc2</code>).
+            <br> Similarly if you have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc3</code>).
             <br> If the document is just a URL, the <code>sourceType</code> will be changed to <b>URL</b> and a field named <code>sourceURL</code> will be there which will consist the URL of the document.
             </td>
         </tr>
