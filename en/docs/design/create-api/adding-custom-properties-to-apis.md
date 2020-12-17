@@ -31,7 +31,7 @@ After the custom properties have been added, you can [search for APIs using cust
 
       [![Add new property menu]({{base_path}}/assets/img/learn/properties-add-property.png)]({{base_path}}/assets/img/learn/properties-add-property.png)
 
-4. Enter a custom property name and value (e.g., property name: environment, property value: preprod) and click **ADD** to add it.
+4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark devportal visibility as appropriate and click **ADD** to add it.
 
       [![Add new property]({{base_path}}/assets/img/learn/add-new-property.png)]({{base_path}}/assets/img/learn/add-new-property.png)
 
