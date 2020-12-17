@@ -1,0 +1,268 @@
+# ServiceNow Connector Reference
+
+The following operations allow you to work with the ServiceNow Connector. Click an operation name to see parameter details and samples on how to use it.
+
+---
+
+## Initialize the connector
+
+To use the ServiceNow connector, add the <servicenow.init> element in your configuration before carrying out any other ServiceNow operations.
+
+The ServiceNow API requires all requests to be authenticated as a user. User has to create a own instance with his user credentials. When u create a account in ServiceNow Developer page then you are enable to create your own instance. For more information, see [the ServiceNow Developer page](https://developer.servicenow.com/app.do#!/home).
+
+??? note "servicenow.init"
+    The servicenow.init operation initializes the connector to interact with the ServiceNow API. For more information, see [the API documentation](http://wiki.servicenow.com/index.php?title=REST_API#gsc.tab=0).
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>serviceNowInstanceURL</td>
+            <td>The base endpoint URL of the ServiceNow API. </td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>The user Name of the own instance.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>The Password of the own instance.</td>
+            <td>Yes.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.init>
+         <serviceNowInstanceURL>{$ctx:serviceNowInstanceURL}</serviceNowInstanceURL>
+         <username>{$ctx:username}</username>
+         <password>{$ctx:password}</password>
+    </servicenow.init>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "serviceNowInstanceURL":"https://dev17686.service-now.com", 
+        "username":"admin",
+        "password":"12345"
+    }
+    ```
+
+---
+
+### Aggregate API
+
+??? note "servicenow.getAggregateRecord"
+    The getAggregateRecord operation allows you to compute aggregate statistics about existing table and column data.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableName</td>
+            <td>Name of the table you want to retrieve a record.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysparmAvgFields</td>
+            <td>A comma-separated list of fields for which to calculate the average value.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysparmMinFields</td>
+            <td>A comma-separated list of fields for which to calculate the minimum value.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysparmMaxFields</td>
+            <td>A comma-separated list of fields for which to calculate the maximum value.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysparmCount</td>
+            <td>You can set this parameter to true for the number of records returned by the query.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysparmSumFields</td>
+            <td>A comma-separated list of fields for which to calculate the sum of the values.</td>
+            <td>Yes.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.getAggregateRecord>
+        <tableName>{$ctx:tableName}</tableName>
+        <sysparmAvgFields>{$ctx:sysparmAvgFields}</sysparmAvgFields>
+        <sysparmMinFields>{$ctx:sysparmMinFields}</sysparmMinFields>
+        <sysparmMaxFields>{$ctx:sysparmMaxFields}</sysparmMaxFields>
+        <sysparmCount>{$ctx:sysparmCount}</sysparmCount>
+        <sysparmSumFields>{$ctx:sysparmSumFields}</sysparmSumFields>
+    </servicenow.getAggregateRecord>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "serviceNowInstanceURL":"https://dev17686.service-now.com", 
+        "username":"admin",
+        "password":"12345",
+        "tableName":"incident",
+        "sysparmAvgFields":"category,active",
+        "sysparmMinFields":"number",
+        "sysparmMaxFields":"number",
+        "sysparmCount":"true",
+        "sysparmSumFields":"priority"
+    }
+    ```
+
+---
+
+### Import Set API
+
+??? note "servicenow.getRecordStagingTable"
+    The getRecordStagingTable operation retrieves the associated record and resulting transformation result.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableNameStaging</td>
+            <td>Name of the staging table you want to retrieve records.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>sysIdStaging</td>
+            <td>The Id that is automatically generated by ServiceNow. It is a unique value for each record.</td>
+            <td>Yes.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.getRecordsStagingTable>
+        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
+        <sysIdStaging>{$ctx:sysIdStaging}</sysIdStaging>
+    </servicenow.getRecordsStagingTable>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "serviceNowInstanceURL":"https://dev17686.service-now.com", 
+        "username":"admin",
+        "password":"12345",
+        "tableName":"incident",
+        "sysparmAvgFields":"category,active",
+        "sysparmMinFields":"number",
+        "sysparmMaxFields":"number",
+        "sysparmCount":"true",
+        "sysparmSumFields":"priority"
+    }
+    ```
+
+??? note "servicenow.postRecordStagingTable"
+    The postRecordStagingTable operation inserts incoming data into a specified staging table and triggers transformation based on predefined transform maps in the import set table.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>tableNameStaging</td>
+            <td>Name of the staging table you want to retrieve records.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>serialNumber</td>
+            <td>This is an attribute in the table. Specify the row value for serialNumber.</td>
+            <tdh>Yes.</td>
+        </tr>
+        <tr>
+            <td>cpuCount</td>
+            <td>This is an attribute in the table. Specify the row value for cpuCount.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>manufacturer</td>
+            <td>This is an attribute in the table. Specify the row value for manufacturer.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>This is an attribute in the table. Specify the row value for name.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>operatingSystem</td>
+            <td>This is an attribute in the table. Specify the row value for operatingSystem.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>diskSpace</td>
+            <td>This is an attribute in the table. Specify the row value for diskSpace.</td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>ram</td>
+            <td>This is an attribute in the table. Specify the row value for ram. </td>
+            <td>Yes.</td>
+        </tr>
+        <tr>
+            <td>apiColumns</td>
+            <td>The attribute values of your table in your instance.</td>
+            <td>Yes.</td>
+        </tr>
+    </table>
+
+    **Sample configurations**
+
+    ```xml
+    <servicenow.postRecordStagingTable>
+        <tableNameStaging>{$ctx:tableNameStaging}</tableNameStaging>
+        <serialNumber>{$ctx:serialNumber}</serialNumber>
+        <cpuCount>{$ctx:cpuCount}</cpuCount>
+        <manufacturer>{$ctx:manufacturer}</manufacturer>
+        <name>{$ctx:name}</name>
+        <operatingSystem>{$ctx:operatingSystem}</operatingSystem>
+        <diskSpace>{$ctx:diskSpace}</diskSpace>
+        <ram>{$ctx:ram}</ram>
+        <apiColumns>{$ctx:apiColumns}</apiColumns>
+    </servicenow.postRecordStagingTable>
+    ```
+
+    **Sample request**
+
+    ```json
+    {
+        "serviceNowInstanceURL":"https://dev17686.service-now.com",
+        "username":"admin",
+        "password":"12345",
+        "tableNameStaging":"imp_computer",
+        "serialNumber":"282",
+        "cpuCount":"234",
+        "name":"Mac",
+        "operatingSystem":"ubunthu",
+        "manufacturer":"IBM",
+        "diskSpace":"400Gb",
+        "ram":"ram 1500",
+        "apiColumns": {"sys_mod_count":"2","sys_import_state_comment":"wwww"}
+    }
+    ```
