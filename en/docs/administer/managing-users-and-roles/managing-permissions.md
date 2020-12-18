@@ -159,6 +159,9 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
 
 ## Adding API-M specific Scope Assignments
 
+!!! important
+    This documentation has been updated based on the WUM updates released on 18/12/2020.
+
 !!! note
     Note that the role-scope assignments mentioned here are related to the internal API-M specific scope assignments 
     which is different from the [role-permission assignments]({{base_path}}/administer/managing-users-and-roles/managing-permissions/#role-based-permissions) done in the management console.
