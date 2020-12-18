@@ -949,7 +949,7 @@ nav:
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Connectors:
-            - 'Connectors Overview' : 'reference/connectors/connectors-overview.md'
+            - Connectors Overview : reference/connectors/connectors-overview.md
             - 'When to Use Connectors' : 'reference/connectors/why-connectors.md'
             - 'Connector Usage Guidelines' : 'reference/connectors/connector-usage.md'
             - 'Connector Developer Guidelines' : 'reference/connectors/develop-connectors.md'
