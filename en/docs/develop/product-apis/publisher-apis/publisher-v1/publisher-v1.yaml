@@ -2521,22 +2521,11 @@ paths:
           description: |
             OK.
             Successful response if the api name exist.
-          schema:
-            $ref: '#/definitions/Document'
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              type: string
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              type: string
         400:
           $ref: '#/responses/BadRequest'
-        404:
-          $ref: '#/responses/NotFound'
+        404: |
+          Not Found.
+          The specified resource does not exist.
 
   ######################################################
   # The "specific mediation policy" resource APIs
