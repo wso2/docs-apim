@@ -74,7 +74,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 Now, you have added two different environments. Our end goal is to automate the API migration between the `dev` and `prod` environments. Therefore, first, the API should be published in the `dev` environment using the API Publisher in WSO2 API Manager. 
 For more information on deploying an API in the API Manager, see the [Quick Start Guide](http://localhost:8000/getting-started/quick-start-guide/).   
 
-For this example, let's use the [Swagger Petstore API](https://petstore.swagger.io/). 
+For this example, let's use the [Swagger Petstore - OpenAPI 3.0](https://petstore3.swagger.io/). 
 
   1.  Sign in to the API Publisher.
        
