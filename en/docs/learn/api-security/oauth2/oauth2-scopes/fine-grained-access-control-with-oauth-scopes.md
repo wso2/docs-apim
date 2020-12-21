@@ -7,6 +7,7 @@ For example, there can be requirements such as restricting the access to a given
 !!! info
 
     When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior that it does not validate the roles in the user store. For this purpose, set the Java system property 'disableRoleValidationAtScopeCreation' to 'true' at the server startup:
+         
          Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
          Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
          Restart the server.
