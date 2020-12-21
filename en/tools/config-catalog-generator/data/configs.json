@@ -1687,6 +1687,14 @@
                             "description": "The SMTP server to connect to."
                         },
                         {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Signature of the sender account."
+                        },
+                        {
                             "name": "port",
                             "type": "string",
                             "required": false,
