@@ -22,7 +22,7 @@ Follow the instructions below to change your own password for the Developer Port
 
 !!! note
 
-    To disable Change Password for the Developer Portal add below configuration to `<APIM_HOME>/repository/conf/deployment.toml` file.
+    To disable Change Password for the Developer Portal, add below configuration to `<APIM_HOME>/repository/conf/deployment.toml` file.
     Add this before all the other `[apim.**]` tags in the deployment.toml file.
     
   ```
