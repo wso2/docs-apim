@@ -240,7 +240,7 @@ Follow the given steps to configure a read-only LDAP/AD as the primary user stor
     </UserManager>
     ```
 
-Apart from above properties WSO2 API Manager also supports advanced LDAP configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in Read-only LDAP user store managers](properties-used-in-read-only-ldap-user-store-managers). 
+Apart from above properties WSO2 API Manager also supports advanced LDAP configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in Read-only LDAP user store managers](properties-used-in-a-read-only-ldap-user-store-managers). 
 
 ### Step 2 - Update the system administrator
 
@@ -280,7 +280,7 @@ These two alternative configurations can be done as explained below.
 
 !!! note 
         Default LDAP server port of WSO2 IS is 10389. Based on your offset number provide the correct connection URL in `<API-M_HOME>/repository/conf/deployment.toml`.
-        For example of you specify the offset of 1 in WSO2 IS your connection URL should be `ldap://{connection_ip}:10390`.     
+        For example if you specify the offset of 1 in WSO2 IS your connection URL should be `ldap://{connection_ip}:10390`.     
 
 ### Step 4 - Start the API-M server
 
@@ -290,16 +290,17 @@ Start your APIM server and try to log in as the admin user you specified in **St
 sh wso2server.sh
 ```
 
-### Properties used in Read-only LDAP user store manager
+### Properties used in a Read-only LDAP user store manager
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
-`<API-M_HOME>/repository/conf/deployment.toml`.
+the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ``` toml
 [user_store]
 <Property-Name> = <Property-Value>
 ```
-For example :
+
+Example:
 
 ``` toml
 [user_store]
@@ -627,3 +628,4 @@ read_groups = true
  </tr>
  </tbody>
  </table>
+
