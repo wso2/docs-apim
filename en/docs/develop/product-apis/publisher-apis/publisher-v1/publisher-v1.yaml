@@ -2673,19 +2673,7 @@ paths:
         200:
           description: |
             OK.
-            Successful response if the api name exist.
-          schema:
-            $ref: '#/definitions/Document'
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              type: string
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              type: string
+            Successful response if the document name exists.
         400:
           description: |
             Bad Request.
@@ -2694,9 +2682,8 @@ paths:
             $ref: '#/definitions/Error'
         404:
           description: |
+            Not Found
             Requested document not found.
-          schema:
-            $ref: '#/definitions/Error'
 
   ######################################################
   # The "specific mediation policy" resource APIs
