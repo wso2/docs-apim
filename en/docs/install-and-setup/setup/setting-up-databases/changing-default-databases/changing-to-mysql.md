@@ -65,13 +65,13 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  Provide authorization to the user that you use to access the databases. 
 
-     For example, let's consider `apimadmin` and `regadmin` as the users.
+     For example, let's consider `apimadmin` and `sharedadmin` as the users.
 
     ``` java
     mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
     ``` java
-    mysql> GRANT ALL ON shared_db.* TO regadmin@localhost IDENTIFIED BY "regadmin";
+    mysql> GRANT ALL ON shared_db.* TO sharedadmin@localhost IDENTIFIED BY "sharedadmin";
     ```
 
     !!! info
@@ -86,11 +86,11 @@ Follow the  instructions below to set up a MySQL database:
         ```
         
         ``` java
-        mysql> CREATE USER 'regadmin'@'localhost' IDENTIFIED BY 'regadmin';
+        mysql> CREATE USER 'sharedadmin'@'localhost' IDENTIFIED BY 'sharedadmin';
         ```
         
         ``` java
-        mysql> GRANT ALL ON shared_db.* TO 'regadmin'@'localhost';
+        mysql> GRANT ALL ON shared_db.* TO 'sharedadmin'@'localhost';
         ```
 
 1.  After you have finalized the permissions, reload all the privileges.
@@ -127,7 +127,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
-    $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    $ mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
@@ -394,8 +394,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
 
     [database.apim_db]
     type = "mysql"
@@ -443,8 +443,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
