@@ -19,3 +19,13 @@ Follow the instructions below to change your own password for the Developer Port
      The new password should adhere to the custom password policies as described below.
 
      <img src="{{base_path}}/assets/img/learn/change-devportal-password-submiting.png" alt="Developer portal password change submit" width="600"/>
+
+!!! note
+
+    To disable Change Password for the Developer Portal add below configuration to `<APIM_HOME>/repository/conf/deployment.toml` file.
+    Add this before all the other `[apim.**]` tags in the deployment.toml file.
+    
+  ```
+  [apim]
+  enable_change_password = false
+  ```
