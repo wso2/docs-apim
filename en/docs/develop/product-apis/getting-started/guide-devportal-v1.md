@@ -58,7 +58,7 @@ Token response:
 
 Now you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
 
-Further, to configure the Dev Portal REST API please do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
+Further, to configure the Dev Portal REST API, do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
 
 !!! note
-    To get a detailed overview of Dev Portal REST API follow [Developer Portal API v1]({{base_path}}/develop/product-apis/devportal-apis/devportal-v1/devportal-v1/).
+    To get a detailed overview of Dev Portal REST API, follow [Developer Portal API v1]({{base_path}}/develop/product-apis/devportal-apis/devportal-v1/devportal-v1/).
