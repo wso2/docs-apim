@@ -96,30 +96,30 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
 
 The registry data of API Manager is stored in the above-mentioned `jdbc/SHARED_DB` which has already been added to the EI `master-datasources.xml` file in the previous steps. 
 
-Add the following entries to the `<EI_HOME>/wso2/business-process/conf/registry.xml` file to share the same registry with EI in order to create a registry mount to share the data stored in the registry.
+1.  Add the following entries to the `<EI_HOME>/wso2/business-process/conf/registry.xml` file to share the same registry with EI in order to create a registry mount to share the data stored in the registry.
 
-``` xml
-<dbConfig name="sharedregistry">
-    <dataSource>jdbc/SHARED_DB</dataSource>
-</dbConfig>
- 
-<remoteInstance url="https://localhost:9443/registry">
-    <id>mount</id>
-    <dbConfig>sharedregistry</dbConfig>
-    <readOnly>false</readOnly>
-    <enableCache>true</enableCache>
-    <registryRoot>/</registryRoot>
-</remoteInstance>
-<!-- This defines the mount configuration to be used with the remote instance and the target path for the mount -->
-<mount path="/_system/config" overwrite="true">
-    <instanceId>mount</instanceId>
-    <targetPath>/_system/nodes</targetPath>
-</mount>
-<mount path="/_system/governance" overwrite="true">
-    <instanceId>mount</instanceId>
-    <targetPath>/_system/governance</targetPath>
-</mount>
-```
+	``` xml
+    <dbConfig name="sharedregistry">
+        <dataSource>jdbc/SHARED_DB</dataSource>
+    </dbConfig>
+     
+    <remoteInstance url="https://localhost:9443/registry">
+        <id>mount</id>
+        <dbConfig>sharedregistry</dbConfig>
+        <readOnly>false</readOnly>
+        <enableCache>true</enableCache>
+        <registryRoot>/</registryRoot>
+    </remoteInstance>
+    <!-- This defines the mount configuration to be used with the remote instance and the target path for the mount -->
+    <mount path="/_system/config" overwrite="true">
+        <instanceId>mount</instanceId>
+        <targetPath>/_system/nodes</targetPath>
+    </mount>
+    <mount path="/_system/governance" overwrite="true">
+        <instanceId>mount</instanceId>
+        <targetPath>/_system/governance</targetPath>
+    </mount>
+    ```
 
 ### Step 3 - Create a BPEL
 
