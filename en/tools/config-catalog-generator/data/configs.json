@@ -104,34 +104,6 @@
             "exampleFile": "_super-admin.toml"
         },
         {
-            "title": "Connecting to the primary data store",
-            "options": [
-                {
-                    "name": "server",
-                    "required": true,
-                    "description": "This groups the parameters that define the server node details.",
-                    "params": [
-                        {
-                            "name": "hostname",
-                            "type": "string",
-                            "required": true,
-                            "default": "\"localhost\"",
-                            "possible": "\"127.0.0.1\",\"localhost\",\"<any-ip-address>\"",
-                            "description": "The hostname of the WSO2 API-M server instance."
-                        },
-                        {
-                            "name": "node_ip",
-                            "type": "string",
-                            "required": true,
-                            "default": "\"127.0.0.1\"",
-                            "description": "The IP address of the server node."
-                        }
-                    ]
-                }
-            ],
-            "exampleFile": "_primary-data-store.toml"
-        },
-        {
             "title": "Enabling the H2 database console",
             "options": [
                 {
