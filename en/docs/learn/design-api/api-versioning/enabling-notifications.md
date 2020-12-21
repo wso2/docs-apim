@@ -11,6 +11,7 @@ Follow the instructions below to enable notifications for new API versions:
     from_address = "abcd@gmail.com"
     username = "abcd@gmail.com"
     password = "xxxxxx"
+    signature = "do not reply"
     hostname = "smtp.gmail.com"
     port = "587"
     enable_start_tls = true
