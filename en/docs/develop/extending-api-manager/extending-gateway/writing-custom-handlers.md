@@ -215,6 +215,7 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     `velocity_template.xml` file while making sure that it skips the default `APIAuthenticationHandler` implementation:
 
     ``` java
+    <handlers xmlns="http://ws.apache.org/ns/synapse">
     <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
         #foreach($handler in $handlers)
             #if(!($handler.className == "org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"))
