@@ -4221,7 +4221,7 @@ persistent_notifier.password = "root"</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl</code></span>
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifier</code></span>
                                         </div>
                                         
                                     </div>
