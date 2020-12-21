@@ -13,12 +13,12 @@ jobs:
       uses: srggrs/assign-one-project-github-action@1.2.0
       if: contains(github.event.issue.labels.*.name, 'in-progress')
       with:
-        project: 'https://github.com/srggrs/assign-one-project-github-action/projects/2'
+        project: 'https://github.com/wso2/docs-apim/projects/2'
         column_name: 'in-progress' 
 
     - name: Assign issues and pull requests with `bug` label to project 8
       uses: srggrs/assign-one-project-github-action@1.2.0
       if: contains(github.event.issue.labels.*.name, 'PR-sent')
       with:
-        project: 'https://github.com/srggrs/assign-one-project-github-action/projects/8'
+        project: 'https://github.com/wso2/docs-apim/projects/8'
         column_name: 'PR-sent'
