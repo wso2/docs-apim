@@ -236,3 +236,6 @@ The claims that are retrieved for the JWT access token generation are cached. Th
 enable = true
 expiry_time = "900"
 ```
+
+!!! note
+    WSO2 API Manager comes with the default JWT generator. This JWT generator will generate specific claims according to the specifications and the user demands by the time we release the product. And when we update the products, we will need to add/change some of the claims according to the specification updates. That means even with the given released version, standard claims that come from the API Manager subjected to change. So if you have planned to use specific claims at the backend side it is always recommended to implement a custom JWT generator with mandatory claims you wish to consume at your backend.
