@@ -2408,6 +2408,67 @@
                 }
             ],
             "exampleFile": "multi_tenancy.billing.package.custom.bandwidth.toml"
-        }
+        },
+        {
+            "title": "Registry indexing configurations",
+            "options": [
+                {
+                    "name": "indexing",
+                    "required": false,
+                    "description": "Index configurations related to meta data search in registry.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable registry indexing, which indexes the APIs in the registry. Required only to be true on the API Publisher and Developer Portal nodes. WSO2 recommends disabling this on other nodes (Gateways, Traffic Managers, and Key Managers)."
+                        },
+                        {
+                            "name": "starting_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "35",
+                            "possible": "",
+                            "description": "Initial startup delay for indexing (when the server is starting) in seconds."
+                        },
+                        {
+                            "name": "frequency",
+                            "type": "string",
+                            "required": false,
+                            "default": "3",
+                            "possible": "",
+                            "description": "Indexing frequency in seconds."
+                        },
+                        {
+                            "name": "bach_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "40",
+                            "possible": "",
+                            "description": "Number of resources submit for given indexing thread."
+                        },
+                        {
+                            "name": "pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "40",
+                            "possible": "",
+                            "description": "Number of worker threads for indexing."
+                        },
+                        {
+                            "name": "re_indexing",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. After changing the configuration and before restarting the server, make sure to backup and delete the <APIM_HOME>/solr directory. Reindexing may get a considerable amount of time to finish after a server restart, depending on the number of APIs you have in the registry."
+                        }                                                                                                  
+                    ]
+                }
+            ],
+            "exampleFile": "indexing.toml"
+        }      
     ]
 }
