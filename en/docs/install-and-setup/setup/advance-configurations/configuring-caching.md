@@ -46,7 +46,7 @@ This feature is enabled by default and token revocation events are published by 
 If you need to change the default behavior, you can implement the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifier` interface and plug new implementation using the following configuration in the `deployment.toml` file.
 
 ```toml
-[apim.token.revocation[
+[apim.token.revocation]
 notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 ```
 
