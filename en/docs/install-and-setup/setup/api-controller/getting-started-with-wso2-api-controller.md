@@ -161,12 +161,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                        --apim <API-Manager-endpoint> \
                        --token <token-endpoint> \
                        --admin <admin-REST-API-endpoint> \
-                       --publisher <Publisher-endpoint> \
+                       --publisher <publisher-portal-endpoint> \
                        --devportal <developer-portal-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <developer-portal-endpoint>
+        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint>
         ```
 
         !!! info
@@ -178,7 +178,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 OR (the following 4)     
                 `--registration` : Registration endpoint for the environment     
                 `--admin` : Admin endpoint for the environment     
-                `--publisher` : Publisher endpoint for the environment     
+                `--publisher` : Publisher Portal endpoint for the environment     
                 `--devportal` : Developer Portal endpoint for the environment 
             -   Optional :     
                 `--token` : Token endpoint for the environment
