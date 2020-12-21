@@ -1355,6 +1355,9 @@ paths:
         WSDL can be speficied as a single file or a ZIP archive with WSDLs and reference XSDs etc.
         Specify additionalProperties with **at least** API's name, version, context and endpointConfig.
       operationId: importWSDLDefinition
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file="@wsdl.zip;type=application/zip" -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"'
       requestBody:
         content:
           multipart/form-data:
@@ -1362,11 +1365,20 @@ paths:
               properties:
                 file:
                   type: string
-                  description: WSDL definition as a file
+                  description: |
+                    WSDL definition as a file or archive
+
+                    **Sample cURL to upload the WSDL file**
+
+                    curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
+
+                    **Sample cURL to upload the WSDL archive**
+
+                    curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file="@wsdl.zip;type=application/zip" -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
                   format: binary
                 url:
                   type: string
-                  description: WSDL Definition url
+                  description: WSDL Definition URL
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON
