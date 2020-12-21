@@ -2438,19 +2438,7 @@ paths:
         200:
           description: |
             OK.
-            Successful response if the api name exist.
-          headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
+            Successful response if the document name exist.
           content:
             application/json:
               schema:
@@ -2458,7 +2446,9 @@ paths:
         400:
           $ref: '#/components/responses/BadRequest'
         404:
-          $ref: '#/components/responses/NotFound'
+          description: |
+            Not Found
+            Requested document not found.
       security:
       - OAuth2Security:
         - apim:api_create
