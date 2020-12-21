@@ -101,12 +101,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --apim <API-Manager-endpoint> \
                         --token <token-endpoint> \
                         --admin <admin-REST-API-endpoint> \
-                        --publisher <Publisher-endpoint> \
-                        --devportal <DevPortal-endpoint>
+                        --publisher <publisher-portal-endpoint> \
+                        --devportal <developer-portal-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <DevPortal-endpoint>
+        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint>
         ```
 
         !!! info
@@ -122,7 +122,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--registration` : Registration endpoint for the environment 
                 `--admin` : Admin endpoint for the environment  
                 `--publisher` : Publisher endpoint for the environment  
-                `--devportal` : DevPortal endpoint for the environment 
+                `--devportal` : Developer Portal endpoint for the environment 
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
@@ -323,11 +323,17 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl logout dev
             ```
 
+## Add APIs/Applications in an environment
+
+You can add APIs and Applications via the Publisher Portal and Developer Portal accordingly.
+However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach).
+
 ## List APIs/Applications in an environment
+
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+    For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to list APIs/API Products/Applications in an environment.
 
@@ -378,7 +384,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  Also you can use combined modifiers.  
+                **label**.  You can also use combined modifiers.    
                 **Example:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
@@ -555,10 +561,10 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             **Flags:**  
             
             -   Required :  
-                `--environment` or `-e` : Environment of which the API state should be changed  
-                `--name` or `-n` : Name of the API to be state changed  
-                `--version` or `-v` : Version of the API to be state changed  
-                `--action` or `-a` : Action to be taken to change the status of the API
+                `--environment` or `-e` : The environment of which the API state should be changed  
+                `--name` or `-n` : The name of the API to be state changed  
+                `--version` or `-v` : The version of the API that its state needs to be changed
+                `--action` or `-a` : The action to be taken to change the status of the API
             -   Optional :  
                 `--provider` or `-r` : Provider of the API to be state changed  
 
@@ -585,7 +591,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Formatting the outputs of list
 
-Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted with Go Templates. 
+Output of `list envs`, `list apis` and `list apps` can be formatted with Go Templates. 
 
 #### Available formatting options
 
@@ -738,7 +744,7 @@ Run the following CTL command to change the default location of the export direc
             Default : `/home/.wso2apictl/exported`
             
             
-## Import SSL Certificate for Secure HTTP Communication with API Manager
+## Import the SSL Certificate for Secure HTTP Communication with API Manager
 
 Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
 certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a

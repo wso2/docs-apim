@@ -1,11 +1,11 @@
 # Importing APIs Via Dev First Approach
 
-WSO2 API Controller, **apictl** allows to create and deploy APIs without using WSO2 API Publisher Portal. You can use this feature to create an API **from scratch** or **using an existing Swagger or Open API specification** and then deploy it to the desired API Manager environment.
+WSO2 API Controller (**apictl**) allows you to create and deploy APIs without using WSO2 API Publisher Portal. You can use this feature to create an API **from scratch** or **using an existing Swagger or Open API specification** and then deploy it to the desired API Manager environment.
 
 !!! info
     **Before you begin** 
 
-    -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure that the WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -   Make sure you already have added an environment using the CTL tool for the API Manager environment you plan to import the API to. 
 
@@ -33,6 +33,96 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                 ```bash 
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
+
+            !!! note
+                Note that API definition is different from Swagger2 or OpenAPI3 specification. The following is a sample API definition used to generate an API Project.
+
+                !!! example
+                       ```yaml
+                        id:
+                          providerName: admin
+                          apiName: PizzaShackAPI
+                          version: 1.0.0
+                        uuid: 852464c8-a53a-45f9-9ef1-0e532fbd0767
+                        description: This is a simple API for Pizza Shack online pizza delivery store.
+                        type: HTTP
+                        context: /pizzashack/1.0.0
+                        contextTemplate: /pizzashack/{version}
+                        tags:
+                         - pizza
+                        documents: []
+                        lastUpdated: Dec 21, 2020 11:00:28 AM
+                        availableTiers:
+                         -
+                          name: Unlimited
+                          displayName: Unlimited
+                          description: Allows unlimited requests
+                          requestsPerMin: 2147483647
+                          requestCount: 2147483647
+                          unitTime: 0
+                          timeUnit: ms
+                          tierPlan: FREE
+                          stopOnQuotaReached: true
+                        availableSubscriptionLevelPolicies: []
+                        uriTemplates: []
+                        apiHeaderChanged: false
+                        apiResourcePatternsChanged: false
+                        status: PUBLISHED
+                        technicalOwner: John Doe
+                        technicalOwnerEmail: architecture@pizzashack.com
+                        businessOwner: Jane Roe
+                        businessOwnerEmail: marketing@pizzashack.com
+                        visibility: public
+                        gatewayLabels: []
+                        endpointSecured: false
+                        endpointAuthDigest: false
+                        transports: http,https
+                        advertiseOnly: false
+                        apiOwner: admin
+                        subscriptionAvailability: all_tenants
+                        corsConfiguration:
+                          corsConfigurationEnabled: false
+                          accessControlAllowOrigins:
+                           - '*'
+                          accessControlAllowCredentials: false
+                          accessControlAllowHeaders:
+                           - authorization
+                           - Access-Control-Allow-Origin
+                           - Content-Type
+                           - SOAPAction
+                           - apikey
+                          accessControlAllowMethods:
+                           - GET
+                           - PUT
+                           - POST
+                           - DELETE
+                           - PATCH
+                           - OPTIONS
+                        endpointConfig: '{"endpoint_type":"http","sandbox_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"},"production_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"}}'
+                        responseCache: Disabled
+                        cacheTimeout: 300
+                        implementation: ENDPOINT
+                        authorizationHeader: Authorization
+                        scopes: []
+                        isDefaultVersion: false
+                        isPublishedDefaultVersion: false
+                        environments:
+                         - Production and Sandbox
+                        createdTime: "1608528625313"
+                        additionalProperties: {}
+                        monetizationProperties: {}
+                        isMonetizationEnabled: false
+                        environmentList:
+                         - SANDBOX
+                         - PRODUCTION
+                        apiSecurity: oauth2,oauth_basic_auth_api_key_mandatory
+                        endpoints: []
+                        enableSchemaValidation: false
+                        apiCategories: []
+                        accessControl: all
+                        rating: 0.0
+                        isLatest: true
+                       ```
 
         -   Response    
             ```go
@@ -84,7 +174,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                 -   Optional :  
                         `--definition` or `-d` : Provide a YAML definition of API  
                         `--oas` : Provide an OpenAPI specification file/URL for the API   
-                        `--force` or `-f` : To overwrite directory and create project 
+                        `--force` or `-f` : To overwrite the directory and create the project 
 
             !!! note
                 You can define scopes for a resource when defining a Swagger2 or OpenAPI3 specification to generate an API.
@@ -95,7 +185,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                     info:
                     title: Online-Store
                     version: v1.0.0
-                    description: This API contains operations related to online shopping store.
+                    description: This API contains operations related to the online shopping store.
                     x-wso2-basePath: /store/{version}
                     x-wso2-production-endpoints:
                     urls:
@@ -267,7 +357,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                     <p><span style="font-weight: 400;">x-wso2-transports</span></p>
                     </td>
                     <td>
-                    <p><span style="font-weight: 400;">Specify the transport security for the API(HTTP, HTTPS and Mutual SSL)</span></p>
+                    <p><span style="font-weight: 400;">Specify the transport security for the API (HTTP, HTTPS, and Mutual SSL)</span></p>
                     </td>
                     <td>
                     <p><span style="font-weight: 400;">API level&nbsp;</span></p>
@@ -321,7 +411,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
             </tr>
             <tr class="even">
                 <td><code>swagger.yaml</code></td>
-                <td>The Swagger file generated when the API is created.</td>
+                <td>The Swagger file that is generated when the API is created.</td>
             </tr>
             <tr class="odd">
                 <td><code>api_params.yaml</code></td>
@@ -339,7 +429,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
         <td><pre><code>Docs
       |── FileContents</code></pre>
         </td>
-        <td>Contains the documents. To add a documentation, add them to the <code>Docs/FileContents/</code>directory.</td>
+        <td>Contains the documents. To add a new document, add the document in the <code>Docs/FileContents/</code>directory.</td>
         </tr>
         </tbody>
     </table>
@@ -436,11 +526,11 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--file` or `-f` : The file path of the API project to import.  
             `--environment` or `-e` : Environment to which the API should be imported.   
         -   Optional :  
-            `--preserve-provider` : Preserve the existing provider of API after importing. Default value is `true`. 
+            `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`. 
             `--update` : Update an existing API or create a new API in the importing environment.  
-            `--params` : Provide a API Manager environment params file (default "api_params.yaml").   
-            For more information, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) .  
-            `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+            `--params` : Provide a API Manager environment params file (The default file is `api_params.yaml`.).   
+            For more information, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters). 
+            `--skipCleanup` : Leave all temporary files created in the CTL during import process. The default value is `false`.  
 
     !!! example
         ```bash
@@ -454,11 +544,12 @@ After editing the mandatory fields in the API Project, you can import the API to
         ```
         
     !!! tip
-        When using `--update` flag with `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
+        When using the `--update` flag with the `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
 
        
 -   **Response**
     ``` bash
     Successfully imported API!
     ```
+
     
