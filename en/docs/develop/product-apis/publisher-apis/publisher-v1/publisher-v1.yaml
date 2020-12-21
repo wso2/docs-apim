@@ -2673,7 +2673,7 @@ paths:
         200:
           description: |
             OK.
-            Successful response if the api name exist.
+            Successful response if the document name exist.
         400:
           description: |
             Bad Request.
