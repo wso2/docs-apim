@@ -17,13 +17,21 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 </thead>
 <tbody>
 <tr class="odd">
+<td>Full text search</td>
+<td><p>As this is the default option, simply enter any attribute value 
+of the API and search.</p>
+<p>For example, PizzaShackAPI will search for PizzaShackAPI in API name, context, version, documents, etc.</p>
+</td>
+</tr>
+<tr class="even">
 <td>By the API's name</td>
-<td>As this is the default option, simply enter the API's name and search.</td>
+<td><p><strong>name:xxxx</strong> . For example, name:PizzaShackAPI</p>
+<p>Provider is the user who created the API.</p></td>
 </tr>
 <tr class="even">
 <td>By the API provider</td>
 <td><p><strong>provider:xxxx</strong> . For example, provider:admin</p>
-<p>Provider is the user who created the API.</p></td>
+<p>Name is the API name.</p></td>
 </tr>
 <tr class="odd">
 <td>By the API version</td>
