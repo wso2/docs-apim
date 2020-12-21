@@ -1747,7 +1747,7 @@
                             "required": false,
                             "default": "40",
                             "possible": "",
-                            "description": "Number of resources submit for given indexing thread."
+                            "description": "Number of resources submitted for given indexing thread."
                         },
                         {
                             "name": "pool_size",
