@@ -157,7 +157,13 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
 </tbody>
 </table>
 
-## Adding role-based permissions
+## Adding scope-based permissions
+
+WSO2 API-Manager (APIM) publisher, dev portal, and admin portal UIs work on top of APIM-specific Rest APIs. Access to these APIs is given based on OAuth token scopes. When a user logs in to the publisher or dev portal, the access token is generated with a specific set of scopes based on the user's roles.
+
+By default, Internal/creator, Internal/publisher, Internal/subscriber are mapped to these specific scopes. As a result, any user with these roles can access publisher and devportal features. 
+
+You could customize these scope-to-role mapping and grant permission to access these UIs to different user roles. For example, if you have a user with role X and want to grant permission to access dev portal, you could assign all devportal-related scopes to that role. The following section describes how to do this.
 
 1. Sign in to Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) and navigate to **Settings** > **Role Permissions** in the Admin Portal. 
 
@@ -167,6 +173,9 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
 
 3. Provide a role name created in a Carbon console. Then click **Next** to proceed.
 
+    !!! note
+        You cannot create a new role. You can only map an existing role. 
+    
     ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
  
 4. In **Select permissions**, you can either select **Role alias** or **Custom Permissions**.
