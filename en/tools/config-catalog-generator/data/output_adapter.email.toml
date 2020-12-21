@@ -1,0 +1,9 @@
+[output_adapter.email]
+from_address = "wso2am@gmail.com"
+username = "wso2amtest"
+password = "Wso2@am70"
+signature = "do not reply"
+hostname = "smtp.gmail.com"
+port = "587"
+enable_start_tls = true
+enable_authentication = true
