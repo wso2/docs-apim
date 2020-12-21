@@ -309,11 +309,16 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl logout dev
             ```
 
+## Add APIs/Applications in an environment
+
+You can add APIs and Applications via the Publisher Portal and Developer Portal accordingly.
+However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach).
+
 ## List APIs of an environment
 Follow the instructions below to display a list of APIs in an environment using CTL:
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+    For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run any of the following CTL commands to list the APIs.
 
