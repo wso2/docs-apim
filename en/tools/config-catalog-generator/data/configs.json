@@ -136,7 +136,7 @@
                             "description": "The password used to create a connection to the database."
                         },
                         {
-                            "name": "*validationQuery",
+                            "name": "validationQuery",
                             "type": "string",
                             "required": true,
                             "default": "SELECT 1",
