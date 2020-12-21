@@ -1,6 +1,6 @@
 # Using Okta as an External IDP with SAML
 
-Follow the instructions below to connect Okta as a third party Identity Provier to WSO2 API Manager.
+Follow the instructions below to connect Okta as a third party Identity Provider to WSO2 API Manager.
 
 ## Pre-requisites
 
@@ -42,7 +42,7 @@ Before you begin, make sure you do the following.
 
     [![View Setup Instructions]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)
 
-    1.  Scroll up to the **Provide the following IDP metadata to your SP provider.** section. Copy and save the details given to a xml file.
+    1.  Scroll up to the **Provide the following IDP metadata to your SP provider** section. Copy and save the details given to a xml file.
 
         [![Copy and save xml]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)
 
@@ -52,13 +52,13 @@ Before you begin, make sure you do the following.
     
 7.  Switch back to the Developer Console shown in step 1.
 
-8.  Follow these steps to add a new attribute to the default user profile of Okta to repesent the user role. 
+8.  Follow these steps to add a new attribute to the default user profile of Okta to represent the user role. 
 
     1.  Navigate to **Users** -> **Profile Editor** and click the pencil icon to edit the default profile.
 
         [![Edit the default profile in the Profile Editor]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
 
-    2.  Click **Add Atrribute** to add new user attributes.
+    2.  Click **Add Attribute** to add new user attributes.
     
         [![Add new attribute]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute-add.png) 
 
@@ -83,7 +83,7 @@ Before you begin, make sure you do the following.
 ## Step 2 - Configure API Manager
 1.  Login in to `https://localhost:9443/carbon`.
 
-2.  Create a role that needs to be assinged to users that will be provisioned from Okta. 
+2.  Create a role that needs to be assigned to users that will be provisioned from Okta. 
 
     1.  Go to **Users and Roles**.
         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width="400" height="200"/></a>
