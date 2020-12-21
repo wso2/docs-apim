@@ -21,12 +21,20 @@ Follow the steps below to enable the password recovery feature for the Developer
     from_address = "wso2am@gmail.com"
     username = "wso2amtest"
     password = "Wso2@am70"
+    signature = "do not reply"
     hostname = "smtp.gmail.com"
     port = "587"
     enable_start_tls = true
     enable_authentication = true
     ```
 
+    | Property               | Description                                                                                                               |
+    |------------------------|---------------------------------------------------------------------------------------------------------------------------|
+    | from_address           | The email address you use to send emails.                                                                                  |
+    | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
+    | password               | Password used to authenticate the mail server.
+    | signature              | Signature of the sender account. |
+                                                                               
 4. Re-start the server.
 
 ## Account locking

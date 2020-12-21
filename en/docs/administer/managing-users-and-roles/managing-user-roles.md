@@ -108,6 +108,10 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
+!!! warning
+    As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Dev portal applications listing page.
+    However the new user will not be able to access the details of the application as the service provider is already deleted. 
+
 ## Adding Role Mappings
 
 In the above example, you mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There you had to update every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated. Instead of using the latter mentioned method, you can use role mapping to enable users to easily map new roles to existing scopes.
