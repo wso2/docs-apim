@@ -1,7 +1,7 @@
 Since GraphQL schemas often have circular relationships, the depth can grow without bounds. 
-this means a client could craft a query as follows:
+This means a client could craft a query as follows:
 
-  [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)
+[![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)
 
 
 This relationship allows a bad actor to construct an expensive nested query. WSO2 API-Manager introduces GraphQL **Query 
