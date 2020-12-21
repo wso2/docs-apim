@@ -1447,7 +1447,7 @@ paths:
         - in: formData
           name: file
           description: |
-            WSDL definition as a file
+            WSDL definition as a file or archive
 
             **Sample Curl to Upload WSDL File**
 
