@@ -2434,7 +2434,7 @@ enable_token_hashing = false</code></pre>
                             </div>
                             <div class="param">
                                 <div class="param-name">
-                                    <span class="param-name-wrap"> <code>white_listed_scopes</code> </span>
+                                    <span class="param-name-wrap"> <code>allowed_scopes</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2449,7 +2449,7 @@ enable_token_hashing = false</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>List of whitelisted scopes. Take desc from Key Concepts page.</p>
+                                        <p>List of allowlisted scopes. Take desc from Key Concepts page.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,9 +1,5 @@
 # Upgrading API Manager from 3.1.0 to 3.2.0
 
-!!! Important
-    This migration guide is in the process of restructuring, and is NOT yet ready for use.
-    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
-    
 The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 3.2.0**.
 
 !!! note
@@ -555,7 +551,26 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;          
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;  
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        );
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+            SCOPE_ID INTEGER NOT NULL,
+            SCOPE_BINDING VARCHAR(255) NOT NULL,
+            BINDING_TYPE VARCHAR(255) NOT NULL,
+            FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );     
+
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';   
         ```
     
         ```tab="DB2"
@@ -660,6 +675,34 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
+
+        CREATE TABLE AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        )/
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+
+        BEGIN ATOMIC
+
+            SET (NEW.SCOPE_ID)
+            = (NEXTVAL FOR AM_SCOPE_SEQUENCE);
+
+        END
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = ''  / 
         ```
 
         ```tab="MSSQL"
@@ -805,6 +848,8 @@ Follow the instructions below to move all the existing API Manager configuration
         BINDING_TYPE VARCHAR(255) NOT NULL,
         FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );        
+
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
         ```tab="MySQL"
@@ -905,6 +950,25 @@ Follow the instructions below to move all the existing API Manager configuration
         )ENGINE INNODB;
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+            SCOPE_ID INTEGER NOT NULL,
+            SCOPE_BINDING VARCHAR(255) NOT NULL,
+            BINDING_TYPE VARCHAR(255) NOT NULL,
+            FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
+
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';        
         ```
     
         ```tab="Oracle"
@@ -1020,6 +1084,38 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY
         /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR2(255) DEFAULT 'Resident Key Manager' NOT NULL
+        /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
+        /
+        CREATE TABLE AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL,
+            NAME VARCHAR2(255) NOT NULL,
+            DISPLAY_NAME VARCHAR2(255) NOT NULL,
+            DESCRIPTION VARCHAR2(512),
+            TENANT_ID INTEGER DEFAULT -1 NOT NULL,
+            SCOPE_TYPE VARCHAR2(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID))
+        /
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE OR REPLACE TRIGGER AM_SCOPE_TRIGGER
+            BEFORE INSERT
+            ON AM_SCOPE
+            REFERENCING NEW AS NEW
+            FOR EACH ROW
+            BEGIN
+                SELECT AM_SCOPE_SEQUENCE.nextval INTO :NEW.SCOPE_ID FROM dual;
+            END;
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+            SCOPE_ID INTEGER NOT NULL,
+            SCOPE_BINDING VARCHAR2(255) NOT NULL,
+            BINDING_TYPE VARCHAR2(255) NOT NULL,
+            FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
+        /        
         ```
         
         ```tab="PostgreSQL"
@@ -1151,6 +1247,29 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+
+        DROP TABLE IF EXISTS AM_SCOPE;
+        DROP SEQUENCE IF EXISTS AM_SCOPE_PK_SEQ;
+        CREATE SEQUENCE AM_SCOPE_PK_SEQ;
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+                    SCOPE_ID INTEGER DEFAULT NEXTVAL('AM_SCOPE_PK_SEQ'),
+                    NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(512),
+                    TENANT_ID INTEGER NOT NULL DEFAULT -1,
+                    SCOPE_TYPE VARCHAR(255) NOT NULL,
+                    PRIMARY KEY (SCOPE_ID)
+        );
+
+        DROP TABLE IF EXISTS AM_SCOPE_BINDING;
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );   
+
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
@@ -1237,10 +1356,27 @@ these alerts are persisted individually as well in tables specific for the type 
 data related to alerts by dropping this table.
 
 ??? info "DB Scripts"
-     DROP TABLE APIMALLALERT;
+    ```sql
+    DROP TABLE APIMALLALERT;
+    ```
+
+!!! note
+    Only the `ANALYTICS_DB` need to be migrated and the other DBs (e.g., `DASHBOARD_DB`) can either be pointed to a new DB or be cleaned. If there are custom dashboards, those dashboards need to be exported and imported accordingly as mentioned below:
+
+    1. Export the custom dashboard.
+        1. Sign in as an admin to the dashboard listing page.
+        2. Select **Export** from the dashboard options menu next to the dashboard name.
+
+            <img src="{{base_path}}/assets/img/setup-and-install/analytics_dashboard_export.png" alt="Dashboard_export" width="750"/>
+
+            This will download the relevant `<dashboard-name>.json` file.
+
+    2. Import the custom dashboard.
+         
+         Copy the generated JSON file to the `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboard` directory.
      
-The GRAPHQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
-improvement. If you use GRAPHQL APIs please follow the instruction below to sort the already existing data on above
+The GraphQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
+improvement. If you use GraphQL APIs please follow the instruction below to sort the already existing data on above
 columns
 
 1.  Configure the datasource used for WSO2 API Manager Analytics in the 
@@ -1319,6 +1455,19 @@ columns
     -   In API-M 3.0.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   Now with API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+
+!!! info
+    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
+
+    !!! example
+
+        ```sql tab="MySQL"
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+
+        ```sql tab="MS SQL"
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
@@ -1456,4 +1605,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 

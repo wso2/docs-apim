@@ -230,7 +230,7 @@
                 {
                     "name": "apim.jwt",
                     "required": true,
-                    "description": "Enable APIM to generate a JWT within itself. \n\n JSON Web Token (JWT) is used to represent claims that are transferred between two parties such as the end-user and the backend.",
+                    "description": "Enable APIM to generate a JWT within itself. JSON Web Token (JWT) is used to represent claims that are transferred between two parties such as the end-user and the backend.",
                     "params": [
                         {
                             "name": "enable",
@@ -246,7 +246,7 @@
                             "required": false,
                             "default": "base64",
                             "possible": "base64,base64url",
-                            "description": "Use base64 encoding for the default JWT generator. \n\nUse the url-safe JWT generator if it is base64url."
+                            "description": "Use base64 encoding for the default JWT generator. Use the url-safe JWT generator if it is base64url."
                         },
                         {
                             "name": "generator_impl",
@@ -254,7 +254,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "This can be defined as a custom generation implmetation. \n\nIf this is defined, the \"apim.jwt.encoding\" will be ignored. \n\nNote that this should be the fully-qualified class name."
+                            "description": "This can be defined as a custom generation implmetation. If this is defined, the \"apim.jwt.encoding\" will be ignored. Note that this should be the fully-qualified class name."
                         },
                         {
                             "name": "header",
@@ -268,16 +268,8 @@
                             "type": "string",
                             "required": false,
                             "default": "FALSE",
-                            "possible": "FALSE",
+                            "possible": "false true",
                             "description": "No user store claims included in the JWT if false. "
-                        },
-                        {
-                            "name": "enable_user_claims",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "TRUE",
-                            "description": "THe default user claims will be added to the JWT"
                         },
                         {
                             "name": "claims_extractor_impl",
@@ -285,7 +277,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "You can define the custom claim retiriver implmentation by adding the following \n apim.jwt.enable_user_claims=true. \n\n Make sure that it is the fully-qualified class name."
+                            "description": "You can define the custom claim retiriver implmentation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name."
                         },
                         {
                             "name": "claim_dialect",
@@ -307,6 +299,74 @@
                 }
             ],
             "exampleFile": "apim_jwt.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer",
+                    "required": false,
+                    "description": "To specify the issuers of the JWT tokens if third-party Key Managers are used.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The issuer name of the JWT."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer.jwks",
+                    "required": false,
+                    "description": "To specify the JSON Web Key Set (JWKS) endpoint of the issuer.",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The JWKS endpoint URL of the issuer."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.jwks.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer.claim_mapping",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "remote_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The name of the remote claim."
+                        },
+                        {
+                            "name": "local_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The local claim name that the remote claim needs to be mapped to."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.claim_mapping.toml"
         },
         {
             "title": "API-M gateway environment configurations",
@@ -460,7 +520,7 @@
             "exampleFile": "apim.cache.resource.toml"
         },
         {
-            "title": "Cache Keymanager token",
+            "title": "Keymanager token cache",
             "options": [
                 {
                     "name": "apim.cache.km_token",
@@ -528,7 +588,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.cache.scopes.toml"
+            "exampleFile": "cache.scopes.toml"
         },
         {
             "title": "Cache publisher roles",
@@ -549,7 +609,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.cache.publisher_roles.toml"
+            "exampleFile": "cache.publisher_roles.toml"
         },
         {
             "title": "Cache JWT claims",
@@ -578,7 +638,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.cache.jwt_claim.toml"
+            "exampleFile": "cache.jwt_claim.toml"
         },
         {
             "title": "Cache tags",
@@ -599,7 +659,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.cache.tags.toml"
+            "exampleFile": "cache.tags.toml"
         },
         {
             "title": "API-M Analytics configurations",
@@ -716,7 +776,7 @@
                             "required": true,
                             "default": "tcp://localhost:7612",
                             "possible": "",
-                            "description": "The list of server URLs \n\n e.g.,: analytics_url = [\"tcp: //localhost:7611, tcp://localhost:7611\"]\""
+                            "description": "The list of server URLs e.g.,: analytics_url = [\"tcp: //localhost:7611, tcp://localhost:7611\"]\""
                         },
                         {
                             "name": "analytics_auth_url",
@@ -724,14 +784,14 @@
                             "required": true,
                             "default": "ssl://localhost:7712",
                             "possible": "",
-                            "description": "The list of auth server URLs \n\n e.g.,: analytics_auth_url = [\"ssl: //localhost:7711,ssl://localhost:7711\"]"
+                            "description": "The list of auth server URLs e.g.,: analytics_auth_url = [\"ssl: //localhost:7711,ssl://localhost:7711\"]"
                         },
                         {
                             "name": "type",
                             "type": "string",
                             "required": false,
                             "default": "no default value",
-                            "possible": "",
+                            "possible": "loadbalance failover",
                             "description": "Loadbalance or Failover"
                         }
                     ]
@@ -857,12 +917,12 @@
                             "description": "Similar to prev. Get desc from  IS docs"
                         },
                         {
-                            "name": "white_listed_scopes",
+                            "name": "allowed_scopes",
                             "type": "string",
                             "required": false,
                             "default": "[\"^device_.*,openid\"]",
                             "possible": "",
-                            "description": "List of whitelisted scopes. Take desc from Key Concepts page."
+                            "description": "List of allowlisted scopes. Take desc from Key Concepts page."
                         }
                     ]
                 }
@@ -1043,17 +1103,49 @@
                             "name": "receiver_url",
                             "type": "string",
                             "required": false,
-                            "default": "if None of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}",
+                            "default": "tcp://${carbon.local.ip}:${receiver.url.port}",
                             "possible": "",
-                            "description": "Define traffic manager connection url inline. If none of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}"
+                            "description": "Define traffic manager connection url inline. If none of this is defined consider it as \"tcp://${carbon.local.ip}:${receiver.url.port}\"."
                         },
                         {
-                            "name": "receiver_url",
+                            "name": "enable_header_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Specifying this header to true will enable a user to define header condition throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "enable_unlimited_tier",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations."
+                        },
+                        {
+                            "name": "enable_jwt_claim_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Specifying this config to true will enable a user to define JWT condition throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "enable_query_param_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Specifying this config to true will enable a user to define Query parameter condition throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "skip_redeploying_policies",
                             "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Define array of traffic manager connections"
+                            "description": "Define an array of throttle policies which don't need to redeploy on startup"
                         }
                     ]
                 }
@@ -1242,7 +1334,7 @@
                             "required": true,
                             "default": "",
                             "possible": "",
-                            "description": "Define array of JMS connection as a array."
+                            "description": "Define array of JMS connection as an array."
                         },
                         {
                             "name": "enable_unlimited_tier",
@@ -1251,22 +1343,6 @@
                             "default": "TRUE",
                             "possible": "",
                             "description": "Enable the unlimited tier."
-                        },
-                        {
-                            "name": "enable_header_based_throttling",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "",
-                            "description": "Enable the header condition based throttling. Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers."
-                        },
-                        {
-                            "name": "enable_jwt_claim_based_throttling",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "",
-                            "description": "Enable JWT claim based throtlling."
                         }
                     ]
                 }
@@ -1438,7 +1514,7 @@
                     ]
                 }
             ],
-            "exampleFile": "sample.toml"
+            "exampleFile": "apim.sdk.toml"
         },
         {
             "title": "API-M Open tracer configurations",
@@ -1491,7 +1567,7 @@
                     ]
                 }
             ],
-            "exampleFile": "sample.toml"
+            "exampleFile": "apim.open_tracer.toml"
         },
         {
             "title": "API-M token revocation",
@@ -1569,6 +1645,769 @@
                 }
             ],
             "exampleFile": "apim.token.revocation.toml"
+        },
+        {
+            "title": "Enable Notifications",
+            "options": [
+                {
+                    "name": "apim.notifications",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "from_address",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address you use to send emails."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address used to authenticate the mail server. This can be the same email address as the from_address."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password used to authenticate the mail server."
+                        },
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "port",
+                            "type": "string",
+                            "required": false,
+                            "default": "25",
+                            "possible": "",
+                            "description": "The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25."
+                        },
+                        {
+                            "name": "enable_start_tls",
+                            "type": "string",
+                            "required": false,
+                            "default": false,
+                            "possible": "",
+                            "description": "If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must be configured so that the client will trust the certificate of the server. Defaults to false."
+                        },
+                        {
+                            "name": "enable_authentication",
+                            "type": "string",
+                            "required": false,
+                            "default": false,
+                            "possible": "",
+                            "description": "If true, it attempts to authenticate the user using the AUTH command. Defaults to false."
+                        }
+                        
+                    ]
+                }
+            ],
+            "exampleFile": "apim.notification.toml"
+        },
+        {
+            "title": "Tenant Management",
+            "options": [
+                {
+                    "name": "tenant_mgt",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable_email_domain",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable email login for tenant users."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "tenant_mgt.toml"
+        },
+        {
+            "title": "Multi-tenancy Configurations",
+            "options": [
+                {
+                    "name": "multi_tenancy.stratos",
+                    "required": false,
+                    "description": "Configures the multi-tenant Stratos properties.",
+                    "params": [
+                        {
+                            "name": "disable_tenant_management_emails",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Disable tenant management emails for tenant users."
+                        },
+                        {
+                            "name": "email_validation_mandatory_for_login",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable or disable mandatory email validation when logging in."
+                        },
+                        {
+                            "name": "tenant_activation_moderated",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable or disable activation of moderated tenants."
+                        },
+                        {
+                            "name": "super_admin_email",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Email of the super admin user."
+                        },
+                        {
+                            "name": "skip_summary_generator",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Skip summary generator for tenants."
+                        },
+                        {
+                            "name": "notification_email",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address that is used to send event related notifications."
+                        },
+                        {
+                            "name": "finance_notification_email",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The email address that is used to send financial information related notifications."
+                        },
+                        {
+                            "name": "charge_on_registration",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "The charge applicable for tenant registration."
+                        },
+                        {
+                            "name": "public_cloud_setup",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable or disable public cloud setup for tenants."
+                        },
+                        {
+                            "name": "google_analytics_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "URL address of Google Analytics."
+                        },
+                        {
+                            "name": "sso_loading_message",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The message that is displayed when SSO is loaded."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.stratos.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.stratos.paypal",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The URL address of the attached PayPal account."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The username of the attached PayPal account."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The password of the attached PayPal account."
+                        },
+                        {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "TThe signature of the attached PayPal account."
+                        },
+                        {
+                            "name": "environment",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The environment of the attached PayPal account."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.stratos.paypal.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.stratos.manager_service",
+                    "required": false,
+                    "description": "Configures the Stratos manager service.",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The URL of the Stratos manager service."
+                        },
+                        {
+                            "name": "admin_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The admin username of the Stratos manager service."
+                        },
+                        {
+                            "name": "admin_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The admin password of the Stratos manager service."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.stratos.manager_service.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.usage_agent.data_persistence_task",
+                    "required": false,
+                    "description": "Configures the data presistance for user agents in multi-tenant mode.",
+                    "params": [
+                        {
+                            "name": "startup_delay_in_ms",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Connection delay to start data presistance at startup."
+                        },
+                        {
+                            "name": "records_per_execution",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Number of records to be persisted per execution."
+                        },
+                        {
+                            "name": "execution_interval_in_ms",
+                            "type": "string",
+                            "required": false,
+                            "default": "-1",
+                            "possible": "",
+                            "description": "Time between execution cycles in miliseconds."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.usage_agent.data_persistence_task.toml"
+        },
+        {
+            "title": "Multi-tenancy throttling manager configurations",
+            "options": [
+                {
+                    "name": "multi_tenancy.throttling_manager_tasks",
+                    "required": false,
+                    "description": "Configures the multi-tenant throttling manager tasks.",
+                    "params": [
+                        {
+                            "name": "data_providers",
+                            "type": "string array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Data providers for throttling management tasks."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.throttling_manager_tasks.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.throttling_manager_tasks.parameters",
+                    "required": false,
+                    "description": "Configures the parameters of multi-tenant throttling manager tasks.",
+                    "params": [
+                        {
+                            "name": "interval",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Time interval betweeen throttling manager tasks."
+                        },
+                        {
+                            "name": "delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Time delay to start throttling manager tasks."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.throttling_manager_tasks.parameters.toml"
+        },
+        {
+            "title": "Multi-tenancy cloud services configurations",
+            "options": [
+                {
+                    "name": "multi_tenancy.cloud_services",
+                    "required": false,
+                    "description": "Configures the multi tenant cloud services.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Name of the cloud service."
+                        },
+                        {
+                            "name": "default",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Use as the default cloud service or not."
+                        },
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Key-value that represents the cloud service."
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Label value that represents the cloud service."
+                        },
+                        {
+                            "name": "link",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "URL link to the cloud service."
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Description of the cloud service."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.cloud_services.toml"
+        },
+        {
+            "title": "Multi-tenancy monetization configurations",
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.demo",
+                    "required": false,
+                    "description": "This includes multi-tenancy monetization configurations related to the \"Demo\" package.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "Demo",
+                            "possible": "",
+                            "description": "Provides the name of the billing package that is being used."
+                        },
+                        {
+                            "name": "subscription_charge",
+                            "type": "int",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The value of the subscription charge for the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.demo.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.demo.users",
+                    "required": false,
+                    "description": "This includes the users' configurations related to the \"Demo\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "Provides the number of users that can be attached to the \"Demo\" billing package."
+                        },
+                        {
+                            "name": "charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The value of the subscription charge for the \"Demo\" billing package per user."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.demo.users.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.demo.resource_volume",
+                    "required": false,
+                    "description": "This includes the resource volume configurations related to the \"Demo\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The maximum number of resources that can be charged with the given billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.demo.resource_volume.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.demo.bandwidth",
+                    "required": false,
+                    "description": "This includes the bandwidth configurations related to the \"Demo\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The highest bandwidth value that can be allocated for the \"Demo\" billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.demo.bandwidth.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.smb",
+                    "required": false,
+                    "description": "This includes multi-tenancy monetization configurations related to the \"SMB\" package.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "SMB",
+                            "possible": "",
+                            "description": "Provides the name of the billing package that is being used."
+                        },
+                        {
+                            "name": "subscription_charge",
+                            "type": "int",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The value of the subscription charge for the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.smb.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.smb.users",
+                    "required": false,
+                    "description": "This includes the users' configurations related to the \"SMB\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "Provides the number of users that can be attached to the \"SMB\" billing package."
+                        },
+                        {
+                            "name": "charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Value of the subscription charge for the \"SMB\" billing package per user."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.smb.users.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.smb.resource_volume",
+                    "required": false,
+                    "description": "This includes the resource volume configurations related to the \"SMB\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The maximum number of resources that can be charged with the given billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.smb.resource_volume.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.smb.bandwidth",
+                    "required": false,
+                    "description": "This includes the bandwidth configurations related to the \"SMB\" billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The highest bandwidth value that can be allocated for the \"SMB\" billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.smb.bandwidth.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.custom",
+                    "required": false,
+                    "description": "This includes multi-tenancy monetization configurations related to the custom package.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "SMB",
+                            "possible": "",
+                            "description": "The name of the custom billing package."
+                        },
+                        {
+                            "name": "subscription_charge",
+                            "type": "int",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The value of the subscription charge for the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.custom.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.custom.users",
+                    "required": false,
+                    "description": "This includes the users' configurations related to the custom billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "Provides the number of users that can be attached to the custom billing package."
+                        },
+                        {
+                            "name": "charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Value of the subscription charge for the custom billing package per user."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.custom.users.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.custom.resource_volume",
+                    "required": false,
+                    "description": "This includes the resource volume configurations related to the custom billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The maximum number of resources that can be charged with the given billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.custom.resource_volume.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "multi_tenancy.billing.package.custom.bandwidth",
+                    "required": false,
+                    "description": "This includes the bandwidth configurations related to the custom billing package.",
+                    "params": [
+                        {
+                            "name": "limit",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The highest bandwidth value that can be allocated for the custom billing package."
+                        },
+                        {
+                            "name": "overuse_charge",
+                            "type": "string",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The charge for over usage based on the billing package."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "multi_tenancy.billing.package.custom.bandwidth.toml"
         }
     ]
 }
