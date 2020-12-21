@@ -59,3 +59,8 @@ Token response:
 ```
 
 Now, you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
+
+Further, to configure the Admin Portal REST API please do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
+
+!!! note
+    To get a detailed overview of Admin Portal REST API follow [Admin API v0.15]({{base_path}}/develop/product-apis/admin-apis/admin-v0.15/admin-v0.15/).

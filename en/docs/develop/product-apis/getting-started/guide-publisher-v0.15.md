@@ -65,3 +65,8 @@ Token response:
 Now you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
 
 Note: The implementation of WSO2 API Manager is similar to DCR. Since retrieve client application, edit, and delete is only available in DCRM specifications you cannot perform these actions using REST API. However, you can view the created OAuth2 application using the Management Console. Please see [Accessing the Management Console]({{base_path}}/install-and-setup/installation-guide/running-the-product/#accessing-the-management-console) for more details.
+
+Further, to configure the Publisher REST API please do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
+
+!!! note
+    To get a detailed overview of Publisher REST API follow [Publisher API v0.15]({{base_path}}/develop/product-apis/publisher-apis/publisher-v0.15/publisher-v0.15/).
