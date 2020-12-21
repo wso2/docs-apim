@@ -51,7 +51,7 @@
                         {
                             "name": "disable_shutdown_from_ui",
                             "type": "boolean",
-                            "required": true,
+                            "required": false,
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this parameter to disable the shutdown server option from carbon management console UI."
@@ -59,7 +59,7 @@
                         {
                             "name": "disable_restart_from_ui",
                             "type": "boolean",
-                            "required": true,
+                            "required": false,
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this parameter to disable the restart server option from carbon management console UI."
