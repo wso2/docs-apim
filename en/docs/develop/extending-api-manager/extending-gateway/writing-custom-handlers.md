@@ -93,13 +93,20 @@ directory and add below handler before `</Handlers>` .
     <handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/> 
     ```
 
-2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j.properties` file to enable printing DEBUG logs.
-
+2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j2.properties` file to enable printing DEBUG logs.
+    
     ``` java
-    log4j.logger.org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler = DEBUG
+    logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
+    logger.log-msg-handler.name = DEBUG
     ```
+    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
 
-3.  Restart API Manager.
+    ```
+    loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
+    ```
+    
+    !!! note
+        The logger name `log-msg-handler` can be replaced by any logger-name.
 
 **To enable Message Logging into APIS created from publisher automatically :**
 
@@ -208,6 +215,7 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     `velocity_template.xml` file while making sure that it skips the default `APIAuthenticationHandler` implementation:
 
     ``` java
+    <handlers xmlns="http://ws.apache.org/ns/synapse">
     <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
         #foreach($handler in $handlers)
             #if(!($handler.className == "org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"))
