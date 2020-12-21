@@ -1702,6 +1702,8 @@ Follow the instructions below to move all the existing API Manager configuration
        password= "modified_password"
        ```
     
+    - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
+
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.5.0 to 5.10.0.
 
     !!! note
