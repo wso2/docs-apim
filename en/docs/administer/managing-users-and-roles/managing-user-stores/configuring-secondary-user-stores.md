@@ -32,19 +32,19 @@ There are two approaches to configure a secondary user store. It can be configur
     </thead>
     <tbody>
     <tr class="odd">
-    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
+    <td> <code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
     <td><p>Use <code>ReadOnlyLDAPUserStoreManager</code> to carry out read-only operations for LDAP user stores.</p></td>
     </tr>
     <tr class="even">
-    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
+    <td><code>org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
     <td><p>Use <code>ReadWriteLDAPUserStoreManager</code> for LDAP user stores to carry out both read and write operations.</p></td>
     </tr>
     <tr class="odd">
-    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager</code></td>
-    <td><p>Use <code>ActiveDirectoryUserStoreManager</code> to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code>.</p></td>
+    <td><code>org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager</code></td>
+    <td><p>Use <code>ActiveDirectoryUserStoreManager</code> to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code> .</p></td>
     </tr>
     <tr class="even">
-    <td><code>org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager</code></td>
+    <td><code>org.wso2.carbon.user.core.ldap.JDBCUserStoreManager</code> or <code>org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager</code></td>
     <td><p>Use <code>JDBCUserStoreManager</code> for JDBC user stores. The JDBC user store can be configured for read-only mode or read/write mode using the following property: <code>&lt;Property name=&quot;ReadOnly&quot;&gt;false/true&lt;/Property&gt;</code>.</p></td>
     </tr>
     </tbody>

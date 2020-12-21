@@ -90,6 +90,9 @@ To enable dynamic loading of this configuration, add below configurations to the
 
 Now both the backend service and ESB is configured to use default key stores and API Manager is configured to load dynamic SSL profiles. Restart API Manager.
 
+!!! note
+     It is recommended to configure the hostname as the server when configuring custom SSL profiles. If an IP address is required to be configured as the server, the IP address needs to be mapped to a hostname in the Host file, and the hostname can be provided as the server.
+    
 !!! tip
     You can start API Manager using the following options, to see the SSI debug logs.
     ``` java
