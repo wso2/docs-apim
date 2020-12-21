@@ -1083,7 +1083,7 @@ Follow the instructions below to move all the existing API Manager configuration
         );
 
         IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_PT' and object_id = OBJECT_ID('IDN_UMA_PERMISSION_TICKET'))
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET(NAME, PT);
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET(PT);
 
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_UMA_PT_RESOURCE (
