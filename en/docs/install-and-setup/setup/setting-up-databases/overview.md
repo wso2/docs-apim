@@ -31,3 +31,13 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 -   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
 -   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
 
+!!! Note
+
+    - To enable the default H2 database, add the below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
+        ```toml
+        [database_configuration]
+        enable_h2_console = true
+        ```
+        
+        You can access the database using URL - http://localhost:8082
+        
