@@ -74,6 +74,11 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 <p>A property can be defined to an API at the time it is created or later. There can be APIs without properties as this parameter is optional. <strong><br />
 </strong></p></td>
 </tr>
+<tr class="even">
+<td>By API category</td>
+<td><p><strong>api-category:xxxx</strong> . For example, api-category:test</p>
+<p>A category is used to group APIs based on any properties. API categories are defined in the Admin Portal and assigned in Design Configurations of the Publisher.</p></td>
+</tr>
 </tbody>
 </table>
 
