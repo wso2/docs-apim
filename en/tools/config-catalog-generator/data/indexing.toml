@@ -1,0 +1,7 @@
+[indexing]
+enable = true
+starting_delay = 35
+frequency = 3
+bach_size = 40
+pool_size = 40
+re_indexing = 1

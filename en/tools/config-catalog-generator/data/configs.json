@@ -1,6 +1,75 @@
 {
     "configs": [
         {
+            "title": "Server",
+            "options": [
+                {
+                    "name": "server",
+                    "required": true,
+                    "description": "This includes configurations required for configuring the deployment parameters that are used for identifying an API Manager server node.",
+                    "params": [
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": true,
+                            "default": "localhost",
+                            "possible": "localhost,127.0.0.1,<any-ip-address>,<any-hostname>",
+                            "description": "The hostname or IP address of the machine hosting the API Manager instance."
+                        },
+                        {
+                            "name": "offset",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Port offset allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). \n\n Port offset defines the number by which all ports defined in the runtime such as the HTTP/S ports will be offset. For example, if the default HTTP port is 9443 and the port offset is 1, the effective HTTP port will be 9444. Therefore, for each additional WSO2 product instance, set the port offset to a unique value so that they can all run on the same server without any port conflicts."
+                        },
+                        {
+                            "name": "server_role",
+                            "type": "string",
+                            "required": true,
+                            "default": "default",
+                            "possible": "default,api-devportal,api-key-manager,api-publisher,gateway-worker,traffic-manager",
+                            "description": "The profile name of the API Manager instance."
+                        }, 
+                        {
+                            "name": "enableMTOM",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
+                        }, 
+                        {
+                            "name": "enableSwA",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
+                        },   
+                        {
+                            "name": "disable_shutdown_from_ui",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Use this parameter to disable the shutdown server option from carbon management console UI."
+                        },        
+                        {
+                            "name": "disable_restart_from_ui",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Use this parameter to disable the restart server option from carbon management console UI."
+                        }                                                                                              
+                    ]
+                }
+            ],
+            "exampleFile": "server.toml"
+        },    
+        {
             "title": "Super admin configurations",
             "options": [
                 {
@@ -136,7 +205,7 @@
                             "description": "The password used to create a connection to the database."
                         },
                         {
-                            "name": "*validationQuery",
+                            "name": "validationQuery",
                             "type": "string",
                             "required": true,
                             "default": "SELECT 1",
@@ -2495,6 +2564,67 @@
                 }
             ],
             "exampleFile": "multi_tenancy.billing.package.custom.bandwidth.toml"
-        }
+        },
+        {
+            "title": "Registry indexing configurations",
+            "options": [
+                {
+                    "name": "indexing",
+                    "required": false,
+                    "description": "Index configurations related to meta data search in registry.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable registry indexing, which indexes the APIs in the registry. Required only to be true on the API Publisher and Developer Portal nodes. WSO2 recommends disabling this on other nodes (Gateways, Traffic Managers, and Key Managers)."
+                        },
+                        {
+                            "name": "starting_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "35",
+                            "possible": "",
+                            "description": "Initial startup delay for indexing (when the server is starting) in seconds."
+                        },
+                        {
+                            "name": "frequency",
+                            "type": "string",
+                            "required": false,
+                            "default": "3",
+                            "possible": "",
+                            "description": "Indexing frequency in seconds."
+                        },
+                        {
+                            "name": "bach_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "40",
+                            "possible": "",
+                            "description": "Number of resources submit for given indexing thread."
+                        },
+                        {
+                            "name": "pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "40",
+                            "possible": "",
+                            "description": "Number of worker threads for indexing."
+                        },
+                        {
+                            "name": "re_indexing",
+                            "type": "string",
+                            "required": false,
+                            "default": "Not defined",
+                            "possible": "",
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. After changing the configuration and before restarting the server, make sure to backup and delete the <APIM_HOME>/solr directory. Reindexing may get a considerable amount of time to finish after a server restart, depending on the number of APIs you have in the registry."
+                        }                                                                                                  
+                    ]
+                }
+            ],
+            "exampleFile": "indexing.toml"
+        }          
     ]
 }
