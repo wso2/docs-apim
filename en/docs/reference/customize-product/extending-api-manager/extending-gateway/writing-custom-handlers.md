@@ -101,6 +101,10 @@ directory and add below handler before `</Handlers>` .
     ```
     Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
 
+    ```
+    loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
+    ```
+
     !!! note
         The logger name `log-msg-handler` can be replaced by any logger-name.
 
