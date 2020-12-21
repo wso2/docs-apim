@@ -151,7 +151,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     </br>Example:
     
     -   If the **Response Signing Algorithm** in WSO2 Identity Server is rsa-sha256, then the **Signature Algorithm** in WSO2 API Manager should be RSA with SHA256.
-    -   If you enabled **Enable Single Logout** in Identity Server, then enable **Enable Logout** in WSO2 API Manager.
+    -   If you select **Enable Single Logout** in Identity Server, then select **Single Logout Profile** in WSO2 API Manager.
 
 ## Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers
 
