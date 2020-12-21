@@ -1581,7 +1581,7 @@
                             "name": "notifier_impl",
                             "type": "string",
                             "required": false,
-                            "default": "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl",
+                            "default": "org.wso2.carbon.apimgt.notification.TokenRevocationNotifier",
                             "possible": "",
                             "description": "This config is required only during a custom implementation. \n\nIf a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour."
                         },

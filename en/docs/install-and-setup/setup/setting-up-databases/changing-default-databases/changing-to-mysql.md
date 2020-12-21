@@ -65,21 +65,32 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  Provide authorization to the user that you use to access the databases. 
 
-     For example, let's consider `apimadmin` as the user.
+     For example, let's consider `apimadmin` and `sharedadmin` as the users.
 
     ``` java
-    mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    ```
+    ``` java
+    mysql> GRANT ALL ON shared_db.* TO sharedadmin@localhost IDENTIFIED BY "sharedadmin";
     ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, use the following commands to create the user and the grant authorization:
+        If you are using MySQL version - 8.0.x, use the following commands to create the users and the grant authorization:
 
         ``` java
         mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
         ```
 
         ``` java
-        mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        mysql> GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
+        ```
+        
+        ``` java
+        mysql> CREATE USER 'sharedadmin'@'localhost' IDENTIFIED BY 'sharedadmin';
+        ```
+        
+        ``` java
+        mysql> GRANT ALL ON shared_db.* TO 'sharedadmin'@'localhost';
         ```
 
 1.  After you have finalized the permissions, reload all the privileges.
@@ -116,7 +127,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
-    $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    $ mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
@@ -383,8 +394,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
 
     [database.apim_db]
     type = "mysql"
@@ -432,8 +443,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
