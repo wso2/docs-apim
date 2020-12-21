@@ -2,9 +2,9 @@
 
 JSON Web Token (JWT) is an open standard of transmitting information securely between two parties. As the tokens are digitally signed, the information is secured. The authentication and authorization process uses JWT access tokens. It is ideal to use JWT access tokens as API credentials because JWT access tokens can carry claims (data) that are used in order to authenticate and authorize requests.
 
-WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create a `JWT` or `OAuth2.0` application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. JWT type applications in WSO2 API Manager uses self-contained signed JWT formatted access tokens.
+WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create a `JWT` application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. JWT type applications in WSO2 API Manager uses self-contained signed JWT formatted access tokens.
 
-When an API is invoked using a JWT access tokens, the API Gateway validates the request by itself. In the case of regular opaque access tokens, the API Gateway communicates with the Key Manager (in a distributed deployment) to validate the token.
+When an API is invoked using a JWT access tokens, the API Gateway validates the request by itself.
 
 ## Prerequisites for JWT based tokens
 
@@ -34,8 +34,8 @@ The following are the mandatory attributes that are required for a JWT access to
     - `alg` - The algorithm used to sign the token (e.g., RS256).
 - `Payload`
     - `sub` - The subject of the token, which identifies as to whom the token refers to.
-    - `application` - Application for which the token is generated.
-    - `consumerKey`
+    - `consumerKey` or `azp` - The consumer key of the generated OAuth client application.
+    - `scope` - The scope list that the token is issued for.
     - `iat` - The time the token was issued.
     - `exp` - The expiry time of the token.
 
@@ -54,24 +54,19 @@ Sign in to the Developer Portal.
 1. Click **Applications**.
 
 2. Click **ADD NEW APPLICATION**.
+   [![Add new application option]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application-option.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application-option.png)
 
-     ![Add new application option](../../../../../assets/img/learn/add-new-application-option.png)
+3. Enter the application details. Let's create an application with the following details.
+   <html>
+      <table>
+         <th>Field</th><th>Value</th>
+         <tr><td>Application Name</td><td>TestApp</td></tr>
+         <tr><td>Per Token Quota</td><td>10PerMin</td></tr>
+         <tr><td>Description</td><td>Test App</td></tr>
+      </table>
+   </html>
 
-3. Enter the application details.
-
-     Let's create an application with the following details.
-
-     <html>
-     <table>
-     <th>Field</th><th>Value</th>
-     <tr><td>Application Name</td><td>TestApp</td></tr>
-     <tr><td>Per Token Quota</td><td>10PerMin</td></tr>
-     <tr><td>Token Type</td><td>JWT</td></tr>
-     <tr><td>Description</td><td>Test App</td></tr>
-     </table>
-     </html>
-
-     ![Add new Application](../../../../../assets/img/learn/add-new-application.png)
+      [![Create new application]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/add-new-application.png)
 
 ### Step 3 - Generate a JWT access token
 
@@ -79,16 +74,19 @@ Sign in to the Developer Portal.
 
 2. Click **Credentials**.
 
-3. Select the JWT based application that you created and select a throttling policy.
+3. Select the application that you created and select a throttling policy.
 
 4. Click **Subscribe**.
-     ![Subscribe to the API](../../../../../assets/img/learn/subscribe-to-api.png)
+
+      [![Subscribe to the API]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/subscribe-to-api.png)
 
 5. Click **PROD KEYS**, which corresponds to the JWT based application.
 
-     ![View list of credentials](../../../../../assets/img/learn/view-credentials-list.png)
+      [![View list of credentials]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/view-credentials-list.png)]({{base_path}}/assets/img/learn/api-security/oauth2/access-token-types/view-credentials-list.png)
 
-6. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT.
+6. Click **GENERATE KEYS** to generate consumer key and consumer secret for the production OAuth2 application.
+
+7. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT.
 
 ### Step 4 - Invoke the API using the JWT access token
 
@@ -170,10 +168,6 @@ curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: applic
 ## Additional Information
 <a name="import"></a>
 
-### Validation of API subscriptions
-
-The subscription validation is applied only if the JWT payload contains the `subscribedAPIs` attribute. The default Key Manager in WSO2 API Manager ensures that this property is added to all the tokens it issues even if the relevant applications have not subscribed to an API. Tokens that are generated before an application subscribes to an API will not contain that API under its subscription details, and will not be allowed to access that specific API. Therefore, JWTs should be generated after the application has subscribed to the required API.
-
 ### Importing the public certificate into the client trust store
      
 Follow the instructions below to import the public certificate into the client trust store.
@@ -204,18 +198,32 @@ JWTs generated by an external OAuth provider can be validated by the gateway as 
 
 In order to do the signature validation of JWTs, you can use one of the following options.
 
-- Import the public certificate into the client-truststore.jks located at `<API-M_HOME>/repository/resources/security/` with the **kid** value of the certificate as the alias.
+-  Import the public certificate into the client-truststore.jks located at `<API-M_HOME>/repository/resources/security/` with the **kid** value of the certificate as the alias.
 
-- Use the JWKS endpoint of the OAuth provider.
+-  Use the JWKS endpoint of the OAuth provider.
 
- 1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf/` folder.
- 2. Add the following configuration under the `[[apim.jwt.issuer]]` with the issuer details.
-  ```
-  [[apim.jwt.issuer]]
-  name = "<issuer value of jwt>"
-  [apim.jwt.issuer.jwks]
-  url = "<jwks endpoint of oauth provider>"
-  ```
+      1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf/` folder.
+      2. Add the following configuration under the `[[apim.jwt.issuer]]` with the issuer details.
+
+      ``` tab="Format"
+      [[apim.jwt.issuer]]
+      name = "<issuer value of jwt>"
+      [apim.jwt.issuer.jwks]
+      url = "<jwks endpoint of oauth provider>"
+      ```
+      
+      ``` tab="Example"
+      [[apim.jwt.issuer]]
+      name = "https://localhost:9443/oauth2/token"
+      jwks.url = "https://localhost:9443/oauth2/jwks"
+
+      [[apim.jwt.issuer]]
+      name = "wso2is"
+      jwks.url = "https://localhost:9445/oauth2/jwks"
+      ```
+
+!!! important
+    The JWTs generated by external OAuth providers can be validated only if the tokens are signed by an **asymmetric algorithm** such as `RS256`. Symmetric algorithms such as `HS256` are NOT supported in the validation flow.
 
 ### JWT claim transformation
 
