@@ -85,7 +85,7 @@ Follow the steps below to deploy a BPEL and a HumanTask for a tenant in the API 
     ```
 
     !!! tip
-        Make sure you copy the database driver (in this case, MySQL driver) to the `/repository/components/lib` folder before starting each server.
+        Make sure you copy the database driver (in this case, MySQL driver) to the `/repository/components/lib` folder in `<APIM_HOME>` and `<EI_HOME>` before starting each server.
 
     !!! info
         In the case the default JDBC Userstore is being used, the above-mentioned datasource will act as both the permission and user store.
