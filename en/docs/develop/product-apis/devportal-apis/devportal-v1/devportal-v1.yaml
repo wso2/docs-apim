@@ -4136,12 +4136,10 @@ definitions:
       tokenType:
         type: string
         enum:
-          - OAUTH
           - JWT
         description: |
           Type of the access token generated for this application.
 
-          **OAUTH:** A UUID based access token.
           **JWT:** A self-contained, signed JWT based access token which is issued by default.
         default: JWT
         example: JWT
