@@ -1504,7 +1504,16 @@ paths:
       parameters:
         - in: formData
           name: file
-          description: WSDL definition as a file
+          description: |
+            WSDL definition as a file or archive
+
+            **Sample cURL to Upload WSDL File**
+
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
+
+            **Sample cURL to Upload WSDL Archive**
+
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file="@wsdl.zip;type=application/zip" -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
           type: file
           required: false
         - in: formData
