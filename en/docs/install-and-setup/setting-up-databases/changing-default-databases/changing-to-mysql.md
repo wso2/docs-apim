@@ -68,7 +68,7 @@ Follow the  instructions below to set up a MySQL database:
      For example, let's consider `apimadmin` as the user.
 
     ``` java
-    mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
 
     !!! info
@@ -79,7 +79,7 @@ Follow the  instructions below to set up a MySQL database:
         ```
 
         ``` java
-        mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        mysql> GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
         ```
 
 1.  After you have finalized the permissions, reload all the privileges by executing the following command:
