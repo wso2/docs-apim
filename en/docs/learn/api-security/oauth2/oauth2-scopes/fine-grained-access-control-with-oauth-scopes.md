@@ -4,6 +4,13 @@ Scopes enable fine-grained access control to API resources based on user roles. 
 
 For example, there can be requirements such as restricting the access to a given API resource to admin users only, while other resources of the same API access should be allowed to consumers with less privileges. Let's see how this kind of role based access control can be managed with the use of OAuth2 scopes.
 
+!!! info
+
+    When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior that it does not validate the roles in the user store. For this purpose, set the Java system property 'disableRoleValidationAtScopeCreation' to 'true' at the server startup:
+         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
+         Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
+         Restart the server.
+
 ## Shared Scopes
 
 In WSO2 API-M, an OAuth scope can be created before the API is created and shared across multiple APIs of the same tenant. The API-M Publisher portal provides a scope management UI to view, create, edit and delete these shared scopes. 
