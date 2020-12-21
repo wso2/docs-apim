@@ -15,6 +15,7 @@ pushd $location > /dev/null
 echo 'starting gateway artifact migration...'
 
 find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 perl -i -pe's/<handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"\/>/<handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler">\n\t\t\t\t<property name="RemoveOAuthHeadersFromOutMessage" value="true"\/>\n\t\t\t<\/handler>/'
+find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 perl -pi -ne 'BEGIN {undef $/} s/<handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">(.|\n)*?<\/handler>/<handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.ThrottleHandler"\/>/'
 
 popd > /dev/null
 
