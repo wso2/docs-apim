@@ -199,6 +199,20 @@ Follow the instructions below to set up and configure the databases for the WSO2
     permissions = "/permission/admin/manage/identity/applicationmgt/delete"
     scopes = "internal_application_mgt_delete"
 
+    [[resource.access_control]]
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
+    secure = true
+    http_method = "PUT"
+    permissions = "/permission/admin/manage/identity/applicationmgt/update"
+    scopes = "internal_application_mgt_update"
+
+    [[resource.access_control]]
+    context = "(.)/keymanager-operations/dcr/register(.)"
+    secure = true
+    http_method = "POST"
+    permissions = "/permission/admin/manage/identity/applicationmgt/update"
+    scopes = "internal_application_mgt_update"
+    
     [tenant_context.rewrite]
     custom_webapps = ["/keymanager-operations/"]
     ```
