@@ -158,7 +158,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
     offset=0
     
     [user_store]
-    type = "database"
+    type = "database_unique_id"
     
     [super_admin]
     username = "admin"
