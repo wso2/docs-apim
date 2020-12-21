@@ -2,7 +2,7 @@
 
 #### Enabling self signup
 
-In a multi-tenanted API Manager setup, self signup to the Developer Portal is enabled by default to all tenants. This will work out-of-the-box for super tenant(`carbon.super`). **But in order to make it work for tenants the following steps should be carried out**.
+In a multi-tenanted API Manager setup, self signup to the Developer Portal will work out-of-the-box for super tenant(`carbon.super`). **But in order to make it work for tenants the following steps should be carried out**.
 
 1. Sign in to the management console ( `https://<HostName>:9443/carbon` ) as tenant admin.
 
