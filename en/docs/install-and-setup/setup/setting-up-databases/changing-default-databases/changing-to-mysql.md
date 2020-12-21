@@ -65,14 +65,17 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  Provide authorization to the user that you use to access the databases. 
 
-     For example, let's consider `apimadmin` as the user.
+     For example, let's consider `apimadmin` and `regadmin` as the users.
 
     ``` java
     mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
+    ``` java
+    mysql> GRANT ALL ON shared_db.* TO regadmin@localhost IDENTIFIED BY "regadmin";
+    ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, use the following commands to create the user and the grant authorization:
+        If you are using MySQL version - 8.0.x, use the following commands to create the users and the grant authorization:
 
         ``` java
         mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
@@ -80,6 +83,14 @@ Follow the  instructions below to set up a MySQL database:
 
         ``` java
         mysql> GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
+        ```
+        
+        ``` java
+        mysql> CREATE USER 'regadmin'@'localhost' IDENTIFIED BY 'regadmin';
+        ```
+        
+        ``` java
+        mysql> GRANT ALL ON shared_db.* TO 'regadmin'@'localhost';
         ```
 
 1.  After you have finalized the permissions, reload all the privileges.
