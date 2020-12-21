@@ -109,9 +109,8 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
 !!! warning
-    As a limitation, when a user is deleted and create another user with same username, previous users applications will be visible in the Dev portal applications listing page. 
-    This is due to a limitation in the database design since use username as a key to store the Applications. 
-    However the new user will not be able to access the details of the application as the SP is already deleted. 
+    As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Dev portal applications listing page.
+    However the new user will not be able to access the details of the application as the service provider is already deleted. 
 
 ## Adding Role Mappings
 

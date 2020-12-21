@@ -33,7 +33,7 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 
 !!! Note
 
-    - To enable the default H2 database please add below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
+    - To enable the default H2 database, add the below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
           ```toml
           [database_configuration]
           enable_h2_console = true
