@@ -1715,7 +1715,7 @@
                 {
                     "name": "indexing",
                     "required": false,
-                    "description": "Index configurations related to meta data search in registry.",
+                    "description": "Index configurations related to metadata search in registry.",
                     "params": [
                         {
                             "name": "enable",
@@ -1763,7 +1763,7 @@
                             "required": false,
                             "default": "Not defined",
                             "possible": "",
-                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. After changing the configuration and before restarting the server, make sure to backup and delete the <APIM_HOME>/solr directory. Reindexing may get a considerable amount of time to finish after a server restart, depending on the number of APIs you have in the registry."
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the <API-M_HOME>/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
                         }                                                                                                  
                     ]
                 }
