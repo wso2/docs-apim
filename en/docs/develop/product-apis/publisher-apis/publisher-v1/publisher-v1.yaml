@@ -2520,7 +2520,7 @@ paths:
         200:
           description: |
             OK.
-            Successful response if the document name exist.
+            Successful response if the document name exists.
         400:
           $ref: '#/responses/BadRequest'
         404: |
