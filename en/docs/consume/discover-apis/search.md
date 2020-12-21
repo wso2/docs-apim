@@ -77,7 +77,7 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 <tr class="even">
 <td>By API category</td>
 <td><p><strong>api-category:xxxx</strong> . For example, api-category:test</p>
-<p>A category is used to group APIs based on any properties. API categories are defined in the Admin Portal and assigned in Design Configurations of the Publisher.</p></td>
+<p>An API category can be used to group APIs based on any property. API categories can be defined from the Admin Portal and can be assigned to an API from the Design Configurations section of the Publisher Portal.</p></td>
 </tr>
 </tbody>
 </table>
