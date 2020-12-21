@@ -51,7 +51,7 @@ This can be defined in the `[user_store]` section of the `<APIM_HOME>/repository
 
 ```toml
     [user_store]
-    type = "database"
+    type = "database_unique_id"
 ```
 
 Follow the links given below to setup the required type of primary user store.
