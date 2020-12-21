@@ -707,12 +707,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             **Flags:**  
             
             -   Required :  
-                `--environment` or `-e` : The environment of which the API state should be changed  
-                `--name` or `-n` : The name of the API to be state changed  
-                `--version` or `-v` : The version of the API that its state needs to be changed
+                `--environment` or `-e` : The environment that the command is executed on  
+                `--name` or `-n` : The name of the respective API
+                `--version` or `-v` : The version of the respective API
                 `--action` or `-a` : The action to be taken to change the status of the API
             -   Optional :  
-                `--provider` or `-r` : Provider of the API to be state changed  
+                `--provider` or `-r` : The provider of the respective API  
 
         !!! example
             ```bash
@@ -866,7 +866,7 @@ Run the following CTL command to change the default location of the export direc
             Default : `/home/.wso2apictl/exported`
             
             
-## Import the SSL certificate for Secure HTTP Communication with API Manager
+## Import SSL certificates for Secure HTTP Communication with API Manager
 
 Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
 certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
