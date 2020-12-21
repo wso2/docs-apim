@@ -104,34 +104,6 @@
             "exampleFile": "super-admin.toml"
         },
         {
-            "title": "Connecting to the primary data store",
-            "options": [
-                {
-                    "name": "server",
-                    "required": true,
-                    "description": "This groups the parameters that define the server node details.",
-                    "params": [
-                        {
-                            "name": "hostname",
-                            "type": "string",
-                            "required": true,
-                            "default": "\"localhost\"",
-                            "possible": "\"127.0.0.1\",\"localhost\",\"<any-ip-address>\"",
-                            "description": "The hostname of the WSO2 API-M server instance."
-                        },
-                        {
-                            "name": "node_ip",
-                            "type": "string",
-                            "required": true,
-                            "default": "\"127.0.0.1\"",
-                            "description": "The IP address of the server node."
-                        }
-                    ]
-                }
-            ],
-            "exampleFile": "primary-data-store.toml"
-        },
-        {
             "title": "Enabling the H2 database console",
             "options": [
                 {
@@ -2571,7 +2543,7 @@
                 {
                     "name": "indexing",
                     "required": false,
-                    "description": "Index configurations related to meta data search in registry.",
+                    "description": "Index configurations related to metadata search in registry.",
                     "params": [
                         {
                             "name": "enable",
@@ -2603,7 +2575,7 @@
                             "required": false,
                             "default": "40",
                             "possible": "",
-                            "description": "Number of resources submit for given indexing thread."
+                            "description": "Number of resources submitted for given indexing thread."
                         },
                         {
                             "name": "pool_size",
@@ -2619,7 +2591,7 @@
                             "required": false,
                             "default": "Not defined",
                             "possible": "",
-                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. After changing the configuration and before restarting the server, make sure to backup and delete the <APIM_HOME>/solr directory. Reindexing may get a considerable amount of time to finish after a server restart, depending on the number of APIs you have in the registry."
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the <API-M_HOME>/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
                         }                                                                                                  
                     ]
                 }
