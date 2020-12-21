@@ -2,13 +2,14 @@
 
 Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
 
-- [Step 1 - Download and install WSO2 IS](#step-1-download-and-install-wso2-is)
-- [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
-- [Step 3 - Install and configure the databases](#step-3-install-and-configure-the-databases)
-- [Step 4 - Configure WSO2 IS with WSO2 API-M](#step-4-configure-wso2-is-with-wso2-api-m)
-- [Step 5 - Configure WSO2 API-M with the WSO2 IS](#step-5-configure-wso2-api-m-with-the-wso2-is)
-- [Step 6 - Optionally, configure High Availability (HA) for the Identity Server](#step-6-optionally-configure-high-availability-ha-for-the-identity-server)
-- [Step 7 - Start the Identity Server(s)](#step-7-start-the-identity-servers)
+- [Configuring WSO2 Identity Server as a Key Manager](#configuring-wso2-identity-server-as-a-key-manager)
+    - [Step 1 - Download and install WSO2 IS](#step-1---download-and-install-wso2-is)
+    - [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2---optionally-configure-port-offset-for-wso2-is)
+    - [Step 3 - Install and configure the databases](#step-3---install-and-configure-the-databases)
+    - [Step 4 - Configure WSO2 IS with WSO2 API-M](#step-4---configure-wso2-is-with-wso2-api-m)
+    - [Step 5 - Configure WSO2 API-M with the WSO2 IS](#step-5---configure-wso2-api-m-with-the-wso2-is)
+    - [Step 6 - Optionally, configure High Availability (HA) for the Identity Server](#step-6---optionally-configure-high-availability-ha-for-the-identity-server)
+    - [Step 7 - Start the Identity Server(s)](#step-7---start-the-identity-servers)
 
 ## Step 1 - Download and install WSO2 IS
 
@@ -198,6 +199,20 @@ Follow the instructions below to set up and configure the databases for the WSO2
     http_method = "DELETE"
     permissions = "/permission/admin/manage/identity/applicationmgt/delete"
     scopes = "internal_application_mgt_delete"
+
+    [[resource.access_control]]
+    context = "(.*)/keymanager-operations/dcr/register(.*)"
+    secure = true
+    http_method = "PUT"
+    permissions = "/permission/admin/manage/identity/applicationmgt/update"
+    scopes = "internal_application_mgt_update"
+
+    [[resource.access_control]]
+    context = "(.)/keymanager-operations/dcr/register(.)"
+    secure = true
+    http_method = "POST"
+    permissions = "/permission/admin/manage/identity/applicationmgt/update"
+    scopes = "internal_application_mgt_update"
 
     [tenant_context.rewrite]
     custom_webapps = ["/keymanager-operations/"]
