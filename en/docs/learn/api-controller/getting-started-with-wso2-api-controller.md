@@ -8,7 +8,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
     - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-macosx-x64.tar.gz)
     - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-linux-i586.tar.gz)
-    - [For Linux 64-bit](http://localhost:8000/assets/attachments/learn/api-controller/apictl-3.2.1-linux-x64.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-linux-x64.tar.gz)
     - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-i586.zip)
     - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-x64.zip)
 
@@ -108,12 +108,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --apim <API-Manager-endpoint> \
                         --token <token-endpoint> \
                         --admin <admin-REST-API-endpoint> \
-                        --publisher <Publisher-portal-endpoint> \
+                        --publisher <publisher-portal-endpoint> \
                         --devportal <developer-portal-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-portal-endpoint> --devportal <developer-portal-endpoint>
+        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint>
         ```
 
         !!! info

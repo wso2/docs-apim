@@ -91,7 +91,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 6. Start WSO2 Identity Server with a port offset.
    portOffset is required only if you are running both API-m and ID in the same JVM.
 
-      `sh wso2server.sh --DportOffset=1`
+      `sh wso2server.sh -DportOffset=1`
 
 ## Step 2 - Configure WSO2 API Manager
 
