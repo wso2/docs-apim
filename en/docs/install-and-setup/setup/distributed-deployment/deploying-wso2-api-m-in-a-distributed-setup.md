@@ -253,7 +253,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         This configuration enables the publishing of throttling policies, custom templates, and block conditions to the Traffic Manager node.
 
         !!! note
-            When publishing throttle poclies, the admin/publisher portal communicates with traffic manager using the `service_url`. Hence in HA mode, it is recommended to point to the Traffic Manager LB. In case you do not have a load balancer fronting traffic manager nodes, you can point this to either hostname with port. But note that in the event of throttle poclies are being published, and the configured node is unavailble, that policy will not work.
+            When publishing throttle policies, the admin/publisher portal communicates with traffic manager using the `service_url`. Hence in HA mode, it is recommended to point this to the Traffic Manager LB. In case you do not have a load balancer fronting traffic manager nodes, you can point this to any traffic manager hostname with port. But note that in the events of throttle policies are being published, and the configured node is unavailble, that policy will not work.
 
         ``` toml tab="Traffic Manager with HA"
         [apim.throttling]
