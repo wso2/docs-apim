@@ -29,7 +29,7 @@ This section explains how to secure your backend by enabling mutual SSL between 
 4.  Export the public certificate from API Manager's keystore. The `<APIM_HOME>/repository/resources/security/wso2carbon.jks` file which is the default keystore shipped with WSO2 API Manager is used in this example. Use the command below to generate the certificate for the default keystore. Give the default password `wso2carbon` when prompted.
 
     ``` java
-    keytool -export -keystore wso2carbon.jks -alias wso2carbon -file wso2PubCert.cert
+    keytool -export -keystore wso2carbon.jks -alias wso2carbon -file wso2PubCert.crt
     ```
 
     !!! info
