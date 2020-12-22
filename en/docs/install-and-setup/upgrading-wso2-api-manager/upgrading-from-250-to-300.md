@@ -1601,7 +1601,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
        ```toml
        [truststore]
        type= "JKS"
-       file = "modified-client-truststore.jks"
+       file_name = "modified-client-truststore.jks"
        password= "modified_password"
        ```
     
