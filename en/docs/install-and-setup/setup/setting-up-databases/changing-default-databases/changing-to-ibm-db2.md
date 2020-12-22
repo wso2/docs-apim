@@ -30,7 +30,7 @@ Follow the instructions below to set up a IBM DB2 database:
    ```
    For example:
    ```sh
-   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER regadmin
+   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER sharedadmin
    ```
 
 1. Disconnect from the database using the following command:
@@ -110,8 +110,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     ```
@@ -158,8 +158,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     pool_options.maxActive = 50
