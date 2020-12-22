@@ -108,7 +108,7 @@ To try out the example given above, follow the steps below:
     
 ### Publishing data on demand via store queries
 
-To understand how to publish data on demand, see [Processing Data - Aggregating Data](processing-data.md#aggregating-data)
+To understand how to publish data on demand, see [Correlating Data](correlating-data.md)
 
 ### Supported databases
 
@@ -123,7 +123,7 @@ WSO2 Streaming supports the following database types via Siddhi extensions:
 
 ### Supported Mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Processing Data - Transforming Data](processing-data.md#transforming-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data](transforming-data.md#transforming-the-message-format-when-publishing-data).
 
 The mapper available for loading data to databases is [Keyvalue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.0/#sinkmapper).
 
@@ -187,7 +187,7 @@ To try out the above example by including the given output stream and the sink c
     
 ### Supported Mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Processing Data - Transforming Data](processing-data.md#transforming-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data](transforming-data.md#transforming-the-message-format-when-publishing-data).
 
 The following mappers are supported for the File extension.
 
@@ -274,7 +274,7 @@ The following is a list of cloud platforms in which you can store data via WSO2 
 
 ### Supported mappers
 
-Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Processing Data - Transforming Data](processing-data.md#transforming-data).
+Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data](transforming-data.md#transforming-message-formats).
 
 WSO2 Streaming Integrator supports the following mappers for the cloud-based storages in which it stores data.
 
