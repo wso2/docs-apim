@@ -118,12 +118,20 @@ In the above example, you mapped the new `creator` role to allow all operations 
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
-2. Navigate to **Settings > Scope Mapping** in Admin Portal.
+2. Navigate to **Settings > Role Permissions** in Admin Portal and click on **Add Role Permission**.
+    [![View Role Permission]({{base_path}}/assets/img/administer/view-role-permissions.png)]({{base_path}}/assets/img/administer/view-role-permissions.png)
 
-3. Under Role Mappings define a mapping as follows:
+3. Provide the name of the newly created role.
 
-     [![Add Role Mapping]({{base_path}}/assets/img/administer/role-mapping.png)]({{base_path}}/assets/img/administer/role-mapping.png)
+    [![Add Role Name]({{base_path}}/assets/img/administer/add-role-permissions.png)]({{base_path}}/assets/img/administer/add-role-permissions.png)
 
+4. The newly created role can be mapped to an existing internal or admin role if required.
+
+    [![Map Role Name]({{base_path}}/assets/img/administer/map-existing-role.png)]({{base_path}}/assets/img/administer/map-existing-role.png)
+
+5. Select the required existing scopes for the newly created role and save the changes.
+
+    [![Scope mapping]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)
 This will update all the scope mappings in the `tenant-conf.json` file with the `Internal/creator` role as an allowed role. As a result, the new creator role will also be allowed for all scopes that are allowed for the `Internal/creator` role.
 
 !!! info 
