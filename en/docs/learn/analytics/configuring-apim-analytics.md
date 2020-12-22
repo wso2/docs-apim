@@ -252,6 +252,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
             username: 'root'
             password: '123'
             driverClassName: oracle.jdbc.OracleDriver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1 FROM DUAL
@@ -323,11 +324,12 @@ As the dashboard is used only to render the data there is no Active-Active or Ac
                      username: 'root'
                      password: '123'
                      driverClassName: com.mysql.jdbc.Driver
+                     minIdle: 5
                      maxPoolSize: 50
                      idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
+                     connectionTestQuery: SELECT 1
+                     validationTimeout: 30000
+                     isAutoCommit: false
           ```
        
 4.  Point the following data sources to external databases. 
