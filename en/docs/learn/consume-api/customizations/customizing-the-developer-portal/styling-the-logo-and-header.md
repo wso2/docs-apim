@@ -4,6 +4,11 @@ The header section can be customized to match different design needs. Following 
 
  ![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header1.png) 
 
+!!! note
+    -   You can find the default configurations at the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` in `defaultTheme.js` file.
+    -   Make sure to take a backup of the `defaultTheme.js` before making any changes.
+    -   Using the above file as reference you can override the parameters defined in the that file by altering the parameters in `defaultTheme.js` file.
+
 ```js
 appBar: {
     logo: '/site/public/images/logo.svg',
