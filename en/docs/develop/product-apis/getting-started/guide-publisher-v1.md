@@ -36,11 +36,11 @@ Sample response:
 }
 ```
 
-During the API invocation process request, invoke the CXF handler first, which calls an introspection API to validate the token. Generate the access token using the already created OAuth application. A sample call to generate the access token is shown below.
+Next, you must use the above client id and clientSecret to obtain the access token. We will be using the password grant type for this, you can use any grant type you desire. You also need to add the proper scope when getting the access token. All possible scopes for Publisher REST API can be viewed in the `securityDefinitions-->OAuth2Security` section and the scope for each resource is given in the `security-->OAuth2Security` section of resource documentation. 
+A sample call to generate the access token is shown below.
 
-Note: Access token must be generated using correct scope for the resource. Scope for each resource is given in resource documentation.
-
-Note: The consumer key and consumer secret keys must be Base64 encoded in the format consumer-key:consumer-secret
+!!! note 
+    The consumer key and consumer secret keys must be Base64 encoded in the format `consumer-key:consumer-secret`
 
 ```
 curl -k -d "grant_type=password&username=admin&password=admin&scope=apim:api_view" -H "Authorization: Basic SGZFbDFqSlBkZzV0YnRyeGhBd3liTjA1UUdvYTpsNmMwYW9MY1dSM2Z3ZXpIaGM3WG9HT2h0NUFh" https://localhost:8243/token
@@ -61,3 +61,8 @@ Token response:
 Now you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
 
 Note: The implementation of WSO2 API Manager is similar to DCR. Since retrieve client application, edit, and delete is only available in DCRM specifications you cannot perform these actions using REST API. However, you can view the created OAuth2 application using the Management Console. Please see [Accessing the Management Console]({{base_path}}/install-and-setup/installation-guide/running-the-product/#accessing-the-management-console) for more details.
+
+Further, to configure the Publisher REST API, do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
+
+!!! note
+    To get a detailed overview of Publisher REST API, follow [Publisher API v1]({{base_path}}/develop/product-apis/publisher-apis/publisher-v1/publisher-v1/).

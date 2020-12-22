@@ -40,9 +40,11 @@ Sample response:
 }
 ```
 
-During the API invocation process request, click the CXF handler first, which calls an introspection API to validate the token. Generate the access token using the already created OAuth application. A sample call to generate the access token is shown below.
+Next, you must use the above client id and clientSecret to obtain the access token. We will be using the password grant type for this, you can use any grant type you desire. You also need to add the proper scope when getting the access token. All possible scopes for DevPortal REST API can be viewed in the `securityDefinitions-->OAuth2Security` section and the scope for each resource is given in the `security-->OAuth2Security` section of resource documentation. 
+A sample call to generate the access token is shown below.
 
-Note: Access token must be generated using correct scope for the resource. Scope for each resource is given in resource documentation.
+!!! note 
+    The consumer key and consumer secret keys must be Base64 encoded in the format `consumer-key:consumer-secret`
 
 ```
 curl -k -d "grant_type=password&username=admin&password=admin&scope=apim:subscribe" -H "Authorization: Basic SGZFbDFqSlBkZzV0YnRyeGhBd3liTjA1UUdvYTpsNmMwYW9MY1dSM2Z3ZXpIaGM3WG9HT2h0NUFh" https://localhost:8243/token
@@ -61,3 +63,8 @@ Token response:
 ```
 
 Now you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
+
+Further, to configure the Dev Portal REST API, do the necessary configurations mentioned in [configuring REST APIs]({{base_path}}/develop/product-apis/configuring-rest-api/).
+
+!!! note
+    To get a detailed overview of Dev Portal REST API, follow [Developer Portal API v0.15]({{base_path}}/develop/product-apis/devportal-apis/devportal-v0.15/devportal-v0.15/).
