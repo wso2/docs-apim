@@ -493,7 +493,7 @@ read_groups = true
  <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
  <td>password_java_reg<br>ex_violation_error_msg</td>
  <td>Password RegEx Violation Error Message</td>
- <td>Error message when the Password is not matched with passwordJavaRegEx<br />
+ <td>The error message that appears when the password does not comply with the <code>passwordJavaRegEx</code><br />
  Default: Password length should be within 5 to 30 characters</td></tr>
  <tr class="odd">
  <td>RolenameJavaRegEx</td>
@@ -518,12 +518,12 @@ read_groups = true
  <td>PasswordHashMethod</td>
  <td>password_hash_method</td>
  <td>Password Hashing Algorithm</td>
- <td>Specifies the Password Hashing Algorithm used the hash the password before storing in the user store.<br />
+ <td>Specifies the Password Hashing Algorithm used to hash the password before storing in the user store.<br />
  Possible values:<br />
  SHA - Uses SHA digest method. SHA-1, SHA-256<br />
  MD5 - Uses MD 5 digest method.<br />
  PLAIN_TEXT - Plain text passwords.(Default)
- <p>If you just configure as SHA, it is considered as SHA-1. It is always better to configure an algorithm with higher bit value as digest bit size would be increased.<br />
+ <p>If you just configure it as SHA, it is considered as SHA-1. It is always better to configure an algorithm with higher bit value as the digest bit size would be increased.<br />
  <br />
  Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc.) support the storage of the password as salted hashed values (SSHA).<br />
  Therefore, the WSO2 IS server just needs to feed password into the connected user store as a plain text value. Then LDAP user store can store them as salted hashed value. To feed the plain text into the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
@@ -553,7 +553,7 @@ read_groups = true
  <td>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
  Default: 100<br />
  <br />
- In some user stores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it n the user store level.
+ In some user stores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it in the user store level.
  <p>Eg: Active directory has the MaxPageSize property with the default value 1000.</p></td>
  </tr>
  <tr class="odd">
@@ -597,7 +597,7 @@ read_groups = true
  <td>ReadTimeout</td>
  <td>read_timeout</td>
  <td>LDAP Read Timeout</td>
- <td>The value of this property is the read timeout in milliseconds for LDAP operations. If the LDAP provider cannot get a LDAP response within that period, it aborts the read attempt. The integer should be greater than zero. An integer less than or equal to zero means no read timeout is specified which is equivalent to waiting for the response infinitely until it is received.
+ <td>The value of this property is the read timeout in milliseconds for LDAP operations. If the LDAP provider cannot get a LDAP response within that period, it aborts the read attempt. The integer should be greater than zero. An integer less than or equal to zero means no read timeout is specified that is equivalent to waiting for the response infinitely until it is received.
  <br />
  Default: not configured</td>
  </tr>
