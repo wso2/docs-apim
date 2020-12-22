@@ -4,7 +4,11 @@ The header section can be customized to match different design needs. Following 
 
  ![changing the logo and header]({{base_path}}/assets/img/learn/changing-the-logo-and-header1.png)
 
-Go to  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory, open the `defaultTheme.js` file.
+!!! note
+    -   You can find the default theme in the following location
+    `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`
+    -   Using the above file as reference you can override the parameters defined in the above file by altering the `defaultTheme.js` file in following location
+    `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`
 
 The following is a sample configuration with the corresponding parameters to customize the logo and the header of the Developer Portal.
 
