@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -58,7 +58,7 @@ nav:
     - Design:
             - Create APIs Overview: design/design-api-overview.md
             - Create a New API:
-                    - Create a REST API: design-api/create-api/create-a-rest-api.md
+                    - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
                     - Create a Streaming API: ''
@@ -148,9 +148,6 @@ nav:
                             - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                     - OpenID Connect:
                             - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-                    - User Account Management:
-                            - Recover Password: learn/user-account-management/recover-password.md
-                            - Change Password: learn/user-account-management/change-dev-portal-password.md
             - Rate Limiting:
                     - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                     - Adding New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
@@ -174,7 +171,7 @@ nav:
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Publish:
-        - Publish APIs Overview: publish/control-api-overview.md
+        - Publish APIs Overview: publish/publish-api-overview.md
         - Publish an API: publish/publish-an-api.md
         - Publish through Multiple API Gateways: publish/publish-through-multiple-api-gateways.md
         - Publish an API to a Cloud Cluster in PrivateJet Mode: publish/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
@@ -208,21 +205,8 @@ nav:
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
-        - API Controller:
-            - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
-            - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
-            - Migrating APIs to Different Environments: learn/api-controller/migrating-apis-to-different-environments.md
-            - Migrating API Products (with or without dependent APIs) to Different Environments: learn/api-controller/migrating-api-products-to-different-environments.md
-            - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
-            - CI/CD with WSO2 API Manager: learn/api-controller/ci-cd-with-wso2-api-management.md
-            - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
-            - Advanced Topics:
-                - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-                - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-                - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
     - Consume:
-        - Consume APIs Overview: learn/consume-api-overview.md
+        - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
             - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
@@ -267,6 +251,9 @@ nav:
         - Generating SDKs:
             - Generate SDKs in Developer Portal: consume/generating-sdks/generate-sdks-in-dev-portal.md
             - Write a Client Application Using the SDK: consume/generating-sdks/write-a-client-application-using-the-sdk.md
+        - User Account Management:
+            - Recover Password: consume/user-account-management/recover-password.md
+            - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integration:
         - Integration Overview: ''
         - Integration Use Cases:
@@ -879,22 +866,22 @@ nav:
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - reference:
+        - Product REST APIs:
+            - Overview: reference/product-apis/overview.md
+            - Publisher APIs:
+                - Publisher v1: reference/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+            - Developer Portal APIs:
+                - Developer Portal API v1: reference/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+            - Admin APIs:
+                - Admin APIs v1: reference/product-apis/admin-apis/admin-v1/admin-v1.md
+                - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+            - Gateway APIs:
+                - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+            - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Configuration Catalog: reference/config-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
         - Customize Product:
-            - Product REST APIs:
-                - Overview: reference/customize-product/product-apis/overview.md
-                - Publisher APIs:
-                    - Publisher v1: reference/customize-product/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                - Developer Portal APIs:
-                    - Developer Portal API v1: reference/customize-product/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                - Admin APIs:
-                    - Admin APIs v1: reference/customize-product/product-apis/admin-apis/admin-v1/admin-v1.md
-                    - Admin APIs v0.17: reference/customize-product/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
-                - Gateway APIs:
-                    - Gateway v1: reference/customize-product/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-                - Advanced Configurations: reference/customize-product/product-apis/advanced-configurations.md
             - Extending WSO2 API Manager:
                 - Extending Key Management:
                     - Extending Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
