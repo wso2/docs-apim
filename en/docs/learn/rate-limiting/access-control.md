@@ -36,7 +36,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
     Following is an example configuration.
 
-    ![](../../assets/img/learn/whitelist-specific-ip.png)
+    ![](../../assets/img/learn/new-allow-specific-ip.png.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
