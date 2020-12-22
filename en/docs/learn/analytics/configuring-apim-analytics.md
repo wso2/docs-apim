@@ -254,6 +254,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
             username: 'root'
             password: '123'
             driverClassName: oracle.jdbc.OracleDriver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1 FROM DUAL
@@ -319,11 +320,12 @@ Configuring databases allow you to persist data relating to APIs, process them a
                      username: 'root'
                      password: '123'
                      driverClassName: com.mysql.jdbc.Driver
+                     minIdle: 5
                      maxPoolSize: 50
                      idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
+                     connectionTestQuery: SELECT 1
+                     validationTimeout: 30000
+                     isAutoCommit: false
           ```
          
     !!! Info
