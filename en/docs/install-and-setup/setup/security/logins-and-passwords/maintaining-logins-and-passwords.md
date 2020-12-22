@@ -12,7 +12,7 @@ This section covers the following topics:
 
 Follow the instructions below to change the default admin password:
 
-1.  Go to `<API-M_HOME>/repository/conf/deployment.toml` and change the user credentials as below.
+1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file and change the user credentials as shown below.
 
    ``` toml
        [super_admin]
@@ -23,13 +23,13 @@ Follow the instructions below to change the default admin password:
 !!! note
     **Do you have any special characters in username or passwords?**
     
-    -   Above credentials are applied to relevant xml configuration files such as user-mgt.xml.
+    -   The above credentials are applied to relevant XML configuration files such as `user-mgt.xml`.
     
         If you specify passwords inside XML files, you have to be mindful when giving special characters in the user names and passwords.
         According to XML specification ( <https://www.w3.org/TR/xml/#sec-cdata-sect/> ), some special characters can disrupt the configuration.
         For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:    
     
-    -   Above credentials are applied to jndi.properties file.
+    -   The above credentials are applied to the `jndi.properties` file.
         -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
         -   **It is also not possible to use the percentage (%) sign in the password**. When building the connection URL, the URL with credentials is parsed.
         This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in`.
@@ -62,7 +62,7 @@ Follow the instructions below to change the default admin password:
 Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 !!! note
-    If you encountered an error similar to `ant: command not found`, Please install [ant](https://ant.apache.org/) before running the above script
+    If you encountered an error similar to `ant: command not found`, Please install [Apache Ant](https://ant.apache.org/) before running the above script.
 
 ### Login in via multiple user attributes in Developer Portal
 
@@ -70,18 +70,70 @@ See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.
 
 ### Setting up an e-mail login
 
-For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
+1. Follow the steps from Step 1 to Step 5 given in [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
 
--   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `<email>@carbon.super`
-  
-    Example: `admin@wso2.com@carbon.super`
+2. Define the complete username with the tenant domain under the API-M throttling related sections in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
--   The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifying the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
+    If you are in the super tenant mode, the username should have the following format: 
 
-   ``` toml
+    `<email>@carbon.super`
+
+    ``` toml
+    [tenant_mgt]
+    enable_email_domain= true
+   
+    [apim.throttling.policy_deploy]
+    username = "$ref{super_admin.username}@carbon.super"
+   
+    [apim.throttling]
+    receiver_username = "$ref{super_admin.username}@carbon.super"
+   
     [apim.throttling.jms]
     username="admin!wso2.com!carbon.super"
-   ```
+    password = "$ref{super_admin.password}"
+    ```
+
+    <html>
+    <table>
+    <tbody>
+    <tr>
+    <th width="30%"><b>Element</b></th>
+    <th><b>Description</b></th>
+    </tr>
+    <tr>
+    <td>`[tenant_mgt] enable_email_domain`</td>
+    <td>This property specifies whether the email authentication is activated or not.</td>
+    </tr>
+    <tr>
+    <td>`[apim.throttling] receiver_username`</td>
+    <td>When the email login feature is enabled, the super tenant will be attached with the username. This property facilitates the latter mentioned requirement.</td>
+    </tr>
+    <tr>
+    <td>`[apim.throttling.policy_deploy]
+    username`</td>
+    <td>Specify the username required to deploy throttling policies.</td>
+    </tr>
+    <tr>
+    <td> `[apim.throttling.jms]
+    username`</td>
+    <td>Specify the username in JMS Connection URL.</br>
+    <div class="admonition note">
+    <p class="admonition-title">note</p>
+    <p>The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifying the username in JMS Connection URL, under <code>apim.throttling.jms.username</code> section in the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file, "@" characters should be replaced by "!" character. An example is shown below.</br>
+    <code>
+    [apim.throttling.jms]
+    username="admin!wso2.com!carbon.super"
+    </code>
+    </p>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </html>
+
+3. Restart the server.
+
 
 ### Setting up a social media login
 
