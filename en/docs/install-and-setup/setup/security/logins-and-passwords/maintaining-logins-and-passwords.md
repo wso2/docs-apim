@@ -148,10 +148,6 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ## Developer Portal
 
-### Sign in via multiple user attributes
-
-For instructions under [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation to set up the sign-in process via multiple user attributes in API Manager.
-
 ### Setup a social media login
 
 You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/develop/customizations/log-in-to-the-dev-portal-using-social-media).
