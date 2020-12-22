@@ -4,7 +4,7 @@ WSO2 API Manager has an integrated API Console, which allows you to visualize th
 
 The API Console generates interactive and consumer-focused documentation for API Contracts which are compliant with OpenAPI specification. OpenAPI specification-compliant APIs help you to make interactive documentation, client SDK generation and more discoverability using [Swagger UI](https://github.com/swagger-api/swagger-ui). The Swagger UI has JSON code and its UI facilitates easier code indentation, keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries, and descriptions to your APIs using the Swagger UI.
 
-For more information also, see the [OpenAPI specification, version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md).
+For more information also, see the [OpenAPI specification, version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) and [OpenAPI specification, version 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md).
 
 Let's see how to use the API Console in the Developer Portal to invoke an API.
 
