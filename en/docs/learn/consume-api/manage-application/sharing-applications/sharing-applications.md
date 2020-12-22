@@ -76,7 +76,7 @@ Share an application with multiple users who are in the same group or who are in
         
 4.  Sign in as **user1** and add application **App\_A**.
 
-5.  Enter the Group ID as **org1** and press enter. Click **Save**. App\_A will be shared with all the users in **org1** group.
+5.  Enter the Group ID as **org1** and press enter. Click **Save**. **App\_A** will be shared with all the users in **org1** group.
 
     !!! note
         - You can enter one group ID or multiple group IDs based on the groups with which you wish to share the application.
