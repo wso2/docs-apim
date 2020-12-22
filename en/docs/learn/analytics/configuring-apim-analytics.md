@@ -283,11 +283,12 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
                 username: 'root'
                 password: '123'
                 driverClassName: com.mysql.jdbc.Driver
+                minIdle: 5
                 maxPoolSize: 50
                 idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
         ```
   3. Point the following data sources to external databases. 
      
@@ -333,11 +334,12 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
              username: 'root'
              password: '123'
              driverClassName: com.mysql.jdbc.Driver
+             minIdle: 5
              maxPoolSize: 50
              idleTimeout: 60000
-          connectionTestQuery: SELECT 1
-          validationTimeout: 30000
-          isAutoCommit: false           
+             connectionTestQuery: SELECT 1
+             validationTimeout: 30000
+             isAutoCommit: false           
     ```
     
   3. Point the following data sources to external databases. 
