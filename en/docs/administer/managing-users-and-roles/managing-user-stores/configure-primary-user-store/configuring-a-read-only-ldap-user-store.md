@@ -57,8 +57,7 @@ Follow the given steps to configure a read-only LDAP/AD as the primary user stor
     `ConnectionURL="ldap://<AD host-ip>:<AD_listen_port>"`
     <br />
     If you are connecting over LDAPs (secured LDAP)<br />
-    you need to import the certificate of user store to the <code>client-truststore.jks</code> of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-    <a href="https://is.docs.wso2.com/en/5.10.0/administer/using-asymmetric-encryption/">Using asymmetric encryption</a><br />
+    you need to import the certificate of user store to the <code>client-truststore.jks</code> of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <a href="https://is.docs.wso2.com/en/5.10.0/administer/using-asymmetric-encryption/">Using Asymmetric Encryption</a>.<br />
     <br />
     If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
     <a href="https://is.docs.wso2.com/en/5.10.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections">performance tuning LDAPs pooling</a>.</p></td>
