@@ -292,6 +292,10 @@ This section involves setting up the API Publisher node and enabling it to work 
 
     1.  Configure the **Publisher with** the **Traffic Manager**.
         This configuration enables the publishing of throttling policies, custom templates, and block conditions to the Gateway node.
+        
+        !!! note
+            For admin/publisher portal to communicate with traffic manager when throeele policies are deployed, the `service_url` is recommended to point to the Traffic Manager LB in HA mode. In case you do not have a load balancer fronting traffic manager nodes, you can point this to either hostname with port, but note that in the event of throttle poclies are being published, and the configured node is unavailble, that policy will not work.
+
 
         ``` toml tab="Single Traffic Manager"
         Configure the Publisher with a single Traffic Manager as follows:
@@ -660,10 +664,19 @@ This section involves setting up the Gateway node and enabling it to work with t
     [Key-Manager-LB-host] - If there are multiple Key Managers (i.e., Multiple WSO2 Identity Servers as the Key Manager) fronted by a load balancer, this should be the host of the Key Manager's load balancer. For example, in the configuration we have defined `key-manager` as the load balancer host in the Key Manager section.
     ```
 
-3.  If you need to enable JSON Web Token (JWT),  you have to enable it in all Gateway and Key Manager components.
+3. The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
+
+     <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
+      </div> 
+     </html> 
+
+4. If you need to enable JSON Web Token (JWT),  you have to enable it in all Gateway and Key Manager components.
     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
-4.  Configure the Gateway to communicate with the Traffic Manager.
+5.  Configure the Gateway to communicate with the Traffic Manager.
     You need to do this to enable Throttling for the Traffic Manager node(s).
 
     !!! warning
@@ -721,7 +734,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         By default, WSO2 API Manager is shipped with a keystore (`wso2carbon.jks`) and a trust store (`client-truststore.jks`). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [recommendations on setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
 
-5.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}//install-and-setup/installation-guide/running-the-product/#starting-the-server).
+6.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}//install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ??? info "Click here to view sample configuration for the Gateway"
         ``` toml
