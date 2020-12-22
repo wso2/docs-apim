@@ -1,16 +1,21 @@
-# Blacklisting and Whitelisting Requests
+# Access Control for API requests
 
 This section guides you through the following areas:
 
--   [IP Whitelisting](#ip-whitelisting)
-    -   [Creating the Advanced Throttling policy](#creating-the-advanced-throttling-policy)
+-   [Allowed IPs](#allowed-ips)
+    -   [Creating the Advanced Throttling policy](#creating-the-advanced-rate-limit-policy)
     -   [Engage the policy with an API](#engage-the-policy-with-an-api)
+<<<<<<< HEAD:en/docs/learn/rate-limiting/blacklisting-whitelisting.md
 -   [Blacklisting requests](#blacklisting-requests)
     -   [Blacklisting PhoneVerification API](#blacklisting-phoneverification-api)
+=======
+-   [Denying requests](#denying-requests)
+    -   [Denying the PhoneVerification API](#denying-phoneverification-api)
+>>>>>>> Change Whitelisting and blcaklisting words:en/docs/learn/rate-limiting/access-control.md
 
-### IP Whitelisting
+### Allowed IPs
 
-IP whitelisting is a way of configuring a filter to extract a particular set of known IP addresses to grant access to API requests which are received from those IPs only. This can be achieved by creating and Advanced Throttling policy and attaching it to the required API.
+When requests to an API are to be permitted from a set of known/trusted IPs only, you can achieve this by configuring a group of Allowed IPs through the Advanced Rate Limiting feature.
 
 ##### Creating the Advanced Throttling policy
 
@@ -18,11 +23,11 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 2.  Open **Throttling Policies** tab and navigate to **Advanced Throttling.**
 3.  Click ADD NEW POLICY to add a new Throttling tier.
 
-    ![](../../assets/img/learn/ip-whitelisting-add-policy.png)
+    ![](../../assets/img/learn/allowed-ip-add-policy.png)
 
 4.  Fill the details as below and click **Add Conditional Group** .
 
-    ![](../../assets/img/learn/ip-whitelisting-add-conditional-group.png)
+    ![](../../assets/img/learn/allowed-ip-add-conditional-group.png)
 
 5.  Open the Conditional Group added and fill the details.
 
@@ -30,7 +35,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
     |---------------------|----------------------------------------------------------------------------------------------------------------|
     | IP Condition Policy | Checked                                                                                                        |
     | IP Condition Type   | Specific IP                                                                                                    |
-    | IP Address          | <IP_Address_to_be_whitelisted> E.g. 193.100.3.106                                                              |
+    | IP Address          | <IP_Address_to_be_allowed> E.g. 193.100.3.106                                                              |
     | Invert Condition    | Checked (If Invert Condition check then condition only apply to the IPs which not mention in IP Address above) |
     | Request Count       | 0                                                                                                              |
 
@@ -44,7 +49,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
     You can whitelist a range of IP as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range as follows.</p>
     </div>
 
-    ![](../../assets/img/learn/ip-range-whitelisting.png)
+    ![](../../assets/img/learn/new-allowed-ip-range.png)
 
 6.  Click **Save** .
        
@@ -55,7 +60,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 1.  Login to API Publisher https://:9443/publisher.
 2.  Selct the API and go to the <b>Resources</b> menu.
 3.  Enable **API level** under **Operational Configuration** and select the newly created Throttling policy.
-    ![](../../assets/img/learn/apply-whitelist-to-api.png)
+    ![](../../assets/img/learn/apply-allowlist-to-api.png)
     
 4.  Save and Publish the API.
     Now the API will be accessible only by the IP specified in the throttling policy.
@@ -67,16 +72,16 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
     </p>
    </div>
 
-### Blacklisting requests
+### Denying requests
 
-By blacklisting requests, you can protect servers from common attacks and abuse by users. For example, if a malicious user misuses the system, all requests received from that particular user can be completely blocked. Tenant administrative users can block requests based on the following parameters:
+By denying requests, you can protect servers from common attacks and abuse by users. For example, if a malicious user misuses the system, all requests received from that particular user can be completely blocked. Tenant administrative users can block requests based on the following parameters:
 
 -   Block calls to specific APIs
 -   Block all calls from a given application
 -   Block requests coming from a specific IP address
 -   Block a specific user from accessing APIs
 
-To blacklist a request,
+To deny a request,
 
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
@@ -94,9 +99,9 @@ Select the item to black list, enter a value and click **Blacklist** .
 
 ![](../../assets/img/learn/blacklist-condition-status.png)
 
-##### Blacklisting PhoneVerification API
+##### Denying PhoneVerification API
 
-As described above you can blacklist requests for APIs, by Applications, to IP Addresses and for Users. Let's see how we can blacklist the requests for an API.
+As described above you can deny requests for APIs, by Applications, to IP Addresses and for Users. Let's see how we can deny requests to an API.
 
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
