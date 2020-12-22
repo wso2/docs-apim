@@ -7,8 +7,8 @@ The user interface of the WSO2 API-M Developer Portal and Publisher Portal can b
 Follow the instructions below to add advanced UI customizations to the Developer Portal and/or Publisher.
 
 !!! note "Prerequisites"
-    - **NodeJS** - This is a platform required for ReactJS development.
-    - **NPM**
+    - **NodeJS** (minimum 8.12.0) - This is a platform required for ReactJS development.
+    - **NPM**(minimum 5.7.0)
 
 1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
 
