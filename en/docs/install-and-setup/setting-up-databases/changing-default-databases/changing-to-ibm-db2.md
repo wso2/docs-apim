@@ -30,7 +30,7 @@ Follow the instructions below to set up a IBM DB2 database:
    ```
    For example:
    ```sh
-   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER regadmin
+   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER sharedadmin
    ```
 
 1. Disconnect from the database using the following command:
@@ -99,7 +99,7 @@ Follow the instructions below to change the type of the default datasource.
     ```
 
     ``` tab="Example"
-    [database.shared_db]
+    [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/apim_db"
     username = "apimadmin"
@@ -107,11 +107,11 @@ Follow the instructions below to change the type of the default datasource.
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     
-    [database.apim_db]
+    [database.shared_db]
     type = "db2"
-    url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     ```
@@ -144,7 +144,7 @@ Follow the instructions below to change the type of the default datasource.
     ```
 
     ``` tab="Example"
-    [database.shared_db]
+    [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/apim_db"
     username = "apimadmin"
@@ -155,11 +155,11 @@ Follow the instructions below to change the type of the default datasource.
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
 
-    [database.apim_db]
+    [database.shared_db]
     type = "db2"
-    url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     pool_options.maxActive = 50

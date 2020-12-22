@@ -124,8 +124,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     
@@ -169,8 +169,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     pool_options.maxActive = 100
