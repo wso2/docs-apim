@@ -99,8 +99,12 @@ To enable synchronization for runtime artifacts of the two all in one WSO2 API-M
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
 system such as Network File System (NFS) or any other shared file system that is available. 
 
-You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, 
-in order to share all APIs and throttling policies between all the nodes.
+You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
+
+1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
+2.  `<APIM_HOME>/repository/deployment/server/executionplans`
+3.  `<APIM_HOME>/repository/deployment/server/synapse-configs`
+4.  `<APIM_HOME>/repository/tenants` - If tenancy is been used
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
