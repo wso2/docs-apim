@@ -786,32 +786,11 @@ Note that this should be the fully-qualified class name.</p>
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>FALSE</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>FALSE TRUE</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
                                         <p>No user store claims included in the JWT if false. </p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_user_claims</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>TRUE</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>THe default user claims will be added to the JWT</p>
                                     </div>
                                 </div>
                             </div><div class="param">
