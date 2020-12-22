@@ -63,10 +63,10 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     -   On Windows: `wso2server.bat --run`
     -   On Linux/Mac OS: `sh wso2server.sh` 
     
-        !!! info
-                  If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
+    !!! info
+        If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal which is running the API-M Analytics server.
             
-                    INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
+        `INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected`  
                     
 6.  Start the Dashboard profile of the Analytics Server.
     
@@ -254,6 +254,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
             username: 'root'
             password: '123'
             driverClassName: oracle.jdbc.OracleDriver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1 FROM DUAL
@@ -319,11 +320,12 @@ Configuring databases allow you to persist data relating to APIs, process them a
                      username: 'root'
                      password: '123'
                      driverClassName: com.mysql.jdbc.Driver
+                     minIdle: 5
                      maxPoolSize: 50
                      idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
+                     connectionTestQuery: SELECT 1
+                     validationTimeout: 30000
+                     isAutoCommit: false
           ```
          
     !!! Info
