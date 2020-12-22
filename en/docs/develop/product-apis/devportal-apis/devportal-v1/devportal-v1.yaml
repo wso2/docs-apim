@@ -404,7 +404,7 @@ paths:
       summary: |
         Generate a SDK for an API
       description: |
-        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Store, for a requested development language.
+        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Developer Portal, for a requested development language.
       parameters:
         - in : path
           name: apiId
@@ -2554,7 +2554,7 @@ paths:
       summary:
         Give API Recommendations for a User
       description:
-        This API can be used to get recommended APIs for a user who logs into the API store
+        This API can be used to get recommended APIs for a user who logs into the API Developer Portal
       tags:
         - Recommendations
       responses:
@@ -2577,7 +2577,7 @@ paths:
   ####################################################
   '/alert-types':
     #--------------------------------------------------
-    # Retrieve the list of api store alert types.
+    # Retrieve the list of API Developer Portal alert types.
     #--------------------------------------------------
     get:
       security:
@@ -2589,7 +2589,7 @@ paths:
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-types"
       summary: |
-        Get the List of API Store Alert Types
+        Get the List of API Developer Portal Alert Types
       description: |
         This operation is used to get the list of supportd alert types for the 'subscriber' agent.
       tags:
@@ -2622,7 +2622,7 @@ paths:
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
-        Get the List of API Store Alert Types Subscribed by the User
+        Get the List of API Developer Portal Alert Types Subscribed by the User
       operationId: getSubscribedAlertTypes
       description: |
         This operation is used to get the list of subscribed alert types by the user.
