@@ -510,14 +510,7 @@ are reflected in the below mentioned config files, according to the new configur
 Manager (WSO2 APIM) by default, because you 
 can successfully deploy WSO2 API Manager without Hazelcast. </p>
 <div class="panel" style="border-width: 1px;">
-<div class="panelHeader" style="border-bottom-width: 1px;">
-<strong>Related links</strong>
-</div>
 <div class="panelContent">
-<ul>
-<li>See <a href="{{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering/">Working with Hazelcast Clustering</a> for more details on clustering, what it is, how it helps and other related information.</li>
-<li>See <a href="https://docs.wso2.com/display/ADMIN44x/Separating+the+Worker+and+Manager+Nodes">Separating the Worker and Manager Nodes</a> for information on clustering WSO2 products by separating worker and manager concerns between the nodes.</li>
-</ul>
 </div>
 </div>
 </div></td>
