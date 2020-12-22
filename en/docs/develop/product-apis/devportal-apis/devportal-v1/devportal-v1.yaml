@@ -364,7 +364,7 @@ paths:
       summary: |
         Generate a SDK for an API
       description: |
-        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Store, for a requested development language.
+        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Developer Portal, for a requested development language.
       parameters:
         - in : path
           name: apiId
@@ -3117,7 +3117,7 @@ paths:
   ####################################################
   '/alert-types':
     #--------------------------------------------------
-    # Retrieve the list of api store alert types.
+    # Retrieve the list of API Developer Portal alert types.
     #--------------------------------------------------
     get:
       security:
@@ -3127,7 +3127,7 @@ paths:
         $ref: docs/examples/alerts/alerts.yaml#/get
       operationId: getStoreAlertTypes
       summary: |
-        Get the list of API Store alert types.
+        Get the list of API Developer Portal alert types.
       description: |
         This operation is used to get the list of supportd alert types for the 'subscriber' agent.
       tags:
@@ -3162,7 +3162,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       summary: |
-        Get the list of API Store alert types subscribed by the user.
+        Get the list of API Developer Portal alert types subscribed by the user.
       operationId: getSubscribedAlertTypes
       description: |
         This operation is used to get the list of subscribed alert types by the user.
