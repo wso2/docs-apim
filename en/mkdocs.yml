@@ -902,8 +902,8 @@ nav:
                     - Extending Key Manager: reference/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
                     - Writing Custom Grant Types: reference/extending-api-manager/extending-key-management/writing-custom-grant-types.md
                 - Extending API Gateway:
-                    - Customizing API Template: reference/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-                    - Writing Custom Handlers: reference/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                    - Customizing API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                    - Writing Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
                 - Extending Workflows:
                     - Invoking the API Manager from the BPEL Engine: reference/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
                     - Customizing a Workflow Extension: reference/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
