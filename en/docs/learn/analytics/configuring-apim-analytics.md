@@ -282,6 +282,10 @@ Configuring databases allow you to persist data relating to APIs, process them a
     2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
        <br/>A sample for MySQL is shown below.
        
+        !!! note
+            In the below configuration, the database defined as `am_db` is the same database which is defined under
+             `[database.apim_db]` configuration in the **deployment.toml** file of the WSO2 API Manager.
+
          ``` java
            - name: AM_DB
                description: Main datasource used by API Manager
