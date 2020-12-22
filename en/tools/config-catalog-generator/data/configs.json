@@ -380,35 +380,7 @@
                 }
             ],
             "exampleFile": "apim.jwt.issuer.jwks.toml"
-        },
-        {
-            "options": [
-                {
-                    "name": "apim.jwt.issuer.claim_mapping",
-                    "required": false,
-                    "description": "",
-                    "params": [
-                        {
-                            "name": "remote_claim",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "The name of the remote claim."
-                        },
-                        {
-                            "name": "local_claim",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "The local claim name that the remote claim needs to be mapped to."
-                        }
-                    ]
-                }
-            ],
-            "exampleFile": "apim.jwt.issuer.claim_mapping.toml"
-        },        
+        }, 
         {
             "title": "API-M gateway environment configurations",
             "options": [
