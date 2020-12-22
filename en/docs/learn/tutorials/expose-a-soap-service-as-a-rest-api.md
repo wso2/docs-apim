@@ -59,6 +59,16 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
      see [Enforce Throttling and Resource Access Policies]({{base_path}}/learn/rate-limiting/setting-throttling-limits/).</p>
      </div>
      </html>
+
+    <html><div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <p> If you need to customize the swagger and sequences you will have to do these two processes separately.</p>
+        <ol>
+            <li>Navigate to API Definition page and edit the swagger</li>
+            <li>Navigate to Resources page and edit the sequences</li>
+        </ol>
+     </div>
+     </html>
      
 5.  Navigate to **Life Cycle** and Click **Publish** button.
       You have now published SOAP API at the Developer portal.
