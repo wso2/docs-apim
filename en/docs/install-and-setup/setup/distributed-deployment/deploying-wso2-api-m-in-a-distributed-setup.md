@@ -333,6 +333,10 @@ This section involves setting up the API Publisher node and enabling it to work 
 
     1.  Configure the Publisher with the Traffic Manager.
         This configuration enables the publishing of throttling policies, custom templates, block conditions, API events to the Traffic Manager node.
+        
+        !!! note
+            When publishing throttle policies, the admin/publisher portal communicates with traffic manager using the `service_url`. Hence in HA mode, it is recommended to point this to the Traffic Manager LB. In case you do not have a load balancer fronting traffic manager nodes, you can point this to any traffic manager hostname with port. But note that in the events of throttle policies are being published, and the configured node is unavailble, that policy will not work.
+
 
         ``` toml tab="Traffic Manager with HA"
         [apim.throttling]
@@ -829,11 +833,21 @@ This section involves setting up the Gateway node and enabling it to work with t
      throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
      ```
      
-5.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
+5.  The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
+
+     <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
+      </div> 
+     </html>
+
+6.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
                 
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
         
-6.  Start the Gateway node(s) by running the following command in the command prompt. 
+     
+7.  Start the Gateway node(s) by running the following command in the command prompt. 
     
      For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
