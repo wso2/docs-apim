@@ -335,6 +335,8 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
   2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections, and point to your desired type of database.
    
     !!! note
+        In the below configuration, the database defined as `am_db` is the same database which is defined under `[database.apim_db]` configuration in the **deployment.toml** file of the WSO2 API Manager.
+        <hr>
         **If you are configuring the `AM_DB` databases in Oracle**, apart from the following configurations, you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to the `AM_DB` datasource that you configured with Oracle.
     
     ``` yaml
