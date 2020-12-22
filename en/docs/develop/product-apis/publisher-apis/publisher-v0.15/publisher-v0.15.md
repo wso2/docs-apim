@@ -15,7 +15,10 @@ template: templates/swagger.html
 
            You will receive a sample curl command with the sample values you filled in.
 
-       3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 API-M.
+       3. Add the `Authorization: Bearer <access-token>` header to the cURL command. You may refer to [Getting Started Guide]({{base_path}}/develop/product-apis/getting-started/guide-publisher-v0.15) to see how to  obtain an access token with required scopes.
+              
+       4. Add a `-k` header to the cURL command and run the cURL command on the terminal with a running instance of WSO2 API-M.
+              
      
 <div id="swagger-ui"></div>
 <script>
