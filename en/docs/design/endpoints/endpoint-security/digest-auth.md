@@ -21,7 +21,7 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
 2. Click the Endpoint Security symbol of the endpoint you want to secure with Digest Auth.
 
-     [![endpoint-security-symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
+      [![Endpoint security symbol]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
 
 3. Select **Digest Auth** as the endpoint authentication type from the drop-down menu.
 
@@ -31,7 +31,7 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
       [![digest-auth-submit-button]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)
 
-      [![endpoints-save-button]({{base_path}}/assets/img/learn/endpoints-save-button.png)]({{base_path}}/assets/img/learn/endpoints-save-button.png)
+      [![endpoints-save-button]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoints-save-button.png)]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoints-save-button.png)
 
 !!! info
      The selected Endpoint Auth Type should match with the authentication mechanism supported by the secured endpoint.
