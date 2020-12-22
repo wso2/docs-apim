@@ -37,6 +37,6 @@ curl -X POST -H "content-type: application/json" -u "admin:admin" -d '{"appName"
 
 ## Constructing a Siddhi Query to fetch data
 
-The available aggregation tables in WSO2 API-M Analytics and its schema are listed [here]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model/#api-manager-aggregate-tables). 
+The available aggregation tables in WSO2 API-M Analytics and its schema listed [here]({{base_path}}/learn/analytics/analytics-event-streams-and-aggregations/#api-manager-aggregate-tables). 
 
 You need to inspect the schema of each aggregation table and thereafter modify the query accordingly, in order to fetch the required data via the API from the REST clients.
