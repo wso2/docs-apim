@@ -1,5 +1,5 @@
 Since GraphQL schemas often have circular relationships, the depth can grow without bounds. 
-This means a client could craft a query as follows:
+An example of such a query is as follows:
 
 [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)
 

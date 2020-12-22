@@ -1,11 +1,11 @@
 Often, limiting only the depth of a query is not sufficient to protect a GraphQL service from complex queries. 
-The reason for this is that some fields in a GraphQL schema being more costly to compute than others. WSO2 API-Manager introduces 
+The reason for this is that some fields in a GraphQL schema are more costly to compute than others. WSO2 API-Manager introduces 
 **“Query Complexity Limitation”** to address such cases. 
 
 With this strategy, a request allowed or rejected based on the complexity of the query, and the configured max complexity 
 value of the subscription policy for the corresponding API.
 
-Here we introduced the **complexity values for each of the Fields** in the schema. That **describes the 
+Here we introduced the **complexity values for each of the Fields** in the schema. That **describes 
 the computation cost of resolving the particular field**. 
 
 <html>
@@ -13,17 +13,17 @@ the computation cost of resolving the particular field**.
 <p class="admonition-title">Note</p>
 <p>
 If the field needs to call an expensive service to resolve itself, 
-then the complexity should be at a high level but, if the field is easy to resolve and not a cheap operation,  
+then the **complexity should be at a high level**, but if the field is easy to resolve(an inexpensive operation),  
 the **complexity should be at a low level**. If **no complexity defined** for a field, **by default it will get a value of 1.** 
 </p>
 </div> 
 </html>
 
-In the run time, the requested query complexity value will be calculated and, blocked if the value exceeds the max complexity.
+At runtime, a query will be blocked if its calculated complexity exceeds the specified max complexity.
 
 Following is a simple example which can be used to understand how the calculation happens.
 
-If there are, no arguments provided in your requested query,  the complexity can be calculated simply by adding all the complexity values.
+If there are no arguments provided in a query, the total complexity can be calculated by simply adding the individual complexity values of each field
 
    ```
       query {
