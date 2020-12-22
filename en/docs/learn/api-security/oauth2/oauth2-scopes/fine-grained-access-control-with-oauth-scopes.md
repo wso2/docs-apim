@@ -4,15 +4,6 @@ Scopes enable fine-grained access control to API resources based on user roles. 
 
 For example, there can be requirements such as restricting the access to a given API resource to admin users only, while other resources of the same API access should be allowed to consumers with less privileges. Let's see how this kind of role based access control can be managed with the use of OAuth2 scopes.
 
-!!! info
-
-    When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior that it does not validate the roles in the user store. For this purpose, set the Java system property 'disableRoleValidationAtScopeCreation' to 'true' at the server startup:
-    
-         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
-         Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
-         Restart the server.
-
-
 ## Creating a Scope
 
 The scopes can be created and applied to an API resources at API create time. Please follow below steps to create a scope.
@@ -70,6 +61,43 @@ A scopes has be applied to a resource, in order to restrict the access to a user
          title="Apply Scope" width="70%" /></a>
 
 3. Publish the API.
+
+## Disable role validation at scope creation 
+   When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior such that it does not validate the roles in the user store. For this purpose, set the Java system property `disableRoleValidationAtScopeCreation` to `true` at the server startup:
+   This can be done in one of two ways.
+
+
+   **Option 1**: Adding in startup script
+
+         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
+         Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
+         Restart the server.
+
+   **Option 2**: Provide as a parameter during server startup 
+
+   Restart the server with the parameter set as below.
+
+   - Linux/Mac OS
+
+       ``` tab="Format"
+         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
+       ```
+
+       ``` tab="Example"
+         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=true
+       ```
+
+   - Windows
+
+       ``` tab="Format"
+         wso2server.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
+       ```
+
+       ``` tab="Example"
+             wso2server.bat -DdisableRoleValidationAtScopeCreation=true           
+       ```
+
+
 
 ## Obtaining Tokens with Scopes
 
