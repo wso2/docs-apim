@@ -1684,7 +1684,7 @@ Follow the instructions below to move all the existing API Manager configuration
        ```toml
        [truststore]
        type= "JKS"
-       file = "modified-client-truststore.jks"
+       file_name = "modified-client-truststore.jks"
        password= "modified_password"
        ```
     
