@@ -74,7 +74,7 @@ Before you begin
     ```
     [user_store]
     class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
-    type = "database"
+    type = "read_only_ldap"
     ```
 
 !!! note
