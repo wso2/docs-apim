@@ -42,6 +42,17 @@ Follow the instructions below to change the default admin password:
     password = "your-encoded-password"        
     ```
 
+    ??? info "sample deployment.toml configs"
+        ```
+        [super_admin]
+        username = "foo_admin"
+        password = "<![CDATA[~^&*#`43d:3;]]>"
+        
+        [apim.throttling.jms]
+        username = "foo_admin"
+        password = "~%5E%26*%23%6043d%3A3%3B"
+        ```
+            
 !!! note
 
     Note that the above password is written to the primary user store when the server starts for the first time.
