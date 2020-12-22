@@ -1928,9 +1928,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
        ```toml
        [truststore]
-       type= “JKS”
-       file_name = “modified-client-truststore.jks”
-       password= “modified_password”
+       type= "JKS"
+       file_name = "modified-client-truststore.jks"
+       password= "modified_password"
        ```
     
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.10.0.
