@@ -5951,7 +5951,7 @@ paths:
   ####################################################
   '/alert-types':
     #--------------------------------------------------
-    # Retrieve the list of API Devportal alert types.
+    # Retrieve the list of API Developer Portal alert types.
     #--------------------------------------------------
     get:
       security:
@@ -8168,12 +8168,12 @@ definitions:
       displayName:
         type: string
         description: |
-          The name of the external API Devportal that is displayed in the Publisher UI.
+          The name of the external API Developer Portal that is displayed in the Publisher UI.
         example: UKStore
       type:
         type: string
         description: |
-          The type of the Store. This can be a WSO2-specific API Devportal or an external one.
+          The type of the Store. This can be a WSO2-specific API Developer Portal or an external one.
         example: wso2
       endpoint:
         type: string
