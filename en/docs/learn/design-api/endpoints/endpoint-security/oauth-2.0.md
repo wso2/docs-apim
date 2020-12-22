@@ -36,11 +36,22 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
 
      a. Provide the following properties with regard to **Client Credentials**:
 
-         * **Token URL** - This is the URL for the token endpoint of the OAuth-protected backend server.
-
-         * **Client ID** - A unique ID used to identify the application.
-
-         * **Client Secret** - A unique key that must be known only to the application and the backend server.
+     <table>
+      <tbody>
+         <tr>
+            <td>`Token URL`</td>
+            <td>This is the URL for the token endpoint of the OAuth-protected backend server.</td>
+         </tr>
+         <tr>
+            <td>`Client ID`</td>
+            <td>A unique ID used to identify the application.</td>
+         </tr>
+         <tr>
+            <td>`Client Secret`</td>
+            <td>A unique key that must be known only to the application and the backend server.</td>
+         </tr>                  
+      </tbody>
+     </table>
 
      ![client credentials config]({{base_path}}/assets/img/learn/client-credentials-config.png)
 
