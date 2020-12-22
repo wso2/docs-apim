@@ -1,12 +1,10 @@
 # Invoke an API using the Integrated API Console
 
-WSO2 API Manager (WSO2 API-M) has an integrated Swagger UI, which renders OpenAPI specification as interactive API documentation.
+WSO2 API Manager has an integrated API Console, which allows you to visualize the API contract and interact with API's resources without being aware of the backend logic.
 
-[OpenAPI Specification (OAS)](https://swagger.io/specification/) is a 100% open source, standard, language-agnostic specification for RESTful APIs. OpenAPI specification allows consumers to understand the capabilities of a remote service without accessing its source code. OpenAPI specification helps describe a service in the same way that interfaces describe lower-level programming code.
+The API Console generates interactive and consumer-focused documentation for API Contracts which are compliant with OpenAPI specification. OpenAPI specification-compliant APIs help you to make interactive documentation, client SDK generation and more discoverability using [Swagger UI](https://github.com/swagger-api/swagger-ui). The Swagger UI has JSON code and its UI facilitates easier code indentation, keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries, and descriptions to your APIs using the Swagger UI.
 
-The [Swagger UI](https://github.com/swagger-api/swagger-ui) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generate documentation from a OpenAPI specification-compliant API. OpenAPI specification-compliant APIs help you to make interactive documentation, client SDK generation and more discoverability using Swagger UI. The Swagger UI has JSON code and its UI facilitates easier code indentation, keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries, and descriptions to your APIs using the Swagger UI.
-
-For more information also, see the [OpenAPI specification, version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md).
+For more information also, see the [OpenAPI specification, version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) and [OpenAPI specification, version 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md).
 
 Let's see how to use the API Console in the Developer Portal to invoke an API.
 
