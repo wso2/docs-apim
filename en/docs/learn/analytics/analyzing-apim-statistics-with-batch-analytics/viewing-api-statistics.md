@@ -421,8 +421,8 @@ For more information, see [Using Geolocation Based Statistics]({{base_path}}/lea
 ## Developer Portal Statistics
 
 !!! info
-      Similar to the Publisher statistics dashboard, Developer Portal statistics dashboard can be viewed by any user having Analytics role or subscriber role. 
-      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/) page.
+      The Developer Portal Statistics Dashboard can be viewed by admin users and users who have the `internal/subscriber ` role. By default, the dashboard cannot be viewed by users having the `internal/analytics` role.
+      However, these permissions can be changed based on your preferences using the **Settings** option in the dashboard. For more information, see [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/) page.
 
 
 Log into the analytics-dashboard application and access developer portal statistics ( ex: [https://localhost:9643/analytics-dashboard/dashboards/apimdevportal](https://localhost:9643/analytics-dashboard/dashboards/apimdevportal) ) dashboard from there.
