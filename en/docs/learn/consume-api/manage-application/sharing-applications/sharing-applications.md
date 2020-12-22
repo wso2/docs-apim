@@ -61,18 +61,19 @@ Share an application with multiple users who are in the same group or who are in
 
      [![Sign in to Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signin.png)]({{base_path}}/assets/img/learn/application-sharing-signin.png)
 
-2. Click **Register Now**.
-
-     <a href="{{base_path}}/assets/img/learn/application-sharing-signup.png"><img src="{{base_path}}/assets/img/learn/application-sharing-signup.png" width="350" height="350"/></a>
-
+2. Click **Create Account**.
+      
+     [![Create Account in Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signup.png)]({{base_path}}/assets/img/learn/application-sharing-signup.png)
 
 3.  Sign up to the API Developer Portal as two different users (e.g., user1, user2) belonging to the same organization.
     - Provide the username and proceed click **PROCEED TO SELF REGISTER** to Self Register.
-     <a href="{{base_path}}/assets/img/learn/application-sharing-username.png"><img src="{{base_path}}/assets/img/learn/application-sharing-username.png" width="550" height="250"/></a>
+    
+    [![Application Sharing Username]({{base_path}}/assets/img/learn/application-sharing-username.png)]({{base_path}}/assets/img/learn/application-sharing-username.png)
 
     - Provide the user details and click **REGISTER**.
-     <a href="{{base_path}}/assets/img/learn/application-sharing-signup-form.png"><img src="{{base_path}}/assets/img/learn/application-sharing-signup-form.png" width="450" height="550"/></a>
-
+     
+    [![Application Sharing Signup Form]({{base_path}}/assets/img/learn/application-sharing-signup-form.png)]({{base_path}}/assets/img/learn/application-sharing-signup-form.png)
+        
 4.  Sign in as **user1** and add application **App\_A**.
 
 5.  Enter the Group ID as **org1** and press enter. Click **Save**. App\_A will be shared with all the users in **org1** group.
