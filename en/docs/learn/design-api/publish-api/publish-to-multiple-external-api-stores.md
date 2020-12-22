@@ -107,7 +107,6 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
 
-
                 <ExternalAPIStore id="UKStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>UKStore</DisplayName>
                     <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
@@ -116,6 +115,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
                 </ExternalAPIStore>
         </ExternalAPIStores>
         ```
+        
         If the current API-M deployment's API Developer Portal is also not in super tenant, you can configure the above file as follows:
         
         ```xml
