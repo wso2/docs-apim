@@ -36,7 +36,7 @@ Sample response:
 }
 ```
 
-Next, you must use the above client id and clientSecret to obtain the access token. We will be using the password grant type for this, you can use any grant type you desire. You also need to add the proper scope when getting the access token. **To view API details, you will need to obtain an access token with apim:api_view scope. Likewise, based on the operation, you will have to obtain a token with specific scopes**.To generate token to perform multiple operations provide the scopes as space-separated values in the request. All possible scopes for Publisher REST API can be viewed in the `securityDefinitions-->OAuth2Security` section and the scope for each resource is given in the `security-->OAuth2Security` section of resource documentation. 
+Next, you must use the above client id and clientSecret to obtain the access token. We will be using the password grant type for this, you can use any grant type you desire. You also need to add the proper scope when getting the access token. **To view API details, you will need to obtain an access token with apim:api_view scope. Likewise, based on the operation, you will have to obtain a token with specific scopes**. To generate token to perform multiple operations provide the scopes as space-separated values in the request. All possible scopes for Publisher REST API can be viewed in the `securityDefinitions-->OAuth2Security` section and the scope for each resource is given in the `security-->OAuth2Security` section of resource documentation. 
 A sample call to generate the access token is shown below.
 
 !!! note 
