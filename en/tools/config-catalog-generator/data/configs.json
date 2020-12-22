@@ -350,6 +350,74 @@
             "exampleFile": "_apim_jwt.toml"
         },
         {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer",
+                    "required": false,
+                    "description": "To specify the issuers of the JWT tokens if third-party Key Managers are used.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The issuer name of the JWT."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer.jwks",
+                    "required": false,
+                    "description": "To specify the JSON Web Key Set (JWKS) endpoint of the issuer.",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The JWKS endpoint URL of the issuer."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.jwks.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer.claim_mapping",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "remote_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The name of the remote claim."
+                        },
+                        {
+                            "name": "local_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The local claim name that the remote claim needs to be mapped to."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.claim_mapping.toml"
+        },        
+        {
             "title": "API-M gateway environment configurations",
             "options": [
                 {
