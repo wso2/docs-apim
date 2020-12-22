@@ -356,7 +356,6 @@ nav:
                       - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
                       - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
                       - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-                      - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
                 - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
                 - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
@@ -364,6 +363,7 @@ nav:
                 - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
                 - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Adding internationalization: develop/customizations/adding-internationalization.md
+                - Advanced UI Customization: develop/customizations/advanced-ui-customization.md
           - Admin Services: develop/wso2-admin-services.md
           - Working with the Source Code: develop/working-with-the-source-code.md
           - Java Documentation: develop/java-documentation.md
@@ -592,7 +592,7 @@ plugins:
               'learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-info-section.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/styling-api-details-info-section/'
               'learn/consume-api/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/'
-              'learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/advanced-customization/'
+              'learn/consume-api/customizations/advanced-ui-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/advanced-ui-customization/'
               'learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/log-in-to-the-dev-portal-using-social-media/'
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'

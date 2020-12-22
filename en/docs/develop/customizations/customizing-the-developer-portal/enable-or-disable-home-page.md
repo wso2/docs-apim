@@ -162,5 +162,5 @@ listByTag.content | array | | Provide the content for the API grouping. It's an 
 | parallax.active | boolean | true, false | If true( default ) the parallax scrolling section is visible. If false parallax scrolling section is hidden. |
 | contact.active | boolean | true, false | If true( default ) the contact us section is visible. If false contact us section is hidden. |  
 
-The landing page provides a headstart for developers who tries to rebrand the devportal for their needs. If the requirements are much complicated, then you need to override the relevant components. The step to override only specific react components can be found [here](advanced-customization.md).
+The landing page provides a headstart for developers who tries to rebrand the devportal for their needs. If the requirements are much complicated, then you need to override the relevant components. The step to override only specific react components can be found [here]({{base_path}}/develop/customizations/advanced-ui-customization/).
 
