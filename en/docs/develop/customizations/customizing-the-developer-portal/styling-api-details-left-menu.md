@@ -83,4 +83,4 @@ const Configurations = {
 | rootIconTextVisible | boolean | Set the visibility of the root icon text. By default it's hidden. |
 |rootBackground | string | Set the background color of the root icon containing element |
 
-With these configurations, we tried to handle most of the use cases for rebranding. But if someone wants to do a change that is not supported, for an example change the icons or make the menu collapsible, then they need to override the relevant React component. Refer to the [Advanced Customization](advanced-customization.md) for more information.
+With these configurations, we tried to handle most of the use cases for rebranding. But if someone wants to do a change that is not supported, for an example change the icons or make the menu collapsible, then they need to override the relevant React component. Refer to the [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) for more information.
