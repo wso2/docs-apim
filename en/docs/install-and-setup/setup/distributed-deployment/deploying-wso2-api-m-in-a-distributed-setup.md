@@ -833,11 +833,7 @@ This section involves setting up the Gateway node and enabling it to work with t
      throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
      ```
      
-5.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
-                
-    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
-        
-6.  The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
+5.  The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
 
      <html>
       <div class="admonition note">
@@ -845,6 +841,11 @@ This section involves setting up the Gateway node and enabling it to work with t
       <p>This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
      </html>
+
+6.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
+                
+    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
+        
      
 7.  Start the Gateway node(s) by running the following command in the command prompt. 
     
