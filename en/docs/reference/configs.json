@@ -268,16 +268,8 @@
                             "type": "string",
                             "required": false,
                             "default": "FALSE",
-                            "possible": "FALSE",
+                            "possible": "FALSE TRUE",
                             "description": "No user store claims included in the JWT if false. "
-                        },
-                        {
-                            "name": "enable_user_claims",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "TRUE",
-                            "description": "THe default user claims will be added to the JWT"
                         },
                         {
                             "name": "claims_extractor_impl",
