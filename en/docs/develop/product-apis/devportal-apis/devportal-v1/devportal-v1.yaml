@@ -2889,7 +2889,7 @@ paths:
       summary:
         Give API Recommendations for a User
       description:
-        This API can be used to get recommended APIs for a user who logs into the API store
+        This API can be used to get recommended APIs for a user who logs into the API Devportal
       tags:
         - Recommendations
       responses:
@@ -2912,7 +2912,7 @@ paths:
   ####################################################
   '/alert-types':
     #--------------------------------------------------
-    # Retrieve the list of api store alert types.
+    # Retrieve the list of API Devportal alert types.
     #--------------------------------------------------
     get:
       security:
