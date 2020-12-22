@@ -678,7 +678,7 @@ If you just enter the value <code>SHA</code>, it will be considered as <code>SHA
 <td>Password RegEx Violation Error Message</td></tr>
 <tr>
 <th><b>Description</b></th>
-<td>Error message when the Password is not matched with <code>passwordJavaRegEx</code>.<br />
+<td>The error message that appears when the password does not comply with the <code>passwordJavaRegEx</code>.<br />
 <p><b>Default:</b> <code>Password length should be within 5 to 30 characters.</code></p></td>
 </tr>
 
