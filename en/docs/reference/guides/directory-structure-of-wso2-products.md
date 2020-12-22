@@ -3,7 +3,7 @@
 All WSO2 products are built on top of the Carbon platform. The directory structure described below is the structure that is inherited by all Carbon-based WSO2 products. However, note that each product may contain folders and files that are specific to the product, in addition to what is described below.
 
 !!! tip
-`<PRODUCT_HOME>` refers to the root folder of the WSO2 product distribution. `<PROFILE_HOME>` refers to the root directory of other profiles that are shipped as separate runtimes with a product.
+    `<PRODUCT_HOME>` refers to the root folder of the WSO2 product distribution. `<PROFILE_HOME>` refers to the root directory of other profiles that are shipped as separate runtimes with a product.
 
 
 | Folder                                        | Description                                                                                                                                                                                                                                                    | General Folder Path                                                      | Folder Path for Profiles                                                           |
