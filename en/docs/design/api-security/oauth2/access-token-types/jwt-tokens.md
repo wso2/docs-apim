@@ -4,7 +4,7 @@ JSON Web Token (JWT) is an open standard of transmitting information securely be
 
 WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create an application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. The applications in WSO2 API Manager use self-contained signed JWT formatted access tokens.
 
-When an API is invoked using a JWT access token, the API Gateway validates the request by itself.
+The gateway itself validates the API requests that are authenticated using the JWT access tokens.
 
 ## Prerequisites for JWT based tokens
 
@@ -34,7 +34,7 @@ The following are the mandatory attributes that are required for a JWT access to
       <tbody>
          <tr>
             <td>`alg`</td>
-            <td>The algorithm used to sign the token (e.g., RS256).</td>
+            <td>The algorithm which signs the token(e.g., RS256).</td>
          </tr>
       </tbody>
    </table>
@@ -48,7 +48,7 @@ The following are the mandatory attributes that are required for a JWT access to
          </tr>
          <tr>
             <td>`iat`</td>
-            <td>The time the token was issued.</td>
+            <td>Token issued time</td>
          </tr>
          <tr>
             <td>`exp`</td>
