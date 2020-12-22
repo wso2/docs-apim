@@ -127,3 +127,9 @@ Follow the recommendations given below when you set up your keystores.
     ```
 
 -   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Adding CA-signed certificates to keystores](../keystore-basics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores) for instructions.
+
+-   If you encounter the following error after changing the default keystore, log in to the carbon console and navigate to `/_system/config/repository/esb/inbound` registry location and remove the `inbound-endpoints` resource. Once it is removed, restart the server. 
+    ```
+    FATAL - ServiceBusInitializer Couldn't initialize the ESB...
+    java.lang.IllegalArgumentException: KeyStore File repository/resources/security/xxxx.jks not found
+    ```
