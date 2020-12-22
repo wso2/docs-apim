@@ -222,7 +222,9 @@ In order to do the signature validation of JWTs, you can use one of the followin
 
 -  Import the public certificate into the client-truststore.jks located at `<API-M_HOME>/repository/resources/security/` with the **kid** value of the certificate as the alias.
 
--  Use the JWKS endpoint of the OAuth provider.
+      If **kid** is not present in JWT, it will validate with the public certificate under `gateway_certificate_alias` alias from client-truststore.jks.
+
+-  Use the JWKS endpoint of the OAuth provider. (**kid** value should be present in JWT)
 
       1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf/` folder.
       2. Add the following configuration under the `[[apim.jwt.issuer]]` with the issuer details.
