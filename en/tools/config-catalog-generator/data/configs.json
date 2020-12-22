@@ -342,6 +342,46 @@
             "exampleFile": "_apim_jwt.toml"
         },
         {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer",
+                    "required": false,
+                    "description": "To specify the issuers of the JWT tokens if third-party Key Managers are used.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The issuer name of the JWT."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.jwt.issuer.jwks",
+                    "required": false,
+                    "description": "To specify the JSON Web Key Set (JWKS) endpoint of the issuer.",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The JWKS endpoint URL of the issuer."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.jwt.issuer.jwks.toml"
+        }, 
+        {
             "title": "API-M gateway environment configurations",
             "options": [
                 {
