@@ -1,8 +1,6 @@
 # Configuration Catalog
 
-From APIM 3.0.0, we introduce a new configuration model based on the toml format. 
-More importantly, this is the only configuration file(`<APIM_HOME>/repository/conf/deployment.toml`) required to configure and tune the various features in the API Manager. 
-In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this release, all the configuration files have been merged into one. 
+The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the <API-M_HOME>/repository/conf/deployment.toml file is the single source used to configure and tune the various features in API Manager.
 
 This document describes all the configuration parameters that are used in WSO2 API Manager. 
 
