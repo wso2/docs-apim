@@ -41,7 +41,7 @@ Following is the default configuration for carbon logs and the default values ca
 
 ###Enable Logs for a Tenant
 
-By default, logs of all the tenants are written to a single log file. You can configure to write logs of tenants to a different log file using the below configurations to the log4j2.properties file.
+In order to write logs of tenants to a different log file the following configurations can be added to the log4j2.properties file.
 
     ```
     appenders=CARBON_CONSOLE, CARBON_LOGFILE, ...., TENANT_LOGFILE
