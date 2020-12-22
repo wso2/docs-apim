@@ -500,7 +500,6 @@ nav:
             - API Security Sample: reference/samples/api-security-sample.md
             - API Versioning Sample: reference/samples/api-versioning-sample.md
         #- Business Scenarios: reference/guides/business-scenarios.md
-        - Other: reference/other.md
     - Troubleshooting:
         - Error Handling: troubleshooting/error-handling.md
         - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
