@@ -24,7 +24,7 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
 
 2. Click the Endpoint Security symbol that corresponds to the endpoint that you want to secure with OAuth 2.0.
 
-     [![Endpoint security symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
+      [![Endpoint security symbol]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
 
 3. Click on OAuth 2.0 from the drop-down menu.
 
@@ -36,11 +36,22 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
 
      a. Provide the following properties with regard to **Client Credentials**:
 
-         * **Token URL** - This is the URL for the token endpoint of the OAuth-protected backend server.
-
-         * **Client ID** - A unique ID used to identify the application.
-
-         * **Client Secret** - A unique key that must be known only to the application and the backend server.
+     <table>
+      <tbody>
+         <tr>
+            <td>`Token URL`</td>
+            <td>This is the URL for the token endpoint of the OAuth-protected backend server.</td>
+         </tr>
+         <tr>
+            <td>`Client ID`</td>
+            <td>A unique ID used to identify the application.</td>
+         </tr>
+         <tr>
+            <td>`Client Secret`</td>
+            <td>A unique key that must be known only to the application and the backend server.</td>
+         </tr>                  
+      </tbody>
+     </table>
 
      ![client credentials config]({{base_path}}/assets/img/learn/client-credentials-config.png)
 
@@ -62,7 +73,7 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
 
      [![oauth-2-submit-button]({{base_path}}/assets/img/learn/oauth-2-submit-button.png)]({{base_path}}/assets/img/learn/oauth-2-submit-button.png)
 
-     [![endpoints-save-button]({{base_path}}/assets/img/learn/endpoints-save-button.png)]({{base_path}}/assets/img/learn/endpoints-save-button.png)
+     [![endpoints-save-button]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoints-save-button.png)]({{base_path}}/assets/img/design/endpoints/endpoint-security/endpoints-save-button.png)
 
     !!! info
         The Endpoint Auth Type selected should match with the authentication mechanism supported by the secured endpoint.
