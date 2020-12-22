@@ -958,7 +958,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Displays the environment under &#39;Try it&#39; in the API Store, in the API console.</p>
+                                        <p>Displays the environment under &#39;Try it&#39; in the API Developer Portal, in the API console.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -996,7 +996,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use to construct the sample curl request in the API Store.</p>
+                                        <p>Use to construct the sample curl request in the API Developer Portal.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1375,7 +1375,7 @@ enable = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable cache for recently added apis in the API Store. This expires in 15 minutes by default</p>
+                                        <p>Enable cache for recently added apis in the API Developer Portal. This expires in 15 minutes by default</p>
                                     </div>
                                 </div>
                             </div>
@@ -2256,7 +2256,7 @@ enable_token_hashing = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Token revocation endpoint used in the API Store</p>
+                                        <p>Token revocation endpoint used in the API Developer Portal</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2378,7 +2378,7 @@ enable_forum = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Public store URL</p>
+                                        <p>Public API Developer Portal URL</p>
                                     </div>
                                 </div>
                             </div><div class="param">
