@@ -41,6 +41,11 @@ Follow the instructions below to add advanced UI customizations to the Developer
         ```js
         npm run build:dev
         ```
+        !!! note "Production deployment"
+            The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
+            ```
+            npm run build:prod
+            ```
 
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
@@ -89,15 +94,15 @@ You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the i
 import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
-A compilation error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
-```sh
+```javascript
 import NewFile from './NewFile.jsx';
 ```
 ### Admin Portal advanced UI customizations 
 
 !!! note "Prerequisites"
-    - **NodeJS** - This is a platform required for ReactJS development.
+    - **NodeJS** - This is a JavaScript runtime environment required for ReactJS development.
     - **NPM**
 
 1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin` directory in a terminal and run the following command.
@@ -108,14 +113,18 @@ import NewFile from './NewFile.jsx';
 
      This will install the local package dependencies in the Admin applications.
 
-3. Run the command given below in the relevant application.
+3. Build with customizations
 
      Run the following command to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
 
     ```js
     npm run build:dev
     ```
-
+    !!! note "Production deployment"
+        The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
+        ```
+        npm run build:prod
+        ```
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
      - If you need to rewrite the admin UI completely, you can make changes in the following directory.
@@ -160,7 +169,7 @@ You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the i
 import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
-A compilation error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
 ```sh
 import NewFile from './NewFile.jsx';
