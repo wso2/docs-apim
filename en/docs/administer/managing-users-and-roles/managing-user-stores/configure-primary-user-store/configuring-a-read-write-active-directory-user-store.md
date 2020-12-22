@@ -517,7 +517,7 @@ Default: ^[\S]{5,30}$</td>
 <td>PasswordJavaReg<br />ExViolationErrorMsg</td>
 <td>password_java_reg<br />ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
-<td>Error message when the Password is not matched with passwordJavaRegEx<br />
+<td>The error message that appears when the password does not comply with the <code>passwordJavaRegEx</code><br />
 Default: Password length should be within 5 to 30 characters</td></tr>
 <tr class="odd">
 <td>RolenameJavaRegEx</td>
@@ -542,12 +542,12 @@ Default: false</td>
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
 <td>Password Hashing Algorithm</td>
-<td>Specifies the Password Hashing Algorithm used the hash the password before storing in the user store.<br />
+<td>Specifies the Password Hashing Algorithm used to hash the password before storing in the user store.<br />
 Possible values:<br />
 SHA - Uses SHA digest method. SHA-1, SHA-256<br />
 MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.(Default)</p>
-<p>If you just configure as SHA, It is considered as SHA-1, it is always better to configure an algorithm with higher bit value as digest bit size would be increased.<br />
+<p>If you just configure it as SHA, it is considered as SHA-1. It is always better to configure an algorithm with a higher bit value as the digest bit size would be increased.<br />
 <br />
 Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc.) support the storage of the password as salted hashed values (SSHA).
 If your LDAP does not support the storage of the user password as hashed value, you can configure the WSO2 server to hash the password and feed the hashed password into the LDAP server. Then you need to configure <code>PasswordHashMethod</code> property with SHA (SHA-1), SHA-256, SHA-512. Note that the WSO2 server cannot create a salted hashed password (SSHA) to feed into the LDAP.</p></td>
