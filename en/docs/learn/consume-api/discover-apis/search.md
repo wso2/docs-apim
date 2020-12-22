@@ -26,12 +26,12 @@ of the API and search.</p>
 <tr class="odd">
 <td>By the API's name</td>
 <td><p><strong>name:xxxx</strong> . For example, name:PizzaShackAPI</p>
-<p>Provider is the user who created the API.</p></td>
+<p>Name is the API name.</p></td>
 </tr>
 <tr class="even">
 <td>By the API provider</td>
 <td><p><strong>provider:xxxx</strong> . For example, provider:admin</p>
-<p>Name is the API name.</p></td>
+<p>Provider is the user who created the API.</p></td>
 </tr>
 <tr class="odd">
 <td>By the API version</td>
