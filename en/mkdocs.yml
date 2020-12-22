@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -148,9 +148,6 @@ nav:
                             - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                     - OpenID Connect:
                             - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-                    - User Account Management:
-                            - Recover Password: learn/user-account-management/recover-password.md
-                            - Change Password: learn/user-account-management/change-dev-portal-password.md
             - Rate Limiting:
                     - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                     - Adding New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
@@ -254,7 +251,9 @@ nav:
         - Generating SDKs:
             - Generate SDKs in Developer Portal: consume/generating-sdks/generate-sdks-in-dev-portal.md
             - Write a Client Application Using the SDK: consume/generating-sdks/write-a-client-application-using-the-sdk.md
-        - /home/shani/git/user-account-management
+        - User Account Management:
+            - Recover Password: consume/user-account-management/recover-password.md
+            - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integration:
         - Integration Overview: ''
         - Integration Use Cases:
@@ -1338,4 +1337,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/next
