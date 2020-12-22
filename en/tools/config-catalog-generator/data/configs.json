@@ -467,7 +467,7 @@
                             "required": true,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Displays the environment under 'Try it' in the API Store, in the API console."
+                            "description": "Displays the environment under 'Try it' in the API Developer Portal, in the API console."
                         },
                         {
                             "name": "description",
@@ -483,7 +483,7 @@
                             "required": true,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Use to construct the sample curl request in the API Store."
+                            "description": "Use to construct the sample curl request in the API Developer Portal."
                         },
                         {
                             "name": "service_url",
@@ -631,7 +631,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Enable cache for recently added apis in the API Store. This expires in 15 minutes by default."
+                            "description": "Enable cache for recently added apis in the API Developer Portal. This expires in 15 minutes by default."
                         }
                     ]
                 }
@@ -967,7 +967,7 @@
                             "required": false,
                             "default": "https://localhost:8243/revoke",
                             "possible": "Valid URL for revocation endpoint.",
-                            "description": "Token revocation endpoint used in the API Store"
+                            "description": "Token revocation endpoint used in the API Developer Portal"
                         },
                         {
                             "name": "enable_token_encryption",
@@ -1012,7 +1012,7 @@
                             "required": true,
                             "default": "https://localhost:9443/devportal",
                             "possible": "",
-                            "description": "Public store URL"
+                            "description": "Public API Developer Portal URL"
                         },
                         {
                             "name": "enable_application_sharing",
