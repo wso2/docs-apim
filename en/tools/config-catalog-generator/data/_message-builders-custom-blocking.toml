@@ -1,0 +1,3 @@
+[[blocking.custom_message_builders]]
+content_type = "application/json/badgerfish"
+class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
