@@ -12,8 +12,9 @@ shared file system. Configure a shared file system as the content synchronizatio
 system such as Network File System (NFS) or any other shared file system that is available. 
 
 You need to mount the following directories of the two nodes to the shared file system, in order to share all the APIs and throttling policies between all the nodes.
-    1. `<API-M_HOME>/repository/deployment/server/synapse-configs`
-    2. `<API-M_HOME>/repository/deployment/server/executionplans`
+
+1. `<API-M_HOME>/repository/deployment/server/synapse-configs`
+2. `<API-M_HOME>/repository/deployment/server/executionplans`
 
 ## Inbuilt artifact synchronization
 
