@@ -5,13 +5,8 @@ This section guides you through the following areas:
 -   [Allowed IPs](#allowed-ips)
     -   [Creating the Advanced Throttling policy](#creating-the-advanced-rate-limit-policy)
     -   [Engage the policy with an API](#engage-the-policy-with-an-api)
-<<<<<<< HEAD:en/docs/learn/rate-limiting/blacklisting-whitelisting.md
--   [Blacklisting requests](#blacklisting-requests)
-    -   [Blacklisting PhoneVerification API](#blacklisting-phoneverification-api)
-=======
 -   [Denying requests](#denying-requests)
     -   [Denying the PhoneVerification API](#denying-phoneverification-api)
->>>>>>> Change Whitelisting and blcaklisting words:en/docs/learn/rate-limiting/access-control.md
 
 ### Allowed IPs
 
@@ -41,7 +36,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
     Following is an example configuration.
 
-    ![](../../assets/img/learn/whitelist-specific-ip.png)
+    ![](../../assets/img/learn/new-allow-specific-ip.png.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
