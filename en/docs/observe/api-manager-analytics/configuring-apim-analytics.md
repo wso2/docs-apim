@@ -317,11 +317,12 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
                 username: 'root'
                 password: '123'
                 driverClassName: com.mysql.jdbc.Driver
+                minIdle: 5
                 maxPoolSize: 50
                 idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
         ```
   3. Point the following data sources to external databases. 
      
@@ -367,11 +368,12 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
              username: 'root'
              password: '123'
              driverClassName: com.mysql.jdbc.Driver
+             minIdle: 5
              maxPoolSize: 50
              idleTimeout: 60000
-          connectionTestQuery: SELECT 1
-          validationTimeout: 30000
-          isAutoCommit: false           
+             connectionTestQuery: SELECT 1
+             validationTimeout: 30000
+             isAutoCommit: false           
     ```
     
   3. Point the following data sources to external databases. 
