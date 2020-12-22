@@ -21,8 +21,7 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 **Note the following:**
 
 -   You can expose both REST and SOAP services to consumers through APIs.
--   You cannot call backend services secured with OAuth through APIs created in the API Publisher. At the moment, you
- can call only services secured with username/password (Basic Auth/ Digest Auth).
+-   You can call backend services secured with OAuth 2.0, username/password (Basic Auth/ Digest Auth) through APIs created in the API Publisher.
 -   The system reads Gateway endpoints from the `<API-M_HOME>/repository/conf/deployment.toml` file. When there are
  multiple gateway environments defined, it picks the Gateway endpoint of the production environment. You can define both HTTP and HTTPS gateway endpoints as follows:
 
