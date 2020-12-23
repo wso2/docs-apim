@@ -104,6 +104,30 @@ When working with API Monetization that involves dynamic business plans (usage-b
     file and add it into the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory if it is not already available.
     </p>
     </html>
+    
+    !!! note
+        Under default settings, all successful requests to APIs will get billed, regardless of the key type (sandbox or production) used for API invocation. You have to make following changes to exclude sandbox API calls from getting billed.
+
+        1. Open the `APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi` file you added to `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
+        
+        2. Modify `RecordStream` as shown below. Note that the `metaClientType string` added after the `apiName`
+            ``` java
+            define stream RecordStream(apiName string, metaClientType string, apiVersion string, apiCreator string, apiCreatorTenantDomain string, applicationName string, applicationId string, responseCodeBool bool, requestTimestamp long);
+            ```
+        3. Update the insert queries as shown below.
+            ``` java
+            --checks whether the response code is in 200 range, pass respinseCodeBool as true or false based on it
+            from Request
+            select apiName, json:getString(json:toObject(meta_clientType), '$.keyType') as metaClientType, apiVersion, apiCreator, apiCreatorTenantDomain, applicationName, applicationId,
+            regex:matches('2[0-9][0-9]', convert (responseCode, 'string')) as responseCodeBool, requestTimestamp
+            insert into TempStream;
+            
+            --If responseCodeBool is true add to the stream
+            from TempStream[ responseCodeBool == true and metaClientType == 'PRODUCTION']
+            select *
+            insert into RecordStream;
+            ```
+        4. [Download siddhi-execution-json-2.0.8.jar](https://javalibs.com/artifact/io.siddhi.extension.execution.json/siddhi-execution-json) and add it to the /lib directory.
 
 2. Optionally, preserve the required API usage data table in WSO2 API Manager Analytics.
 
