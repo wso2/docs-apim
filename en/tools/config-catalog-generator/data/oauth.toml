@@ -1,0 +1,10 @@
+[oauth]
+allowed_scopes = ["scope1", "scope2"]
+additional_params_from_error_url = true
+timestamp_skew = "0"
+
+[oauth.extensions]
+token_generator="org.wso2.carbon.identity.oauth2.token.OauthTokenIssuerImpl"
+token_context_generator = "org.wso2.carbon.identity.oauth2.authcontext.JWTTokenGenerator"
+token_context_claim_retriever = "org.wso2.carbon.identity.oauth2.authcontext.DefaultClaimsRetriever"
+token_context_dialect_uri = "http://wso2.org/claims"

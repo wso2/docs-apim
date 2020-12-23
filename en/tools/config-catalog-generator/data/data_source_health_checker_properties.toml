@@ -1,0 +1,3 @@
+[carbon_health_check.health_checker.data_source_health_checker.properties]
+pool_usage_limit_percentage = 80
+monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"
