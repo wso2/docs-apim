@@ -1,6 +1,6 @@
 # Bot Detection
 
-There is a possibility that hackers may invoke services without any proper authentication by using tools such as port scanning.  Therefore, WSO2 API Manager(WSO2 API-M) provides a bot detection mechanism in place.
+There is a possibility that hackers may exploit services exposed in the gateway by identifying services using tools such as port scanners.  Therefore, WSO2 API Manager(WSO2 API-M) provides a bot detection mechanism in place.
 
 There is an unadvertised service deployed in the gateway which logs and sends events to analytics if it receives any traffic. These events can then be configured to send e-mail alerts and also shown in the bot detection dashboard in the Admin Portal. Thereby this helps Publishers to protect their data from bot attackers and improve the security of the data.
 
