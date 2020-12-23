@@ -261,6 +261,11 @@ Configuring databases allow you to persist data relating to APIs, process them a
             isAutoCommit: false
     ```
 #### Configure Analytics
+
+!!! warning
+    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation) 
+    of the deployment.yaml file of either worker or dashboard runtime. Do not change other default values as it may result in an erroneous state.
+
 API-M Analytics contains two runtime, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtime.
     
 The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/) deployment. 
