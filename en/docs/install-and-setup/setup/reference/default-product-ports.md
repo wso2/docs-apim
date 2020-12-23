@@ -72,14 +72,12 @@ Some products open additional ports.
 ##### API Manager
 
 -   5672 - Used by the internal Message Broker.
--   7611 - Authenticate data published when Thrift data publisher is used for throttling.
--   7612 - Publish Analytics to the API Manager Analytics server.
--   7711 - Port for secure transport when Thrift data publisher is used for throttling.
--   7711 + `Port offset of the APIM Analytics Server` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
--   8280, 8243 - NIO/PT transport ports.
+-   7611 - TCP port to receive throttling events. Required when Thrift data publisher is used for throttling.
+-   7612 - TCP port to receive analytics events. Thrift data publisher is used.
+-   7711 - SSL port for secure transport to receive throttling events. Required when Thrift data publisher is used for throttling.
+-   7711 + `Port offset of the APIM Analytics Server` - SSL port for secure transport to receive analytics events. Thrift data publisher is used.
 -   9611 - Publish data to the Traffic Manager. Required when binary data publisher for throttling.
 -   9711 - Authenticate data published to the Traffic Manager. Required when binary data publisher for throttling.
--   10397 - Thrift client and server ports.
 -   9099 - Web Socket ports.
 
 !!! note
@@ -173,8 +171,8 @@ Non-blocking HTTP/S transport ports: Used to accept message mediation requests.
 
 -   9444 - Management console port
 -   9161 - Cassandra port on which Thrift listens to clients
--   7712 - Thrift SSL port for secure transport, where the client is authenticated to DAS
--   7612 - Thrift TCP port to receive events from clients to DAS
+-   7712 - SSL port for secure transport to receive analytics events. Thrift data publisher is used.
+-   7612 - TCP port to receive analytics events. Thrift data publisher is used.
 
 ###### EI-Business Process runtime ports
 
