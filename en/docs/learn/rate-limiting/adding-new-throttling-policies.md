@@ -50,7 +50,7 @@ You can add advanced throttling policies to both APIs and resources.
     ![](../../assets/img/learn/conditional-groups.png)
 
 
-     | Conidtion    | Description value |
+     | Condition    | Description value |
     |---------------|-------------------|
     | IP Condition  | Allows you to set a throttling limit for a specific IP address or a range of IP addresses. |
     | Header Condition | Allows you to set a throttling limit to specific headers and parameters. |
@@ -62,11 +62,15 @@ You can add advanced throttling policies to both APIs and resources.
      
      <p><b>Conditional group evaluation</b></p>
 
-    <p>Conditional group Execution policy used only for that condition. For example, If you add IP condition and set request count as shown in above diagram then only 5 requests allow per 1 minute using that IP condition. For any request which evaluates to false with that condition(Outside that condition) the default limit will be applied.</p>
+    <p>The conditional group Execution policy is used only for that condition. For example, If you add an IP condition and set the request count as shown in the above diagram, only 5 requests will be allowed per 1 minute using that IP condition. For any request which evaluates to false with that condition(Outside that condition), the default limit will be applied.</p>
     </div>
 
 
 5.  Turn on the required condition and enter a condition and value.
+
+    !!! note
+        IP-based advanced throttling is expecting the client IP in the **X-Forwarded-For** header to detect the IP address and throttle out the request as specified in the IP condition configuration.
+        
 6.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example,
     
