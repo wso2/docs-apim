@@ -1765,6 +1765,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.1.0
             username: username
             password: password
             driverClassName: com.mysql.jdbc.Driver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1
