@@ -132,7 +132,7 @@ Follow the given steps to configure an external Active Directory as the primary 
     !!! note
         When working with Active Directory;
 
-        -  It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](./../../configuring-the-authorization-manager/) for more information.
+        -  It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [Configuring the Authorization Manager]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager#configuring-the-authorization-manager) for more information.
         ``` xml
         <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
             <Property name="AdminRoleManagementPermissions">/permission</Property>
@@ -340,7 +340,7 @@ Any of  the following properties can be configured for the `PRIMARY` user store 
 <th><b>Property Id</b></th>
 <th><b>Primary User Store Property </b></th>
 <th><b>Secondary User Store Property</b> </th>
-<th><b>Description</th>
+<th><b>Description</b></th>
 </tr>
 </thead>
 <tbody>
@@ -401,7 +401,6 @@ In this case, the search operation only provides the objects created from the pe
 Possible values:<br />
 true: Read groups from user store<br />
 false: Don’t read groups from user store</td>
-</td>
 </tr>
 <tr class="odd">
 <td>WriteGroups</td>
