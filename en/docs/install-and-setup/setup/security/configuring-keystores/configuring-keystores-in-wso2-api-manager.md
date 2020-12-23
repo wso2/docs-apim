@@ -16,6 +16,15 @@ Internal Keystore is used for encrypting internal critical data including passwo
 
 The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores](keystore-basics/creating-new-keystores.md) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
 
+!!! info
+    If you want to change the default truststore details, you can do it by adding the configurations under `[truststore]` field in the `<API-M_HOME>/repository/conf/deployment.toml`. Refer the below example which defines the `type` of the truststore as "JKS" (Java KeyStore), the `file_name` of the trustore as "modified-client-truststore.jks" and the `password` as "modified_password".
+
+    ```toml
+    [truststore]
+    type= "JKS"
+    file_name = "modified-client-truststore.jks"
+    password= "modified_password"
+    ```
 
 ## Configuring the Primary Keystore
 
