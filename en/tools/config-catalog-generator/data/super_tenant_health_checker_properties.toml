@@ -1,0 +1,2 @@
+[carbon_health_check.health_checker.super_tenant_health_checker.properties]
+monitored.user.stores = "primary,sec"
