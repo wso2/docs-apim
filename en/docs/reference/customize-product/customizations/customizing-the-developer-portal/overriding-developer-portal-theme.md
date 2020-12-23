@@ -2,12 +2,12 @@
 
 There are mainly 2 ways to customize and override the developer portal theme. 
 
-1. Theming using defaultTheme.js
+1. Theming using `defaultTheme.js`
 2. Overriding React components
 
-In this section, we will cover the first technique which is the easiest way to change the appearance of Developer portal.
+In this section, we will cover the first method which is the easiest way to change the appearance of Developer portal.
 
-For the second technique, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
+For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
 You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
@@ -48,7 +48,7 @@ Enable landing page. **defaultTheme.json** (Tenant theming).
 }
 ```
 
-The following documents describe some of the frequent theming tasks that you can achieve by customizing the defaultTheme.js.
+The following documents describe some of the most commonly used customizations, that you can do by changing the `defaultTheme.js`
 
   - [Enabling or Disabling API Detail Tabs](enabling-or-disabling-api-detail-tabs.md)
   - [Override API Overview Page per API](override-api-overview-page-per-api.md)
