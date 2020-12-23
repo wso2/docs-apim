@@ -1490,6 +1490,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
             username: root
             password: root
             driverClassName: com.mysql.jdbc.Driver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1
@@ -1530,6 +1531,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
           username: root
           password: root
           driverClassName: com.mysql.jdbc.Driver
+          minIdle: 5
           maxPoolSize: 50
           idleTimeout: 60000
           connectionTestQuery: SELECT 1
