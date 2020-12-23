@@ -69,7 +69,7 @@ You can add advanced throttling policies to both APIs and resources.
 5.  Turn on the required condition and enter a condition and value.
 
     !!! note
-        IP-based advanced throttling is expecting the client IP in the **X-Forwarded-For** header to detect the IP address and throttle out the request as specified in the IP condition configuration.
+        IP-based advanced throttling is expecting the client IP in the **X-Forwarded-For** header, to detect the IP address and throttle out the request as specified in the IP condition configuration.
         
 6.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example,
