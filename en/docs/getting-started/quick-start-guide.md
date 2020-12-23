@@ -215,7 +215,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
 
 ### Before you Begin...
 
-1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/) from under the **Dev-Ops Tooling** section.
+1. Download the latest version of the API Controller 3.2.0 based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/) from under the **Dev-Ops Tooling** section.
 
 2. Extract the ZIP to a preferred location.
 
