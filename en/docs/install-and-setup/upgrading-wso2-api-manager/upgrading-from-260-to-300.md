@@ -17,14 +17,13 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.0.0.
 
-Therefore, when migrating to API Manager 3.0.0, it is **required** to turn off the registry versioning in your
-current API Manager 2.6.0 version and run the below scripts against **the database that is used by the registry**.
+Therefore, when migrating to API Manager 3.0.0, it is **required** to run the below scripts against **the database that is used by the registry**.
 
 !!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning in your current API-M and running the scripts"
+!!! info "Verifying registry versioning is turned on in your current API-M and running the scripts."
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     

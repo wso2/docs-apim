@@ -25,7 +25,7 @@ Therefore, when migrating to API Manager 3.0.0, it is **required** run the below
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Verifying registry versioning turned on in your current API-M and running the scripts"
+!!! info "Verifying registry versioning is turned on in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
