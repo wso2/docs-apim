@@ -26,7 +26,7 @@ The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented a
 
      For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity Server and WSO2 API Manager as explained below.
 
-    1.  Download WSO2 API Manager from [here](https://wso2.com/api-management/) and unzip it. 
+    1.  Download WSO2 API Manager 3.1.0 from [here](https://wso2.com/api-management/previous-releases/) and unzip it. 
     
          `<API-M_HOME>` refers to the root folder where WSO2 API-M was unzipped.
 
