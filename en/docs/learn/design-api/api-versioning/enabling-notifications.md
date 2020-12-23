@@ -7,7 +7,7 @@ Follow the instructions below to enable notifications for new API versions:
 1.  Add the email server configurations to the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
 
     ``` toml
-    [output_adapter.email]
+    [apim.notification]
     from_address = "abcd@gmail.com"
     username = "abcd@gmail.com"
     password = "xxxxxx"
@@ -22,6 +22,8 @@ Follow the instructions below to enable notifications for new API versions:
     | from_address           | The email address you use to send emails.                                                                                  |
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
     | password               | Password used to authenticate the mail server.                                                                            |
+
+    For more informaton, see [Enable Notifications]({{base_path}}/reference/config-catalog/#enable-notifications).
 
 2.  Sign in to the Management Console.
 

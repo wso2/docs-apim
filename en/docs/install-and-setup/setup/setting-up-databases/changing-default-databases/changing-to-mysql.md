@@ -65,11 +65,14 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  Provide authorization to the user that you use to access the databases. 
 
-     For example, let's consider `apimadmin` as the user.
+     For example, let's consider `apimadmin`, `sharedadmin` as the users.
 
     ``` java
-    mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
+    ``` java
+    mysql> GRANT ALL ON shared_db.* TO sharedadmin@localhost IDENTIFIED BY "sharedadmin";
+    ```    
 
     !!! info
         If you are using MySQL version - 8.0.x, use the following commands to create the user and the grant authorization:
@@ -79,8 +82,16 @@ Follow the  instructions below to set up a MySQL database:
         ```
 
         ``` java
-        mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        mysql> GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
         ```
+        
+        ``` java
+        mysql> CREATE USER 'sharedadmin'@'localhost' IDENTIFIED BY 'sharedadmin';
+        ```
+
+        ``` java
+        mysql> GRANT ALL ON shared_db.* TO 'sharedadmin'@'localhost';
+        ```        
 
 1.  After you have finalized the permissions, reload all the privileges.
 
@@ -116,7 +127,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Execute the relevant scrip to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
-    $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    $ mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
@@ -126,7 +137,18 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MySQL, then you need to have separate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
+
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 !!! note
     Additional notes
@@ -146,7 +168,194 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     In the sample commands above, it is assumed that the username and password defined in the datasource configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file are **wso2user** and **wso2123** respectively.
 
-## Changing the Carbon database to MySQL
+!!! note
+    If you are using NDB engine instead of INNODB engine, you can use the following DB scripts.
+
+     - **`SHARED_DB`** - `<API-M_HOME>/dbscripts/mysql_cluster.sql` 
+     - **`WSO2AM_DB`** - `<API-M_HOME>/dbscripts/apimgt/mysql_cluster.sql`
+
+!!! note
+    If you are using MySQL with group replication, it is mandatory to have primary keys for all the tables.
+
+    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql` and `<API-M_HOME>/dbscripts/apimgt/mysql.sql`)
+
+    ??? info "Creating tables"
+        ```tab="SHARED_DB"
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_COMMENT (
+                REG_RESOURCE_COMMENT_ID     INTEGER NOT NULL AUTO_INCREMENT,
+                REG_COMMENT_ID              INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_COMMENT_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_PROPERTY (
+                REG_RESOURCE_PROPERTY_ID    INTEGER NOT NULL AUTO_INCREMENT,
+                REG_PROPERTY_ID             INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_PROPERTY_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_RATING (
+                REG_RESOURCE_RATING_ID      INTEGER NOT NULL AUTO_INCREMENT,
+                REG_RATING_ID               INTEGER NOT NULL,
+                REG_VERSION                 INTEGER,
+                REG_PATH_ID                 INTEGER,
+                REG_RESOURCE_NAME           VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_RATING_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS REG_RESOURCE_TAG (
+                REG_RESOURCE_TAG_ID     INTEGER NOT NULL AUTO_INCREMENT,
+                REG_TAG_ID              INTEGER NOT NULL,
+                REG_VERSION             INTEGER,
+                REG_PATH_ID             INTEGER,
+                REG_RESOURCE_NAME       VARCHAR(256),
+                REG_TENANT_ID INTEGER DEFAULT 0,
+                PRIMARY KEY(REG_RESOURCE_TAG_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE UM_SHARED_USER_ROLE(
+                UM_SHARED_USER_ROLE_ID      INTEGER NOT NULL AUTO_INCREMENT,
+                UM_ROLE_ID                  INTEGER NOT NULL,
+                UM_USER_ID                  INTEGER NOT NULL,
+                UM_USER_TENANT_ID           INTEGER NOT NULL,
+                UM_ROLE_TENANT_ID           INTEGER NOT NULL,
+                UNIQUE(UM_USER_ID,UM_ROLE_ID,UM_USER_TENANT_ID, UM_ROLE_TENANT_ID),
+                FOREIGN KEY(UM_ROLE_ID,UM_ROLE_TENANT_ID) REFERENCES UM_ROLE(UM_ID,UM_TENANT_ID) ON DELETE CASCADE,
+                FOREIGN KEY(UM_USER_ID,UM_USER_TENANT_ID) REFERENCES UM_USER(UM_ID,UM_TENANT_ID) ON DELETE CASCADE,
+                PRIMARY KEY(UM_SHARED_USER_ROLE_ID)
+        )ENGINE INNODB;
+        ```
+
+        ```tab="WSO2AM_DB"
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_ACCESS_TOKEN_AUDIT (
+                IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID INTEGER NOT NULL AUTO_INCREMENT,
+                TOKEN_ID VARCHAR (255),
+                ACCESS_TOKEN VARCHAR(2048),
+                REFRESH_TOKEN VARCHAR(2048),
+                CONSUMER_KEY_ID INTEGER,
+                AUTHZ_USER VARCHAR (100),
+                TENANT_ID INTEGER,
+                USER_DOMAIN VARCHAR(50),
+                USER_TYPE VARCHAR (25),
+                GRANT_TYPE VARCHAR (50),
+                TIME_CREATED TIMESTAMP NULL,
+                REFRESH_TOKEN_TIME_CREATED TIMESTAMP NULL,
+                VALIDITY_PERIOD BIGINT,
+                REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+                TOKEN_SCOPE_HASH VARCHAR(32),
+                TOKEN_STATE VARCHAR(25),
+                TOKEN_STATE_ID VARCHAR (128) ,
+                SUBJECT_IDENTIFIER VARCHAR(255),
+                ACCESS_TOKEN_HASH VARCHAR(512),
+                REFRESH_TOKEN_HASH VARCHAR(512),
+                INVALIDATED_TIME TIMESTAMP NULL,
+                IDP_ID INTEGER DEFAULT -1 NOT NULL,
+                PRIMARY KEY (IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_SCOPE_BINDING (
+                IDN_OAUTH2_SCOPE_BINDING_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SCOPE_ID INTEGER NOT NULL,
+                SCOPE_BINDING VARCHAR(255) NOT NULL,
+                BINDING_TYPE VARCHAR(255) NOT NULL,
+                FOREIGN KEY (SCOPE_ID) REFERENCES IDN_OAUTH2_SCOPE (SCOPE_ID) ON DELETE CASCADE,
+                PRIMARY KEY (IDN_OAUTH2_SCOPE_BINDING_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_USER_SESSION_MAPPING (
+                IDN_AUTH_USER_SESSION_MAPPING_ID INTEGER NOT NULL AUTO_INCREMENT,
+                USER_ID VARCHAR(255) NOT NULL,
+                SESSION_ID VARCHAR(255) NOT NULL,
+                CONSTRAINT USER_SESSION_STORE_CONSTRAINT UNIQUE (USER_ID, SESSION_ID),
+                PRIMARY KEY (IDN_AUTH_USER_SESSION_MAPPING_ID)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_CIBA_REQUEST_SCOPES (
+                IDN_OAUTH2_CIBA_REQUEST_SCOPES_ID INTEGER NOT NULL AUTO_INCREMENT,
+                AUTH_CODE_KEY CHAR (36),
+                SCOPE VARCHAR (255),
+                FOREIGN KEY (AUTH_CODE_KEY) REFERENCES IDN_OAUTH2_CIBA_AUTH_CODE(AUTH_CODE_KEY) ON DELETE CASCADE,
+                PRIMARY KEY (IDN_OAUTH2_CIBA_REQUEST_SCOPES)
+        )ENGINE INNODB;
+    
+        CREATE TABLE CM_SP_PURPOSE_PURPOSE_CAT_ASSC (
+                CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SP_PURPOSE_ASSOC_ID INTEGER NOT NULL,
+                PURPOSE_CATEGORY_ID INTEGER NOT NULL,
+                UNIQUE KEY (SP_PURPOSE_ASSOC_ID, PURPOSE_CATEGORY_ID),
+                PRIMARY KEY (CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID)
+        );
+        
+        CREATE TABLE CM_PURPOSE_PII_CAT_ASSOC (
+                CM_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                PURPOSE_ID         INTEGER NOT NULL,
+                CM_PII_CATEGORY_ID INTEGER NOT NULL,
+                IS_MANDATORY       INTEGER NOT NULL,
+                UNIQUE KEY (PURPOSE_ID, CM_PII_CATEGORY_ID),
+                PRIMARY KEY (CM_PURPOSE_PII_CAT_ASSOC_ID)
+        );
+        
+        CREATE TABLE CM_SP_PURPOSE_PII_CAT_ASSOC (
+                CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT,
+                SP_PURPOSE_ASSOC_ID INTEGER NOT NULL,
+                PII_CATEGORY_ID     INTEGER NOT NULL,
+                VALIDITY            VARCHAR(1023),
+                UNIQUE KEY (SP_PURPOSE_ASSOC_ID, PII_CATEGORY_ID),
+                PRIMARY KEY (CM_SP_PURPOSE_PII_CAT_ASSOC_ID)
+        );
+        
+        CREATE TABLE CM_CONSENT_RECEIPT_PROPERTY (
+                CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT,
+                CONSENT_RECEIPT_ID VARCHAR(255)  NOT NULL,
+                NAME               VARCHAR(255)  NOT NULL,
+                VALUE              VARCHAR(1023) NOT NULL,
+                UNIQUE KEY (CONSENT_RECEIPT_ID, NAME),
+                PRIMARY KEY (CM_CONSENT_RECEIPT_PROPERTY_ID)
+        );
+        ```
+
+    If the tables are already created use the following scripts to update the existing tables in the respective databases.
+
+    ??? info "Updating tables"
+        ```tab="SHARED_DB"
+        ALTER TABLE REG_RESOURCE_COMMENT ADD COLUMN REG_RESOURCE_COMMENT_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_PROPERTY ADD COLUMN REG_RESOURCE_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_RATING ADD COLUMN REG_RESOURCE_RATING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE REG_RESOURCE_TAG ADD COLUMN REG_RESOURCE_TAG_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE UM_SHARED_USER_ROLE ADD COLUMN UM_SHARED_USER_ROLE_ID INTEGER NOT NULL AUTO_INCREMENT;
+        ```
+
+        ```tab="WSO2AM_DB"
+        ALTER TABLE IDN_OAUTH2_ACCESS_TOKEN_AUDIT ADD COLUMN IDN_OAUTH2_ACCESS_TOKEN_AUDIT_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_OAUTH2_SCOPE_BINDING ADD COLUMN IDN_OAUTH2_SCOPE_BINDING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_AUTH_USER_SESSION_MAPPING ADD COLUMN IDN_AUTH_USER_SESSION_MAPPING_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE IDN_OAUTH2_CIBA_REQUEST_SCOPES ADD COLUMN IDN_OAUTH2_CIBA_REQUEST_SCOPES_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_SP_PURPOSE_PURPOSE_CAT_ASSC ADD COLUMN CM_SP_PURPOSE_PURPOSE_CAT_ASSC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
+        
+        ALTER TABLE CM_CONSENT_RECEIPT_PROPERTY ADD COLUMN CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+        ```
+
+## Changing the database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
 
@@ -185,8 +394,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
 
     [database.apim_db]
     type = "mysql"
@@ -234,8 +443,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
@@ -256,3 +465,20 @@ Follow the  instructions below to change the type of the default datasources.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+
+    !!! info
+        **Changing WSO2CARBON_DB to MySQL**
+
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mysql.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details similarly as explained before.
+
+        ``` tab="Example"
+        [database.local]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.mysql.cj.jdbc.Driver"
+        ```

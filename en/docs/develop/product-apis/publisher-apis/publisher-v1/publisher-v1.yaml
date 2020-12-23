@@ -48,7 +48,7 @@ info:
     Sample request
     ```
       curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
-      \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
+      \ -d @payload.json https://localhost:9443/client-registration/v0.16/register
     ```
     Following is a sample response after invoking the above curl
     ```
@@ -1504,7 +1504,16 @@ paths:
       parameters:
         - in: formData
           name: file
-          description: WSDL definition as a file
+          description: |
+            WSDL definition as a file or archive
+
+            **Sample cURL to Upload WSDL File**
+
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
+
+            **Sample cURL to Upload WSDL Archive**
+
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file="@wsdl.zip;type=application/zip" -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
           type: file
           required: false
         - in: formData
@@ -2610,23 +2619,13 @@ paths:
         200:
           description: |
             OK.
-            Successful response if the api name exist.
-          schema:
-            $ref: '#/definitions/Document'
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              type: string
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              type: string
+            Successful response if the document name exists.
         400:
           $ref: '#/responses/BadRequest'
         404:
-          $ref: '#/responses/NotFound'
+          description: |
+            Not Found.
+            The specified resource does not exist.
 
   ######################################################
   # The "specific mediation policy" resource APIs
@@ -5867,7 +5866,7 @@ paths:
   ####################################################
   '/alert-types':
     #--------------------------------------------------
-    # Retrieve the list of api store alert types.
+    # Retrieve the list of API Developer Portal alert types.
     #--------------------------------------------------
     get:
       security:
@@ -8332,12 +8331,12 @@ definitions:
       displayName:
         type: string
         description: |
-          The name of the external API Store that is displayed in the Publisher UI.
+          The name of the external API Developer Portal that is displayed in the Publisher UI.
         example: UKStore
       type:
         type: string
         description: |
-          The type of the Store. This can be a WSO2-specific API Store or an external one.
+          The type of the API Developer Portal. This can be a WSO2-specific API Developer Portal or an external one.
         example: wso2
       endpoint:
         type: string

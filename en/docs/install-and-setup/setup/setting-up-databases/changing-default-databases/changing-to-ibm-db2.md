@@ -30,7 +30,7 @@ Follow the instructions below to set up a IBM DB2 database:
    ```
    For example:
    ```sh
-   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER regadmin
+   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER sharedadmin
    ```
 
 1. Disconnect from the database using the following command:
@@ -59,8 +59,12 @@ Follow the instructions below to set up a IBM DB2 database:
    $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
    $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';
    ```
+   
+!!! note
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
 
-## Changing the Carbon database to IBM DB2
+
+## Changing the database to IBM DB2
 
 - [Creating the datasource connection to IBM DB2](#creating-the-datasource-connection-to-ibm-db2)
 
@@ -99,7 +103,7 @@ Follow the instructions below to change the type of the default datasource.
     ```
 
     ``` tab="Example"
-    [database.shared_db]
+    [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/apim_db"
     username = "apimadmin"
@@ -107,11 +111,11 @@ Follow the instructions below to change the type of the default datasource.
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     
-    [database.apim_db]
+    [database.shared_db]
     type = "db2"
-    url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     ```
@@ -144,7 +148,7 @@ Follow the instructions below to change the type of the default datasource.
     ```
 
     ``` tab="Example"
-    [database.shared_db]
+    [database.apim_db]
     type = "db2"
     url = "jdbc:db2://localhost:50000/apim_db"
     username = "apimadmin"
@@ -155,11 +159,11 @@ Follow the instructions below to change the type of the default datasource.
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
 
-    [database.apim_db]
+    [database.shared_db]
     type = "db2"
-    url = "jdbc:db2://localhost:50000/reg_db"
-    username = "regadmin"
-    password = "regadmin"
+    url = "jdbc:db2://localhost:50000/shared_db"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.ibm.db2.jcc.DB2Driver"
     validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
     pool_options.maxActive = 50
@@ -173,3 +177,21 @@ Follow the instructions below to change the type of the default datasource.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+
+    !!! info
+        **Changing WSO2CARBON_DB to IBM DB2**
+
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/db2.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your IBM DB2 database, the username, and password required to access the database and the IBM DB2 driver details similarly as explained before.
+
+        ``` tab="Example"
+        [database.local]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+        ```

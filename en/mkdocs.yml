@@ -251,6 +251,7 @@ nav:
               - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
           - Setup & Configuration:
               - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+              - Encrypting Sensitive Data in the API-M Analytics Server: learn/analytics/encrypting-sensitive-data-in-apim-analytics.md
               - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
               - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
               - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
@@ -381,7 +382,6 @@ nav:
               - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
               - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
               - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
-              - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
           - Configure Key Manager:
               - Configure a Third Party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
               - Configuring WSO2 Identity Server as Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -427,11 +427,13 @@ nav:
           - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
           - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
           - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-          - Performance Tuning and Test Results:  
+          - Performance Tuning and Test Results:
             - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
             - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results.md
       - SSO:
           - Configuring SSO for Admin portal using SAML: install-and-setup/setup/sso/configuring-sso-for-admin-portal-using-saml.md
+          - Configure WSO2 Identity Server As An External IDP Using OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+          - Configuring WSO2 Identity Server As An External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
           - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
           - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
       - Advanced Configuration:
@@ -491,10 +493,12 @@ nav:
               - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
               - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
               - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+              - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
           - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
           - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
-          - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
-          - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+          - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+          - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
   - Reference:
       - Configuration Catalog: reference/config-catalog.md
       - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
@@ -643,6 +647,7 @@ plugins:
         'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
         'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
         'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/managing-log-growth/'
+        'administer/product-administration/monitoring/logging/masking-sensitive-information-in-logs.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/'
         'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
         'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
         'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/capturing-system-data-in-error-situations/'

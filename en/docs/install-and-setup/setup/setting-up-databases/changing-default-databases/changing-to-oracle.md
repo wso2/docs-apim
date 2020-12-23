@@ -60,9 +60,20 @@ Follow the instructions below to set up an Oracle database.
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/oracle-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to Oracle, then you need to have seperate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
 
-## Changing the Carbon database to Oracle
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
+
+## Changing the database to Oracle
 
 - [Creating the datasource connection to Oracle](#creating-the-datasource-connection-to-oracle)
 
@@ -101,8 +112,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@localhost:1521/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     
@@ -146,8 +157,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@localhost:1521/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     pool_options.maxActive = 100
@@ -172,3 +183,21 @@ Follow the instructions below to change the type of the default datasource.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+
+    !!! info
+        **Changing WSO2CARBON_DB to Oracle**
+
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/oracle.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details similarly as explained before.
+
+        ``` tab="Example"
+        [database.local]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```

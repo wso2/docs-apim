@@ -527,7 +527,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.1.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.1.0`, which is the **full path** to the particular location.
 
         !!! note "Tenants"
-            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1]({{base_path}}/assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -2023,9 +2023,11 @@ Follow the instructions below to move all the existing API Manager configuration
        ```toml
        [truststore]
        type= "JKS"
-       file = "modified-client-truststore.jks"
+       file_name = "modified-client-truststore.jks"
        password= "modified_password"
        ```
+    
+    - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
     
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.2.0 to 5.10.0.
 
@@ -2204,7 +2206,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-3.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-4.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 

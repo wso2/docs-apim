@@ -1,5 +1,8 @@
 # Configuration Catalog
-This document describes all the configuration parameters that are used in WSO2 Identity Server. 
+
+The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the <API-M_HOME>/repository/conf/deployment.toml file is the single source used to configure and tune the various features in API Manager.
+
+This document describes all the configuration parameters that are used in WSO2 API Manager. 
 
 ## Instructions for use
 
@@ -26,7 +29,9 @@ pool_options.maxActiv=5
 
 
 
+
 ## Super admin configurations
+
 
 <div class="mb-config-catalog">
     <section>
@@ -120,7 +125,9 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## Connecting to the primary data store
+
 
 <div class="mb-config-catalog">
     <section>
@@ -198,7 +205,9 @@ enable_swa=false</code></pre>
 </div>
 
 
+
 ## Enabling the H2 database console
+
 
 <div class="mb-config-catalog">
     <section>
@@ -254,7 +263,9 @@ enable_h2_console = true</code></pre>
 </div>
 
 
+
 ## Database configurations
+
 
 <div class="mb-config-catalog">
     <section>
@@ -524,7 +535,9 @@ password = "wso2carbon"</code></pre>
 </div>
 
 
+
 ## Shared database configurations
+
 
 <div class="mb-config-catalog">
     <section>
@@ -640,7 +653,9 @@ password = "wso2carbon"</code></pre>
 </div>
 
 
+
 ## JWT Configurations
+
 
 <div class="mb-config-catalog">
     <section>
@@ -874,7 +889,9 @@ Note that this should be the fully-qualified class name.</p>
 </div>
 
 
+
 ## API-M gateway environment configurations
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1130,7 +1147,9 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
 </div>
 
 
+
 ## Gateway token cache
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1143,8 +1162,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.cache.gateway_token]
 enable = true
-expiry_time = "900s"
-</code></pre>
+expiry_time = "900s"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1205,7 +1223,9 @@ expiry_time = "900s"
 </div>
 
 
+
 ## Cache resource
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1260,7 +1280,9 @@ expiry_time = "900s"</code></pre>
 </div>
 
 
-## Cache Keymanager token
+
+## Keymanager token cache
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1334,7 +1356,9 @@ expiry_time = "15m"</code></pre>
 </div>
 
 
+
 ## Cache recent APIs
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1388,7 +1412,9 @@ enable = false</code></pre>
 </div>
 
 
+
 ## Cache scopes
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1399,10 +1425,8 @@ enable = false</code></pre>
                 <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.cache.scopes]
+enable = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1431,7 +1455,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1444,7 +1468,9 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## Cache publisher roles
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1455,10 +1481,8 @@ create_admin_account = true</code></pre>
                 <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.cache.publisher_roles]
+enable = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1500,7 +1524,9 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## Cache publisher roles
+
+## Cache JWT claims
+
 
 <div class="mb-config-catalog">
     <section>
@@ -1511,66 +1537,9 @@ create_admin_account = true</code></pre>
                 <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.cache.publisher_roles]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TRUE</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable cache for publisher roles. Expires in 15 minutes by default</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-## Cache JWT claims
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="16" type="checkbox" id="_tab_16">
-                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.cache.jwt_claim]
+enable = true
+expiry_time = "15m"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1631,21 +1600,21 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## Cache tags
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="17" type="checkbox" id="_tab_17">
-                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
+            <input name="16" type="checkbox" id="_tab_16">
+                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.cache.tags]
+expiry_time = "2m"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1674,7 +1643,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set tag cache expiry time. Check with the new UI. Disabled when not defined.</p>
+                                        <p>Set when the tag cache expires. This option is disabled when not defined.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1687,21 +1656,28 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## API-M Analytics related configurations
+
+## API-M Analytics configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="18" type="checkbox" id="_tab_18">
-                <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
+            <input name="17" type="checkbox" id="_tab_17">
+                <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.analytics]
+enable = false
+store_api_url = "https://localhost:7444"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+event_publisher_type = "default"
+event_publisher_type = "custom"
+event_publisher_impl = "org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher"
+publish_response_size = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1730,7 +1706,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>enable/disable analytics on the API Manager</p>
+                                        <p>Set TRUE to enable analytics in API Manager</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1749,7 +1725,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Analytics store rest api url. If there are mutiple analytics node, use LB url</p>
+                                        <p>The Store REST API URL for Analytics. If there are mutiple analytics node, use the loadbalancing URL</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1763,12 +1739,12 @@ create_admin_account = true</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>user super admin username</code></span>
+                                            <span class="param-default-value">Default: <code>Credentials of the super admin user.</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>username of the analytics node</p>
+                                        <p>Credentials of the super admin user, in the analytics node</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1782,12 +1758,12 @@ create_admin_account = true</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>user super admin password</code></span>
+                                            <span class="param-default-value">Default: <code>Credentials of the super admin user.</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>password of the analytics node</p>
+                                        <p>Credentials of the super admin user, in the analytics node</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1801,12 +1777,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.username</code></span>
+                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.username&quot;</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if specific user need to used for the event publishing</p>
+                                        <p>Change this if a specific user is required for event publishing.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1820,12 +1796,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.password</code></span>
+                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.password&quot;</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if specific user need to used for the event publishing</p>
+                                        <p>Change this if a specific user is required for event publishing.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1839,12 +1815,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.username</code></span>
+                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.username&quot;</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if specific user need to used for access Store rest api</p>
+                                        <p>Change this if a specific user is required to access the Store REST API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1858,12 +1834,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.password</code></span>
+                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.password&quot;</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if specific user need to used for access rest api</p>
+                                        <p>Change this if a specific user is required to access the Store REST API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1882,7 +1858,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if the event_publisher_type is custom, the custom publisher needs to be definied to this value &#39;event_publisher_impl = &quot;org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher&quot;</p>
+                                        <p>If you have defined a custom &quot;event_publisher_type&quot;, the custom publisher needs to be defined to the following value event_publisher_impl = &quot;org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher&quot;</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1901,7 +1877,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>enable whather to publisher response size to analytics. Size is bytes.</p>
+                                        <p>Set TRUE to enable and define size of the publisher response sent to Analytics. Size is set bytes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1914,21 +1890,30 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## API-M Analytics - URL group
+
+## API-M Analytics - URL group configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="19" type="checkbox" id="_tab_19">
-                <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
+            <input name="18" type="checkbox" id="_tab_18">
+                <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">#LOADBALANCER CONFIGS
+[[apim.analytics.url_group]]
+analytics_url =["tcp://analytics1:7611","tcp://analytics2:7611"]
+analytics_auth_url =["ssl://analytics1:7711","ssl://analytics2:7711"]
+type = "loadbalance"
+
+#FAILOVER CONFIGS
+[[apim.analytics.url_group]]
+analytics_url =["tcp://analytics1:7612","tcp://analytics2:7612"]
+analytics_auth_url =["ssl://analytics1:7712","ssl://analytics2:7712"]
+type = "failover"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1957,7 +1942,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Define analytics nodes that the API Manager will connect to, as an array. If there are mutiple node, need to define this configuration mutiple times.</p>
+                                        <p>Define each analytics node that the API Manager will connect to, as an array. If there are mutiple node, you need to define this configuration for each node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1976,7 +1961,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>list of server urls e.g.,: analytics_url = [&quot;tcp: //localhost:7611, tcp://localhost:7611&quot;]&quot;</p>
+                                        <p>The list of server URLs e.g.,: analytics_url = [&quot;tcp: //localhost:7611&quot;, &quot;tcp://localhost:7611&quot;]</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1995,7 +1980,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>list of auth server urls e.g.,: analytics_auth_url = [&quot;ssl: //localhost:7711,ssl://localhost:7711&quot;]</p>
+                                        <p>The list of auth server URLs e.g.,: analytics_auth_url = [&quot;ssl: //localhost:7711&quot;, &quot;ssl://localhost:7711&quot;]</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2014,7 +1999,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>loadbalance or failover</p>
+                                        <p>Loadbalance or Failover</p>
                                     </div>
                                 </div>
                             </div>
@@ -2027,21 +2012,28 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Key Manager related configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="20" type="checkbox" id="_tab_20">
-                <label class="tab-selector" for="_tab_20"><i class="icon fa fa-code"></i></label>
+            <input name="19" type="checkbox" id="_tab_19">
+                <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.key_manager]
+service_url = "https://localhost:${mgt.transport.https.port}/services/"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+pool.init_idle_capacity = 50
+pool.max_idle = 100
+key_validation_handler_type = "default"
+key_validation_handler_type = "custom"
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2084,12 +2076,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>user super admin username</code></span>
+                                            <span class="param-default-value">Default: <code>Credentials of the super admin user</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Given previously. - The admin username of the KM.</p>
+                                        <p>Credentials of the super admin user, in the Key Manager node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2103,12 +2095,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>user super admin password</code></span>
+                                            <span class="param-default-value">Default: <code>Credentials of the super admin user</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Credentials of the super admin user, in the Key Manager node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2127,7 +2119,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Min no of clients created to connect to the key manager.</p>
+                                        <p>Minimum no. of clients created, to connect to the key manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2146,7 +2138,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Max no of clients created to connect to the key manager.</p>
+                                        <p>Maximum no. of clients created, to connect to the key manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2167,7 +2159,7 @@ create_admin_account = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If custom, then provide the value below</p>
+                                        <p>If custom, then provide the &quot;key_validation_handler_impl&quot; value</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2186,7 +2178,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Can provide custom key validation handler implmentation. Need to set key_validation_handler_type to custom</p>
+                                        <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
                                     </div>
                                 </div>
                             </div>
@@ -2199,21 +2191,25 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M OAuth configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="21" type="checkbox" id="_tab_21">
-                <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
+            <input name="20" type="checkbox" id="_tab_20">
+                <label class="tab-selector" for="_tab_20"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.oauth_config]
+enable_outbound_auth_header = false
+auth_header = "Authorization"
+revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
+enable_token_encryption = false
+enable_token_hashing = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2263,7 +2259,7 @@ create_admin_account = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Valid authorization header for OAuth configurations.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2279,7 +2275,9 @@ create_admin_account = true</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:8243/revoke</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Valid URL for revocation endpoint</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
                                         <p>Token revocation endpoint used in the API Store</p>
@@ -2301,7 +2299,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>if true - token stored in the database will be encrypted/decrypted when reading and storing. RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs</p>
+                                        <p>If set to TRUE, the token stored in the database will be encrypted/decrypted when reading and storing. RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2352,30 +2350,39 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## API-M Store configurations
+
+## API-M Developer Portal configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="22" type="checkbox" id="_tab_22">
-                <label class="tab-selector" for="_tab_22"><i class="icon fa fa-code"></i></label>
+            <input name="21" type="checkbox" id="_tab_21">
+                <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.devportal]
+url = "https://localhost:${mgt.transport.https.port}/devportal"
+enable_application_sharing = false
+if application_sharing_type, application_sharing_impl both defined priority goes to application_sharing_impl
+application_sharing_type = "default" changed type, saml, default todo: check the new config for rest api
+application_sharing_impl = "org.wso2.carbon.apimgt.impl.SAMLGroupIDExtractorImpl"
+display_multiple_versions = false
+display_deprecated_apis = false
+enable_comments = true
+enable_ratings = true
+enable_forum = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[apim.store]</code>
+                            <code>[apim.devportal]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                Configures the API Store
+                                Configures the API Developer Portal
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2390,7 +2397,7 @@ create_admin_account = true</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:9443/store</code></span>
+                                            <span class="param-default-value">Default: <code>https://localhost:9443/devportal</code></span>
                                         </div>
                                         
                                     </div>
@@ -2435,7 +2442,7 @@ create_admin_account = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implmentation. If it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2600,77 +2607,24 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## API-M Publisher configurations
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="23" type="checkbox" id="_tab_23">
-                <label class="tab-selector" for="_tab_23"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.publisher]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                Configures the API Publisher
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_api_doc_visibility</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
 
 ## API-M CORS configurations
 
+
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="24" type="checkbox" id="_tab_24">
-                <label class="tab-selector" for="_tab_24"><i class="icon fa fa-code"></i></label>
+            <input name="22" type="checkbox" id="_tab_22">
+                <label class="tab-selector" for="_tab_22"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.cors]
+allow_origins = "*"
+allow_methods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
+allow_headers = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction"]
+allow_credentials = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2699,7 +2653,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>default configuration in the toml</p>
+                                        <p>CORS configurations are enabled by default.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2718,7 +2672,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Get desc online. </p>
+                                        <p>Denotes &quot;Access-Control-Allow-Origin&quot; response header. Specify an origin to share the response with.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2737,7 +2691,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Configures the methods allowed by the access control.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2756,7 +2710,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Configures the type of headers allowed by the access control.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2775,7 +2729,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Specifying this header to true means that the server allows cookies (or other user credentials) to be included on cross-origin requests. It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (*)</p>
                                     </div>
                                 </div>
                             </div>
@@ -2788,21 +2742,25 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Throttling configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="25" type="checkbox" id="_tab_25">
-                <label class="tab-selector" for="_tab_25"><i class="icon fa fa-code"></i></label>
+            <input name="23" type="checkbox" id="_tab_23">
+                <label class="tab-selector" for="_tab_23"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.throttling]
+enable_data_publishing = true
+enable_policy_deploy = true
+enable_blacklist_condition = true
+enable_persistence = true
+throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2884,21 +2842,45 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Throttling URL group configs
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="26" type="checkbox" id="_tab_26">
-                <label class="tab-selector" for="_tab_26"><i class="icon fa fa-code"></i></label>
+            <input name="24" type="checkbox" id="_tab_24">
+                <label class="tab-selector" for="_tab_24"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.throttling.blacklist_condition]
+start_delay = "5m"
+period = "1h"
+
+[apim.throttling.jms]
+start_delay = "5m"
+
+[apim.throttling.event_sync]
+hostName = "0.0.0.0"
+port = 11224
+
+[apim.throttling.event_management]
+hostName = "0.0.0.0"
+port = 10005
+
+LOADBALANCE CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "loadbalance"
+
+FAILOVER CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "failover"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2922,12 +2904,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>TM username</p>
+                                        <p>Credentials of the Traffic Manager user.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2946,7 +2928,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>TM password</p>
+                                        <p>Credentials of the Traffic Manager user</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2960,12 +2942,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>receiver username if it is diffrent. The username of the receiver configured on the TM.</p>
+                                        <p>If the username of the receiver is different, use the username of the receiver configured on the Traffic Manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2984,7 +2966,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>receiver password if it is diffrent</p>
+                                        <p>If the credentials of the receiver is different, use the password of the receiver configured on the Traffic Manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2998,12 +2980,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>user name for policy deploy. if it is diffrentReceiver configured for deploying policies.</p>
+                                        <p>If the credentials of the user is different, use the credentials of the user configured for deploying policies.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3022,7 +3004,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>user password for policy deploy. if it is diffrent</p>
+                                        <p>If the credentials of the user is different, use the credentials of the user configured for deploying policies.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3036,12 +3018,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>JMS connection user if it is diffrent</p>
+                                        <p>If the credentials of the user is different, use the credentials of the user configured for the JMS connection.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3060,7 +3042,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>JMS connection password if it is diffrent</p>
+                                        <p>If the credentials of the user is different, use the credentials of the user configured for the JMS connection.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3079,7 +3061,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>data publisher pool max connections ideal values</p>
+                                        <p>Ideal values for the maximum no. of connections to the data publisher pool.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3098,7 +3080,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>data publisher pool min connections ideal values</p>
+                                        <p>Ideal values for the minimum no. of connections to the data publisher pool.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3117,7 +3099,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>publisher thread pool size</p>
+                                        <p>The size of the thread pool in the API Publisher.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3136,7 +3118,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>publisher threax pool max size</p>
+                                        <p>The maximum size of the thread pool in the API Publisher.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3155,7 +3137,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>publisher thread pool, keep alive time</p>
+                                        <p>The timeframe after which the publisher thread pool is terminated.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3174,7 +3156,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>TM service URL </p>
+                                        <p>Service URL of the Traffic Manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3188,12 +3170,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>not define</code></span>
+                                            <span class="param-default-value">Default: <code>not defined</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Define delay time to get blocking data from KM</p>
+                                        <p>Define the delay time to get the blacklist conditions from the Keymanager</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3226,12 +3208,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>not define</code></span>
+                                            <span class="param-default-value">Default: <code>not defined</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Connection delay to read TM at startup</p>
+                                        <p>Connection delay to read the Traffic Manager at startup.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3328,7 +3310,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Define array of JMS connection as a array.</p>
+                                        <p>Define array of JMS connection as an array.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3366,7 +3348,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable header condition based thortlling. Ref docs.</p>
+                                        <p>Enable the header condition based throttling. Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3385,7 +3367,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>enable JWT claim based throtlling</p>
+                                        <p>Enable JWT claim based throtlling.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3398,21 +3380,45 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Throttling URL group
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="27" type="checkbox" id="_tab_27">
-                <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
+            <input name="25" type="checkbox" id="_tab_25">
+                <label class="tab-selector" for="_tab_25"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.throttling.blacklist_condition]
+start_delay = "5m"
+period = "1h"
+
+[apim.throttling.jms]
+start_delay = "5m"
+
+[apim.throttling.event_sync]
+hostName = "0.0.0.0"
+port = 11224
+
+[apim.throttling.event_management]
+hostName = "0.0.0.0"
+port = 10005
+
+LOADBALANCE CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "loadbalance"
+
+FAILOVER CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "failover"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3498,21 +3504,29 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Workflow configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="28" type="checkbox" id="_tab_28">
-                <label class="tab-selector" for="_tab_28"><i class="icon fa fa-code"></i></label>
+            <input name="26" type="checkbox" id="_tab_26">
+                <label class="tab-selector" for="_tab_26"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.workflow]
+enable = false
+service_url = "https://localhost:9445/bpmn"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+callback_endpoint = "https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.15/workflows/update-workflow-status"
+token_endpoint = "https://localhost:${https.nio.port}/token"
+client_registration_endpoint = "https://localhost:${mgt.transport.https.port}/client-registration/v0.15/register"
+client_registration_username = "$ref{super_admin.username}"
+client_registration_password = "$ref{super_admin.password}"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3541,7 +3555,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>enable API State Change workflow</p>
+                                        <p>Enable API State Change workflow.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3560,7 +3574,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>WF engine service URL</p>
+                                        <p>The service URL of the workflow engine</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3574,12 +3588,12 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>WF username</p>
+                                        <p>Workflow username.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3598,7 +3612,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>WF password</p>
+                                        <p>Workflow password.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3617,7 +3631,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Callback URL  for the WF engine</p>
+                                        <p>Callback URL for the workflow engine</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3636,7 +3650,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>token endpoint used for the WF.</p>
+                                        <p>Token endpoint used for the workflow..</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3650,7 +3664,7 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:${mgt.transport.https.port}/client-registration/v0.14/register</code></span>
+                                            <span class="param-default-value">Default: <code>https://localhost:${mgt.transport.https.port}/client-registration/v0.15/register</code></span>
                                         </div>
                                         
                                     </div>
@@ -3669,7 +3683,7 @@ create_admin_account = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>super username</code></span>
+                                            <span class="param-default-value">Default: <code>super user username</code></span>
                                         </div>
                                         
                                     </div>
@@ -3687,21 +3701,25 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M SDK configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="29" type="checkbox" id="_tab_29">
-                <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
+            <input name="27" type="checkbox" id="_tab_27">
+                <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.sdk]
+group_id = "org.wso2"
+artifact_id = "org.wso2.client"
+model_package = "org.wso2.client.model"
+api_package = "org.wso2.client.api"
+supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3730,7 +3748,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>group ID of the of the generating project</p>
+                                        <p>Group ID of the of the generated project.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3749,7 +3767,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>artifact ID of the of the generating project</p>
+                                        <p>Artifact ID of the generated project.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3768,7 +3786,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>model package of the generating project</p>
+                                        <p>Model package of the generated project.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3787,7 +3805,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>API package of the generating project</p>
+                                        <p>API package of the generated project.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3806,7 +3824,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Supported language</p>
+                                        <p>Supported programming languages.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3819,21 +3837,25 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M Open tracer configurations
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="30" type="checkbox" id="_tab_30">
-                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
+            <input name="28" type="checkbox" id="_tab_28">
+                <label class="tab-selector" for="_tab_28"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.open_tracer]
+remote_tracer.enable = true
+remote_tracer.name = "zipkin"
+remote_tracer.properties.hostname = "localhost"
+remote_tracer.properties.port = 9411
+log_tracer.enable = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3862,7 +3884,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable tracing on APIM. Traces the execution time upto message level</p>
+                                        <p>Enable tracing on APIM. Traces the execution time upto message level.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3881,7 +3903,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>tracer name</p>
+                                        <p>Tracer name</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3900,7 +3922,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Hostname of the zipkin tool (tracer)</p>
+                                        <p>Hostname of the zipkin tool (tracer).</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3919,7 +3941,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port of the tool</p>
+                                        <p>Port allocated for the tool.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3938,7 +3960,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Whether to log the tracer values or not.</p>
+                                        <p>Define whether to log the tracer values.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3951,21 +3973,28 @@ create_admin_account = true</code></pre>
 </div>
 
 
+
 ## API-M token revocation
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="31" type="checkbox" id="_tab_31">
-                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
+            <input name="29" type="checkbox" id="_tab_29">
+                <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.token.revocation]
+notifier_impl = "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl"
+enable_realtime_notifier = true
+realtime_notifier.ttl = 5000
+enable_persistent_notifier = true
+persistent_notifier.hostname = "https://localhost:2379/v2/keys/jti/"
+persistent_notifier.ttl = 5000
+persistent_notifier.username = "root"
+persistent_notifier.password = "root"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3994,7 +4023,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If only custom.If a token is revoked, the notification will be sent to the JMS topic. If we need to change this we need to write a custom implementation.</p>
+                                        <p>This config is required only during a custom implementation. If a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4013,7 +4042,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(Only applicable if the MGW is used)If FALSE, works as persistent.</p>
+                                        <p>(Only applicable if the MGW is used) If FALSE, works as persistent.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4051,7 +4080,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>[TBD]</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4089,7 +4118,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Ask Sampath for desc and unit</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4140,28 +4169,34 @@ create_admin_account = true</code></pre>
 </div>
 
 
-## Sample
+
+## Enable Notifications
+
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="32" type="checkbox" id="_tab_32">
-                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
+            <input name="30" type="checkbox" id="_tab_30">
+                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+<pre><code class="toml">[apim.notification]
+from_address = "abcd@gmail.com"
+username = "abcd@gmail.com"
+password = "xxxxxx"
+hostname = "smtp.gmail.com"
+port = "587"
+enable_start_tls = true
+enable_authentication = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[name]</code>
-                            <span class="badge-required">Required</span>
+                            <code>[apim.notifications]</code>
+                            
                             <p>
                                 
                             </p>
@@ -4169,7 +4204,7 @@ create_admin_account = true</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>hostname</code> </span>
+                                  <span class="param-name-wrap"> <code>from_address</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4178,14 +4213,126 @@ create_admin_account = true</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&quot;localhost&quot;</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;127.0.0.1&quot;,&quot;localhost&quot;,&quot;&lt;any-ip-address&gt;&quot;</code></span>
-                                        </div>
+                                        
                                     </div>
                                     <div class="param-description">
-                                        <p>The hostname of the WSO2 EI server instance.</p>
+                                        <p>The email address you use to send emails.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The email address used to authenticate the mail server. This can be the same email address as the from_address.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Password used to authenticate the mail server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>hostname</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server to connect to.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>25</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_start_tls</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must be configured so that the client will trust the certificate of the server. Defaults to false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_authentication</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, it attempts to authenticate the user using the AUTH command. Defaults to false.</p>
                                     </div>
                                 </div>
                             </div>

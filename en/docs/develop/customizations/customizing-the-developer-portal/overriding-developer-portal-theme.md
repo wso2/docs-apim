@@ -8,7 +8,7 @@ You can find default theme from the following location `<API-M_HOME>/repository/
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal.
 
-You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+Using the above file as reference, you can override the parameters defined in the above file by altering the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 

@@ -246,6 +246,14 @@ been removed from Hotspot JVM.</p>
 <td><p>In a WSO2 API-M deployment, WSO2 recommends that you restrict outbound connections of the Publisher node and only allow access to the required internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
 </td>
 </tr>
+<tr class="odd">
+<td><p>Use a seperate admin user account to login into the system</p>
+<p><br />
+</p></td>
+<td><p>WSO2 recommends that you use two seperate admin user accounts in production, one account for logging into the system and the other one as the system user in configurations (for internal service communications).</p>
+<p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">Super admin configurations</a>.</p>
+</td>
+</tr>
 </tbody>
 </table>
 

@@ -676,10 +676,12 @@ Follow the instructions below to move all the existing API Manager configuration
        ```toml
        [truststore]
        type= "JKS"
-       file = "modified-client-truststore.jks"
+       file_name = "modified-client-truststore.jks"
        password= "modified_password"
        ```
-    
+       
+    - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
+  
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
 
     !!! note
@@ -783,7 +785,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-3.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-4.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -884,6 +886,19 @@ Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.
     -   In API-M 3.0.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   Now with API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+
+!!! info
+    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing one. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
+
+    !!! example
+
+        ```sql tab="MySQL"
+        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
+        ```
+        
+        ```sql tab="MS SQL"
+        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
+        ```
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
@@ -1024,4 +1039,3 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 

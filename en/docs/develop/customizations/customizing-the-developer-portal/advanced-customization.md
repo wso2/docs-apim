@@ -6,6 +6,7 @@
 - NPM
 
 NodeJS is a platform required for ReactJS development. 
+You should have NPM (minimum 5.7.0) and Node.js (minimum 8.12.0) installed.
 
 The user interface of the Developer Portal can be customized simply without editing the React codebase or  the CSS in most cases. You will be required to modify the react code base, if you need to do advanced customizations.
 

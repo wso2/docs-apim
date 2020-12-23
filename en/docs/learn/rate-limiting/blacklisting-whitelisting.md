@@ -7,7 +7,6 @@ This section guides you through the following areas:
     -   [Engage the policy with an API](#engage-the-policy-with-an-api)
 -   [Blacklisting requests](#blacklisting-requests)
     -   [Blacklisting PhoneVerification API](#blacklisting-phoneverification-api)
--   [Custom throttling](#custom-throttling)
 
 ### IP Whitelisting
 
