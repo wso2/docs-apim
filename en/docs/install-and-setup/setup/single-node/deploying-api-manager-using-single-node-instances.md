@@ -6,7 +6,7 @@ WSO2 provides two options for organizations that are interested in setting up a 
 
 -   Setting up on WSO2 API Cloud, which is a subscription based API Management solution. You can access this service by creating an account in [WSO2 API Cloud](http://wso2.com/cloud/api-cloud/) .
 
--   If you are interested in setting up a single node API Manager instance, which has all the API-M components in one instance,  on-premise, you can [download](http://wso2.com/products/api-manager/) WSO2 API Manager 3.1.0 distribution and follow the instructions given below to set up the instance.
+-   If you are interested in setting up a single node API Manager instance, which has all the API-M components in one instance,  on-premise, you can [download](https://wso2.com/api-management/previous-releases/) WSO2 API Manager 3.1.0 distribution and follow the instructions given below to set up the instance.
 
 ### Prerequisites
 

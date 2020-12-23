@@ -24,7 +24,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 1.  Copy the WSO2 API Manager product pack to two different locations.
 
-     If needed, you can download the WSO2 API Manager product pack from [here](http://wso2.com/products/api-manager/).
+     If needed, you can download the WSO2 API Manager 3.1.0 distribution from [here](https://wso2.com/api-management/previous-releases/).
 
 2.  Go to the `<API-M_HOME>/repository/conf/deployment.toml` file of the **second** instance and change its port by an offset of 1.
 
