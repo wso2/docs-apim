@@ -48,7 +48,7 @@ Enable landing page. **defaultTheme.json** (Tenant theming).
 }
 ```
 
-The following documents describe some of the frequent theming tasks that you can achieve by customizing the defaultTheme.js.
+The following documents describe some of the most commonly used customizations, that you can do by changing the `defaultTheme.js`
 
   - [Enabling or Disabling API Detail Tabs](enabling-or-disabling-api-detail-tabs.md)
   - [Override API Overview Page per API](override-api-overview-page-per-api.md)
