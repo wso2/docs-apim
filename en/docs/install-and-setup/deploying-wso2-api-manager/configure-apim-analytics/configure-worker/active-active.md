@@ -60,6 +60,8 @@ To configure the API-M Analytics nodes to deploy them as an active-active cluste
         
         Assigning shard IDs to nodes allows the system to identify each unique node when assigning parts of the 
         aggregation. If the shard IDs are not assigned, the system uses the unique node IDs (defined in step 1) for this purpose.
+        <hr>
+        The maximum length of the `shardId` property is limited 20.
         
     - For node 1:
         ``` yaml
