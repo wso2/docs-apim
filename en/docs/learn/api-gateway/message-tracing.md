@@ -23,7 +23,6 @@ can be viewed via the terminal or the `wso2carbon` log file.
     |-----------------------------------|--------------------------------------------------------------------------------------|
     | Dump Message Content              | Enable Message tracing for the Content of the Message as well.                       |
     | Enable Logging                    | Enable Logging in the available logging handler in order to log the tracing message. |
-    | Enable Analytics Event Publishing | Publish tracing events to WSO2 API Manager Analytics                                 |
 
     [![Message tracing](../../assets/img/learn/message-traceronly.png)](../../assets/img/learn/message-traceronly.png)
     
