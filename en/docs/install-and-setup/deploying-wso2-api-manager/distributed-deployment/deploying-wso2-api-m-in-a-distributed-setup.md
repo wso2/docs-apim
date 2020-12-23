@@ -96,11 +96,36 @@ This section involves setting up the Key Manager node and enabling it to work wi
         description = "This is a hybrid gateway that handles both production and sandbox token traffic."
         service_url = "https://$[GATEWAY_SERVER_HOST]:[port]/services/"
         ```
+        
+1.  Change `[apim.throttling]` section to point to the Traffic Manager nodes.
+ 
+ 
+     ``` toml tab="Traffic Manager with HA"
+     [apim.throttling]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
+     
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+     
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+     ```
 
-2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
+     ``` toml tab="Single Traffic Manager"
+     [apim.throttling]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
+          
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
+     ```
+     
+3.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
-3.  Optionally, configure High Availability (HA) for the Key Manager.
+4.  Optionally, configure High Availability (HA) for the Key Manager.
 
     !!! warning
         These instructions are **ONLY applicable** if you need to configure **HA for the Key Manager.**    
@@ -110,7 +135,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
         
         For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
-4.  Start the WSO2 API-M Key Manager node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+5.  Start the WSO2 API-M Key Manager node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
 
     -   [**Linux/Mac OS**](#Linux-Mac)
