@@ -7,7 +7,7 @@ Follow the instructions below to connect Okta as a third-party Identity Provider
 Before you begin, make sure you do the following.
 
 1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
-2. Download the latest API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
+2. Download API Manager 3.2.0 distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
 3. Unzip the distribution and open the `deployment.toml` file located in `<API-M_HOME>/repository/conf/` directory. Add the following configuration.
     ```
     [tenant_mgt]
