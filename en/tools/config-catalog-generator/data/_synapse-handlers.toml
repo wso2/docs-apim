@@ -1,0 +1,4 @@
+enabled_global_handlers= ["custom_logger"]
+[synapse_handlers]
+custom_logger.name= "SynapseLogHandler"
+custom_logger.class= "com.wso2.apim.log.handler.SynapseLogHandler"
