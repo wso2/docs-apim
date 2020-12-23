@@ -78,14 +78,15 @@ To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need 
 </profile>
 </parameter>
 ```
-To enable dynamic loading of this configuration, add below configurations to the Transport Sender configuration ( `PassThroughHttpSSLSender` ) of API Manager ( `<APIM_HOME>/repository/conf/axis2.xml` ) . Set above file’s path as the `filePath` parameter.
+To enable dynamic loading of this configuration, add the below configurations to the `<API-M_HOME>/repository/conf/deployment.toml` file (Make sure to set the above file’s path as the value for the `file_path` field under `[transport.passthru_https.sender.ssl_profile]`).
 
-``` java
-<parameter name="dynamicSSLProfilesConfig">  
-    <filePath>repository/deployment/server/multi_ssl_profiles.xml</filePath>
-    <fileReadInterval>3600000</fileReadInterval>  
-</parameter>
-<parameter name="HostnameVerifier">AllowAll</parameter>
+``` toml
+[transport.passthru_https.sender.ssl_profile]
+file_path = "repository/deployment/server/mutual_ssl_profiles.xml"
+interval = 3600000
+
+[transport.passthru_https.sender.parameters]
+HostnameVerifier = "AllowAll"
 ```
 
 Now both the backend service and ESB is configured to use default key stores and API Manager is configured to load dynamic SSL profiles. Restart API Manager.
