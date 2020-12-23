@@ -1,4 +1,4 @@
-# Customizing the Publisher Portal Theme
+# Overriding the Publisher Portal Theme
 
 There are mainly 2 ways to customize and override the publisher portal theme. 
 
