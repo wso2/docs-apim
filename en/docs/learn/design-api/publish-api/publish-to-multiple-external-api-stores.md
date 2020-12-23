@@ -91,7 +91,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
             <!--Configuration to set the Developer Portal URL of the current running APIM deployment. 
             APIs published to external developer portals will be redirected to this URL-->
             
-                <StoreURL>http://<ip_address>:<port>localhost:9443/devportal</StoreURL>
+                <StoreURL>http://<ip_address>:<port>/devportal</StoreURL>
 
                 <ExternalAPIStore id="SLStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>SL-Store</DisplayName>
@@ -102,16 +102,33 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
                 
                 <ExternalAPIStore id="USStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>US-Store</DisplayName>
-                    <Endpoint>http://<ip_address>:<port>/devportal</Endpoint>
+                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
                     <Username>{tenantadmin_username}@{tenant_domain}</Username>
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
 
-
                 <ExternalAPIStore id="UKStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>UKStore</DisplayName>
-                    <Endpoint>http://l<ip_address>:<port>/devportal</Endpoint>
+                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain}</Endpoint>
                     <Username>{tenantadmin_username}@{tenant_domain}</Username>
+                    <Password>{tenantadmin_password}</Password>
+                </ExternalAPIStore>
+        </ExternalAPIStores>
+        ```
+        
+        To setup an external API store from a tenant other than the super tenant, you need to configure the external-api-stores.xml file as follows:
+        
+        ```xml
+        <ExternalAPIStores>
+        	<!--Configuration to set the developer portal URL of the current running APIM deployment.
+        	APIs published to external developer portals will be redirected to this URL-->
+        	
+        	<StoreURL>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_first_deployment}</StoreURL>
+        
+                <ExternalAPIStore id="DeveloperPortal2" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
+                    <DisplayName>DeveloperPortal2</DisplayName>
+                    <Endpoint>http://<ip_address>:<port>/devportal/apis?tenant={tenant_domain_of_second_deployment}</Endpoint>
+                    <Username>{tenantadmin_username}@{tenant_domain_of_second_deployment}</Username>
                     <Password>{tenantadmin_password}</Password>
                 </ExternalAPIStore>
         </ExternalAPIStores>
