@@ -1129,7 +1129,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "",
-                            "description": "Specifying this config to true will enable a user to define JWT condition throttling policies in the Admin Portal."
+                            "description": "Specifying this config to true will enable a user to define JWT claim based throttling policies in the Admin Portal."
                         },
                         {
                             "name": "enable_query_param_based_throttling",
