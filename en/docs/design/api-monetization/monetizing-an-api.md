@@ -106,15 +106,15 @@ When working with API Monetization that involves dynamic business plans (usage-b
     </html>
     
     !!! note
-        Under default settings, all successful requests to APIs will get billed, regardless of the type of the key (sandbox or production) used for API invocation. You have to make following changes to exclude sandbox API calls from getting billed.
+        Under default settings, all successful requests to APIs will get billed regardless of the key type (sandbox or production) used for API invocation. You have to make the following changes to exclude sandbox API calls from getting billed.
 
-        1. Open `APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi` you added to `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
+        1. Open the `APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi` file you added to `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
 
-        2. Modify `RecordStream` as below. Note the `metaClientType string` added after the `apiName`
+        2. Modify `RecordStream` as shown below. Note that the `metaClientType string` is added after the `apiName`
             ``` java
             define stream RecordStream(apiName string, metaClientType string, apiVersion string, apiCreator string, apiCreatorTenantDomain string, applicationName string, applicationId string, responseCodeBool bool, requestTimestamp long);
             ```
-        3. Update the insert queries as below.
+        3. Update the insert queries as shown below.
             ``` java
             --checks whether the response code is in 200 range, pass respinseCodeBool as true or false based on it
             from Request
