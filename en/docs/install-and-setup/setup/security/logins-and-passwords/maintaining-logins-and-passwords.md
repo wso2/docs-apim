@@ -64,10 +64,6 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 !!! note
     If you encountered an error similar to `ant: command not found`, Please install [Apache Ant](https://ant.apache.org/) before running the above script.
 
-### Login in via multiple user attributes in Developer Portal
-
-See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager. 
-
 ### Setting up an e-mail login
 
 1. Follow the steps from Step 1 to Step 5 given in [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
