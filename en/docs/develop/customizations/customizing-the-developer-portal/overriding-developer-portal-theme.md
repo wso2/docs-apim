@@ -7,7 +7,7 @@ There are mainly 2 ways to customize and override the developer portal theme.
 
 In this section, we will cover the first method which is the easiest way to change the appearance of Developer portal.
 
-For the second technique, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
+For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
 You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
