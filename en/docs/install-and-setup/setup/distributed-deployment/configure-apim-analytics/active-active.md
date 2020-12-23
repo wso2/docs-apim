@@ -98,6 +98,7 @@ To configure the API-M Analytics nodes to deploy them as an active-active cluste
               password: pass
               username: root
               driverClassName: com.mysql.jdbc.Driver
+              minIdle: 5
               maxPoolSize: 50
               idleTimeout: 60000
               connectionTestQuery: SELECT 1
