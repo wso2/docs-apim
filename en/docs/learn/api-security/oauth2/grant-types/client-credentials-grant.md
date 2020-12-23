@@ -63,18 +63,6 @@ The client can request an access token using only its client credentials with th
 
     ![]({{base_path}}/assets/img/learn/client-credentials.png)
 
-!!! info
-    **Setting a custom validity time for access tokens**
-
-    You can set a validity period for access tokens through a cURL command. Pass the <code>validity_period</code> parameter as shown in the example below.
-
-    ``` java tab="Format"
-    curl -X POST -k -H "Authorization: Basic <Base64(clientId:clientSecret)>" -d "grant_type=client_credentials&validity_period=<custom_validity_time_in_seconds>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token -v
-    ```
-    
-    ``` java tab="Example"
-    curl -X POST -k -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -d "grant_type=client_credentials&validity_period=3200" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token -v
-    ```
     
 !!! note "Support for refresh token grant - No"
 	This grant type does not issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](http://localhost:8000/learn/api-security/oauth2/grant-types/refresh-token-grant/).
