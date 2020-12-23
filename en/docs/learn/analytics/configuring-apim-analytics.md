@@ -236,6 +236,10 @@ Save the changes.
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
 
+!!! warning
+    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation) 
+    of the deployment.yaml file of either worker or dashboard runtime. Do not change other default values as it may result in an erroneous state.
+
 !!! note
     If you are configuring APIM Analytics related databases in **Oracle**, apart from the below mentioned configurations, 
     you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to each analytics related 
