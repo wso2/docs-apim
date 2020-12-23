@@ -28,7 +28,7 @@ The flow of synchronous token persistence is as follows:
 persistence.persistence_pool_size = 0
 ```
 
-By default, synchronous token persistence is enabled in WSO2 API Manager 3.0.0. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration.
+By default, synchronous token persistence is enabled in WSO2 API Manager 4.0.0. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration.
 
 ``` toml
 [oauth.token_generation]
