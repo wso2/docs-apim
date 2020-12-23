@@ -1146,6 +1146,14 @@
                             "default": "",
                             "possible": "",
                             "description": "Define an array of throttle policies which don't need to redeploy on startup"
+                        },
+                        {
+                            "name": "enable_decision_connection",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
                         }
                     ]
                 }
