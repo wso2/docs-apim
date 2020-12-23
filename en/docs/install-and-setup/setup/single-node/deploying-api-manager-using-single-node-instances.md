@@ -17,10 +17,8 @@ WSO2 provides two options for organizations that are interested in setting up a 
 
 You can deploy a single node API Manager instance in the following methods:
 
-- [Deploying API Manager using Single Node Instances](#deploying-api-manager-using-single-node-instances)
-    - [Prerequisites](#prerequisites)
-    - [Single node deployment](#single-node-deployment)
-    - [](#)
+-   [Single node deployment](#DeployingAPIManagerusingSingleNodeInstances-Singlenodedeployment)
+-   [Active/active deployment](#DeployingAPIManagerusingSingleNodeInstances-Active/activedeployment)
 
 ### Single node deployment
 
