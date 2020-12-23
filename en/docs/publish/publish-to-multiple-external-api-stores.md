@@ -116,7 +116,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
         </ExternalAPIStores>
         ```
         
-        If the current API-M deployment's API Developer Portal is also not in super tenant, you can configure the above file as follows:
+        To setup an external API store from a tenant other than the super tenant, you need to configure the external-api-stores.xml file as follows:
         
         ```xml
         <ExternalAPIStores>
