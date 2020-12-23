@@ -103,7 +103,7 @@ You need to mount the following folders of the two nodes to the shared file syst
 
 1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
 2.  `<APIM_HOME>/repository/deployment/server/executionplans` - Includes siddhi queries related to event processing logic.
-3.  `<APIM_HOME>/repository/deployment/server/synapse-configs` - Includes documents related to the API.
+3.  `<APIM_HOME>/repository/deployment/server/synapse-configs` - Includes API gateway configuration files.
 4.  `<APIM_HOME>/repository/tenants` - If tenancy is been used.
 
 ??? note "NFS configuration"
