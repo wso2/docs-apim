@@ -193,5 +193,3 @@ Follow the steps below to customize them.
 
 !!! info      
     If a particular file is not present in the `<API-M_HOME>/repository/resources/extensions` folder, the relevant file from the `<API-M_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` or `<API-M_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/includes` folder will be used.
-      
-
