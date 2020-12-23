@@ -1,0 +1,10 @@
+[blocking.message_builders]
+application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
+form_urlencoded = "org.apache.synapse.commons.builders.XFormURLEncodedBuilder"
+multipart_form_data = "org.apache.axis2.builder.MultipartFormDataBuilder"
+text_plain = "org.apache.axis2.format.PlainTextBuilder"
+application_json = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
+json_badgerfish = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
+text_javascript = "org.apache.axis2.json.JSONBuilder"
+octet_stream =  "org.wso2.carbon.relay.BinaryRelayBuilder"
+application_binary = "org.apache.axis2.format.BinaryBuilder"
