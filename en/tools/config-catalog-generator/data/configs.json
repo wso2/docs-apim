@@ -1170,7 +1170,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "",
-                            "description": "Specifying this config to true will enable a user to define JWT condition throttling policies in the Admin Portal."
+                            "description": "Specifying this config to true will enable a user to define JWT claim based throttling policies in the Admin Portal."
                         },
                         {
                             "name": "enable_query_param_based_throttling",
@@ -1187,6 +1187,14 @@
                             "default": "",
                             "possible": "",
                             "description": "Define an array of throttle policies which don't need to redeploy on startup"
+                        },
+                        {
+                            "name": "enable_decision_connection",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
                         }
                     ]
                 }
@@ -1376,14 +1384,6 @@
                             "default": "",
                             "possible": "",
                             "description": "Define array of JMS connection as an array."
-                        },
-                        {
-                            "name": "enable_unlimited_tier",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "Enable the unlimited tier."
                         }
                     ]
                 }
