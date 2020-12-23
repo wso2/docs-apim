@@ -5,7 +5,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11.\* or 1.8.\* and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
-<li><a href="https://wso2.com/api-management/">Download the latest version of WSO2 API Manager</a>.</li>
+<li><a href="https://wso2.com/api-management/previous-releases/">Download WSO2 API Manager 3.0.0</a>.</li>
 <li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
 </div>
 
@@ -219,7 +219,14 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
 
 ### Step 1 - Download and setup the API Controller
 
-1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/). 
+1. Download API Controller 3.0.0 (or the latest of 3.0.x family) based your operating system from [https://wso2.com/api-management/previous-releases/](https://wso2.com/api-management/previous-releases/). 
+
+    !!! Info
+        Download the **API Controller 3.0.x latest** distribution using below instructions:
+
+           1. Access the [previous WSO2 API Manager related releases](https://wso2.com/api-management/previous-releases/).
+           2. Select version 3.0.0.
+           3. Download the operating system specific distribution from **Tooling -> CLI** section.
 
 2. Extract the ZIP to a preferred location. 
 
