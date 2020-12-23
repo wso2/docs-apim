@@ -1815,7 +1815,7 @@
             "options": [
                 {
                     "name": "transport.http.properties",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP catalina server transport of the API Manager.",
                     "params": [
                         {
@@ -1964,7 +1964,7 @@
             "options": [
                 {
                     "name": "transport.https.properties",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTPS catalina server transport of the API Manager.",
                     "params": [
                         {
@@ -2145,7 +2145,7 @@
             "options": [
                 {
                     "name": "transport.passthru_http",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.",
                     "params": [
                         {
@@ -2406,7 +2406,7 @@
             "options": [
                 {
                     "name": "transport.passthru_https",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
                     "params": [
                         {
@@ -2563,7 +2563,7 @@
             "options": [
                 {
                     "name": "[transport.passthru_http.sender.parameters]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.",
                     "params": [
                         {
@@ -2624,7 +2624,7 @@
             "options": [
                 {
                     "name": "[transport.passthru_https.sender.parameters]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.",
                     "params": [
                         {
@@ -2685,7 +2685,7 @@
             "options": [
                 {
                     "name": "transport.ws",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header groups the parameters that configure the API Manager to communicate through the Websocket transport</a>.",
                     "params": [
                         {
@@ -2730,7 +2730,7 @@
             "options": [
                 {
                     "name": "transport.wss",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header groups the parameters that configure the API Manager to communicate through the secured Websocket transport</a>.",
                     "params": [
                         {
@@ -2791,7 +2791,7 @@
             "options": [
                 {
                     "name": "message_builders",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the implementation that is used to build messages that are received by the API Manager in the default non-blocking mode.",
                     "params": [
                         {
@@ -2876,7 +2876,7 @@
             "options": [
                 {
                     "name": "blocking.message_builders",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the message builder implementation that is used to build messages that are received by the API Manager in <b>blocking</b> mode. You can use the same list of parameters that are available for message builders in non-blocking mode."
                 }
             ],
@@ -2887,7 +2887,7 @@
             "options": [
                 {
                     "name": "message_formatters",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the message formatting implementation that is used for formatting messages that are sent out of the API Manager in <b>non-blocking</b> mode.",
                     "params": [
                         {
@@ -2988,7 +2988,7 @@
             "options": [
                 {
                     "name": "blocking.message_formatters",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the message formatter implementations that are used to format messages that are sent out from the API Manager in <b>blocking</b> mode. You can use the same list of parameters that are available for message formatters in non-blocking mode."
                 }
             ],
@@ -2999,7 +2999,7 @@
             "options": [
                 {
                     "name": "[custom_message_builders]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>.",
                     "params": [
                         {
@@ -3028,7 +3028,7 @@
             "options": [
                 {
                     "name": "[blocking.custom_message_builders]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. You can use the same list of parameters that are available for custom message builders in non-blocking mode."
                 }
             ],
@@ -3039,7 +3039,7 @@
             "options": [
                 {
                     "name": "[custom_message_formatters]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>.",
                     "params": [
                         {
@@ -3068,7 +3068,7 @@
             "options": [
                 {
                     "name": "[blocking.custom_message_formatters]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. You can use the same list of parameters that are available for custom message formatters in non-blocking mode."
                 }
             ],
@@ -3079,7 +3079,7 @@
             "options": [
                 {
                     "name": "mediation",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header groups the parameters used for tuning the mediation process (Synapse engine) of the API Manager. These parameters are mainly used when mediators such as Iterate and Clone (which uses the internal thread pools) are used.",
                     "params": [
                         {
@@ -3196,7 +3196,7 @@
             "options": [
                 {
                     "name": "[synapse_handlers]",
-                    "required": true,
+                    "required": false,
                     "description": "This configuration header is required for configuring a synapse handler with the name and the implementation class.",
                     "params": [
                         {
@@ -3219,6 +3219,658 @@
                 }
             ],
             "exampleFile": "_synapse-handlers.toml"
-        }
+        },
+        {
+            "title": "Governance Configurations",
+            "options": [
+                {
+                    "name": "governance",
+                    "required": false,
+                    "description": "This includes configurations related to underlying governance registry in API-M.",
+                    "params": [
+                        {
+                            "name": "life_cycle_checklist_items_enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable lifecycle checklist items."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "governance.toml"
+        },
+        {
+            "title": "Qpid broker heartbeat configurations",
+            "options": [
+                {
+                    "name": "qpid.heartbeat",
+                    "required": false,
+                    "description": "This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid brocker component of Traffic Manager. You need to to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.",
+                    "params": [
+                        {
+                            "name": "delay",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "This defines an interval (in seconds) between the pings sent to a subscriber to keep the connection alive."
+                        },
+                        {
+                            "name": "timeoutFactor",
+                            "type": "float",
+                            "required": false,
+                            "default": "2.0",
+                            "possible": "",
+                            "description": "The time duration (in seconds) allowed for a subscriber to respond to a heartbeat request. If this time elapses before the response is received, the channel of communication between the server and the subscriber will end."
+                        }                        
+                    ]
+                }
+            ],
+            "exampleFile": "qpid-heartbeat.toml"
+        },
+        {
+            "title": "Health Check API configurations",
+            "options": [
+                {
+                    "name": "carbon_health_check",
+                    "required": false,
+                    "description": "This includes configurations related to carbon health check API.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable carbon health checker."
+                        }                      
+                    ]
+                }
+            ],
+            "exampleFile": "carbon_health_check.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "carbon_health_check.health_checker.super_tenant_health_checker",
+                    "required": false,
+                    "description": "This includes configurations related to super tenant userstore health check.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable user store health checker."
+                        },
+                        {
+                            "name": "order",
+                            "type": "integer",
+                            "required": false,
+                            "default": "98",
+                            "possible": "",
+                            "description": "The execution order."
+                        }                                                                                           
+                    ]
+                }
+            ],
+            "exampleFile": "super_tenant_health_checker.toml"
+        }, 
+        {
+            "options": [
+                {
+                    "name": "carbon_health_check.health_checker.super_tenant_health_checker.properties",
+                    "required": false,
+                    "description": "This includes properties related to super tenant userstore health check.",
+                    "params": [
+                        {
+                            "name": "monitored.user.stores",
+                            "type": "string array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "An array of domain names of the userstores to monitor health. If not given, health is monitered on all the super tenant secondary user stores."
+                        }                                                                                          
+                    ]
+                }
+            ],
+            "exampleFile": "super_tenant_health_checker_properties.toml"
+        },                
+        {
+            "options": [
+                {
+                    "name": "carbon_health_check.health_checker.data_source_health_checker",
+                    "required": false,
+                    "description": "This includes configurations related to the health check of data sources which are configured in master-datasources by checking the connection pool information and by getting a connection from the pool.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable datasource health checker."
+                        },
+                        {
+                            "name": "order",
+                            "type": "integer",
+                            "required": false,
+                            "default": "98",
+                            "possible": "",
+                            "description": "The execution order."
+                        }                                             
+                    ]
+                }
+            ],
+            "exampleFile": "data_source_health_checker.toml"
+        },                                                 
+        {
+            "options": [
+                {
+                    "name": "carbon_health_check.health_checker.data_source_health_checker.properties",
+                    "required": false,
+                    "description": "This includes properties related to datastore health check.",
+                    "params": [
+                        {
+                            "name": "pool_usage_limit_percentage",
+                            "type": "integer",
+                            "required": false,
+                            "default": "80",
+                            "possible": "",
+                            "description": "Datasource connection pool usage"
+                        },
+                        {
+                            "name": "monitored.datasources",
+                            "type": "string array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "An array of jndiConfig names of datasources to monitor health. If not given, health is monitered on all the datastores."
+                        }                                                                                                                   
+                    ]
+                }
+            ],
+            "exampleFile": "data_source_health_checker_properties.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "health_checker",
+                    "required": false,
+                    "description": "This includes configurations related to adding custom health checkers.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "",
+                            "description": "The custom health checker name."
+                        },  
+                        {
+                            "name": "order",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "",
+                            "description": "The custom health checker execution order."
+                        }, 
+                        {
+                            "name": "properties",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "",
+                            "description": "The custom health checker properties. Provide as key value pairs."
+                        }                                                                                                                
+                    ]
+                }
+            ],
+            "exampleFile": "custom_health_checker.toml"
+        },
+        {
+            "title": "OAuth configurations",
+            "options": [
+                {
+                    "name": "oauth",
+                    "required": false,
+                    "description": "This includes OAuth configurations in API-M.",
+                    "params": [
+                        {
+                            "name": "additional_params_from_error_url",
+                            "type": "boolan",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Allow additional parameters in OAuth2 error url."
+                        },
+                        {
+                            "name": "allowed_scopes",
+                            "type": "list of strings",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Configuration to pass a list of scopes which are allowed without any validation."
+                        },
+                        {
+                            "name": "timestamp_skew",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Time stamp skew in seconds."
+                        },
+                        {
+                            "name": "extensions.token_generator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.OauthTokenIssuerImpl",
+                            "possible": "",
+                            "description": "Token Issuer class."
+                        },
+                        {
+                            "name": "extensions.token_context_generator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.authcontext.JWTTokenGenerator",
+                            "possible": "",
+                            "description": "Token Issuer class for Authorization Context."
+                        },
+                        {
+                            "name": "extensions.token_context_claim_retriever",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.authcontext.DefaultClaimsRetriever",
+                            "possible": "",
+                            "description": "Claim Retriever Implementation class for Authorization Context."
+                        },
+                        {
+                            "name": "extensions.token_context_dialect_uri",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://wso2.org/claims",
+                            "possible": "",
+                            "description": "Consumer Dialect URI for Authorization Context."
+                        }                                                      
+
+                    ]
+                }
+            ],
+            "exampleFile": "oauth.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "oauth.token_validation",
+                    "required": false,
+                    "description": "This includes configurations for OAuth token validation.",
+                    "params": [
+                        {
+                            "name": "app_access_token_validity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3600",
+                            "possible": "",
+                            "description": "Default validity period for application access tokens in seconds."
+                        },
+                        {
+                            "name": "user_access_token_validity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3600",
+                            "possible": "",
+                            "description": "Default validity period for user access tokens in seconds."
+                        }, 
+                        {
+                            "name": "refresh_token_validity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "86400",
+                            "possible": "",
+                            "description": "Default validity period for refresh tokens in seconds."
+                        }                                                                                                                                                                                                                                                    
+                    ]
+                }
+            ],
+            "exampleFile": "oauth_token_validation.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "oauth.token_cleanup",
+                    "required": false,
+                    "description": "This includes OAuth configurations for old, invalid token cleanup in API-M.",
+                    "params": [
+                         {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable token cleanup."
+                        },
+                        {
+                            "name": "retain_access_tokens_for_auditing",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Set this to true, to move the old, invalid tokens to the Audit table when token cleaning is enabled. Set this to false, if you do not wish to store old tokens in the Audit table."
+                        }                                                                                                                                                                                                                                                      
+                    ]
+                }
+            ],
+            "exampleFile": "oauth_token_cleanup.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "oauth.oidc",
+                    "required": false,
+                    "description": "This includes configurations related to OpenID Connect authorization server in API-M.",
+                    "params": [
+                        {
+                            "name": "extensions.id_token_builder",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.openidconnect.DefaultIDTokenBuilder",
+                            "possible": "",
+                            "description": "IDToken builder implementation class."
+                        },  
+                        {
+                            "name": "extensions.claim_callback_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.openidconnect.SAMLAssertionClaimsCallback",
+                            "possible": "",
+                            "description": "This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implmenting interface CustomClaimsCallbackHandler."
+                        },
+                        {
+                            "name": "extensions.user_info_claim_retriever",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth.endpoint.user.impl.UserInfoUserStoreClaimRetriever",
+                            "possible": "",
+                            "description": "Defines the class which builds the claims for the User Info Endpoint's response. This class needs to implement the interface UserInfoClaimRetriever."
+                        }, 
+                        {
+                            "name": "user_info.response_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "json",
+                            "possible": "",
+                            "description": "The value that is set to get JWT response from user info endpoint."
+                        },
+                        {
+                            "name": "token_validation.id_token_validity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3600",
+                            "possible": "",
+                            "description": "The expiration value of the IDToken in seconds."
+                        },
+                        {
+                            "name": "id_token.issuer",
+                            "type": "string",
+                            "required": false,
+                            "default": "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token (OAuth2 Token Endpoint URL)",
+                            "possible": "",
+                            "description": "The value of issuer of the IDToken. This should be changed according to the deployment values."
+                        }, 
+                        {
+                            "name": "id_token.redirect_error_page",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Send the response to OAuth2 error page."
+                        },                                                                                                 
+                                                                            
+                        {
+                            "name": "claims.enable_oidc_dialect",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable converting original claims from assertions to OIDC Dialect."
+                        },
+                        {
+                            "name": "claims.enable_unmapped_user_attributes",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable adding unmapped user attributes."
+                        }                                             
+                    ]
+                }
+            ],
+            "exampleFile": "oauth_openid_connect.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "oauth.grant_type",
+                    "required": false,
+                    "description": "This includes configurations for supported OAuth grant types in API-M.",
+                    "params": [
+                         {
+                            "name": "authorization_code.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Authorization Code grant."
+                        },
+                        {
+                            "name": "authorization_code.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.AuthorizationCodeGrantHandler",
+                            "possible": "",
+                            "description": "Authorization Code grant implementation class."
+                        }, 
+                        {
+                            "name": "password.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Password grant."
+                        },
+                        {
+                            "name": "password.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.PasswordGrantHandler",
+                            "possible": "",
+                            "description": "Password grant implementation class."
+                        },     
+                        {
+                            "name": "refresh_token.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Refresh Token grant."
+                        },
+                        {
+                            "name": "refresh_token.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.RefreshGrantHandler",
+                            "possible": "",
+                            "description": "Refresh Token grant implementation class."
+                        },  
+                        {
+                            "name": "client_credentials.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Refresh Token grant."
+                        },
+                        {
+                            "name": "client_credentials.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.ClientCredentialsGrantHandler",
+                            "possible": "",
+                            "description": "Client Credentials grant implementation class."
+                        }, 
+                        {
+                            "name": "client_credentials.allow_refresh_tokens",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable to allow refresh tokens for client credentails grant."
+                        },  
+                        {
+                            "name": "client_credentials.allow_id_token",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable to allow ID tokens for client credentails grant."
+                        },  
+                        {
+                            "name": "saml_bearer.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable SAML2 Bearer grant."
+                        },
+                        {
+                            "name": "saml_bearer.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.saml.SAML2BearerGrantHandler",
+                            "possible": "",
+                            "description": "SAML2 Bearer grant implementation class."
+                        }, 
+                        {
+                            "name": "iwa_ntlm.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable NTLM grant."
+                        },
+                        {
+                            "name": "iwa_ntlm.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.iwa.ntlm.NTLMAuthenticationGrantHandlerWithHandshake",
+                            "possible": "",
+                            "description": "NTLM grant implementation class."
+                        },
+                        {
+                            "name": "iwa_ntlm.grant_validator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth.common.NTLMAuthenticationValidator",
+                            "possible": "",
+                            "description": "NTLM grant validator implementation class."
+                        }, 
+                        {
+                            "name": "jwt_bearer.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable JWT Bearer grant."
+                        },
+                        {
+                            "name": "jwt_bearer.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.jwt.JWTBearerGrantHandler",
+                            "possible": "",
+                            "description": "JWT Bearer grant implementation class."
+                        },
+                        {
+                            "name": "jwt_bearer.grant_validator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator",
+                            "possible": "",
+                            "description": "JWT Bearer grant validator implementation class."
+                        },                                                                            
+                        {
+                            "name": "kerberos.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable Kerberos Bearer grant."
+                        },
+                        {
+                            "name": "kerberos.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant",
+                            "possible": "",
+                            "description": "Kerberos grant implementation class."
+                        },
+                        {
+                            "name": "kerberos.grant_validator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator",
+                            "possible": "",
+                            "description": "Kerberos grant validator implementation class."
+                        }                                                                                                                                                                                           
+                                                                                                                                                                                                                                                   
+                    ]
+                }
+            ],
+            "exampleFile": "oauth_grant_type.toml"
+        },
+        {
+            "title": "Token persistence configurations",
+            "options": [
+                {
+                    "name": "session_data.persistence",
+                    "required": false,
+                    "description": "This includes configuration for session data persistence of tokens.",
+                    "params": [                   
+                         {
+                            "name": "persistence_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "This value determines the number of threads in the thread pool that are used to consume the token persisting queue. Set the value 0 to enable synchronous token persistence. Set the value higher than 0 to enable asynchronous token persistence."
+                        }                                                                                                                                                                                                                                                                              
+                    ]
+                }
+            ],
+            "exampleFile": "session_data_persistence.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "oauth.token_generation",
+                    "required": false,
+                    "description": "This includes configuration for OAuth2 token persistence.",
+                    "params": [                   
+                         {
+                            "name": "retry_count_on_persistence_failures",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "This indicates how many times to retry in the event of a CONN_APP_KEY violation when storing the access token."
+                        }                                                                                                                                                                                                                                                                              
+                    ]
+                }
+            ],
+            "exampleFile": "token_persistence.toml"
+        }                                                                                           
     ]
 }
