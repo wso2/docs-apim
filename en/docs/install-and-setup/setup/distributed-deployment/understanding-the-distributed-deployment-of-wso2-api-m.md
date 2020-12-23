@@ -125,7 +125,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Analytics Worker</td>
     <td>7712</td>
         <td>
-            authenticate to Publishing analytics events
+            Authenticate to publishing analytics events
         </td>
     </tr>
     <tr class="even">
@@ -141,7 +141,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Traffic Managerr</td>
     <td>9711</td>
         <td>
-            authenticate to Publisherlishing throttling events
+            Authenticate to publishing throttling events
         </td>
     </tr>
     <tr class="even">
@@ -165,7 +165,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Traffic Manager</td>
     <td>9711</td>
         <td>
-            authenticate to Publishing events
+            Authenticate to publishing events
         </td>
     </tr>
     <tr class="odd">
@@ -173,7 +173,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Gateway</td>
     <td>9443</td>
         <td>
-           deploy API artifacts
+           Deploy API artifacts
         </td>
     </tr>
     <tr class="even">
@@ -189,7 +189,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Analytics Worker</td>
     <td>7712</td>
         <td>
-            authenticate to Publishing alert analytics events
+            Authenticate to publishing alert analytics events
         </td>
     </tr>
     <tr class="even">
@@ -197,7 +197,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Analytics Worker</td>
     <td>7444</td>
         <td>
-            fetch all the generated alerts
+            Fetch all the generated alerts
         </td>
     </tr>
     <tr class="odd">
@@ -213,7 +213,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Gateway</td>
     <td>8243</td>
          <td>
-            token endpoint and revoke endpoint
+            Token endpoint and revoke endpoint
          </td>
     </tr>
     <tr class="odd">
@@ -229,7 +229,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Analytics Worker</td>
     <td>7712</td>
         <td>
-           authenticate to Publishing alert analytics events
+           Authenticate to publishing alert analytics events
         </td>
     </tr>
     <tr class="odd">
@@ -237,7 +237,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Analytics Worker</td>
     <td>9444</td>
          <td>
-            deploy business rules
+            Deploy business rules
          </td>
     </tr>
     <tr class="even">
