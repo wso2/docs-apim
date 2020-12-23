@@ -261,6 +261,7 @@ configurations (HA configuration)
              password: pass
              username: root
              driverClassName: com.mysql.jdbc.Driver
+             minIdle: 5
              maxPoolSize: 50
              idleTimeout: 60000
              connectionTestQuery: SELECT 1

@@ -247,6 +247,10 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 
 ### Step 4 - Configure Analytics
 
+!!! warning
+    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation) 
+    of the deployment.yaml file of either worker or dashboard runtime. Do not change other default values as it may result in an erroneous state.
+
   API-M Analytics contains two runtimes, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtimes.
 
 !!! info
