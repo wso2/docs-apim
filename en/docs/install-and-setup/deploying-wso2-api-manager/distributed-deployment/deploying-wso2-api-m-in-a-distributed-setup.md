@@ -99,7 +99,6 @@ This section involves setting up the Key Manager node and enabling it to work wi
         
 2.  Change `[apim.throttling]` section to point to the Traffic Manager nodes.
  
- 
      ``` toml tab="Traffic Manager with HA"
      [apim.throttling]
      throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
@@ -123,7 +122,6 @@ This section involves setting up the Key Manager node and enabling it to work wi
      ```
      
 3.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
-
 
 4.  Optionally, configure High Availability (HA) for the Key Manager.
 
