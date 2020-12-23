@@ -5,7 +5,7 @@ There are mainly 2 ways to customize and override the developer portal theme.
 1. Theming using defaultTheme.js
 2. Overriding React components
 
-In this section, we will cover the first technique which is the easiest way to change the appearance of Developer portal.
+In this section, we will cover the first method which is the easiest way to change the appearance of Developer portal.
 
 For the second technique, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
