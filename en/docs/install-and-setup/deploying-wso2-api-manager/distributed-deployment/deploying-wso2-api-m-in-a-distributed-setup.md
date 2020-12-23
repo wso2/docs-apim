@@ -97,7 +97,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
         service_url = "https://$[GATEWAY_SERVER_HOST]:[port]/services/"
         ```
         
-1.  Change `[apim.throttling]` section to point to the Traffic Manager nodes.
+2.  Change `[apim.throttling]` section to point to the Traffic Manager nodes.
  
  
      ``` toml tab="Traffic Manager with HA"
