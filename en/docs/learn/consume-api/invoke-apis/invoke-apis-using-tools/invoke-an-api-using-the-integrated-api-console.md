@@ -2,10 +2,6 @@
 
 WSO2 API Manager has an integrated API Console, which allows you to visualize the API contract and interact with API's resources without being aware of the backend logic.
 
-The API Console generates interactive and consumer-focused documentation for API Contracts which are compliant with OpenAPI specification.
-
-For more information, see the [OpenAPI specification, version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) and [OpenAPI specification, version 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md).
-
 Let's see how to use the API Console in the Developer Portal to invoke an API.
 
 !!! Note
