@@ -1155,6 +1155,38 @@
                             "default": "",
                             "possible": "",
                             "description": "Define array of traffic manager connections"
+                        },
+                        {
+                            "name": "enable_unlimited_tier",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable unlimited tier"
+                        },
+                        {
+                            "name": "enable_header_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable the header condition based throttling. Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers."
+                        },
+                        {
+                            "name": "enable_jwt_claim_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Specifying this config to true will enable a user to define JWT claim based throttling policies in the Admin Portal."
+                        },
+                        {
+                            "name": "enable_decision_connection",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
                         }
                     ]
                 }
@@ -1344,30 +1376,6 @@
                             "default": "",
                             "possible": "",
                             "description": "Define array of JMS connection as an array."
-                        },
-                        {
-                            "name": "enable_unlimited_tier",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "Enable unlimited tier"
-                        },
-                        {
-                            "name": "enable_header_based_throttling",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "",
-                            "description": "Enable the header condition based throttling. Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers."
-                        },
-                        {
-                            "name": "enable_jwt_claim_based_throttling",
-                            "type": "string",
-                            "required": false,
-                            "default": "FALSE",
-                            "possible": "",
-                            "description": "Enable JWT claim based throtlling."
                         }
                     ]
                 }
