@@ -2517,8 +2517,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.2.0
 #### Step 3.1 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
-    -   In API-M 3.2.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
-    -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+    -   In API-M 3.2.0, the default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
 
 1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
@@ -2539,6 +2538,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.2.0
             username: username
             password: password
             driverClassName: com.mysql.jdbc.Driver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1
