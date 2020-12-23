@@ -1266,7 +1266,7 @@
                             "required": false,
                             "default": "FALSE",
                             "possible": "",
-                            "description": "Enable JWT claim based throtlling."
+                            "description": "Specifying this config to true will enable a user to define JWT claim based throttling policies in the Admin Portal."
                         }
                     ]
                 }
