@@ -1,8 +1,10 @@
 # Bot Detection
 
-After a Publisher publishes APIs in the API Developer Portal, hackers can invoke the APIs without an access token by scanning the open ports of a system. Therefore, WSO2 API Manager has a bot detection mechanism in place to prevent such attacks by identifying who tried to enter and invoke resources without proper authorization. WSO2 API Manager's bot detection mechanism traces and logs details of such unauthorized API calls and sends notifications in this regard via emails. Thereby this helps Publishers to protect their data from bot attackers and improve the security of their data.  
+There is a possibility that hackers may exploit services exposed in the gateway by identifying services using tools such as port scanners.  Therefore, WSO2 API Manager(WSO2 API-M) provides a bot detection mechanism in place.
 
-If hackers (e.g., bot attackers) tries to invoke open service APIs, WSO2 API Manager will log all unauthorized API calls in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` file. The following is a sample log record.
+There is an unadvertised service deployed in the gateway which logs and sends events to analytics if it receives any traffic. These events can then be configured to send e-mail alerts and also shown in the bot detection dashboard in the Admin Portal. Thereby this helps Publishers to protect their data from bot attackers and improve the security of the data.
+
+If hackers (e.g., bot attackers) tries to invoke the unadvertised service, WSO2 API Manager will log the API calls in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` file. The following is a sample log record.
  
 ```
 INFO BotDetectionMediator MessageId : urn:uuid:535437f1-a178-4722-a232-164e4a7e0207 | Request Method : POST | Message Body : <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><jsonObject/></soapenv:Body> | client Ip : 127.0.0.1 | Headers set : [Accept=*/*, activityid=4b932127-d07e-43c3-bee2-4f5344074185, Content-Length=2, Content-Type=application/json, Host=localhost:8243, User-Agent=curl/7.58.0]  
