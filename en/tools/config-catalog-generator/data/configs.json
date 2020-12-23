@@ -1343,14 +1343,6 @@
                             "default": "",
                             "possible": "",
                             "description": "Define array of JMS connection as an array."
-                        },
-                        {
-                            "name": "enable_unlimited_tier",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "Enable the unlimited tier."
                         }
                     ]
                 }
