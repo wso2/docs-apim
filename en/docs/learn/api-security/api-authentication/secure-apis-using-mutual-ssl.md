@@ -68,6 +68,8 @@ By default, the WSO2 API Manager retrieves the client certificate from the **X-W
      certificate_header = "<Header Name>"
      # This property need to be true if MutualSSL connection established between load balancer and gateway.
      enable_client_validation = false
+     #This property needs to be false if the certificate shouldn’t be decoded when it is passed from the load balancer to the gateway.
+     client_validation_encode = false
      ```
 
 -  Start the Server.
