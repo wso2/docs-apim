@@ -244,7 +244,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Publisher</td>
     <td>9443</td>
          <td>
-            Use admin and publisher rest APIs
+            Use admin and publisher REST APIs
          </td>
     </tr>
     <tr class="odd">
@@ -252,7 +252,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Dev Portal</td>
     <td>9443</td>
          <td>
-            Use Dev-Portal portal rest APIs
+            Use Dev-Portal portal REST APIs
          </td>
     </tr>
     </tbody>
@@ -271,7 +271,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Key Manager</td>
     <td>9443</td>
         <td>
-            Token endpoint and identity rest APIs/web apps
+            Token endpoint and identity REST APIs/web apps
         </td>
     </tr>
     <tr class="even">
@@ -292,21 +292,21 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Gateway</td>
     <td>8099</td>
         <td>
-            Gateway WS
+            Gateway WS(Web socket)
         </td>
     </tr>
     <tr class="odd">
     <td>Gateway</td>
     <td>9099</td>
         <td>
-            Gateway WSS
+            Gateway WSS(Web socket secure)
         </td>
     </tr>
     <tr class="even">
     <td>Publisher</td>
     <td>9443</td>
         <td>
-            Publisher portal, Admin and Publisher Rest API
+            Publisher portal, Admin and Publisher REST API
         </td>
     </tr>
     <tr class="odd">
