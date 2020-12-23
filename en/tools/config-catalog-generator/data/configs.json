@@ -1801,6 +1801,1416 @@
                 }
             ],
             "exampleFile": "indexing.toml"
-        }                
+        },
+        {
+            "title": "HTTP Servlet Transport",
+            "options": [
+                {
+                    "name": "transport.http.properties",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP catalina server transport of the API Manager.",
+                    "params": [
+                        {
+                            "name": "port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "9443",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "bindOnInit",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxHttpHeaderSize",
+                            "type": "integer",
+                            "required": true,
+                            "default": "8192",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "acceptorThreadCount",
+                            "type": "integer",
+                            "required": true,
+                            "default": "2",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxThreads",
+                            "type": "integer",
+                            "required": true,
+                            "default": "250",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "minSpareThreads",
+                            "type": "integer",
+                            "required": true,
+                            "default": "50",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "disableUploadTimeout",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "connectionUploadTimeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "120000",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxKeepAliveRequests",
+                            "type": "integer",
+                            "required": true,
+                            "default": "120000",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "keepAliveTimeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "60000",
+                            "possible": "3000",
+                            "description": ""
+                        },
+                        {
+                            "name": "acceptCount",
+                            "type": "integer",
+                            "required": true,
+                            "default": "200",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "server",
+                            "type": "string",
+                            "required": true,
+                            "default": "WSO2 Carbon Server",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compression",
+                            "type": "string",
+                            "required": true,
+                            "default": "on",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compressionMinSize",
+                            "type": "integer",
+                            "required": true,
+                            "default": "2048",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "noCompressionUserAgents",
+                            "type": "string",
+                            "required": true,
+                            "default": "gozilla, traviata",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compressibleMimeType",
+                            "type": "string",
+                            "required": true,
+                            "default": "text/html,text/javascript,application/x-javascript,application/javascript,application/xml,text/css,application/xslt+xml,text/xsl,image/gif,image/jpg,image/jpeg",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "URIEncoding",
+                            "type": "string",
+                            "required": true,
+                            "default": "UTF-8",
+                            "possible": "-",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_http-transport.toml"
+        },
+        {
+            "title": "HTTPS Servlet Transport ",
+            "options": [
+                {
+                    "name": "transport.https.properties",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTPS catalina server transport of the API Manager.",
+                    "params": [
+                        {
+                            "name": "port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "9443",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "bindOnInit",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxHttpHeaderSize",
+                            "type": "integer",
+                            "required": true,
+                            "default": "8192",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "acceptorThreadCount",
+                            "type": "integer",
+                            "required": true,
+                            "default": "2",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxThreads",
+                            "type": "integer",
+                            "required": true,
+                            "default": "250",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "minSpareThreads",
+                            "type": "integer",
+                            "required": true,
+                            "default": "50",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "disableUploadTimeout",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "connectionUploadTimeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "120000",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "maxKeepAliveRequests",
+                            "type": "integer",
+                            "required": true,
+                            "default": "120000",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "keepAliveTimeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "60000",
+                            "possible": "3000",
+                            "description": ""
+                        },
+                        {
+                            "name": "acceptCount",
+                            "type": "integer",
+                            "required": true,
+                            "default": "200",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "server",
+                            "type": "string",
+                            "required": true,
+                            "default": "WSO2 Carbon Server",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compression",
+                            "type": "string",
+                            "required": true,
+                            "default": "on",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compressionMinSize",
+                            "type": "integer",
+                            "required": true,
+                            "default": "2048",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "noCompressionUserAgents",
+                            "type": "string",
+                            "required": true,
+                            "default": "gozilla, traviata",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "compressibleMimeType",
+                            "type": "string",
+                            "required": true,
+                            "default": "text/html,text/javascript,application/x-javascript,application/javascript,application/xml,text/css,application/xslt+xml,text/xsl,image/gif,image/jpg,image/jpeg",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "URIEncoding",
+                            "type": "string",
+                            "required": true,
+                            "default": "UTF-8",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "enableLookups",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "scheme",
+                            "type": "string",
+                            "required": true,
+                            "default": "https",
+                            "possible": "-",
+                            "description": ""
+                        },
+                        {
+                            "name": "secure",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "SSLEnabled",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_https-transport.toml"
+        },
+        {
+            "title": "HTTP/S Pass-through Transport (non-blocking mode)",
+            "options": [
+                {
+                    "name": "transport.passthru_http",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.",
+                    "params": [
+                        {
+                            "name": "http.socket.timeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "180000",
+                            "possible": "-",
+                            "description": "This is the maximum period of inactivity between two consecutive data packets, specified in milliseconds."
+                        },
+                        {
+                            "name": "worker_pool_size_core",
+                            "type": "integer",
+                            "required": true,
+                            "default": "400",
+                            "possible": "-",
+                            "description": "The API Manager uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the gateway increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the gateway are the main factors that helps to determine this parameter."
+                        },
+                        {
+                            "name": "worker_pool_size_max",
+                            "type": "integer",
+                            "required": true,
+                            "default": "400",
+                            "possible": "-",
+                            "description": "This is the maximum number of threads in the worker thread pool. Specifying a maximum limit avoids performance degradation that can occur due to context switching. If the specified value is reached, you will see the error 'SYSTEM ALERT - HttpServerWorker threads were in BLOCKED state during last minute'. This can occur due to an extraordinarily high number of requests sent at a time when all the threads in the pool are busy, and the maximum number of threads is already reached."
+                        },
+                        {
+                            "name": "worker_pool_queue_length",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-1",
+                            "possible": "-",
+                            "description": "This defines the length of the queue that is used to hold runnable tasks to be executed by the worker pool. The thread pool starts queuing jobs when all the existing threads are busy, and the pool has reached the maximum number of threads. The value for this parameter should be -1 to use an unbound queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs fail causing some messages to be dropped by Synapse."
+                        },
+                        {
+                            "name": "io_buffer_size",
+                            "type": "integer",
+                            "required": true,
+                            "default": "16384",
+                            "possible": "-",
+                            "description": "This is the value of the memory buffer allocated when reading data into the memory from the underlying socket/file channels. You should leave this property set to the default value."
+                        },
+                        {
+                            "name": "http.max.connection.per.host.port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "32767",
+                            "possible": "-",
+                            "description": "This defines the maximum number of connections allowed per host port."
+                        },
+                        {
+                            "name": "http.user.agent.preserve",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "\"true\" or \"false\"",
+                            "possible": "-",
+                            "description": "If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message."
+                        },
+                        {
+                            "name": "http.headers.preserve",
+                            "type": "string",
+                            "required": true,
+                            "default": "Content-Type",
+                            "possible": "-",
+                            "description": "This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server."
+                        },
+                        {
+                            "name": "disable_connection_keepalive",
+                            "type": "boolean",
+                            "required": true,
+                            "default": false,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If this parameter is set to true, the HTTP connections with the back end service are closed soon after the request is served. It is recommended to set this property to false so that the integrator does not have to create a new connection every time it sends a request to a back-end service. However, you may need to close connections after they are used if the back-end service does not provide sufficient support for keep-alive connections."
+                        },
+                        {
+                            "name": "listener.parameters.port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "8290",
+                            "possible": "-",
+                            "description": "The port on which this transport receiver should listen for incoming messages."
+                        },
+                        {
+                            "name": "listener.parameters.WSDLEPRPrefix",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc."
+                        },
+                        {
+                            "name": "listener.parameters.port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "8253",
+                            "possible": "-",
+                            "description": "The secured port on which this transport receiver should listen for incoming messages."
+                        },
+                        {
+                            "name": "listener.key_store.file_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "possible": "-",
+                            "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "listener.key_store.type",
+                            "type": "string",
+                            "required": true,
+                            "default": "JKS",
+                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "listener.key_store.password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the keystore file that is used for securing the HTTP passthrough connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "listener.key_store.key_password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the private key that is used for securing the HTTP passthrough connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "listener.trust_store.file_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "possible": "-",
+                            "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "listener.trust_store.type",
+                            "type": "string",
+                            "required": true,
+                            "default": "JKS",
+                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "listener.trust_store.password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "sender.warnOnHTTP500",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyHost",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port through which the target proxy (specified by the 'sender.proxy_port' parameter) accepts HTTP traffic."
+                        },
+                        {
+                            "name": "sender.http.nonProxyHosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        },
+                        {
+                            "name": "sender.hostname_verifier",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        },
+                        {
+                            "name": "sender.key_store.file_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "possible": "-",
+                            "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "sender.key_store.type",
+                            "type": "string",
+                            "required": true,
+                            "default": "JKS",
+                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "sender.key_store.password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the keystore file that is used for securing the HTTP passthrough connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "sender.key_store.key_password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the private key that is used for securing the HTTP passthrough connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose."
+                        },
+                        {
+                            "name": "sender.trust_store.file_name",
+                            "type": "string",
+                            "required": true,
+                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "possible": "-",
+                            "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "sender.trust_store.type",
+                            "type": "string",
+                            "required": true,
+                            "default": "JKS",
+                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "sender.trust_store.password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_http-passthrough-transport.toml"
+        },
+        {
+            "title": "HTTP/S Pass-through Transport (blocking mode)",
+            "options": [
+                {
+                    "name": "transport.passthru_https",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
+                    "params": [
+                        {
+                            "name": "listener.enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter is used for enabling the HTTP passthrough transport listener in blocking mode."
+                        },
+                        {
+                            "name": "listener.parameters.port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "8200",
+                            "possible": "-",
+                            "description": "The port on which this transport receiver should listen for incoming messages."
+                        },
+                        {
+                            "name": "listener.hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.origin_server",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.request_timeout",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.request_tcp_no_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.request_core_thread_pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.request_max_thread_pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.thread_keepalive_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "listener.thread_keepalive_time_unit",
+                            "type": "string",
+                            "required": false,
+                            "default": "-"
+                        },
+                        {
+                            "name": "sender.enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter is used for enabling the HTTP passthrough transport sender in blocking mode."
+                        },
+                        {
+                            "name": "sender.parameters.cacheHttpClient",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter is used to specify whether the HTTP client should save cache entries and the cached responses in the JVM memory or not."
+                        },
+                        {
+                            "name": "sender.parameters.Transfer-Encoding",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"chunked\" or \"true\"",
+                            "description": "This parameter enables you to specify whether the data sent should be chunked. It can be used instead of the Content-Length header if you want to upload data without having to know the amount of data to be uploaded in advance."
+                        },
+                        {
+                            "name": "sender.parameters.defaultMaxConnectionsPerHost",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The maximum number of connections that will be created per host server by the client. If the backend server is slow, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "sender.parameters.OmitSOAP12Action",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.parameters.SO_TIMEOUT",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "60000",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.http.proxyHost",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server (in blocking mode), use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTP traffic (in blocking mode)."
+                        },
+                        {
+                            "name": "sender.http.proxyHost",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_http-passthrough-transport-blocking.toml"
+        },
+        {
+            "title": "HTTP proxy profile",
+            "options": [
+                {
+                    "name": "[transport.passthru_http.sender.parameters]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.",
+                    "params": [
+                        {
+                            "name": "proxyProfiles",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>",
+                            "description": "Attribute to define a full proxy profile. Following fields describes the elements used inside the profile"
+                        },
+                        {
+                            "name": "targetHosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"*\", \"example.com\", \"<any-ip-address>\"",
+                            "description": "A host name or a comma-separated list of host names for a target endpoint. Host names can be specified as regular expressions that match a pattern. When asterisks (*) is specified as the target hostname, it will match all the hosts in the profile."
+                        },
+                        {
+                            "name": "proxyHost",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The host name of the proxy server."
+                        },
+                        {
+                            "name": "proxyPort",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port number of the proxy server."
+                        },
+                        {
+                            "name": "proxyUserName",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The username for authenticating the proxy server."
+                        },
+                        {
+                            "name": "proxyPassword",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The password for authenticating the proxy server."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_http-proxy-profile.toml"
+        },
+        {
+            "title": "HTTP secured proxy profile",
+            "options": [
+                {
+                    "name": "[transport.passthru_https.sender.parameters]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.",
+                    "params": [
+                        {
+                            "name": "proxyProfiles",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>",
+                            "description": "Attribute to define a full proxy profile. Following fields describes the elements used inside the profile"
+                        },
+                        {
+                            "name": "targetHosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"*\", \"example.com\", \"<any-ip-address>\"",
+                            "description": "A host name or a comma-separated list of host names for a target endpoint. Host names can be specified as regular expressions that match a pattern. When asterisks (*) is specified as the target hostname, it will match all the hosts in the profile."
+                        },
+                        {
+                            "name": "proxyHost",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The host name of the proxy server."
+                        },
+                        {
+                            "name": "proxyPort",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port number of the proxy server."
+                        },
+                        {
+                            "name": "proxyUserName",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The username for authenticating the proxy server."
+                        },
+                        {
+                            "name": "proxyPassword",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The password for authenticating the proxy server."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_http-secured-proxy-profile.toml"
+        },
+        {
+            "title": "Websocket Transport",
+            "options": [
+                {
+                    "name": "transport.ws",
+                    "required": true,
+                    "description": "This configuration header groups the parameters that configure the API Manager to communicate through the Websocket transport</a>.",
+                    "params": [
+                        {
+                            "name": "sender.enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "The parameter for enabling the websocket transport listener."
+                        },
+                        {
+                            "name": "sender.parameters.ws.outflow.dispatch.sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "outflowDispatchSeq",
+                            "possible": "-",
+                            "description": "The sequence for the back-end to client mediation."
+                        },
+                        {
+                            "name": "sender.parameters.ws.outflow.dispatch.fault.sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "outflowFaultSeq",
+                            "possible": "-",
+                            "description": "The fault sequence for the back-end to client mediation path."
+                        },
+                        {
+                            "name": "sender.parameter.customParameter",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Replace 'customParameter' with required parameter name."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_ws-transport.toml"
+        },
+        {
+            "title": "Secure Websocket Transport",
+            "options": [
+                {
+                    "name": "transport.wss",
+                    "required": true,
+                    "description": "This configuration header groups the parameters that configure the API Manager to communicate through the secured Websocket transport</a>.",
+                    "params": [
+                        {
+                            "name": "sender.enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "The parameter for enabling the websocket secured transport sender."
+                        },
+                        {
+                            "name": "sender.parameters.ws.outflow.dispatch.sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "outflowDispatchSeq",
+                            "possible": "-",
+                            "description": "The sequence for the back-end to client mediation."
+                        },
+                        {
+                            "name": "sender.parameters.ws.outflow.dispatch.fault.sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "outflowFaultSeq",
+                            "possible": "-",
+                            "description": "The fault sequence for the back-end to client mediation path."
+                        },
+                        {
+                            "name": "sender.trust_store.location",
+                            "type": "string",
+                            "required": true,
+                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "possible": "-",
+                            "description": "The file path to the truststore that stores the trusted digital certificates for websocket use cases. By default, the product's trust store is configured for this purpose."
+                        },
+                        {
+                            "name": "sender.trust_store.password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "possible": "-",
+                            "description": "The password of the keystore file that is used as the trust store."
+                        },
+                        {
+                            "name": "sender.parameter.customParameter",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Replace 'customParameter' with required parameter name."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_wss-transport.toml"
+        },
+        {
+            "title": "Message Builders (non-blocking mode)",
+            "options": [
+                {
+                    "name": "message_builders",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the implementation that is used to build messages that are received by the API Manager in the default non-blocking mode.",
+                    "params": [
+                        {
+                            "name": "application_xml",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.builder.ApplicationXMLBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'application_xml' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "form_urlencoded",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "org.apache.synapse.commons.builders.XFormURLEncodedBuilder",
+                            "description": "The message builder implementation that builds messages with the 'form_urlencoded' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "multipart_form_data",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.builder.MultipartFormDataBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'multipart_form_data' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "text_plain",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.format.PlainTextBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'text_plain' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "application_json",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.micro.integrator.core.json.JsonStreamBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'application_json' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "json_badgerfish",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.json.JSONBadgerfishOMBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'json_badgerfish' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "text_javascript",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.json.JSONBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'text_javascript' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "octet_stream",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.relay.BinaryRelayBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'octet_stream' content type. If required, you can change the default builder class."
+                        },
+                        {
+                            "name": "application_binary",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.format.BinaryBuilder",
+                            "possible": "-",
+                            "description": "The message builder implementation that builds messages with the 'application_binary' content type. If required, you can change the default builder class."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_message-builders.toml"
+        },
+        {
+            "title": "Message Builders (blocking mode)",
+            "options": [
+                {
+                    "name": "blocking.message_builders",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the message builder implementation that is used to build messages that are received by the API Manager in <b>blocking</b> mode. You can use the same list of parameters that are available for message builders in non-blocking mode."
+                }
+            ],
+            "exampleFile": "_message-builders-blocking.toml"
+        },
+        {
+            "title": "Message Formatters (non-blocking mode)",
+            "options": [
+                {
+                    "name": "message_formatters",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the message formatting implementation that is used for formatting messages that are sent out of the API Manager in <b>non-blocking</b> mode.",
+                    "params": [
+                        {
+                            "name": "application_xml",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.transport.http.ApplicationXMLFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'application_xml' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "form_urlencoded",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter",
+                            "description": "The message formating implementation that formats messages with the 'form_urlencoded' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "multipart_form_data",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.transport.http.MultipartFormDataFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'multipart_form_data' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "text_plain",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.format.PlainTextFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'text_plain' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "application_json",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.micro.integrator.core.json.JsonStreamFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'application_json' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "json_badgerfish",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.json.JSONBadgerfishMessageFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'json_badgerfish' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "text_javascript",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.json.JSONMessageFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'text_javascript' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "octet_stream",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.relay.ExpandingMessageFormatter",
+                            "possible": "-",
+                            "description": "The message formatting implementation that formats messages with the 'octet_stream' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "application_binary",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.format.BinaryFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'application_binary' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "text_xml",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.transport.http.SOAPMessageFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'text_xml' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        },
+                        {
+                            "name": "soap_xml",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.apache.axis2.transport.http.SOAPMessageFormatter",
+                            "possible": "-",
+                            "description": "The message formating implementation that formats messages with the 'soap_xml' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_message-formatters.toml"
+        },
+        {
+            "title": "Message Formatters (blocking mode)",
+            "options": [
+                {
+                    "name": "blocking.message_formatters",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the message formatter implementations that are used to format messages that are sent out from the API Manager in <b>blocking</b> mode. You can use the same list of parameters that are available for message formatters in non-blocking mode."
+                }
+            ],
+            "exampleFile": "_message-formatters-blocking.toml"
+        },
+        {
+            "title": "Custom Message Builders (non-blocking mode)",
+            "options": [
+                {
+                    "name": "[custom_message_builders]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>.",
+                    "params": [
+                        {
+                            "name": "content_type",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The content types to which the custom message builder implementation should apply. You can specify the list of content types as follows: application/json/badgerfish."
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The custom message builder implementation that should apply to the given content types."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_message-builders-custom.toml"
+        },
+        {
+            "title": "Custom Message Builders (blocking mode)",
+            "options": [
+                {
+                    "name": "[blocking.custom_message_builders]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. You can use the same list of parameters that are available for custom message builders in non-blocking mode."
+                }
+            ],
+            "exampleFile": "_message-builders-custom-blocking.toml"
+        },
+        {
+            "title": "Custom Message Formatters (non-blocking mode)",
+            "options": [
+                {
+                    "name": "[custom_message_formatters]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>.",
+                    "params": [
+                        {
+                            "name": "content_type",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The content types to which the custom message formatter implementation should apply. You can specify the list of content types as follows: application/json/badgerfish."
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The custom message formatter implementation that should apply to the given content types."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_message-formatters-custom.toml"
+        },
+        {
+            "title": "Custom Message Formatters (blocking mode)",
+            "options": [
+                {
+                    "name": "[blocking.custom_message_formatters]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. You can use the same list of parameters that are available for custom message formatters in non-blocking mode."
+                }
+            ],
+            "exampleFile": "_message-formatters-custom-blocking.toml"
+        },
+        {
+            "title": "Message Mediation",
+            "options": [
+                {
+                    "name": "mediation",
+                    "required": true,
+                    "description": "This configuration header groups the parameters used for tuning the mediation process (Synapse engine) of the API Manager. These parameters are mainly used when mediators such as Iterate and Clone (which uses the internal thread pools) are used.",
+                    "params": [
+                        {
+                            "name": "synapse.core_threads",
+                            "type": "integer",
+                            "required": false,
+                            "default": "20",
+                            "possible": "-",
+                            "description": "The initial number of synapse threads in the pool. This parameter is applicable only if the Iterate and Clone mediators are used to handle a higher load. These mediators use a thread pool to create new threads when processing messages and sending messages in parallal. You can configure the size of the thread pool by this parameter. The number of threads specified via this parameter should be increased as required to balance an increased load. Increasing the value specified for this parameter results in higher performance of the Iterate and Clone mediators."
+                        },
+                        {
+                            "name": "synapse.max_threads",
+                            "type": "integer",
+                            "required": false,
+                            "default": "100",
+                            "possible": "-",
+                            "description": "The maximum number of synapse threads in the pool. This parameter is applicable only if the Iterate and Clone mediators are used to handle a higher load. The number of threads specified for this parameter should be increased as required to balance an increased load."
+                        },
+                        {
+                            "name": "synapse.threads_queue_length",
+                            "type": "integer",
+                            "required": false,
+                            "default": "10",
+                            "possible": "-",
+                            "description": "The length of the queue that is used to hold the runnable tasks that are to be executed by the pool. This parameter is applicable only if the Iterate and Clone mediators are used to handle a higher load. You can specify a finite value as the queue length by giving any positive number. If this parameter is set to (-1) it means that the task queue length is infinite. If the queue length is finite, there can be situations where requests are rejected when the task queue is full and all the cores are occupied. If the queue length is infinite, and if some thread locking happens, the server can go out of memory. Therefore, you need to decide on an optimal value based on the actual load."
+                        },
+                        {
+                            "name": "synapse.global_timeout_interval",
+                            "type": "integer",
+                            "required": false,
+                            "default": "120000",
+                            "possible": "-",
+                            "description": "The maximum number of milliseconds within which a response for the request should be received. A response that arrives after the specified number of seconds cannot be correlated with the request. Hence, a warning will be logged and the request will be dropped. This parameter is also referred to as the time-out handler."
+                        },
+                        {
+                            "name": "synapse.enable_xpath_dom_failover",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If this parameter is set to true, the Micro Integrator can switch to XPATH 2.0. This parameter can be set to false if XPATH 2.0 evaluations cause performance degradation. The Micro Integrator uses the Saxon Home Edition when implementing XPATH 2.0 functionalities, and thus supports all the functions that are shipped with it. For more information on the supported functions, see the Saxon Documentation."
+                        },
+                        {
+                            "name": "synapse.temp_data_chunk_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3072",
+                            "possible": "-",
+                            "description": "The message size that can be processed by the Micro Integrator."
+                        },
+                        {
+                            "name": "synapse.script_mediator_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "15",
+                            "possible": "-",
+                            "description": "When using externally referenced scripts, this parameter specifies the size of the script engine pool that should be used per script mediator. The script engines from this pool are used for externally referenced script execution where updates to external scripts on an engine currently in use may otherwise not be thread safe. It is recommended to keep this value at a reasonable size since there will be a pool per externally referenced script."
+                        },
+                        {
+                            "name": "synapse.preserve_namespace_on_xml_to_json",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Preserves the namespace declarations in the JSON output during XML to JSON message transformations."
+                        },
+                        {
+                            "name": "flow.statistics.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Set this property to true and enable statistics for the required integration artifact to record information such as the following: <ul><li>The time spent on each mediator.</li><li>The time spent on processing each message.</li><li>The fault count of a single message flow.</li></ul>"
+                        },
+                        {
+                            "name": "flow.statistics.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Set this property to 'true' and set the flow.statistics.enable property also to 'true'. This will enable mediation statistics for all the integration artifacts by default. If you set this property to 'false', you need to set the flow.statistics.enable property to 'true' and manually enable statistics for the required integration artifact."
+                        },
+                        {
+                            "name": "statistics.enable_clean",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If this parameter is set to true, all the existing statistics would be cleared before processing a request. This is recommended if you want to increase the processing speed."
+                        },
+                        {
+                            "name": "stat.tracer.collect_payloads",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Set this property to true and enable tracing for the required integration artifact to record the message payload before and after the message mediation performed by individual mediators."
+                        },
+                        {
+                            "name": "stat.tracer.collect_mediation_properties",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Set this property to true and enable tracing for the required integration artifact to record the following information:<ul><li>Message context properties.</li><li>Message transport-scope properties.</li></ul>"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_message-mediation.toml"
+        },
+        {
+            "title": "Synapse Handlers",
+            "options": [
+                {
+                    "name": "[synapse_handlers]",
+                    "required": true,
+                    "description": "This configuration header is required for configuring a synapse handler with the name and the implementation class.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Name of the synapse handler."
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The synapse handler implementation."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_synapse-handlers.toml"
+        }
     ]
 }
