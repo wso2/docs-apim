@@ -1,0 +1,34 @@
+[oauth.grant_type.authorization_code]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.AuthorizationCodeGrantHandler"
+
+[oauth.grant_type.password]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.PasswordGrantHandler"
+
+[oauth.grant_type.refresh_token]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.RefreshGrantHandler"
+
+[oauth.grant_type.client_credentials]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.ClientCredentialsGrantHandler"
+
+[oauth.grant_type.saml_bearer]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.saml.SAML2BearerGrantHandler"
+
+[oauth.grant_type.iwa_ntlm]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.iwa.ntlm.NTLMAuthenticationGrantHandlerWithHandshake"
+grant_validator = "org.wso2.carbon.identity.oauth.common.NTLMAuthenticationValidator"
+
+[oauth.grant_type.jwt_bearer]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.grant.jwt.JWTBearerGrantHandler"
+grant_validator = "org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator"
+
+[oauth.grant_type.kerberos]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant"
+grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator"
