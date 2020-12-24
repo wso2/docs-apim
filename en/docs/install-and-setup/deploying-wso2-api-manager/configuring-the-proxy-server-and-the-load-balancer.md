@@ -484,3 +484,35 @@ proxyPort = 443
 [server]
 hostname = "sample.com"
 ```
+
+### Step 4 - Configure the dynamic callback origin
+
+When you have a custom URL configured for WSO2 API-M client applications (Publisher/ Developer Portal/ Admin Portal), the callback origin also has to be changed dynamically according to the X-Forwarded-For header in a typical scenario.
+
+1. Open the new configuration file for reverse proxy config in the react applications.
+
+    - **For Developer Portal**
+
+         Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.
+    
+    - **For Publisher**
+        
+         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/settings.js` file.
+    
+    - **For Admin Portal**
+        
+         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js` file.
+ 
+
+2. Set `customUrl.enabled` to `true`
+  
+    ```json
+        
+    customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
+        enabled: true,
+        forwardedHeader: 'X-Forwarded-For',
+    },
+    ```
+
+    !!! Note
+        New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.

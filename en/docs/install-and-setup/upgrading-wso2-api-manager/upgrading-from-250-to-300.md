@@ -19,14 +19,13 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.0.0.
 
-Therefore, when migrating to API Manager 3.0.0, it is **required** to turn off the registry versioning in your
-current API Manager 2.5.0 version and run the below scripts against **the registry database**.
+Therefore, when migrating to API Manager 3.0.0, it is **required** to run the below scripts against **the registry database**.
 
 !!! note
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning in your current API-M and running the scripts"
+!!! info "Verifying registry versioning is turned on in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
@@ -1517,9 +1516,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
 #### Step 3.1 - Configure WSO2 API-M Analytics 3.0.0
 
 !!! note
-    -   In API-M 2.5.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
-    -   In API-M 3.0.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
-    -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+    -   In API-M 3.0.0, both the default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
 
 !!! info
     Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
@@ -1556,6 +1553,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
             username: username
             password: password
             driverClassName: com.mysql.jdbc.Driver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1

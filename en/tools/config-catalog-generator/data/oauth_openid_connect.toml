@@ -1,0 +1,18 @@
+[oauth.oidc.extensions]
+id_token_builder = "org.wso2.carbon.identity.openidconnect.DefaultIDTokenBuilder"
+claim_callback_handler = "org.wso2.carbon.identity.openidconnect.SAMLAssertionClaimsCallback"
+user_info_claim_retriever = "org.wso2.carbon.identity.oauth.endpoint.user.impl.UserInfoUserStoreClaimRetriever"
+
+[oauth.oidc.user_info]
+response_type = "json"
+
+[oauth.oidc.token_validation]
+id_token_validity = "3600"
+
+[oauth.oidc.id_token]
+issuer = "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token"
+redirect_error_page = true
+
+[oauth.oidc.claims]
+enable_oidc_dialect = true
+enable_unmapped_user_attributes = true
