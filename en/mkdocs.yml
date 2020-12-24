@@ -853,6 +853,7 @@ nav:
                 - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
             - Configuring Secondary User Store: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
             - Writing a custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+            - Configuring the Authorization Manager: administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager.md
         - Multitenancy:
             - Introduction to Multitenancy: administer/multitenancy/introduction-to-multitenancy.md
             - Managing Tenants: administer/multitenancy/managing-tenants.md
