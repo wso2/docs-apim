@@ -346,7 +346,6 @@ nav:
               - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
               - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
               - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-              - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
           - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
           - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
           - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
@@ -354,6 +353,7 @@ nav:
           - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
           - Customizing the Developer Portal and Gateway URLs for Tenants: develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
           - Adding internationalization: develop/customizations/adding-internationalization.md
+          - Advanced UI Customization: develop/customizations/advanced-ui-customization.md
       - Admin Services: develop/wso2-admin-services.md
       - Working with the Source Code: develop/working-with-the-source-code.md
       - Java Documentation: develop/java-documentation.md
