@@ -78,3 +78,9 @@ By default, the WSO2 API Manager retrieves the client certificate from the **X-W
      ```
 
 3.  Start the Server.
+
+!!! tip
+    The above MTLS flow described is with Nginx load balancer and it may not technically possible with AWS or Azure load balancer.
+ To achieve Mutual SSL in such cases select the load balancer (NLB in AWS case) to pass the certificate to WSO2 gateway.
+
+    
