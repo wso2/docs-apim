@@ -12,13 +12,48 @@ First, let’s see how the portal’s source code is organized. The Source of th
 
  ![folder structure]({{base_path}}/assets/img/learn/ui-customize-pic0.png)
 
-We ship the React apps source code along with the distribution for the customization purpose. Otherwise, You will not need to react application source code in the run time. The basic folder structure is the same for both publisher and devportal. Let’s look at how the source code is organized in WSO2 API Manager Publisher portal.
+We ship the React apps source code along with the distribution for the customization purpose. Otherwise, You will not need to react application source code in the run time. The basic folder structure is the same for both publisher and devportal. Let’s look at how the source code is organized.
 
-## Adding advanced UI customizations to WSO2 API-M UIs
+**override**
+
+This folder is used to organize the React component customizations. This is empty in the default pack(distribution).In short, This is where you put your customizations to override the default React UI components.
+
+**services**
+
+This directory contains the utility services that are required to run the web portals. Even though the React UI portals are fully client-side rendered(CSR) apps, We still need services or proxies for some operations, Such as
+
+- Authentication
+- Reverse proxy
+- Custom URLs
+**site**
+
+This contains all the static files that are needed to run the portals in the browser. And in fact, this is the directory contains various static files from JS bundles, locale files, theme JSON to favicon. Inside the site, you can find
+
+<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/<WEBAPP>/site/public/dist/
+this directory contains the generated ReactJS application bundles and their source map files.
+
+**source**
+
+This directory contains the Javascript source codes. It contains both implementation and tests. None of the files in here are used in runtime (get loaded into the browser). Here we have split the implementation into two aspects, Data, and Components. Data contains pure javascript implementations of data handling (REST API innovation), Utility functions, and data models (User class). The purpose of these separations is to make the data handling elements shareable and usable in non- ReactJS based projects. And in the Components directory, we maintain the ReactJS Component implementations. It has the whole component hierarchy of the publisher portal.
+
+**jaggery.conf**
+
+This is a configuration file used for web apps in Jaggery web server, It contains
+
+routing rules(urlMappings)
+security constraints
+welcomeFiles
+and other jaggery app-related configurations.
+
+If you are new to JaggeryJS, JaggeryJS is a javascript backend server that can render jaggery style .jag (like Pug) templates into HTML. Simply put, It’s like NodeJS + Express
+
+**Others**
+
+The rest of the files are runtime configurations for eslint, jest, webpack, npm. You would probably recognize them by their names.
+
+## Adding advanced UI customizations to WSO2 API-M UIs (Publisher and Developer Portal)
 
 Follow the instructions below to add advanced UI customizations to the Developer Portal and/or Publisher. 
-
-### Publisher and Developer Portal advanced UI customizations 
 
 !!! note "Prerequisites"
     - **NodeJS** (minimum 8.12.0) - This is a platform required for ReactJS development.
@@ -36,67 +71,72 @@ Follow the instructions below to add advanced UI customizations to the Developer
 
      Run the following command to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
 
-    ```js
+    ```
     npm run build:dev
     ```
     !!! note "Production deployment"
         The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
+        
         ```
         npm run build:prod
         ```
 3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
 
-     - If you want to override a specific React component or a file from the `<APP-ROOT>/source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
-         - `<APP-ROOT>/override/src`
-#### Overriding the API Documentation and Overview components
+     - If you want to override a specific React component or a file from the `<WEBAPP>/source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
+         - `<WEBAPP>/override/src`
 
-```sh
-override
-└── src
-    ├── Readme.txt
-    └── app
-        └── components
-            └── Apis
-                └── Details
-                    ├── Documents
-                    │   └── Documentation.jsx
-                    └── Overview.jsx
-```
+### Overriding files
 
-#### Adding new files to the override folder
+The following folder structure within devportal/overrides folder can override the original file at devportal/source/src/app/components/Apis/Details/Documents/Documents.jsx. You can find a more detailed explaining with working samples at the end of this article.
 
-```sh
-override
-└── src
-    ├── Readme.txt
-    └── app
-        └── components
-            └── Apis
-                └── Details
-                    ├── Documents
-                    │   └── Documentation.jsx
-                    └── Overview.jsx
-                    └── NewFile.jsx
-                    
-```
+    ```sh
+    override
+    └── src
+        ├── Readme.txt
+        └── app
+            └── components
+                └── Apis
+                    └── Details
+                        ├── Documents
+                        │   └── Documentation.jsx
+                        └── Overview.jsx
+    ```
+
+### Adding new files to the override folder
+
+    ```sh
+    override
+    └── src
+        ├── Readme.txt
+        └── app
+            └── components
+                └── Apis
+                    └── Details
+                        ├── Documents
+                        │   └── Documentation.jsx
+                        └── Overview.jsx
+                        └── NewFile.jsx
+                        
+    ```
 
 You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
 
-```sh
-import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
-```
+    ```sh
+    import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
+    ```
 
 A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
-```sh
-import NewFile from './NewFile.jsx';
+    ```sh
+    import NewFile from './NewFile.jsx';
+    ```
+## Production Build vs development build
+
+We need to run the build command once and preview changes during active development. Once we run the following command at the web application root folder, it will continually watch for file changes. It also loads the React source to the browser for debugging purposes. It will make a large javascript bundle size.
+
+```js
+npm run build:dev
 ```
-
-## Development
-
-During an active development, the watch mode works with the overridden files. Adding new files and directories will not trigger a new webpack build.
-
-## Production Build
 
 Make sure you do a production build after you finish development with the command given below. The output of the production build contains minified javascript files optimized for web browsers.
 
@@ -104,12 +144,29 @@ Make sure you do a production build after you finish development with the comman
 npm run build:prod
 ```
 
+
+!!! note
+    Production build by default check ESLint errors. ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. We recommend always keep the customizations free from ESLint errors. But it's also possible to ignore these errors and run the production build by commenting out the following from `<WEBAPP>/webpack.config.js`
+
+    ```javascript
+    const esLintLoader = {
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        options: {
+            failOnError: true,
+            quiet: true,
+        },
+    };
+    config.module.rules.push(esLintLoader);
+    ```
+
 ## Examples
 
 Following examples will let you get familiar with the codebase.
 
 !!! note
-    React component overriding is implemented via a custom webpack loader. There are some improvements and bug fixes that went into this customer loader after the product release. If the APIM product is not a WUM updated pack, you can still apply these fixes by replacing the [loader.js](https://github.com/wso2/carbon-apimgt/blob/master/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher/loader.js) from the github repo. 
+    React component overriding is implemented via a custom webpack loader. There are some improvements and bug fixes that went into this customer loader after the product release. If the APIM product is not a WUM updated pack, you can still apply these fixes by replacing the [loader.js from the github repo](https://github.com/wso2/carbon-apimgt/blob/master/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher/loader.js). 
 
     You can simply override the file of any of the webapps (publisher, devportal, admin 3.2 onwards). We recommend you to apply this fix before trying out the following samples.
 
@@ -135,8 +192,8 @@ Let's see how we can override and display a custom API listing page.
     npm run build:dev
     ```
 
-        !!! note
-            You can find out what are the available commands to run by examining the package.json file in the web app root. "build:dev" is also defined here mapping to a script.
+    !!! note
+        You can find out what are the available commands to run by examining the package.json file in the web app root folder.
 
     ![inspect view]({{base_path}}/assets/img/learn/ui-customize-pic3.png)
     ![inspect view]({{base_path}}/assets/img/learn/ui-customize-pic4.png)
@@ -160,7 +217,7 @@ Let's see how we can override and display a custom API listing page.
     `devportal/overrides/src/app/components/Apis/Listing/`
 
     Since we add a new file, we need to restart the npm build to let the changes take effect. 
-    build
+    
     ```
     npm run build:dev
     ```
