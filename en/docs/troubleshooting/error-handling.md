@@ -114,7 +114,7 @@ Given below are some error codes and their meanings.
 <td><code>900901</code></td>
 <td><p>Invalid credentials</p></td>
 <td><div class="content-wrapper">
-<p>Expired token, Inactive token or Invalid authentication information provided.</p>
+<p>Invalid authentication information provided.</p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
