@@ -481,6 +481,7 @@ nav:
             - Identity Management for the API Developer Portal: administer/product-security/identity-management-for-the-api-dev-portal.md
     - Reference:
         - Configuration Catalog: reference/config-catalog.md
+        - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
         - Guides:
