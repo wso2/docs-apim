@@ -24,7 +24,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 4. Click **Endpoints** to navigate to the Endpoints page.
 
-5. Select **Prototype Implementation** as the endpoint type, and click **ADD**.
+5. Select **Prototype Implementation** as the endpoint type, and click **Proceed**.
 
      [![Selecting Prototype Implementation to add]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)
 
@@ -37,26 +37,6 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
      [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
 
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
-
-      ``` 
-      responses[200]["application/json"] = {              // Mock response payload stored as a variable
-        "id" : 10,
-        "name" : "doggie",
-        "category" : {
-          "id" : 1,
-          "name" : "Dogs"
-        },
-        "photoUrls" : [ "string" ],
-        "tags" : [ {
-          "id" : 0,
-          "name" : "string"
-        } ],
-        "status" : "available"
-      };                                                 
-      
-      mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
-      mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
-      ```
     
 7. Modify the inline script for `/pet/{petId}`.
 
@@ -106,10 +86,9 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
           } ],
           "status" : "available"
         }
+        
+        responses[200]["application/xml"] = <pet><id>1</id><name>doggie</name><category><id>1</id><name>Dog</name></category><photoUrls><photoUrl>https://www.google.com/search?q=pet+images&amp;client=ubuntu&amp;hs=NYm&amp;channel=fs&amp;tbm=isch&amp;source=iu&amp;ictx=1&amp;fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&amp;vet=1&amp;usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&amp;sa=X&amp;ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM</photoUrl></photoUrls><tags><tag><id>1</id><name>German Sheperd</name></tag></tags><status>available</status></pet>;
       }
-      
-      mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
-      mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
 
       ```
     
