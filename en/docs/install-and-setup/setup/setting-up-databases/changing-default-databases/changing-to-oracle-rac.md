@@ -110,8 +110,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     
@@ -155,8 +155,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     pool_options.maxActive = 100

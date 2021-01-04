@@ -66,13 +66,13 @@ $ pip install mssql-cli
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U regadmin -P regadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
+    $ mssql-cli -U sharedadmin -P sharedadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
     ```
 
 1.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U regadmin -P regadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
+    $ mssql-cli -U sharedadmin -P sharedadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
     ```
 
 !!! note
@@ -131,8 +131,8 @@ Follow the steps below to change the type of the default datasource.
     [database.shared_db]
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
 
@@ -179,8 +179,8 @@ Follow the steps below to change the type of the default datasource.
     [database.shared_db]
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
     pool_options.maxActive = 100

@@ -7,69 +7,13 @@ The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented a
 
 The topics below explain the configurations.
 
--   [Sharing the user store](#sharing-the-user-store)
--   [Configuring WSO2 API Manager as Service Provider for Identity Server](#configuring-wso2-api-manager-as-service-provider-for-identity-server)
--   [Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider](#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider)
--   [Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers](#configuring-wso2-api-manager-apps-as-saml-20-sso-service-providers)
+- [Configuring Identity Server as IDP for SSO](#configuring-identity-server-as-idp-for-sso)
+  - [Configuring WSO2 API Manager as Service Provider for Identity Server](#configuring-wso2-api-manager-as-service-provider-for-identity-server)
+  - [Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider](#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider)
+  - [Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers](#configuring-wso2-api-manager-apps-as-saml-20-sso-service-providers)
 
 !!! tip
     In this documentation, MySQL is used as the database to configure WSO2 API Manager with WSO2 Identity Server. For instructions on replacing the default H2 database with MySQL, see [Setting up MySQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql/#setting-up-mysql).
-
-## Sharing the user store
-
-1. Configure your user store(s) (if you have not done so already), by following the instructions in [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores/).
-
-2. Point both WSO2 IS and WSO2 API Manager to your user stores(s) using the instructions given below. 
-
-     This is required to make sure that a user who tries to sign in to the Developer Portal or the Publisher is authorized. When users try to sign in to either of the applications, they are redirected to the configured identity provider (WSO2 IS in this case) where they can provide the login credentials to be authenticated. 
-
-     In addition, the user should also be authorized by the system to enable [Role-based Permissions]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-permissions/). Therefore, for the purpose of authorization, the IS and API Manager needs to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
-
-     For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity Server and WSO2 API Manager as follows:
-
-     1.  Download WSO2 API Manager from [here](https://wso2.com/api-management/) and unzip it. `<API-M_HOME>` refers to the root folder where WSO2 API-M was unzipped.
-
-        !!! tip
-            To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features, from [here](https://wso2.com/identity-and-access-management).
-
-     2.  Download WSO2 Identity Server (WSO2 IS) 5.10.0 from [here](https://wso2.com/identity-and-access-management) and unzip it. `<IS_HOME>` refers to the root folder where WSO2 IS was unzipped.
-
-     3.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
-
-     4.  Go to the `<API-M_HOME>/repository/conf/deployment.toml` file and add database configurations. 
-     
-         For example, you can share a single user store as follows. 
-         
-         (If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.)
-    
-        **Example**
-
-        ``` toml
-        [database.shared_db]
-        type = "mysql"
-        url = "jdbc:mysql://localhost:3306/410_um_db"
-        username = "wso2carbon"
-        password = "wso2carbon"   
-        ```
-
-        !!! note
-            Change the database URL to the URL of the shared database (MySQL database) you have created above. Modify the username and password parameters in the above configuration with your database credentials.
-
-     5.  Add the same datasource configuration above to the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-     6.  The Identity Server has an embedded LDAP user store by default and it is enabled by default. Change the default user store to the database user store.
-     
-         Add the following to the `<IS_HOME>/repository/conf/deployment.toml` file, and follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.10.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead. 
-    
-        ``` toml
-        [user_store]
-        type = "database"
-        ```
-    
-        !!! note
-            In WSO2 API Manager, the JDBC User Store is enabled by default. (i.e., The following configuration exists in `<API-M_HOME>/repository/conf/deployment.toml` by default.) By changing the default user store of the WSO2 Identity server to JDBC User Store, you are pointing WSO2 API Manager and WSO2 Identity Server to the same user store so that the user stores are shared.
-
-     7.  Copy the database driver JAR file to the `<IS_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/lib` directories.
 
 
 ## Configuring WSO2 API Manager as Service Provider for Identity Server
@@ -183,8 +127,19 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
         -   **Enable Authentication Request Signing**
         -   **Enable Authentication Response Signing**
         -   **Enable Logout Request Signing**
-        -   **Enable Logout**      
-   6. Click **Register**.
+        -   **Single Logout Profile**      
+   
+    **Example**
+
+    [![sample IDP]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)
+
+6. Enable JIT Provisioning users since the userstore is not shared between IS and APIM.
+    The users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successsfully login to Publisher and Devportal.
+
+    [![JIT Provisioning]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)
+
+    
+7.  Click on **Register**.  
 
 
    **Example**
@@ -196,7 +151,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     </br>Example:
     
     -   If the **Response Signing Algorithm** in WSO2 Identity Server is rsa-sha256, then the **Signature Algorithm** in WSO2 API Manager should be RSA with SHA256.
-    -   If you enabled **Enable Single Logout** in Identity Server, then enable **Enable Logout** in WSO2 API Manager.
+    -   If you select **Enable Single Logout** in Identity Server, then select **Single Logout Profile** in WSO2 API Manager.
 
 ## Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers
 
@@ -244,6 +199,8 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 
 !!! note
     Even with SSO enabled, if the users do not have sufficient privileges to access API Publisher/Developer Portal/Admin Portal or any other application, they will not be authorized to access them.
+
+    Hence the users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successsfully login to API Publisher/Developer Portal/Admin Portal.
 
 !!! info
     For more information on Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.

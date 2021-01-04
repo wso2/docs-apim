@@ -247,6 +247,10 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 
 ### Step 4 - Configure Analytics
 
+!!! warning
+    When configuring API-M Analytics, change only the required properties(which are mentioned in the respective documentation) 
+    of the deployment.yaml file of either worker or dashboard runtime. Do not change other default values as it may result in an erroneous state.
+
   API-M Analytics contains two runtimes, namely worker and dashboard. The worker is responsible for the summarization of the collected data and the dashboard is responsible to represent the summarised data in the dashboards. Therefore, two separate JVMs are required. As a best practice, the worker and dashboard runtime can have the same analytics binary. This helps when managing the deployment and when applying WUM updates. However, it is up to the dev-ops engineer to decide whether to use the same binary (pack) or two binaries for the two runtimes.
 
 !!! info
@@ -317,11 +321,12 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
                 username: 'root'
                 password: '123'
                 driverClassName: com.mysql.jdbc.Driver
+                minIdle: 5
                 maxPoolSize: 50
                 idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
         ```
   3. Point the following data sources to external databases. 
      
@@ -334,6 +339,8 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
   2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections, and point to your desired type of database.
    
     !!! note
+        In the below configuration, the database defined as `am_db` is the same database which is defined under `[database.apim_db]` configuration in the **deployment.toml** file of the WSO2 API Manager.
+        <hr>
         **If you are configuring the `AM_DB` databases in Oracle**, apart from the following configurations, you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to the `AM_DB` datasource that you configured with Oracle.
     
     ``` yaml
@@ -367,11 +374,12 @@ You will be running an Analytics worker and an Analytics dashboard for this solu
              username: 'root'
              password: '123'
              driverClassName: com.mysql.jdbc.Driver
+             minIdle: 5
              maxPoolSize: 50
              idleTimeout: 60000
-          connectionTestQuery: SELECT 1
-          validationTimeout: 30000
-          isAutoCommit: false           
+             connectionTestQuery: SELECT 1
+             validationTimeout: 30000
+             isAutoCommit: false           
     ```
     
   3. Point the following data sources to external databases. 

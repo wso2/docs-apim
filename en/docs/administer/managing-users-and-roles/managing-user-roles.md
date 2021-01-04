@@ -108,18 +108,30 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
+!!! warning
+    As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Dev portal applications listing page.
+    However the new user will not be able to access the details of the application as the service provider is already deleted.
+
 ## Adding Role Mappings
 
 In the above example, you mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There you had to update every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated. Instead of using the latter mentioned method, you can use role mapping to enable users to easily map new roles to existing scopes.
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
-2. Navigate to **Settings > Scope Mapping** in Admin Portal.
+2. Navigate to **Settings > Role Permissions** in Admin Portal and click on **Add Role Permission**.
+    [![View Role Permission]({{base_path}}/assets/img/administer/view-role-permissions.png)]({{base_path}}/assets/img/administer/view-role-permissions.png)
 
-3. Under Role Mappings define a mapping as follows:
+3. Provide the name of the newly created role.
 
-     [![Add Role Mapping]({{base_path}}/assets/img/administer/role-mapping.png)]({{base_path}}/assets/img/administer/role-mapping.png)
+    [![Add Role Name]({{base_path}}/assets/img/administer/add-role-permissions.png)]({{base_path}}/assets/img/administer/add-role-permissions.png)
 
+4. The newly created role can be mapped to an existing internal or admin role if required.
+
+    [![Map Role Name]({{base_path}}/assets/img/administer/map-existing-role.png)]({{base_path}}/assets/img/administer/map-existing-role.png)
+
+5. Select the required existing scopes for the newly created role and save the changes.
+
+    [![Scope mapping]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)
 This will update all the scope mappings in the `tenant-conf.json` file with the `Internal/creator` role as an allowed role. As a result, the new creator role will also be allowed for all scopes that are allowed for the `Internal/creator` role.
 
 !!! info 

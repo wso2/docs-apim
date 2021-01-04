@@ -24,7 +24,7 @@ Follow the instructions below to change the default admin password:
         For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:    
 
     -   The above credentials are applied to the `jndi.properties` file.
-        -   **It is not possible to use the `@` symbol in the username or password**.
+        -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
         -   **It is also not possible to use the percentage (%) sign in the password**. When building the connection URL, the URL with credentials is parsed.
         This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in`.
         For a list of possible URL parsing patterns, see [URL encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp).
@@ -42,6 +42,17 @@ Follow the instructions below to change the default admin password:
     password = "your-encoded-password"        
     ```
 
+    ??? info "sample deployment.toml configs"
+        ```
+        [super_admin]
+        username = "foo_admin"
+        password = "<![CDATA[~^&*#`43d:3;]]>"
+        
+        [apim.throttling.jms]
+        username = "foo_admin"
+        password = "~%5E%26*%23%6043d%3A3%3B"
+        ```
+            
 !!! note
 
     Note that the above password is written to the primary user store when the server starts for the first time.
@@ -147,10 +158,6 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     ```   
 
 ## Developer Portal
-
-### Sign in via multiple user attributes
-
-For instructions under [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation to set up the sign-in process via multiple user attributes in API Manager.
 
 ### Setup a social media login
 

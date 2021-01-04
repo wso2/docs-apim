@@ -23,14 +23,13 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.2.0.
 
-Therefore, if registry versioning was enabled in WSO2 API-M 2.5.0 setup, it is **required** to turn off the registry 
-versioning in the migrated 3.2.0 setup. Please follow the below steps to achieve this.
+Therefore, if registry versioning was enabled in WSO2 API-M 2.5.0 setup, it is **required** run the below scripts against **the database that is used by the registry**. Follow the below steps to achieve this.
 
 !!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.2.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning"
+!!! info "Verifying registry versioning turned on in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
@@ -2290,6 +2289,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
+    - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
+
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.6.0 to 5.10.0.
 
     ??? note "If you are using DB2"
@@ -2515,8 +2516,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.2.0
 #### Step 3.1 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
-    -   In API-M 3.2.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
-    -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+    -   In API-M 3.2.0, the default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
 
 1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
@@ -2537,6 +2537,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.2.0
             username: username
             password: password
             driverClassName: com.mysql.jdbc.Driver
+            minIdle: 5
             maxPoolSize: 50
             idleTimeout: 60000
             connectionTestQuery: SELECT 1

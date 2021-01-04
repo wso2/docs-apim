@@ -16,6 +16,15 @@ Internal Keystore is used for encrypting internal critical data including passwo
 
 The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores](keystore-basics/creating-new-keystores.md) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
 
+!!! info
+    If you want to change the default truststore details, you can do it by adding the configurations under `[truststore]` field in the `<API-M_HOME>/repository/conf/deployment.toml`. Refer the below example which defines the `type` of the truststore as "JKS" (Java KeyStore), the `file_name` of the trustore as "modified-client-truststore.jks" and the `password` as "modified_password".
+
+    ```toml
+    [truststore]
+    type= "JKS"
+    file_name = "modified-client-truststore.jks"
+    password= "modified_password"
+    ```
 
 ## Configuring the Primary Keystore
 
@@ -124,3 +133,9 @@ Follow the recommendations given below when you set up your keystores.
     ```
 
 -   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Adding CA-signed certificates to keystores](../keystore-basics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores) for instructions.
+
+-   If you encounter the following error after changing the default keystore, log in to the carbon console and navigate to `/_system/config/repository/esb/inbound` registry location and remove the `inbound-endpoints` resource. Once it is removed, restart the server. 
+    ```
+    FATAL - ServiceBusInitializer Couldn't initialize the ESB...
+    java.lang.IllegalArgumentException: KeyStore File repository/resources/security/xxxx.jks not found
+    ```

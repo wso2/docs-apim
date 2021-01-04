@@ -171,7 +171,40 @@ and [Local Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-gr
 
 [![Scopes Security Definition API Definition]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)
 
+## Disable role validation at scope creation 
+   When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior such that it does not validate the roles in the user store. For this purpose, set the Java system property `disableRoleValidationAtScopeCreation` to `true` at the server startup:
+   This can be done in one of two ways.
 
+   **Option 1**: Adding in startup script
+
+         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
+         Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
+         Restart the server.
+
+   **Option 2**: Provide as a parameter during server startup 
+    
+   Restart the server with the parameter set as below.
+         
+   - Linux/Mac OS
+         
+       ``` tab="Format"
+         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
+       ```
+             
+       ``` tab="Example"
+         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=true
+       ```
+             
+   - Windows
+         
+       ``` tab="Format"
+         wso2server.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
+       ```
+             
+       ``` tab="Example"
+             wso2server.bat -DdisableRoleValidationAtScopeCreation=true           
+       ```
+       
 ## Obtaining Tokens with Scopes
 
 When a scope is attached to an API resource, access to it gets restricted based on the role(s) that is specified in the scope. In order to invoke the API resource, the API consumer has to generate an access token bound to the scope that is attached to the API resource. Follow below steps to obtain an access token specifying the requested scopes.

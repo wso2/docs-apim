@@ -8,7 +8,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
     - [For MacOS]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-macosx-x64.tar.gz)
     - [For Linux 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-linux-i586.tar.gz)
-    - [For Linux 64-bit](http://localhost:8000/assets/attachments/learn/api-controller/apictl-3.2.1-linux-x64.tar.gz)
+    - [For Linux 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-linux-x64.tar.gz)
     - [For Windows 32-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-i586.zip)
     - [For Windows 64-bit]({{base_path}}/assets/attachments/learn/api-controller/apictl-3.2.1-windows-x64.zip)
 
@@ -161,12 +161,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                        --apim <API-Manager-endpoint> \
                        --token <token-endpoint> \
                        --admin <admin-REST-API-endpoint> \
-                       --publisher <Publisher-endpoint> \
+                       --publisher <publisher-portal-endpoint> \
                        --devportal <developer-portal-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <developer-portal-endpoint>
+        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint>
         ```
 
         !!! info
@@ -178,7 +178,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 OR (the following 4)     
                 `--registration` : Registration endpoint for the environment     
                 `--admin` : Admin endpoint for the environment     
-                `--publisher` : Publisher endpoint for the environment     
+                `--publisher` : Publisher Portal endpoint for the environment     
                 `--devportal` : Developer Portal endpoint for the environment 
             -   Optional :     
                 `--token` : Token endpoint for the environment
@@ -707,12 +707,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             **Flags:**  
             
             -   Required :  
-                `--environment` or `-e` : The environment of which the API state should be changed  
-                `--name` or `-n` : The name of the API to be state changed  
-                `--version` or `-v` : The version of the API that its state needs to be changed
+                `--environment` or `-e` : The environment that the command is executed on  
+                `--name` or `-n` : The name of the respective API
+                `--version` or `-v` : The version of the respective API
                 `--action` or `-a` : The action to be taken to change the status of the API
             -   Optional :  
-                `--provider` or `-r` : Provider of the API to be state changed  
+                `--provider` or `-r` : The provider of the respective API  
 
         !!! example
             ```bash
@@ -866,7 +866,7 @@ Run the following CTL command to change the default location of the export direc
             Default : `/home/.wso2apictl/exported`
             
             
-## Import the SSL certificate for Secure HTTP Communication with API Manager
+## Import SSL certificates for Secure HTTP Communication with API Manager
 
 Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
 certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
