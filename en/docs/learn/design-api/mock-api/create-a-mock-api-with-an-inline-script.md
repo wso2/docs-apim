@@ -159,7 +159,12 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
     1. For `petId : " 0 " `
 
          [![Tryout for petid0]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)
- 
+        
+        Sample cURL command to invoke the API
+        ```
+        curl -X GET "https://localhost:8243/v3/1.0.5/pet/0" -H "accept: application/json"
+        ```
+        
         The response payload that is defined in the generated script is returned.
    
         [![Response for petid0]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)
@@ -168,6 +173,11 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
         [![Tryout for petid1]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)
 
+        Sample cURL command to invoke the API
+        ```
+        curl -X GET "https://localhost:8243/v3/1.0.5/pet/1" -H "accept: application/json"
+        ```
+        
         The response payload defined in the manually modified script is returned.
 
         [![Response for petid1]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)
