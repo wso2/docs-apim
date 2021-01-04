@@ -54,6 +54,12 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       ```
       // **GENERATED CODE** //
       
+      var responses = [];
+      
+      if (!responses[200]) {
+       responses [200] = [];
+      }
+      
       responses[200]["application/json"] = {                 // Mock response payload stored as a variable
         "id" : 10,
         "name" : "doggie",
@@ -79,7 +85,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
             "name" : "Dog"
           },
           "name" : "doggie",
-          "photoUrls" : [ "https://www.google.com/search?q=pet+images&client=ubuntu&hs=NYm&channel=fs&tbm=isch&source=iu&ictx=1&fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&vet=1&usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&sa=X&ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM" ],
+          "photoUrls" : [ "https://images.unsplash.com/photo-1543333232-add7974e52cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1396&q=80" ],
           "tags" : [ {
             "id" : 1,
             "name" : "German Sheperd"
@@ -87,7 +93,17 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
           "status" : "available"
         }
         
-        responses[200]["application/xml"] = <pet><id>1</id><name>doggie</name><category><id>1</id><name>Dog</name></category><photoUrls><photoUrl>https://www.google.com/search?q=pet+images&amp;client=ubuntu&amp;hs=NYm&amp;channel=fs&amp;tbm=isch&amp;source=iu&amp;ictx=1&amp;fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&amp;vet=1&amp;usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&amp;sa=X&amp;ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM</photoUrl></photoUrls><tags><tag><id>1</id><name>German Sheperd</name></tag></tags><status>available</status></pet>;
+        responses[200]["application/xml"] = <pet><id>1</id><name>doggie</name><category><id>1</id><name>Dog</name></category><photoUrls><photoUrl>https://images.unsplash.com/photo-1543333232-add7974e52cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1396&amp;q=80</photoUrl></photoUrls><tags><tag><id>1</id><name>German Sheperd</name></tag></tags><status>available</status></pet>;
+      }
+      
+      // **GENERATED CODE** //
+      
+      if (accept == "application/json") {
+       mc.setProperty('CONTENT_TYPE', 'application/json');
+       mc.setPayloadJSON(responses[responseCode]["application/json"]);
+      } else if (accept == "application/xml") {
+       mc.setProperty('CONTENT_TYPE', 'application/xml');
+       mc.setPayloadXML(responses[responseCode]["application/xml"]);
       }
 
       ```
