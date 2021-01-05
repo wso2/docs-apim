@@ -24,7 +24,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 4. Click **Endpoints** to navigate to the Endpoints page.
 
-5. Select **Prototype Implementation** as the endpoint type, and click **ADD**.
+5. Select **Prototype Implementation** as the endpoint type, and click **Proceed**.
 
      [![Selecting Prototype Implementation to add]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)
 
@@ -37,26 +37,6 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
      [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
 
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
-
-      ``` 
-      responses[200]["application/json"] = {              // Mock response payload stored as a variable
-        "id" : 10,
-        "name" : "doggie",
-        "category" : {
-          "id" : 1,
-          "name" : "Dogs"
-        },
-        "photoUrls" : [ "string" ],
-        "tags" : [ {
-          "id" : 0,
-          "name" : "string"
-        } ],
-        "status" : "available"
-      };                                                 
-      
-      mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
-      mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
-      ```
     
 7. Modify the inline script for `/pet/{petId}`.
 
@@ -73,6 +53,12 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
       ```
       // **GENERATED CODE** //
+      
+      var responses = [];
+      
+      if (!responses[200]) {
+       responses [200] = [];
+      }
       
       responses[200]["application/json"] = {                 // Mock response payload stored as a variable
         "id" : 10,
@@ -99,17 +85,26 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
             "name" : "Dog"
           },
           "name" : "doggie",
-          "photoUrls" : [ "https://www.google.com/search?q=pet+images&client=ubuntu&hs=NYm&channel=fs&tbm=isch&source=iu&ictx=1&fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&vet=1&usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&sa=X&ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM" ],
+          "photoUrls" : [ "https://images.unsplash.com/photo-1543333232-add7974e52cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1396&q=80" ],
           "tags" : [ {
             "id" : 1,
             "name" : "German Sheperd"
           } ],
           "status" : "available"
         }
+        
+        responses[200]["application/xml"] = <pet><id>1</id><name>doggie</name><category><id>1</id><name>Dog</name></category><photoUrls><photoUrl>https://images.unsplash.com/photo-1543333232-add7974e52cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1396&amp;q=80</photoUrl></photoUrls><tags><tag><id>1</id><name>German Sheperd</name></tag></tags><status>available</status></pet>;
       }
       
-      mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
-      mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
+      // **GENERATED CODE** //
+      
+      if (accept == "application/json") {
+       mc.setProperty('CONTENT_TYPE', 'application/json');
+       mc.setPayloadJSON(responses[responseCode]["application/json"]);
+      } else if (accept == "application/xml") {
+       mc.setProperty('CONTENT_TYPE', 'application/xml');
+       mc.setPayloadXML(responses[responseCode]["application/xml"]);
+      }
 
       ```
     
@@ -164,7 +159,12 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
     1. For `petId : " 0 " `
 
          [![Tryout for petid0]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid0.png)
- 
+        
+        Sample cURL command to invoke the API
+        ```
+        curl -X GET "https://localhost:8243/v3/1.0.5/pet/0" -H "accept: application/json"
+        ```
+        
         The response payload that is defined in the generated script is returned.
    
         [![Response for petid0]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid0.png)
@@ -173,6 +173,11 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
         [![Tryout for petid1]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-execute-petid1.png)
 
+        Sample cURL command to invoke the API
+        ```
+        curl -X GET "https://localhost:8243/v3/1.0.5/pet/1" -H "accept: application/json"
+        ```
+        
         The response payload defined in the manually modified script is returned.
 
         [![Response for petid1]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)
