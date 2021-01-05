@@ -10,9 +10,9 @@ ETL (Extract, Transform, Load) is a form of data processing that involves perfor
 
 3. **Load** Writing the data extracted and transformed into another destination.
 
-Tutorials such as [Performing Real-time ETL with Files](performing-real-time-etl-with-files.md) and [Performing Real-time ETL with MySQL](performing-real-time-etl-with-mysql.md) show how the WSO2 Streaming Integrator can perform ETL for streaming data by writing and deploying Siddhi applications with ETL functionality. If you need to create such a Siddhi application without writing code, you can use the ETL Flow wizard in Streaming Integrator Tooling.
+Tutorials such as [Performing Real-time ETL with Files]({{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-files) and [Performing Real-time ETL with MySQL]({{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql) show how the WSO2 Streaming Integrator can perform ETL for streaming data by writing and deploying Siddhi applications with ETL functionality. If you need to create such a Siddhi application without writing code, you can use the ETL Flow wizard in Streaming Integrator Tooling.
 
-In this tutorial, let's create the same Siddhi application created in [Performing Real-time ETL with MySQL](performing-real-time-etl-with-mysql.md) using the Streaming Integrator Tooling.
+In this tutorial, let's create the same Siddhi application created in [Performing Real-time ETL with MySQL]({{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql) using the Streaming Integrator Tooling.
 
 !!!info "Before you begin:"
     - You need to have access to a MySQL instance.<br/>
@@ -45,7 +45,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
             `CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));`<br/> 
     - Download `productions.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice. (e.g., in `/Users/foo`).<br/>    
     - Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)<br/>          
-    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions.md).
+    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
 
 ## Tutorial steps
 
@@ -242,6 +242,6 @@ If you open the `/Users/foo/productions.csv` file, the `Chocalate, 100.0` record
 
 Once you develop an ETL application, you may need to carry out following tasks:
 
-- **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial](handling-requests-with-errors.md).
+- **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial]({{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors).
 
-- **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards.md).
+- **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards).

@@ -58,7 +58,7 @@ You can capture following type of changes done to a database table:
         3. Switch to the `production` database and create a new table, by executing the following queries:<br/>
             `use production;`<br/>
             `CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));`<br/>            
-    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]{{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions.md).
+    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
 
 
 
