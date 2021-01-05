@@ -123,7 +123,7 @@ To try out the examples given above, follow the steps below.
                 isAutoCommit: false
         ```
     
-2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 3. Open a new file in Streaming Integrator Tooling. Then add and save the following Siddhi application.
 
@@ -214,7 +214,7 @@ To try out the examples given above, follow the steps below.
     ```
     This application functions as the external service for testing purposes.
     
-5. Simulate events for the `StockValuingApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+5. Simulate events for the `StockValuingApp` application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
 
     1. First, simulate two events for the `ProductionStream` stream with the following values.
     

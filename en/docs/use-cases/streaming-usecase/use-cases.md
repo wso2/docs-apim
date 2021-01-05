@@ -12,8 +12,8 @@ WSO2 Streaming Integrator can extract static data from sources such as databases
 
 For more information, see the following guides:
 
-- [Extracting Data from Static Sources in Real Time](extracting-data-from-static-sources-in-real-time.md)
-- [Receiving Data in Transit](receiving-data-in-transit.md)
+- [Extracting Data from Static Sources in Real Time]({{base_path}}/use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time)
+- [Receiving Data in Transit]({{base_path}}/use-cases/streaming-usecase/receiving-data-in-transit)
 
 ### Processing data
 
@@ -29,7 +29,7 @@ The different types of processing activities that can be performed by WSO2 Strea
  
  - Correlating data
  
-For more information about the above processing activities, see [Processing Data](processing-data.md)
+For more information about the above processing activities, see [Processing Data]({{base_path}}/use-cases/streaming-usecase/processing-data)
 
 
 ### Publishing/loading/writing data
@@ -38,17 +38,17 @@ Once the received data is processed, the output can be stored in a database, wri
 
 For more information about how the output is published, see the following topics:
 
-- [Loading and Writing Data](loading-and-writing-date.md)
-- [Publishing Data](publishing-data-to-event-stream-consumers.md)
+- [Loading and Writing Data]({{base_path}}/use-cases/streaming-usecase/loading-and-writing-date)
+- [Publishing Data]({{base_path}}/use-cases/streaming-usecase/publishing-data-to-event-stream-consumers)
 
 
 ### Supporting tasks
 
 The following guides cover the supporting tasks that can be performed by WSO2 Streaming Integrator when processing Streaming Data.
 
-- [Error Handling](handling-errors.md)
+- [Error Handling]({{base_path}}/use-cases/streaming-usecase/handling-errors)
 
-- [Metrics (Monitoring )]({{base_path}}/admin/monitoring-si-performance-via-grafana.md)
+- [Metrics (Monitoring )]({{base_path}}/admin/monitoring-si-performance-via-grafana)
 
 - [Query API]({{base_path}}/ref/store-APIs.md)
  

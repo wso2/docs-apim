@@ -29,7 +29,7 @@ In this example, an online student registration results in an HTTP request in JS
 
 To try out the example given above, let's include the source configuration in a Siddhi application and simulate an event to it.
 
-1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. Open and access Streaming Integrator Tooling. For instructions, see [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 2. Open a new file and add the following Siddhi application to it.
 
@@ -107,7 +107,7 @@ The following are the supported transports to capture data in transit from data 
 
 ### Supported mappers
 
-Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data](transforming-data.md#transforming-message-formats).
+Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-message-formats).
 
 The following are the supported mappers when you receive data from data publishers.
 
@@ -164,9 +164,9 @@ To try the above example, follow the steps below.
         
 3. Prepare WSO2 Streaming Integrator Tooling to consume Kafka messages as follows:
 
-    1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md). 
+    1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview). 
     
-    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).
+    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions).
     
     3. Open a new file and add the following Siddhi application to it.
 
@@ -228,7 +228,7 @@ The following are the supported transports to capture data in transit from messa
 
 ### Supported mappers
 
-Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data](transforming-data.md#transforming-message-formats).
+Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-message-formats).
 
 The following are the supported mappers when you receive data from messaging systems.
 

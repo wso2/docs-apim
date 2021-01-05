@@ -75,7 +75,7 @@ For this, you can update the `ProductionAggregatesApp` Siddhi application that y
     
         The above query joins the `ProductionsSummaryRetyrievalStream` stream and the `ProductionAggregation` aggregation. The `ProductionsSummaryRetyrievalStream` stream is assigned `b` as the short name, and the aggregation is assigned `a`. Therefore, `a.name == b.name` specifies that a matching event is identified when the value for the `name` attribute is the same. 
 
-        For more information about how to perform joins, see [Enriching Data](#enriching-data).
+        For more information about how to perform joins, see [Enriching Data]({{base_path}}/use-cases/streaming-usecase/enriching-data#enriching-data).
         
     - `within` clause 
     
@@ -122,7 +122,7 @@ To try out the example given above, follow the procedure below:
             isAutoCommit: false
     ```
     
-2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+2. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 3. Open a new file in Streaming Integrator Tooling. Then add and save the following Siddhi application.
 
@@ -157,7 +157,7 @@ To try out the example given above, follow the procedure below:
    
    This is the complete `ProductionAggregatesApp` Siddhi application with the queries given in the examples to store and retrieve aggregates. You are annotating a sink of the `log` type to the `ProductionSummaryStream` stream to which the retrieved aggregates are sent so that you can view the retrieved information in the terminal logs.
    
-4. To store aggregates, simulate five events with the following values for the `ProductionStream` stream via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+4. To store aggregates, simulate five events with the following values for the `ProductionStream` stream via the Event Simulator tool. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
 
     | **name**  | **amount** | **timestamp**   |
     |-----------|------------|-----------------|
@@ -170,7 +170,7 @@ To try out the example given above, follow the procedure below:
     The above events are stored in the `production` database that you previously defined.
     
     
-5. To retrieve the information you stored, simulate an event for the `ProductionSummaryRetrievalStream` stream with `brownie` as the value for `name'. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+5. To retrieve the information you stored, simulate an event for the `ProductionSummaryRetrievalStream` stream with `brownie` as the value for `name'. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
 
     The Streaming Integrator Tooling terminal displays the following logs.
     
@@ -178,7 +178,7 @@ To try out the example given above, follow the procedure below:
 
 ## Performing short term summarizations
 
-This section explains how to apply Siddhi logic to process a subset of events received to a stream based on time or the number of events. This is achieved via [Siddi Windows]().
+This section explains how to apply Siddhi logic to process a subset of events received to a stream based on time or the number of events. This is achieved via [Siddi Windows](https://siddhi-io.github.io/siddhi-execution-unique/).
 The window can apply to a batch of events or in a sliding manner. 
 
 The following are a few examples of how short time summarizations can be performed based on time or the number of events.
@@ -251,7 +251,7 @@ The following are a few examples of how short time summarizations can be perform
 
 To try out the four sample queries given above, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -304,7 +304,7 @@ To try out the four sample queries given above, follow the steps below:
    
    The above Siddhi application has all four sample queries used as examples in this section. Those queries insert their output into four different output streams connected to log sinks to log the output of each query.
    
-3. Simulate eight events for the `ProductionStream` input stream of the above Siddhi application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+3. Simulate eight events for the `ProductionStream` input stream of the above Siddhi application as follows. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
 
     | **name**    | **amount** | **timestamp**   |
     |-------------|------------|-----------------|

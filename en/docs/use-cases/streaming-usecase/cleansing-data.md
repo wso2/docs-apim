@@ -47,7 +47,7 @@ To understand this, consider a scenario where you receive the temperature of mul
 
 To try out the query used in the above example, let's include it in a Siddhi Application and run it.
 
-1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -65,7 +65,7 @@ To try out the query used in the above example, let's include it in a Siddhi App
     select * 
     insert into RoomAnalysisStream;
     ```
-3. Open the event simulator and simulate three events for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event](testing-a-Siddhi-Application/#simulating-a-single-event).
+3. Open the event simulator and simulate three events for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-a-single-event).
 
     | **Event** | **deviceID**  | **roomNo** | **temp** |
     |-----------|---------------|------------|----------|
@@ -101,7 +101,7 @@ To try out the query used in the above example, let's include it in a Siddhi App
     insert into RoomAnalysisStream;
    ```
    
-5. Open the event simulator and simulate three events for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event](testing-a-Siddhi-Application/#simulating-a-single-event).
+5. Open the event simulator and simulate three events for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-a-single-event).
 
     | **Event** | **deviceID**  | **roomNo** | **temp** |
     |-----------|---------------|------------|----------|
@@ -133,7 +133,7 @@ Here, the `cast()` function presents the value for the `roomNo` attribute as a s
 
 To try out the above example, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -153,7 +153,7 @@ To try out the above example, follow the steps below:
     ```
    In this Siddhi application, the `Temp Stream` has an attribute named `deviceID`, but it is not selected to be included in the output events. The `roomNo`attribute is cast as an string value via `cast(roomNo, "string")`. This means although the value for this attribute is received as an integer, it is presented as a string value in the output.
    
-3. Open the event simulator and simulate an event for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event](testing-a-Siddhi-Application/#simulating-a-single-event).
+3. Open the event simulator and simulate an event for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-a-single-event).
 
     | **deviceID**  | **roomNo** | **temp** |
     |---------------|------------|----------|
@@ -180,7 +180,7 @@ insert into CleansedDataStream
 
 To try out the above example, follow the steps below:
 
-1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and Access Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
 
 2. Open a new file. Then add and save the following Siddhi application.
 
@@ -201,7 +201,7 @@ To try out the above example, follow the steps below:
     ```
    In this Siddhi application, the `Temp Stream` has an attribute named `deviceID`, but it is not selected to be included in the output events. The `roomNo`attribute is cast as an string value via `cast(roomNo, "string")`. This means although the value for this attribute is received as an integer, it is presented as a string value in the output.
    
-3. Open the event simulator and simulate an event for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event](testing-a-Siddhi-Application/#simulating-a-single-event).
+3. Open the event simulator and simulate an event for the `TempStream` input stream of the `TemperatureApp` Siddhi application with the values for the attributes as given below. For instructions to simulate single events, see [Testing Siddhi Applications - Simulating a single event]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application/#simulating-a-single-event).
 
     | **deviceID**                                        | **roomNo** | **temp** |
     |-----------------------------------------------------|------------|----------|

@@ -22,7 +22,7 @@ The above sink configuration publishes all the events in the `StockStream` outpu
 
 To try out the above example, follow the steps below:
 
-1. [Start and access WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+1. [Start and access WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
    
 2. Open a new file and copy the following Siddhi Application to it.
 
@@ -69,7 +69,7 @@ To try out the above example, follow the steps below:
 
     ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
     
-5. Simulate an event with the following values for the `InputStream` stream of the `PublishStockUpdatesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+5. Simulate an event with the following values for the `InputStream` stream of the `PublishStockUpdatesApp` Siddhi application. For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
 
     | **Attribute** | **Value** |
     |---------------|-----------|
@@ -97,7 +97,7 @@ WSO2 Streaming Integrator supports the following transport types to send message
 
 ### Supported mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data](transforming-data.md#transforming-the-message-format-when-publishing-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-the-message-format-when-publishing-data).
 
 The following are the supported mappers when you publish data to destinations.
 
@@ -148,9 +148,9 @@ To try out the example in the previous subtopic, follow the steps below:
         
 3. Prepare WSO2 Streaming Integrator Tooling to publish data to a Kafka topic as follows:
 
-    1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md). 
+    1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview). 
     
-    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).
+    2. Download and install the Kafka extension to it. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions).
     
     3. Open a new file and add the following Siddhi application to it.
 
@@ -177,7 +177,7 @@ To try out the example in the previous subtopic, follow the steps below:
         
     5. Simulate an event for the `TemperatureStream` stream of the `TemperaturePublishingApp` Siddhi application. In this example, let's enter `30` as the value for the `temperature` attribute.
 
-        For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application.md).
+        For instructions to simulate events, see [Testing Siddhi Applications - Simulating Events]({{base_path}}/develop/streaming-apps/testing-a-siddhi-application).
         
     6. To retrieve the events published to the Kafka topic, issue the following command from `<KAFKA_HOME>`
     
@@ -205,7 +205,7 @@ WSO2 Streaming Integrator allows you to publish messages to the following messag
 
 ### Supported mappers
 
-Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data](transforming-data.md#transforming-the-message-format-when-publishing-data).
+Mappers determine the format in which the event is published. For information about transforming events by changing the format in which the data is published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data#transforming-the-message-format-when-publishing-data).
 
 The following are the supported mappers when you publish data to destinations.
 

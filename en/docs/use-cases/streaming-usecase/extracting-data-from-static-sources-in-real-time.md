@@ -14,7 +14,7 @@ To understand how data is extracted from a database into a streaming flow, consi
 
 Change data capture involves extracting any change that takes place in a selected database (i.e., any insert, update or a deletion) in real-time.
 
-To capture change data via the [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md), define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) with the appropriate schema to capture the information you require, and then connect a [source](https://siddhi.io/en/v5.1/docs/query-guide/#source) of the `cdc` type as shown in the example below.
+To capture change data via the [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview), define an input [stream](https://siddhi.io/en/v5.1/docs/query-guide/#stream) with the appropriate schema to capture the information you require, and then connect a [source](https://siddhi.io/en/v5.1/docs/query-guide/#source) of the `cdc` type as shown in the example below.
 
 ```
 @source(type = 'cdc', 
@@ -120,9 +120,9 @@ Let's try out the example where you want to view the online bookings saved in a 
           people INT NULL,
           PRIMARY KEY (ref));`
           
-    4. [Start the Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md/#starting-streaming-integrator-tooling).
+    4. [Start the Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview/#starting-streaming-integrator-tooling).
     
-    5. Download the `cdc-mysql`Siddhi extension for Streaming Integrator Tooling. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md/#installing-an-extension).
+    5. Download the `cdc-mysql`Siddhi extension for Streaming Integrator Tooling. For instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions/#installing-an-extension).
     
     6. In Streaming Integrator Tooling, open a new file. Copy and paste the following Siddhi application to it.
     
@@ -175,7 +175,7 @@ The following is a list of Siddhi extensions that support change data capturing 
 
 ### Supported mappers
 
-Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data](transforming-data.md#transforming-message-formats)).
+Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data/#transforming-message-formats).
 
 The mapper available for extracting data from databases is [Keyvalue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.0/#sourcemapper).
 
@@ -336,7 +336,7 @@ Capturing file events is supported via the [fileeventlistener Siddhi extension](
 
 To try out reading the content of a file and file events, let's address the requirement of the example mentioned before of a sweet factory that publishes production details in a file. 
 
-1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview.md).
+1. Start and access [WSO2 Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
 2. Open a new file and add the following Siddhi application. 
 
@@ -463,7 +463,7 @@ define stream InStream (symbol string, message_id string);
 To transfer the content of the cloud storage to a file, add another stream with a sink of the `file` type as shown in the example below.
 
 !!! tip
-    To learn more about publishing data to files, see [Loading and Writing Data](loading-and-writing-date.md).
+    To learn more about publishing data to files, see [Loading and Writing Data]({{base_path}}/use-cases/streaming-usecase/loading-and-writing-date).
 
 ```
 @sink(type = 'file', 
@@ -520,7 +520,7 @@ The following is a list of cloud platforms from which you can extract stored dat
 
 ### Supported mappers
 
-Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data](transforming-data.md#transforming-message-formats).
+Mappers determine the format in which the event is received. For information about transforming events by changing the format in which the data is received/published, see [Transforming Data]({{base_path}}/use-cases/streaming-usecase/transforming-data/#transforming-message-formats).
 
 WSO2 Streaming Integrator supports the following mappers for the cloud-based storages from which it extracts data.
 
