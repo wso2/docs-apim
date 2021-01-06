@@ -36,7 +36,7 @@ Follow the instructions below to design a GraphQL API
       <div class="admonition note">
       <p class="admonition-title">Note</p>
       <ul><li>
-      <p>You need to define the SDL Schema based on the <a href="https://leapgraph.com/graphql-schema-design-best-practices>GraphQL schema design best practices</a>.</p></li>
+      <p>You need to define the SDL Schema based on the <a href="https://leapgraph.com/graphql-schema-design-best-practices">GraphQL schema design best practices</a>.</p></li>
       <li>The file extension can be either `.graphql` or `.txt`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
       </div>
 
@@ -44,6 +44,21 @@ Follow the instructions below to design a GraphQL API
       [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**. 
+
+    !!! important
+
+        Let's use the Star Wars sample backend server as the backend for our GraphQL API.
+
+        - Clone the [WSO2 API Manager Samples](https://github.com/wso2/samples-apim) repository.
+            ```
+            git clone https://github.com/wso2/samples-apim
+            ```
+        - Navigate to `graphql-backend` directory.
+        - Run `npm install` to install the necessary node modules.
+        - Run `npm start` to start the server.
+
+        Once the above steps are done, the Star Wars server will be running on `http://localhost:8080`. We can use
+        `http://localhost:8080/graphql` as the endpoint when creating the API.
     
     Let's create an API named "StarWarsAPI" using the following sample data.
       
@@ -89,7 +104,7 @@ Follow the instructions below to design a GraphQL API
     <p>Endpoint</p>
     </td>
     <td>
-    <a href="https://api.graph.cool/simple/v1/swapi" target="_blank">https://api.graph.cool/simple/v1/swapi</a>
+    <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
     </td>
     </tr>
     <tr>
@@ -102,7 +117,7 @@ Follow the instructions below to design a GraphQL API
     </tr>
     </table>
       
-    [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-api-details.png)]({{base_path}}/assets/img/learn/add-graphql-api-details.png)
+    [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png)]({{base_path}}/assets/img/learn/create-graphql-api-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 
