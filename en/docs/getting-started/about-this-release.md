@@ -177,6 +177,10 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
      Out-of-the-box support to generate an opaque access token via the Developer Portal has been removed. Application Developers can create applications that only generate a **JWT** type access tokens. Applications that are migrated from older versions, will have the support to generate either an opaque access token or a JWT type access token. 
      
      Similar to previous versions, application developers will get the OAuth2 bearer tokens while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.  
+
+- **Access token validity period in the Developer Portal**
+    
+    Access token validity period setting via the Developer Portal has been removed. Refer [Changing the Default Token Expiration Time](https://apim.docs.wso2.com/en/3.2.0/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time/) for the new set of configurations.
      
 - **WSO2 Identity Server as a Key Manager** 
      
