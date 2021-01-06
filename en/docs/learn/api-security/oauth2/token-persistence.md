@@ -1,8 +1,8 @@
 # Token Persistence
 
-This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. The OAuth2 component in WSO2 API Manager has two implementations that you can use to handle token persistence in the database, which are namely synchronous and asynchronous token persistence. 
+This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. The OAuth2 component in WSO2 API Manager(WSO2 API-M) has two implementations you can use to handle token persistence in the database, which are namely synchronous and asynchronous token persistence. 
 
-The following sections guide you through the difference between these two approaches and how to configure them in a production environment.
+The following sections guide you through the difference between these two approaches and how to configure them in a production environment.
 
 -   [Synchronous token persistence](#synchronous-token-persistence)
 -   [Asynchronous token persistence](#asynchronous-token-persistence)
@@ -120,4 +120,3 @@ The process flow now moves on to the recovery flow in order to handle the `CON_A
 -   As the same thread is being used, the OAuth2 component in the second node checks the database again for an ACTIVE access token.
 -   As there is now an ACTIVE token, which was persisted by the first node, the second node now returns the access token persisted by the first node to the client.
 -   Both access token requests receive the same access token.
-
