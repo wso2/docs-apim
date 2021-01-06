@@ -1,6 +1,6 @@
 # Siddhi Application Overview
 
-A Siddhi application (.siddhi) file is the deployment artifact containing the Stream Processing logic for WSO2 Streaming Integrator.
+A Siddhi application (.siddhi) file is the deployment artifact containing the Streaming Integration logic for WSO2 Streaming Integrator.
 
 The format of a Siddhi application is as follows:
 
@@ -74,6 +74,6 @@ Aggregation allows you to aggregate streaming events for different time granular
 
   
 
-The elements mentioned above work together in a Siddhi application to form an event flow. To understand how the elements os a Siddhi application are interconnected, you can view the design view of a Siddhi application. For more information, see [Stream Processor Studio Overview](https://docs.wso2.com/display/SP440/Stream+Processor+Studio+Overview#StreamProcessorStudioOverview-Open).
+The elements mentioned above work together in a Siddhi application to form an event flow. To understand how the elements os a Siddhi application are interconnected, you can view the design view of a Siddhi application. For more information, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
   

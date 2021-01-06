@@ -7,7 +7,7 @@ This section provides an overview of the design view of the Streaming Integrato
 To open the design view of the Streaming Integrator Tooling:
 
 1.  Start the Streaming Integrator Tooling and log in with your credentials. For detailed instructions, see 
-    [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling](Stream-Processor-Studio-Overview_112390916.html#StreamProcessorStudioOverview-StartingStreamProcessorStudio).
+    [Streaming Integrator Tooling Overview - Starting Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integration-studio).
 
 2.  Click **New** and open a new Siddhi file, or click **Open** and open an existing Siddhi file.
 
@@ -1316,5 +1316,5 @@ demonstrated below.
 
 ## Saving and running Siddhi applications
 
-To save a Siddhi application that you created in the design view, you need to switch to the source view. You also need to switch to the source view to run a Siddhi application. For more information, see [Streaming Integrator Tiooling Overview](streaming-integrator-studio-overview.md).
+To save a Siddhi application that you created in the design view, you need to switch to the source view. You also need to switch to the source view to run a Siddhi application. For more information, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 

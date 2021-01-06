@@ -3,7 +3,7 @@
 Siddhi applications are files that define the Siddhi logic to process
 the events sent to the Streaming Integrator. They are written in the [Siddhi Query
 Language](https://siddhi-io.github.io/siddhi/documentation/siddhi-4.x/query-guide-4.x/)
-using the [Streaming Integrator Tooling](streaming-integrator-studio-overview.md).
+using the [Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
 A Siddhi file contains the following configurations:
 
@@ -21,11 +21,11 @@ A Siddhi file contains the following configurations:
 </tr>
 <tr class="even">
 <td>Source</td>
-<td>This consumes data from external sources (such as <code>             TCP            </code> , <code>             Kafka            </code> , <code>             HTTP            </code> , etc) in the form of events, then converts each event (that can be in <code>             XML            </code> , <code>             JSON            </code> , <code>             binary            </code> , etc. format) to a Siddhi event, and passes that to a stream for processing.</td>
+<td>This consumes data from external sources (such as <code>TCP</code>, <code>Kafka</code>, <code>HTTP</code>, etc) in the form of events, then converts each event (that can be in <code>XML</code>, <code>JSON</code>, <code>binary</code>, etc. format) to a Siddhi event, and passes that to a stream for processing.</td>
 </tr>
 <tr class="odd">
 <td>Sink</td>
-<td>This takes events arriving at a stream, maps them to a predefined data format (such as <code>             XML            </code> , <code>             JSON,            </code> <code>             binary            </code> , etc), and publishes them to external endpoints (such as <code>             E-mail            </code> , <code>             TCP            </code> , <code>             Kafka            </code> , <code>             HTTP            </code> , etc).</td>
+<td>This takes events arriving at a stream, maps them to a predefined data format (such as <code>XML</code>, <code>JSON</code>, <code>binary</code>, etc), and publishes them to external endpoints (such as <code>E-mail</code>, <code>TCP</code>, <code>Kafka</code>, <code>HTTP</code>, etc).</td>
 </tr>
 <tr class="even">
 <td>Executional Element</td>
@@ -93,7 +93,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
                        <p>This stream contains two stream configurations:</p>
                        <ul>
                           <li>
-                             <p><code>                   SweetProductionStream                  </code></p>
+                             <p><code>SweetProductionStream</code></p>
                              <div class="code panel pdl" style="border-width: 1px;">
                                 <div class="codeContent panelContent pdl">
                                    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: sql; gutter: false; theme: Confluence">
@@ -101,10 +101,10 @@ To create a Siddhi application via the source view of the Streaming Integrator T
                                    </div>
                                 </div>
                              </div>
-                             <p>This is the input stream that defines the schema based on which events are selected to be processed by the <code>                   SweetProductionAnalysis                  </code> Siddhi application. Events received via the source in this application are directed to this stream.</p>
+                             <p>This is the input stream that defines the schema based on which events are selected to be processed by the <code>SweetProductionAnalysis</code> Siddhi application. Events received via the source in this application are directed to this stream.</p>
                           </li>
                           <li>
-                             <p><code>                   ProductionAlertStream                                     </code></p>
+                             <p><code>ProductionAlertStream</code></p>
                              <div class="code panel pdl" style="border-width: 1px;">
                                 <div class="codeContent panelContent pdl">
                                    <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: sql; gutter: false; theme: Confluence">
@@ -135,7 +135,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
                        <ul>
                           <li>
                              <pre><code>@Source(type = ‘tcp’, context=&#39;SweetProductionData&#39;</code></pre>
-                             <p>This configuration defines <code>                   tcp                  </code> as the transport via which events are received to be processed by the <code>                   SweetProductionAnalysis                  </code> Siddhi application.</p>
+                             <p>This configuration defines <code>tcp</code> as the transport via which events are received to be processed by the <code>SweetProductionAnalysis</code> Siddhi application.</p>
                           </li>
                           <li>
                              <pre><code>@map(type=&#39;binary&#39;))
@@ -187,11 +187,11 @@ To create a Siddhi application via the source view of the Streaming Integrator T
                        <ul>
                           <li>
                              <pre><code>@sink(type=&#39;log&#39;)</code></pre>
-                             <p>This configuration defines <code>                   log                  </code> as the transport via which the processed events are published from the <code>                   ProductionAlertStream                  </code> output stream. Log sink simply publishes events into the console.</p>
+                             <p>This configuration defines <code>log</code> as the transport via which the processed events are published from the <code>ProductionAlertStream</code> output stream. Log sink simply publishes events into the console.</p>
                           </li>
                           <li>
                              <pre><code>@map(type=&#39;json&#39;))</code></pre>
-                             <p>This configuration defines the output mapping. Events are published with the <code>                  json                 </code> mapping type. Json mapper converts the events in the <code>                  ProductionAlertStream                 </code> to the Json format.</p>
+                             <p>This configuration defines the output mapping. Events are published with the <code>json</code> mapping type. Json mapper converts the events in the <code>ProductionAlertStream</code> to the Json format.</p>
                           </li>
                        </ul>
                        You can select the sink type and the map type from the **Operator Finder**.
@@ -209,7 +209,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
                              </div>
                           </div>
                        </div>
-                       <p>This is where the logic of the siddhi app is defined. In this scenario, all the events received in the <code>                 SweetProductionStream                </code> input stream are inserted into the <code>                 ProductionAlertStream                </code> output stream.</p>
+                       <p>This is where the logic of the siddhi app is defined. In this scenario, all the events received in the <code>SweetProductionStream</code> input stream are inserted into the <code>ProductionAlertStream</code> output stream.</p>
                     </div>
                  </td>
               </tr>
