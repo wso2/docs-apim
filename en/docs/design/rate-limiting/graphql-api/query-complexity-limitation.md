@@ -128,27 +128,26 @@ To invoke a GraphQL API, see
 To perform **GraphQL Query Complexity Limitation**: 
 
    a. Click **Complexity Analysis** tab to see the Complexity values of the fields.
-   [![GraphQL Complexity Limitation]({{base_path}}/assets/img/learn/graphql-complexity-values-read-only.png)]({{base_path}}/assets/img/learn/graphql-complexity-values-read-only.png)
+   [![GraphQL Complexity Limitation]({{base_path}}/assets/img/learn/graphql-complexity-analysis.png)]({{base_path}}/assets/img/learn/graphql-complexity-analysis.png)
 
    b. Enter the following sample query. Then click on execute button as follows.
 
    ```
-       query{
-             allFilms(first: 5){           
-                  id                       
-                  title                     
-                  planets(first: 2) {        
-                        climate 
-                        films(first: 5) {
-                               createdAt
-                               director
-                        }          
-                  }
-             }
-       }
+    query{
+      allHumans(first:6){
+        id
+        name
+        friendsConnection(first:5){
+          totalCount
+          friends{
+            name
+          }
+        }
+      }
+    }
 
    ```
-   [![GraphQL Complexity Limitation]({{base_path}}/assets/img/learn/graphql-complexity-limitation-query.png)]({{base_path}}/assets/img/learn/graphql-complexity-limitation-query.png)
+   [![GraphQL Complexity Limitation]({{base_path}}/assets/img/learn/graphql-complexity-limitation-console.png)]({{base_path}}/assets/img/learn/graphql-complexity-limitation-console.png)
 
 You have now **successfully blocked a requested GraphQL query** using the **Max Complexity** value that you assigned before.
 
