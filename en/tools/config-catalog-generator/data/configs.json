@@ -3843,6 +3843,324 @@
                 }
             ],
             "exampleFile": "token_persistence.toml"
+        },
+        {
+            "title": "User Store Properties",
+            "options": [
+                {
+                    "name": "user_store.properties",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "TenantManager",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "org.wso2.carbon.user.core.tenant.JDBCTenantManager, org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager",
+                            "description": ""
+                        },
+                        {
+                            "name": "MaxUserNameListLength",
+                            "type": "int",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users."
+                        },
+                        {
+                            "name": "ConnectionURL",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Connection URL to the user store server. In the case of default LDAP in Carbon, the port is specified in the carbon.xml file, and a reference to that port is included in this configuration."
+                        },
+                        {
+                            "name": "ConnectionName",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The username used to connect to the database and perform various operations. This user does not have to be an administrator in the user store or have an administrator role in the WSO2 product that you are using, but this user MUST have permissions to read the user list and users' attributes and to perform search operations on the user store. The value you specify is used as the DN ( Distinguish Name ) attribute of the user. This property is mandatory."
+                        },
+                        {
+                            "name": "ConnectionPassword",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password for the ConnectionName user."
+                        },
+                        {
+                            "name": "DisplayNameAttribute",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "This is an optional property. The Display Name Attribute is the name by which users will be listed when you search for users in the management console (Go to Configuration -> Users tab)."
+                        },
+                        {
+                            "name": "PasswordHashMethod",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password hash method to use when storing user entries in the user store."
+                        },
+                        {
+                            "name": "UserNameListFilter",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "SHA SHA-1 SHA-256 MD5 PLAIN_TEXT",
+                            "description": "Filtering criteria for listing all the user entries in the user store. This query or filter is used when doing search operations on users. In this case, the search operation only provides the objects created from the specified class. This query is the same as listing out all the available users in the management console."
+                        },
+                        {
+                            "name": "UserEntryObjectClass",
+                            "type": "string",
+                            "required": false,
+                            "default": "wso2Person",
+                            "possible": "",
+                            "description": "Object class used to construct user entries. By default, it is a custom object class defined with the name wso2Person ."
+                        },
+                        {
+                            "name": "UserSearchBase",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "DN of the context or object under which the user entries are stored in the user store. In this case, it is the \"users\" container. When the user store searches for users, it will start from this location of the directory. Different databases have different search bases."
+                        },
+                        {
+                            "name": "UserNameSearchFilter",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Filtering criteria used to search for a particular user entry."
+                        },
+                        {
+                            "name": "UserNameAtribute",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username."
+                        },
+                        {
+                            "name": "PasswordJavaScriptRegEx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Policy that defines the password format."
+                        },
+                        {
+                            "name": "UsernameJavaScriptRegEx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The regular expression used by the front-end components for username validation."
+                        },
+                        {
+                            "name": "UsernameJavaRegEx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "A regular expression to validate usernames. By default, strings have a length of 5 to 30. Only non-empty characters are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties."
+                        },
+                        {
+                            "name": "PasswordJavaRegEx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "(LDAP and JDBC) A regular expression to validate passwords. By default, strings having a length between 5 to 30 with non-empty characters are allowed."
+                        },
+                        {
+                            "name": "RolenameJavaRegEx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "A regular expression to validate role names. By default, strings having a length between 5 to 30 with non-empty characters are allowed."
+                        },
+                        {
+                            "name": "ReadGroups",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "true false",
+                            "description": "Specifies whether groups should be read from the user store. If this is disabled by setting it to false , none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase , GroupNameListFilter , or GroupNameAttribute ."
+                        },
+                        {
+                            "name": "WriteGroups",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "true false",
+                            "description": "Specifies whether groups should be written to user store."
+                        },
+                        {
+                            "name": "GroupSearchBase",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "DN of the context under which user entries are stored in the user store."
+                        },
+                        {
+                            "name": "GroupNameListFilter",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Filtering criteria for listing all the group entries in the user store. Groups are created in LDAP using the \"groupOfName\" class. The group search operation only returns objects created from this class."
+                        },
+                        {
+                            "name": "GroupEntryObjectClass",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Object class used to construct group entries."
+                        },
+                        {
+                            "name": "GroupNameSearchFilter",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Filtering criteria used to search for a particular group entry."
+                        },
+                        {
+                            "name": "GroupNameAttribute",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Attribute used for uniquely identifying a user entry. This attribute is to be treated as the group name."
+                        },
+                        {
+                            "name": "MembershipAttribute",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Attribute used to define members of groups."
+                        },
+                        {
+                            "name": "MembershipAttributeRange",
+                            "type": "int",
+                            "required": false,
+                            "default": "1500",
+                            "possible": "",
+                            "description": "Attribute used by Active Directories where they need limit membership attributes. The default value for this is 1500."
+                        },
+                        {
+                            "name": "UserRoleCacheEnabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true false",
+                            "description": "This is to indicate whether to cache the role list of a user. By default this is set to true . Set it to false if the user roles are changed by external means and those changes should be instantly reflected in the Carbon instance."
+                        },
+                        {
+                            "name": "UserDNPattern",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "(LDAP) The patten for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users."
+                        },
+                        {
+                            "name": "ReplaceEscapeCharactersAtUserLogin",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "(LDAP) If the user name has special characters it replaces it to validate the user logging in. Only \" \\ \" and \" \\\\ \" are identified as escape characters."
+                        },
+                        {
+                            "name": "MultiTenantRealmConfigBuilder",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Tenant Manager specific realm config parameter. Can be used to build different types of realms for the tenant."
+                        },
+                        {
+                            "name": "LDAPConnectionTimeout",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "If the connection to an LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated."
+                        },
+                        {
+                            "name": "SCIMEnabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "This is to configure whether user store is supported for SCIM provisioning."
+                        },
+                        {
+                            "name": "kdcEnabled",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "If your user store is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true."
+                        },
+                        {
+                            "name": "ConnectionPoolingEnabled",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Define whether LDAP connection pooling is enabled"
+                        },
+                        {
+                            "name": "ReadTimeout",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The value of this property is the read timeout in milliseconds for LDAP operations. If the LDAP provider cannot get a LDAP response within that period, it aborts the read attempt. The integer should be greater than zero. An integer less than or equal to zero means no read timeout is specified which is equivalent to waiting for the response infinitely until it is received."
+                        },
+                        {
+                            "name": "RetryAttempts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Retry the authentication request if a timeout happened"
+                        },
+                        {
+                            "name": "BackLinksEnabled",
+                            "type": "string",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to true."
+                        },
+                        {
+                            "name": "UserCoreCacheTimeOut",
+                            "type": "string",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "User core cache expiration duration"
+                        }
+
+                    ]
+                }
+            ],
+            "exampleFile": "user_store.properties.toml"
         }                                                                                           
     ]
 }
