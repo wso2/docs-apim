@@ -2,7 +2,7 @@
 
 This section explains how to configure analytics for WSO2 API Manager (WSO2 API-M). The API Manager integrates with the [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) to provide reports, statistics and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and carry out detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to API Manager specific scenarios which is used here to configure APIM Analytics.
 
-Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
+Refer to the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer to the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
 
 !!! note
       -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Enterprise Integrator 7.0.x - Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
@@ -24,7 +24,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     
 2.  Download and install WSO2 API-M Analytics.
 
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options. Navigate to the **Other Resources** section, and click **Analytics**. 
 
     As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
@@ -34,7 +34,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
        <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
-                        Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
+                        Because the default configurations such as database connection URLs etc are configured assuming that both the packs are inside the same folder.
                         </p>
                         ![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
        </div>
@@ -100,8 +100,8 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
     
 #### Step 2 - Download and install WSO2 API-M Analytics
 
-To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-<br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options. Navigate to the **Other Resources** section, and click **Analytics**. 
+<br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information, go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
   ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
@@ -439,7 +439,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
 
 #### Step 5 - Configure APIM IdP Client
 
-APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
+APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
 Furthermore, APIM IdP client functionality can be controlled via the properties defined in the <APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml file under the auth.configs namespace as shown below.
 
@@ -487,15 +487,13 @@ auth.configs:
 | `cacheTimeout`| 900 | The cache timeout for the validity period of the token in seconds.|
 | `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
 | `grantType`| authorization_code | The grant type used in the OAuth application token request.|
-| `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
-| `storeUrl`| https://localhost:9443 | Url which the API Manager Developer Portal is running. Add this config if the Developer Portal and Publisher are running in two separate nodes.|
-| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
+| `publisherUrl`| https://localhost:9443 | URL which the API Manager publisher is running.|
+| `storeUrl`| https://localhost:9443 | URL which the API Manager Developer Portal is running. Add this config if the Developer Portal and Publisher are running in two separate nodes.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node URL.|
 
 
 #### Step 6 - Configure keystores
 
-In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
+In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e., API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
-
-
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores).
