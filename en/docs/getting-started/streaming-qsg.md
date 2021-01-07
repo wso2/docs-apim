@@ -8,24 +8,20 @@ In this guide, you will download the SI distribution as well as Kafka, and then 
 
 The following is the outline of this quick start guide.
 
-## Step 1: Download the Streaming Integrator
+![Quick Start Guide Outline]({{base_path}}/assets/img/streaming/qsg/quick-start.png)
 
-Download the Streaming Integrator distribution from [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract it to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>`.
-
-## Step 2: Start the Streaming Integrator
+!!! tip "Before you begin:"
+    - Download the Streaming Integrator distribution from [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract it to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>`.<br/><br/>
+    - Download the Kafka broker from [the Apache site](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz) and extract it. This directory is referred to as `<KAFKA_HOME>` from here on.
+    
+## Step 1: Start the Streaming Integrator
 
 To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
 
 - **For Linux**: `./server.sh`
 - **For Windows**: `server.bat --run`
 
-## Step 3: Download Kafka
-
-Download the Kafka broker from [the Apache site](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz) and extract it.
-This directory is referred to as `<KAFKA_HOME>` from here on.
-
-
-## Step 4: Create and deploy a simple Siddhi application
+## Step 2: Create and deploy a simple Siddhi application
 
 Let's create a simple Siddhi application that reads data from a CSV file, does a simple transformation to the data, and then publishes the results to a Kafka topic so that multiple subscriber applications can have access to that data.
 
@@ -37,7 +33,7 @@ Let's create a simple Siddhi application that reads data from a CSV file, does a
 2. Open a text file and copy-paste following Siddhi application into it.
 
     !!! tip
-        Here, you are instructed to use a text editor to deploy a Siddhi Application that is already tested in order to minimize the time you spend to follow this guide. It is recommended to design Siddhi application via Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information, see [Streaming Integrator Tooling Overview](../develop/streaming-apps/streaming-integrator-studio-overview.md).
+        Here, you are instructed to use a text editor to deploy a Siddhi Application that is already tested in order to minimize the time you spend to follow this guide. It is recommended to design Siddhi application via Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
     ```
     @App:name('ManageProductionStats')
@@ -67,7 +63,7 @@ Let's create a simple Siddhi application that reads data from a CSV file, does a
 
     `INFO {org.wso2.carbon.siddhi.editor.core.internal.WorkspaceDeployer} - Siddhi App ManageProductionStats.siddhi successfully deployed.`
     
-## Step 5: Install the required extensions
+## Step 3: Install the required extensions
 
 The `ManageProductionStats` Siddhi application uses a Kafka sink. However, the Siddhi extension for Kafka is not installed by default. To install it so that the Siddi application can integrate with Kafka as expected, follow the steps below:
 
@@ -84,7 +80,7 @@ The `ManageProductionStats` Siddhi application uses a Kafka sink. However, the S
 3. Restart the WSO2 Streaming Integrator server as instructed.
 
 
-## Step 6: Start Kafka and create a topic
+## Step 4: Start Kafka and create a topic
 
 Let's start the Kafka server and create a Kafka topic so that the `ManageProductionStats.siddhi` application you created can publish its output to it.
 
@@ -105,7 +101,7 @@ To create a Kafka topic named `total_production`:
     `bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic total_production`
     
 
-## Step 7: Test your Siddhi application
+## Step 5: Test your Siddhi application
 
 To test the `ManageProductionStats` Siddhi application you created, follow the steps below.
  
@@ -134,4 +130,9 @@ You can see the following message in the Kafka Consumer log.
 {"event":{"name":"Baked alaska","amount":260.0}}
 {"event":{"name":"Toffee","amount":320.0}}
 ```
+
+!!! tip "What's Next?"
+    Once you try out this quick start guide, you can proceed to one of the following sections.<br/><br/>
+    - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview/).
+    - Start using the Streaming Integrator. For more information and instructions about Streaming Integration functionality, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).
 
