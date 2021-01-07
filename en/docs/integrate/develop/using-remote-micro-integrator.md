@@ -19,17 +19,17 @@ However, when your solutions are ready to be moved to your production environmen
 
 1.  Open the <b>Getting Started</b> view and click <b>Add Server</b> to open the <b>New Server</b> dialog box.
     
-    <img src="../../assets/img/testing-integrations/is_getting_started_page.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/is_getting_started_page.png" width="700">
 
 2.  In the <b>New Server</b> dialog box that opens, expand the WSO2 folder and select the version of your server.
 
-    <img src="../../assets/img/testing-integrations/new-server-choose-type.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-choose-type.png" width="500">
 
 3.  Click <b>Next</b>. In the CARBON_HOME field, provide the path to your product's home directory and then click <b>Next</b>.
 
 4.  Review the default port details for your server and click <b>Next</b>.
     
-    <img src="../../assets/img/testing-integrations/new-server-mi-port-settings.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-mi-port-settings.png" width="500">
 
     !!! Note
 		If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
@@ -40,17 +40,17 @@ However, when your solutions are ready to be moved to your production environmen
 ## Deploy and run artifacts in a remote instance
 
 1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.
-    <img src="../../assets/img/testing-integrations/new-server-add-capps.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-capps.png" width="500">
 
-2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="../../assets/img/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
+2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="../..{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
 
-    <img src="../../assets/img/testing-integrations/new-server-start.png" width="500">   
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-start.png" width="500">   
 
 ## Deploy, redeploy, or remove artifacts in a remote instance
 
 - To deploy/remove C-Apps, right-click the server, click <b>Add and Remove</b> and follow the instructions on the wizard.
 
-    <img src="../../assets/img/testing-integrations/new-server-add-remove-capps.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-remove-capps.png" width="500">
 
 - If you want to redeploy a C-App after modifying the included artifacts, select the already deployed C-App, right-click and click <b>Redeploy</b>.
 

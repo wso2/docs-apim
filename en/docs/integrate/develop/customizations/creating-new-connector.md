@@ -100,7 +100,7 @@ Now, let's look at how you can use the new connector in a mediation sequence.
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
 3. [Create a custom proxy service](../../../develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Design View**, you will note that the new connector is added to the tool palette.
-    <img src="../../../assets/img/create_artifacts/new-connector-pallet.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-connector-pallet.png" width="500">
 
 4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Propertry** mediator, the new **googleBooks** connector, and the **Respond** mediator:
     ```xml
@@ -137,7 +137,7 @@ You need to package the new connector file and the proxy service separately.
     !!! Tip
         Note that you need to add both the **Connector Exporter project** as well as the **ESB Config project** as dependencies because the connector is referred from the proxy service.
 
-    <img src="../../../assets/img/create_artifacts/new-capp-project-with-depenencies.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-capp-project-with-depenencies.png" width="500">
 
     See the instructions on [packaging ESB artifacts](../../../develop/packaging-artifacts/#creating-a-new-composite-application).
 
@@ -145,7 +145,7 @@ You need to package the new connector file and the proxy service separately.
 
 1.  Open the POM file for the composite application project and ensure that the **Connector Exporter** project as well as the **ESB Config** project are selected as dependencies.
     
-    <img src="../../../assets/img/create_artifacts/capp-dependencies.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/capp-dependencies.png" width="500">
     
 2.  Right-click the Composite Application project and click **Export Project Artifacts and Run**. 
 

@@ -9,11 +9,11 @@ Follow the steps given below to create the datasource file:
 1.  Select the already created [**Datasource Config module**](../../../creating-projects/#datasource-project) in the project
     navigator, right-click, and go to **New -> Datasource**.
 
-    <img src="../../../../assets/img/data-services/create-datasource.png">
+    <img src="{{base_path}}/assets/img/integrate/data-services/create-datasource.png">
 
     The **New Datasource** window will open as shown below. 
 
-    <img src="../../../../assets/img/data-services/create-datasource-dialog.png"> 
+    <img src="{{base_path}}/assets/img/integrate/data-services/create-datasource-dialog.png"> 
 
 2.  Select your [**datasource config module**](../../../creating-projects/#datasource-project) as the **Container**, add the file name for your datasource, and click **Finish**.
 

@@ -8,11 +8,11 @@ Follow these steps to create a new, reusable sequence that you can add to your m
 
 1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Sequence** to open the **New Sequence Artifact** dialog box.  
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/select-sequence.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/select-sequence.png" width="500">
 
 2.  Select **Create New Sequence** and click **Next**.
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/new-sequence-wizard-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-1.png" width="500">
 
 3.  Specify a unique name for the sequence.
 
@@ -20,7 +20,7 @@ Follow these steps to create a new, reusable sequence that you can add to your m
         **Creating a Main Sequence**:
         If you want to create the default main sequence that just sends messages without mediation, be sure to name it `main`, which automatically populates the sequence with the default **In** and **Out** sequences.
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/new-sequence-wizard-2-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-2-1.png" width="500">
 
 4.  In the **Save Sequence in** field, specify the location to save the sequence:
     -   To save the sequence in an existing ESB Config project in your workspace, click **Browse** and select that project. Else, click **Create new Project** and create the new project.
@@ -31,7 +31,7 @@ Follow these steps to create a new, reusable sequence that you can add to your m
             Else, click **Create new Project** to create a new registry project.
         4.  Type the sequence name in the **Registry Path** field.
 
-        <img src="../../../assets/img/create_artifacts/new_sequence/new-sequence-wizard-2-2.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/new-sequence-wizard-2-2.png" width="500">
 
 5.  Click **Finish**. 
 
@@ -43,7 +43,7 @@ The sequence is also available in the **Defined Sequences** section of the **Pal
 
 1.  Open your proxy service, drag the **Sequence Mediator** from the **Palette** to the canvas. This represents a sequence artifact.
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/add-sequence-mediator.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/add-sequence-mediator.png" width="700">
 
 2.  If required, change the name of the sequence.
 3.  Double-click the sequence mediator you just added. The canvas of the new sequence opens in the graphical editor.
@@ -56,16 +56,15 @@ When you create a sequence, it appears in the **Defined Sequences** section of t
 
 1.  When you sequence artifact from the **Config** project in the project explorer, you will see the default **Design** view.
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/sequence-design-view.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-design-view.png" width="800">
 
 2.  Drag and drop the required integration artifacts from the **Palette** to the canvas and design the integration flow.
 
-    <img src="../../../assets/img/create_artifacts/new_sequence/sequence-graphical-editor.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-graphical-editor.png" width="800">
 
 To use a sequence from a different project or from the registry, you need to use the [Sequence Mediator]():
 
 1.  Drag and drop the **Sequence Mediator** from the **Palette** to the mediation flow.
-
 
 2.  Click the **Sequence Mediator** icon to open the **Properties** tab:
 
@@ -85,7 +84,7 @@ You can also use the [**Source** view](#using-the-source-view) to update the seq
 
 Click the **Source** tab to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the sequence using this view.
 
-<img src="../../../assets/img/create_artifacts/new_sequence/sequence-source-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/sequence-source-view.png" width="800">
 
 ## Examples
 

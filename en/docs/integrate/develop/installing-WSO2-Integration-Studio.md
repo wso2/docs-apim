@@ -45,7 +45,7 @@ If you have already installed and set up WSO2 Integration Studio, you can get th
 1.  Open WSO2 Integration Studio on your computer.
 2.  Go to **Help** -> **Check for Updates**.
 
-    <img src="../../assets/img/get-tooling-updates.png" alt="get tooling updates" width="300">
+    <img src="{{base_path}}/assets/img/integrate/get-tooling-updates.png" alt="get tooling updates" width="300">
 
 3.  Once the update check is completed, you can select all the available updates and install.
 
@@ -56,7 +56,7 @@ You can check the version of the Integration Studio as below.
 * For MacOS : Integration Studio > About Integration Studio
 * For Windows/Linux : Help > About Integration Studio
 
-    <img src="../../assets/img/about-integration-studio.png" alt="get studio information" width="400">
+    <img src="{{base_path}}/assets/img/integrate/about-integration-studio.png" alt="get studio information" width="400">
 
 ### Troubleshooting
 

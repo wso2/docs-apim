@@ -18,7 +18,7 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 You need to copy the built jar file to the `MI_HOME/lib` directory and restart the Micro Integrator to load the class.
 To copy the jar file to the <b>Embedded Micro Integrator</b>, open the <b>Embedded Micro 
-Integrator Server Configuration Wizard</b> by clicking on the (<img src="../../assets/img/tutorials/common/server-config-64x64.png" width="20">)
+Integrator Server Configuration Wizard</b> by clicking on the (<img src="{{base_path}}/assets/img/integrate/tutorials/common/server-config-64x64.png" width="20">)
 icon on the upper menu and add the jar to select libraries section.
 
 ### Step 3: Adding the custom Inbound Endpoint

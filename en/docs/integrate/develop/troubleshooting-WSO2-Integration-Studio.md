@@ -7,7 +7,7 @@ The following are some of the ways to troubleshoot errors that you may encounter
 Once you add an artifact, you need to refresh the `CompositeApplication.pom`
 file to reflect new changes on the Composite Application.
 
-![troubleshooting](../assets/img/workbench/refresh-integration-studio.png)
+![troubleshooting]({{base_path}}/assets/img/integrate/workbench/refresh-integration-studio.png)
 
 ## Restoring the project perspective
 
@@ -71,7 +71,7 @@ at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
 
 This error is because the **Docker UI** installation on your MacOs has a feature that stores Docker credentials on Mac Keychain. To fix this, you must disable this feature from the Docker UI. Also, this will automatically be saved in your `~/.docker/config.json` file.
 
-![docker ui](../../assets/img/docker-ui.png)
+![docker ui]({{base_path}}/assets/img/integrate/docker-ui.png)
 
 ## Error creating Docker image (on Windows)
 
@@ -112,11 +112,11 @@ Follow the steps given below.
 1.  Right-click the Docker icon in the **Notifications** area (or System tray) to open the [**Docker Desktop**](https://docs.docker.com/docker-for-windows/) menu.
 2.  Select **Settings**.
 
-    ![Docker Desktop menu](../../assets/img/docker-desktop-menu-windows.png)
+    ![Docker Desktop menu]({{base_path}}/assets/img/integrate/docker-desktop-menu-windows.png)
 
 3.  In the **Settings** dialog box that opens, select **Expose daemon on tcp without TLS**.
 
-    ![Docker settings tab](../../assets/img/docker-ui-setting-windows.png)
+    ![Docker settings tab]({{base_path}}/assets/img/integrate/docker-ui-setting-windows.png)
 
 4.  Restart Docker to apply the changes.
 
@@ -133,6 +133,6 @@ To get details of a WSO2 Integration Studio error:
 
     This will open the **Error Log** tab in WSO2 Integration Studio:
 
-    ![error log tab](../../assets/img/error-log-tab.png)
+    ![error log tab]({{base_path}}/assets/img/integrate/error-log-tab.png)
 
 3.  Double-click the required error to see the details.

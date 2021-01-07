@@ -7,15 +7,15 @@ Follow the instructions given below to create a new [Proxy Service](../../../ref
 ### Creating the Proxy Service artifact
 
 1.  Right-click the project in the navigator and go to **New → Proxy Service** to open the **New Proxy Service** dialog box.     
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/select-new-proxy.png">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/select-new-proxy.png">
 
 2.  Select **Create New Proxy Service** and click **Next**.
 
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/create-new-proxy-option.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/create-new-proxy-option.png" width="500">
 
 3.  Enter a unique name for the proxy service and select a proxy service template from the list shown below. These templates will automatically generate the mediation flow that is required for each use case.
 
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/new-proxy-artifact-dialog.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/new-proxy-artifact-dialog.png" width="500">
 
     <table>
     <tr class="header">
@@ -62,11 +62,11 @@ The proxy service is created in the `src/main/synapse-config/proxy-services` fol
 
 When you open the proxy service from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
 
-<img src="../../../assets/img/create_artifacts/new_proxy_service/proxy-service-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/proxy-service-design-view.png" width="800">
 
 Drag and drop the required integration artifacts from the **Palette** to the canvas and design the integration flow.
 
-<img src="../../../assets/img/create_artifacts/new_proxy_service/proxy-service-graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/proxy-service-graphical-editor.png" width="800">
 
 ### Updating the properties
 
@@ -74,7 +74,7 @@ To add service-level properties to the proxy service from the **Design** view:
 
 1.  Double-click the **Proxy Service** icon to open the <b>Properties</b> tab for the service.
 
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/proxy-service-properties.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/proxy-service-properties.png" width="700">
 
 2.  Expand each section and add the required parameters.
 
@@ -82,11 +82,11 @@ To add service-level transport parameters:
 
 1.  Go to the **Properties** tab and expand the **Parameters** section as shown below.
 
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/service-level-params.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/service-level-params.png" width="700">
 
-2.  Click the **plus** <img src="../../../assets/img/common/plus-icon.png" width="20"> icon and add the parameter name and value as a key-value pair:
+2.  Click the **plus** <img src="{{base_path}}/assets/img/integrate/common/plus-icon.png" width="20"> icon and add the parameter name and value as a key-value pair:
 
-    <img src="../../../assets/img/create_artifacts/new_proxy_service/service-level-params-dialog.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/service-level-params-dialog.png" width="500">
 
 See the following links for the list of transport parameters you can use:
 
@@ -103,7 +103,7 @@ See the following links for the list of transport parameters you can use:
 
 Click the **Source** tab to view the XML-based synapse configuration (source code) of the proxy service. You can update the service using this view.
 
-<img src="../../../assets/img/create_artifacts/new_proxy_service/proxy-service-source-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/proxy-service-source-view.png" width="800">
 
 ## Examples
 

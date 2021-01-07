@@ -12,11 +12,11 @@ You can refer to the following video to get a quick understanding of how this is
 
 1.  Right-click the **Config** project in the project explorer and go to **New → REST API**.
 
-    <img src="../../../assets/img/create_artifacts/new-artifact.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="500">
 
 2.  In the dialog box that opens, select one of the given options for creating the API artifact:
 
-    <img src="../../../assets/img/create_artifacts/new_api/create-new-api-option.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/create-new-api-option.png" width="500">
 
     <table>
         <tr>
@@ -49,7 +49,7 @@ You can refer to the following video to get a quick understanding of how this is
 
     -   If you selected **Create a New API** in the previous step, enter the basic details that are required for creating the synapse configuration (XML) of the API:
 
-        <img src="../../../assets/img/create_artifacts/new_api/new-api-artifact-dialog.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-artifact-dialog.png" width="500">
 
         <table>
             <tr>
@@ -91,7 +91,7 @@ You can refer to the following video to get a quick understanding of how this is
 
     -   If you selected **Generate API using Swagger Definition** in the previous step, enter the details of your custom Swagger file:
 
-        <img src="../../../assets/img/create_artifacts/new_api/new-api-swagger-dialog.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-swagger-dialog.png" width="500">
 
         <table>
             <tr>
@@ -124,7 +124,7 @@ You can refer to the following video to get a quick understanding of how this is
 
     -   If you selected **Import API Artifact** in the previous step, enter the following information:
 
-        <img src="../../../assets/img/create_artifacts/new_api/import-api-dialog.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/import-api-dialog.png" width="500">
 
         <table>
             <tr>
@@ -150,17 +150,17 @@ You can refer to the following video to get a quick understanding of how this is
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
     -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
 
-    <img src="../../../assets/img/create_artifacts/new_api/project-explorer.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="300">
 
 ### Designing the integration
 
 When you open the REST API from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
 
-<img src="../../../assets/img/create_artifacts/new_api/api-artifact-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.png" width="800">
 
 Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
 
-<img src="../../../assets/img/create_artifacts/new_api/graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.png" width="800">
 
 You can also use the [**Source** view](#using-the-source-view) or the [**Swagger** editor](#using-the-swagger-editor) to update the API configuration.
 
@@ -168,7 +168,7 @@ You can also use the [**Source** view](#using-the-source-view) or the [**Swagger
 
 When you create the API, an API resource is created by default. If you want to add a new resource, click **API Resource** in the **Pallet** and simply drag and drop the resource to the REST API.
 
-<img src="../../../assets/img/create_artifacts/new_api/add-new-api-resource.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="500">
 
 !!! Info
     **About the default API Resource**
@@ -200,7 +200,7 @@ To update API-level properties from the **Design** view:
 
 1.  Double-click the **API** icon to open the <b>Properties</b> tab for the API.
 
-    <img src="../../../assets/img/create_artifacts/new_api/api-properties.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-properties.png" width="700">
 
 2.  See the complete list of [optional REST API properties](../../../references/synapse-properties/rest-api-properties/#rest-api-properties-optional) you can configure.
 
@@ -208,7 +208,7 @@ To update API resource properties from the **Design** view:
 
 1.  Double-click the **Resource** icon to enable the <b>Properties</b> tab for the resource.
 
-    <img src="../../../assets/img/create_artifacts/new_api/api-resource-properties.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-resource-properties.png" width="700">
 
 2.  See the complete list of [API Resource properties](../../../references/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
 
@@ -216,7 +216,7 @@ To update API resource properties from the **Design** view:
 
 Click the **Source** tab to view the XML-based synapse configuration (source code) of the API. You can update the API using this view.
 
-<img src="../../../assets/img/create_artifacts/new_api/api-artifact-source-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-source-view.png" width="800">
 
 ### Using the Swagger Editor
 
@@ -225,7 +225,7 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 !!! Note
     If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
 
-<img src="../../../assets/img/create_artifacts/new_api/api-artifact-swagger-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.png" width="800">
 
 ## Examples
 

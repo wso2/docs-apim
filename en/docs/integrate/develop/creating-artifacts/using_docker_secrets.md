@@ -92,7 +92,7 @@ Once the secrets are added to the environment, you need to enable <b>secure vaul
 1. Open your Integration Project in WSO2 Integration Studio, which contains all the integration artifacts and the Docker Exporter.
 2. Open the `pom.xml` of the Docker Exporter module and select the <b>Enable Cipher Tool</b> check box as shown below.
 
-    <img src="../../../assets/img/enable-cipher-tool-in-docker.png">
+    <img src="{{base_path}}/assets/img/integrate/enable-cipher-tool-in-docker.png">
 
 3.  When you build the Docker image from your Docker Exporter, the secrets will get enabled in the environment.
 

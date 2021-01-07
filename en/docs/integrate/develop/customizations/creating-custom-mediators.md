@@ -14,17 +14,17 @@ Once a mediator project is finalised, you can export it as a deployable artifact
 Create this project directory to start creating custom mediator artifacts. You can use these customer mediators when you define the mediation flow in your ESB config project.
 
 1. Open <b>WSO2 Integration Studio</b> and click <b>Miscellaneous → Create Mediator Project</b> in the <b>Getting Started</b> view as shown below.
-   ![new mediator project](../../assets/img/create_project/new_mediator_project.png)
+   ![new mediator project]({{base_path}}/assets/img/integrate/create_project/new_mediator_project.png)
 2. In the dialog that opens, select <b>Create New Mediator</b> and click <b>Next</b>.
 3. Enter a project name, package name, and class name.
-   ![new mediator dialog](../../assets/img/create_project/new_mediator_artifact_dialog.png)
+   ![new mediator dialog]({{base_path}}/assets/img/integrate/create_project/new_mediator_artifact_dialog.png)
 4. Click <b>Finish</b> and see that the project is now listed in the project explorer.
 
 The mediator project is created in the workspace location you specified with a new mediator class that extends `org.apache.synapse.mediators.AbstractMediator`.
 
 ### Importing a Java Mediator Project
 
-Follow the steps below to import a Java mediator project (that includes a Java class, which extends the `         org.apache.synapse.mediators.AbstractMediator        ` class) to WSO2 Integration Studio.
+Follow the steps below to import a Java mediator project (that includes a Java class, which extends the `org.apache.synapse.mediators.AbstractMediator` class) to WSO2 Integration Studio.
 
 1.  Open <b>WSO2 Integration Studio</b> and click on <b>Create Mediator Project</b> in the <b>Getting Started</b> view as shown above.
 2.  In the dialog that opens, select **Import From Workspace** and click **Next**.

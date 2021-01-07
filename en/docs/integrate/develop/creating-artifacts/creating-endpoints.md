@@ -7,15 +7,15 @@ Follow the instructions given below to create a new [Endpoint](../../../referenc
 
 1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Endpoint** to open the **New Endpoint Artifact** dialog box.
 
-    <img src="../../../assets/img/create_artifacts/new_endpoint/select-endpoint.png">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/select-endpoint.png">
 
 2.  Select **Create a New Endpoint** and click **Next**.
 
-    <img src="../../../assets/img/create_artifacts/new_endpoint/new-endpoint-wizard-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/new-endpoint-wizard-1.png" width="500">
 
 3.  Enter a unique name for the endpoint, and then select the type of endpoint you are creating.
 
-    <img src="../../../assets/img/create_artifacts/new_endpoint/new-endpoint-wizard-2.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/new-endpoint-wizard-2.png" width="500">
 
 4.  Specify values for the [required parameter](../../references/synapse-properties/endpoint-properties.md) for the selected endpoint type.
 5.  Specify how you want to save the endpoint:
@@ -39,14 +39,14 @@ To add an endpoint artifact to the integration sequence, use the [Send Mediator]
 1.	Open to the **Design View** of your [mediation sequence](../../../references/synapse-properties/sequence-properties).
 2.  Drag the [Call Mediator](../../../references/mediators/call-Mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence](../../../references/synapse-properties/sequence-properties):
 
-	<img src="../../../assets/img/create_artifacts/new_endpoint/endpoint-graphical-editor-1.png" width="700">
+	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-graphical-editor-1.png" width="700">
 
     !!! Tip
         Similarly, you can use the [Send Mediator](../../../references/mediators/send-Mediator).
 
 3.	Drag the new endpoint artifact from the **Defined Endpoints** section in the **Palette** and drop it to the empty box in the [Call Mediator](../../../references/mediators/call-Mediator):
 
-	<img src="../../../assets/img/create_artifacts/new_endpoint/endpoint-graphical-editor-2.png" width="700">
+	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-graphical-editor-2.png" width="700">
 
 The endpoint artifact is now linked to your integration sequence.
 
@@ -54,7 +54,7 @@ The endpoint artifact is now linked to your integration sequence.
 
 Open the new endpoint artifact from the project explorer. You can use the **Form** view or the **Source** view to update endpoint properties.
 
-<img src="../../../assets/img/create_artifacts/new_endpoint/endpoint-form-view.png" width="700">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/endpoint-form-view.png" width="700">
 
 See the descriptions of all [endpoint properties](../../../references/synapse-properties/endpoint-properties).
 

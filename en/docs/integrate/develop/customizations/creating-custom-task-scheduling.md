@@ -21,7 +21,7 @@ Create a Maven Project using the following information.
 
 Create a Java Package inside the Maven Project using the following name: `             org.wso2.task.stockquote.v1            `
 
-![](../../assets/img/custom-task-scheduling/119130458/119130467.png)
+![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130467.png)
 
 ### Creating the Java Class
 
@@ -165,7 +165,7 @@ Create a Java Package inside the Maven Project using the following name: `     
         }
     ```
 
-    ![](../../assets/img/custom-task-scheduling/119130458/119130464.png)
+    ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130464.png)
 
 3.  In the **Project Explorer**, double-click on the **pom.xml** file and replace its source with the below content.
 
@@ -197,7 +197,7 @@ Create a Java Package inside the Maven Project using the following name: `     
     </project>
     ```
 
-    ![](../../assets/img/custom-task-scheduling/119130458/119130465.png)  
+    ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130465.png)  
 
 ### Writing the custom Task
 
@@ -314,7 +314,7 @@ Follow the steps below to create the task and schedule it.
 2.  [Create a Sequence](../creating-artifacts/creating-reusable-sequences.md) using the following information named `PrintStockQuoteSequence`. 
 3.  Add a **Log Mediator** and a **Drop Mediator** to the sequence and configure them.
 
-    ![](../../assets/img/custom-task-scheduling/119130458/119130461.png)
+    ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130461.png)
 
     The below is the complete source configuration of the Sequence (i.e., the `PrintStockQuoteSequence.xml` file):
 
@@ -346,7 +346,7 @@ Follow the steps below to create the task and schedule it.
         </tr>
     </table>
 
-    ![](../../assets/img/custom-task-scheduling/119130458/119130460.png)
+    ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130460.png)
 
 5.  Defining the properties of the Task: In the **Project Explorer** , double-click the **Print StockQuoteScheduledTask.xml** file and replace its source with the below content.
 
@@ -440,4 +440,4 @@ You will view the stock quotes sent by the backend service printed every 3 secon
 INFO - StockQuoteTask placed order symbol:IBM quantity:100 price:120.50
 ```
 
-![](../../assets/img/custom-task-scheduling/119130458/119130459.png)
+![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130459.png)

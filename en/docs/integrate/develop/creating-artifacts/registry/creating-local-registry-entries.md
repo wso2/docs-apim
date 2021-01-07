@@ -27,15 +27,15 @@ Follow these steps to create a new local entry.
 
 1.  Right-click the [ESB Config project](../../../creating-projects/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/select-local-entry.png">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/select-local-entry.png">
 
 4.  Select **Create a New Local Entry** and click **Next**.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/new-local-entry-wizard-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/new-local-entry-wizard-1.png" width="500">
 
 5.  Enter a unique name for the local entry, specify one of the following types of local entries and specify the details.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/new-local-entry-wizard-2.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/new-local-entry-wizard-2.png" width="500">
 
     -   **In-Line Text Entry**: Type the text you want to store
     -   **In-Line XML Entry**: Type the XML code you want to store
@@ -54,7 +54,7 @@ The local entry is created in the `src/main/synapse-config/local-entries` folder
 
 Open the new local entry artifact from the project explorer. You can use the **Form** view or the **Source** view to update message processor properties.
 
-<img src="../../../../assets/img/create_artifacts/new_local_entry/new-local-entry-form-view.png" width="700">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/new-local-entry-form-view.png" width="700">
 
 ### Using a local entry
 
@@ -66,20 +66,20 @@ reference the local entry as follows:
 1.  Open to the **Design View** of your [mediation sequence](../../../../references/synapse-properties/sequence-properties).
 2.  Drag and drop an [XSLT Mediator](../../../../references/mediators/xSLT-Mediator) to the mediation flow as shown below.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/local-entry-graphical-editor-1.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-graphical-editor-1.png" width="700">
 
 3.  Double-click the XSLT mediator icon to open the **Properties** tab.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/xslt-mediator-properties.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/xslt-mediator-properties.png" width="500">
 
 4.  Click the **XSLT Static Schema Key** property to get the **Resource Key** wizard.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/xslt-mediator-resource-key.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/xslt-mediator-resource-key.png" width="700">
 
 5.  Click the **Workspace** link, and then navigate to and select the
     local entry that contains the XSLT code.
 
-    <img src="../../../../assets/img/create_artifacts/new_local_entry/xslt-mediator-resource-key-workspace.png" width="400">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/xslt-mediator-resource-key-workspace.png" width="400">
 
 6.  Click **OK**.
 

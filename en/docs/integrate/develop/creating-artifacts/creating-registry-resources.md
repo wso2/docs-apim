@@ -6,11 +6,11 @@ Initially, your Registry resources project will contain only a `pom` file. You c
 
 Right-click on the `Registry Resource project` and click **New** -> **Registry Resource**.
 
-<img src="../../../assets/img/create_artifacts/new_resource/select-resource.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/select-resource.png" width="500">
 
 This will open the **New Registry Resource** window.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-1-1.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-1-1.png" width="500">
 
 Select one of the following options and click **Next**.
 
@@ -23,11 +23,11 @@ Select one of the following options and click **Next**.
 
 Use the **From existing template** option if you want to generate a registry resource from a template.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-1-1.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-1-1.png" width="500">
 
 Click **Next** and specify values for the following parameters:
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-2.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-2.png" width="500">
 
 Enter a unique name for the resource and select a resource template for the **Template** field. In this example, a **WSDL File** template is used.
 
@@ -39,11 +39,11 @@ containing registry resources.
 !!! Tip
     This helps you import a resource and collection from the same registry instance or a different registry instance that you have added. Similarly, you can export a resource or collection to the same registry instance or a different registry instance.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-1-2.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-1-2.png" width="500">
 
 Click **Next** and specify values for the following parameters:
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-3.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-3.png" width="500">
 
 <table>
   <tr>
@@ -61,27 +61,27 @@ Click **Next** and specify values for the following parameters:
 Use this option to browse for a registry dump file, which you can use to
 sync a registry.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-1-3.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-1-3.png" width="500">
 
 Click **Next** and then click **Browse** to find the relevant file.  
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-4.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-4.png" width="500">
 
 ### Check-out from registry
 
 Use this option to check out files from the registry.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-1-4.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-1-4.png" width="500">
 
 Click **Next** and specify the artifact name and the registry path from which you want to check out the files.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-5.png" width="500">  
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-5.png" width="500">  
 
 ## Step 2: Saving the resource artifact
 
 Specify the location to save the registry resource and click **Finish**.
 
-<img src="../../../assets/img/create_artifacts/new_resource/new-resource-wizard-save.png" width="500">  
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_resource/new-resource-wizard-save.png" width="500">  
 
 <table>
   <tr>

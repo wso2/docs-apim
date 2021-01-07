@@ -2,13 +2,13 @@
 
 WSO2 Micro Integrator contains an embedded HTTP REST client, which allows you to conveniently invoke your integration solutions after they are deployed in a server.
 
-When you open WSO2 Integration Studio, click the <img src="../../assets/img/testing-integrations/project-view-icon.png" width="20"> icon on the upper-right of the window. The **HTTP REST Client** tab is listed in the lower pane as shown below. 
+When you open WSO2 Integration Studio, click the <img src="{{base_path}}/assets/img/integrate/testing-integrations/project-view-icon.png" width="20"> icon on the upper-right of the window. The **HTTP REST Client** tab is listed in the lower pane as shown below. 
 
-<img src="../../assets/img/testing-integrations/open-http4e-client-empty.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/testing-integrations/open-http4e-client-empty.png" width="800">
 
 If you don't see this <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the tab.
 
-<img src="../../assets/img/testing-integrations/show-http4e-client-empty.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/testing-integrations/show-http4e-client-empty.png" width="500">
 
 To send a request from this client:
 
@@ -66,6 +66,6 @@ To send a request from this client:
         </tr>
      </table>
 
-2.  Click the <b>Send</b> icon (<img src="../../assets/img/tutorials/common/play-head-icon.png" width="20">) to send the request.
+2.  Click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">) to send the request.
 
 The response will be printed in the **HTTP Response** section of the client.

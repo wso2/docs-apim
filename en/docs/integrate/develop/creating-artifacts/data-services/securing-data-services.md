@@ -33,7 +33,7 @@ module:
     will open the **New Registry Resource** window.
 2.  Select the **From existing template** option as shown below and
     click **Next** .  
-    ![](../../../assets/img/tutorials/data_services/119130577/119130583.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130583.png)
 3.  Enter the following details:
 
     | Property      |    Value       |
@@ -53,7 +53,7 @@ module:
         !!! Tip
             Click the icon next to the scenario to get details of the scenario.
           
-        ![](../../../assets/img/tutorials/data_services/119130577/119130596.png)
+        ![]({{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130596.png)
 
     2.  You can also provide encryption properties, signature
         properties, and advanced rampart configurations.
@@ -113,9 +113,9 @@ Once you have encrypted the datasource password, you can update the data
 service as explained below.
 
 1.  Open the data service and click **Data Sources** to expand the section.
-    ![](../../../assets/img/tutorials/data_services/data_source_expanded.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/data_source_expanded.png)
 2.  Click on the **Edit** icon of the respective Datasource to open 
     **Edit Datasource** page.
-    ![](../../../assets/img/tutorials/data_services/edit_datasource.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/edit_datasource.png)
 3.  Make sure to check **Use as a Secret Alias**.
 4.  Update the Secret Alias and click on **Save**.

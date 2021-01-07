@@ -11,20 +11,20 @@ To create an integration project:
 1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio](installing-WSO2-Integration-Studio/).
 
 2. Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
-    <img src="../../assets/img/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
+    <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
 
 3. In the **New Integration Project** dialog box that opens, enter a name for your integration project. Select the relevant check boxes if you want to create **Registry Resources**, **Connector Exporter**, **Docker Exporter**, or **Kubernetes Exporter** in addition to the **ESB Configs** and **Composite Exporter**.
-    <img src="../../assets/img/new-project/create-a-project.png" title="Create a New Integration Project" width="700" alt="Create a New Integration Project"/>
+    <img src="{{base_path}}/assets/img/integrate/new-project/create-a-project.png" title="Create a New Integration Project" width="700" alt="Create a New Integration Project"/>
 
 ## Sub projects
 
 An integration project can consist of multiple sub-projects. So multiple small projects can exist under a single integration project, where each of these can be dependent on each other and can be grouped together. However, it is not necessary that all sub-projects in an integration project be dependent on every other sub-project.
 
-<img src="../../assets/img/new-project/sub-projects.png" title="Sub Projects" width="250" alt="Sub Project"/>
+<img src="{{base_path}}/assets/img/integrate/new-project/sub-projects.png" title="Sub Projects" width="250" alt="Sub Project"/>
 
 To add sub-projects to an existing integration project, right-click the integration project and hover over **New** to see the available project creation options.
 
-<img src="../../assets/img/new-project/new-sub-project.png" title="Add a New Sub Project" width="250" alt="Add a New Sub Project"/>
+<img src="{{base_path}}/assets/img/integrate/new-project/new-sub-project.png" title="Add a New Sub Project" width="250" alt="Add a New Sub Project"/>
 
 Once you create the new sub project, you can see this nested under your integration project folder in the project explorer.
 
@@ -38,7 +38,7 @@ The following table lists out the available projects that can be associated with
     <tr>
         <td>ESB Configs</td>
         <td>This project stores the ESB artifacts that are used when defining a mediation flow. This includes addition of any synapse artifacts to your integration project that enables features of a typical ESB.</br>
-        <img src="../../assets/img/new-project/synapse-engine.png" title="Synapse Engine" width="300" alt="Synapse Engine"/>
+        <img src="{{base_path}}/assets/img/integrate/new-project/synapse-engine.png" title="Synapse Engine" width="300" alt="Synapse Engine"/>
         </br>
         The following are the synapse artifacts that can be added to an integration flow.
         </br>
@@ -58,7 +58,7 @@ The following table lists out the available projects that can be associated with
         <td>Composite Exporter</td>
         <td>This project allows you to package all the artifacts (stored as sub-projects under the same integration project) into one <a href="packaging-artifacts/">composite application (C-APP)</a>. This C-APP can then be deployed in the WSO2 EI server.
         </br>
-        <img src="../../assets/img/new-project/composite-application.png" title="Composite Application" width="250" alt="Composite Application"/>
+        <img src="{{base_path}}/assets/img/integrate/new-project/composite-application.png" title="Composite Application" width="250" alt="Composite Application"/>
         </td>
     </tr>
     <tr>
@@ -67,14 +67,14 @@ The following table lists out the available projects that can be associated with
         </br>
         WSO2 registry has three components, namely local, config, and governance. Registry resources and metadata can be added into each component in the registry.
         </br>
-        <img src="../../assets/img/new-project/registry-resource.png" title="Registry Resource" width="300" alt="Registry Resource"/>
+        <img src="{{base_path}}/assets/img/integrate/new-project/registry-resource.png" title="Registry Resource" width="300" alt="Registry Resource"/>
         </td>
     </tr>
     <tr>
         <td>Connector Exporter</td>
         <td>Create this project if you wish to use EI connectors in your mediation sequence (defined in the ESB config project). All connector artifacts need to be stored in a connector exporter module before packaging.
         </br>
-        <img src="../../assets/img/connectors/why-connectors.png" title="Why Connectors" width="400" alt="Why Connectors"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/why-connectors.png" title="Why Connectors" width="400" alt="Why Connectors"/>
         </td>
     </tr>
     <tr>
@@ -103,11 +103,11 @@ Although the recommended approach is to create an integration project, which ess
 
 2.  In the **Maven Modules Creation Wizard** that opens, enter an artifact ID and other parameters as shown below. The artifact ID will be the name of your MMM project.
 
-    <img src="../../assets/img/create_project/new_maven_multi_module.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_project/new_maven_multi_module.png" width="500">
 
 3.  Click **Finish**. The MMM project is created in the project explorer. 
 
-    <img src="../../assets/img/create_project/proj_explorer_mmm.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/create_project/proj_explorer_mmm.png" width="300">
 
 Now you can create other projects inside the MMM project. For example, let's create a **Config** project and a **Composite Application** project.
 
@@ -119,7 +119,7 @@ You can import existing sub projects (ESB Config project, Registry resource proj
 
 Right-click the project, and click <b>Import to Maven Muti Module</b>.
 
-<img src="../../assets/img/create_project/import-to-mmm.png" width="400" title="import to maven multi module" alt="import to maven multi module">
+<img src="{{base_path}}/assets/img/integrate/create_project/import-to-mmm.png" width="400" title="import to maven multi module" alt="import to maven multi module">
 
 ## Building selected MMM profiles
 

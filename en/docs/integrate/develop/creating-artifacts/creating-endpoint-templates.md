@@ -8,15 +8,15 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
 1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
 
-    <img src="../../../assets/img/create_artifacts/new_template/select-template.png">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
 
 2.  Select **Create a New Template** and click **Next**.
 
-    <img src="../../../assets/img/create_artifacts/new_template/new-template-wizard-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/new-template-wizard-1.png" width="500">
 
 3.  Enter a unique name for the template and select one of the following **Endpoint Template** types.
 
-    <img src="../../../assets/img/create_artifacts/new_template/new-template-wizard-2-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/new-template-wizard-2-1.png" width="500">
 
     - <b>Address Endpoint Template</b>
     - <b>Default Endpoint Template</b>
@@ -43,11 +43,11 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
     For example:
 
-    <img src="../../../assets/img/create_artifacts/new_template/endpoint-template-form-view-1.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-template-form-view-1.png" width="700">
 
 3.  Then, click **Add Template Parameter** to open the **Parameter Configuration** dialog box and add the endpoint parameter placeholders (that you used above) as parameters:
 
-    <img src="../../../assets/img/create_artifacts/new_template/endpoint-template-param-config-dialog.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-template-param-config-dialog.png" width="700">
 
 ### Designing the integration
 
@@ -56,19 +56,19 @@ When you have an Endpoint template defined, you can use a **Template Endpoint** 
 1.	Open to the **Design View** of your [mediation sequence](../../../references/synapse-properties/sequence-properties).
 2.  Drag the [Call Mediator](../../../references/mediators/call-Mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence](../../../references/synapse-properties/sequence-properties).
 
-	<img src="../../../assets/img/create_artifacts/new_template/endpoint-temp-graphical-editor-1.png" width="700">
+	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-temp-graphical-editor-1.png" width="700">
 
     !!! Tip
         Similarly, you can use the [Send Mediator](../../../references/mediators/send-Mediator).
 
 3.	Drag a [Template Endpoint](../../../references/mediators/send-Mediator) from the **Endpoints** section in the **Palette** and drop it to the empty box in the [Call Mediator](../../../references/mediators/call-Mediator).
 
-	<img src="../../../assets/img/create_artifacts/new_template/endpoint-temp-graphical-editor-2.png" width="700">
+	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-temp-graphical-editor-2.png" width="700">
 
 4.  Open the [Template Endpoint](../../../references/mediators/send-Mediator) from the project explorer and click **Add Parameters** to open the **Template Endpoint Parameter Configuration** dialog box.
 5.  Specify the parameter values as shown below.
 
-    <img src="../../../assets/img/create_artifacts/new_template/template-endpoint-properties.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/template-endpoint-properties.png" width="700">
 
 ## Examples
 

@@ -37,7 +37,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
 
 Integration developers will follow the workflow illustrated by the following diagram.
 
-![developer workflow](../assets/img/development_workflow.png)
+![developer workflow]({{base_path}}/assets/img/integrate/development_workflow.png)
 
 ### Set up the workspace
 

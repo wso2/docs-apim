@@ -9,9 +9,9 @@ Follow the steps given below.
     -   **Design View**:
         You can select any of the mediation artifacts from the design view shown below and update its parameters from the **Properties** tab in the bottom pane. You can also drag and drop new mediation artifacts to the design view from the artifact **Palette** to modify the mediation flow.
 
-        ![design view](../assets/img/design-workflow/design-view.png)
+        ![design view]({{base_path}}/assets/img/integrate/design-workflow/design-view.png)
 
     -   **Source View**:
         If you have a sample proxy service configuration, you can simply copy it to the source view shown below.
 
-        ![source view](../assets/img/design-workflow/source-view.png)
+        ![source view]({{base_path}}/assets/img/integrate/design-workflow/source-view.png)

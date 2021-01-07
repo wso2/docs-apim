@@ -82,22 +82,22 @@ You need to put a debug point to the mediator, to view wire logs of it. When de
 !!! Info
     You can only view wire logs for a whole **proxy service**, **call mediator**, **send mediator**, or other **API resources**. However, you cannot view a wire log of a Synapse config (e.g. sequences), because there would not be anything written to wire when the flow comes to the sequence etc. Hence, you can only view them in wire entry points.
 
-![using wire logs](../assets/img/wire-logs/show-wire-logs.png) 
+![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/show-wire-logs.png) 
 
 ## Viewing wire logs while debugging
 
 If you view wire logs while debugging, you view only the wire logs of mediators, whose execution is already completed as shown in the example below.
 
-![using wire logs](../assets/img/wire-logs/while-debugging.png) 
+![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/while-debugging.png) 
 
 ## Viewing wire logs of a mediator after debugging
 
 When you view wire logs of a mediator (e.g. send mediator) after debugging, you can view the request and response wire logs as shown in the example below.
 
-![using wire logs](../assets/img/wire-logs/after-debugging.png) 
+![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/after-debugging.png) 
 
 ## Viewing wire logs of a proxy service after debugging
 
 If you view wire logs of a proxy service after debugging finished, you view the request wire log and final response wire log of that proxy as shown in the example below.
 
-![using wire logs](../assets/img/wire-logs/for-proxy.png)
+![using wire logs]({{base_path}}/assets/img/integrate/wire-logs/for-proxy.png)

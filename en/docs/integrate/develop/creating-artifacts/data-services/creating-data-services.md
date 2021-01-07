@@ -17,19 +17,19 @@ Follow the steps given below to create the data service file:
 1.  Right-click the **Data Service Config** module in the project
     explorer and go to **New -> Data Service**. 
 
-    <img src="../../../../assets/img/tutorials/data_services/new-data-service.png" width="500"> 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new-data-service.png" width="500"> 
 
 2.	In the **New Data Service** wizard that opens, select **Create New
     Data Service** and click **Next**.
 
-    <img src="../../../../assets/img/tutorials/data_services/119130577/119130578.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/data_services/119130577/119130578.png" width="500">
 
 3.  Enter a name for the data service and click **Finish**.
 
 A data service file (DBS file) will now be created in your data service
 project as show below.
 
-![](../../../assets/img/tutorials/data_services/data-service-project-structure.png)
+![]({{base_path}}/assets/img/integrate/tutorials/data_services/data-service-project-structure.png)
 
 ### Adding a datasource
 
@@ -37,16 +37,16 @@ You can configure the datasource connection details using this section.
 
 1.	Click **Data Sources** to expand the section.
 
-	![](../../../assets/img/tutorials/data_services/add-datasource-1.png)
+	![]({{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png)
 
 2.	Click **Add New** to open the **Create Datasource** page.
 
-	![](../../../assets/img/tutorials/data_services/add-datasource-2.png)
+	![]({{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png)
 
 3.	Enter the datasource connection details.
 4.	Click **Test Connection** to expand the section.
 
-    ![](../../../assets/img/tutorials/data_services/test_connection.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/test_connection.png)
 
 5.  Click the **Test Connection** button to verify the connectivity between the MySQL datasource and the data service.
 
@@ -58,11 +58,11 @@ You can configure the main query details using this section.
 
 1.  Click **Queries** to expand the section. 
 
-    ![](../../../assets/img/tutorials/data_services/query_expanded.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/query_expanded.png)
 
 2.  Click **Add New** to open the **Add Query** page.
 
-    ![](../../../assets/img/tutorials/data_services/add_query.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/add_query.png)
 
 3.  Enter the following query details.
 	
@@ -107,7 +107,7 @@ You can configure input parameters for the query using this section.
 
 1.  Click **Input Mappings** to expand the section. 
 
-    ![](../../../assets/img/tutorials/data_services/input_mapping_expanded.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/input_mapping_expanded.png)
 
 2.	There are two  ways to create the mapping:
 	
@@ -116,7 +116,7 @@ You can configure input parameters for the query using this section.
 
 		1.	Click **Add New** to open the **Add Input Mapping** page.
 
-			<img src="../../../../assets/img/tutorials/data_services/add_input_mappings.png" width="500">
+			<img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_input_mappings.png" width="500">
 
 		2.	Enter the following input mapping details:
 
@@ -159,14 +159,14 @@ You can configure input parameters for the query using this section.
 
 Shown below is an example query with input mapping:
                         
-![](../../../assets/img/tutorials/data_services/input_mappings.png)
+![]({{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png)
 
 #### Result (Output Mappings) 
 
 You can configure output result parameters for the query using this section.
 
 1.  Click **Result (Output Mappings)** to expand the section.
-    ![](../../../assets/img/tutorials/data_services/out_mapping_expanded.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png)
 2.  Enter the following details:
 
     <table>
@@ -187,7 +187,7 @@ You can configure output result parameters for the query using this section.
 
 		1. Click **Add New** to open the **Add Output Mapping** page.
 
-			![](../../../assets/img/tutorials/data_services/add_output_mappings.png)
+			![]({{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png)
 
 		2. Enter the following output element details.
 
@@ -221,13 +221,13 @@ You can configure output result parameters for the query using this section.
 
 Shown below is an example query with output mappings:
 
-![](../../../assets/img/tutorials/data_services/output_mapings.png)
+![]({{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png)
 
 #### Advanced properties 
 
 Click **Advanced Properties** to expand the section and add the required parameter values.
 
-![](../../../assets/img/tutorials/data_services/advances_properties_expanded.png)
+![]({{base_path}}/assets/img/integrate/tutorials/data_services/advances_properties_expanded.png)
 
 The data service should now have the query element added.
 
@@ -237,11 +237,11 @@ Use this section to configure a SOAP operation for invoking the data service.
 
 1.  Click **Operations** to expand the section.
 
-    ![](../../../assets/img/tutorials/data_services/new-operataion.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png)
 
 2.  Click **Add New** to add a SOAP Operation for your data service.
 
-	![](../../../assets/img/tutorials/data_services/add-operation.png)
+	![]({{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png)
 
 3.	Enter the following information:
 
@@ -285,11 +285,11 @@ Use this section to configure a SOAP operation for invoking the data service.
 Use this section to configure a REST resource for invoking the data service.
 
 1.  Click **Resources** to expand the section.
-	![](../../../assets/img/tutorials/data_services/resource_expanded.png)
+	![]({{base_path}}/assets/img/integrate/tutorials/data_services/resource_expanded.png)
 
 2.	Click **Add New** to add a new resource.
 
-	![](../../../assets/img/tutorials/data_services/create_resource.png)
+	![]({{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png)
 
 3.	Give the following details to create the REST resource. 
 

@@ -15,28 +15,28 @@ Once you have developed an integration solution, WSO2 Integration Studio allows 
 2.  Open an existing project with your integration solution.
 3.  Right-click the **test** folder, which is parallel to the **src** folder and go to **New** -> **Unit Test Suite** as shown below.
 
-    ![Create Unit Test Suite](../assets/img/create_project/synapse_unit_test/create-test-suite.png)
+    ![Create Unit Test Suite]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/create-test-suite.png)
 
     The **New Unit Test Suite** wizard opens.
     
 4.  Select **Create a New Unit Test Suite** and click **Next**.
 
-    ![Select Create Method](../assets/img/create_project/synapse_unit_test/select-create-method.png)
+    ![Select Create Method]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/select-create-method.png)
     
 5.  Specify a name for the unit test suite. Then, select the artifact file that you want to test from the file list and click **Next**. 
 
     !!! Note 
         You can only select one sequence, proxy service, or API artifact per unit test suite.
 
-    ![Fill Unit Test Suite Details](../assets/img/create_project/synapse_unit_test/select-main-artifact.png)
+    ![Fill Unit Test Suite Details]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/select-main-artifact.png)
     
 6.  Select the supporting artifacts from the list as shown below and click **Next**.
 
-    ![Select Supportive Artifacts](../assets/img/create_project/synapse_unit_test/select-supportives.png)
+    ![Select Supportive Artifacts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/select-supportives.png)
     
 7.  You can use a mock service to simulate the actual endpoint. If you have an already created Mock Service, select the mock service files from the list as shown below. You can also [create a new Mock Service](#create-mock-service) for this purpose.
 
-    ![Select Mock Services](../assets/img/create_project/synapse_unit_test/select-mock-services.png)
+    ![Select Mock Services]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/select-mock-services.png)
 
 8. Click **Finish**.
 
@@ -46,11 +46,11 @@ Once you have created a Unit Test Suite in WSO2 Integration Studio, you can find
 
 1.  Open Unit Test Suite from the project explorer. You can use either the design view or the source view to update the unit test suite.
 
-    ![Unit Test Form](../assets/img/create_project/synapse_unit_test/unit-test-form.png)
+    ![Unit Test Form]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/unit-test-form.png)
     
 2.  In design view, click the '<b>+</b>' button under the **Test Artifact, Test Cases and Assertion Details** section to add a new **test case** to the unit test suite. 
 
-    ![Add Test Case](../assets/img/create_project/synapse_unit_test/add-test-case.png)
+    ![Add Test Case]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/add-test-case.png)
     
 3.  Enter the following information:
     
@@ -67,7 +67,7 @@ Once you have created a Unit Test Suite in WSO2 Integration Studio, you can find
     
     3.  In the **Assertions** section, you can add multiple assertion belonging to two types: **AssertEquals** check the whether the mediated result and expected values are equeal. **AssertNotNull** checks whether the mediated result is not null.
     
-        ![Add Assertions](../assets/img/create_project/synapse_unit_test/add-assertion.png)
+        ![Add Assertions]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/add-assertion.png)
     
         -   **Assertion Type**: Type of the assertion.
         -   **Actual Expression**: Expression that you want to assert.
@@ -89,13 +89,13 @@ Run the Unit Test Suite(s) in the unit testing server of the embedded Micro Inte
 
 1.  Right-click the **test** directory and click **Run Unit Test** to run all the unit test suites at once. Alternatively, right-click the particular unit test suite and click **Run Unit Test** to run a selected unit test suite.
 
-    ![Run Unit Test Suite](../assets/img/create_project/synapse_unit_test/run-test.png)
+    ![Run Unit Test Suite]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/run-test.png)
 
     The **Unit Test Run Configuration** wizard opens. 
 
 2.  Select the specific unit testing server (embedded server or remote server) to run the tests.
 
-    ![Run Configuration](../assets/img/create_project/synapse_unit_test/run-configuration.png)
+    ![Run Configuration]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/run-configuration.png)
 
     **Local Server Configuration**
 
@@ -127,7 +127,7 @@ Run the Unit Test Suite(s) in the unit testing server of the embedded Micro Inte
             
 3. Click **Run** to start the unit test. It will start the unit testing server in the console and prints the summary report for the given unit test suite(s) using the response from the unit testing server. 
 
-    ![Output Console](../assets/img/create_project/synapse_unit_test/console-log.png)    
+    ![Output Console]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/console-log.png)    
 
 ## Create Mock Service
 
@@ -136,15 +136,15 @@ Mock services give the opportunity to simulate the actual endpoint.
 1.  Open an existing project that has your integration solution.
 2.  Right-click the **test** folder parallel to the **src** folder, and go to **New** -> **Mock Service** as shown below. 
 
-    ![Create Mock Service](../assets/img/create_project/synapse_unit_test/create-mock.png) 
+    ![Create Mock Service]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/create-mock.png) 
     
 3.  Select **Create a New Mock Service** and click **Next**.
 
-    ![Select Create Mock Service Method](../assets/img/create_project/synapse_unit_test/select-mock-method.png) 
+    ![Select Create Mock Service Method]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/select-mock-method.png) 
     
 4.  In the **Create a new Mock Service** page, enter the following details:
     
-    ![Mock Service Details](../assets/img/create_project/synapse_unit_test/mock-details.png) 
+    ![Mock Service Details]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mock-details.png) 
     
     -   **Name of the Mock Service**: A name for the mock service.
     -   **Mocking Endpoint Name**: Endpoint name which wants to mock.
@@ -158,7 +158,7 @@ Mock services give the opportunity to simulate the actual endpoint.
     
 6.  Fill the **Expected Request to the Mock Service Resource** section if you want to mock an endpoint based on the coming request headers or payload.
     
-    ![Mock Service Resource Request Details](../assets/img/create_project/synapse_unit_test/resource-request.png) 
+    ![Mock Service Resource Request Details]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/resource-request.png) 
     
     -   **Header Name**: Expected request header name.
     -   **Header Value**: Expected request header value.
@@ -168,7 +168,7 @@ Mock services give the opportunity to simulate the actual endpoint.
     
 7.  Fill the **Response Send Out from the Mock Service Resource** section to get a response from the service.
 
-    ![Mock Service Resource Response Details](../assets/img/create_project/synapse_unit_test/resource-response.png) 
+    ![Mock Service Resource Response Details]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/resource-response.png) 
     
     -   **Response Status Code**: Response status code of the mock service.
     -   **Header Name**: Response request header name.
@@ -181,15 +181,15 @@ Mock services give the opportunity to simulate the actual endpoint.
         
         - If you are trying to mock an endpoint `http://petstore.com/pets`, the wizard should look like below now.
         
-        ![Mock Service with one sub context](../assets/img/create_project/synapse_unit_test/mockservice-context-sample.PNG) 
+        ![Mock Service with one sub context]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-context-sample.PNG) 
         
         - If you are going to mock the same endpoint with an additional sub context (e.g., `http://petstore.com/pets/id` ), you can add it to the same mock service as shown below. 
         
-        ![Mock Service with additional sub Contexts](../assets/img/create_project/synapse_unit_test/mockservice-subcontext-sample.PNG) 
+        ![Mock Service with additional sub Contexts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-subcontext-sample.PNG) 
 
 Once you have entered the required details, click **Add**. It will list the resource under the **Add Service Resource** table with **Sub Context** and **Method**. After that click **Finish** to create a Mock Service. It will locate under the **test → resources → mock-services** directory.
 
-![Mock Service Form](../assets/img/create_project/synapse_unit_test/mock-service-form.png)     
+![Mock Service Form]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mock-service-form.png)     
 
 ## Debug the Unit Test Suite
 
@@ -202,7 +202,7 @@ If you encounter errors with the unit testing framework, you can debug the frame
     !!! Tip 
         This enables <b>maven debug</b> for the testing framework.
 
-    <img src="../../assets/img/create_project/synapse_unit_test/debug-unit-testing.png" alt="troubleshooting unit testing">
+    <img src="{{base_path}}/assets/img/integrate/create_project/synapse_unit_test/debug-unit-testing.png" alt="troubleshooting unit testing">
 
 4. Click <b>Apply</b> and then click <b>Run</b>.
 

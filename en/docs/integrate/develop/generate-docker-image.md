@@ -13,11 +13,11 @@ See the topics given below.
 1.  Right-click the **Composite Application Project** in the project explorer and
     then click **Generate Docker Image**.  
 
-    <img src="../../assets/img/create_project/open-docker_image_generation_wizard.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_project/open-docker_image_generation_wizard.png" width="500">
     
 2.  In the **Generate Docker Image Wizard** that opens, select one from the following three options and proceed. 
     
-    ![Generate docker image dialog](../assets/img/create_project/docker_k8s_project/generate-docker-image-options.png)
+    ![Generate docker image dialog]({{base_path}}/assets/img/integrate/create_project/docker_k8s_project/generate-docker-image-options.png)
     
     -  **Create a new Docker Exporter Project**
 
@@ -32,7 +32,7 @@ See the topics given below.
 
         2.  Click **Next** and enter the following details:
             
-            ![Create docker image dialog](../assets/img/create_project/generate_docker_image_dialog.png) 
+            ![Create docker image dialog]({{base_path}}/assets/img/integrate/create_project/generate_docker_image_dialog.png) 
 
             <table>
                 <tr>
@@ -93,15 +93,15 @@ See the topics given below.
 
         3.  Click **Next**. Select the **Config** projects that you want to include in the Docker image and click **Finish**.  
 
-            ![Create docker image](../assets/img/create_project/select_artifact_docker.png)  
+            ![Create docker image]({{base_path}}/assets/img/integrate/create_project/select_artifact_docker.png)  
         
             Once the Docker image is successfully created, a message similar to the following appears in your screen.  
 
-            ![Create docker image](../assets/img/create_project/docker_image_successful.png)
+            ![Create docker image]({{base_path}}/assets/img/integrate/create_project/docker_image_successful.png)
 
     -   **Generate Docker Image with an Existing Project**
 
         This will use the existing Docker Exporter Project that you selected and create a Docker image. You will receive a message similar to the following:
 
-        ![Create docker image](../assets/img/create_project/docker_image_successful.png)
+        ![Create docker image]({{base_path}}/assets/img/integrate/create_project/docker_image_successful.png)
           

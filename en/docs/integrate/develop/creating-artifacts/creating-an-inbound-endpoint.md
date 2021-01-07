@@ -8,21 +8,21 @@ Follow the instructions given below to create a new [Inbound Endpoint](../../../
 
 1. If you have already created an [ESB Config project](../../creating-projects/#esb-config-project), right-click the project and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
 
-    <img src="../../../assets/img/create_artifacts/new_inbound_endpoint/select-inbound-endpoint.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/select-inbound-endpoint.png" width="500">
 
 2. Select **Create a New Inbound Endpoint** and click **Next**.
 
-    <img src="../../../assets/img/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-1.png" width="500">
 
 3. Enter a unique name for the inbound endpoint, and select an **Inbound Endpoint Creation Type** from the list.
 
-    <img src="../../../assets/img/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-2-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-2-1.png" width="500">
 
 4. Specify values for the required parameter for the selected inbound endpoint type.
 
     !!! Note
         For certain protocols (HL7, KAFKA, Custom, MQTT, RabbitMq, WSO2_MB, WS, and  WSS) the **main sequence** and **error sequence** are mandatory fields.
-        <img src="../../../assets/img/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-2-2.png" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/new-inbound-endpoint-wizard-2-2.png" width="500">
 
         You can select sequences that already exist in the workspace and add them to the **Sequence** and **Error sequence** fields. If you don't have any sequences in the workspace, click **Generate Sequence and Error Sequence** to generate new sequences for the inbound endpoint.
 
@@ -37,15 +37,15 @@ The inbound endpoint is created in the `src/main/synapse-config/inbound-endpoint
 
 When you open the inbound endpoint from the **Config** project in the project explorer, you will see the default **Design** view.
 
-<img src="../../../assets/img/create_artifacts/new_inbound_endpoint/inbound-endpoint-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-endpoint-design-view.png" width="800">
 
 The integration flow for an inbound endpoint is defined within [named sequences](../../../references/synapse-properties/sequence-properties/#named-sequences). You can drag and drop **sequences** from the **Palette** to the canvas as shown below.
 
-<img src="../../../assets/img/create_artifacts/new_inbound_endpoint/inbound-graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-graphical-editor.png" width="800">
 
 Double-click the **Sequence** artifact to open the canvas for the sequence. You can now drag and drop the mediation artifacts from the palette and design the integration flow.
 
-<img src="../../../assets/img/create_artifacts/new_inbound_endpoint/sequence-graphical-editor.png" width="600">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/sequence-graphical-editor.png" width="600">
 
 ### Updating the properties
 
@@ -53,7 +53,7 @@ To update properties from the **Design** view:
 
 1.  Double-click the **Inbound Endpoint** icon to open the <b>Properties</b> tab.
 
-    <img src="../../../assets/img/create_artifacts/new_inbound_endpoint/inbound-endpoint-properties.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-endpoint-properties.png" width="500">
 
 2.  See the following links for the list of parameters for each inbound endpoint type:
 
@@ -85,7 +85,7 @@ To update properties from the **Design** view:
 
 Click the **Source** tab to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the service using this view.
 
-<img src="../../../assets/img/create_artifacts/new_inbound_endpoint/inbound-source-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-source-view.png" width="800">
 
 ## Examples
 
