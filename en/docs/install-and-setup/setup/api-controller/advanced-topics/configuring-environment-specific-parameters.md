@@ -38,6 +38,9 @@ environments:
             - tierName: <subscription_tier_name>
               alias: <certificate_alias>
               path: <certificate_name>
+        policies:
+            - <subscription_policy_1_name>
+            - <subscription_policy_2_name>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
@@ -59,7 +62,10 @@ The following code snippet contains sample configuration of the parameter file.
                   alias: Dev
                   path: dev.crt 
             gatewayEnvironments:
-                - Production and Sandbox    
+                - Production and Sandbox   
+            policies:
+                - Gold
+                - Silver 
         - name: test
           configs:
             endpoints:
