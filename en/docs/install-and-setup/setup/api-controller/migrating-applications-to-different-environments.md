@@ -57,7 +57,8 @@ You can export an application in the Developer Portal and download it as a zippe
                 `--owner` or `-o` : Owner of the application to be exported          
                 `--environment` or `-e` : Environment to which the application should be exported  
             -   Optional :  
-                `--withKeys` : Export keys for the application         
+                `--withKeys` : Export keys for the application    
+                `--format` : File format of exported archive (JSON or YAML). The default value is YAML.     
 
         !!! example
             ```go
@@ -73,16 +74,22 @@ You can export an application in the Developer Portal and download it as a zippe
         !!!note
             `apictl export-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
-    -   Response
-        ``` java
+    -   **Response**
+
+        ``` bash tab="Response Format"
+        Successfully exported Application!
+        Find the exported Application at <USER_HOME>/.wso2apictl/exported/apps/<envrionment-name>/<Application-owner>_<Application-name>.zip
+        ```
+
+        ``` bash tab="Example Response"
         Successfully exported Application!
         Find the exported Application at /Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip
         ```
 
 The exported application zipped file will be as follows:
 ```bash
-<exported-Application>.zip              
- └── <Application-Name>.json        
+<Application-owner>_<Application-Name>.zip         
+ └── application.yaml        
 ```
 
 ## Import an application
