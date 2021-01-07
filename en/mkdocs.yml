@@ -254,218 +254,220 @@ nav:
         - User Account Management:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
-    - Integration:
-        - Integration Overview: ''
+    - Integrate:
+        - Integration Overview: integrate/learn-overview.md
         - Integration Use Cases:
-            - Message Routing and Transformation: ''
-            - Service Orchestration: ''
-            - Asynchronous Message Processing: ''
-            - SaaS and B2B Connectivity: ''
-            - Data Integration: ''
-            - Protocol Switching: ''
-            - Gateway: ''
-            - File Processing: ''
-            - Periodic Execution of Integration Processes: ''
+            - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
+            - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
+            - Asynchronous Message Processing: integrate/integration-use-case/asynchronous-message-overview.md
+            - SaaS and B2B Connectivity: integrate/integration-use-case/connectors.md
+            - Data Integration: integrate/integration-use-case/data-integration-overview.md
+            - Protocol Switching: integrate/integration-use-case/protocol-switching-overview.md
+            - Gateway: integrate/integration-use-case/gateway-overview.md
+            - File Processing: integrate/integration-use-case/file-processing-overview.md
+            - Periodic Execution of Integration Processes: integrate/integration-use-case/scheduled-task-overview.md
         - Develop Integrations:
-            - Developing Integration Solutions: ''
+            - Developing Integration Solutions: integrate/develop/intro-integration-development.md
             - WSO2 Integration Studio:
-                - Quick Tour - WSO2 Integration Studio: ''
-                - Installing WSO2 Integration Studio: ''
-                - Working with WSO2 Integration Studio: ''
-                - Troubleshooting WSO2 Integration Studio: ''
-            - Service Catalog:
-                - Integration with Service Catalogs: ''
+                - Quick Tour - WSO2 Integration Studio: integrate/develop/WSO2-Integration-Studio.md
+                - Installing WSO2 Integration Studio: integrate/develop/installing-WSO2-Integration-Studio.md
+                - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
+                - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-WSO2-Integration-Studio.md
             - Creating Projects:
-                - Creating an Integration Project: ''
-                - Creating Data Service Configs: ''
-                - Creating Datasource Configs: ''
-                - Importing Projects: ''
-                - Exporting Projects: ''
-                - Creating Docker Exporter: ''
-                - Creating Kubernetes Exporter: ''
+                - Creating an Integration Project: integrate/develop/create-integration-project.md
+                - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
+                - Creating Datasource Configs: integrate/develop/create-datasources.md
+                - Importing Projects: integrate/develop/importing-projects.md
+                - Exporting Projects: integrate/develop/export_project.md
+                - Creating Docker Exporter: integrate/develop/create-docker-project.md
+                - Creating Kubernetes Exporter: integrate/develop/create-kubernetes-project.md
             - Creating Artifacts:
-                - Importing Artifacts: ''
-                - Creating a REST API: ''
-                - Creating a Proxy Service: ''
-                - Creating an Inbound Endpoint: ''
-                - Creating Scheduled Tasks: ''
-                - Creating a Message Store: ''
-                - Creating a Message Processor: ''
-                - Creating an Endpoint: ''
-                - Creating an Endpoint Template: ''
-                - Creating a Sequence Template: ''
-                - Creating a Reusable Sequence: ''
-                - Creating a Registry Resource: ''
-                - Creating Local Registry Entries: ''
-                - Creating a Smooks Configuration: ''
-                - Creating a Data Service: ''
-                - Creating a Datasource: ''
-                - Creating a Data Service Input Validator: ''
-                - Adding Connectors: ''
+                - Importing Artifacts: integrate/develop/importing-artifacts.md
+                - Creating a REST API: integrate/develop/creating-artifacts/creating-an-api.md
+                - Creating a Proxy Service: integrate/develop/creating-artifacts/creating-a-proxy-service.md
+                - Creating an Inbound Endpoint: integrate/develop/creating-artifacts/creating-an-inbound-endpoint.md
+                - Creating Scheduled Tasks: integrate/develop/creating-artifacts/creating-scheduled-task.md
+                - Creating a Message Store: integrate/develop/creating-artifacts/creating-a-message-store.md
+                - Creating a Message Processor: integrate/develop/creating-artifacts/creating-a-message-processor.md
+                - Creating an Endpoint: integrate/develop/creating-artifacts/creating-endpoints.md
+                - Creating an Endpoint Template: integrate/develop/creating-artifacts/creating-endpoint-templates.md
+                - Creating a Sequence Template: integrate/develop/creating-artifacts/creating-sequence-templates.md
+                - Creating a Reusable Sequence: integrate/develop/creating-artifacts/creating-reusable-sequences.md
+                - Creating a Registry Resource: integrate/develop/creating-artifacts/creating-registry-resources.md
+                - Creating Local Registry Entries: integrate/develop/creating-artifacts/registry/creating-local-registry-entries.md
+                - Creating a Smooks Configuration: integrate/develop/creating-artifacts/creating-smooks-artifacts.md
+                - Creating a Data Service: integrate/develop/creating-artifacts/data-services/creating-data-services.md
+                - Creating a Datasource: integrate/develop/creating-artifacts/data-services/creating-datasources.md
+                - Creating a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
+                - Adding Connectors: integrate/develop/creating-artifacts/adding-connectors.md
             - Creating Custom Artifacts:
-                - Creating a Custom Inbound Endpoint: ''
-                - Creating a Custom Mediator: ''
-                - Creating a Synapse Handler: ''
-                - Creating a New Connector: ''
-                - Customizing Task Scheduling: ''
-                - Exporting Artifacts: ''
+                - Creating a Custom Inbound Endpoint: integrate/develop/customizations/creating-custom-Inbound-endpoint.md
+                - Creating a Custom Mediator: integrate/develop/customizations/creating-custom-mediators.md
+                - Creating a Synapse Handler: integrate/develop/customizations/creating-synapse-handlers.md
+                - Creating a New Connector: integrate/develop/customizations/creating-new-connector.md
+                - Customizing Task Scheduling: integrate/develop/customizations/creating-custom-task-scheduling.md
+            - Exporting Artifacts: integrate/develop/exporting-artifacts.md
             - Securing Artifacts:
-                - Using Docker Secrets in Synapse Configurations: ''
-                - Using Kubernetes Secrets in Synapse Configurations: ''
-                - Applying Security to a REST API: ''
-                - Applying Security to a Proxy Service: ''
-                - Applying Security to a Data Service: ''
-                - Packaging Artifacts: ''
-                - Deploying Artifacts: ''
+                - Using Docker Secrets in Synapse Configurations: integrate/develop/creating-artifacts/using_docker_secrets.md
+                - Using Kubernetes Secrets in Synapse Configurations: integrate/develop/creating-artifacts/using_k8s_secrets.md
+                - Applying Security to a REST API: integrate/develop/advanced-development/applying-security-to-an-api.md
+                - Applying Security to a Proxy Service: integrate/develop/advanced-development/applying-security-to-a-proxy-service.md
+                - Applying Security to a Data Service: integrate/develop/creating-artifacts/data-services/securing-data-services.md
+            - Packaging Artifacts: integrate/develop/packaging-artifacts.md
+            - Deploying Artifacts: integrate/develop/deploy-artifacts.md
             - Testing Integrations:
-                - Using the Embedded Micro Integrator: ''
-                - Using a Remote Micro Integrator: ''
-                - Hot Deploying Artifacts: ''
-                - Creating a Unit Test Suite: ''
-                - Using the HTTP REST Client: ''
-                - Generating Docker Images: ''
+                - Using the Embedded Micro Integrator: integrate/develop/using-embedded-micro-integrator.md
+                - Using a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
+                - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
+                - Creating a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
+                - Using the HTTP REST Client: integrate/develop/using-http_rest_client.md
+                - Generating Docker Images: integrate/develop/generate-docker-image.md
             - Debugging Integrations:
-                - Mediation Debugging: ''
-                - Using Wire Logs: ''
-                - Endpoint Tracing: ''
-            - Running on WSO2 Integration Cloud: ''
+                - Mediation Debugging: integrate/develop/debugging-mediation.md
+                - Using Wire Logs: integrate/develop/using-wire-logs.md
+                #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
+                #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
+                - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
+            - Running on WSO2 Integration Cloud: integrate/develop/deploying-in-integration-cloud.md
             - Advanced Development Tasks:
-                - Injecting Parameters': ''
-                - Changing the Endpoint of a Deployed Service: ''
-                - Using Swagger Documents: ''
-                - Extend Role-based Data Filtering: ''
-                - Dynamic User Authentication: ''
+                - Injecting Parameters: integrate/develop/injecting-parameters.md
+                - Changing the Endpoint of a Deployed Service: integrate/develop/advanced-development/changing-the-endpoint-of-deployed-service.md
+                - Using Swagger Documents: integrate/develop/advanced-development/using-swagger-for-apis.md
+                - Extend Role-based Data Filtering: integrate/develop/advanced-development/extend-role-based-filtering-for-ds.md
+                - Dynamic User Authentication: integrate/develop/advanced-development/dynamic-user-authentication.md
         - Integration Examples:
             - Message Routing:
-                - Routing Based on Message Headers: ''
-                - Routing Based on Message Payload: ''
-                - Splitting Messages and Aggregating Responses: ''
+                - Routing Based on Message Headers: integrate/examples/routing_examples/routing_based_on_headers.md
+                - Routing Based on Message Payload: integrate/examples/routing_examples/routing_based_on_payloads.md
+                - Splitting Messages and Aggregating Responses: integrate/examples/routing_examples/splitting_aggregating_messages.md
             - Message Transformation:
-                - Converting JSON Messages to SOAP: ''
-                - Converting POX Messages to JSON: ''
+                - Converting JSON Messages to SOAP: integrate/examples/message_transformation_examples/json-to-soap-conversion.md
+                - Converting POX Messages to JSON: integrate/examples/message_transformation_examples/pox-to-json-conversion.md
             - Protocol Switching:
-                - Switching from JMS to HTTP/S: ''
-                - Switching from HTTP/S to JMS: ''
-                - Switching from FTP Listener to Mail Sender: ''
-                - Switching from HTTP to FIX: ''
-                - Switch from FIX to HTTP: ''
-                - Switch from FIX to AMQP: ''
-                - Switching between FIX Versions: ''
-                - Switching from TCP to HTTP/S: ''
-                - Switching from UDP to HTTP/S: ''
-                - Switching between HTTP to MSMQ: ''
+                - Switching from JMS to HTTP/S: integrate/examples/protocol-switching/switching_from_JMS_to_HTTP.md
+                - Switching from HTTP/S to JMS: integrate/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
+                - Switching from FTP Listener to Mail Sender: integrate/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
+                - Switching from HTTP to FIX: integrate/examples/protocol-switching/switching_from_HTTP_to_FIX.md
+                - Switch from FIX to HTTP: integrate/examples/protocol-switching/switching_from_FIX_to_HTTP.md
+                - Switch from FIX to AMQP: integrate/examples/protocol-switching/switching_from_FIX_to_AMQP.md
+                - Switching between FIX Versions: integrate/examples/protocol-switching/switching_between_FIX_versions.md
+                - Switching from TCP to HTTP/S: integrate/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
+                - Switching from UDP to HTTP/S: integrate/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
+                - Switching between HTTP to MSMQ: integrate/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
             - File Processing:
-                - Using VFS for File Transferring: ''
-                - Accessing a Windows Share Using VFS: ''
-                - Sending and Receiving Emails: ''
+                - Using VFS for File Transferring: integrate/examples/file-processing/vfs-transport-examples.md
+                - Accessing a Windows Share Using VFS: integrate/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
+                - Sending and Receiving Emails: integrate/examples/file-processing/mailto-transport-examples.md
             - Data Integration:
-                - Exposing an RDBMS datasource: ''
+                - Exposing an RDBMS datasource: integrate/examples/data_integration/rdbms-data-service.md
                 - Exposing Other Datasources:
-                    - Exposing a CSV datasource: ''
-                    - Exposing a Carbon datasource: ''
-                - Exposing Data in JSON Format: ''
-                - Using an OData Service: ''
-                - Using Nested Data Queries: ''
-                - Batch Requesting: ''
-                - Invoking Multiple Operations as a Request Box: ''
-                - Using Distributed Transactions in Data Services: ''
-                - Validating Data Input: ''
-                - Swagger Documents of RESTful Data Services: ''
+                    - Exposing a CSV datasource: integrate/examples/data_integration/csv-data-service.md
+                    - Exposing a Mongo datasource: integrate/examples/data_integration/mongo-data-service.md
+                    - Exposing a Carbon datasource: integrate/examples/data_integration/carbon-data-service.md
+                - Exposing Data in JSON Format: integrate/examples/data_integration/json-with-data-service.md
+                - Using an OData Service: integrate/examples/data_integration/odata-service.md
+                - Using Nested Data Queries: integrate/examples/data_integration/nested-queries-in-data-service.md
+                - Batch Requesting: integrate/examples/data_integration/batch-requesting.md
+                - Invoking Multiple Operations as a Request Box: integrate/examples/data_integration/request-box.md
+                - Using Distributed Transactions in Data Services: integrate/examples/data_integration/distributed-trans-data-service.md
+                - Validating Data Input: integrate/examples/data_integration/data-input-validator.md
+                - Swagger Documents of RESTful Data Services: integrate/examples/data_integration/swagger-data-services.md
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
-                    - Point to Point: ''
-                    - Publish/Subscribe: ''
-                - Guaranteed Delivery:
-                    - Message Store and Message Processor: ''
-                    - Retry failed messages with a delay: ''
-                    - Requeue a message preserving the order: ''
-                    - Publish messages to DLX: ''
-                - Dual Channel: ''
+                    - Point to Point: integrate/examples/rabbitmq_examples/point-to-point-rabbitmq.md
+                    - Publish/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - Guaranteed Delivery:
+                        - Message Store and Message Processor: integrate/examples/rabbitmq_examples/store-forward-rabbitmq.md
+                        - Retry failed messages with a delay: integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
+                        - Requeue a message preserving the order: integrate/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
+                        - Publish messages to DLX: integrate/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
+                    - Dual Channel: integrate/examples/rabbitmq_examples/request-response-rabbitmq.md
                 - JMS Examples:
-                    - Consuming JMS Messages: ''
-                    - Producing JMS Messages: ''
-                    - Consuming and Producing JMS Messages: ''
-                    - Dual Channel HTTP-to-JMS: ''
-                    - Quad Channel JMS-to-JMS: ''
-                    - Guaranteed Delivery with Failover: ''
-                    - Publish and Subscribe with JMS: ''
-                    - Shared Topic Subscription: ''
-                    - Detecting Repeatedly Redelivered Messages: ''
-                    - Specifying Delivery Delay on Messages: ''
+                    - Consuming JMS Messages: integrate/examples/jms_examples/consuming-jms.md
+                    - Producing JMS Messages: integrate/examples/jms_examples/producing-jms.md
+                    - Consuming and Producing JMS Messages: integrate/examples/jms_examples/consume-produce-jms.md
+                    - Dual Channel HTTP-to-JMS: integrate/examples/jms_examples/dual-channel-http-to-jms.md
+                    - Quad Channel JMS-to-JMS: integrate/examples/jms_examples/quad-channel-jms-to-jms.md
+                    - Guaranteed Delivery with Failover: integrate/examples/jms_examples/guaranteed-delivery-with-failover.md
+                    - Publish and Subscribe with JMS: integrate/examples/jms_examples/publish-subscribe-with-jms.md
+                    - Shared Topic Subscription: integrate/examples/jms_examples/shared-topic-subscription.md
+                    - Detecting Repeatedly Redelivered Messages: integrate/examples/jms_examples/detecting-repeatedly-redelivered-messages.md
+                    - Specifying Delivery Delay on Messages: integrate/examples/jms_examples/specifying-a-delivery-delay-on-messages.md
                     #- 'JMS Map Messaging': 'use-cases/examples/jms_examples/jms-map-message.md'
-            - Components:
+            - Examples of Components:
                 - REST APIs:
-                    - Using a Simple REST API: ''
-                    - Setting Query Parameters on Outgoing Messages: ''
-                    - Exposing a SOAP Endpoint as a RESTful API: ''
-                    - Exposing Non-HTTP Services as RESTful APIs: ''
-                    - Handling Non-Matching Resources: ''
-                    - Handling HTTP Status Codes: ''
-                    - Transforming Content Types: ''
-                    - Securing a REST API: ''
-                    - Publishing a Custom Swagger Document: ''
-                - Handling Special Cases:
-                    - Using GET with a Message Body: ''
-                    - Using POST with Empty Message Body: ''
-                    - Using POST with Query Parameters: ''
+                    - Using a Simple REST API: integrate/examples/rest_api_examples/introduction-rest-api.md
+                    - Setting Query Parameters on Outgoing Messages: integrate/examples/rest_api_examples/setting-query-params-outgoing-messages.md
+                    - Exposing a SOAP Endpoint as a RESTful API: integrate/examples/rest_api_examples/enabling-rest-to-soap.md
+                    - Exposing Non-HTTP Services as RESTful APIs: integrate/examples/rest_api_examples/configuring-non-http-endpoints.md
+                    - Handling Non-Matching Resources: integrate/examples/rest_api_examples/handling-non-matching-resources.md
+                    - Handling HTTP Status Codes: integrate/examples/rest_api_examples/setting-https-status-codes.md
+                    - Transforming Content Types: integrate/examples/rest_api_examples/transforming-content-type.md
+                    - Securing a REST API: integrate/examples/rest_api_examples/securing-rest-apis.md
+                    - Publishing a Custom Swagger Document: integrate/examples/rest_api_examples/publishing-a-swagger-api.md
+                    - Special Cases: integrate/examples/rest_api_examples/special-cases.md
                 - Proxy Services:
-                    - Using a Simple Proxy Service: ''
-                    - Publishing a Custom WSDL: ''
+                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
+                    - Publishing a Custom WSDL: integrate/examples/proxy_service_examples/publishing-a-custom-wsdl.md
                     #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
-                    - Exposing a Proxy Service via Inbound Endpoints: ''
-                    - Securing a Proxy Service: ''
+                    - Exposing a Proxy Service via Inbound Endpoints: integrate/examples/proxy_service_examples/exposing-proxy-via-inbound.md
+                    - Securing a Proxy Service: integrate/examples/proxy_service_examples/securing-proxy-services.md
                 - Inbound Endpoints:
-                    - JMS Inbound Endpoint: ''
-                    - File Inbound Endpoint: ''
-                    - HTTP Inbound Endpoint: ''
-                    - HTTPS Inbound Endpoint: ''
-                    - HL7 Inbound Endpoint: ''
-                    - MQTT Inbound Endpoint: ''
-                    - RabbitMQ Inbound Endpoint: ''
+                    - JMS Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol.md
+                    - File Inbound Endpoint: integrate/examples/inbound_endpoint_examples/file-inbound-endpoint.md
+                    - HTTP Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol.md
+                    - HTTPS Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol.md
+                    - HL7 Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack.md
+                    - MQTT Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol.md
+                    - RabbitMQ Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol.md
                     #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md'
-                    - Kafka Inbound Endpoint: ''
-                    - Secured WebSocket Inbound Endpoint: ''
-                    - Using Inbound Endpoints with Registry: ''
+                    - Kafka Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-kafka.md
+                    - Secured WebSocket Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket.md
+                    - Using Inbound Endpoints with Registry: integrate/examples/inbound_endpoint_examples/inbound-endpoint-with-registry.md
                 - Scheduled Tasks:
-                    - Task Scheduling using a Simple Trigger: ''
-                    - Injecting Messages to a RESTful Endpoint: ''
-                - Local Registry Entries: ''
+                    - Task Scheduling using a Simple Trigger: integrate/examples/scheduled-tasks/task-scheduling-simple-trigger.md
+                    - Injecting Messages to a RESTful Endpoint: integrate/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
+                - Local Registry Entries: integrate/examples/registry_examples/local-registry-entries.md
                 - Templates:
-                    - Using Sequence Templates: ''
-                    - Using Endpoint Templates: ''
+                    - Using Sequence Templates: integrate/examples/template_examples/using-sequence-templates.md
+                    - Using Endpoint Templates: integrate/examples/template_examples/using-endpoint-templates.md
                 - Message Stores & Processors:
-                    - Introduction to Message Stores and Processors: ''
-                    - JDBC Message Store: ''
-                    - JMS Message Store: ''
-                    - RabbitMQ Message Store: ''
-                    - Message Sampling Processor: ''
-                    - Message Forwarding Processor: ''
-                    - Securing the Message Forwarding Processor: ''
-                    - Load Balancing with Message Forwarding Processor: ''
+                    - Introduction to Message Stores and Processors: integrate/examples/message_store_processor_examples/intro-message-stores-processors.md
+                    - JDBC Message Store: integrate/examples/message_store_processor_examples/using-jdbc-message-store.md
+                    - JMS Message Store: integrate/examples/message_store_processor_examples/using-jms-message-stores.md
+                    - RabbitMQ Message Store: integrate/examples/message_store_processor_examples/using-rabbitmq-message-stores.md
+                    - Message Sampling Processor: integrate/examples/message_store_processor_examples/using-message-sampling-processor.md
+                    - Message Forwarding Processor: integrate/examples/message_store_processor_examples/using-message-forwarding-processor.md
+                    - Securing the Message Forwarding Processor: integrate/examples/message_store_processor_examples/securing-message-processor.md
+                    - Load Balancing with Message Forwarding Processor: integrate/examples/message_store_processor_examples/loadbalancing-with-message-processor.md
                 - Endpoints:
-                    - Address Endpoint: ''
-                    - Failover Endpoints: ''
-                    - HTTP Endpoint: ''
-                    - WebSocket Endpoint: ''
-                    - WSDL Endpoint: ''
-                    - Load Balance Endpoint: ''
+                    - Address Endpoint: integrate/examples/endpoint_examples/using-address-endpoints.md
+                    - Failover Endpoints: integrate/examples/endpoint_examples/using-failover-endpoints.md
+                    - HTTP Endpoint: integrate/examples/endpoint_examples/using-http-endpoints.md
+                    - WebSocket Endpoint: integrate/examples/endpoint_examples/using-websocket-endpoints.md
+                    - WSDL Endpoint: integrate/examples/endpoint_examples/using-wsdl-endpoints.md
+                    - Load Balance Endpoint: integrate/examples/endpoint_examples/using-loadbalancing-endpoints.md
                     - Recipient List of Endpoints:
-                        - Static List of Recepients: ''
-                        - Dynamic List of Recepients: ''
-                        - Dynamic List of Recepients with Aggregated Responses: ''
-                    - Reusing Endpoints: ''
-                    - Endpoint Error Handling: ''
-                    - MTOM and SwA Optimizations: ''
+                        - Static List of Recepients: integrate/examples/endpoint_examples/using-static-recepient-list-endpoints.md
+                        - Dynamic List of Recepients: integrate/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-1.md
+                        - Dynamic List of Recepients with Aggregated Responses: integrate/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-2.md
+                    - Reusing Endpoints: integrate/examples/endpoint_examples/reusing-endpoints.md
+                    - Endpoint Error Handling: integrate/examples/endpoint_examples/endpoint-error-handling.md
+                    - MTOM and SwA Optimizations: integrate/examples/endpoint_examples/mtom-swa-with-endpoints.md
                 - Sequences:
-                    - Breaking Complex Flows into Multiple Sequences: ''
-                    - Using Fault Sequences: ''
-                    - Reusing Sequences: ''
-                - Transports:
-                    - Using the TCP Transport: ''
-                    - Using the FIX Transport: ''
-                    - Using the MQTT Transport: ''
-                - Working with Transactions: ''
-                - JSON Examples: ''
+                    - Breaking Complex Flows into Multiple Sequences: integrate/examples/sequence_examples/using-multiple-sequences.md
+                    - Using Fault Sequences: integrate/examples/sequence_examples/using-fault-sequences.md
+                    - Reusing Sequences: integrate/examples/sequence_examples/custom-sequences-with-proxy-services.md
+            - Transports:
+                - Using the TCP Transport: integrate/examples/transport_examples/tcp-transport-examples.md
+                - Using the FIX Transport: integrate/examples/transport_examples/fix-transport-examples.md
+                - Using the MQTT Transport: integrate/examples/transport_examples/Pub_Sub_using_MQTT.md
+                - HL7 Examples:
+                    - Mediating HL7 Messages: integrate/examples/hl7-examples/HL7_proxy_service.md
+                    - Acknowledging HL7 Messages: integrate/examples/hl7-examples/acknowledge_hl7_messages.md
+                    - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
+            - Working with Transactions: integrate/examples/working-with-transactions.md
+            - JSON Examples: integrate/examples/json_examples/json-examples.md
     - Streaming:
           - Streaming Overview: ''
           - Streaming Use Cases:
@@ -866,7 +868,7 @@ nav:
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
-    - reference:
+    - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
             - Publisher APIs:
