@@ -6,10 +6,10 @@ Message routing is one of the most fundamental requirements when integrating sys
 
 The following image depicts a form of message routing where a message is routed through the Micro Integrator to the apropriate service. In this case, the Switch/Send mediator can be used.
 
-<img src="../../../assets/img/use-cases-overview/message-routing.png" title="Message Routing" width="500" alt="Message Routing"/>
+<img src="{{base_path}}/assets/img/integrate/use-cases-overview/message-routing.png" title="Message Routing" width="500" alt="Message Routing"/>
 
 <!--
-![message routing](../../assets/img/use-cases-overview/message-routing-new.png)
+![message routing]({{base_path}}/assets/img/integrate/use-cases-overview/message-routing-new.png)
 -->
 
 <table>
@@ -47,10 +47,10 @@ The integration of systems that communicate in various message formats is a comm
 
 The following image depicts a typical message transormation scenario using the Transform mediator. 
 
-<img src="../../../assets/img/use-cases-overview/message-transformation.png" title="Message Transformation" width="600" alt="Message Transformation"/>
+<img src="{{base_path}}/assets/img/integrate/use-cases-overview/message-transformation.png" title="Message Transformation" width="600" alt="Message Transformation"/>
 
 <!--
-![message transformation](../../assets/img/use-cases-overview/message-transformation-new.png) 
+![message transformation]({{base_path}}/assets/img/integrate/use-cases-overview/message-transformation-new.png) 
 -->
 <table>
 	<tr>

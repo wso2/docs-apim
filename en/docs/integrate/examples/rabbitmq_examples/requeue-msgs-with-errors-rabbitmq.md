@@ -5,7 +5,7 @@ This sample demonstrates how WSO2 Micro Integrator can ensure guaranteed deliver
 As shown in the following example, the Micro Integrator first consumes the request message from the RabbitMQ queue and sends it to the back-end HTTP endpoint. If the HTTP endpoint becomes unavailable, the message will be returned
 to the `student-registration` queue in the RabbitMQ broker until the endpoint becomes available again.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-requeue-messages.png">
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-requeue-messages.png">
 
 ## Synapse configurations
 

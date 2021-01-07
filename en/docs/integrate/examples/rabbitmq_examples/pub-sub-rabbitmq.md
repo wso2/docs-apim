@@ -4,7 +4,7 @@ This sample demonstrates how WSO2 Micro Integrator can be used to implement a pu
 
 As shown below, the publisher proxy in the Micro Integrator will publish messages to a RabbitMQ topic, which multiple subscriber proxies (defined in the Micro Integrator) will consume.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-pub-sub.png">
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-pub-sub.png">
 
 ## Synapse configurations
 

@@ -4,7 +4,7 @@ This example demonstrates how WSO2 Micro Integrator can be used to implement an 
 
 As shown below, a proxy service configured in the Micro Integrator sends messages to the RabbitMQ queue, which are then consumed by another proxy service in the Micro Integrator.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-point-to-point.png">
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-point-to-point.png">
 
 ## Synapse configurations
 

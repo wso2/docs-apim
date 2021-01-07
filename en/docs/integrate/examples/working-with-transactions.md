@@ -75,7 +75,7 @@ receives a fault. This cause the JMS transaction to roll back.
 
 The sample scenario can be depicted as follows:
 
-![](../../assets/img/jms_transaction.png)
+![]({{base_path}}/assets/img/integrate/jms_transaction.png)
 
 #### Prerequisites
 

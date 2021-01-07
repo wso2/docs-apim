@@ -6,7 +6,7 @@ You can implement the Gateway pattern by deploying WSO2 Micro Integrator in a â€
 
 Proxy services in the Micro Integrator act as Messaging Gateways, abstracting the details of the actual back-end services from implementing clients.
 
-<img src="../../../assets/img/use-cases-overview/message-gateway.png" title="Message Gateway" width="600" alt="Message Gateway"/>
+<img src="{{base_path}}/assets/img/integrate/use-cases-overview/message-gateway.png" title="Message Gateway" width="600" alt="Message Gateway"/>
 
 <!--
 <table>

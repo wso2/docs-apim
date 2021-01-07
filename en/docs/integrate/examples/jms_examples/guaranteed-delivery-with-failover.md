@@ -6,7 +6,7 @@ The following diagram illustrates a scenario where a failover message
 store and a scheduled failover message forwarding processor is used
 to ensure guaranteed delivery:
 
-![guaranteed delivery](../../../assets/img/tutorials/guaranteed-delivery-failover/Guaranteed_Delivery.png)
+![guaranteed delivery]({{base_path}}/assets/img/integrate/tutorials/guaranteed-delivery-failover/Guaranteed_Delivery.png)
 
 In this scenario, the original message store fails due to, either network
 failure, message store crash, or system shutdown for maintenance. The

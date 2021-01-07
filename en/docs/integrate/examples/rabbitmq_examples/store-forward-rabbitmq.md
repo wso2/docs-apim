@@ -7,7 +7,7 @@ This messaging pattern ensures guaranteed message delivery. That is, because req
 
 As shown below, when a client sends a message, the <b>message store</b> artifact in the Micro Integrator will route the messages to the RabbitMQ broker. The <b>message processor</b> artifact in the Micro Integrator will then process the message from the broker and send it to the back-end service.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-store-and-forward.png"> 
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-store-and-forward.png"> 
 
 ## Synapse configurations
 

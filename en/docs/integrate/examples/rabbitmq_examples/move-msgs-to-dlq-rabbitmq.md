@@ -4,7 +4,7 @@ This sample demonstrates how WSO2 Micro Integrator can ensure guaranteed deliver
 
 As shown below, a proxy service in the Micro Integrator consumes messages from the RabbitMQ broker and sends it to the endpoint. If the message delivery fails, the Micro Integrator will route the message to the dead letter exchange of RabbitMQ.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-dead-letter-exchange.png">
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-dead-letter-exchange.png">
 
 ## Synapse configurations
 

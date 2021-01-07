@@ -2,7 +2,7 @@
 
 This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
 
-<img src="../../../../assets/img/rabbitmq/rabbitmq-retry-delay-messages.png">
+<img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-retry-delay-messages.png">
 
 1.  The Micro Integrator first consumes a message from RabbitMQ and attempts to deliver it to the endpoint. 
 2.  When there is an error in delivery, the `SET_ROLLBACK_ONLY` property in the Micro Integrator moves the message to the dead letter exchange (DLX) configured in RabbitMQ.
