@@ -159,10 +159,8 @@ You can import an application to your environment as a zipped application. When 
         !!!note
             `apictl import-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import app` as shown above.
 
-    -   Response
-        ``` java
-        ZipFilePath: /Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip
-        Completed importing the Application 'dev/admin_SampleApp.zip'
+    -   **Response**
+        ``` bash
         Succesfully imported Application!
         ```
 
