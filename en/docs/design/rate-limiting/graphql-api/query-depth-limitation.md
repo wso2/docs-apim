@@ -82,32 +82,27 @@ To perform **GraphQL Query Depth Limitation**:
 Enter the following sample query. Then click on execute button as follows.
 
    ```
-        query{							
-            allFilms{						
-                id							
-                species{
-                    id						
-                    films{
-                        title					
-                        planets{
-                            id					
-                            residents{
-                                eyeColor			
-                                films{
-                                    director		
-                                    producers
-                                }
-                            }
-                        }
-                    }
-                }
+    query{
+      character(id:1000){
+        id
+        name
+        friendsConnection{
+          totalCount
+          friends{
+            name
+            friendsConnection{
+              friends{
+                name
+              }
             }
+          }
         }
-
+      }
+    }
 
    ```
 
-   [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)
+   [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation-console.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation-console.png)
 
 You have now successfully blocked a GraphQL API query using the **Max Depth** value that you assigned before.
 
