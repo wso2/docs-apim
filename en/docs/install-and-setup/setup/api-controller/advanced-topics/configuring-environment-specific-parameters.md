@@ -32,12 +32,12 @@ environments:
             - <gateway_environment_name>           
         certs:
             - hostName: <endpoint_url>
-                alias: <certificate_alias>
-                path: <certificate_name>
+              alias: <certificate_alias>
+              path: <certificate_name>
         mutualSslCerts:
             - tierName: <subscription_tier_name>
-                alias: <certificate_alias>
-                path: <certificate_name>
+              alias: <certificate_alias>
+              path: <certificate_name>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
