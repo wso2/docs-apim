@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/doctor/{doctorType}">
+        <inSequence>
+            <!-- Invoke Grand Oak service with a GET request -->
+            <!-- Construct the payload required for Pine Valley service -->
+            <clone>
+                <target>
+                    <sequence>
+                        <call>
+                            <endpoint>
+                                <http method="get" uri-template="http://localhost:9090/grandOak/doctors/{uri.var.doctorType}">
+                                    <suspendOnFailure>
+                                        <initialDuration>-1</initialDuration>
+                                        <progressionFactor>1</progressionFactor>
+                                    </suspendOnFailure>
+                                    <markForSuspension>
+                                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                    </markForSuspension>
+                                </http>
+                            </endpoint>
+                        </call>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <payloadFactory media-type="json">
+                            <format>{
+                                      "doctorType": "$1"
+                                    }
+                            </format>
+                            <args>
+                                <arg evaluator="xml" expression="$ctx:uri.var.doctorType"/>
+                            </args>
+                        </payloadFactory>
+                        <!--  Invoke the Pine Valley service with a POST request -->
+                        <call>
+                            <endpoint>
+                                <http method="post" uri-template="http://localhost:9091/pineValley/doctors">
+                                    <suspendOnFailure>
+                                        <initialDuration>-1</initialDuration>
+                                        <progressionFactor>1</progressionFactor>
+                                    </suspendOnFailure>
+                                    <markForSuspension>
+                                        <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                                    </markForSuspension>
+                                </http>
+                            </endpoint>
+                        </call>
+                    </sequence>
+                </target>
+            </clone>
+            <aggregate>
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete expression="json-eval($.doctors.doctor)">
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
