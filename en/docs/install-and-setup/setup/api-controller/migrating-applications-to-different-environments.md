@@ -88,7 +88,7 @@ You can export an application in the Developer Portal and download it as a zippe
 
 The exported application zipped file will be as follows:
 ```bash
-<Application-owner>_<Application-Name>.zip         
+<Application-owner>_<Application-name>.zip         
  └── application.yaml        
 ```
 
