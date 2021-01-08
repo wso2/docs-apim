@@ -155,7 +155,7 @@ Create a resource to send an SMS to the Short Message Service Center.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attach/connectors/smpp-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/smpp-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

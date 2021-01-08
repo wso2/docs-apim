@@ -184,7 +184,7 @@ Now we can export the imported connector and the API into a single CAR applicati
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attach/connectors/ms-azure-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/ms-azure-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

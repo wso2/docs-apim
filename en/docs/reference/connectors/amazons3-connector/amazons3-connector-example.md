@@ -185,7 +185,7 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attach/connectors/s3-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/s3-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

@@ -269,10 +269,10 @@ nav:
         - Develop Integrations:
             - Developing Integration Solutions: integrate/develop/intro-integration-development.md
             - WSO2 Integration Studio:
-                - Quick Tour - WSO2 Integration Studio: integrate/develop/WSO2-Integration-Studio.md
-                - Installing WSO2 Integration Studio: integrate/develop/installing-WSO2-Integration-Studio.md
+                - Quick Tour - WSO2 Integration Studio: integrate/develop/wso2-integration-studio.md
+                - Installing WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
-                - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-WSO2-Integration-Studio.md
+                - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
@@ -301,7 +301,7 @@ nav:
                 - Creating a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
                 - Adding Connectors: integrate/develop/creating-artifacts/adding-connectors.md
             - Creating Custom Artifacts:
-                - Creating a Custom Inbound Endpoint: integrate/develop/customizations/creating-custom-Inbound-endpoint.md
+                - Creating a Custom Inbound Endpoint: integrate/develop/customizations/creating-custom-inbound-endpoint.md
                 - Creating a Custom Mediator: integrate/develop/customizations/creating-custom-mediators.md
                 - Creating a Synapse Handler: integrate/develop/customizations/creating-synapse-handlers.md
                 - Creating a New Connector: integrate/develop/customizations/creating-new-connector.md
@@ -344,19 +344,19 @@ nav:
                 - Converting JSON Messages to SOAP: integrate/examples/message_transformation_examples/json-to-soap-conversion.md
                 - Converting POX Messages to JSON: integrate/examples/message_transformation_examples/pox-to-json-conversion.md
             - Protocol Switching:
-                - Switching from JMS to HTTP/S: integrate/examples/protocol-switching/switching_from_JMS_to_HTTP.md
-                - Switching from HTTP/S to JMS: integrate/examples/protocol-switching/switching_from_HTTPS_to_JMS.md
-                - Switching from FTP Listener to Mail Sender: integrate/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender.md
-                - Switching from HTTP to FIX: integrate/examples/protocol-switching/switching_from_HTTP_to_FIX.md
-                - Switch from FIX to HTTP: integrate/examples/protocol-switching/switching_from_FIX_to_HTTP.md
-                - Switch from FIX to AMQP: integrate/examples/protocol-switching/switching_from_FIX_to_AMQP.md
-                - Switching between FIX Versions: integrate/examples/protocol-switching/switching_between_FIX_versions.md
-                - Switching from TCP to HTTP/S: integrate/examples/protocol-switching/switching_from_TCP_to_HTTPS.md
-                - Switching from UDP to HTTP/S: integrate/examples/protocol-switching/switching_from_UDP_to_HTTPS.md
-                - Switching between HTTP to MSMQ: integrate/examples/protocol-switching/switching_between_HTTP_and_MSMQ.md
+                - Switching from JMS to HTTP/S: integrate/examples/protocol-switching/switching_from_jms_to_http.md
+                - Switching from HTTP/S to JMS: integrate/examples/protocol-switching/switching_from_https_to_jms.md
+                - Switching from FTP Listener to Mail Sender: integrate/examples/protocol-switching/switching_from_ftp_listener_to_mail_sender.md
+                - Switching from HTTP to FIX: integrate/examples/protocol-switching/switching_from_http_to_fix.md
+                - Switch from FIX to HTTP: integrate/examples/protocol-switching/switching_from_fix_to_http.md
+                - Switch from FIX to AMQP: integrate/examples/protocol-switching/switching_from_fix_to_amqp.md
+                - Switching between FIX Versions: integrate/examples/protocol-switching/switching_between_fix_versions.md
+                - Switching from TCP to HTTP/S: integrate/examples/protocol-switching/switching_from_tcp_to_https.md
+                - Switching from UDP to HTTP/S: integrate/examples/protocol-switching/switching_from_udp_to_https.md
+                - Switching between HTTP to MSMQ: integrate/examples/protocol-switching/switching_between_http_and_msmq.md
             - File Processing:
                 - Using VFS for File Transferring: integrate/examples/file-processing/vfs-transport-examples.md
-                - Accessing a Windows Share Using VFS: integrate/examples/file-processing/Accessing_Windows_Share_Using_VFS_Transport.md
+                - Accessing a Windows Share Using VFS: integrate/examples/file-processing/accessing_windows_share_using_vfs_transport.md
                 - Sending and Receiving Emails: integrate/examples/file-processing/mailto-transport-examples.md
             - Data Integration:
                 - Exposing an RDBMS datasource: integrate/examples/data_integration/rdbms-data-service.md
@@ -463,7 +463,7 @@ nav:
                 - Using the FIX Transport: integrate/examples/transport_examples/fix-transport-examples.md
                 - Using the MQTT Transport: integrate/examples/transport_examples/Pub_Sub_using_MQTT.md
                 - HL7 Examples:
-                    - Mediating HL7 Messages: integrate/examples/hl7-examples/HL7_proxy_service.md
+                    - Mediating HL7 Messages: integrate/examples/hl7-examples/hl7_proxy_service.md
                     - Acknowledging HL7 Messages: integrate/examples/hl7-examples/acknowledge_hl7_messages.md
                     - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
             - Working with Transactions: integrate/examples/working-with-transactions.md
@@ -1343,5 +1343,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next

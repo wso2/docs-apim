@@ -103,7 +103,7 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attach/connectors/smpp-inbound-endpoint.zip">
+<a href="{{base_path}}/assets/attachments/connectors/smpp-inbound-endpoint.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

@@ -90,7 +90,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attach/connectors/db-event-listener.zip">
+<a href="{{base_path}}/assets/attachments/connectors/db-event-listener.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
