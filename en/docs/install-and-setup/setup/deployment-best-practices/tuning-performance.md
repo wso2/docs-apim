@@ -97,13 +97,12 @@ The following diagram shows the communication/network paths that occur when an A
     
 -   **Key validation**
 
-    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
+    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/deployment.toml` file. All timeout values are in milliseconds.
 
-    ```
-    <transportSender name="https" class="org.apache.axis2.transport.http.CommonsHTTPTransportSender">
-        <parameter name="SO_TIMEOUT">60000</parameter>
-        <parameter name="CONNECTION_TIMEOUT">60000</parameter>
-    </transportSender>
+    ```toml
+    [transport.client.http.properties]
+    SO_TIMEOUT = 6000
+    CONNECTION_TIMEOUT = 6000
     ```
 
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
@@ -139,7 +138,7 @@ Some general API-M-level recommendations are listed below:
 <ul>
 <li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
 </ul>
-<p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/axis2/axis2_client.xml              </code> file:</p>
+<p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/deployment.toml              </code> file:</p>
 
 <div class="admonition note">
      <p class="admonition-title">Note</p>
@@ -149,8 +148,11 @@ Some general API-M-level recommendations are listed below:
 </div>
      <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;"><code>&lt;parameter name=&quot;defaultMaxConnPerHost&quot;&gt;1000&lt;/parameter&gt; 
-&lt;parameter name=&quot;maxTotalConnections&quot;&gt;30000&lt;/parameter&gt; </code></pre>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;">
+<code>[transport.client] 
+default_max_connection_per_host = 1000
+max_total_connections = 3000</code>
+</pre>
 </div> 
 </td>
 </tr>
