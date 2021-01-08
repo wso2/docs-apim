@@ -15,7 +15,7 @@ following operations:
 
   In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
 
-<img src="../../../../assets/img/connectors/Salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/Salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
 
 The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then through the **retrieve** sequence, it displays all the existing account details to the user. 
 
@@ -35,13 +35,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
     
-<img src="../../../../assets/img/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configure a sequence for the create operation
 
 Create the sequence needed to create Salesforce object. We will create two defined sequences called `create.xml` and  `retrieve.xml` to create an account and retrieve data. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
   
-<img src="../../../../assets/img/connectors/add-sequence.png" title="Adding a Sequnce" width="500" alt="Adding a Sequnce"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.png" title="Adding a Sequnce" width="500" alt="Adding a Sequnce"/>
 
 Now follow the steps below to add configurations to the sequence.
     
@@ -51,7 +51,7 @@ Now follow the steps below to add configurations to the sequence.
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `init` operation into the Design pane.
         
-        <img src="../../../../assets/img/connectors/salesforce-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>
         
     3. Add the property values into the `init` operation as shown bellow. Replace the `clientSecret`, `clientId`, `accessToken`, `refreshToken` with obtained values from above steps.
       
@@ -60,7 +60,7 @@ Now follow the steps below to add configurations to the sequence.
         - **accessToken** : Value of the access token to access the API via request.
         - **refreshToken** : Value of the refresh token.
        
-        <img src="../../../../assets/img/connectors/salesforce-api-init-operation-sequnce1.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-init-operation-sequnce1.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
     
      
 2. Set up the created operation.
@@ -74,11 +74,11 @@ Now follow the steps below to add configurations to the sequence.
     
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `create` operation into the Design pane.
     
-        <img src="../../../../assets/img/connectors/salesforce-drag-and-drop-create.png" title="Drag and drop create operation" width="500" alt="Drag and drop create operations"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-create.png" title="Drag and drop create operation" width="500" alt="Drag and drop create operations"/>
     
     3. To get the input values in to the API we can use the [property mediator](https://ei.docs.wso2.com/en/next/micro-integrator/references/mediators/property-Mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
-        <img src="../../../../assets/img/connectors/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
         The parameters available for configuring the Property mediator are as follows:
     
@@ -90,7 +90,7 @@ Now follow the steps below to add configurations to the sequence.
         - **expression** : json-eval($.sObject)
         - **type** : STRING
    
-        <img src="../../../../assets/img/connectors/salesforce-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="600" alt="Add values to capture sObjectName value"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-property-mediator-property1-value1.png" title="Add values to capture sObjectName value" width="600" alt="Add values to capture sObjectName value"/>
     
     5. Add the property mediator to capture the `fieldAndValue` values. The fieldAndValue contains object fields and values that user need to store.
    
@@ -98,7 +98,7 @@ Now follow the steps below to add configurations to the sequence.
         - **expression** : json-eval($.fieldAndValue)
         - **type** : STRING
      
-        <img src="../../../../assets/img/connectors/salesforce-api-property-mediator-property2-value2.png" title="Add values to capture fieldAndValue value" width="600" alt="Add values to capture fieldAndValue value"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-property-mediator-property2-value2.png" title="Add values to capture fieldAndValue value" width="600" alt="Add values to capture fieldAndValue value"/>  
     
 #### Configure a sequence for the retrieve operation
 
@@ -116,11 +116,11 @@ Create the sequence to retrive the Salesforce objects created.
 
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `query` operations into the Design pane.      
     
-        <img src="../../../../assets/img/connectors/salesforce-drag-and-drop-query.png" title="Add query operation to retrive sequnce" width="500" alt="Add query operation to retrive sequnce"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-query.png" title="Add query operation to retrive sequnce" width="500" alt="Add query operation to retrive sequnce"/> 
     
     3. Select the query operation and add `id, name from Account` query to the properties section shown as bellow.
     
-        <img src="../../../../assets/img/connectors/salesforce-api-retrive-query-operation-sequnce1.png" title="Add query to the query operation in retrive sequnce" width="800" alt="Add query to the query operation in retrive sequnce"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-retrive-query-operation-sequnce1.png" title="Add query to the query operation in retrive sequnce" width="800" alt="Add query to the query operation in retrive sequnce"/>
     
 #### Configuring the API
 
@@ -128,7 +128,7 @@ Create the sequence to retrive the Salesforce objects created.
  
     Now you can select the API that we created initially. Navigate into the **Palette** pane and select the graphical operations icons listed under **Defined Sequences** section. Drag and drop the created `create` and `retrive` sequences to the Design pane.
     
-    <img src="../../../../assets/img/connectors/salesforce-drag-and-drop-sequencestothe-DesignPane.png" title="Drag and drop sequences to the Design view" width="500" alt="Drag and drop sequences to the Design view"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-sequencestothe-DesignPane.png" title="Drag and drop sequences to the Design view" width="500" alt="Drag and drop sequences to the Design view"/> 
  
 2. Get a response from the user.
     
@@ -136,11 +136,11 @@ Create the sequence to retrive the Salesforce objects created.
     
     1. Drag and drop **respond mediator** to the **Design view**. 
     
-        <img src="../../../../assets/img/connectors/salesforce-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
 
     2. Once you have setup the sequences and API, you can see the `salesforcerest` API as shown below.
     
-        <img src="../../../../assets/img/connectors/salesforce-api-design-view.png" title="API Design view" width="600" alt="API Design view"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-api-design-view.png" title="API Design view" width="600" alt="API Design view"/>
        
 3.  Now you can switch into the Source view and check the XML configuration files of the created API and sequences. 
 
@@ -207,8 +207,8 @@ Create the sequence to retrive the Salesforce objects created.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/salesforceRest.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attach/connectors/salesforceRest.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip

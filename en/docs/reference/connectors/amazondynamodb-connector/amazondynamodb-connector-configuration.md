@@ -46,11 +46,11 @@ Please find the following steps to navigate in to the Amazon DynamoDB using the 
 
 1. Sign in to the AWS Management Console and search **Database** section under **Services**.
 
-<img src="../../../../assets/img/connectors/dynamodb-aws-console.png" title="Amazon Dynamodb aws console" width="600" alt="Amazon Dynamodb aws console"/> 
+<img src="{{base_path}}/assets/img/integrate/connectors/dynamodb-aws-console.png" title="Amazon Dynamodb aws console" width="600" alt="Amazon Dynamodb aws console"/> 
 
 2. You can see the following operations and sub operations. The output in the AWS DynamoDB console are shown below.
 
     - Working with Items in Amazon DynamoDB
     - Working with Tables in Amazon DynamoDB
 
-<img src="../../../../assets/img/connectors/dynamodb-aws-results-console.png" title="Amazon Dynamodb Table view" width="600" alt="Amazon Dynamodb Table view"/> 
+<img src="{{base_path}}/assets/img/integrate/connectors/dynamodb-aws-results-console.png" title="Amazon Dynamodb Table view" width="600" alt="Amazon Dynamodb Table view"/> 

@@ -20,7 +20,7 @@ Following diagram shows the overall solution. The user creates a bucket, stores 
 
 To invoke each operation, the user uses the same API.
 
-<img src="../../../../assets/img/connectors/Amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/Amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -35,7 +35,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
 {!references/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="../../../../assets/img/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `S3ConnectorTestAPI` and API context as `/s3connector`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
 
@@ -185,8 +185,8 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/s3-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attach/connectors/s3-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -211,7 +211,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         <bucketRegion>us-east-2</bucketRegion>
     </createBucket>
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/xml" --request PUT --data @data.xml http://127.0.0.1:8290/s3connector/createbucket
     ```
@@ -219,7 +219,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 
     You should receive 200OK response. Please navigate to Amazon AWS S3 console[s3.console.aws.amazon.com] and see if a bucket called `wso2engineers` is created. If you tried to create a bucket with a name that already exists, it will reply back with a message indicating the conflict.
 
-    <img src="../../../../assets/img/connectors/AmazonS3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/AmazonS3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
 
 ### Post a message into Amazon S3 bucket
 
@@ -247,7 +247,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     </CompleteMultipartUploadResult>
     ```
     Navigate to AWS S3 console and click on the bucket `wso2engineers`. You will note that a file has been created with the name `Julian.txt`.
-    <img src="../../../../assets/img/connectors/AmazonS3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/AmazonS3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from Amazon S3 bucket
 

@@ -10,7 +10,7 @@ API has the context `/publishMessages`. It will publish messages via the topic t
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build.
 
-<img src="../../../../assets/img/connectors/KafkaConnectorPublishMessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/KafkaConnectorPublishMessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -57,8 +57,8 @@ Now we can export the imported connector and the API into a single CAR applicati
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/Kafka-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attach/connectors/Kafka-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment

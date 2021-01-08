@@ -6,7 +6,7 @@ The WSO2 ServiceNow connector allows you to access the ServiceNow REST API throu
 
 To see the available ServiceNow connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ServiceNow".
 
-<img src="../../../../assets/img/connectors/servicenow-store.png" title="ServiceNow Connector Store" width="200" alt="ServiceNow Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/servicenow-store.png" title="ServiceNow Connector Store" width="200" alt="ServiceNow Connector Store"/>
 
 ## Compatibility
 

@@ -4,7 +4,7 @@ The Google Sheets API lets users to read and modify any aspect of a spreadsheet.
 
 To see the Google Spreadsheet Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "google".
 
-<img src="../../../../assets/img/connectors/google-spreadsheet-store.png" title="Google Spreadsheet Connector Store" width="200" alt="Google Spreadsheet Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-spreadsheet-store.png" title="Google Spreadsheet Connector Store" width="200" alt="Google Spreadsheet Connector Store"/>
 
 ## Compatibility
 

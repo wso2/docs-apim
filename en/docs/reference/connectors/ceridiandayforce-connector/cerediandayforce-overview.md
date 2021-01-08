@@ -6,7 +6,7 @@ The Ceridian Dayforce connector allows you to  access the REST API of Ceridian D
 
 To see the Ceridian Dayforce Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "dayforce".
 
-<img src="../../../../assets/img/connectors/dayforce-store.png" title="Ceridian Dayforce Connector Store" width="200" alt="Ceridian Dayforce Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/dayforce-store.png" title="Ceridian Dayforce Connector Store" width="200" alt="Ceridian Dayforce Connector Store"/>
 
 ## Compatibility
 

@@ -6,7 +6,7 @@ This connector enables developers to use an external Redis server as a cache or 
 
 To see the available Redis connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Redis".
 
-<img src="../../../../assets/img/connectors/redis-store.png" title="Redis Connector Store" width="200" alt="Redis Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/redis-store.png" title="Redis Connector Store" width="200" alt="Redis Connector Store"/>
 
 ## Compatibility
 
