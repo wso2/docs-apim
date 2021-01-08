@@ -1,3 +1,4 @@
+# Receiving ER7 Events via HL7
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive Hl7 events in ER7 format to the hl7Stream via MLLP protocol and log the events in er7Stream to the output console.

@@ -1,3 +1,4 @@
+# Publishing Consumed Events to Prometheus Metrics and Exposing then via HTTP
 
 ## Purpose:
 This application demonstrates how to use siddhi-io-prometheus for publishing events through http server.

@@ -1,3 +1,4 @@
+# Publishing HTTP Events via an OAuth-protected Endpoint
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to sending an HTTP event via an OAuth

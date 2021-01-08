@@ -1,3 +1,4 @@
+# Publishing HTTP Requests and Processing the Responses
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via HTTP transport in JSON default format, Receive response from the http server and process the response using siddhi.

@@ -1,3 +1,4 @@
+# Publishing Custom Avro Events via Kafka
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via Kafka transport in Avro format with custom mapping

@@ -1,3 +1,5 @@
+# Receiving Key Value Events via JMS
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the `SweetProductionStream` via Jms transport in Keyvalue and log the events in `LowProductionAlertStream` to the output console.
 

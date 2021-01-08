@@ -1,3 +1,4 @@
+# Publishing Text Events via Email
 
 ## Purpose:
 This application demonstrates how to use siddhi-io-email for publishing events to files.

@@ -1,3 +1,5 @@
+# Publishing XML Events via WebSocket
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via WebSocket transport in XML default format and log the events in `LowProductionAlertStream` to the output console.
 

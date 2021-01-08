@@ -1,3 +1,5 @@
+# Receiving Events and Persisting in MongoDB Store
+
 ## Purpose:
 This application demonstrates how to perform CRUD operations using Siddhi queries in MongoDB stores. The sample depicts a scenario in a sweet production factory. The sweet production details, such as name of the raw material and amount used for production, can be stored using `insertSweetProductionStream`. The following streams can be used to insert, update, search, delete and update or insert the existing data in the store.
 * Search - `searchSweetProductionStream`

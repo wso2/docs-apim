@@ -1,4 +1,4 @@
-
+# Publishing JSON Events to Files
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to publish data events in to files in Json format.

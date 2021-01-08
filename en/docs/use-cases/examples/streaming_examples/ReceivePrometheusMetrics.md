@@ -1,3 +1,4 @@
+# Receiving Prometheus Metrics
 
 ## Purpose:
 This application demonstrates how to use prometheus-source to retrieve Prometheus metrics that are exported at an HTTP endpoint.

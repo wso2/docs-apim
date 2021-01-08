@@ -1,3 +1,5 @@
+# Identifying Sub-sequences in Input Sequences
+
 ## Purpose:
 This function attempts to find the next sub-sequence of the inputSequence that matches the regex pattern. It returns true if such a sub sequence exists, or returns false otherwise
 

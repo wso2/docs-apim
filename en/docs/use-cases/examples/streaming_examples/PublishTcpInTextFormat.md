@@ -1,3 +1,5 @@
+# Publishing Text Events via TCP
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via TCP transport in text format, and view the output on the server terminal.
 

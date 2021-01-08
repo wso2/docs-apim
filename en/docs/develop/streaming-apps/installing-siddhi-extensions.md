@@ -3,7 +3,7 @@
 Streaming Integrator Tooling uses Siddhi extensions to connect with various data sources. Siddhi extensions can be installed or un-installed using the Extension Installer.
 
 !!!Tip
-    The Extension Installer can install/un-install extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-Installing-Siddhi-Extensions).
+    The Extension Installer can install/un-install extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
 
 ## Managing Siddhi extensions
 
@@ -111,7 +111,7 @@ The dialog box displays all the dependencies that need to be manually installed.
 
 Configurations of extensions are loaded from the `<SI_HOME>/wso2/server/resources/extensionsInstaller/extensionDependencies.json` configuration file.
 
-When you are working with [custom extensions]({{base_path}}/admin/writing-Custom-Siddhi-Extensions#writing-custom-siddhi-extensions), and if you want a custom extension to be installable from the Extension Installer, you need to add the configuration of the extension to this configuration file.
+When you are working with [custom extensions]({{base_path}}/admin/writing-custom-siddhi-extensions#writing-custom-siddhi-extensions), and if you want a custom extension to be installable from the Extension Installer, you need to add the configuration of the extension to this configuration file.
 
 The configuration of an extension is a JSON object that looks as follows:
 

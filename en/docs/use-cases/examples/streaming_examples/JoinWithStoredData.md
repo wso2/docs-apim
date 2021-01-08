@@ -1,4 +1,4 @@
-
+# Joining Streaming Data with Stored Data in RDBMS
 
 ## Purpose:
 This application demonstrates how to perform join on streaming data with the data stored in RDBMS. The sample depicts a scenario, where a transaction by a credit card with which fraudulent activity has been previously done. The credit card numbers, which were noted for fraudulent activities are stored in an RDBMS table.

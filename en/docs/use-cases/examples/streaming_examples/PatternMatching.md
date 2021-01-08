@@ -1,4 +1,4 @@
-
+# Identifying Event Patterns Based On Order of Event Arrival
 
 ## Purpose:
 This application demonstrates how to detect patterns with Siddhi pattern concept. In the sample we capture a pattern where the temperature of a room increases by 5 degrees within 2 minutes

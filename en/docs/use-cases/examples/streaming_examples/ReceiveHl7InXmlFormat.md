@@ -1,3 +1,4 @@
+# Receiving Custom XML Messages via HL7
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive Hl7 events in XML format to the hl7Stream via MLLP protocol and log the events in xmlStream to the output console.

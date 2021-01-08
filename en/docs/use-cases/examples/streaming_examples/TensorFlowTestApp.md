@@ -1,8 +1,9 @@
+# Performing Regression Tasks via an Imported Tensorflow Model
 
-## Purpose:
+## Purpose
 This application demonstrates how to import a pretrained Tensorflow model WSO2 Streaming Integrator to perform a regression task.
 
-## Prerequisites:
+## Prerequisites
 1. Replace `{SI_HOME}` with absolute path to the Streaming Integrator Tooling home directory.
 2. Save this sample.
 3. If there is no syntax error, the following message is shown on the console:
@@ -11,17 +12,17 @@ This application demonstrates how to import a pretrained Tensorflow model WSO2 S
 	```
 
 
-## Executing the Sample:
+## Executing the Sample
 1. Start the Siddhi application by clicking on 'Run'.
 2. If the Siddhi application starts successfully, the following messages are shown on the console:
 	```
 	* TensorFlowTestApp.siddhi - Started Successfully!
 	```
 
-## Testing the Sample:
+## Testing the Sample
 Send events through one or more of the following methods.
 
-##### Send events to `ProductionInputStream`, via event simulator.
+##### Send events to `ProductionInputStream`, via event simulator
 1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 2. In the Single Simulation tab of the panel, specify the values as follows:
 	* Siddhi App Name: TensorFlowTestApp
@@ -33,7 +34,7 @@ x: "double:[1,-2]"
 
 4. Send some more events.
 
-##### Send events to the simulator http endpoint through the curl command:
+##### Send events to the simulator http endpoint through the curl command
 1. Open a new terminal and issue the following command:
 	```bash
 	curl -X POST \
@@ -46,7 +47,7 @@ x: "double:[1,-2]"
 	{"status":"OK","message":"Single Event simulation started successfully"}
 	```
 
-##### Publish events with Postman:
+##### Publish events with Postman
 1. Install 'Postman' application from Chrome web store.
 2. Launch the application.
 3. Make a 'Post' request to the 'http://localhost:9390/simulation/single' endpoint. Set the Content-Type to 'text/plain' and set the request body in text as follows:
@@ -59,7 +60,7 @@ x: "double:[1,-2]"
 	"message": "Single Event simulation started successfully"
 	```
 
-## Viewing the Results:
+## Viewing the Results
 See the output on the terminal.
 
 ```sql

@@ -1,3 +1,4 @@
+# Receiving Custom JSON Events via HTTP
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator to receive events to the `SweetProductionStream` via HTTP transport in JSON format using custom mapping and log the events in `LowProductionAlertStream` to the output console.

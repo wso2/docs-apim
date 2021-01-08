@@ -1,3 +1,4 @@
+# Making Predictions via Hoeffding Classifier Model
 
 ## Purpose:
 This application demonstrates how to train a Hoeffding Classifier and to predict the sweet category from the sweet production stream in streaming manner.

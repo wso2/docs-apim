@@ -1,3 +1,4 @@
+# Publishing XML messages via HL7
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send Hl7 events in XML format via MLLP protocol and log the events in hl7Stream and the acknowledgment message to the output console.

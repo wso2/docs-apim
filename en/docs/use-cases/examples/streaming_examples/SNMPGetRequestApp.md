@@ -1,4 +1,4 @@
-
+# Receiving Custom Key Value Events via SNMP
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to resive snmp source via SNMP in keyvalue using custom mapping.

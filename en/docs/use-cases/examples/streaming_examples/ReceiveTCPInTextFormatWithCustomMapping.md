@@ -1,3 +1,4 @@
+# Receiving Custom Text Events via TCP
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator to receive events to the SweetProductionStream via TCP transport in Text default format and log the events in LowProductionAlertStream to the  output  console.

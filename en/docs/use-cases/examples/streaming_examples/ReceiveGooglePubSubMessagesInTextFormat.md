@@ -1,3 +1,4 @@
+# Receiving Messages from a Google Pub/Sub Topic
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling using googlepubsub source in Siddhi to consume events. Events which are in TEXT format are consumed from a googlepubsub topic.

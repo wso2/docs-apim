@@ -1,3 +1,5 @@
+# Publishing Key-value events via JMS
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via JMS transport in Xml format.
 

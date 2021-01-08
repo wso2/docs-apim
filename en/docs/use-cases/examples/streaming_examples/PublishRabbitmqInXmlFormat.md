@@ -1,3 +1,5 @@
+# Publishing XML Events via RabbitMQ
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via RabbitMQ transport in XML format, and view the output on the rabbitmq-consumer.
 

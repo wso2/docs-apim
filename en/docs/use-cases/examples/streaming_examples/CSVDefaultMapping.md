@@ -1,3 +1,4 @@
+# CSV Default Mapping
 
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to Publish and receive data events processed within Siddhi to files in CSV default format.

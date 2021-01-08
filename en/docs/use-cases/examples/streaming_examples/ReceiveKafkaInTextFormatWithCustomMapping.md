@@ -1,3 +1,5 @@
+# Receiving Custom Text Events via Kafka
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator to receive events to the `SweetProductionStream` via Kafka transport in Text format using custom mapping and log the events in `LowProductionAlertStream` to the output console.
 

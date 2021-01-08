@@ -1,3 +1,5 @@
+# Using Javascript Functions in Siddhi Applications
+
 ## Purpose:
 This sample demonstrate how javascript functions can be used in Siddhi Applications.
 

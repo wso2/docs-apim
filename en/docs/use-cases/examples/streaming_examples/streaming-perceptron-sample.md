@@ -1,29 +1,30 @@
+# Making Predictions via a Streaming Perceptron Model
 
-## Purpose:
+## Purpose
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to perform binary classification using a streaming Perceptron.
 
-## Prerequisites:
+## Prerequisites
 1. Save this sample.
 2. If there is no syntax error, the following message is shown on the console.
 	```
 	* Siddhi App streaming-perceptron-sample successfully deployed.
 	```
 
-## Executing the Sample:
+## Executing the Sample
 1. Start the Siddhi application by clicking on 'Run'.
 2. If the Siddhi application starts successfully, the following messages are shown on the console.
 	```
 	* streaming-perceptron-sample.siddhi - Started Successfully!
 	```
 
-## Testing the Sample:
+## Testing the Sample
 
 **Note: The Streaming Perceptron for streaming machine learning needs to be trained prior to perform prediction.**
 
 #### Training phase
 Send events through one or more of the following methods.
 
-##### Send events to ProductionTrainStream, via event simulator.
+##### Send events to ProductionTrainStream, via event simulator
 1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 2. In the Single Simulation tab of the panel, specify the values as follows:
 	* Siddhi App Name: streaming-perceptron-sample
@@ -36,7 +37,7 @@ Send events through one or more of the following methods.
 
 4. Send some more events.
 
-##### Send events to the simulator http endpoint through the curl command:
+##### Send events to the simulator http endpoint through the curl command
 1. Open a new terminal and issue the following command:
 ```bash
 curl -X POST -d '{"streamName": "ProductionTrainStream", "siddhiAppName": "streaming-perceptron-sample","data": [50.4, 30.03, true]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'
@@ -46,7 +47,7 @@ curl -X POST -d '{"streamName": "ProductionTrainStream", "siddhiAppName": "strea
 {"status":"OK","message":"Single Event simulation started successfully"}
 ```
 
-##### Publish events with Postman:
+##### Publish events with Postman
 1. Install 'Postman' application from Chrome web store.
 2. Launch the application.
 3. Make a 'Post' request to the 'http://localhost:9390/simulation/single' endpoint. Set the Content-Type to 'text/plain' and set the request body in text as follows:
@@ -74,7 +75,7 @@ Send events through one or more of the following methods.
 	```
 4. Send some more events.
 
-##### Send events to the simulator http endpoint through the curl command:
+##### Send events to the simulator http endpoint through the curl command
 1. Open a new terminal and issue the following command:
 	```bash
 	curl -X POST -d '{"streamName": "ProductionInputStream", "siddhiAppName": "streaming-perceptron-sample","data": [30.4, 20.5]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'
@@ -84,7 +85,7 @@ Send events through one or more of the following methods.
 	{"status":"OK","message":"Single Event simulation started successfully"}
 	```
 
-##### Publish events with Postman:
+##### Publish events with Postman
 1. Install 'Postman' application from Chrome web store.
 2. Launch the application.
 3. Make a 'Post' request to the 'http://localhost:9390/simulation/single' endpoint. Set the Content-Type to 'text/plain' and set the request body in text as follows:
@@ -97,7 +98,7 @@ Send events through one or more of the following methods.
 	"message": "Single Event simulation started successfully"
 	```
 
-## Viewing the Results:
+## Viewing the Results
 See the output on the terminal:
 ```
 INFO {io.siddhi.core.query.processor.stream.LogStreamProcessor} - streaming-perceptron-sample: LOGGER, StreamEvent{ timestamp=1513596699142, beforeWindowData=null, onAfterWindowData=null, outputData=[34.0, 12.0, false, 0.0], type=CURRENT, next=null}

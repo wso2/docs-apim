@@ -1,3 +1,4 @@
+# Receiving Events via Simulator and Persisting in a Store
 
 ## Purpose:
 This application demonstrates how to perform CRUD operations in HBase stores using Siddhi queries. The sample depicts a scenario in a sweet production factory. The sweet production details, such as name of the raw material and amount used for production, can be stored using `insertSweetProductionStream`. The following streams can be used to search, delete, update, or upsert (update or insert) the existing data in the store.

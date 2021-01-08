@@ -1,3 +1,5 @@
+# Receiving XML Events via Websocket
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the `SweetProductionStream` via WebSocket transport in XML default format and log the events in `LowProductionAlertStream` to the output console.
 

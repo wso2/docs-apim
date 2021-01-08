@@ -1,3 +1,5 @@
+# Publishing JSON Events via TCP
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via TCP transport in JSON format, and view the output on the console.
 

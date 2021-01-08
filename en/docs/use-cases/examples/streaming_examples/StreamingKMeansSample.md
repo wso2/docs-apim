@@ -1,21 +1,22 @@
+# Using StreamingML Kmeans for Clustering
 
-## Purpose:
+## Purpose
 This sample demonstrates how to use siddhi-execution-streamingml kmeans incremental function for clustering.
 
-## Prerequisites:
+## Prerequisites
 Save this sample. If there is no syntax error, the following messages would be shown on the console.
 ```
 * Siddhi App StreamingKMeansSample successfully deployed.
 ```
 
-## Executing the Sample:
+## Executing the Sample
 1. Start the Siddhi application by clicking on 'Run'.
 2. If the Siddhi application starts successfully, the following messages would be shown on the console.
 	```
 	* StreamingKMeansSample.siddhi - Started Successfully!
 	```
 
-## Testing the Sample:
+## Testing the Sample
 You can publish data event to the file, through event simulator.
 1. Open event simulator by clicking on the second icon or press Ctrl+Shift+I.
 2. In the Single Simulation tab of the panel, select values as follows:
@@ -23,7 +24,7 @@ You can publish data event to the file, through event simulator.
 	* Stream Name     : SweetProductionStream
 3. Enter and send suitable values for the attributes of selected stream.
 
-## Viewing the Results:
+## Viewing the Results
 Messages similar to the following would be shown on the console.
 ```
 INFO {io.siddhi.core.stream.output.sink.LogSink} - StreamingMLExtensionkmeans-incremental-sample : SweetStatePredictionStream : Event{timestamp=1513603080892, data=[12.5, 124.5, 12.5, 124.5], isExpired=false}

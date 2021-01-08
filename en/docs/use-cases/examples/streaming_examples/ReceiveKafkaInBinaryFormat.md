@@ -1,3 +1,5 @@
+# Receiving Binary Events via Kafka
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the SweetProductionStream via Kafka transport in Binary Format and log the events in LowProductionAlertStream to the output console.
 

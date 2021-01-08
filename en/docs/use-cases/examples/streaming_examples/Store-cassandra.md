@@ -1,3 +1,5 @@
+# Receive Events via Simulator and Persist in Cassandra Store
+
 ## Purpose:
 This application demonstrates how to perform Cassandra operations using Siddhi queries. The sample depicts a scenario in a sweet production factory. The sweet production details, such as the name of the raw material and amount used for production, can be stored using `insertSweetProductionStream`. The following streams can be used to search, delete, update, update or insert the existing data in the store:
 

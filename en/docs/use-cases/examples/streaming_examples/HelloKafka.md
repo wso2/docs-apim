@@ -1,3 +1,5 @@
+# Consuming Events from a Kafka Topic and Publishing to Another Kafka Topic
+
 ## Purpose:
 This application demonstrates how to use the Kafka transport in Siddhi to receive and publish events. Events which are in JSON format are consumed from one Kafka topic and written to another Kafka topic in XML format.
 

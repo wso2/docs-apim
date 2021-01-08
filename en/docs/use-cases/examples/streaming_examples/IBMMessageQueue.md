@@ -1,4 +1,4 @@
-
+# Consuming Messages from IBM Message Queues
 
 ## Purpose:
 This application demonstrates how to consume events from IBM Message Queue and publish messages in to a IBM Queue

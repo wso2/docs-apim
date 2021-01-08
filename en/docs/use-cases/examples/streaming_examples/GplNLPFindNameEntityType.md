@@ -1,4 +1,4 @@
-
+# Extracting Values from a String
 
 ## Purpose:
 Through this app, NamedEntity of given type "organization" is extracted from the provided string.

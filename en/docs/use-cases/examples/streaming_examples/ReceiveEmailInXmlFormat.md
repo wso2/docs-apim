@@ -1,3 +1,4 @@
+# Receiving XML Events via Email
 
 ## Purpose:
 This application demonstrates how to use `siddhi-io-email` for receiving events from emails.

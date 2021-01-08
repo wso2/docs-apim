@@ -1,3 +1,5 @@
+# Receiving XML events via MQTT
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling  to receive events to the SweetProductionStream via MQTT transport in XML format and log the events in LowProductionAlertStream to the output console.
 

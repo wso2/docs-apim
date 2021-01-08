@@ -1,3 +1,5 @@
+# Receiving JSON Events via TCP
+
 ## Purpose:
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the SweetProductionStream via TCP transport in JSON format using default mapping and log the events in LowProductionAlertStream to the output console.
 
