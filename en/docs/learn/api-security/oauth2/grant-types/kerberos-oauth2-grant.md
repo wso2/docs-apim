@@ -23,14 +23,26 @@ The following section describes the flow involved in exchanging a Kerberos ticke
     
      The message format of the OAuth2 token request should be as follows. You can use one of the following two cURL commands to request for the OAuth2 token.
     </p>
-    
-    ``` java tab="cURL Request Format 1"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
-    ```  
 
-    ``` java tab="cURL Request Format 2"
+    Format 1:
+
+    ``` tab="Format"
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    ```
+
+    ``` tab="Example"
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    ```
+  
+    Format 2:
+
+    ``` tab="Format"
     curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
     ```  
+
+    ``` tab="Example"
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    ```
 
     **cURL Response**
 
