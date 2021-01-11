@@ -46,7 +46,22 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
       [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)
 
-4. Enter the GraphQL API related details and click **Create**. 
+4. Enter the GraphQL API related details and click **Create**.
+
+    !!! important
+
+        Let's use the Star Wars sample backend server as the backend for our GraphQL API.
+
+        - Clone the [WSO2 API Manager Samples](https://github.com/wso2/samples-apim) repository.
+            ```
+            git clone https://github.com/wso2/samples-apim
+            ```
+        - Navigate to `graphql-backend` directory.
+        - Run `npm install` to install the necessary node modules.
+        - Run `npm start` to start the server.
+
+        Once the above steps are done, the Star Wars server will be running on `http://localhost:8080`. We can use
+        `http://localhost:8080/graphql` as the endpoint when creating the API. 
     
     Let's create an API named "StarWarsAPI" using the following sample data.
       <html>
@@ -94,7 +109,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
                <p>Endpoint</p>
             </td>
             <td>
-               <a href="https://api.graph.cool/simple/v1/swapi" target="_blank">https://api.graph.cool/simple/v1/swapi</a>
+               <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
             </td>
             </tr>
             <tr>
@@ -108,7 +123,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
          </table>
       </html>
 
-      [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-api-details.png)]({{base_path}}/assets/img/learn/add-graphql-api-details.png)
+      [![Add GraphQL API details]({{base_path}}/assets/img/learn/create-graphql-api-details.png)]({{base_path}}/assets/img/learn/create-graphql-api-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 
@@ -250,22 +265,22 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
     
          ```
          query{
-            allFilms{
-               title
-               episodeId
+            human(id:1000){
+               id
+               name
             }
-            allPlanets{
-               films{
-                  species{
-                     skinColor
-                  }
+            droid(id:2000){
+               name
+               friends{
+                   name
+                   appearsIn
                }
             }
          }
 
          ```
 
-         [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
+         [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)
 
          <html>
          <div class="admonition note">
@@ -277,6 +292,6 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
     4. Click **Execute**.
 
-        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.
