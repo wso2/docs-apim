@@ -1,6 +1,6 @@
 # Extending Scope Validation
 
-OAuth scopes, allow you to have fine grained access control to API resources based on the user roles. It allows you to define scopes per API and associate defined scopes with API resources. OAuth 2.0 bearer tokens are obtained for a set of requested scopes and the token obtained is not allowed to access any API resources beyond the associated scopes. For more information, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/).
+OAuth scopes, allow you to have fine grained access control to API resources based on the user roles. It allows you to define scopes per API and associate defined scopes with API resources. OAuth 2.0 bearer tokens are obtained for a set of requested scopes and the token obtained is not allowed to access any API resources beyond the associated scopes. For more information, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes).
 
 API Manager uses scopes as a way of defining permissions for a resource. If a resource is assigned a scope, then the token accessing the resource should be generated with that scope. By associating a scope with a role, you can control which users are permitted to have tokens under certain scopes. In this instance, associating a role to a scope seems legitimate.
 
@@ -8,7 +8,7 @@ Validating the role of a requester does not make much sense in some scenarios. F
 
 ### Skipping role validation for scopes
 
-When scopes that cannot be associated with roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/scope-allowlisting) using configurations. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
+When scopes that cannot be associated with roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/scope-allowlisting) using configurations. Patterns of the allowed scopes are specified via a configuration under the `apim.oauth_config` element in the `<API-M_HOME>/repository/conf/deployment.toml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
 
 Follow the instructions below to skip role validation for scopes:
 
