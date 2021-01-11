@@ -57,15 +57,13 @@ Once the Oauth2 provider is configured, its time to create a static oauth client
 
 If you want to work with scopes then the relevant scopes should be assigned to the relevant oauth clients before hand.    
 
-### Step 2: Configure WSO2 API Manager
+### Step 2: Configure WSO2 API Manager 
 
-1. Add the attached jar to `<API-M_HOME>`/repository/components/dropins/ 
-
-2. Start WSO2 API Manager.
+1. Start WSO2 API Manager.
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 
-3. Add a Key Manager.
+2. Add a Key Manager.
 
     1. Sign in to the Admin Portal. 
 
