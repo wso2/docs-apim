@@ -647,24 +647,24 @@ nav:
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Micro Integrator Observability:
-              - 'Micro Integrator Dashboard': ''
-              - 'Micro Integrator CLI': ''
-              - 'Monitoring Message Round Trip': ''
-              - 'Analyzing Statistics and Tracing': ''
-              - 'Using the Management API': ''
-              - Logging:
-                  #- 'Logs in WSO2 Micro Integrator' : 'administer-and-observe/logs/monitoring_logs.md'
-                  #- 'Configuring Log4j2 Properties' : 'administer-and-observe/logs/configuring_log4j_properties.md'
-                  - 'Managing Log Growth': ''
-                  - 'Masking Sensitive Information in Logs': ''
+              - Microintegrator Overview: mi-observe/observability-overview.md'
+              - Micro Integrator Dashboard: mi-observe/working-with-monitoring-dashboard.md'
+              - Micro Integrator CLI: mi-observe/using-the-command-line-interface.md'
+              - Using the Management API: mi-observe/working-with-management-api.md'
+              - Observability':
+                  - Cloud Native Observability Solution':
+                    - Viewing Cloud Native Observability Dashboards: mi-observe/cloud-native-observability-dashboards.md'
+                  - Classic Observability Solution':
+                    - Using the EI Analytics Dashboard: mi-observe/using-the-analytics-dashboard.md'
+                  - Monitoring Logs: mi-observe/logs/monitoring_logs.md'
+                  - Monitoring Message Round Trip: mi-observe/observability.md'
               - Metrics:
-                  - 'JMX Monitoring': ''
-                  - 'SNMP Monitoring': ''
-                  - 'Prometheus for Monitoring': ''
+                  - JMX Monitoring: mi-observe/jmx_monitoring.md'
+                  - SNMP Monitoring: mi-observe/snmp_monitoring.md'
               - TCP Messages:
-                  - 'Starting TCPMon': ''
-                  - 'Message Monitoring with TCPMon': ''
-                  - 'Other Usages of TCPMon': ''
+                  - Starting TCPMon: mi-observe/tcp/starting_tcp_mon.md'
+                  - Message Monitoring with TCPMon: mi-observe/tcp/message_monitoring_with_tcpmon.md'
+                  - Other Usages of TCPMon: mi-observe/tcp/other_usages_of_tcpmon.md'
           - Monitoring the Streaming Integrator:
               - Configuring Grafana Dashboards: ''
               - Managing Grafana Dashboards: ''
