@@ -693,16 +693,17 @@ nav:
               - Reusing Mediation Sequences: ''
               - Integrating with SAP: ''
           - Streaming Tutorials:
-              - Tutorials Overview: ''
-              - Performing Real-time ETL with MySQL: ''
-              - Performing Real-time ETL with Files: ''
-              - Creating an ETL Application via Wizard: ''
-              - Working with Kafka: ''
-              - Working with Business Rules: ''
-              - Exposing Processed Data as API: ''
-              - Managing Streaming Data with Errors: ''
-              - Triggering Integrations via MI: ''
-              - Running SI with Docker and Kubernetes: ''
+              - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
+              - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
+              - Performing Real-time ETL with Files: use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
+              - Creating an ETL Application via Wizard: use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
+              - Working with Kafka: use-cases/streaming-tutorials/working-with-kafka.md
+              - Integrating Stores: use-cases/streaming-tutorials/integrating-stores.md
+              - Working with Business Rules: use-cases/streaming-tutorials/creating-business-rules-templates.md
+              - Exposing Processed Data as API: use-cases/streaming-tutorials/exposing-processed-data-as-api.md
+              - Managing Streaming Data with Errors: use-cases/streaming-tutorials/handling-requests-with-errors.md
+              - Triggering Integrations via MI: use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md
+              - Running SI with Docker and Kubernetes: use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md
     - Install and Setup:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
