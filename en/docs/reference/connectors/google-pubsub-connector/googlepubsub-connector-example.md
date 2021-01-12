@@ -28,7 +28,7 @@ All three operations are exposed via an API. The API with the context `/resource
    
 The following diagram shows the overall solution. The user creates a topic, stores some company update notifications, and then receives it back. To invoke each operation, the user uses the same API.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/Google-pubsub-Connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -77,7 +77,7 @@ First create an API, which will be where we configure the integration logic. Rig
         
         While invoking the API, topicName values is populated as an input value for the operation.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-drag-and-drop.createTopic.png" title="Drag and drop createTopic operation" width="500" alt="Drag and drop createTopic operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-drag-and-drop.createtopic.png" title="Drag and drop createTopic operation" width="500" alt="Drag and drop createTopic operation"/>    
     
     3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
@@ -105,7 +105,7 @@ First create an API, which will be where we configure the integration logic. Rig
          - **topicName** : The name of the topic for which you want to create a subscription.
          - **ackDeadlineSeconds** :  The maximum time a subscriber can take to acknowledge a message that is received.
             
-         <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-createTopicSubscription-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-createtopicsubscription-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
     
     3. Add the property mediator to capture the `subscriptionName` values. This contains the name of the subscription.
    
@@ -138,7 +138,7 @@ First create an API, which will be where we configure the integration logic. Rig
 
     2. Once you have setup the sequences and API, you can see the `/createTopic` resource as shown below.
     
-         <img src="{{base_path}}/assets/img/integrate/connectors/createTopic-design-view.png" title="API Design view" width="600" alt="API Design view"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/createtopic-design-view.png" title="API Design view" width="600" alt="API Design view"/>
                
 **Configure a resource for the publishMessage operation**
 
@@ -152,7 +152,7 @@ First create an API, which will be where we configure the integration logic. Rig
        - **topicName** : The name of the topic for which you want to create a subscription.
        - **data** :  The message payload.
             
-       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-publishMessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-publishmessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
                
    3. Add the property mediator to capture the `topicName` values.               
            
@@ -308,7 +308,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   
   - Created Topic.
   
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudTopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
     
   - Created subscription for the Topic that you specify in the G-Cloud.
     

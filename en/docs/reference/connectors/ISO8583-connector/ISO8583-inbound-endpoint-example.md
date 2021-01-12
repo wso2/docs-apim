@@ -16,7 +16,7 @@ The following diagram illustrates all the required functionality of the ISO8583 
 
 For example, while transferring bank and financial sector information using the ISO85883 message format among the banking networks, the message receiving can be done by using inbound endpoints. The ISO8583 inbound endpoint of WSO2 EI acts as an ISO8583 message receiver. You can inject that message into the mediation flow for getting the required output.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/ISO8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
@@ -72,7 +72,7 @@ For example, while transferring bank and financial sector information using the 
 
 3. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
 
-4. [Start the WSO2 EI server](https://ei.docs.wso2.com/en/latest/micro-integrator/overview/quick-start-guide/#start-the-micro-integrator). 
+4. Start the WSO2 EI server. 
 
 ## Testing  
 

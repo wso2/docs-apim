@@ -290,4 +290,4 @@ response message.
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](../../administer-and-observe/jmx_monitoring.md) via the exposed MBeans. You can use the `         invalidateTheWholeCache()        ` operation of the `         org.wso2.carbon.mediation        ` MBean for this as shown below.
 
-![](../../assets/img/jmx/jmx_monitoring_cache_mediator.png)
+![]({{base_path}}/assets/img/integrate/jmx/jmx_monitoring_cache_mediator.png)

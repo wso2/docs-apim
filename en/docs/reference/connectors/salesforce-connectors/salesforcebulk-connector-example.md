@@ -167,7 +167,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
         
         While invoking the API, the above `jobId` and `batchId` parameters values come as a user input.
                 
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getBatchStatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="500" alt="Add query operation to getBatchStatus"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getbatchstatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="500" alt="Add query operation to getBatchStatus"/> 
     
     3. Add the property mediator to capture the `jobId` value.      
                    
@@ -183,7 +183,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
          - **expression** : //batchId/text()
          - **type** : STRING
                       
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-batchIdgetstatus-property1-value1.png" title="Add values to capture batchId value" width="600" alt="Add values to capture batchId value"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-batchidgetstatus-property1-value1.png" title="Add values to capture batchId value" width="600" alt="Add values to capture batchId value"/>
 
 3. Forward the backend response to the API caller.
     

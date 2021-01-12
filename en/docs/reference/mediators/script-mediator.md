@@ -111,7 +111,7 @@ Click on the relevant tab to view the syntax for a script mediator using an Inli
     !!! Info
         If you are creating the Registry Resource via Tooling, you need not specify the content/media type, because it gets automatically applied when you select the **JavaScript File Template** as shown below.
 
-        ![select the JavaScript File Template](/assets/img/mediators/119131139/119131140.png)
+        ![select the JavaScript File Template]({{base_path}}/assets/img/integrate/mediators/119131139/119131140.png)
 
         ``` 
         <script key="string" language="js" [function="script-function-name"]>

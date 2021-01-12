@@ -16,7 +16,7 @@ For example, we are building an integrated example driven through the [Salesforc
 
 Now that you have configured the Salesforce Inbound Endpoint, use the following Inbound Endpoint configuration to retrieve account details from your Salesforce account. The Salesforce inbound endpoint of WSO2 EI acts as a message receiver. You can inject that message into the mediation flow for getting the required output.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundEP-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
@@ -24,7 +24,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
-   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundEP-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`. 
 

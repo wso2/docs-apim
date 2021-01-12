@@ -6,7 +6,7 @@ Those configurations are applied globally and you cannot have independent config
 With JSON Transform mediator you can define the properties inside the mediation and control the transformation independently. 
 Also you can have a JSON schema to correct the payload if there are inconsistencies in the transformation.
 
-<img src="../../../assets/img/mediators/json-transform-concept.png"/>
+<img src="{{base_path}}/assets/img/integrate/mediators/json-transform-concept.png"/>
 
 !!! Info
     The JSON Transform mediator is a [content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
