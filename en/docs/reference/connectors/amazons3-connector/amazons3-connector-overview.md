@@ -7,7 +7,7 @@ And the versions 2.0.0 and above allow you to access the AWS component via AWS [
 
 To see the Amazon S3 connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Amazon".
 
-<img src="../../../../assets/img/connectors/amazon-s3-store.png" title="Amazon S3 Connector Store" width="200" alt="Amazon S3 Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-store.png" title="Amazon S3 Connector Store" width="200" alt="Amazon S3 Connector Store"/>
 
 ## Compatibility
 

@@ -10,7 +10,7 @@ Connectors can be added and used as part of the integration logic of your integr
 
 All the connectors are hosted at [WSO2 EI Connector Store](https://store.wso2.com/store/assets/esbconnector/list). You can download the connector from the store as a .zip file. 
 
-<img src="../../../assets/img/connectors/connector-store.png" title="Connector store" width="700" alt="Connector store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connector-store.png" title="Connector store" width="700" alt="Connector store"/>
 
 The source code for connectors can also be found in the specific [WSO2 extensions GitHub repository](https://github.com/wso2-extensions/).
 
@@ -24,7 +24,7 @@ However, the recommended approach to use connectors for integration logic develo
 
 3. Right-click on the ESB Configs folder and select **New** -> **Add/Remove Connector**. Search for the connector and follow the steps in the wizard to import the connector.
 
-    <img src="../../../assets/img/connectors/import-connector.png" title="Import a connector" width="700" alt="Import a connector"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/import-connector.png" title="Import a connector" width="700" alt="Import a connector"/>
 
 ### Providing values for operation parameters 
 
@@ -71,7 +71,7 @@ For recently updated connector versions, you need to create a connection, add co
 
 For recently updated connector versions, this is available with Integration Studio 7.1.0 onwards. When creating a connection you can provide configuration values and they will get saved as a local-entry internally. 
 
-<img src="../../../assets/img/connectors/connection-configuration.png" title="Connection configuration" width="450" alt="Connection configuration"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connection-configuration.png" title="Connection configuration" width="450" alt="Connection configuration"/>
 
 ### For connector versions that were not updated recently
 
@@ -79,7 +79,7 @@ For connector versions that were not updated recently, you need to use the `init
 
 You can refer to the documentation of the relevant connector and configure the `init` operation of it. This operation needs to be applied before any other operation of the same connector when you design mediation logic. The `init` operation is visible only for older connector versions in the Integration Studio.
 
-<img src="../../../assets/img/connectors/old-connection-config.png" title="Connection configuration with init" width="500" alt="Connection configuration with init"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/old-connection-config.png" title="Connection configuration with init" width="500" alt="Connection configuration with init"/>
 
 Instead of having the `init` operation before each connector operation, you can create an [inline XML local-entry](../../develop/creating-artifacts/registry/creating-local-registry-entries/) with the XML configuration of the `init` operation configuration and refer to it at the beginning of each connector operation.
 

@@ -15,7 +15,7 @@ To create a function, you need a deployment package and an execution role. The d
 
 The following diagram illustrates all the required functionality of the Amazon Lambda Service that you are going to build.
 
-<img src="../../../../assets/img/connectors/AmazonLambdaConnectorSample.png" title="Amazon Lambda Connector" width="800" alt="Amazon Lambda Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/AmazonLambdaConnectorSample.png" title="Amazon Lambda Connector" width="800" alt="Amazon Lambda Connector"/>
 
 This example demonstrates, how to create an Amazon Lambda function easily using the WSO2 Amazon Lambda Connector. Before creating an Amazon Lambda function inside the AWS Lambda service, you need to implement the required deployment package (ZIP Archive) locally.
 
@@ -146,8 +146,8 @@ You need to create an Execution Role by referring to the [Setting up the Amazon 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/amazon-lambda-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-lambda-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -226,16 +226,16 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 6. Log in to the AWS Management Console.
 
 7. Navigate to the AWS Lambda and Functions tab.
-   <img src="../../../../assets/img/connectors/AWSLambdaFunction.png" title="Amazon Lambda Function" width="800" alt="Amazon Lambda Function"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/AWSLambdaFunction.png" title="Amazon Lambda Function" width="800" alt="Amazon Lambda Function"/>
    
 8. Next you need to execute the function. Navigate to **Configure test events**. <br>
-   <img src="../../../../assets/img/connectors/configureTestEvent.png" title="Configure Test Event" width="800" alt="Configure Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/configureTestEvent.png" title="Configure Test Event" width="800" alt="Configure Test Event"/>
    
 9. Click **Create new test event**.
-   <img src="../../../../assets/img/connectors/createTestEvent.png" title="Create Test Event" width="800" alt="Create Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/createTestEvent.png" title="Create Test Event" width="800" alt="Create Test Event"/>
    
 10. Navigate and select the created test event from the dropdown in the top right corner. Click the **Test** button and execute the test event.
-   <img src="../../../../assets/img/connectors/executeCreatedEvent.png" title="Execute Test Event" width="800" alt="Execute Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/executeCreatedEvent.png" title="Execute Test Event" width="800" alt="Execute Test Event"/>
  
 ## What's next
 

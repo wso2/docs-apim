@@ -32,7 +32,7 @@ For more information about these operations, please refer to the [Amazon DynamoD
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="../../../../assets/img/connectors/amazon-dynamoDB-connector-example.png" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamoDB-connector-example.png" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -50,7 +50,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `amazonDynamoDBAPI` and API context as `/resources`.
     
-<img src="../../../../assets/img/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configuring the API
 
@@ -62,7 +62,7 @@ Now follow the steps below to add resources to the API.
     
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `init` operation into the Design pane.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-api-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
     
     2. Add the property values into the `init` operation as shown below. Replace the `region`, `accessKeyId`, `secretAccessKey`, `blocking` with your values.
         
@@ -71,13 +71,13 @@ Now follow the steps below to add resources to the API.
        - **secretAccessKey** : The AWS accessKeyId of the user account to generate the signature.
        - **blocking** : Boolean type, this property helps the connector perform blocking invocations to AmazonDynamoDB. 
     
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
 
 2. Set up the createTable operation.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `createTable` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-create-table.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/>    
 
     2. The createTable operation creates a new table. Table names must be unique within each region. The `createTable` operation parameters are listed here.
                
@@ -89,11 +89,11 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above five parameter values come as a user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-create-table-parameters.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table-parameters.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/> 
     
     3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under the **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
         The parameters available for configuring the Property mediator are as follows:
     
@@ -104,35 +104,35 @@ Now follow the steps below to add resources to the API.
        - **name** : attributeDefinitions
        - **expression** : json-eval($.attributeDefinitions)
    
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-property1-value1.png" title="Add property mediators attributeDefinitions" width="600" alt="Add property mediators attributeDefinitions"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-property1-value1.png" title="Add property mediators attributeDefinitions" width="600" alt="Add property mediators attributeDefinitions"/>
     
     5. Add the property mediator to capture the `tableName` values.                 
    
        - **name** : tableName
        - **expression** : json-eval($.tableName)
      
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-property2-value2.png" title="Add values to capture tableName" width="600" alt="Add values to capture tableName"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-property2-value2.png" title="Add values to capture tableName" width="600" alt="Add values to capture tableName"/>  
       
     6. Add the property mediator to capture the `keySchema` values.                   
        
        - **name** : keySchema
        - **expression** : json-eval($.keySchema)
                  
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-property3-value3.png" title="Add values to capture keySchema" width="600" alt="Add values to capture keySchema"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-property3-value3.png" title="Add values to capture keySchema" width="600" alt="Add values to capture keySchema"/>  
 
     7. Add the property mediator to capture the `localSecondaryIndexes` values.                 
        
        - **name** : localSecondaryIndexes
        - **expression** : json-eval($.localSecondaryIndexes)
          
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-property4-value4.png" title="Add values to capture localSecondaryIndexes" width="600" alt="Add values to capture localSecondaryIndexes"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-property4-value4.png" title="Add values to capture localSecondaryIndexes" width="600" alt="Add values to capture localSecondaryIndexes"/>  
           
     8. Add the property mediator to capture the `provisionedThroughput` values.                   
            
        - **name** : provisionedThroughput
        - **expression** : json-eval($.provisionedThroughput)
                      
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-property5-value5.png" title="Add values to capture provisionedThroughput" width="600" alt="Add values to capture provisionedThroughput"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-property5-value5.png" title="Add values to capture provisionedThroughput" width="600" alt="Add values to capture provisionedThroughput"/>  
     
 #### Configure a resource for the insertdetails operation
 
@@ -144,7 +144,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `putItem` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-put-items.png" title="Drag and drop create put items operation" width="500" alt="Drag and drop put items operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-put-items.png" title="Drag and drop create put items operation" width="500" alt="Drag and drop put items operation"/>    
 
     2. The putItem operation use to insert new items to the tables. `putItem` operation parameters listed here.
                
@@ -153,7 +153,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above two parameter values come as a user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-put-items-table-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-put-items-table-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in `addtable` operation. The parameters available for configuring the Property mediator are as follows.
              
@@ -162,7 +162,7 @@ Now follow the steps below to add resources to the API.
        - **name** : item
        - **expression** : json-eval($.item)
    
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-put-items-table-property1-value1.png" title="Add property mediators to capture item" width="600" alt="Add property mediators to capture item"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-put-items-table-property1-value1.png" title="Add property mediators to capture item" width="600" alt="Add property mediators to capture item"/>
     
     4. Add the property mediator to capture the `tableName` values. Please follow the steps given in `addtable` operation.               
    
@@ -179,7 +179,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `updateTable` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-update-table.png" title="Drag and drop create put items operation" width="500" alt="Drag and drop put items operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-update-table.png" title="Drag and drop create put items operation" width="500" alt="Drag and drop put items operation"/>    
 
     2. The updateTable operation is used to update the created tables. The `updateTable` operation parameters are listed here.
                
@@ -188,7 +188,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above two parameter values come as a user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-update-table-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-update-table-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in the `addtable` operation. The parameters available for configuring the Property mediator are as follows.
         
@@ -197,7 +197,7 @@ Now follow the steps below to add resources to the API.
        - **name** : provisionedThroughput
        - **expression** : json-eval($.provisionedThroughput)
    
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-update-table-property1-value1.png" title="Add property mediators to capture provisionedThroughput" width="600" alt="Add property mediators to capture provisionedThroughput"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-update-table-property1-value1.png" title="Add property mediators to capture provisionedThroughput" width="600" alt="Add property mediators to capture provisionedThroughput"/>
     
     4. Add the property mediator to capture the `tableName` values. Please follow the steps given in `addtable` operation.               
    
@@ -214,7 +214,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `getItem` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-get-item.png" title="Drag and drop create get items operation" width="500" alt="Drag and drop get items operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-get-item.png" title="Drag and drop create get items operation" width="500" alt="Drag and drop get items operation"/>    
 
     2. The getItem operation is used to retrieve inserted items to the tables. The `getItem` operation parameters are listed here.
                
@@ -223,7 +223,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above two parameter values come as a user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-get-item-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-get-item-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in `addtable` operation. The parameters available for configuring the Property mediator are as follows.
                 
@@ -232,7 +232,7 @@ Now follow the steps below to add resources to the API.
        - **name** : key
        - **expression** : json-eval($.key)
    
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-get-item-property1-value1.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture key"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-get-item-property1-value1.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture key"/>
     
     4. Add the property mediator to capture the `tableName` values. Please follow the steps given in `addtable` operation.               
    
@@ -249,7 +249,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `deleteItem` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-delete-item.png" title="Drag and drop create get items operation" width="500" alt="Drag and drop get items operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-item.png" title="Drag and drop create get items operation" width="500" alt="Drag and drop get items operation"/>    
 
     2. The deleteItem operation is used to remove inserted items from the table. The `deleteItem` operation parameters are listed here.
                
@@ -260,7 +260,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above two parameter values (key, tableName) come as a user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-delete-item-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-item-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in the `addtable` operation. The parameters available for configuring the Property mediator are as follows.
                 
@@ -284,7 +284,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `listTables` operation into the Design pane.
            
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-list-table.png" title="Drag and drop list table operation" width="500" alt="Drag and drop list table operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-list-table.png" title="Drag and drop list table operation" width="500" alt="Drag and drop list table operation"/>    
 
     2. The listTables operation use to retrieve information about the created tables. `listTables` operation parameters listed here.
                
@@ -293,7 +293,7 @@ Now follow the steps below to add resources to the API.
        
         While invoking the API, the above two parameter values come as a user inputs.
        
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-list-table-parameters.png" title="Drag and drop list table parameter operation" width="500" alt="Drag and drop list table parameter operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-list-table-parameters.png" title="Drag and drop list table parameter operation" width="500" alt="Drag and drop list table parameter operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in `addtable` operation. The parameters available for configuring the Property mediator are as follows.
         
@@ -302,14 +302,14 @@ Now follow the steps below to add resources to the API.
        - **name** : exclusiveStartTableName
        - **expression** : json-eval($.exclusiveStartTableName)
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-list-table-property1-value1.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture exclusiveStartTableName"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-list-table-property1-value1.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture exclusiveStartTableName"/>
        
     4. Add the property mediator to capture the `limit` values. Please follow the steps given in the `listTables` operation.               
    
        - **name** : limit
        - **expression** : json-eval($.limit)               
          
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-property-mediator-list-table-property2-value2.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture limit"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-property-mediator-list-table-property2-value2.png" title="Add property mediators to capture key" width="600" alt="Add property mediators to capture limit"/>
         
 #### Configure a resource for the deletetable operation
 
@@ -321,7 +321,7 @@ Now follow the steps below to add resources to the API.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `deleteTable` operation into the Design pane.
            
-       <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-delete-table.png" title="Drag and drop list table operation" width="500" alt="Drag and drop list table operation"/>    
+       <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-table.png" title="Drag and drop list table operation" width="500" alt="Drag and drop list table operation"/>    
 
     2. The listTables operation is used to retrieve information about the created tables. The `deleteTable` operation parameters are listed here.
                
@@ -330,7 +330,7 @@ Now follow the steps below to add resources to the API.
        
         While invoking the API, the above two parameter values come as user inputs.
         
-        <img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-delete-table-parameters.png" title="Drag and drop list table parameter operation" width="500" alt="Drag and drop list table parameter operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-table-parameters.png" title="Drag and drop list table parameter operation" width="500" alt="Drag and drop list table parameter operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in `addtable` operation. The parameters available for configuring the Property mediator are as follows:
                 
@@ -345,7 +345,7 @@ When you are invoking the created API, the request of the message is going throu
 
 Drag and drop **respond mediator** to the **Design view**.
 
-<img src="../../../../assets/img/connectors/amazon-dynamodb-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
                
 Now you can switch into the Source view and check the XML configuration files of the created API.         
 
@@ -512,8 +512,8 @@ Now you can switch into the Source view and check the XML configuration files of
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/amazonDynamoDB-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/amazondynamodb-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
@@ -524,7 +524,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 
 ## Testing
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 1. Creating a new table in the Amazon DynamoDB with the specified table name for store employee details.
  

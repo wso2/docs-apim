@@ -22,7 +22,7 @@ There are three types of connectors available in WSO2 EI.
 
 Most of the connectors available in the connector store are outbound connectors that illustrate connections and operations going out from WSO2 EI to third-party applications and systems. However, there are connectors that also enable inbound connectivity from popular third-party applications into WSO2 EI.
 
-<img src="../../../assets/img/connectors/inbound-outbound.png" title="Inbound and Outbound Connectors" width="700" alt="Inbound and Outbound Connectors"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/inbound-outbound.png" title="Inbound and Outbound Connectors" width="700" alt="Inbound and Outbound Connectors"/>
 
 Some examples for inbound connectors are as follows.
 

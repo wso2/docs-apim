@@ -32,7 +32,7 @@ Follow these steps to set up the Integration Project and import Dayforce connect
 {!references/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created ESB Solution Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="../../../../assets/img/connectors/adding-an-api.png" 
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" 
    title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `DayforceConnectorTestAPI` and API context as `/dayforceconnector`. You can go to the 
@@ -108,8 +108,8 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/ceridiandayforce-connector-1.0.0.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/ceridiandayforce-connector-1.0.0.zip">
+    <img src="../../../..{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment

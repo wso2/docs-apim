@@ -4,7 +4,7 @@ The Microsoft Azure Storage Connector allows you to access the [Azure Storage se
 
 To see the available Microsoft Azure Storage connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Azure".
 
-<img src="../../../../assets/img/connectors/azure-store.png" title="Microsoft Azure Storage Connector Store" width="200" alt="Microsoft Azure Storage Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/azure-store.png" title="Microsoft Azure Storage Connector Store" width="200" alt="Microsoft Azure Storage Connector Store"/>
 
 ## Compatibility
 

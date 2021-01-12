@@ -4,7 +4,7 @@ The BigQuery connector allows you to access the [BigQuery REST API](https://clou
 
 To see the BigQuery Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Event". **BigQuery** is the name of the connector that has this functionality.
 
-<img src="../../../../assets/img/connectors/bigquery-store.png" title="BigQuery Connector Store" width="200" alt="BigQuery Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-store.png" title="BigQuery Connector Store" width="200" alt="BigQuery Connector Store"/>
 
 ## Compatibility
 
