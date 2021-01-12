@@ -2,11 +2,11 @@
 
 Mediators are individual processing units that perform a specific function on messages that pass through the Micro Integrator. The mediator takes the message received by the proxy service or REST API, carries out some predefined actions on it (such as transforming, enriching, filtering), and outputs the modified message. 
 
-For example, the [Clone](../../references/mediators/clone-Mediator.md) mediator splits a message into several clones, the [Send](../../references/mediators/send-Mediator.md) mediator sends the messages, and the [Aggregate](../../references/mediators/aggregate-Mediator.md) mediator collects and merges the responses before sending them back to the client. 
+For example, the [Clone]({{base_path}}/reference/mediators/clone-Mediator) mediator splits a message into several clones, the [Send]({{base_path}}/reference/mediators/send-Mediator) mediator sends the messages, and the [Aggregate]({{base_path}}/reference/mediators/aggregate-Mediator) mediator collects and merges the responses before sending them back to the client. 
 
-Mediators also include functionality to match incompatible protocols, data formats, and interaction patterns across different resources. [XQuery](../../references/mediators/xQuery-Mediator.md) and [XSLT](../../references/mediators/xSLT-Mediator.md) mediators allow rich transformations on the messages. The [Rule](../../references/mediators/rule-Mediator.md) mediator allows users to cope with the uncertainty of business logic through rule-based message mediation. Content-based routing using XPath filtering is supported in different flavors, allowing users to get the most convenient configuration experience. Built-in capability to handle transactions allow message mediation to be done transactionally inside the Micro Integrator.
+Mediators also include functionality to match incompatible protocols, data formats, and interaction patterns across different resources. [XQuery]({{base_path}}/reference/mediators/xQuery-Mediator) and [XSLT]({{base_path}}/reference/mediators/xSLT-Mediator) mediators allow rich transformations on the messages. The [Rule]({{base_path}}/reference/mediators/rule-Mediator) mediator allows users to cope with the uncertainty of business logic through rule-based message mediation. Content-based routing using XPath filtering is supported in different flavors, allowing users to get the most convenient configuration experience. Built-in capability to handle transactions allow message mediation to be done transactionally inside the Micro Integrator.
 
-Mediators are always defined within a [mediation sequence](../../references/synapse-properties/sequence-properties.md).
+Mediators are always defined within a [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
 
 ## Classification of Mediators
 
@@ -21,19 +21,19 @@ Mediators are classified as follows based on whether or not they access the mess
   <tr>
     <td><b>Content-Aware</b> mediators</td>
     <td>
-      These mediators always access the message content when mediating messages (e.g., <a href="../../../../references/mediators/enrich-Mediator">Enrich</a> mediator).
+      These mediators always access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/enrich-Mediator">Enrich</a> mediator).
     </td>
   </tr>
   <tr>
     <td><b>Content-Unaware</b> mediators</td>
     <td>
-      These mediators never access the message content when mediating messages (e.g., <a href="../../../../references/mediators/send-Mediator">Send</a> mediator).
+      These mediators never access the message content when mediating messages (e.g., <a href="..{{base_path}}/reference/mediators/send-Mediator">Send</a> mediator).
     </td>
   </tr>
   <tr>
     <td><b>Conditionally Content-Aware</b> mediators</td>
     <td>
-      These mediators could be either content-aware or content-unaware depending on their exact instance configuration. For example, a simple <a href="../../../../references/mediators/log-Mediator"></a> mediator instance (i.e. configured as <log/>) is content-unaware. However a log mediator configured as <log level=”full”/> would be content-aware since it is expected to log the message payload.
+      These mediators could be either content-aware or content-unaware depending on their exact instance configuration. For example, a simple <a href="..{{base_path}}/reference/mediators/log-Mediator"></a> mediator instance (i.e. configured as <log/>) is content-unaware. However a log mediator configured as <log level=”full”/> would be content-aware since it is expected to log the message payload.
     </td>
   </tr>
 </table>
@@ -44,20 +44,20 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Core Mediators**
 
-[Call](../../references/mediators/call-Mediator.md) | [Send](../../references/mediators/send-Mediator.md) | [Loopback](../../references/mediators/loopback-Mediator.md) | [Sequence](../../references/mediators/sequence-Mediator.md) | [Respond](../../references/mediators/respond-Mediator.md) | [Drop](../../references/mediators/drop-Mediator.md) | [Call Template](../../references/mediators/call-Template-Mediator.md) | [Enrich](../../references/mediators/enrich-Mediator.md) | [Property](../../references/mediators/property-Mediator.md) | [Property Group](../../references/mediators/property-Group-Mediator.md) | [Log](../../references/mediators/log-Mediator.md) | 
+[Call]({{base_path}}/reference/mediators/call-Mediator) | [Send]({{base_path}}/reference/mediators/send-Mediator) | [Loopback]({{base_path}}/reference/mediators/loopback-Mediator) | [Sequence]({{base_path}}/reference/mediators/sequence-Mediator) | [Respond]({{base_path}}/reference/mediators/respond-Mediator) | [Drop]({{base_path}}/reference/mediators/drop-Mediator) | [Call Template]({{base_path}}/reference/mediators/call-Template-Mediator) | [Enrich]({{base_path}}/reference/mediators/enrich-Mediator) | [Property]({{base_path}}/reference/mediators/property-Mediator) | [Property Group]({{base_path}}/reference/mediators/property-Group-Mediator) | [Log]({{base_path}}/reference/mediators/log-Mediator) | 
 
 **Filter Mediators**
 
-[Filter](../../references/mediators/filter-Mediator.md) | [Validate](../../references/mediators/validate-Mediator.md) | [Switch](../../references/mediators/switch-Mediator.md) | 
+[Filter]({{base_path}}/reference/mediators/filter-Mediator) | [Validate]({{base_path}}/reference/mediators/validate-Mediator) | [Switch]({{base_path}}/reference/mediators/switch-Mediator) | 
 
 **Transform Mediators**
 
-[XSLT](../../references/mediators/xSLT-Mediator.md) | [FastXSLT](../../references/mediators/fastXSLT-Mediator.md) | [URLRewrite](../../references/mediators/uRLRewrite-Mediator.md) | [XQuery](../../references/mediators/xQuery-Mediator.md) | [Header](../../references/mediators/header-Mediator.md) | [Fault](../../references/mediators/fault-Mediator.md) | [PayloadFactory](../../references/mediators/payloadFactory-Mediator.md) | [JSONTransform](json-Transform-Mediator.md) |
+[XSLT]({{base_path}}/reference/mediators/xSLT-Mediator) | [FastXSLT]({{base_path}}/reference/mediators/fastXSLT-Mediator) | [URLRewrite]({{base_path}}/reference/mediators/uRLRewrite-Mediator) | [XQuery]({{base_path}}/reference/mediators/xQuery-Mediator) | [Header]({{base_path}}/reference/mediators/header-Mediator) | [Fault]({{base_path}}/reference/mediators/fault-Mediator) | [PayloadFactory]({{base_path}}/reference/mediators/payloadFactory-Mediator) | [JSONTransform](json-Transform-Mediator) |
 
 **Advanced Mediators**
 
-[Cache](../../references/mediators/cache-Mediator.md) | [ForEach](../../references/mediators/forEach-Mediator.md) | [Clone](../../references/mediators/clone-Mediator.md) | [Store](../../references/mediators/store-Mediator.md) | [Iterate](../../references/mediators/iterate-Mediator.md) | [Aggregate](../../references/mediators/aggregate-Mediator.md) | [Callout](../../references/mediators/callout-Mediator.md) | [Transaction](../../references/mediators/transaction-Mediator.md) | [Throttle](../../references/mediators/throttle-Mediator.md) | [DBReport](../../references/mediators/dB-Report-Mediator.md) | [DBLookup](../../references/mediators/dBLookup-Mediator.md) | [EJB](../../references/mediators/eJB-Mediator.md) | [Rule](../../references/mediators/rule-Mediator.md) | [Binder](../../references/mediators/builder-Mediator.md) | [Entitlement](../../references/mediators/call-Mediator.md) | [OAuth](../../references/mediators/call-Mediator.md) | [Smooks](../../references/mediators/smooks-Mediator.md) | [Data Mapper](../../references/mediators/data-Mapper-Mediator.md) | 
+[Cache]({{base_path}}/reference/mediators/cache-Mediator) | [ForEach]({{base_path}}/reference/mediators/forEach-Mediator) | [Clone]({{base_path}}/reference/mediators/clone-Mediator) | [Store]({{base_path}}/reference/mediators/store-Mediator) | [Iterate]({{base_path}}/reference/mediators/iterate-Mediator) | [Aggregate]({{base_path}}/reference/mediators/aggregate-Mediator) | [Callout]({{base_path}}/reference/mediators/callout-Mediator) | [Transaction]({{base_path}}/reference/mediators/transaction-Mediator) | [Throttle]({{base_path}}/reference/mediators/throttle-Mediator) | [DBReport]({{base_path}}/reference/mediators/dB-Report-Mediator) | [DBLookup]({{base_path}}/reference/mediators/dBLookup-Mediator) | [EJB]({{base_path}}/reference/mediators/eJB-Mediator) | [Rule]({{base_path}}/reference/mediators/rule-Mediator) | [Binder]({{base_path}}/reference/mediators/builder-Mediator) | [Entitlement]({{base_path}}/reference/mediators/call-Mediator) | [OAuth]({{base_path}}/reference/mediators/call-Mediator) | [Smooks]({{base_path}}/reference/mediators/smooks-Mediator) | [Data Mapper]({{base_path}}/reference/mediators/data-Mapper-Mediator) | 
 
 **Extension Mediators**
 
-[Class](../../references/mediators/class-Mediator.md) | [Script](../../references/mediators/script-Mediator.md) |
+[Class]({{base_path}}/reference/mediators/class-Mediator) | [Script]({{base_path}}/reference/mediators/script-Mediator) |

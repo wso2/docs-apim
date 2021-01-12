@@ -89,7 +89,7 @@ You will now define the sequences you want to run for the entitlement results.
 
 ### Advanced Callback Properties
 
-The abstract EntitlementCallbackHandler class supports the following properties for getting the XACML subject (user name), specifying the action, and setting the service name. The various implementations of this class (UTEntitlementCallbackHandler, X509EntitlementCallbackHandler, etc.) can use some or all of these properties. You implement these properties by adding [Property mediators](property-Mediator.md) before the Entitlement mediator in the sequence.
+The abstract EntitlementCallbackHandler class supports the following properties for getting the XACML subject (user name), specifying the action, and setting the service name. The various implementations of this class (UTEntitlementCallbackHandler, X509EntitlementCallbackHandler, etc.) can use some or all of these properties. You implement these properties by adding [Property mediators]({{base_path}}/reference/mediators/property-Mediator) before the Entitlement mediator in the sequence.
 
 The default UTEntitlementCallbackHandler looks for a property called
 `         username        ` in the Axis2 message context, which it uses
@@ -130,10 +130,10 @@ the default handlers.
 
 In the following example, the WSO2 Identity Server (with log in URL `https://localhost:9443/services`) is see to authenticate the user invoking the secured backend service.
 
-If the authorization test performed on a request sent to this URL fails, the [Fault mediator](fault-Mediator.md) converts the request into a fault
-message giving `         Unauthorized        ` as the reason for the request to be rejected and `         XACML Authorization Failed        ` as the detail. Then the [Respond mediator](respond-Mediator.md) sends the converted message back to the client.
+If the authorization test performed on a request sent to this URL fails, the [Fault mediator]({{base_path}}/reference/mediators/fault-Mediator) converts the request into a fault
+message giving `         Unauthorized        ` as the reason for the request to be rejected and `         XACML Authorization Failed        ` as the detail. Then the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator) sends the converted message back to the client.
 
-If the user is successfully authenticated, the request is sent using the [Send Mediator](send-Mediator.md) to the endpoint with the
+If the user is successfully authenticated, the request is sent using the [Send Mediator]({{base_path}}/reference/mediators/send-Mediator) to the endpoint with the
 `http://localhost:8281/services/echo"/` URL.
 
 ```
