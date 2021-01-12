@@ -4,7 +4,7 @@ The **Property Mediator** has no direct impact on the message, but rather on the
 the properties set on a message later through the Synapse XPath Variables or the `get-property()` extension function. A property can have a defined scope for which it is valid. If a property has no defined scope, it defaults to the Synapse message context scope. Using the property element with the **action** specified as `remove`, you can remove any existing message context properties.
 
 !!! Info
-    The Property mediator is a [conditionally content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Property mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
@@ -45,7 +45,7 @@ by using an XPath function. You can use any of the <a href="../../mediators/prop
     </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="../../mediators/property-reference/generic-Properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
-<p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
+<p><img src="../../../assets/img/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -77,9 +77,29 @@ by using an XPath function. You can use any of the <a href="../../mediators/prop
 <li><strong>LONG</strong></li>
 <li><strong>SHORT</strong></li>
 <li><p><strong>OM</strong></p></li>
+<li><p><strong>JSON</strong></p></li>
 </ul>
 <p><strong>String</strong> is the default type.</p>
 <p>The <code>OM</code> type is used to set xml property values on the message context. This is useful when the expression associated with the property mediator evaluates to an XML node during mediation. When the <code>OM</code> type is used, the XML is converted to an AXIOM OMElement before it is assigned to a property.</p>
+<p>The <code>JSON</code> type is used to set JSON values on the message context. Its recommended to use the JSON
+ data type for JSON payloads rather than using the STRING data type.
+</p>
+<p>
+  Please note that when the JSON is just a string we should add quotes around them. ( Due to the restrictions in 
+  <a href="https://tools.ietf.org/html/rfc7159">RFC</a> ) 
+</p>
+<p>
+  
+  Example 1 : Creating a property with a JSON string by giving the value.
+  ```
+  <property name="Greeting" value="&quot;Hello World&quot;" type="JSON"/>
+  ```
+   
+  Example 2 : Creating a property with a JSON object via expression evaluation.
+  ```
+  <property name="studentObject" expression="json-eval($.student)" type="JSON"/>
+  ```
+</p>
 </div></td>
 </tr>
 <tr class="odd">
@@ -120,7 +140,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 </table>
 
 !!! Note
-    There are predefined XPath variables (such as `$ctx` ) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath.md).
+    There are predefined XPath variables (such as `$ctx` ) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath).
 
 ## Examples
 

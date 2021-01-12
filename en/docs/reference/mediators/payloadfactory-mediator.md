@@ -8,7 +8,7 @@ SOAP message. You can configure the format of the request or response
 and map it to the arguments provided.
 
 !!! Info
-    The PayloadFactory mediator is a [content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The PayloadFactory mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
@@ -197,6 +197,13 @@ assumed by default. For example:
 </tr>
 </tbody>
 </table>
+
+!!! Note
+    To evaluate the json-path against a property we can use the following syntax.
+    ```
+    <arg expression="$ctx:property.user.id" evaluator="json" />
+    ```
+    For more information on json-path syntax please refer [here]({{base_path}}/integrate/examples/json_examples/json-examples).
 
 ### Adding arguments
 
