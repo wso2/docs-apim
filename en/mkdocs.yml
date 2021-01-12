@@ -941,257 +941,257 @@ nav:
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Connectors:
-            - Connectors Overview : reference/connectors/connectors-overview.md
-            - 'When to Use Connectors' : 'reference/connectors/why-connectors.md'
-            - 'Connector Usage Guidelines' : 'reference/connectors/connector-usage.md'
-            - 'Connector Developer Guidelines' : 'reference/connectors/develop-connectors.md'
+            - Connectors Overview: reference/connectors/connectors-overview.md
+            - When to Use Connectors: reference/connectors/why-connectors.md
+            - Connector Usage Guidelines: reference/connectors/connector-usage.md
+            - Connector Developer Guidelines: reference/connectors/develop-connectors.md
             - Amazon DynamoDB Connector:
-                - 'Amazon DynamoDB Overview': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md'
-                - 'Setting up Amazon DynamoDB': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md'
-                - 'Amazon DynamoDB Example': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md'
-                - 'Amazon DynamoDB Reference': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md'
+                - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
+                - Setting up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
+                - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md
+                - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md
             - Amazon Lambda Connector:
-                - 'Amazon Lambda Overview': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md'
-                - 'Setting up Amazon Lambda': 'reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md'
-                - 'Amazon Lambda Example': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md'
-                - 'Amazon Lambda Reference': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md'
+                - Amazon Lambda Overview: reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md
+                - Setting up Amazon Lambda: reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md
+                - Amazon Lambda Example: reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md
+                - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md
             - Amazon S3 Connector:
-                - 'AmazonS3 Overview': 'reference/connectors/amazons3-connector/amazons3-connector-overview.md'
-                - '2.x':
-                    - 'Setting up Amazon S3': 'reference/connectors/amazons3-connector/amazons3-connector-config.md'
-                    - 'AmazonS3 Example': 'reference/connectors/amazons3-connector/amazons3-connector-example.md'
-                    - 'AmazonS3 Reference': 'reference/connectors/amazons3-connector/amazons3-connector-reference.md'
-                - '1.x':
-                    - 'Setting up Amazon S3': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md'
-                    - 'AmazonS3 Example': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md'
-                    - 'AmazonS3 Reference': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md'
+                - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
+                - 2.x:
+                    - Setting up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
+                    - AmazonS3 Example: reference/connectors/amazons3-connector/amazons3-connector-example.md
+                    - AmazonS3 Reference: reference/connectors/amazons3-connector/amazons3-connector-reference.md
+                - 1.x:
+                    - Setting up Amazon S3: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md
+                    - AmazonS3 Example: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md
+                    - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
             - Amazon SQS Connector:
-                - 'Amazon SQS Overview': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md'
-                - 'Amazon SQS Example': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md'
-                - 'Amazon SQS Reference': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md'
-                - 'Amazon SQS Inbound Endpoint Example': 'reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md'
-                - 'Amazon SQS Inbound Endpoint Reference': 'reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md'
+                - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
+                - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
+                - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
+                - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
+                - Amazon SQS Inbound Endpoint Reference: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
             - BigQuery Connector:
-                - 'BigQuery Overview': 'reference/connectors/bigquery-connector/bigquery-connector-overview.md'
-                - 'Setting up the BigQuery Environment': 'reference/connectors/bigquery-connector/bigquery-connector-configuration.md'
-                - 'BigQuery Example': 'reference/connectors/bigquery-connector/bigquery-connector-example.md'
-                - 'BigQuery Reference': 'reference/connectors/bigquery-connector/bigquery-connector-reference.md'
+                - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
+                - Setting up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
+                - BigQuery Example: reference/connectors/bigquery-connector/bigquery-connector-example.md
+                - BigQuery Reference: reference/connectors/bigquery-connector/bigquery-connector-reference.md
             - Ceridian Dayforce Connector:
-                - 'Ceridian Dayforce Overview': 'reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md'
-                - 'Setting up the Ceridian Dayforce Connector': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md'
-                - 'Ceridian Dayforce Example': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md'
-                - 'Ceridian Dayforce Reference':
-                    - 'Initializing': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md'
-                    - 'Employee': 'reference/connectors/ceridiandayforce-connector/employee.md'
-                    - 'Configuration':
-                        - 'orgUnits': 'reference/connectors/ceridiandayforce-connector/configuration/orgUnits.md'
-                        - 'orgUnitDetails': 'reference/connectors/ceridiandayforce-connector/configuration/orgUnitDetails.md'
-                    - 'Employee Documents':
-                        - 'listOfDocuments': 'reference/connectors/ceridiandayforce-connector/employeeDocuments/listOfDocuments.md'
-                        - 'documentDetails': 'reference/connectors/ceridiandayforce-connector/employeeDocuments/documentDetails.md'
-                    - 'Employee Employemnt Information':
-                        - 'employeeClockDeviceGroups': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeClockDeviceGroups.md'
-                        - 'employeeCompensationSummary': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCompensationSummary.md'
-                        - 'employeeCourses': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCourses.md'
-                        - 'employeeEmploymentAgreements': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentAgreements.md'
-                        - 'employeeEmploymentStatuses': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentStatuses.md'
-                        - 'employeeEmploymentTypes': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentTypes.md'
-                        - 'employeeHighlyCompensatedEmployees': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHighlyCompensatedEmployees.md'
-                        - 'employeeHRIncidents': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHRIncidents.md'
-                        - 'employeeLaborDefaults': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeLaborDefaults.md'
-                        - 'employeeOnboardingPolicies': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOnboardingPolicies.md'
-                        - 'employeeOrgInfo': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOrgInfo.md'
-                        - 'employeePayAdjustmentCodeGroups': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayAdjustmentCodeGroups.md'
-                        - 'employeePayGradeRates': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayGradeRates.md'
-                        - 'employeePerformanceRatings': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePerformanceRatings.md'
-                        - 'employeeProperties': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeProperties.md'
-                        - 'employeeSkills': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeSkills.md'
-                        - 'employeeTrainingPrograms': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeTrainingPrograms.md'
-                        - 'employeeUnionMemberships': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeUnionMemberships.md'
-                        - 'employeeWorkAssignments': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkAssignments.md'
-                        - 'employeeWorkContracts': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md'
-                        - 'employeeWorkContracts': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md'
-                    - 'Employee Personal Information':
-                        - 'employeeAddresses': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeAddresses.md'
-                        - 'employeeCANTaxes': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeCANTaxes.md'
-                        - 'employeeContacts': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeContacts.md'
-                        - 'employeeDirectDeposits': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeDirectDeposits.md'
-                        - 'employeeEmergencyContacts': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeEmergencyContacts.md'
-                        - 'employeeHealthandWellness': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeHealthandWellness.md'
-                        - 'employeeMaritalStatuses': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeMaritalStatuses.md'
-                        - 'employeeUSTaxes': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeUSTaxes.md'
-                    - 'Employee Time Management':
-                        - 'availability': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md'
-                        - 'employeePunches': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeePunches.md'
-                        - 'employeeRawPunches': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeeRawPunches.md'
-                        - 'schedules': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md'
-                        - 'timeAwayFromWork': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeAwayFromWork.md'
-                    - 'Employment Eligibility Verification':
-                        - 'i9Order': 'reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9Order.md'
-                    - 'Recruiting':
-                        - 'jobPostings': 'reference/connectors/ceridiandayforce-connector/recruiting/jobPostings.md'
-                    - 'Reporting':
-                        - 'reportMetadataForAListOfReports': 'reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForAListOfReports.md'
-                        - 'reportMetadataForASpecificReport': 'reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForASpecificReport.md'
-                        - 'reports': 'reference/connectors/ceridiandayforce-connector/reporting/reports.md'
-                    - 'User Security Authority And Management':
-                        - 'documentManagementSecurityGroups': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentManagementSecurityGroups.md'
-                        - 'employeeLocations': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeLocations.md'
-                        - 'employeeManagers': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeManagers.md'
-                        - 'employeeRoles': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeRoles.md'
-                        - 'employeeSSOAccounts': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeSSOAccounts.md'
-                        - 'employeeWorkAssignmentManagers': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeWorkAssignmentManagers.md'
-                        - 'userPayAdjustmentCodeGroups': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userPayAdjustmentCodeGroups.md'
+                - Ceridian Dayforce Overview: reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md
+                - Setting up the Ceridian Dayforce Connector: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md
+                - Ceridian Dayforce Example: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md
+                - Ceridian Dayforce Reference:
+                    - Initializing: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md
+                    - Employee: reference/connectors/ceridiandayforce-connector/employee.md
+                    - Configuration:
+                        - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgUnits.md
+                        - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgUnitDetails.md
+                    - Employee Documents:
+                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listOfDocuments.md
+                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentDetails.md
+                    - Employee Employemnt Information:
+                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeClockDeviceGroups.md
+                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCompensationSummary.md
+                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCourses.md
+                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentAgreements.md
+                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentStatuses.md
+                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentTypes.md
+                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHighlyCompensatedEmployees.md
+                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHRIncidents.md
+                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeLaborDefaults.md
+                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOnboardingPolicies.md
+                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOrgInfo.md
+                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayAdjustmentCodeGroups.md
+                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayGradeRates.md
+                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePerformanceRatings.md
+                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeProperties.md
+                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeSkills.md
+                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeTrainingPrograms.md
+                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeUnionMemberships.md
+                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkAssignments.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md
+                    - Employee Personal Information:
+                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeAddresses.md
+                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeCANTaxes.md
+                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeContacts.md
+                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeDirectDeposits.md
+                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeEmergencyContacts.md
+                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeHealthandWellness.md
+                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeMaritalStatuses.md
+                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeUSTaxes.md
+                    - Employee Time Management:
+                        - availability: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md
+                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeePunches.md
+                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeeRawPunches.md
+                        - schedules: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md
+                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeAwayFromWork.md
+                    - Employment Eligibility Verification:
+                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9Order.md
+                    - Recruiting:
+                        - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobPostings.md
+                    - Reporting:
+                        - reportMetadataForAListOfReports: reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForAListOfReports.md
+                        - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForASpecificReport.md
+                        - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
+                    - User Security Authority And Management:
+                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentManagementSecurityGroups.md
+                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeLocations.md
+                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeManagers.md
+                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeRoles.md
+                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeSSOAccounts.md
+                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeWorkAssignmentManagers.md
+                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userPayAdjustmentCodeGroups.md
             - DB Event Listener Inbound Endpoint:
-                - 'Database Event Listener Overview': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md'
-                - 'Database Event Listener Example': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md'
-                - 'Database Event Listener Reference': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md'
+                - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
+                - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
+                - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
             - Documentum Connector:
-                - 'Documentum Overview': 'reference/connectors/documentum/documentum-overview.md'
-                - 'Documentum Example': 'reference/connectors/documentum/documentum-example.md'
-                - 'Documentum Reference': 'reference/connectors/documentum/documentum-reference.md'
+                - Documentum Overview: reference/connectors/documentum/documentum-overview.md'
+                - Documentum Example: reference/connectors/documentum/documentum-example.md
+                - Documentum Reference: reference/connectors/documentum/documentum-reference.md
             - Email Connector:
-                - 'Email Connector Overview': 'reference/connectors/email-connector/email-connector-overview.md'
-                - 'Email Connector Example': 'reference/connectors/email-connector/email-connector-example.md'
-                - 'Email Connector Reference': 'reference/connectors/email-connector/email-connector-config.md'
+                - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
+                - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
+                - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
             - FHIR Connector:
-                - 'FHIR Overview': 'reference/connectors/fhir-connector/fhir-connector-overview.md'
-                - 'FHIR Example': 'reference/connectors/fhir-connector/fhir-connector-example.md'
-                - 'FHIR Reference': 'reference/connectors/fhir-connector/fhir-connector-config.md'
+                - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
+                - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
+                - FHIR Reference: reference/connectors/fhir-connector/fhir-connector-config.md
             - File Connector:
-                - 'File Connector Overview': 'reference/connectors/file-connector/file-connector-overview.md'
+                - File Connector Overview: reference/connectors/file-connector/file-connector-overview.md
                 - 4.x:
-                    - 'File Connector Example': 'reference/connectors/file-connector/file-connector-example.md'
-                    - 'File Connector Reference': 'reference/connectors/file-connector/file-connector-config.md'
+                    - File Connector Example: reference/connectors/file-connector/file-connector-example.md
+                    - File Connector Reference: reference/connectors/file-connector/file-connector-config.md
                 - 3.x:
-                    - 'File Connector Example': 'reference/connectors/file-connector/3.x/file-connector-3.x-example.md'
-                - 'File Connector Reference': 'reference/connectors/file-connector/3.x/file-connector-3.x-config.md'
+                    - File Connector Example: reference/connectors/file-connector/3.x/file-connector-3.x-example.md
+                - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
             - Gmail Connector:
-                - 'Gmail Overview': 'reference/connectors/gmail-connector/gmail-connector-overview.md'
-                - 'Gmail Example': 'reference/connectors/gmail-connector/gmail-connector-example.md'
-                - 'Gmail Reference': 'reference/connectors/gmail-connector/gmail-connector-config.md'
+                - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
+                - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
+                - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
             - Google Firebase Connector:
-                - 'Google Firebase Overview': 'reference/connectors/google-firebase-connector/google-firebase-overview.md'
-                - 'Setting up Google Firebase': 'reference/connectors/google-firebase-connector/google-firebase-setup.md'
-                - 'Google Firebase Example': 'reference/connectors/google-firebase-connector/google-firebase-connector-example.md'
-                - 'Google Firebase Reference': 'reference/connectors/google-firebase-connector/google-firebase-configuration.md'
+                - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
+                - Setting up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
+                - Google Firebase Example: reference/connectors/google-firebase-connector/google-firebase-connector-example.md
+                - Google Firebase Reference: reference/connectors/google-firebase-connector/google-firebase-configuration.md
             - Google Pub/Sub Connector:
-                - 'Google PubSub Overview': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md'
-                - 'Setting up the Google PubSub Environment': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md'
-                - 'Google PubSub Example': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md'
-                - 'Google PubSub Reference': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md'
+                - Google PubSub Overview: reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md
+                - Setting up the Google PubSub Environment: reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md
+                - Google PubSub Example: reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md
+                - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
             - Google Spreadsheet Connector:
-                - 'Google Spreadsheet Overview': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md'
-                - 'Google Spreadsheet Example': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md'
-                - 'Google Spreadsheet Reference': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md'
+                - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
+                - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
             - ISO8583 Connector:
-                - 'ISO8583 Overview': 'reference/connectors/ISO8583-connector/ISO8583-connector-overview.md'
-                - 'Setting up ISO8583': 'reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md'
-                - 'ISO8583 Example': 'reference/connectors/ISO8583-connector/ISO8583-connector-example.md'
-                - 'ISO8583 Reference': 'reference/connectors/ISO8583-connector/ISO8583-connector-reference.md'
-                - 'ISO8583 Inbound Endpoint Example': 'reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md'
-                - 'ISO8583 Inbound Endpoint Reference': 'reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md'
+                - ISO8583 Overview: reference/connectors/ISO8583-connector/ISO8583-connector-overview.md
+                - Setting up ISO8583: reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md
+                - ISO8583 Example: reference/connectors/ISO8583-connector/ISO8583-connector-example.md
+                - ISO8583 Reference: reference/connectors/ISO8583-connector/ISO8583-connector-reference.md
+                - ISO8583 Inbound Endpoint Example: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md
+                - ISO8583 Inbound Endpoint Reference: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md
             - Kafka Connector:
-                - 'Kafka Overview': 'reference/connectors/kafka-connector/kafka-connector-overview.md'
-                - 'Setting up Kafka': 'reference/connectors/kafka-connector/setting-up-kafka.md'
-                - 'Enabling Security for Kafka': 'reference/connectors/kafka-connector/enabling-security-for-kafka.md'
-                - 'Kafka Example': 'reference/connectors/kafka-connector/kafka-connector-producer-example.md'
-                - 'Kafka Connector Reference': 'reference/connectors/kafka-connector/kafka-connector-config.md'
-                - 'Kafka Inbound Endpoint Example': 'reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md'
+                - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
+                - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
+                - Enabling Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
+                - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
+                - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
             - LDAP Connector:
-                - 'LDAP Overview': 'reference/connectors/ldap-connector/ldap-connector-overview.md'
-                - 'Setting up an LDAP Server': 'reference/connectors/ldap-connector/setting-up-ldap.md'
-                - 'LDAP Example': 'reference/connectors/ldap-connector/ldap-connector-example.md'
-                - 'LDAP Reference': 'reference/connectors/ldap-connector/ldap-server-configuration.md'
+                - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
+                - Setting up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
+                - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
+                - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
             - Microsoft Azure Storage Connector:
-                - 'Microsoft Azure Storage Overview': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md'
-                - 'Setting up Microsoft Azure Storage': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md'
-                - 'Microsoft Azure Storage Example': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md'
-                - 'Microsoft Azure Storage Reference': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md'
+                - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
+                - Setting up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
+                - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
+                - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - Redis Connector:
-                - 'Redis Overview': 'reference/connectors/redis-connector/redis-connector-overview.md'
-                - 'Setting up the Environment': 'reference/connectors/redis-connector/redis-connector-configuration.md'
-                - 'Redis Example': 'reference/connectors/redis-connector/redis-connector-example.md'
-                - 'Redis Reference': 'reference/connectors/redis-connector/redis-connector-reference.md'
+                - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
+                - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
+                - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+                - Redis Reference: reference/connectors/redis-connector/redis-connector-reference.md
             - Salesforce Connectors:
-                - 'Salesforce Overview': 'reference/connectors/salesforce-connectors/sf-overview.md'
-                - 'Salesforce Access Token Generation': 'reference/connectors/salesforce-connectors/sf-access-token-generation.md'
-                - 'Setting up the PushTopic in Salesforce': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md'
-                - 'Salesforce REST API Example': 'reference/connectors/salesforce-connectors/sf-rest-connector-example.md'
-                - 'Salesforce REST API Reference': 'reference/connectors/salesforce-connectors/sf-rest-connector-config.md'
-                - 'Salesforce Inbound Endpoint Example': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md'
-                - 'Salesforce Inbound Endpoint Reference': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md'
-                - 'Salesforce Bulk Configuration': 'reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md'
-                - 'Salesforce Bulk API Example': 'reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md'
-                - 'Salesforce Bulk API Reference': 'reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md'
-                - 'Salesforce SOAP Connector Configuration': 'reference/connectors/salesforce-connectors/sf-soap-connector-config.md'
-                - 'Salesforce SOAP Connector Example': 'reference/connectors/salesforce-connectors/sf-soap-connector-example.md'
-                - 'Salesforce SOAP Connector Reference': 'reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md'
+                - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
+                - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
+                - Setting up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
+                - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+                - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+                - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
+                - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
+                - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
+                - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
+                - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+                - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
+                - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
+                - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
             - ServiceNow Connector:
-                - 'ServiceNow Overview': 'reference/connectors/servicenow-connector/servicenow-overview.md'
-                - 'Setting up Servicenow': 'reference/connectors/servicenow-connector/settingup-servicenow-instance.md'
-                - 'ServiceNow Example': 'reference/connectors/servicenow-connector/servicenow-connector-example.md'
-                - 'ServiceNow Reference': 'reference/connectors/servicenow-connector/servicenow-connector-config.md'
+                - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
+                - Setting up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
+                - ServiceNow Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
+                - ServiceNow Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
             - SMPP Connector:
-                - 'SMPP Overview': 'reference/connectors/smpp-connector/smpp-connector-overview.md'
-                - 'Setting up the SMPP Connector': 'reference/connectors/smpp-connector/smpp-connector-configuration.md'
-                - 'SMPP Example': 'reference/connectors/smpp-connector/smpp-connector-example.md'
-                - 'SMPP Reference': 'reference/connectors/smpp-connector/smpp-connector-config.md'
-                - 'SMPP Inbound Endpoint Example': 'reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md'
-                - 'SMPP Inbound Endpoint Reference': 'reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md'
+                - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
+                - Setting up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
+                - SMPP Example: reference/connectors/smpp-connector/smpp-connector-example.md
+                - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
+                - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
+                - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
         - Synapse Configurations:
             - Mediator Catalog:
-                - 'About Mediators': 'reference/mediators/about-mediators.md'
-                - 'Aggregate Mediators' : 'reference/mediators/aggregate-mediator.md'
-                - 'Builder Mediator' : 'reference/mediators/builder-mediator.md'
-                - 'Cache Mediator' : 'reference/mediators/cache-mediator.md'
-                - 'Call Mediator' : 'reference/mediators/call-mediator.md'
-                - 'Call Template Mediator' : 'reference/mediators/call-template-mediator.md'
-                - 'Callout Mediator' : 'reference/mediators/callout-mediator.md'
-                - 'Class Mediator' : 'reference/mediators/class-mediator.md'
-                - 'Clone Mediator' : 'reference/mediators/clone-mediator.md'
+                - About Mediators: reference/mediators/about-mediators.md
+                - Aggregate Mediators: reference/mediators/aggregate-mediator.md
+                - Builder Mediator: reference/mediators/builder-mediator.md
+                - Cache Mediator: reference/mediators/cache-mediator.md
+                - Call Mediator: reference/mediators/call-mediator.md
+                - Call Template Mediator: reference/mediators/call-template-mediator.md
+                - Callout Mediator: reference/mediators/callout-mediator.md
+                - Class Mediator: reference/mediators/class-mediator.md
+                - Clone Mediator: reference/mediators/clone-mediator.md
                 - Data Mapping:
-                    - 'Data Mapper Mediator' : 'reference/mediators/data-mapper-mediator.md'
-                    - 'Data Mapper Schema Specification' : 'reference/mediators/data-mapper-json-schema-specification.md'
-                - 'DBLookup  Mediator' : 'reference/mediators/dblookup-mediator.md'
-                - 'DB Report Mediator' : 'reference/mediators/db-report-mediator.md'
-                - 'Drop Mediator' : 'reference/mediators/drop-mediator.md'
-                - 'EJB Mediator' : 'reference/mediators/ejb-mediator.md'
-                - 'Enrich Mediator' : 'reference/mediators/enrich-mediator.md'
-                - 'Entitlement Mediator' : 'reference/mediators/entitlement-mediator.md'
-                - 'FastXSLT Mediator' : 'reference/mediators/fastxslt-mediator.md'
-                - 'Fault Mediator' : 'reference/mediators/fault-mediator.md'
-                - 'Filter Mediator' : 'reference/mediators/filter-mediator.md'
-                - 'ForEach Mediator' : 'reference/mediators/foreach-mediator.md'
-                - 'Header Mediator' : 'reference/mediators/header-mediator.md'
-                - 'Iterate Mediator' : 'reference/mediators/iterate-mediator.md'
-                - 'JSON Transform Mediator' : 'reference/mediators/json-transform-mediator.md'
-                - 'Log Mediator' : 'reference/mediators/log-mediator.md'
-                - 'Loopback Mediator' : 'reference/mediators/loopback-mediator.md'
-                - 'OAuth Mediator' : 'reference/mediators/oauth-mediator.md'
-                - 'PayloadFactory Mediator' : 'reference/mediators/payloadfactory-mediator.md'
-                - 'Property Mediator' : 'reference/mediators/property-mediator.md'
-                - 'Property Group Mediator' : 'reference/mediators/property-group-mediator.md'
-                - 'Respond Mediator' : 'reference/mediators/respond-mediator.md'
-                - 'Script Mediator' : 'reference/mediators/script-mediator.md'
-                - 'Send Mediator' : 'reference/mediators/send-mediator.md'
-                - 'Sequence Mediator' : 'reference/mediators/sequence-mediator.md'
-                - 'Smooks Mediator' : 'reference/mediators/smooks-mediator.md'
-                - 'Store Mediator' : 'reference/mediators/store-mediator.md'
-                - 'Switch Mediator' : 'reference/mediators/switch-mediator.md'
-                - 'Throttle Mediator' : 'reference/mediators/throttle-mediator.md'
-                - 'Transaction Mediator' : 'reference/mediators/transaction-mediator.md'
-                - 'URLRewrite Mediator' : 'reference/mediators/urlrewrite-mediator.md'
-                - 'Validate Mediator' : 'reference/mediators/validate-mediator.md'
-                - 'XQuery Mediator' : 'reference/mediators/xquery-mediator.md'
-                - 'XSLT Mediator' : 'reference/mediators/xslt-mediator.md'
+                    - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
+                    - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+                - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
+                - DB Report Mediator: reference/mediators/db-report-mediator.md
+                - Drop Mediator: reference/mediators/drop-mediator.md
+                - EJB Mediator: reference/mediators/ejb-mediator.md
+                - Enrich Mediator: reference/mediators/enrich-mediator.md
+                - Entitlement Mediator: reference/mediators/entitlement-mediator.md
+                - FastXSLT Mediator: reference/mediators/fastxslt-mediator.md
+                - Fault Mediator: reference/mediators/fault-mediator.md
+                - Filter Mediator: reference/mediators/filter-mediator.md
+                - ForEach Mediator: reference/mediators/foreach-mediator.md
+                - Header Mediator: reference/mediators/header-mediator.md
+                - Iterate Mediator: reference/mediators/iterate-mediator.md
+                - JSON Transform Mediator: reference/mediators/json-transform-mediator.md
+                - Log Mediator: reference/mediators/log-mediator.md
+                - Loopback Mediator: reference/mediators/loopback-mediator.md
+                - OAuth Mediator: reference/mediators/oauth-mediator.md
+                - PayloadFactory Mediator: reference/mediators/payloadfactory-mediator.md
+                - Property Mediator: reference/mediators/property-mediator.md
+                - Property Group Mediator: reference/mediators/property-group-mediator.md
+                - Respond Mediator: reference/mediators/respond-mediator.md
+                - Script Mediator: reference/mediators/script-mediator.md
+                - Send Mediator: reference/mediators/send-mediator.md
+                - Sequence Mediator: reference/mediators/sequence-mediator.md
+                - Smooks Mediator: reference/mediators/smooks-mediator.md
+                - Store Mediator: reference/mediators/store-mediator.md
+                - Switch Mediator: reference/mediators/switch-mediator.md
+                - Throttle Mediator: reference/mediators/throttle-mediator.md
+                - Transaction Mediator: reference/mediators/transaction-mediator.md
+                - URLRewrite Mediator: reference/mediators/urlrewrite-mediator.md
+                - Validate Mediator: reference/mediators/validate-mediator.md
+                - XQuery Mediator: reference/mediators/xquery-mediator.md
+                - XSLT Mediator: reference/mediators/xslt-mediator.md
                 - Property Catalog:
-                    - 'Generic Properties' : 'reference/mediators/property-reference/generic-Properties.md'
-                    - 'HTTP Transport Properties' : 'reference/mediators/property-reference/http-transport-properties.md'
-                    - 'SOAP Headers' : 'reference/mediators/property-reference/soap-headers.md'
-                    - 'Axis2 Properties' : 'reference/mediators/property-reference/axis2-properties.md'
-                    - 'Synapse Message Context Properties' : 'reference/mediators/property-reference/message-context-properties.md'
-                    - 'Accessing Properties with XPath' : 'reference/mediators/property-reference/accessing-properties-with-xpath.md'
+                    - Generic Properties: reference/mediators/property-reference/generic-Properties.md
+                    - HTTP Transport Properties: reference/mediators/property-reference/http-transport-properties.md
+                    - SOAP Headers: reference/mediators/property-reference/soap-headers.md
+                    - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
+                    - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
+                    - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
@@ -1397,4 +1397,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
     #base_path: http://localhost:8000
-    base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/next
