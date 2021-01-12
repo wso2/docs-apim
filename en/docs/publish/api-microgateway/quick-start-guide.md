@@ -2,7 +2,7 @@
 
 ## Design Your First API
 
-This section is a step-by-step guide to create, publish, and invoke an API in the WSO2 API Microgateway.
+This section is a step-by-step guide to create, publish, and invoke an API using WSO2 API Microgateway.
 
 ### Before you begin...
 
