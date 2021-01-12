@@ -81,24 +81,18 @@ by using an XPath function. You can use any of the <a href="../../mediators/prop
 </ul>
 <p><strong>String</strong> is the default type.</p>
 <p>The <code>OM</code> type is used to set xml property values on the message context. This is useful when the expression associated with the property mediator evaluates to an XML node during mediation. When the <code>OM</code> type is used, the XML is converted to an AXIOM OMElement before it is assigned to a property.</p>
-<p>The <code>JSON</code> type is used to set JSON values on the message context. Its recommended to use the JSON
- data type for JSON payloads rather than using the STRING data type.
+<p>The <code>JSON</code> type is used to set JSON values on the message context. It is recommended to use the JSON
+ data type (rather than the STRING data type) for JSON payloads.
 </p>
 <p>
-  Please note that when the JSON is just a string we should add quotes around them. ( Due to the restrictions in 
-  <a href="https://tools.ietf.org/html/rfc7159">RFC</a> ) 
+  Note that when the JSON is just a string, you need to add quotes around them. This is due to the restrictions in 
+  <a href="https://tools.ietf.org/html/rfc7159">RFC</a>.
 </p>
 <p>
-  
-  Example 1 : Creating a property with a JSON string by giving the value.
-  ```
-  <property name="Greeting" value="&quot;Hello World&quot;" type="JSON"/>
-  ```
-   
-  Example 2 : Creating a property with a JSON object via expression evaluation.
-  ```
-  <property name="studentObject" expression="json-eval($.student)" type="JSON"/>
-  ```
+  Example 1: Creating a property with a JSON string by giving the value.</br>
+  <code><property name="Greeting" value="&quot;Hello World&quot;" type="JSON"/></code></br></br>
+  Example 2 : Creating a property with a JSON object via expression evaluation.</br>
+  <code><property name="studentObject" expression="json-eval($.student)" type="JSON"/></code>
 </p>
 </div></td>
 </tr>

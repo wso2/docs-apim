@@ -199,11 +199,11 @@ assumed by default. For example:
 </table>
 
 !!! Note
-    To evaluate the json-path against a property we can use the following syntax.
-    ```
+    To evaluate the json-path against a property, use the following syntax:
+    ```xml
     <arg expression="$ctx:property.user.id" evaluator="json" />
     ```
-    For more information on json-path syntax please refer [here]({{base_path}}/integrate/examples/json_examples/json-examples).
+    Learn more about the [json-path syntax]({{base_path}}/integrate/examples/json_examples/json-examples).
 
 ### Adding arguments
 

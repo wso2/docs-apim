@@ -147,7 +147,7 @@ Then whenever you need the original payload, you replace the message body with t
 
 Below is the JSON payload that is sent in the request for the following examples.
 
-#### Payload
+**Payload**
 
 ```json
 {
@@ -170,7 +170,7 @@ Below is the JSON payload that is sent in the request for the following examples
 }
 ```
 
-### Example 5: Extract content from message payload and set to message body
+### Example 1: Extract content from message payload and set to message body
 
 In this example, we will extract the content in the `data` object and set it as the message body.
 
@@ -202,7 +202,7 @@ In this example, we will extract the content in the `data` object and set it as 
 }
 ```
 
-### Example 6 - Setting a property as a child in the target
+### Example 2: Setting a property as a child in the target
 
 In this example, we will enroll the first student in the payload for a new module. The new module is set
 in the `NewModule` property.
@@ -238,7 +238,7 @@ in the `NewModule` property.
 }
 ```
 
-### Example 7 - Setting an inline content as a child in the target
+### Example 3: Setting an inline content as a child in the target
 
 In this example, we will define a new student inline and add it to the `students` array in the payload.
 
@@ -285,7 +285,7 @@ In this example, we will define a new student inline and add it to the `students
 }
 ```
 
-### Example 8 - Setting a custom path expressions to a property
+### Example 4: Setting a custom path expressions to a property
 
 In this example, we will assign the first student's name to a property called `Name`.
 
@@ -305,15 +305,13 @@ The following line can be observed in the log.
 INFO {LogMediator} - {proxy:TestEnrich} Student name is :  = "Tom"
 ```
 
-### Example 9 - Removing selected parts from a payload
+### Example 5: Removing selected parts from a payload
 
 !!! Info
-    This feature is currently supported only for JSON.
-    
-!!! Info
-    We can provide comma-separated multiple JSONPath expression for this `remove` operations as in the following example.
+    -   This feature is currently supported only for JSON.
+    -   You can provide multiple JSONPath expressions as a comma-separated list for the `remove` operation (as given in the following example).
 
-In this example, we will remove the `modules` from every student and the first student in the array.
+In this example, we will remove the `modules` from every student and also remove the first student in the array.
 
 ```xml
 <enrich>
@@ -338,9 +336,9 @@ In this example, we will remove the `modules` from every student and the first s
 }
 ```
 
-### Example 10 - Removing selected parts from a property
+### Example 6: Removing selected parts from a property
 
-Similar to example 9, we can perform the remove action on synapse properties also.
+As you removed selected parts from a payload, you can also remove selected parts synapse properties.
 
 ```xml
  <enrich>
@@ -357,15 +355,16 @@ Similar to example 9, we can perform the remove action on synapse properties als
 </log>
 ```
 
-Here we create a property called `students` with the incoming message payload using the first enrich mediator. 
-In the second enrich we are removing selected parts from the property and finally we are logging the property. 
+Here, in the first Enrich mediator, you are creating a property called `students` with the incoming message payload. 
+In the second Enrich mediator, you are removing selected parts from the property, and finally logging the property. 
 
 After invoking we can see the following log appearing in the terminal.
+
 ```
 result = {"data":{"students":[{"id":"02","name":"Nick","lastname":"Thameson"}]}
 ```
 
-### Example 11 - Updating a value of an existing object
+### Example 7: Updating a value of an existing object
 
 In this example, we will replace the `modules` array of every student with `[]`.
 
@@ -399,7 +398,7 @@ In this example, we will replace the `modules` array of every student with `[]`.
 }
 ```
 
-### Example 12 - Updating the key name of an existing object
+### Example 8: Updating the key name of an existing object
 
 !!! Info
     This feature is supported only for JSON.
@@ -451,13 +450,13 @@ In this example, we will replace the key name `name` of every student with `firs
 }
 ```
 
-### Example 13 - Enriching JSON primitive values
+### Example 9: Enriching JSON primitive values
 
-We can use property mediators with `JSON` data type to enrich any JSON primitive , object or an array to a given target.
+You can use Property mediators with `JSON` data type to enrich any JSON primitive, object, or an array to a given target.
 
 !!! Note 
-    When we use property with `STRING` data type in the Enrich mediator, it supports native JSON capabilities, 
-    only if the property contains a JSON object or JSON array only. Rest of the values considered as XML.
+    When we use a Property with `STRING` data type in the Enrich mediator, it supports native JSON capabilities 
+    only if the property contains a JSON object or a JSON array. The rest of the values are considered to be XML.
 
 ```xml
 <property name="NewSubject" value="&quot;CS013 II&quot;" type="JSON"/>	
@@ -466,10 +465,12 @@ We can use property mediators with `JSON` data type to enrich any JSON primitive
     <target action="child"  xpath="json-eval(data.students[1].modules)"/>	
 </enrich>
 ```
+
 !!! Note
-    please note that when the JSON primitive string contains white spaces, we should enclose them with quotes as shown
-  in the example. (due to restrictions enforced from JSON schema)
+    When the JSON primitive string contains white spaces, you should enclose them with quotes as shown in the example below. This is due to restrictions enforced by the JSON schema.
+
 #### Response
+
 ```json
 {
     "data": {
