@@ -89,7 +89,7 @@ Let's create our first project with name "petstore" by adding the
     Or else execute the following command
 
     ```bash
-    kubectl apply -f https://github.com/wso2/k8s-api-operator/blob/v2.0.0-m3/scenarios/scenario-1/petstore-api.yaml
+    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-m3/scenarios/scenario-2/petstore-api.yaml
     ```
 
 ### Step 3 - Invoke the API
@@ -107,7 +107,7 @@ Let's create our first project with name "petstore" by adding the
     executing the command.
 
     ```bash
-    curl -X GET "https://<NODE_IP>:30201/v2/pet/1" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    curl -X GET "https://<NODE_IP>:30201/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
 Congratulations! You have successfully created your first API, and invoked it via the API Microgateway.
