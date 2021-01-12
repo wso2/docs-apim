@@ -120,13 +120,13 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 </table>
 
 !!! Note
-    There are predefined XPath variables (such as `$ctx` ) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath](property-reference/accessing-properties-with-xpath.md).
+    There are predefined XPath variables (such as `$ctx` ) that you can directly use in the Synapse configuration, instead of using the synapse:get-property() function. These XPath variables get properties of various scopes and have better performance than the `get-property()` function, which can have much lower performance because it does a registry lookup. These XPath variables get properties of various scopes. For more information on these XPath variables, see [Accessing Properties with XPath]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath.md).
 
 ## Examples
 
 ### Setting and logging and property
 
-In this example, we are setting the property symbol and later we can log it using the [Log Mediator](log-Mediator.md).
+In this example, we are setting the property symbol and later we can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator).
 
 ```xml
 <property name="symbol" expression="fn:concat('Normal Stock - ', //m0:getQuote/m0:request/m0:symbol)" xmlns:m0="http://services.samples/xsd"/>
@@ -138,8 +138,8 @@ In this example, we are setting the property symbol and later we can log it usin
 
 ### Sending a fault message based on the Accept http header
 
-In this configuration, a response is sent to the client based on the `         Accept        ` header. The [PayloadFactory mediator](payloadFactory-Mediator.md) transforms the message contents. Then a [Property mediator](property-Mediator.md) sets the message type
-based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator](respond-Mediator.md).
+In this configuration, a response is sent to the client based on the `         Accept        ` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-Mediator) sets the message type
+based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
 ``` xml
 <payloadFactory media-type="xml">
@@ -220,7 +220,7 @@ Your output log will look like this.
 
 ### Reading SOAP headers
 
-SOAP headers provide information about the message, such as the To and From values. You can use the `         get-property()        ` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator](payloadFactory-Mediator.md) and the [Script Mediator](script-Mediator.md).
+SOAP headers provide information about the message, such as the To and From values. You can use the `         get-property()        ` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-Mediator).
 
 #### To
 

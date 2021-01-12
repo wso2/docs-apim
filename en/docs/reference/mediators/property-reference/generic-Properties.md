@@ -1,7 +1,7 @@
 # Generic Properties
 
 !!! Info
-	The following are generic properties that can be used with the [Property mediator](../../../references/mediators/property-Mediator.md) and the [Property Group mediator](../../../references/mediators/property-Group-Mediator.md).
+	The following are generic properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
 
 Generic properties allow you to configure messages as they're processed by the Micro Integrator, such as marking a message as out-only (no response message will be expected), adding a custom error message or code to the message, and disabling WS-Addressing headers.
 
@@ -777,7 +777,7 @@ Generic properties allow you to configure messages as they're processed by the 
 
 ## RabbitMQ Properties
 
-The following generic properties can be used in the [Property mediator](../../../references/mediators/property-Mediator.md) and the [Property Group mediator](../../../references/mediators/property-Group-Mediator.md) for RabbitMQ use cases.
+The following generic properties can be used in the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator.md) for RabbitMQ use cases.
 
 ### SET_ROLLBACK_ONLY
 
