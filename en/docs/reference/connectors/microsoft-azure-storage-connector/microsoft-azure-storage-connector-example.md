@@ -28,7 +28,7 @@ For more information about these operations, please refer to the [Microsoft Azur
 
 The following diagram shows the overall solution. The user creates a container, stores some text or binary employee data (blob) into the container, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/MS-azure-storage-connector.png" title="Microsoft Azure Storage Connector" width="800" alt="Microsoft Azure Storage Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ms-azure-storage-connector.png" title="Microsoft Azure Storage Connector" width="800" alt="Microsoft Azure Storage Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

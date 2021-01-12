@@ -88,7 +88,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hSet` operation into the Design pane.
            
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hSet-drag-and-drop.png" title="Drag and drop hSet operation" width="500" alt="Drag and drop hSet operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hset-drag-and-drop.png" title="Drag and drop hSet operation" width="500" alt="Drag and drop hSet operation"/>    
 
     2. In this operation we are going to set a hash map to the Redis server. The hSet operation sets a specific field in a hash to a specified value.
                                                                                  
@@ -98,7 +98,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
         
         In this example, `redisKey` value is configured as **StockVolume**. While invoking the API, the above `redisField`,`redisValue` parameter values are extracted from the response of the SimpleStockQuoteService. Then they are populated as an input value for the Redis `hSet` operation.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hSet-drag-and-drop-parameter.png" title="hSet parameters" width="500" alt="hSet parameters"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/redis-hset-drag-and-drop-parameter.png" title="hSet parameters" width="500" alt="hSet parameters"/> 
     
 7. To get the input values in to the `hSet`, we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
       > **Note**: The properties should be added to the pallet before creating the operation.
@@ -159,7 +159,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
       - **redisKey** : The name of the key where the hash is stored.
       - **redisFields** : The fields that you want to delete.
       
-      <img src="{{base_path}}/assets/img/integrate/connectors/redis-hDell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
+      <img src="{{base_path}}/assets/img/integrate/connectors/redis-hdell-drag-and-drop.png" title="Drag and drop hDell operation" width="500" alt="Drag and drop hDell operation"/>
    
 3. Forward the backend response to the API caller. Please follow the steps given in section 8 in the `getstockquote` operation.     
                

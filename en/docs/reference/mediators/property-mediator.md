@@ -45,7 +45,7 @@ by using an XPath function. You can use any of the <a href="../../mediators/prop
     </li>
   </ul>
 <p>For names of the generic properties that come by default, see <a href="../../mediators/property-reference/generic-Properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
-<p><img src="../../../assets/img/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
+<p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
 </div></td>
 </tr>
 <tr class="even">

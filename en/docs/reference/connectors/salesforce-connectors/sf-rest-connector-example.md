@@ -15,7 +15,7 @@ following operations:
 
   In this example use the Salesforce Object Query Language (SOQL) to search stored Salesforce data for specific information which is created under `sObjects`. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/Salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/salesforce.png" title="Using Salesforce Rest Connector" width="800" alt="Using Salesforce Rest Connector"/>
 
 The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then through the **retrieve** sequence, it displays all the existing account details to the user. 
 
@@ -128,7 +128,7 @@ Create the sequence to retrive the Salesforce objects created.
  
     Now you can select the API that we created initially. Navigate into the **Palette** pane and select the graphical operations icons listed under **Defined Sequences** section. Drag and drop the created `create` and `retrive` sequences to the Design pane.
     
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-sequencestothe-DesignPane.png" title="Drag and drop sequences to the Design view" width="500" alt="Drag and drop sequences to the Design view"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-drag-and-drop-sequencestothe-designpane.png" title="Drag and drop sequences to the Design view" width="500" alt="Drag and drop sequences to the Design view"/> 
  
 2. Get a response from the user.
     

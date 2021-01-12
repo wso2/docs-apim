@@ -26,11 +26,11 @@ Follow the steps below to generate user credentials.
 
 4. Add [https://developers.google.com/oauthplayground](https://developers.google.com/oauthplayground/) as the redirect URL under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-authorization-redirect-URI.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-authorization-redirect-uri.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
    
 5. Make a note of the **client ID** and **client secret** that is displayed, and then **click OK**.   
    
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-authorization-redirect-URI.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-authorization-redirect-uri.png" title="Authorization-redirect-URI" width="600" alt="Authorization-redirect-URI"/> 
 
 6. Click **Library** on the left navigation pane.
 
@@ -38,7 +38,7 @@ Follow the steps below to generate user credentials.
 
 7. Search **Google Cloud Pub/Sub API** under the **Big data or Networking category**.
   
-    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-select-API.png" title="Pubsub API" width="600" alt="Pubsub API"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-select-api.png" title="Pubsub API" width="600" alt="Pubsub API"/> 
 
 8. Click **Enable**. This enables the Google Cloud Pub/Sub API.   
    

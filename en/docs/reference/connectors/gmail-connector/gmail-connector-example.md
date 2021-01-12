@@ -4,7 +4,7 @@ The Gmail Connector allows you to access the [Gmail REST API](https://developers
 
 ## What you'll build
 
-<img src="{{base_path}}/assets/img/integrate/connectors/GmailConnector.png" title="Using Gmail Connector" width="800" alt="Using Gmail Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gmailconnector.png" title="Using Gmail Connector" width="800" alt="Using Gmail Connector"/>
 
 This example demonstrates a scenario where a customer feedback Gmail account of a company can be easily managed using the WSO2 Gmail Connector. This application contains a service that can be invoked through an HTTP GET request. Once the service is invoked, it returns the contents of unread emails in the Inbox under the label of Customers, while sending an automated response to the customer, thanking them for their feedback. The number of emails that can be handled in a single invocation is specified in the application.
 
@@ -21,7 +21,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 3. Follow these steps to [configure the Gmail API](configuring-gmail-api.md) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
 
 4. Provide the API name as **SendMails**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/sendmails" name="SendMails" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET">
@@ -57,7 +57,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 5. Right click on the created Integration Project and select **New** -> **Sequence** to create the defined sequence called **reply**. 
 
 6. Provide the Sequence name as **reply**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="reply" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <property expression="json-eval($.id)" name="msgId" scope="default" type="STRING"/>

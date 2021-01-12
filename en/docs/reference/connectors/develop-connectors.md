@@ -430,7 +430,7 @@ This sample is an extension to the ‘Writing your first connector’ section. L
 
 In the same project, you may observe the sampleConnector class created under /src/main/java/org.wso2.carbon.connector/ directory.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/sampleConnector-class.png" title="sampleConnector class" width="300" alt="sampleConnector class"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/sampleconnector-class.png" title="sampleConnector class" width="300" alt="sampleConnector class"/>
 
 The class would look similar to the following.
 
@@ -484,7 +484,7 @@ In the sample, when the connect method is invoked, it should log message “samp
     * URI Style: URI_TEMPLATE
     * URI Template: /sampleTemplate
     * Methods: POST
-    <img src="{{base_path}}/assets/img/integrate/connectors/REST-API-resource.png" title="REST API resource" width="700" alt="REST API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/rest-api-resource.png" title="REST API resource" width="700" alt="REST API resource"/>
 
 2. Drag and drop the sample_template operation as indicated below, and configure the generated_param expression as `json-eval($.generatedParam)`.
     <img src="{{base_path}}/assets/img/integrate/connectors/sample-template-operation.png" title="Sample template operation" width="500" alt="Sample template operation"/>
@@ -845,11 +845,11 @@ Output Schema
 
 In order to support the new Integration Studio (version 7.1.0 +) properties window shown below, the UI schema should be derived for each operation. If this schema is present in the connector,  when imported to the Integration Studio properties panel will automatically get generated as per the information there. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/UI-schema.png" title="UI schema" width="500" alt="UI schema"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ui-schema.png" title="UI schema" width="500" alt="UI schema"/>
 
 When adding the UI Model to the connector, the JSON files containing the schema should be included in a directory called ‘uischema’ under the resources directory.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/UI-schema-directory.png" title="UI schema directory" width="300" alt="UI schema directory"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ui-schema-directory.png" title="UI schema directory" width="300" alt="UI schema directory"/>
 
 Let us go through the constructs available in the UI schema. 
 

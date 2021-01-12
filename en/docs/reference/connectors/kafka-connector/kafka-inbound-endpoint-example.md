@@ -8,7 +8,7 @@ See [Configuring kafka connector](kafka-connector-config.md) for more informatio
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build. In this example, you only need to consider about the scenario of message consuming.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/Kafkainboundendpoint.png" title="Kafka inbound endpoint" width="800" alt="Kafka inbound endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/kafkainboundendpoint.png" title="Kafka inbound endpoint" width="800" alt="Kafka inbound endpoint"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

@@ -126,7 +126,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
        
         While invoking the API, the above `jobId` and `objects` parameters values come as a user input. Using a property mediator will extract the `jobId` from the `createJob` response and store it into a configured `addBatch` operation.
                       
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-addBatch.png" title="Drag and drop addBatch operation" width="500" alt="Drag and drop addBatch operations"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-drag-and-drop-addbatch.png" title="Drag and drop addBatch operation" width="500" alt="Drag and drop addBatch operations"/>
     
     3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as steps given in section 2.3 the `createJob` operation.   .
                        
@@ -167,7 +167,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
         
         While invoking the API, the above `jobId` and `batchId` parameters values come as a user input.
                 
-        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getBatchStatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="500" alt="Add query operation to getBatchStatus"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-getbatchstatus-drag-and-drop-query.png" title="Add query operation to getBatchStatus" width="500" alt="Add query operation to getBatchStatus"/> 
     
     3. Add the property mediator to capture the `jobId` value.      
                    
@@ -183,7 +183,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
          - **expression** : //batchId/text()
          - **type** : STRING
                       
-         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-batchIdgetstatus-property1-value1.png" title="Add values to capture batchId value" width="600" alt="Add values to capture batchId value"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-api-property-mediator-batchidgetstatus-property1-value1.png" title="Add values to capture batchId value" width="600" alt="Add values to capture batchId value"/>
 
 3. Forward the backend response to the API caller.
     

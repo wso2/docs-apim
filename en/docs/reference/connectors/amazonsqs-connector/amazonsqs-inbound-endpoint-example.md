@@ -10,7 +10,7 @@ The Amazon SQS queue will receive messages from a third party system, while the 
 
 Following diagram shows the overall solution we are going to build. The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-inboundEP-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-inboundep-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
@@ -20,7 +20,7 @@ Following diagram shows the overall solution we are going to build. The Simple Q
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundEP-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.amazonsqs.AmazonSQSPollingConsumer`. 
 

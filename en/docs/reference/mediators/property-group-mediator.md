@@ -36,18 +36,18 @@ follows:
 -   Enter a meaningful description for the property group in the
     **Description** field.
 -   To add a new property, click the **Add a new element** icon.  
-    ![](/assets/img/mediators/119134127/119134143.png)  
+    ![]({{base_path}}/assets/img/integrate/mediators/119134127/119134143.png)  
     As a result, the **Property Mediator** dialog box opens. Here, you
     can select a predefined property from the list or configure a custom
     property.
 -   To remove a property, click the **Delete selected element(s)**
     icon.  
-    ![](/assets/img/mediators/119134127/119134161.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/119134127/119134161.png)
 -   To arrange the properties in the required order within the property
     group configuration, you can select any property and then click the
     following icons to move it up/down the list.  
-    ![](/assets/img/mediators/119134127/119134166.png)
-    ![](/assets/img/mediators/119134127/119134167.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/119134127/119134166.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/119134127/119134167.png)
 
 ## Example
 
