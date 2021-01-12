@@ -34,7 +34,7 @@ registered in the WSO2 Identity Server and accessed via the
 `         http://ws.apache.org/ns/synapse        ` URL. The username
 used to log into the WSO2 Identity Server is `         foo        ` and
 the password is `         bar        ` . Both the user name and the
-password should be registered in the Identity Server. The [Property mediator](property-Mediator.md) adds a property named
+password should be registered in the Identity Server. The [Property mediator]({{base_path}}/reference/mediators/property-Mediator) adds a property named
 `         scope        ` to the synapse message context. The value of
 this property will be used by the OAuth mediator to send the OAuth
 request.

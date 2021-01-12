@@ -1,9 +1,9 @@
 # Axis2 Properties
 
 !!! Info
-	The following are Axis2 properties that can be used with the [Property mediator](../../../references/mediators/property-Mediator.md) and the [Property Group mediator](../../../references/mediators/property-Group-Mediator.md).
+	The following are Axis2 properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
 
-Axis2 properties allow you to configure the web services engine in WSO2 Micro Integrator, such as specifying how to cache JMS objects, setting the minimum and maximum threads for consuming messages, and forcing outgoing HTTP/S messages to use HTTP 1.0. You can access some of these properties by using the [Property mediator](../../../references/mediators/property-Mediator.md) with the scope set to `axis2` or `axis2-client` as shown below.
+Axis2 properties allow you to configure the web services engine in WSO2 Micro Integrator, such as specifying how to cache JMS objects, setting the minimum and maximum threads for consuming messages, and forcing outgoing HTTP/S messages to use HTTP 1.0. You can access some of these properties by using the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) with the scope set to `axis2` or `axis2-client` as shown below.
 
 ## CacheLevel
 

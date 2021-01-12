@@ -1,7 +1,7 @@
 # HTTP Transport Properties
 
 !!! Info
-	The following are HTTP transport properties that can be used with the [Property mediator](../../../references/mediators/property-Mediator.md) and the [Property Group mediator](../../../references/mediators/property-Group-Mediator.md).
+	The following are HTTP transport properties that can be used with the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-Group-Mediator).
 
 HTTP transport properties allow you to configure how the HTTP transport
 processes messages, such as forcing a 202 HTTP response to the client so

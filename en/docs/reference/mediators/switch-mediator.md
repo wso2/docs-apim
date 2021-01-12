@@ -61,7 +61,7 @@ The parameters available to configure the Switch mediator are as follows.
 
 ## Examples
 
-In this example the [Property mediator](property-Mediator.md) sets the local property named `         symbol        ` on the current message depending on the evaluation of the string. It will get the text of symbol element and match it against the values `         MSFT        ` and `         IBM        ` . If the text does not match either of these symbols, the default case will be executed.
+In this example the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) sets the local property named `         symbol        ` on the current message depending on the evaluation of the string. It will get the text of symbol element and match it against the values `         MSFT        ` and `         IBM        ` . If the text does not match either of these symbols, the default case will be executed.
 
 ``` java
 <switch source="//m0:getQuote/m0:request/m0:symbol" xmlns:m0="http://services.samples/xsd">

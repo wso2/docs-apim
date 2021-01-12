@@ -7,7 +7,7 @@ entities or objects. The **Transaction Mediator** is used to manage
 transaction functionality for its child mediators.
 
 !!! Info
-	In addition to distributed transactions, the Micro Integrator also supports Java Message Service (JMS) transactions. For more information on transactions, see [Working with Transactions](../../use-cases/examples/working-with-transactions.md).
+	In addition to distributed transactions, the Micro Integrator also supports Java Message Service (JMS) transactions. For more information on transactions, see [Working with Transactions]({{base_path}}/integrate/examples/working-with-transactions).
 
 ## Syntax
 

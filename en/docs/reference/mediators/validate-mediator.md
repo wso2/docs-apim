@@ -10,10 +10,10 @@ message. Otherwise, the mediator validates the first child of the SOAP
 body of the current message.
 
 !!! Tip
-    A [Fault mediator](fault-Mediator.md) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+    A [Fault mediator]({{base_path}}/reference/mediators/fault-Mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
 
 !!! Info
-    The Validate mediator is a [content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Validate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ### Syntax
 
@@ -116,7 +116,7 @@ through the validate mediator is given as a registry key,
 specified, and therefore the schema will be used to validate the first
 child of the SOAP body. The mediation logic to follow if the validation
 fails is defined within the `            on-fail           ` element. In
-this example, the [Fault Mediator](fault-Mediator.md) creates a SOAP
+this example, the [Fault Mediator]({{base_path}}/reference/mediators/fault-Mediator) creates a SOAP
 fault to be sent back to the party which sent the message.
 
 ```xml
@@ -176,7 +176,7 @@ specified for `            08           `
 `            08MockServiceSchema           ` configuration.
 
 The `            on-fail           ` sequence of this Validate mediator
-includes a [Log mediator](log-Mediator.md) which is added as a child to
+includes a [Log mediator]({{base_path}}/reference/mediators/log-Mediator) which is added as a child to
 the Validate mediator. This log mediator uses two properties to generate
 the error message `            Validation failed ###           ` when
 the validation of a message against the schemas specified fails.
@@ -187,8 +187,8 @@ part of the message. Otherwise, the mediator validates the complete
 content of the current message.
 
 !!! Tip
-    - The Validate mediator is a [content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
-    - A [Fault mediator](fault-Mediator.md) or [PayloadFactory mediator](payloadFactory-Mediator.md) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+    - The Validate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
+    - A [Fault mediator]({{base_path}}/reference/mediators/fault-Mediator) or [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
 
 ## Validating JSON messages
 
@@ -291,7 +291,7 @@ through the Validate mediator is given as a registry key (i.e.
 have any source attributes specified. Therefore, the schema will be used
 to validate the complete JSON body. The mediation logic to follow if the
 validation fails is defined within the on-fail element. In this example,
-the [PayloadFactory mediator](payloadFactory-Mediator.md) creates a fault
+the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) creates a fault
 to be sent back to the party, which sends the message.
 
 ``` java
