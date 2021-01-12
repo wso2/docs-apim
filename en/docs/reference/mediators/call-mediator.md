@@ -6,7 +6,7 @@ When you invoke a service in non-blocking mode, the underlying worker
 thread returns without waiting for the response. In blocking mode, the
 underlying worker thread gets blocked and waits for the response after
 sending the request to the endpoint. Call mediator in blocking mode is
-very much similar to the [Callout mediator](callout-Mediator.md).
+very much similar to the [Callout mediator]({{base_path}}/reference/mediators/callout-Mediator).
 
 In both blocking and non-blocking modes, Call mediator behaves in a synchronous manner. Hence, mediation pauses after the service invocation, and resumes from the next mediator in the sequence when the response is received. Call mediator allows you to create your configuration independent from the underlying architecture.
 
@@ -27,7 +27,7 @@ or Group Endpoint (i.e. Failover/Load balance/Recipient list). Group
 Endpoint is only supported in non-blocking mode.
 
 !!! Info
-    The Call mediator is a [content-unaware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Call mediator is a [content-unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Enabling mutual SSL in the blocking mode
 
@@ -110,19 +110,19 @@ Select one of the following options to define the endpoint to which the message 
 
 ### Example 1 - Service orchestration
 
-In this example, the Call mediator invokes a backend service. An [Enrich mediator](enrich-Mediator.md) stores the response received for
+In this example, the Call mediator invokes a backend service. An [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator) stores the response received for
 that service invocation.
 
-The [Filter Mediator](filter-Mediator.md) added after the Call mediator
+The [Filter Mediator]({{base_path}}/reference/mediators/filter-Mediator) added after the Call mediator
 carries out a filter to determine whether the first call has been
 successful. If it is successful, second backend service is invoked. The
 payload of the request to the second backend is the response of the
 first service invocation .
 
 After a successful second backend service invocation, response of the
-first service is retrieved by the [Enrich mediator](enrich-Mediator.md)
+first service is retrieved by the [Enrich mediator]({{base_path}}/reference/mediators/enrich-Mediator)
 from the property where it was formerly stored. This response is sent to
-the client by the [Respond mediator](respond-Mediator.md) .
+the client by the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
 If it is not successful, a custom JSON error message is sent with HTTP
 500. If the first call itself is not successful, the output is just sent
@@ -188,7 +188,7 @@ back with the relevant error code.
 
 ### Example 2 - Continuing mediation without waiting for responses
 
-In this example, the message will be cloned by the [Clone Mediator](clone-Mediator.md) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator](clone-Mediator.md) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator](log-Mediator.md) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
+In this example, the message will be cloned by the [Clone Mediator]({{base_path}}/reference/mediators/clone-Mediator) and sent via the Call mediator. The Drop mediator drops the response so that no further mediation is carried out for the cloned message. However, since the `         continueParent        ` attribute of the [Clone mediator]({{base_path}}/reference/mediators/clone-Mediator) is set to `         true        ` , the original message is mediated in parallel. Therefore, the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) at the end of the configuration will log the `         After call mediator        ` log message without waiting for
 the Call mediator response.
 
 ``` xml
@@ -214,7 +214,7 @@ the Call mediator response.
 
 ### Example 3 - Call mediator in blocking mode
 
-In the following sample configuration, the [Header Mediator](header-Mediator.md) is used to add the action, the [PayloadFactory Mediator](payloadFactory-Mediator.md) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator](respond-Mediator.md).
+In the following sample configuration, the [Header Mediator]({{base_path}}/reference/mediators/header-Mediator) is used to add the action, the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) is used to store the the request message and the Call mediator is used to invoke a backend service. You will see that the payload of the request and header action are sent to the backend. After successful backend service invocation, you will see that the response of the service is retrieved by the Micro Integrator and sent to the client as the response using the [Respond Mediator]({{base_path}}/reference/mediators/respond-Mediator).
 
 ```
 <target>

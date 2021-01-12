@@ -29,7 +29,7 @@ The following properties are available:
     -   **Custom** - Custom XPath value.
     -   **Envelope** - Envelope of the original message used for enriching.
     -   **Body** - Body of the original message used for enriching.
-    -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator](property-Mediator.md).
+    -   **Property** - Specifies a property. For information on how you can use the Property mediator to specify properties, see [Property Mediator]({{base_path}}/reference/mediators/property-Mediator).
 -   **XPath Expression** - This field is used to specify the custom XPath value if you selected **custom** for the **Type** field.
 
 !!! Tip
@@ -65,7 +65,7 @@ The following properties are available:
     
 ### Example 1: Setting the property symbol
     
-In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator](log-Mediator.md) .
+In this example, you are setting the property symbol. Later, you can log it using the [Log Mediator]({{base_path}}/reference/mediators/log-Mediator) .
     
 ``` java
 <enrich xmlns="http://ws.apache.org/ns/synapse">
@@ -109,7 +109,7 @@ In this example, you add a child property named Lamborghini to a property named 
   
 ### Example 3: Adding a SOAPEnvelope type object as a property to a message
     
-In this example, you add the SOAP envelope in a SOAP request as a property to a message. The Enrich mediator is useful in this scenario since adding the property directly using the [Property mediator](property-Mediator.md) results in the `          SOAPEnvelope         ` object being created as an `          OM         ` type object. The `          OM         ` type object created cannot be converted back to a `          SOAPEnvelope         ` object.
+In this example, you add the SOAP envelope in a SOAP request as a property to a message. The Enrich mediator is useful in this scenario since adding the property directly using the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) results in the `          SOAPEnvelope         ` object being created as an `          OM         ` type object. The `          OM         ` type object created cannot be converted back to a `          SOAPEnvelope         ` object.
     
 ```
 <enrich> 

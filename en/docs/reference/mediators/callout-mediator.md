@@ -3,7 +3,7 @@
 The **Callout** mediator performs a blocking external service invocation during mediation. As the Callout mediator performs a blocking call, it cannot use the default non-blocking HTTP/S transports based on Java NIO.
 
 !!! Tip
-    The [Call mediator](call-Mediator.md) leverages the non-blocking transports for much greater performance than the Callout mediator. Therefore, you should use the Call mediator in most cases. However, the Callout mediator is recommended in situations where you need to execute the mediation flow in a single thread.
+    The [Call mediator]({{base_path}}/reference/mediators/call-Mediator) leverages the non-blocking transports for much greater performance than the Callout mediator. Therefore, you should use the Call mediator in most cases. However, the Callout mediator is recommended in situations where you need to execute the mediation flow in a single thread.
 
 ## Enabling mutual SSL
 
@@ -17,7 +17,7 @@ The Callout mediators default https transport sender is `org.apache.axis2.transp
 
 ## Disabling chunking
 
-The Callout mediator is not affected by the [DISABLE_CHUNKING property](property-reference/http-transport-properties.md). Instead, you can disable chunking for the Callout mediator by setting the following paramters in the `MI_HOME/conf/deployment.toml` file:
+The Callout mediator is not affected by the [DISABLE_CHUNKING property]({{base_path}}/reference/mediators/property-reference/http-transport-properties). Instead, you can disable chunking for the Callout mediator by setting the following paramters in the `MI_HOME/conf/deployment.toml` file:
 
 ```toml
 [transport.blocking.http]
@@ -139,7 +139,7 @@ Following examples demonstrate the usage of the Callout mediator.
 
 ### Example 1 - Performing a direct service invocation
 
-In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator](send-Mediator.md) to send the message back to the client.
+In this example, the Callout Mediator does the direct service invocation to the `StockQuoteService` using the client request, gets the response, and sets the response as the first child of the SOAP message body. You can then use the [Send Mediator]({{base_path}}/reference/mediators/send-Mediator) to send the message back to the client.
 
 ``` java
 <callout serviceURL="http://localhost:9000/services/SimpleStockQuoteService"
