@@ -6,7 +6,7 @@ This section is a step-by-step guide to create, publish, and invoke an API in th
 
 ### Before you begin...
 
-1. Install [docker](https://docs.docker.com/engine/install/ubuntu/).
+1. Install [docker](https://docs.docker.com/engine/install/).
 2. Install the [docker-compose](https://docs.docker.com/compose/install/).
 
 ### Objectives
@@ -71,7 +71,7 @@ This section is a step-by-step guide to create, publish, and invoke an API in th
         Go to `MG_HOME/resources/conf/config.toml` and modify as below.
         
         ``` toml
-        [server]
+        [[adapter.server.users]]
         username = "admin"
         password = "admin"
         ``` 
@@ -90,7 +90,7 @@ This section is a step-by-step guide to create, publish, and invoke an API in th
 2.  We can now invoke the API running on the microgateway using cURL as below.
 
     ``` bash
-    curl -X GET "https://localhost:9095/v2/pet/1" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
+    curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
 Congratulations! You have successfully created your first API, and invoked it via the API Microgateway.
