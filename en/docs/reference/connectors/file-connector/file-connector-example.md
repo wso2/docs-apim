@@ -9,7 +9,7 @@ This example describes how to use the File Connector to write messages to local 
 <!--
 Following diagram shows the overall solution.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/FileConnector-01.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/fileconnector-01.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 -->
 
 An API is exposed to accept XML messages (employee information).

@@ -512,7 +512,7 @@ Now you can switch into the Source view and check the XML configuration files of
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/amazonDynamoDB-connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/amazondynamodb-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

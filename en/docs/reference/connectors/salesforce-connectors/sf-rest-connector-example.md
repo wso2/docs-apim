@@ -207,7 +207,7 @@ Create the sequence to retrive the Salesforce objects created.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforceRest.zip">
+<a href="{{base_path}}/assets/attachments/connectors/salesforcerest.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

@@ -10,11 +10,11 @@ It will have two HTTP API resources, which are `create` and `read`.
 
 * `/create `: The user sends the request payload which includes the location where the file needs to be saved and the content needs to be added to the file. This request is sent to WSO2 EI by invoking the FileConnector API. It saves the file in the specified location with the relevant content. 
 
-    <p><img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/FileConnector-03.png" title="Adding a Rest API" width="800" alt="Adding a Rest API" /></p>
+    <p><img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/fileconnector-03.png" title="Adding a Rest API" width="800" alt="Adding a Rest API" /></p>
 
 * `/read `: The user sends the request payload, which includes the location of the file that needs to be read. This request is sent to WSO2 EI where the FileConnector API resides. Once the API is invoked, it first checks if the file exists in the specified location. If it exists, the content is read and response is sent to the user. If the file does not exist, it sends an error response to the user. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/FileConnector-02.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/fileconnector-02.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

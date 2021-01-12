@@ -223,7 +223,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/Google-Spreadsheet-Connector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/google-spreadsheet-connector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
