@@ -118,7 +118,7 @@ to the HTTP request made to the endpoint.
 </outSequence>
 ```
 
-If you have [enabled wire logs]({{base_path}}/develop/using-wire-logs), you will view the following output.
+If you have [enabled wire logs]({{base_path}}/integrate/develop/using-wire-logs), you will view the following output.
 
 ``` text
 << GET /people/eric+cooke HTTP/1.1
