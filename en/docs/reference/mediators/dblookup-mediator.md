@@ -6,8 +6,8 @@ message context. The DB connection used may be looked up from an
 external data source or specified inline.
 
 !!! Info
-    - The DBLookup mediator is a [content-aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
-    - The DBLookup mediator can set a property from one row in a result set. It cannot return multiple rows. If you need to get multiple records, or if you have a table with multiple parameters (such as URLs), you can create a data service and invoke that service from the Micro Integrator using the [Callout mediator](callout-Mediator.md) instead.
+    - The DBLookup mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
+    - The DBLookup mediator can set a property from one row in a result set. It cannot return multiple rows. If you need to get multiple records, or if you have a table with multiple parameters (such as URLs), you can create a data service and invoke that service from the Micro Integrator using the [Callout mediator]({{base_path}}/reference/mediators/callout-Mediator) instead.
 
 ## Syntax
 

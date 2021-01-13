@@ -26,7 +26,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment
 
-Please follow the steps mentioned at [Setting up Amazon S3](amazons3-connector-config.md) document in order to create a Amazon S3 account and obtain credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.
+Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-config) document in order to create a Amazon S3 account and obtain credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -173,7 +173,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
     * uploadPart - upload message part. There can be multiple parts to the same object. When you invoke the operation, feed `uploadId` and the correct `partNumber`.
     * completeMultipartUpload - once all parts are done uploading, call this operation. It will add up all the parts and create the object in the requested bucket.
 * Note that `region`, `connectionName` and credentials are hard coded. Please change them as per the requirement.
-* For more information please refer the [reference guide](amazons3-connector-reference.md) for Amazon S3 connector.
+* For more information please refer the [reference guide]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-reference) for Amazon S3 connector.
 
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
 
@@ -270,4 +270,4 @@ Now let us read the information on `wso2engineers` that we stored in the Amazon 
     Julian Garfield, Software Engineer, Integration Group
     ```
 
-In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide](amazons3-connector-reference.md) to learn more about the operations you can perform with the Amazon S3 connector.
+In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-reference) to learn more about the operations you can perform with the Amazon S3 connector.

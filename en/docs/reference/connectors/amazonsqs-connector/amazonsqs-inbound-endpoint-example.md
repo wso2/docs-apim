@@ -6,7 +6,7 @@ The AmazonSQS Inbound Endpoint allows you to connect to Amazon and consume messa
 
 This scenario demonstrates how the AmazonSQS inbound endpoint works as a message consumer. In this scenario, you should have a connectivity with Amazon AWS account. Please follow the steps mentioned in the [Setting up the Amazon Lambda Environment](../amazonlambda-connector/setting-up-amazonlambda.md) document in order to create an Amazon account and obtain access key id and secret access key.
 
-The Amazon SQS queue will receive messages from a third party system, while the WSO2 EI will keep listening to the messages from that queue. First you need to create a **Queue** inside the **Simple Queue Service** and send a message to the created Queue. The WSO2 EI AmazonSQS Inbound Endpoint will receive the message and notify. If you are extending this sample scenario, you can perform any kind of mediation using the [mediators](../../../../references/mediators/about-mediators/) available with WSO2 EI.
+The Amazon SQS queue will receive messages from a third party system, while the WSO2 EI will keep listening to the messages from that queue. First you need to create a **Queue** inside the **Simple Queue Service** and send a message to the created Queue. The WSO2 EI AmazonSQS Inbound Endpoint will receive the message and notify. If you are extending this sample scenario, you can perform any kind of mediation using the [mediators]({{base_path}}/reference/mediators/about-mediators/) available with WSO2 EI.
 
 Following diagram shows the overall solution we are going to build. The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
@@ -87,22 +87,22 @@ Following diagram shows the overall solution we are going to build. The Simple Q
 
 ## Testing  
 
-   Please log in to the Amazon **Simple Queue Service**-> created **Queue**. Select the Queue and **right click**-> **Send a Message**-> enter **Message**, or you can even use [AmazonSQS Connector Example](../../amazonsqs-connector-example.md) we have implemented before.
-   
-   **Sample Message**
-   
-   ```
-   {"Message":"Test Amazon SQS Service"}
-   ```
-   AmazonSQS Inbound Endpoint will consume message from the Simple Queue Service.
-   
-   **Expected response**
-   
-   You will see following message in WSO2 EI log file (found at <EI_HOME>/repository/logs/wso2carbon.log)
-     
-   ```
-   [2020-05-22 12:28:03,799]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:CB783799949CD049281590130683750, Direction: request, Payload: {"Message":"Test Amazon SQS Service"}
-   ```
+Please log in to the Amazon **Simple Queue Service**-> created **Queue**. Select the Queue and **right click**-> **Send a Message**-> enter **Message**, or you can even use [AmazonSQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example) we have implemented before.
+
+**Sample Message**
+
+```
+{"Message":"Test Amazon SQS Service"}
+```
+AmazonSQS Inbound Endpoint will consume message from the Simple Queue Service.
+
+**Expected response**
+
+You will see following message in WSO2 EI log file (found at <EI_HOME>/repository/logs/wso2carbon.log)
+ 
+```
+[2020-05-22 12:28:03,799]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:CB783799949CD049281590130683750, Direction: request, Payload: {"Message":"Test Amazon SQS Service"}
+```
 ## What's next
    
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).

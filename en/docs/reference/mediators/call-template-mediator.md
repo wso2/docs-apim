@@ -3,7 +3,7 @@
 The Call Template mediator allows you to construct a sequence by passing values into a **sequence template**.
 
 !!! Info
-    This is currently only supported for special types of mediators such as the [Iterator](iterate-Mediator.md) and [Aggregate Mediators](aggregate-Mediator.md), where actual XPath operations are performed on a different SOAP message, and not on the message coming into the mediator.
+    This is currently only supported for special types of mediators such as the [Iterator]({{base_path}}/reference/mediators/iterate-Mediator) and [Aggregate Mediators]({{base_path}}/reference/mediators/aggregate-Mediator), where actual XPath operations are performed on a different SOAP message, and not on the message coming into the mediator.
 
 ## Syntax
 

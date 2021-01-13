@@ -1,12 +1,12 @@
 # Aggregate Mediator
 
 The **Aggregate mediator** implements the [Aggregator enterprise integration pattern](https://docs.wso2.com/display/EIP/Aggregator). It
-combines (aggregates) the **response messages** of messages that were split by the split by the [Clone](clone-Mediator.md) or
-[Iterate](iterate-Mediator.md) mediator. Note that the responses are not necessarily aggregated in the same order that the requests were sent,
+combines (aggregates) the **response messages** of messages that were split by the split by the [Clone]({{base_path}}/reference/mediators/clone-Mediator) or
+[Iterate]({{base_path}}/reference/mediators/iterate-Mediator) mediator. Note that the responses are not necessarily aggregated in the same order that the requests were sent,
 even if you set the `         sequential        ` attribute to `         true        ` on the Iterate mediator.
 
 !!! Info
-    The Aggregate mediator is a [content-aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Aggregate mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 

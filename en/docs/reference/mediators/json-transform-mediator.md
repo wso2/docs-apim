@@ -9,7 +9,7 @@ Also you can have a JSON schema to correct the payload if there are inconsistenc
 <img src="../../../assets/img/mediators/json-transform-concept.png"/>
 
 !!! Info
-    The JSON Transform mediator is a [content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The JSON Transform mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
@@ -66,8 +66,7 @@ Apart from defining a schema, you can also add properties to control XML to JSON
 
 ### Converting an array of one from XML to JSON
    
-   Let's say we do a search and get the results in XML. We want the results to be converted to JSON array when returned to the client. 
-   A blind XML to JSON tranformation would look like this.
+Let's say we do a search and get the results in XML. We want the results to be converted to JSON array when returned to the client. A blind XML to JSON tranformation would look like this.
    
 ```xml
    <books>
@@ -178,7 +177,7 @@ With this schema correction, the JSON payload would come out as below. This give
 
 Given below is a sample schema file (Schema.json) file that you can use for running the examples given below. 
 Add this sample schema file (i.e. Schema.json) to the following registry path: conf:/Schema.json. 
-For instructions on adding the schema file to the Registry Resources Project, see [Creating Registry Resource](../../develop/creating-artifacts/creating-registry-resources.md).
+For instructions on adding the schema file to the Registry Resources Project, see [Creating Registry Resource]({{base_path}}/develop/creating-artifacts/creating-registry-resources).
 
 ```json
 {

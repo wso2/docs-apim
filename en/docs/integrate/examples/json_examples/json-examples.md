@@ -235,7 +235,7 @@ By default, the above XML element converts to JSON as shown below.
 {"object":{"@nil":"true"}}
 ```
 
-If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation] section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribue is set to true will be represented in JSON as null objects as shown below.
+If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation]` section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribue is set to true will be represented in JSON as null objects as shown below.
 
 ``` javascript
 {"object":null}
@@ -305,7 +305,7 @@ The response payload will look like this:
 }
 ```
 
-Note that we have used the [Property mediator](../../../references/mediators/property-Mediator.md) to mark the outgoing payload to be formatted as JSON:
+Note that we have used the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) to mark the outgoing payload to be formatted as JSON:
 
 ```
 <property name="messageType" value="application/json" scope="axis2"/>
@@ -315,7 +315,7 @@ Note that we have used the [Property mediator](../../../references/mediators/pro
     JSON requests cannot be converted to XML if it contains invalid XML characters.
 
 !!! Info
-    If you need to convert complex XML responses (e.g., XML with with `         xsi:type        ` values), you will need to set the message type using the [Property mediator](../../../references/mediators/property-Mediator.md) as follows:
+    If you need to convert complex XML responses (e.g., XML with with `         xsi:type        ` values), you will need to set the message type using the [Property mediator]({{base_path}}/reference/mediators/property-Mediator) as follows:
     `<property name="messageType" value="application/json/badgerfish" scope="axis2" type="STRING"/>`
     You will also need to ensure you register the following message builder and formatter as specified in [Message Builders and Formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/).
     ```
@@ -482,7 +482,7 @@ You can learn more about JSONPath syntax [here](http://goessner.net/articles/Jso
 ### Logging JSON payloads
 
 To log JSON payloads as JSON, use the [Log
-mediator](../../../references/mediators/log-Mediator.md) as shown
+mediator]({{base_path}}/reference/mediators/log-Mediator) as shown
 below. The `         json-eval()        ` method returns the
 `         java.lang.String        ` representation of the existing JSON
 payload.
@@ -499,7 +499,7 @@ To log JSON payloads as XML, use the Log mediator as shown below:
 <log level="full"/>
 ```
 
-For more information on logging, see [Troubleshooting, debugging, and logging](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#validating-json-messages) below.
+For more information on logging, see [Troubleshooting, debugging, and logging]({{base_path}}/integrate/examples/json_examples/json-examples/#validating-json-messages) below.
 
 ### Constructing and transforming JSON payloads
 
@@ -508,7 +508,7 @@ mediator or Script mediator as described in the rest of this section.
 
 #### PayloadFactory mediator
 
-The [PayloadFactory mediator](../../../references/mediators/payloadFactory-Mediator.md) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
+The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
 
 ``` javascript
 {
@@ -645,8 +645,7 @@ to the registry resource key):
 
 #### Script mediator
 
-The [Script
-mediator](../../../references/mediators/script-Mediator.md) in
+The [Script mediator]({{base_path}}/reference/mediators/script-Mediator) in
 JavaScript is useful when you need to create payloads that have
 recurring structures such as arrays of objects. The Script mediator
 defines the following important methods that can be used to manipulate
@@ -1026,8 +1025,7 @@ descriptions:
 
 ### Validating JSON messages
 
-You can use the [Validate
-mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/validate-Mediator/)
+You can use the [Validate mediator]({{base_path}}/reference/mediators/validate-Mediator)
 to validate JSON messages against a specified JSON schema as described
 in the rest of this section.
 
@@ -1046,8 +1044,7 @@ file (i.e. `         StockQuoteSchema.json        ` ) to the following
 Registry path:
 `                   conf:/schema/StockQuoteSchema                  .        `
 json. For instructions on adding the schema file to the Registry path,
-see [Adding a
-Resource](../../../develop/creating-artifacts/registry/creating-local-registry-entries.md) .
+see [Adding a Resource]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries).
 
 !!! Tip
     When adding this sample schema file to the Registry, specify the **Media Type** as application/json.
@@ -1084,7 +1081,7 @@ Resource](../../../develop/creating-artifacts/registry/creating-local-registry-e
 ```
 
 In this example, the required schema for validating messages going through the Validate mediator is given as a registry key (i.e.
-`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-Mediator/) creates a fault to be sent back to the party, which sends the message.
+`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) creates a fault to be sent back to the party, which sends the message.
 
 ```
 <validate>

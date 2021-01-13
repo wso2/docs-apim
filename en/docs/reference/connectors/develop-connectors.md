@@ -360,9 +360,9 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
 
 ### Step 4: Testing the connector
 
-1. Open Integration Studio and [create an Integration Project](../../develop/create-integration-project.md) by clicking **New Integration Project**.
+1. Open Integration Studio and [create an Integration Project]({{base_path}}/integrate/develop/create-integration-project) by clicking **New Integration Project**.
 
-2. In the window that appears, make sure you select **Connector Exporter Project"* as a module of the project.
+2. In the window that appears, make sure you select **Connector Exporter Project"** as a module of the project.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/connector-project.png" title="Connector Exporter Project" width="600" alt="Connector Exporter Project"/>
 
