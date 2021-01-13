@@ -998,3 +998,67 @@ You can use the below command to update the log level of an existing logger.
     ```go
     Successfully added logger for ('org-apache-coyote') with level DEBUG
     ```
+
+## Downloading log files
+
+### List available log files.
+
+-   **Command**
+    ``` bash
+    apictl mi get logs -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+        -   Optional :  
+            `--format` : pretty-print using templates
+
+    !!! example
+        ```bash
+        apictl mi get logs -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    NAME                            SIZE
+    wso2carbon.log                  429.5 KB
+    correlation.log                 0 B
+    wso2carbon-trace-messages.log   0 B
+    wso2-mi-api.log                 11.9 KB
+    patches.log                     15.7 KB
+    audit.log                       0 B
+    wso2-mi-service.log             10.3 KB
+    http_access_.log                35.8 KB
+    wso2error.log                   156.2 KB
+    ```
+
+### Download a specific log file
+
+-   **Command**
+    ``` bash
+    apictl mi get logs [file-name] -p [download-location] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        -   Optional :  
+            `--path` or `-p`        : Path the file should be downloaded (default is current executable directory)
+
+    !!! example
+        ```bash
+        apictl mi get logs wso2carbon.log -p log-files -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    Log file downloaded to log-files/wso2carbon.log
+    ```
