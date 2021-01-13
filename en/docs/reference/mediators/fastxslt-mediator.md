@@ -97,12 +97,12 @@ Follow the steps below to specify the stylesheet as a Registry entry in the abov
 
 1.  Double click on the API and click the following link in the
     **Properties** tab.  
-    ![](/assets/img/mediators/fastxslt-props.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/fastxslt-props.png)
 2.  Click **Create & point to a new resource...** link.  
-    ![](/assets/img/mediators/new-reg-resource.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/new-reg-resource.png)
 3.  Enter the following details to create the empty XSL file in which
     you enter the stylesheet, in the Registry.  
-    ![](/assets/img/mediators/create-xsl.png)
+    ![]({{base_path}}/assets/img/integrate/mediators/create-xsl.png)
 4.  Double-click the stylesheet file in the **Project Explorer**, and add the following stylesheet as the content of the XSL file.
 
     **discountPayment.xsl**

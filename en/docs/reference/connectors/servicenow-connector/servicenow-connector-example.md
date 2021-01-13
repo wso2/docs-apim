@@ -8,7 +8,7 @@ This example explains how to use ServiceNow Connector to create records in a tab
 
 It will have two HTTP API resources, which are `postRecord` and `readRecord`. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/serviceNow.png" title="ServiceNow Scenario" width="800" alt="ServiceNow Scenario"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/servicenow.png" title="ServiceNow Scenario" width="800" alt="ServiceNow Scenario"/>
 
 * `/postRecord`: It creates a new record in the existing incident table in the ServiceNow instance.
 

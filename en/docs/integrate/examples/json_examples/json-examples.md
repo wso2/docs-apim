@@ -477,7 +477,33 @@ The following table summarizes sample JSONPath expressions and their outputs:
 </tbody>
 </table>
 
-You can learn more about JSONPath syntax [here](http://goessner.net/articles/JsonPath/) .
+We can also evaluate a JSONPath expression against a property that contains a JSON payload.
+
+To evaluate a JSONPath expression against a  property, use the following syntax.
+
+```json
+json-eval(<scope_of_the_property>:<property_name>.<JSONPath_expression>)
+```
+
+Example 1: When the property is in the synapse message context.
+
+```json
+json-eval($ctx:propertyName.student.name)
+```
+
+Example 2: When the property is in the axis2 message context.
+
+```json
+json-eval($axis2:propertyName.student.name)
+```
+
+Example 3: When the property is in the transport scope.
+
+```json
+json-eval($trp:propertyName.student.name)
+```
+
+Learn more about [JSONPath syntax](http://goessner.net/articles/JsonPath/).
 
 ### Logging JSON payloads
 

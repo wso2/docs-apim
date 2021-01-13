@@ -20,7 +20,7 @@ Following diagram shows the overall solution. The user creates a bucket, stores 
 
 To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/Amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -271,7 +271,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 
     You should receive 200OK response. Please navigate to Amazon AWS S3 console[s3.console.aws.amazon.com] and see if a bucket called `wso2engineers` is created. If you tried to create a bucket with a name that already exists, it will reply back with a message indicating the conflict. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/AmazonS3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
 
 ### Post a message into Amazon S3 bucket
 
@@ -299,7 +299,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     </CompleteMultipartUploadResult>
     ```
     Navigate to AWS S3 console and click on the bucket `wso2engineers`. You will note that a file has been created with the name `Julian.txt`. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/AmazonS3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from Amazon S3 bucket
 

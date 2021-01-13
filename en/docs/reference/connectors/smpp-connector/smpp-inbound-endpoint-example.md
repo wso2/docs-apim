@@ -10,7 +10,7 @@ The SMPP inbound endpoint is listening to the Short Message service center for c
 
 Following diagram shows the overall solution we are going to build. The SMSC will generate or receive messages from the outside, while the SMPP inbound endpoint will consume messages based on the updates.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundEP-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-example.png" title="SMPP Inbound Endpoint" width="800" alt="SMPP Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
@@ -20,7 +20,7 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundEP-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.smpp.SMPPListeningConsumer`. 
 

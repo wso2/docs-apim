@@ -129,7 +129,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/FileConnector.zip">
+<a href="{{base_path}}/assets/attachments/connectors/filecon-3.x/fileconnector.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

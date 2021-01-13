@@ -9,7 +9,7 @@ Cardholder-originated transactions include purchase, withdrawal, deposit, refund
 
 To see the ISO8583 Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ISO8583".
 
-<img src="{{base_path}}/assets/img/integrate/connectors/ISO8583-store.png" title="ISO8583 Connector Store" width="200" alt="ISO8583 Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/iso8583-store.png" title="ISO8583 Connector Store" width="200" alt="ISO8583 Connector Store"/>
 
 ## Compatibility
 

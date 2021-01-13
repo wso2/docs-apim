@@ -6,7 +6,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2tok
    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-developer-edition-signup.png" title="Create salesforce account" width="800"/> 
 
 2. Log in to Salesforce after verifying your account, with the newly created credentials. In the upper-right corner, select **Setup**.
-   <img src="{{base_path}}/assets/img/integrate/connectors/Salesforce-account-setup.png" title="Select setup" width="500"/> 
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-account-setup.png" title="Select setup" width="500"/> 
 
 3. Navigate to **Apps** > **App Manager** and click on the **New Connected App**.<br>
    <img src="{{base_path}}/assets/img/integrate/connectors/new-connected-app.png" title="Add new connected app" width="800"/> 

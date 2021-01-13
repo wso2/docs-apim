@@ -131,7 +131,7 @@ Now follow the steps below to add configurations to the resource.
         - **expression** : //queryString/text()
         - **type** : STRING
       
-       <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-api-property-queryString-mediator-property1-value1.png" title="Add values to capture queryString value" width="600" alt="Add values to capture queryString value"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-api-property-querystring-mediator-property1-value1.png" title="Add values to capture queryString value" width="600" alt="Add values to capture queryString value"/>
 
     5. Forward the backend response to the API caller.
             
@@ -204,7 +204,7 @@ Now follow the steps below to add configurations to the resource.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="{{base_path}}/assets/attachments/connectors/salesforceSoap.zip">
+<a href="{{base_path}}/assets/attachments/connectors/salesforcesoap.zip">
     <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 

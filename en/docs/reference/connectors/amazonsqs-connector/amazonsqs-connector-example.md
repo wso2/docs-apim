@@ -8,7 +8,7 @@ This example explains how to use Amazon SQS Connector to create a queue in the A
 
 It has a single HTTP API resource, which is `sendToQueue`. 
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/AmazonSQS-Connector.png" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
+  <img src="{{base_path}}/assets/img/integrate/connectors/amazonsqs-connector.png" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

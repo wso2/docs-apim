@@ -121,7 +121,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 15. Create the next API resource, which is `/read`. From this, we are going to read the specified spreadsheet data. Use the URL template as `/read`. The method will be POST. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/apiResource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
 
 16. Let's create `readData.xml` sequence. The complete XML configuration looks as below. 
 ```xml
