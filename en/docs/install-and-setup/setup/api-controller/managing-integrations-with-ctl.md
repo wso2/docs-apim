@@ -1062,3 +1062,72 @@ You can use the below command to update the log level of an existing logger.
     ```go
     Log file downloaded to log-files/wso2carbon.log
     ```
+
+## Monitoring transactions
+
+### Transaction Counts
+
+You can use the below command to get information about the inbound transactions received by the Micro Integrator.
+
+-   **Command**
+    ``` bash
+    apictl mi get transaction-counts -e <environment>
+    ```
+    ``` bash
+    apictl mi get transaction-counts [year] [month] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+        -   Optional :  
+            `--format` : pretty-print using templates
+
+    !!! example
+        ```bash
+        apictl mi get transaction-counts -e dev
+        ```
+        ```bash
+        apictl mi get transaction-counts 2021 01 -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    CHECK
+    YEAR        MONTH       TRANSACTION COUNT
+    2021        1           126
+    ```
+
+### Transaction Reports
+
+You can use the below command to generate transaction count summary report about the inbound transactions received by the Micro Integrator.
+
+-   **Command**
+    ``` bash
+    apictl mi get transaction-reports [start] [end] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+        -   Optional :  
+            `--path` or `-p`        : Path the file should be downloaded (default is current executable directory)
+
+    !!! example
+        ```bash
+        apictl mi get transaction-reports 2020-05 2020-06 -e dev
+        ```
+        ```bash
+        apictl mi get transaction-reports 2020-05 -e dev -p reports/mi
+        ```
+
+-   **Response**
+
+    ```go
+    TODO
+    ```
