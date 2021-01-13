@@ -36,7 +36,7 @@ After adding an environment, you can log in to the Micro Integrator instance in 
             If you run `apictl mi login <environment-name> --username <username>`, you are prompted to provide the password.
 
         !!! info
-            **Flags:**  
+            **Flags:**
             
             -    Optional :     
                 `--username` or `-u` : Username for login  
@@ -97,4 +97,823 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         ```bash tab="Example Response"
         Logged out from MI in dev environment
+        ```
+
+## Monitoring Integration Artifacts
+
+Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CTL:
+
+1.  Make sure that the WSO2 Micro Integrator 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.   
+    For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+
+2.  Log in to the Micro Integrator in the environment by following the instructions in [Login to a Micro Integrator](#login-to-a-micro-integrator).
+
+### Composite Applications (CApps)
+
+1.  List composite applications (CApps) in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get composite-apps -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get composite-apps -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                            VERSION
+        HealthCareCompositeExporter     1.0.0
+        FoodServiceCApp                 2.0.0
+        ```
+
+2.  Get information of a specific composite application in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get composite-apps [capp-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get composite-apps HealthCareCompositeExporter -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - HealthCareCompositeExporter
+        Version - 1.0.0
+        Artifacts :
+        NAME                      TYPE
+        sample-local-entry        local-entry
+        email-connector           lib
+        in-memory-message-store   message-store
+        GrandOakEndpoint          endpoint
+        sample_seq_template       template
+        scheduled-msg-processor   message-processors
+        sample_template           template
+        HealthcareAPI             api
+        sample-sequence           sequence
+        PineValleyEndpoint        endpoint
+        StockQuoteProxy           proxy-service
+        sample-cron-task          task
+        httpInboundEP             inbound-endpoint
+        ```
+
+### Integration APIs
+
+1.  List integration APIs in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get apis -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get apis -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME              URL
+        HealthcareAPI     http://localhost:8290/healthcare
+        FoodService       http://localhost:8480/foodservice
+        ```
+
+2.  Get information of a specific integration API in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get apis [api-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get apis HealthcareAPI -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - HealthcareAPI
+        Version - N/A
+        Url - http://localhost:8290/healthcare
+        Stats - disabled
+        Tracing - disabled
+        Resources :
+        URL                    METHOD
+        /doctor/{doctorType}   [GET]
+        /report                [GET]
+        ```
+
+### Connectors
+
+1.  List connectors in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get connectors -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get connectors -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME        STATS         PACKAGE                       DESCRIPTION
+        email       enabled       org.wso2.carbon.connector     WSO2 email connector library
+        ```
+
+### Data Services
+
+1.  List data services in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get data-services -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get apis -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME              URL
+        HealthcareAPI     http://localhost:8290/healthcare
+        FoodService       http://localhost:8480/foodservice
+        ```
+
+2.  Get information of a specific data service in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get apis [api-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get apis HealthcareAPI -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - HealthcareAPI
+        Version - N/A
+        Url - http://localhost:8290/healthcare
+        Stats - disabled
+        Tracing - disabled
+        Resources :
+        URL                    METHOD
+        /doctor/{doctorType}   [GET]
+        /report                [GET]
+        ```
+
+### Endpoints
+
+1.  List endpoints in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get endpoints -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get endpoints -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                    TYPE      ACTIVE
+        GrandOakEndpoint        http      true
+        PineValleyEndpoint      http      true
+        ```
+
+2.  Get information of a specific endpoint in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get endpoints [endpoint-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get endpoints GrandOakEndpoint -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - GrandOakEndpoint
+        Type - HTTP Endpoint
+        Active - true
+        Method - GET
+        URI Template - http://localhost:9091/grand/doctors
+        ```
+
+### Inbound Endpoints
+
+1.  List inbound endpoints in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get inbound-endpoints -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get inbound-endpoints -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                 TYPE
+        httpInboundEP        http
+        ```
+
+2.  Get information of a specific inbound endpoint in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get inbound-endpoints [inbound-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get inbound-endpoints httpInboundEP -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - httpInboundEP
+        Type - http
+        Stats - enabled
+        Tracing - enabled
+        Parameters :
+        NAME                                   VALUE
+        inbound.http.port                      8697
+        inbound.worker.pool.size.core          400
+        inbound.worker.pool.size.max           500
+        inbound.worker.thread.keep.alive.sec   60
+        inbound.worker.pool.queue.length       -1
+        inbound.thread.id                      PassThroughInboundWorkerPool
+        ```
+
+### Local Entries
+
+1.  List local entries in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get local-entries -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get local-entries -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                    TYPE
+        sample-local-entry      Inline Text
+        ```
+
+2.  Get information of a specific local entry in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get local-entries [local-entry-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get local-entries sample-local-entry -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - sample-local-entry
+        Type - Inline Text
+        Value - 0, 1
+        ```
+
+### Message Processors
+
+1.  List message processors in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get message-processors -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get message-processors -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                      TYPE                                     STATUS
+        scheduled-msg-processor   Scheduled-message-forwarding-processor   active
+        ```
+
+2.  Get information of a specific message processor in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get message-processors [message-processor-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get message-processors scheduled-msg-processor -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - scheduled-msg-processor
+        Type - Scheduled-message-forwarding-processor
+        File Name - scheduled-msg-processor-1.0.0.xml
+        Message Store - in-memory-message-store
+        Artifact Container - [ Deployed From Artifact Container: HealthCareCompositeExporter ]
+        Status - active
+        Parameters :
+         client.retry.interval = 1000
+         interval = 1000
+         is.active = true
+         max.delivery.attempts = 4
+         max.delivery.drop = Disabled
+         max.store.connection.attempts = -1
+         member.count = 1
+         store.connection.retry.interval = 1000
+         target.endpoint = PineValleyEndpoint
+         throttle = false
+        ```
+
+### Message Stores
+
+1.  List message stores in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get message-stores -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get message-stores -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                      TYPE                      SIZE
+        in-memory-message-store   in-memory-message-store   0
+        ```
+
+2.  Get information of a specific message store in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get message-stores [message-store-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get message-stores in-memory-message-store -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - in-memory-message-store
+        File Name - in-memory-message-store-1.0.0.xml
+        Container - [ Deployed From Artifact Container: HealthCareCompositeExporter ]
+        Producer - org.apache.synapse.message.store.impl.memory.InMemoryProducer@3d288f9e
+        Consumer - org.apache.synapse.message.store.impl.memory.InMemoryConsumer@5e6443d6
+        Size - 0
+        Properties :
+        No Properties found
+        ```
+
+### Proxy Services
+
+1.  List proxy services in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get proxy-services -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get proxy-services -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                WSDL 1.1                                                WSDL 2.0
+        StockQuoteProxy     http://localhost:8290/services/StockQuoteProxy?wsdl     http://localhost:8290/services/StockQuoteProxy?wsdl2
+        ```
+
+2.  Get information of a specific proxy service in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get proxy-services [proxy-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get proxy-services StockQuoteProxy -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - StockQuoteProxy
+        WSDL 1.1 - http://sanoj:8290/services/StockQuoteProxy?wsdl
+        WSDL 2.0 - http://sanoj:8290/services/StockQuoteProxy?wsdl2
+        Stats - disabled
+        Tracing - disabled
+        ```
+
+### Sequences
+
+1.  List sequences in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get sequences -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get sequences -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                STATS               TRACING
+        fault               disabled            disabled
+        main                disabled            disabled
+        sample-sequence     disabled            disabled
+        ```
+
+2.  Get information of a specific sequence in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get sequences [sequence-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get sequences sample-sequence -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - sample-sequence
+        Container - [ Deployed From Artifact Container: HealthCareCompositeExporter ]
+        Stats - disabled
+        Tracing - disabled
+        Mediators - LogMediator, STRING
+        ```
+
+### Scheduled Tasks
+
+1.  List scheduled tasks in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get tasks -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get tasks -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME
+        sample-cron-task
+        CheckPriceTask
+        ```
+
+2.  Get information of a specific scheduled task in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get tasks [task-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get tasks sample-cron-task -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - sample-cron-task
+        Trigger Type - cron
+        Cron Expression - 0 30 1 * * ?
+        ```
+
+### Templates
+
+1.  List all templates in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get templates -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get templates -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME                  TYPE
+        sample_seq_template   Sequence
+        sample_template       Endpoint
+        ```
+
+2.  List specific type of templates in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get templates [template-type] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get templates endpoint -e dev
+            ```
+            ```bash
+            apictl mi get templates sequence -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        NAME
+        sample_seq_template
+        ```
+
+3.  Get information of a specific template in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl mi get templates [template-type] [template-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get templates endpoint sample_template -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - sample_template
+        Parameters : name, uri
         ```
