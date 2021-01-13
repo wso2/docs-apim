@@ -133,6 +133,6 @@ You can see the following message in the Kafka Consumer log.
 
 !!! tip "What's Next?"
     Once you try out this quick start guide, you can proceed to one of the following sections.<br/><br/>
-    - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview/).
+    - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).
     - Start using the Streaming Integrator. For more information and instructions about Streaming Integration functionality, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).
 

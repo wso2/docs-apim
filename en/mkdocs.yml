@@ -53,7 +53,7 @@ nav:
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: getting-started/quick-start-guide.md
                 - Quick Start Guide Integration: ''
-                - Quick Start Guide Streaming: ''
+                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
             - Create APIs Overview: design/design-api-overview.md
