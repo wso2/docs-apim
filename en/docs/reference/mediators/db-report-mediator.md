@@ -1,12 +1,12 @@
 # DB Report Mediator
 
-The **DB Report Mediator** is similar to the [DBLookup Mediator]({{base_path}}/reference/mediators/dBLookup-Mediator). The difference between the two mediators is that the DB Report mediator writes information to a database using the specified insert SQL statement.
+The **DB Report Mediator** is similar to the [DBLookup Mediator]({{base_path}}/reference/mediators/dBLookup-mediator). The difference between the two mediators is that the DB Report mediator writes information to a database using the specified insert SQL statement.
 
 !!! Info
     The DB Report mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 !!! Note
-    Currently, the 'DB-Report-Mediator' does not support the 'json-eval' expression used to extract the parameters.
+    Currently, the 'DB-Report-mediator' does not support the 'json-eval' expression used to extract the parameters.
 
 ## Syntax
 
@@ -124,7 +124,7 @@ Specifying the value as -1 allows unlimited transactions. Change the value accor
 <li>The DBReport mediator configuration must be preceded by a Transaction Mediator configuration with <code>                   new                  </code> as the transaction action.</li>
 <li>The DBReport mediator configuration must be followed by a Transaction Mediator configuration with <code>commit</code> as the transaction action.</li>
 </ul>
-<p>For detailed information about configuring Transaction mediators, see <a href="../../mediators/transaction-Mediator">Transaction Mediator</a> .</p>
+<p>For detailed information about configuring Transaction mediators, see <a href="../../mediators/transaction-mediator">Transaction Mediator</a> .</p>
 </div></td>
 </tr>
 <tr class="even">

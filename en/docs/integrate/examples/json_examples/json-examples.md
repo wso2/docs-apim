@@ -348,7 +348,7 @@ You can use JSON path expressions with following mediators:
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/log-mediator/">Log</a></td>
+<td><a href="{{base_path}}/reference/mediators/log-mediator/">Log</a></td>
 <td><div class="content-wrapper">
 <p>As a log property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -362,7 +362,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-mediator/">Property</a></td>
+<td><a href="{{base_path}}/reference/mediators/property-mediator/">Property</a></td>
 <td><div class="content-wrapper">
 <p>As a standalone property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -374,7 +374,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-mediator/">PayloadFactory</a></td>
+<td><a href="{{base_path}}/reference/mediators/payloadFactory-mediator/">PayloadFactory</a></td>
 <td><div class="content-wrapper">
 <p>As the payload arguments:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -391,7 +391,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/switch-mediator/">Switch</a></td>
+<td><a href="{{base_path}}/reference/mediators/switch-mediator/">Switch</a></td>
 <td><div class="content-wrapper">
 <p>As the switch source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -402,7 +402,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/filter-mediator/">Filter</a></td>
+<td><a href="{{base_path}}/reference/mediators/filter-mediator/">Filter</a></td>
 <td><div class="content-wrapper">
 <p>As the filter source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
