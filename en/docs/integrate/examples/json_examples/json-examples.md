@@ -374,7 +374,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="{{base_path}}/reference/mediators/payloadFactory-mediator/">PayloadFactory</a></td>
+<td><a href="{{base_path}}/reference/mediators/payloadfactory-mediator/">PayloadFactory</a></td>
 <td><div class="content-wrapper">
 <p>As the payload arguments:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -534,7 +534,7 @@ mediator or Script mediator as described in the rest of this section.
 
 #### PayloadFactory mediator
 
-The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
+The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
 
 ``` javascript
 {
@@ -1107,7 +1107,7 @@ see [Adding a Resource]({{base_path}}/integrate/develop/creating-artifacts/regis
 ```
 
 In this example, the required schema for validating messages going through the Validate mediator is given as a registry key (i.e.
-`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-mediator) creates a fault to be sent back to the party, which sends the message.
+`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) creates a fault to be sent back to the party, which sends the message.
 
 ```
 <validate>
