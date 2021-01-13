@@ -204,7 +204,7 @@ nav:
                 - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
-            - Quick Start with Kubernetes: publish/api-microgateway/quick-start-with-kubernetes.md
+            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
@@ -1321,6 +1321,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
+              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:

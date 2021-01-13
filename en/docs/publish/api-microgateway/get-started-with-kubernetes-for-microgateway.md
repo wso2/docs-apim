@@ -1,4 +1,4 @@
-# Quick Start with Kubernetes
+# Get Started with Kubernetes for Microgateway
 
 ## Design Your First API
 
@@ -7,13 +7,13 @@ This section is a step-by-step guide to create, publish, and invoke an API in th
 ### Before you begin...
 
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-2. A [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
+2. Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
       - Minimum CPU : 2vCPU
       - Minimum Memory : 2GB
 
 ### Objectives
 
-1. Setup K8s API Operator.
+1. Setup K8s API Operator in Kubernetes.
 2. Create and deploy an API project.
 3. Invoke the API using a generated key.
 
@@ -21,14 +21,11 @@ Let's get started...
 
 ### Step 1 - Setup Microgateway and K8s API Operator in Kubernetes
 
-1.  Download the Microgateway distribution from the 
-    [github release page's](https://github.com/wso2/product-microgateway/releases) Assets and 
-    extract them to a folder of your choice.
+1.  Download the WSO2 API Microgateway v4.0.0-m3 from
+    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-m3) assets and extract them
+    to a folder of your choice. We will refer to this folder as the `MG_HOME`.
 
-    From here onwards, Microgateway distribution extracted 
-    location would be referred as `MG_HOME`.
-
-2.  Using kubectl tool, apply Kubernetes configurations for Microgateway.
+2.  Using the kubectl tool, apply Kubernetes configurations for Microgateway.
     ```bash
     kubectl apply -Rf <MG_HOME>/resources/k8s-artifacts
     ```
@@ -41,20 +38,20 @@ Let's get started...
 
 ### Step 2 - Create and deploy an API project
 
-Let's create our first project with name "petstore" by adding the
+Let's create our first project with the name "petstore" by adding the
 [open API definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  First we need to create a Kubernetes configmap with the swagger definition.
+1.  First we need to create a Kubernetes ConfigMap with the swagger definition.
 
     ```bash
     kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
     ```
 
     !!! note
-        You can also create an Kubernetes configmap with an zipped APICTL project to deploy an API.
+        You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
 
-        Download the CLI tool(APICTL) and the microgateway distribution from the 
-        [github release page's](https://github.com/wso2/product-microgateway/releases) Assets and 
+        Download the api controller (apictl) and the microgateway distribution from the 
+        [github release page's](https://github.com/wso2/product-microgateway/releases) assets and 
         extract them to a folder of your choice.
         ```bash
         export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
@@ -64,8 +61,8 @@ Let's create our first project with name "petstore" by adding the
         apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
         ```
 
-        The project is now initialized. You should notice a directory with name "petstore" being created in the location 
-        where you executed the command. Let's Zip the created "petstore"` directory and create a Kubernetes condfigmap.
+        The project is now initialized. You should notice a directory with the name "petstore" being created in the location 
+        where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
         You can also use this Kubernetes configmap to deploy APIs.
 
         ```bash
@@ -94,20 +91,20 @@ Let's create our first project with name "petstore" by adding the
 
 ### Step 3 - Invoke the API
 
-1.  The next step would be to invoke the API using a REST tool. Since APIs on the Microgateway are by default secured. 
-    We need a valid token in order to invoke the API. 
+1.  The next step would be to invoke the API using a REST tool. Since APIs on the Microgateway are by default secured, 
+    we need a valid token in order to invoke the API.
     Use the following sample token accepted by the microgateway to access the API. 
-    Lets set the token to command line as a variable.
+    Lets set the token to the command line as a variable.
 
     ```bash
     TOKEN=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ==.eyJhdWQiOiJBT2syNFF6WndRXzYyb2QyNDdXQnVtd0VFZndhIiwic3ViIjoiYWRtaW5AY2FyYm9uLnN1cGVyIiwibmJmIjoxNTk2MDA5NTU2LCJhenAiOiJBT2syNFF6WndRXzYyb2QyNDdXQnVtd0VFZndhIiwic2NvcGUiOiJhbV9hcHBsaWNhdGlvbl9zY29wZSBkZWZhdWx0IiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0My9vYXV0aDIvdG9rZW4iLCJrZXl0eXBlIjoiUFJPRFVDVElPTiIsImV4cCI6MTYyNzU0NTU1NiwiaWF0IjoxNTk2MDA5NTU2LCJqdGkiOiIyN2ZkMWY4Ny01ZTI1LTQ1NjktYTJkYi04MDA3MTFlZTJjZWMifQ==.otDREOsUUmXuSbIVII7FR59HAWqtXh6WWCSX6NDylVIFfED3GbLkopo6rwCh2EX6yiP-vGTqX8sB9Zfn784cIfD3jz2hCZqOqNzSUrzamZrWui4hlYC6qt4YviMbR9LNtxxu7uQD7QMbpZQiJ5owslaASWQvFTJgBmss5t7cnurrfkatj5AkzVdKOTGxcZZPX8WrV_Mo2-rLbYMslgb2jCptgvi29VMPo9GlAFecoMsSwywL8sMyf7AJ3y4XW5Uzq7vDGxojDam7jI5W8uLVVolZPDstqqZYzxpPJ2hBFC_OZgWG3LqhUgsYNReDKKeWUIEieK7QPgjetOZ5Geb1mA==
     ``` 
 
-2.  We can now invoke the API running on the microgateway using cURL as below. Replace "<NODE_IP>" with one of Kubernetes worker Nodes before
+2.  We can now invoke the API running on the microgateway using cURL as below. Replace "<NODE_IP>" with one of Kubernetes worker nodes before
     executing the command.
 
     ```bash
     curl -X GET "https://<NODE_IP>:30201/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
     ```
 
-Congratulations! You have successfully created your first API, and invoked it via the API Microgateway.
+You have successfully created your first API on the API Microgateway and invoked it.
