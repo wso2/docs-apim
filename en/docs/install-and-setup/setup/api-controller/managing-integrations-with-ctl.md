@@ -917,3 +917,84 @@ Follow the instructions below to display a list of artifacts or get information 
         Name - sample_template
         Parameters : name, uri
         ```
+
+## Managing Loggers used in Micro Integrator
+
+### Get information of a specific logger
+
+-   **Command**
+    ``` bash
+    apictl mi get log-levels [logger-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+        -   Optional :  
+            `--format` : pretty-print using templates
+
+    !!! example
+        ```bash
+        apictl mi get log-levels org-apache-coyote -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    NAME                    LOG LEVEL           COMPONENT
+    org-apache-coyote       WARN                org.apache.coyote
+    ```
+
+### Add a new logger
+
+You can use the below command to add a new logger to a micro integrator.
+
+-   **Command**
+    ``` bash
+    apictl mi add log-level [logger-name] [class-name] [log-level] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+    !!! example
+        ```bash
+        apictl mi add log-level synapse-api org.apache.synapse.rest.API DEBUG -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    Successfully added logger for ('synapse-api') with level DEBUG for class org.apache.synapse.rest.API
+    ```
+
+### Update a logger
+
+You can use the below command to update the log level of an existing logger.
+
+-   **Command**
+    ``` bash
+    apictl mi update log-level [logger-name] [log-level] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+    !!! example
+        ```bash
+        apictl mi update log-level org-apache-coyote DEBUG -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    Successfully added logger for ('org-apache-coyote') with level DEBUG
+    ```
