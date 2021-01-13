@@ -305,7 +305,7 @@ The response payload will look like this:
 }
 ```
 
-Note that we have used the [Property mediator](../../../references/mediators/property-Mediator.md) to mark the outgoing payload to be formatted as JSON:
+Note that we have used the [Property mediator](../../../references/mediators/property-mediator) to mark the outgoing payload to be formatted as JSON:
 
 ```
 <property name="messageType" value="application/json" scope="axis2"/>
@@ -315,7 +315,7 @@ Note that we have used the [Property mediator](../../../references/mediators/pro
     JSON requests cannot be converted to XML if it contains invalid XML characters.
 
 !!! Info
-    If you need to convert complex XML responses (e.g., XML with with `         xsi:type        ` values), you will need to set the message type using the [Property mediator](../../../references/mediators/property-Mediator.md) as follows:
+    If you need to convert complex XML responses (e.g., XML with with `         xsi:type        ` values), you will need to set the message type using the [Property mediator](../../../references/mediators/property-mediator) as follows:
     `<property name="messageType" value="application/json/badgerfish" scope="axis2" type="STRING"/>`
     You will also need to ensure you register the following message builder and formatter as specified in [Message Builders and Formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/).
     ```
@@ -348,7 +348,7 @@ You can use JSON path expressions with following mediators:
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/log-Mediator/">Log</a></td>
+<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/log-mediator/">Log</a></td>
 <td><div class="content-wrapper">
 <p>As a log property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -362,7 +362,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-Mediator/">Property</a></td>
+<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-mediator/">Property</a></td>
 <td><div class="content-wrapper">
 <p>As a standalone property:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -374,7 +374,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-Mediator/">PayloadFactory</a></td>
+<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-mediator/">PayloadFactory</a></td>
 <td><div class="content-wrapper">
 <p>As the payload arguments:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -391,7 +391,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="even">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/switch-Mediator/">Switch</a></td>
+<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/switch-mediator/">Switch</a></td>
 <td><div class="content-wrapper">
 <p>As the switch source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -402,7 +402,7 @@ You can use JSON path expressions with following mediators:
 </div></td>
 </tr>
 <tr class="odd">
-<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/filter-Mediator/">Filter</a></td>
+<td><a href="https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/filter-mediator/">Filter</a></td>
 <td><div class="content-wrapper">
 <p>As the filter source:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -508,7 +508,7 @@ Learn more about [JSONPath syntax](http://goessner.net/articles/JsonPath/).
 ### Logging JSON payloads
 
 To log JSON payloads as JSON, use the [Log
-mediator](../../../references/mediators/log-Mediator.md) as shown
+mediator](../../../references/mediators/log-mediator) as shown
 below. The `         json-eval()        ` method returns the
 `         java.lang.String        ` representation of the existing JSON
 payload.
@@ -534,7 +534,7 @@ mediator or Script mediator as described in the rest of this section.
 
 #### PayloadFactory mediator
 
-The [PayloadFactory mediator](../../../references/mediators/payloadFactory-Mediator.md) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
+The [PayloadFactory mediator](../../../references/mediators/payloadFactory-mediator) provides the simplest way to work with JSON payloads. Suppose we have a service that returns the following response for a search query:
 
 ``` javascript
 {
@@ -672,7 +672,7 @@ to the registry resource key):
 #### Script mediator
 
 The [Script
-mediator](../../../references/mediators/script-Mediator.md) in
+mediator](../../../references/mediators/script-mediator) in
 JavaScript is useful when you need to create payloads that have
 recurring structures such as arrays of objects. The Script mediator
 defines the following important methods that can be used to manipulate
@@ -1053,7 +1053,7 @@ descriptions:
 ### Validating JSON messages
 
 You can use the [Validate
-mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/validate-Mediator/)
+mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/validate-mediator/)
 to validate JSON messages against a specified JSON schema as described
 in the rest of this section.
 
@@ -1110,7 +1110,7 @@ Resource](../../../develop/creating-artifacts/registry/creating-local-registry-e
 ```
 
 In this example, the required schema for validating messages going through the Validate mediator is given as a registry key (i.e.
-`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-Mediator/) creates a fault to be sent back to the party, which sends the message.
+`         schema\StockQuoteSchema.json        ` ). You do not have any source attributes specified. Therefore, the schema will be used to validate the complete JSON body. The mediation logic to follow if the validation fails is defined within the on-fail element. In this example, the [PayloadFactory mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/payloadFactory-mediator/) creates a fault to be sent back to the party, which sends the message.
 
 ```
 <validate>
