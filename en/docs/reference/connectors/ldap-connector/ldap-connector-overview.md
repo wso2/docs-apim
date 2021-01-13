@@ -6,7 +6,7 @@ required LDAP server.
 
 To see the available LDAP connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "LDAP".
 
-<img src="../../../../assets/img/connectors/LDAP-store.png" title="LDAP Connector Store" width="200" alt="LDAP Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ldap-store.png" title="LDAP Connector Store" width="200" alt="LDAP Connector Store"/>
 
 ## Compatibility
 

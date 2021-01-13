@@ -6,7 +6,7 @@ You can use the Firebase console itself to trigger out messages to the registere
 
 To see the Google Firebase Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "firebase".
 
-<img src="../../../../assets/img/connectors/google-firebase-store.png" title="Google Firebase Connector Store" width="200" alt="Google Firebase Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-store.png" title="Google Firebase Connector Store" width="200" alt="Google Firebase Connector Store"/>
 
 ## Compatibility
 

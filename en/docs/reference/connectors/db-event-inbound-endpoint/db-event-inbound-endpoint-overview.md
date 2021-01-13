@@ -6,7 +6,7 @@ Hence, for an enterprise integration platform it is a useful feature to be able 
 
 To see the DB Event Inbound Endpoint, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Event". **DB Event Listener** is the name of the connector that has this functionality.
 
-<img src="../../../../assets/img/connectors/db-event-store.png" title="DB Event Listener Store" width="200" alt="DB Event Listener Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-store.png" title="DB Event Listener Store" width="200" alt="DB Event Listener Store"/>
 
 ## Compatibility
 

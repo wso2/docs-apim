@@ -10,17 +10,17 @@ The Amazon SQS queue will receive messages from a third party system, while the 
 
 Following diagram shows the overall solution we are going to build. The Simple Queue Service will receive messages from the outside, while the AmazonSQS inbound endpoint will consume messages based on the updates.
 
-<img src="../../../../assets/img/connectors/amazon-sqs-inboundEP-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-inboundep-example.png" title="AmazonSQS Inbound Endpoint" width="800" alt="AmazonSQS Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
    
-   <img src="../../../../assets/img/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+   <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
    
-   <img src="../../../../assets/img/connectors/smpp-inboundEP-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.amazonsqs.AmazonSQSPollingConsumer`. 
 
@@ -70,7 +70,7 @@ Following diagram shows the overall solution we are going to build. The Simple Q
 **CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="../../../../assets/img/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 

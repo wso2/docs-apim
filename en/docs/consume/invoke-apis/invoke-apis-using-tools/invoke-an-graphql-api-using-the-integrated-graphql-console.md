@@ -55,15 +55,15 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
     ```
     query{
-        allFilms{
-            title
-            episodeId
+        human(id:1000){
+            id
+            name
         }
-        allPlanets{
-            films{
-                species{
-                    skinColor
-                }
+        droid(id:2000){
+            name
+            friends{
+                name
+                appearsIn
             }
         }
     }
@@ -72,7 +72,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
  
 9. Click **Execute**.
 
-     [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
+     [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-quey.png)
 
     !!! info "Troubleshooting"
         If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 
@@ -83,7 +83,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
      Note the successful response for the API invocation. 
 
-     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 You have now successfully invoked a GraphQL API using the GraphQL API Console.
 

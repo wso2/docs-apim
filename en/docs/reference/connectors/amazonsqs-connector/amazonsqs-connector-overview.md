@@ -4,7 +4,7 @@ Amazon Simple Queue Service (SQS) is a fully managed message queuing service tha
 
 To see the Amazon SQS connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Amazon".
 
-<img src="../../../../assets/img/connectors/amazon-sqs-store.png" title="Amazon SQS Connector Store" width="200" alt="Amazon SQS Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-sqs-store.png" title="Amazon SQS Connector Store" width="200" alt="Amazon SQS Connector Store"/>
 
 ## Compatibility
 

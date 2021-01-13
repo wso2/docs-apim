@@ -6,7 +6,7 @@ This connector uses the [HAPI FHIR APIs](https://hapifhir.io) to connect with a 
 
 To see the FHIR Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "fhir".
 
-<img src="../../../../assets/img/connectors/fhir-store.png" title="FHIR Connector Store" width="200" alt="FHIR Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/fhir-store.png" title="FHIR Connector Store" width="200" alt="FHIR Connector Store"/>
 
 ## Compatibility
 

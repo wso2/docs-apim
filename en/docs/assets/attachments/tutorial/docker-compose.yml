@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  service:
+    image: integration_docker_image:latest
+    ports:
+      - 8290:8290
+  backend:
+    image: backend_docker_image:latest
+    expose:
+      - 8290
+    ports:
+      - 8291:8290

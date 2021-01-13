@@ -21,7 +21,7 @@ Follow the steps below to import the Salesforce certificate into the EI client k
 1. To view the certificate, log in to your Salesforce account in your browser.
 2. Search the **Certificate and Key Management** in the search box.
 
-   <img src="../../../../assets/img/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
 4. Import the certificate to the EI client keystore using either the following [command](../../../../setup/security/importing_ssl_certificate/) or the EI Management Console.

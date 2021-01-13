@@ -6,7 +6,7 @@ WSO2 EI File Connector introduces the independent operations related to the file
 
 To see the available File connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "File".
 
-<img src="../../../../assets/img/connectors/file-connector-store.png" title="File Connector Store" width="200" alt="File Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/file-connector-store.png" title="File Connector Store" width="200" alt="File Connector Store"/>
 
 ## Compatibility
 

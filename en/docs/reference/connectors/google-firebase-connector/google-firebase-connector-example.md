@@ -17,7 +17,7 @@ In this example let us see how we can use Google Firebase Connector to generate 
 
 Overall integration scenario would look like below. 
 <br/><br/>
-<img src="../../../../assets/img/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
 
 ## Setting up the environment
 
@@ -185,8 +185,8 @@ Now we can export the imported connector, sequence, and the API into a single CA
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/google-firebase-test-project.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/google-firebase-test-project.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -257,7 +257,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         "webPushNotificationVibrate":"200,100,200"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @data.xml http://127.0.0.1:8280/firebasenotify/send
     ```

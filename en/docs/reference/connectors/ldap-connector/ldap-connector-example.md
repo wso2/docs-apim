@@ -5,7 +5,7 @@ Given below is a sample scenario that demonstrates how to perform CRUD operation
 ## What you'll build
 
 This example demonstrates on how to use the LDAP connector to create and read LDAP entries on a student directory. 
-    ![image](../../../assets/img/connectors/ldap_connector/ldap_connector_usecase.png)
+    ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap_connector_usecase.png)
 
 This will have 2 API resources, `create`, `search`.
 
@@ -116,8 +116,8 @@ sequences.
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/ldap_connector_project.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/ldap_connector_project.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
@@ -163,7 +163,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 2. Open Apache Directory Studio and category DIT (Directory Information Tree) shows the hierarchical content of the 
 directory. Expand, collapse the tree and you will see the new entries. Select the entry and you will see it's attributes 
 and values on Entry Editor.
-    ![image](../../../assets/img/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
+    ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
 
 ### Search ldap entries
 

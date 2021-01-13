@@ -6,7 +6,7 @@ Salesforce is a Customer Relationship Management (CRM) solution that helps bridg
 
 To see the available Salesforce connectors, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Salesforce". You get the following connectors:
 
-<img src="../../../../assets/img/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="800" alt="Salesforce Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/sf-connector-store.png" title="Salesforce Connector Store" width="800" alt="Salesforce Connector Store"/>
 
 ### Salesforce Connector
 

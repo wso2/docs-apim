@@ -4,7 +4,7 @@ Gmail is a free, Web-based e-mail service provided by Google. It allows you to s
 
 To see the Gmail Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "gmail".
 
-<img src="../../../../assets/img/connectors/gmail-store.png" title="Gmail Connector Store" width="200" alt="Gmail Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gmail-store.png" title="Gmail Connector Store" width="200" alt="Gmail Connector Store"/>
 
 ## Compatibility
 
