@@ -496,6 +496,14 @@ nav:
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
                 - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
                 - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Streaming Integration REST API Guide:
+                      - REST API Guide Overview: develop/streaming-apps/rest-api-guide-overview.md
+                      - Siddhi Application Management APIs: develop/streaming-apps/siddhi-application-management-apis.md
+                      - Permission APIs: develop/streaming-apps/permission-apis.md
+                      - Business Rules APIs: develop/streaming-apps/business-rules-apis.md
+                      - Store APIs: develop/streaming-apps/store-apis.md
+                      - Healthcheck APIs: develop/streaming-apps/healthcheck-apis.md
+                      - HTTP Status Codes: develop/streaming-apps/http-status-codes.md
           - Streaming Examples:
                 - Extracting Data from Static Sources in Real Time:
                        - Capturing MySQL Inserts via CDC: use-cases/examples/streaming-examples/cdc-with-listening-mode.md
