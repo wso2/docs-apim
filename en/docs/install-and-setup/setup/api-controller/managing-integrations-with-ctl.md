@@ -99,6 +99,126 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
         Logged out from MI in dev environment
         ```
 
+## Manage Users
+
+### Get information about users
+
+1.  List users of the Micro Integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi get users -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates  
+                `--pattern` or `-p` : Filter users by regex  
+                `--role` or `-r` : Filter users by role
+
+        !!! example
+            ```bash
+            apictl mi get users -e dev
+            ```
+            ```bash
+            apictl mi get users -r admin -e dev
+            ```
+            ```bash
+            apictl mi get users -p *tester* -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        USER ID
+        admin
+        capp-tester
+        ```
+
+2.  Get information of a specific user.
+
+    -   **Command**
+        ``` bash
+        apictl mi get users [user-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+            -   Optional :  
+                `--format` : pretty-print using templates
+
+        !!! example
+            ```bash
+            apictl mi get users capp-tester -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Name - capp-tester
+        Is Admin - true
+        Roles - Internal/everyone, admin
+        ```
+
+### Add a new user
+
+You can use the below command to add a new user to a micro integrator.
+
+-   **Command**
+    ``` bash
+    apictl mi add user [user-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+    !!! example
+        ```bash
+        apictl mi add user capp-tester -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    Adding new user [ capp-tester ] status: Added
+    ```
+
+### Delete a user
+
+You can use the below command to remove a user from the the Micro Integrator.
+
+-   **Command**
+    ``` bash
+    apictl mi delete user [user-name] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+    !!! example
+        ```bash
+        apictl mi delete user capp-tester -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    Deleting user [ capp-tester ] status: Deleted
+    ```
+
 ## Monitor Integration Artifacts
 
 Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CTL:
