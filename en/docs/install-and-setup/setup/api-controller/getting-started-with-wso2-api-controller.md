@@ -1,6 +1,6 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.  
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc and managing WSO2 Micro Integrator.
 
 ## Download and initialize the CTL Tool
 
@@ -162,24 +162,28 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                        --token <token-endpoint> \
                        --admin <admin-REST-API-endpoint> \
                        --publisher <publisher-portal-endpoint> \
-                       --devportal <developer-portal-endpoint>
+                       --devportal <developer-portal-endpoint> \
+                       --mi <mi-management-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint>
+        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <publisher-portal-endpoint> --devportal <developer-portal-endpoint> --mi <mi-management-endpoint>
         ```
 
         !!! info
             **Flags:**  
             
             -    Required :     
+                **To add an API Manager**   
                 (either)     
                 `--apim` : API Manager endpoint for the environments     
                 OR (the following 4)     
                 `--registration` : Registration endpoint for the environment     
                 `--admin` : Admin endpoint for the environment     
                 `--publisher` : Publisher Portal endpoint for the environment     
-                `--devportal` : Developer Portal endpoint for the environment 
+                `--devportal` : Developer Portal endpoint for the environment     
+                **To add a Micro Integrator**   
+                `--mi` : Management endpoint of the Micro Integrator
             -   Optional :     
                 `--token` : Token endpoint for the environment
             
@@ -190,6 +194,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             You can either provide only the flag `--apim` , or all the other 4 flags (`--registration`, `--publisher`, `--devportal`, `--admin`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
             In both of the above cases `--token`  flag is optional and can be used to provide a user preferred token endpoint.
+            To add a micro integrator instance to an environment you can use the `--mi` flag.
 
         !!! example
 
@@ -201,6 +206,29 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Mac/Windows"
             apictl add env dev --apim https://localhost:9443 
             ```               
+
+        !!! example
+
+            ``` bash tab="Linux/Unix"
+            apictl add env dev \
+                        --mi https://localhost:9164
+            ```
+
+            ``` bash tab="Mac/Windows"
+            apictl add env dev --mi https://localhost:9164
+            ```
+
+        !!! example
+
+            ``` bash tab="Linux/Unix"
+            apictl add env test \
+                        --apim https://localhost:9443 \
+                        --mi https://localhost:9164
+            ```
+
+            ``` bash tab="Mac/Windows"
+            apictl add env test --apim https://localhost:9443 --mi https://localhost:9164
+            ```
 
         !!! example
 
@@ -293,14 +321,15 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Response**
 
         ``` bash tab="Response Format"
-        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT
-        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>
+        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT          MI MANAGEMENT ENDPOINT
+        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>       <mi-management-endpoint>
         ```
 
         ```bash tab="Example Response"
-        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT
+        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
         dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
         production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444
+        dev-mi                                                                                                                                                                      https://localhost:9164
 
         ```
 
