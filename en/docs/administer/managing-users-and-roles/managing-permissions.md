@@ -171,17 +171,22 @@ Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the
 
 3. Provide a role name created in a Carbon console. Then click **Next** to proceed.
 
-    ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-scope-name.png)
+    ![Add Role]({{base_path}}/assets/img/administer/add-new-scope-name.png)
  
 4. In **Select scope assignments**, you can either select **Role alias** or **Custom scope assignment**.
  
-    - **Role alias** - New roles can be mapped to existing `Internal/*` roles, created roles, and admin. All the scopes associated with the specified role will be mapped to the new role automatically.  If you want to map the scopes of `Internal/creator` to the new `creator` role, select `Internal/creator` from the drop-down menu and save. This will update all scope mappings in the `tenant-conf.json` file with `Internal/creator` as an allowed role resulting in the new `creator` role to be allowed for all scopes allowed for the `Internal/creator` role.
+    ##### Role Alias 
+    - New roles can be mapped to existing `Internal/*` roles, created roles, and admin. All the scopes associated with the selected existing role will be mapped to the new role automatically.  
+    - If you want to map the scopes of `Internal/creator` to the new `creator` role, select `Internal/creator` from the drop-down menu and save. 
+    - This will update all scope mappings in the `tenant-conf.json` file with `Internal/creator` as an allowed role resulting in the new `creator` role to be allowed for all scopes allowed for the `Internal/creator` role.
         
-        ![Add Role Mapping]({{base_path}}/assets/img/administer/new-role-alias-mapping.png)
+        ![Add Role Alias Mapping]({{base_path}}/assets/img/administer/new-role-alias-mapping.png)
 
-    - **Custom Scope Assignments** - New roles can be associated with scopes individually. If you create a custom role that has different permissions, add the required scopes for the role based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create APIs, select the new scope `apim:api_create` under **custom scope assignments**.
+    ##### Custom Scope Assignments
+    - New roles can be associated with scopes individually. If you create a custom role that has different permissions, add the required scopes for the role based on the functionality or permissions you need to give to a user carrying this role. 
+    - For example, if you need to allow the user to create APIs, select the new scope `apim:api_create` under **custom scope assignments**.
         
-        ![Add Scope Mapping]({{base_path}}/assets/img/administer/new-custom-scope-mapping.png) 
+        ![Add Custom Scope Mapping]({{base_path}}/assets/img/administer/new-custom-scope-mapping.png) 
 
 !!! info 
     The following are the scopes allowed for each default Internal role under the default configurations.
