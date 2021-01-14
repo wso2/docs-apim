@@ -99,7 +99,7 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
         Logged out from MI in dev environment
         ```
 
-## Monitoring Integration Artifacts
+## Monitor Integration Artifacts
 
 Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CTL:
 
@@ -918,7 +918,161 @@ Follow the instructions below to display a list of artifacts or get information 
         Parameters : name, uri
         ```
 
-## Managing Loggers used in Micro Integrator
+## Change status of an Artifact
+
+You can use the below commands to activate or deactivate endpoints, message processors or proxy services deployed in a micro integrator.
+
+### Endpoint
+
+1.  Activate an endpoint deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi activate endpoint [endpoint-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi activate endpoint GrandOakEndpoint -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        GrandOakEndpoint is switched On
+        ```
+
+2.  Deactivate an endpoint deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi deactivate endpoint [endpoint-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi deactivate endpoint GrandOakEndpoint -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        GrandOakEndpoint is switched Off
+        ```
+
+### Message Processor
+
+1.  Activate a message processor deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi activate message-processor [message-processor-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi activate message-processor scheduled-msg-processor -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        scheduled-msg-processor : is activated
+        ```
+
+2.  Deactivate a message processor deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi deactivate message-processor [message-processor-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi deactivate message-processor scheduled-msg-processor -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        scheduled-msg-processor : is deactivated
+        ```
+
+### Proxy Service
+
+1.  Activate a proxy service deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi activate proxy-service [proxy-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi activate proxy-service StockQuoteProxy -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Proxy service StockQuoteProxy started successfully
+        ```
+
+2.  Deactivate a proxy service deployed in a micro integrator.
+
+    -   **Command**
+        ``` bash
+        apictl mi deactivate proxy-service [proxy-name] -e <environment>
+        ```
+
+        !!! info
+            **Flags:**
+
+            -   Required :  
+                `--environment` or `-e` : Environment of the Micro Integrator to be searched
+
+        !!! example
+            ```bash
+            apictl mi deactivate proxy-service StockQuoteProxy -e dev
+            ```
+
+    -   **Response**
+
+        ```go
+        Proxy service StockQuoteProxy stopped successfully
+        ```
+
+## Manage Loggers used in Micro Integrator
 
 ### Get information of a specific logger
 
@@ -999,9 +1153,9 @@ You can use the below command to update the log level of an existing logger.
     Successfully added logger for ('org-apache-coyote') with level DEBUG
     ```
 
-## Downloading log files
+## Download log files
 
-### List available log files.
+### List available log files
 
 -   **Command**
     ``` bash
@@ -1063,7 +1217,7 @@ You can use the below command to update the log level of an existing logger.
     Log file downloaded to log-files/wso2carbon.log
     ```
 
-## Monitoring transactions
+## Monitor transactions
 
 ### Transaction Counts
 
