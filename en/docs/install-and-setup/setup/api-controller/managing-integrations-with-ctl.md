@@ -412,22 +412,21 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get apis -e dev
+            apictl mi get data-services -e dev
             ```
 
     -   **Response**
 
         ```go
-        NAME              URL
-        HealthcareAPI     http://localhost:8290/healthcare
-        FoodService       http://localhost:8480/foodservice
+        NAME                WSDL 1.1                                                WSDL 2.0
+        RESTDataService     http://localhost:8290/services/RESTDataService?wsdl     http://localhost:8290/services/RESTDataService?wsdl2
         ```
 
 2.  Get information of a specific data service in an environment.
 
     -   **Command**
         ``` bash
-        apictl mi get apis [api-name] -e <environment>
+        apictl mi get data-services [data-service-name] -e <environment>
         ```
 
         !!! info
@@ -440,21 +439,21 @@ Follow the instructions below to display a list of artifacts or get information 
 
         !!! example
             ```bash
-            apictl mi get apis HealthcareAPI -e dev
+            apictl mi get data-services RESTDataService -e dev
             ```
 
     -   **Response**
 
         ```go
-        Name - HealthcareAPI
-        Version - N/A
-        Url - http://localhost:8290/healthcare
-        Stats - disabled
-        Tracing - disabled
-        Resources :
-        URL                    METHOD
-        /doctor/{doctorType}   [GET]
-        /report                [GET]
+        Name - RESTDataService
+        Group Name - RESTDataService
+        Description - Exposing the data service as a REST service.
+        WSDL 1.1 - http://localhost:8290/services/RESTDataService?wsdl
+        WSDL 2.0 - http://localhost:8290/services/RESTDataService?wsdl2
+        Queries :
+        ID                  NAMESPACE
+        ReadStudents        http://ws.wso2.org/dataservice/ReadStudents
+        DeleteStudent       http://ws.wso2.org/dataservice
         ```
 
 ### Endpoints
@@ -826,8 +825,8 @@ Follow the instructions below to display a list of artifacts or get information 
 
         ```go
         Name - StockQuoteProxy
-        WSDL 1.1 - http://sanoj:8290/services/StockQuoteProxy?wsdl
-        WSDL 2.0 - http://sanoj:8290/services/StockQuoteProxy?wsdl2
+        WSDL 1.1 - http://localhost:8290/services/StockQuoteProxy?wsdl
+        WSDL 2.0 - http://localhost:8290/services/StockQuoteProxy?wsdl2
         Stats - disabled
         Tracing - disabled
         ```
