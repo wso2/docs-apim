@@ -1250,7 +1250,6 @@ You can use the below command to get information about the inbound transactions 
 -   **Response**
 
     ```go
-    CHECK
     YEAR        MONTH       TRANSACTION COUNT
     2021        1           126
     ```
@@ -1283,5 +1282,5 @@ You can use the below command to generate transaction count summary report about
 -   **Response**
 
     ```go
-    TODO
+    Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
     ```
