@@ -98,7 +98,7 @@ message.
 
 ### Applying separate sequences
 
-In this example, the [Log mediator](log-Mediator.md) is used to log
+In this example, the [Log mediator]({{base_path}}/reference/mediators/log-mediator) is used to log
 information from a service named Bus Services via a property when the
 request matches the filter criteria. When the request does not match the
 filter criteria, another log mediator configuration is used log

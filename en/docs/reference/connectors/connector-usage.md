@@ -20,7 +20,7 @@ However, the recommended approach to use connectors for integration logic develo
 
 1. Open [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/).
 
-2. [Create an Integration Project](../../develop/create-integration-project.md).
+2. [Create an Integration Project]({{base_path}}/integrate/develop/create-integration-project).
 
 3. Right-click on the ESB Configs folder and select **New** -> **Add/Remove Connector**. Search for the connector and follow the steps in the wizard to import the connector.
 
@@ -33,25 +33,25 @@ After importing the connector, you can drag and drop operations to the design pa
 * As an [XPATH expression](https://www.w3schools.com/xml/xpath_syntax.asp)
 * As a [JSON expression](https://docs.oracle.com/cd/E60058_01/PDF/8.0.8.x/8.0.8.0.0/PMF_HTML/JsonPath_Expressions.htm) 
 * As a property. 
-    * Most of the time this will be a custom property you set earlier in the mediation flow using [the property mediator](../mediators/property-Mediator.md). Any property set with the default scope exists throughout the message flow and you can read it anywhere in the message flow after it is set. The property exists throughout the mediation flow. 
-    * You can also provide properties of other scopes as well (i.e., a header value). However, they may not exist throughout the message flow. Please read [the property mediator documentation](../mediators/property-Mediator.md) to understand more.
+    * Most of the time this will be a custom property you set earlier in the mediation flow using [the property mediator]({{base_path}}/reference/mediators/property-mediator). Any property set with the default scope exists throughout the message flow and you can read it anywhere in the message flow after it is set. The property exists throughout the mediation flow. 
+    * You can also provide properties of other scopes as well (i.e., a header value). However, they may not exist throughout the message flow. Please read [the property mediator documentation]({{base_path}}/reference/mediators/property-mediator) to understand more.
 
 ### Transform message as operation needs 
 
 Some connectors use message content in the $body to execute the operation. In such situations you may need to transform the current message in the way the connector operation needs before using that with the connector operation. Following are some of the mediators you can use to transform the message. 
 
-* **[PayloadFactory mediator](../mediators/payloadFactory-Mediator.md)** - This replaces the current message with a message in the format we specify. We can use the information of the current message to construct this new message.
-* **[Enrich mediator](../mediators/enrich-Mediator.md)** - Enrich the current message modifying or adding new elements. This is also useful to save the current message as a property and to place a message in a property as the current message.
-* **[Datamapper mediator](../mediators/data-Mapper-Mediator.md)** - Transform JSON, XML, CSV messages between formats.
-* **[Script mediator](../mediators/script-Mediator.md)** - Use JavaScript, Groovy or Ruby scripting languages to transform message in a custom manner.
-* **[Custom class mediator](../mediators/class-Mediator.md)** - Use Java to transform message in a custom manner (use Axiom, Jackson, or Gson libraries).
+* **[PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator)** - This replaces the current message with a message in the format we specify. We can use the information of the current message to construct this new message.
+* **[Enrich mediator]({{base_path}}/reference/mediators/enrich-mediator)** - Enrich the current message modifying or adding new elements. This is also useful to save the current message as a property and to place a message in a property as the current message.
+* **[Datamapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator)** - Transform JSON, XML, CSV messages between formats.
+* **[Script mediator]({{base_path}}/reference/mediators/script-mediator)** - Use JavaScript, Groovy or Ruby scripting languages to transform message in a custom manner.
+* **[Custom class mediator]({{base_path}}/reference/mediators/class-mediator)** - Use Java to transform message in a custom manner (use Axiom, Jackson, or Gson libraries).
 * **Mediator Modules (new)** - Import module and use operations to transform message (currently CSV related transformations only).
 
 The above mediators are useful to transform the message anywhere in the mediation flow. Hence, the same mediators can be used to transform the result of a certain connector operation in the way the next connector operation needs. 
 
 ### Result of the operation invocation 
 
-Unless specified otherwise, the result of the connector operation (response from the connector application) will be available in the message context after using the connector operation. You can do any further mediation with the result or send it back to the invoker using [Respond mediator](../mediators/respond-Mediator.md). 
+Unless specified otherwise, the result of the connector operation (response from the connector application) will be available in the message context after using the connector operation. You can do any further mediation with the result or send it back to the invoker using [Respond mediator]({{base_path}}/reference/mediators/respond-mediator). 
 
 ### Export and run a project with connectors 
 
@@ -81,7 +81,7 @@ You can refer to the documentation of the relevant connector and configure the `
 
 <img src="{{base_path}}/assets/img/integrate/connectors/old-connection-config.png" title="Connection configuration with init" width="500" alt="Connection configuration with init"/>
 
-Instead of having the `init` operation before each connector operation, you can create an [inline XML local-entry](../../develop/creating-artifacts/registry/creating-local-registry-entries/) with the XML configuration of the `init` operation configuration and refer to it at the beginning of each connector operation.
+Instead of having the `init` operation before each connector operation, you can create an [inline XML local-entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/) with the XML configuration of the `init` operation configuration and refer to it at the beginning of each connector operation.
 
 ### Externalizing connector initialization parameters 
 
@@ -133,7 +133,7 @@ WSO2 Integration Studio provides debugging capabilities. You cannot use mediatio
 * Whether your input parameters for connector operations contain the expected values.
 * What is the response message after using connector cooperation.
 
-Please refer to [the Debugging Mediation documentation](../../develop/debugging-mediation/) for instructions on how to use mediation debugging. 
+Please refer to [the Debugging Mediation documentation]({{base_path}}/integrate/develop/debugging-mediation/) for instructions on how to use mediation debugging. 
 
 ### Debugging connector code 
 

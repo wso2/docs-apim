@@ -67,7 +67,7 @@ and using Secure Vault.
 
 **Re-using LDAP configurations**
 
-You can save the LDAP configuration as a [local entry](../../../develop/creating-artifacts/registry/creating-local-registry-entries.md) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above **<ldap.init>** entry as a local entry named MyLDAPConfig, you could reference it from an operation like addEntry as follows:
+You can save the LDAP configuration as a [local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above **<ldap.init>** entry as a local entry named MyLDAPConfig, you could reference it from an operation like addEntry as follows:
 
 ```xml
 <ldap.addEntry configKey="MyLDAPConfig"/>

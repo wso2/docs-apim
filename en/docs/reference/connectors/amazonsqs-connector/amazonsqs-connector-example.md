@@ -14,7 +14,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment 
 
-1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ](../amazons3-connector/amazons3-connector-config.md) document in order to create a Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.  
+1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create a Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.  
 
 2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. 
 
