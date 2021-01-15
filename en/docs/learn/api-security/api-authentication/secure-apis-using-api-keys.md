@@ -210,3 +210,46 @@ Follow the instructions below to configure a custom Keystore to sign the API Key
      ```
 
 5. Configure the alias name value as described in [Changing the alias name in the JWT]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#changing-the-alias-name-in-the-jwt).
+
+### API key restriction for IP address and HTTP referrer
+
+Anyone can use an API key issued for an application, to invoke an API subscribed to the same application. However, if an unauthorized party gets hold of the token, they can create unnecessary invocations to the APIs. To prevent this issue, you can define the authorized parties when generating a token. 
+
+WSO2 API Manager allows API keys to be restricted based on two approaches.
+
+#### 1) IP address restriction
+
+The IP address restriction allows only the clients with a specific IP addresses to use the token. The supported formates to specify the IP addresses is as follows.
+
+- IPv4 (e.g., `192.168.1.2`)
+- IPv6 (e.g., `2002:eb8::2`)
+- IP range in CIDR notation (e.g. `152.12.0.0/13`, `1001:ab8::/14`) 
+
+**Generating an API key with an IP restriction**
+
+1. Navigate to the API key generation window of the specific application in the Developer Portal.
+
+2. Select `IP Addresses`, add the IP addresses in the text input as shown below.
+
+    [![IP Restricted API key]({{base_path}}/assets/img/learn/ip-api-key.png)]({{base_path}}/assets/img/learn/ip-api-key.png)
+
+3. Generate the key.
+    
+#### 2) HTTP referer restriction
+
+The specific HTTP referrers can use the token only when the HTTP referer restriction is enabled. Therefore, by using this restriction, when API clients run on web browsers, you can limit the access to an API only through specific web pages. The supported formates to specify the referrer is as follows.
+
+- A specific URL with an exact path: `www.example.com/path`
+- Any URL in a single subdomain, using a wildcard asterisk (*): `sub.example.com/*`
+- Any subdomain or path URLs in a single domain, using wildcard asterisks (\*): `*.example.com/*`
+
+**Generating an API key with the HTTP referer restriction**
+
+1. Navigate to API key generation window of that specific application in the Developer Portal.
+
+2. Select `HTTP Referrers (Web Sites)` and add the referrers in the text input as shown below.
+
+    [![HTTP Referer Restricted API key]({{base_path}}/assets/img/learn/http-referer-api-key.png)]({{base_path}}/assets/img/learn/http-referer-api-key.png)
+    
+3.  Generate the key.
+    
