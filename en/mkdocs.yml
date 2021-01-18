@@ -878,11 +878,11 @@ nav:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
             - Publisher APIs:
-                - Publisher v1: reference/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                - Publisher v2: reference/product-apis/publisher-apis/publisher-v2/publisher-v2.md
             - Developer Portal APIs:
-                - Developer Portal API v1: reference/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                - Developer Portal API v2: reference/product-apis/devportal-apis/devportal-v2/devportal-v2.md
             - Admin APIs:
-                - Admin APIs v1: reference/product-apis/admin-apis/admin-v1/admin-v1.md
+                - Admin APIs v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
                 - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
