@@ -664,7 +664,7 @@ nav:
               - Microintegrator Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
-              - Observability':
+              - Observability:
                   - Cloud Native Observability Solution:
                     - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
                   - Classic Observability Solution:
