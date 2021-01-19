@@ -661,24 +661,23 @@ nav:
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Micro Integrator Observability:
-              - Microintegrator Overview: mi-observe/observability-overview.md'
-              - Micro Integrator Dashboard: mi-observe/working-with-monitoring-dashboard.md'
-              - Micro Integrator CLI: mi-observe/using-the-command-line-interface.md'
-              - Using the Management API: mi-observe/working-with-management-api.md'
-              - Observability':
-                  - Cloud Native Observability Solution':
-                    - Viewing Cloud Native Observability Dashboards: mi-observe/cloud-native-observability-dashboards.md'
-                  - Classic Observability Solution':
-                    - Using the EI Analytics Dashboard: mi-observe/using-the-analytics-dashboard.md'
-                  - Monitoring Logs: mi-observe/logs/monitoring_logs.md'
-                  - Monitoring Message Round Trip: mi-observe/observability.md'
+              - Microintegrator Overview: observe/mi-observe/mi-observability-overview.md
+              - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
+              - Using the Management API: observe/mi-observe/working-with-management-api.md
+              - Observability:
+                  - Cloud Native Observability Solution:
+                    - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
+                  - Classic Observability Solution:
+                    - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
+                  - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
+                  - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
               - Metrics:
-                  - JMX Monitoring: mi-observe/jmx_monitoring.md'
-                  - SNMP Monitoring: mi-observe/snmp_monitoring.md'
+                  - JMX Monitoring: observe/mi-observe/jmx_monitoring.md
+                  - SNMP Monitoring: observe/mi-observe/snmp_monitoring.md
               - TCP Messages:
-                  - Starting TCPMon: mi-observe/tcp/starting_tcp_mon.md'
-                  - Message Monitoring with TCPMon: mi-observe/tcp/message_monitoring_with_tcpmon.md'
-                  - Other Usages of TCPMon: mi-observe/tcp/other_usages_of_tcpmon.md'
+                  - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
+                  - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
+                  - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
           - Monitoring the Streaming Integrator:
               - Configuring Grafana Dashboards: ''
               - Managing Grafana Dashboards: ''
@@ -733,12 +732,12 @@ nav:
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
                 - Installing as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
             - Installing Streaming Integrator:
-                - 'Installing via the Installer': install-and-setup/install/installing-the-product/installing-si-in-vm.md
-                - 'Installing via the Binary': install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
-                - 'Installing as a Windows Service': install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
-                - 'Running the Streaming Integrator in Containers':
-                    - 'Installing in Docker': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
-                    - 'Installing in Kubernetes': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
+                - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
+                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
+                - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
+                - Running the Streaming Integrator in Containers:
+                    - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
+                    - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md

@@ -1,4 +1,4 @@
-# Observe and Manage Overview
+# Micro Integrator Overview
 
 This section explains how to set up the observability solutions and perform management tasks for WSO2 Enterprise Integrator.
 

@@ -157,7 +157,7 @@ The Patch log file contain details related to patches applied to the product. Pa
 
 Correlation logs are used for monitoring the round trip of a message that is sent to the Micro Integrator.
 
-See [Monitoring Message Round Trip](../../../administer-and-observe/observability/) for details.
+See [Monitoring Message Round Trip](../../../administer-and-observe/monitoring-correlation-logs) for details.
 
 ## Monitoring Console Logs
 
