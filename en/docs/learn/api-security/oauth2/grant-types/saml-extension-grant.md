@@ -7,7 +7,7 @@ SAML 2.0 is an XML-based protocol. It uses security tokens containing assert
 Enterprise applications that have SAML2 based SSO infrastructures sometimes need to consume OAuth-protected resources through APIs. However, these apps prefer to use the existing trust relationship with the IdP, even if the OAuth authorization server is entirely different from the IdP. The API Manager leverages this trust relationship by exchanging the SAML2.0 token to an OAuth token with the authorization server. It acts as the OAuth authorization server.
 
 !!! info
-    When SAML beare token is used, the roles of the user can be retrieved from either the user store or the SAML assertion. When **checkRolesFromSamlAssertion** system property is set to true, the roles will be checked from the SAML assertion, not the user store. Refere the stepe below to set this property:
+    When SAML bearer token is used, the roles of the user can be retrieved from either the user store or the SAML assertion. When **checkRolesFromSamlAssertion** system property is set to true, the roles will be checked from the SAML assertion, not the user store. Refere the stepe below to set this property:
 
     1.  Set the property `-DcheckRolesFromSamlAssertion=true` in the `<API-M_HOME>/bin/wso2server.(sh|bat)` file.
     2.  Restart the server.
@@ -35,12 +35,6 @@ The steps of the above diagram are explained below:
 -   The API Manager validates the assertion and returns the access token.
 
 **Step \[4\]** : User does API invocations through the API Manager by setting it as an Authorization header with the returned OAuth2 access token.
-
-------------------------------------------------------------------------
-
-[Configuring the token exchange](#configuring-the-token-exchange)
-
-[Invoking the Token API to generate tokens](#invoking-the-token-api-to-generate-tokens)
 
 A sequence diagram explaining the above flow would be as follows:
 
@@ -200,9 +194,3 @@ Here's an example consumer key and secret combination:
     ``` java
     curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=PRODUCTION" -H "Authorization: Basic <base64_encoded_consumer-key:consumer_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
-
-!!! note
-    Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
-
-
-
