@@ -502,7 +502,7 @@ The following properties <b>only</b> apply to HTTP endpoint.
 !!! Note
       You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
 
-#### Authorization Code grant type (Refresh token grant type) Properties
+#### Authorization Code/Refresh Token grant type
 
 The `authorizationCode` element contains the following parameters that are used to configure OAuth for the endpoint.
 
@@ -514,30 +514,30 @@ The `authorizationCode` element contains the following parameters that are used 
     <tr>
         <td>clientId</td>
         <td>
-            Client ID that service provided when you registered your application
+            Client ID that is provided by the third-party service when you registered your application.
         </td>
     </tr>
     <tr>
         <td>clientSecret</td>
         <td>
-            Client Secret that service provided when you registered your application
+            Client Secret that is provided by the third-party service when you registered your application.
         </td>
     </tr>
     <tr>
         <td>refreshToken</td>
         <td>
-            Refresh token obtained from the service using Authorization Code grant flow
+            Refresh token obtained from the third-party service by using Authorization Code grant flow.
         </td>
     </tr>
     <tr>
         <td>tokenUrl</td>
         <td>
-            Token endpoint the service provided to obtain access tokens
+            Token endpoint provided by the third-party service to obtain access tokens.
         </td>
     </tr>
 </table>
 
-The following is a http endpoint configured with refresh token grant type.
+The following is an HTTP endpoint configured with refresh token grant type.
 
 ```xml
 <endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
@@ -556,7 +556,7 @@ The following is a http endpoint configured with refresh token grant type.
 </endpoint>
 ```
 
-#### Client Credentials grant type Properties
+#### Client Credentials grant type
 
 The `clientCredentials` element contains the following parameters that are used to configure OAuth for the endpoint.
 
@@ -568,24 +568,24 @@ The `clientCredentials` element contains the following parameters that are used 
     <tr>
         <td>clientId</td>
         <td>
-            Client ID that service provided when you registered your application
+            Client ID provided by the third-party service when you registered your application.
         </td>
     </tr>
     <tr>
         <td>clientSecret</td>
         <td>
-            Client Secret that service provided when you registered your application
+            Client Secret provided by the third-party service when you registered your application.
         </td>
     </tr>
     <tr>
         <td>tokenUrl</td>
         <td>
-            Token endpoint the service provided to obtain access tokens
+            Token endpoint provided by the third-party service to obtain access tokens.
         </td>
     </tr>
 </table>
 
-The following is a http endpoint configured with client credentials grant type.
+The following is an HTTP endpoint configured with the client credentials grant type.
 
 ```xml
 <endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
