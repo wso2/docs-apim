@@ -495,6 +495,114 @@ Member properties can be used to associate configuration data with an endpoint.
       </tr>
 </table>
 
+### OAuth Properties
+
+The following properties <b>only</b> apply to HTTP endpoint. 
+
+!!! Note
+      You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
+
+#### Authorization Code/Refresh Token grant type
+
+The `authorizationCode` element contains the following parameters that are used to configure OAuth for the endpoint.
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clientId</td>
+        <td>
+            Client ID that is provided by the third-party service when you registered your application.
+        </td>
+    </tr>
+    <tr>
+        <td>clientSecret</td>
+        <td>
+            Client Secret that is provided by the third-party service when you registered your application.
+        </td>
+    </tr>
+    <tr>
+        <td>refreshToken</td>
+        <td>
+            Refresh token obtained from the third-party service by using Authorization Code grant flow.
+        </td>
+    </tr>
+    <tr>
+        <td>tokenUrl</td>
+        <td>
+            Token endpoint provided by the third-party service to obtain access tokens.
+        </td>
+    </tr>
+</table>
+
+The following is an HTTP endpoint configured with refresh token grant type.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <authorizationCode>
+                    <clientId>K2RbnGP7VS</clientId>
+                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <refreshToken>y2Ne4Fccrj</refreshToken>
+                    <tokenUrl>http://localhost:8678/token</tokenUrl>
+                </authorizationCode>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+#### Client Credentials grant type
+
+The `clientCredentials` element contains the following parameters that are used to configure OAuth for the endpoint.
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>clientId</td>
+        <td>
+            Client ID provided by the third-party service when you registered your application.
+        </td>
+    </tr>
+    <tr>
+        <td>clientSecret</td>
+        <td>
+            Client Secret provided by the third-party service when you registered your application.
+        </td>
+    </tr>
+    <tr>
+        <td>tokenUrl</td>
+        <td>
+            Token endpoint provided by the third-party service to obtain access tokens.
+        </td>
+    </tr>
+</table>
+
+The following is an HTTP endpoint configured with the client credentials grant type.
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>K2RbnGP7VS</clientId>
+                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <tokenUrl>http://localhost:8678/token</tokenUrl>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
 ### Quality of Service Properties
 
 QoS (Quality of Service) aspects such as WS-Security and WS-Addressing may be enabled on messages sent to an endpoint using `enableSec` and `enableAddressing` elements. Optionally, the WS-Security policies could be specified using the `policy` attribute.
