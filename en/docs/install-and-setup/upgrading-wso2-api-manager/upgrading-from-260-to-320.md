@@ -3255,6 +3255,10 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         !!! warning
             Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
+        If you are using an external IDP through a federated authenticator, you have to edit the `sp_analytics_dashboard` service provider configuration and select the "Use tenant domain at local subject identifier" option in the **Local & Outbound Authentication Configuration** section.
+
+        [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
+
 This concludes the upgrade process.
 
 !!! tip
