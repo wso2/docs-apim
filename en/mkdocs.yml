@@ -667,7 +667,7 @@ nav:
               - Observability':
                   - Cloud Native Observability Solution:
                     - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
-                  - Classic Observability Solution':
+                  - Classic Observability Solution:
                     - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
                   - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
                   - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
