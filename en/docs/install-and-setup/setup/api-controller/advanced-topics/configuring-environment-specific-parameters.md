@@ -1,8 +1,81 @@
 #  Configuring Environment Specific Parameters
 
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. It is recommended to store the parameter file with the API Project; however, it can be stored anywhere as required. 
+When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml` or an additional directory to store these deployment-related artifacts. It is recommended to store the parameter file inside the deployment directory if there are certificates and other details are included; however, it can be stored somewhere else when certificates are not specified via this additional `api_params.yaml` file. 
 
-After the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. 
+## Generating the Deployment Directory 
+
+When there are multiple artifacts are required to add as deployment-related configurations. It is recommended to use a separate directory to store all these configurations. API controller provides the support to generate this deployment-specific directory using, the following CTL commands.
+
+-   **Command**
+        ``` bash
+        apictl gen deployment-dir -s <path-to-API-Source-archive> 
+        ```
+        ``` bash
+        apictl gen deployment-dir -s <path-to-API-Source-archive> -d <path-to-the-Deployment-archive>
+        ```
+        ``` bash
+        apictl gen deployment-dir --source <path-to-API-Source-archive> 
+        ```
+        ``` bash
+        apictl gen deployment-dir --source <path-to-API-Source-archive> --destination <path-to-the-Deployment-archive>
+        ```
+
+    !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--source` or `-s` : Filepath of the source artifact which is needed to use when generating deployment directory.
+            -   Optional :  
+                `--destination` or `-d` : Path of the directory where the new deployment directory should be generated.    
+
+    !!! example
+            ```bash
+            apictl gen deployment-dir  -s  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            ```
+            ```bash
+            apictl gen deployment-dir  -s /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  -d /desktop/deployment/Dev
+            ```
+            ```bash
+            apictl gen deployment-dir  --source  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            ```
+            ```bash
+            apictl gen deployment-dir  --source /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  --destination /desktop/deployment/Dev
+            ```
+
+    !!!note
+            If the `--destination` flag is not provided, the deployment directory will be generated in the working directory.
+
+    A project folder with the following default structure will be created in the given directory.
+
+    ``` java
+    ├── api_params.yaml
+    ├── api_meta.yaml
+    └── certificates    
+    ```
+    <table>
+        <thead>
+            <tr class="header">
+                <th>Sub Directory/File</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td><code>api_params.yaml</code></td>
+                <td>The specification of the Environment specific configurations.</td>
+            </tr>
+            <tr class="odd">
+                <td><code>api_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name, version, and revision of the source).</td>
+            </tr>
+            <tr class="odd">
+                <td>certificates</td>
+                <td>Contains the client certificates for Mutual SSL enabled APIs and endpoint certificates for endpoint security enabled APIs.</td>
+            </tr>
+        </tbody>
+    </table>
+
+## Defining the api_params.yaml file.
 
 The following is the structure of the parameter file.
 
