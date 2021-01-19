@@ -53,7 +53,7 @@ nav:
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: getting-started/quick-start-guide.md
                 - Quick Start Guide Integration: ''
-                - Quick Start Guide Streaming: ''
+                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
             - Create APIs Overview: design/design-api-overview.md
@@ -204,6 +204,7 @@ nav:
                 - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
+            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
@@ -496,6 +497,14 @@ nav:
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
                 - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
                 - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Streaming Integration REST API Guide:
+                      - REST API Guide Overview: develop/streaming-apps/rest-api-guide-overview.md
+                      - Siddhi Application Management APIs: develop/streaming-apps/siddhi-application-management-apis.md
+                      - Permission APIs: develop/streaming-apps/permission-apis.md
+                      - Business Rules APIs: develop/streaming-apps/business-rules-apis.md
+                      - Store APIs: develop/streaming-apps/store-apis.md
+                      - Healthcheck APIs: develop/streaming-apps/healthcheck-apis.md
+                      - HTTP Status Codes: develop/streaming-apps/http-status-codes.md
           - Streaming Examples:
                 - Extracting Data from Static Sources in Real Time:
                        - Capturing MySQL Inserts via CDC: use-cases/examples/streaming-examples/cdc-with-listening-mode.md
@@ -742,6 +751,13 @@ nav:
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Configure a Key Manager:
                 - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                 - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -781,6 +797,21 @@ nav:
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                 - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                 - User Account Management: install-and-setup/setup/security/user-account-management.md
+            - Setting up the Streaming Integrator:
+                - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
+                - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
+                - Configuring Data Sources: install-and-setup/setup/si-setup/configuring-data-sources.md
+                - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
+                - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
+                - Supporting Different Transports: install-and-setup/setup/si-setup/supporting-different-transports.md
+                - User Management: install-and-setup/setup/si-setup/user-management.md
+                - Configuring State Persistence: install-and-setup/setup/si-setup/configuring-database-and-file-system-state-persistence.md
+                - Configuring Cluster Coordination: install-and-setup/setup/si-setup/configuring-cluster-coordination.md
+                - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
+                - Adding Third Party Non OSGi Libraries: install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md
+                - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
+                - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
+                - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deployment Best Practices:
             - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
             - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
@@ -1198,6 +1229,9 @@ nav:
                     - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
                     - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
                     - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Synapse Properties:
+                - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+                - Sequence Properties: reference/synapse-properties/sequence-properties.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
@@ -1381,6 +1415,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
+              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:
