@@ -37,7 +37,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
     Ensure that the roles you add are valid. If the current creator is not an APIM admin, there should be at least one role of the current creator.
 
 !!! note
-    Users with APIM admin permission are treated differently. Even if an API is restricted to a certain set of publishers, it will be visible to all the API creators and publishers with APIM admin role.
+    Users with API-M Admin permission or admin role are treated differently. Even if an API is restricted to a certain set of publishers, it will be visible to all the API creators and publishers with API-M Admin permission or admin role.
 
 
 ## Using the REST API
