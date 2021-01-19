@@ -33,7 +33,7 @@ You can refer to the following video to get a quick understanding of how this is
 	<table>
 	    <tr>
 	        <td>
-	            <a href="../../setup/installation/install_in_vm_installer">Using the Installer</a>
+	            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
 	        </td>
 	        <td>
 	            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
@@ -41,7 +41,7 @@ You can refer to the following video to get a quick understanding of how this is
 	    </tr>
 	    <tr>
 	        <td>
-	            <a href="../../setup/installation/install_in_vm_binary">Using the Binary</a>
+	            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
 	        </td>
 	        <td>
 	            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashabord.
