@@ -1228,6 +1228,9 @@ nav:
                     - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
                     - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
                     - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Synapse Properties:
+                - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+                - Sequence Properties: reference/synapse-properties/sequence-properties.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
