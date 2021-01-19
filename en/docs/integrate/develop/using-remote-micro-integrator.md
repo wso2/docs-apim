@@ -6,7 +6,7 @@ The following instructions can be used to run your artifacts in a remote Micro I
 
 ## Deploy and run artifacts in a remote instance
 
-1.	[Download and install](../../setup/installation/install_in_vm) the Micro Integrator server and on your computer. 
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) the Micro Integrator server and on your computer. 
 2.	[Package your Synapse artifacts](packaging-artifacts.md) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.
