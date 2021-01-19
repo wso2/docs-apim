@@ -497,7 +497,10 @@ Member properties can be used to associate configuration data with an endpoint.
 
 ### OAuth Properties
 
-The following properties <b>only</b> apply to HTTP endpoints:
+The following properties <b>only</b> apply to HTTP endpoint. 
+
+!!! Note
+      You can also use environment variables for these parameters. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters).
 
 #### Authorization Code grant type (Refresh token grant type) Properties
 
@@ -533,9 +536,6 @@ The `authorizationCode` element contains the following parameters that are used 
         </td>
     </tr>
 </table>
-
-!!! note
-      You can use environmental variables for the above parameters as well. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters)
 
 The following is a http endpoint configured with refresh token grant type.
 
@@ -584,9 +584,6 @@ The `clientCredentials` element contains the following parameters that are used 
         </td>
     </tr>
 </table>
-
-!!! note
-      You can use environmental variables for the above parameters as well. For more information, see [Injecting Parameters]({{base_path}}/integrate/develop/injecting-parameters)
 
 The following is a http endpoint configured with client credentials grant type.
 
