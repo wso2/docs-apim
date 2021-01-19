@@ -17,7 +17,7 @@ Follow the instructions given below to create a new [Endpoint](../../../referenc
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/new-endpoint-wizard-2.png" width="500">
 
-4.  Specify values for the [required parameter](../../references/synapse-properties/endpoint-properties.md) for the selected endpoint type.
+4.  Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/endpoint-properties) for the selected endpoint type.
 5.  Specify how you want to save the endpoint:
 
     - Select **Static Endpoint** to save the endpoint in the current workspace.
