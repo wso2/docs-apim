@@ -248,6 +248,8 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
         /
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
         /
+        COMMIT;
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -1255,7 +1257,9 @@ Follow the instructions below to move all the existing API Manager configuration
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
-        /        
+        /  
+        COMMIT;
+        /      
         ```
         
         ```tab="PostgreSQL"
@@ -1657,6 +1661,7 @@ Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.
     ```tab="Oracle"
     ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
     ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+    COMMIT;
     ```
         
     ```tab="PostgreSQL"

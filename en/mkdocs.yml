@@ -661,7 +661,7 @@ nav:
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Micro Integrator Observability:
-              - Microintegrator Overview: observe/mi-observe/mi-observability-overview.md
+              - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
               - Observability:
@@ -1084,7 +1084,7 @@ nav:
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
                 - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
             - Documentum Connector:
-                - Documentum Overview: reference/connectors/documentum/documentum-overview.md'
+                - Documentum Overview: reference/connectors/documentum/documentum-overview.md
                 - Documentum Example: reference/connectors/documentum/documentum-example.md
                 - Documentum Reference: reference/connectors/documentum/documentum-reference.md
             - Email Connector:
@@ -1293,11 +1293,11 @@ nav:
             - API Security Sample: reference/samples/api-security-sample.md
             - API Versioning Sample: reference/samples/api-versioning-sample.md
         - Troubleshooting:
-              - Error Handling: reference/troubleshooting/error-handling.md
-              - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
+              - Error Handling: troubleshooting/error-handling.md
+              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-              - Cleaning Up Partially Created Keys: reference/troubleshooting/cleaning-up-partially-created-keys.md
-              - Troubleshooting 'Registered callback does not match with the provided url' error: reference/troubleshooting/troubleshooting-invalid-callback-error.md
+              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
 
 # Extensions
 markdown_extensions:
