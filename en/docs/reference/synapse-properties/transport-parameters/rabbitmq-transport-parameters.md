@@ -239,7 +239,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
 
     Double-click the **Address Endpoint** artifact to open the **Properties** tab and enter the address URL with RabbitMQ parameters.
 
-    <img src="../../../../assets/img/create_artifacts/new_endpoint/address-endpoint-url.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/address-endpoint-url.png" width="800">
 
 -   Source view of an address endpoint:
 
