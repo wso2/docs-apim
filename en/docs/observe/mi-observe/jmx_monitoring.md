@@ -19,7 +19,7 @@ Once the **product server is started**, you can start the `JConsole` tool as fol
 1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
 2.  Execute the `jconsole` command to open the log-in screen of the **Java Monitoring & Management Console** as
     shown below.  
-    ![jconsole_process](../{{base_path}}/assets/img/integrate/jmx/jconsole-new-connection.png)
+    ![jconsole_process]({{base_path}}/assets/img/integrate/jmx/jconsole-new-connection.png)
 3.  Click on the  `org.wso2.micro.integrator.bootstrap.Bootstrap` process (which is the Micro Integrator) under the Local Process.
 4.  Click **Connect** to open the **Java Monitoring & Management Console**. See the **Oracle** documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html). The following tabs will be available:  
