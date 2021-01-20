@@ -10,7 +10,7 @@ Be sure to [configure a user store](../../../setup/user_stores/setting_up_a_user
 
 Follow the instructions given below to create a **WS-Policy** resource in your registry project. This will be your security policy file.
 
-1.  Once you have created a [registry resource project](../../create-integration-project/#registry-resource-project), right-click the roject in the left navigation panel, click **New** , and then click **Registry Resource**. This will open the **New Registry Resource** window.  
+1.  Once you have created a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project), right-click the roject in the left navigation panel, click **New** , and then click **Registry Resource**. This will open the **New Registry Resource** window.  
     ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.png)
 2.  Select the **From existing template** option as shown below and
     click **Next** .  

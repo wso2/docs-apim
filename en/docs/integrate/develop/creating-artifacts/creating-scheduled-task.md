@@ -6,7 +6,7 @@ Follow the instructions given below to create a **Scheduled Task** in WSO2 Integ
 
 ### Creating the Scheduled Task artifact
 
-1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and click **New** → **Scheduled Task**.  
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and click **New** → **Scheduled Task**.  
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/select-scheduled-task.png">
 
@@ -46,9 +46,9 @@ Update the task properties to specify the incoming message that should trigger t
 
 ## Examples
 
--   [Task Scheduling using a Simple Trigger](../../../use-cases/examples/scheduled-tasks/task-scheduling-simple-trigger)
--   [Injecting Messages to a RESTful Endpoint](../../../use-cases/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)
+-   [Task Scheduling using a Simple Trigger]({{base_path}}/integrate/examples/scheduled-tasks/task-scheduling-simple-trigger)
+-   [Injecting Messages to a RESTful Endpoint]({{base_path}}/integrate/examples/scheduled-tasks/injecting-messages-to-rest-endpoint)
 
 ## Tutorials
 
--   See the tutorial on [periodically executing an integration process](../../../use-cases/tutorials/using-scheduled-tasks) using a scheduled task
+-   See the tutorial on [periodically executing an integration process]({{base_path}}/integrate/tutorials/using-scheduled-tasks) using a scheduled task

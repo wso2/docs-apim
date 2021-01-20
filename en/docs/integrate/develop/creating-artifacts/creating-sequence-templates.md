@@ -6,7 +6,7 @@ Follow the instructions given below to create a new **Sequence Template** in WSO
 
 ### Creating the Sequence Template artifact
 
-1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
 
@@ -18,7 +18,7 @@ Follow the instructions given below to create a new **Sequence Template** in WSO
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/new-template-wizard-2-2.png" width="500">
 
-    Specify values for the [required parameter](../../../references/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
+    Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
 
 5.  Do one of the following to save the artifact:
 
@@ -46,18 +46,18 @@ Follow the instructions given below to create a new **Sequence Template** in WSO
 
 ### Designing the integration
 
-When you have a Sequence template defined, you can use a [Call Template Mediator](../../../references/mediators/call-Template-Mediator) in your [mediation sequence](../../../references/synapse-properties/sequence-properties).
+When you have a Sequence template defined, you can use a [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) in your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
 
-1.  Open to the **Design View** of your [mediation sequence](../../../references/synapse-properties/sequence-properties).
-2.  Drag the [Call Template Mediator](../../../references/mediators/call-Template-Mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence](../../../references/synapse-properties/sequence-properties).
+1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+2.  Drag the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
 
 	   <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-temp-graphical-editor-1.png" width="700">
 
-3.   Double-click the [Call Template Mediator](../../../references/mediators/call-Template-Mediator) icon to open the **Properties** tab.
+3.   Double-click the [Call Template Mediator]({{base_path}}/reference/mediators/call-template-mediator) icon to open the **Properties** tab.
 4.  Select your sequence template from the list in the **Available Templates** field and then add values using the template parameters.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/sequence-temp-graphical-editor-2.png" width="500">
 
 ## Examples
 
-- [Using Sequence Templates](../../../use-cases/examples/template_examples/using-sequence-templates)
+- [Using Sequence Templates]({{base_path}}/integrate/examples/template_examples/using-sequence-templates)

@@ -25,7 +25,7 @@ This is useful for the type of static content often found in XSLT files, WSDL fi
 
 Follow these steps to create a new local entry.
 
-1.  Right-click the [ESB Config project](../../../create-integration-project/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/select-local-entry.png">
 
@@ -63,8 +63,8 @@ your mediation workflow. For example, if you created a local entry with
 XSLT code, you can add an XSLT mediator to the workflow and then
 reference the local entry as follows:
 
-1.  Open to the **Design View** of your [mediation sequence](../../../../references/synapse-properties/sequence-properties).
-2.  Drag and drop an [XSLT Mediator](../../../../references/mediators/xSLT-Mediator) to the mediation flow as shown below.
+1.  Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+2.  Drag and drop an [XSLT Mediator]({{base_path}}/reference/mediators/xslt-mediator) to the mediation flow as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/local-entry-graphical-editor-1.png" width="700">
 
@@ -88,4 +88,4 @@ reference the local entry as follows:
 
 ## Examples
 
-- [Sequences and Endpoints as Local Registry Entries](../../../../use-cases/examples/registry_examples/local-registry-entries)
+- [Sequences and Endpoints as Local Registry Entries]({{base_path}}/integrate/examples/registry_examples/local-registry-entries)

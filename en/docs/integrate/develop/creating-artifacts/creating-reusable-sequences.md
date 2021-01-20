@@ -6,7 +6,7 @@ Follow these steps to create a new, reusable sequence that you can add to your m
 
 ### Creating a Sequence Artifact
 
-1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Sequence** to open the **New Sequence Artifact** dialog box.  
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and go to **New → Sequence** to open the **New Sequence Artifact** dialog box.  
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_sequence/select-sequence.png" width="500">
 
@@ -24,7 +24,7 @@ Follow these steps to create a new, reusable sequence that you can add to your m
 
 4.  In the **Save Sequence in** field, specify the location to save the sequence:
     -   To save the sequence in an existing ESB Config project in your workspace, click **Browse** and select that project. Else, click **Create new Project** and create the new project.
-    -   To save the sequence as a **Dynamic Sequence** in a [registry resource project](../../create-integration-project/#registry-resource-project):
+    -   To save the sequence as a **Dynamic Sequence** in a [registry resource project]({{base_path}}/integrate/create-integration-project/#registry-resource-project):
         1.  Select the **Make this as Dynamic Sequence** check box.
         2.  Specify the registry space (Governance or Configuration) in the **Registry** field.
         3.  If a **Registry Resource** project already exist in the workspace, click **Browse** for the **Save Sequence in** field and select the registry resource project.
@@ -35,7 +35,7 @@ Follow these steps to create a new, reusable sequence that you can add to your m
 
 5.  Click **Finish**. 
 
-The sequence is created in the `src/main/synapse-config/sequences` folder under the ESB Config or [registry resource project](../../create-integration-project/#registry-resource-project) you specified.
+The sequence is created in the `src/main/synapse-config/sequences` folder under the ESB Config or [registry resource project]({{base_path}}/integrate/create-integration-project/#registry-resource-project) you specified.
 
 The sequence is also available in the **Defined Sequences** section of the **Palette** and ready for [use in other meditation workflows](#using-a-sequence).
 
@@ -88,6 +88,6 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Breaking Complex Flows into Multiple Sequences](../../../use-cases/examples/sequence_examples/using-multiple-sequences)
--   [Using Fault Sequences](../../../use-cases/examples/sequence_examples/using-fault-sequences)
--   [Reusing Sequences](../../../use-cases/examples/sequence_examples/custom-sequences-with-proxy-services)
+-   [Breaking Complex Flows into Multiple Sequences]({{base_path}}/integrate/examples/sequence_examples/using-multiple-sequences)
+-   [Using Fault Sequences]({{base_path}}/integrate/examples/sequence_examples/using-fault-sequences)
+-   [Reusing Sequences]({{base_path}}/integrate/examples/sequence_examples/custom-sequences-with-proxy-services)

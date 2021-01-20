@@ -16,7 +16,7 @@ Registry artifacts (such as security policy files) should be stored in a
 **Registry Resource** module. Follow the steps given below to create a
 module:
 
-1.  Right click on the [Integration project](../../create-integration-project) 
+1.  Right click on the [Integration project]({{base_path}}/integrate/develop/create-integration-project) 
     and goto **New → Registry Resource**. 
     
     !!! Tip Alternatively, you can goto **File → New → Others** and 
@@ -90,11 +90,11 @@ the source of the data service.
 
 ## Step 3: Package the artifacts
 
-See the instructions on [packaging the artifacts](../../../develop/packaging-artifacts) into a composite exporter.
+See the instructions on [packaging the artifacts]({{base_path}}/integrate/develop/packaging-artifacts) into a composite exporter.
 
 ## Step 4: Build and run the artifacts
 
-See the instructions [deploying the artifacts](../../../develop/deploy-artifacts).
+See the instructions [deploying the artifacts]({{base_path}}/integrate/develop/deploy-artifacts).
 
 ## Step 5: Testing the service
 

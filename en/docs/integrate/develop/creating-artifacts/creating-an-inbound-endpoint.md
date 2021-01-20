@@ -1,12 +1,12 @@
 # Creating an Inbound Endpoint
 
-Follow the instructions given below to create a new [Inbound Endpoint](../../../references/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [Inbound Endpoint]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) artifact in WSO2 Integration Studio.
 
 ## Instructions
 
 ### Creating the Inbound Endpoint artifact
 
-1. If you have already created an [ESB Config project](../../create-integration-project/#esb-config-project), right-click the project and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
+1. If you have already created an [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project), right-click the project and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/select-inbound-endpoint.png" width="500">
 
@@ -39,7 +39,7 @@ When you open the inbound endpoint from the **Config** project in the project ex
 
 <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-endpoint-design-view.png" width="800">
 
-The integration flow for an inbound endpoint is defined within [named sequences](../../../references/synapse-properties/sequence-properties/#named-sequences). You can drag and drop **sequences** from the **Palette** to the canvas as shown below.
+The integration flow for an inbound endpoint is defined within [named sequences]({{base_path}}/reference/synapse-properties/sequence-properties/#named-sequences). You can drag and drop **sequences** from the **Palette** to the canvas as shown below.
 
 <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/inbound-graphical-editor.png" width="800">
 
@@ -57,15 +57,15 @@ To update properties from the **Design** view:
 
 2.  See the following links for the list of parameters for each inbound endpoint type:
 
-    - [HTTP Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties)
-    - [CXF WS RM Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties)
-    - [HL7 Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties)
-    - [Websocket Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties)
-    - [File Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)
-    - [JMS Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties)
-    - [Kafka Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties)
-    - [RabbitMQ Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties)
-    - [MQTT Inbound Parameters](../../../references/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties)
+    - [HTTP Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties)
+    - [CXF WS RM Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties)
+    - [HL7 Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties)
+    - [Websocket Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties)
+    - [File Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties)
+    - [JMS Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties)
+    - [Kafka Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties)
+    - [RabbitMQ Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties)
+    - [MQTT Inbound Parameters]({{base_path}}/reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties)
 
 !!! Note
     **Redeployment of listening inbound endpoints fail?**
@@ -89,17 +89,17 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [JMS Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol)
--   [File Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/file-inbound-endpoint)
--   [HTTP Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol)
--   [HTTPS Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol)
--   [HL7 Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack)
--   [MQTT Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol)
--   [RabbitMQ Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol)
--   [Kafka Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-kafka)
--   [Websocket Inbound Endpoint example](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket)
--   [Using Inbound Endpoints with Registry](../../../use-cases/examples/inbound_endpoint_examples/inbound-endpoint-with-registry)
+-   [JMS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol)
+-   [File Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/file-inbound-endpoint)
+-   [HTTP Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol)
+-   [HTTPS Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol)
+-   [HL7 Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack)
+-   [MQTT Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol)
+-   [RabbitMQ Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol)
+-   [Kafka Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-kafka)
+-   [Websocket Inbound Endpoint example]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket)
+-   [Using Inbound Endpoints with Registry]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-with-registry)
 
 ## Tutorial
 
--   See the tutorial on [using inbound endpoints](../../../use-cases/tutorials/using-inbound-endpoints)
+-   See the tutorial on [using inbound endpoints]({{base_path}}/integrate/tutorials/using-inbound-endpoints)

@@ -6,7 +6,7 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
 ### Creating the Endpoint Template artifact
 
-1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
 
@@ -23,7 +23,7 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
     - <b>HTTP Endpoint Template</b>
     - <b>WSDL Endpoint Template</b>
 
-    Specify values for the [required parameter](../../../references/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
+    Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/template-properties/#endpoint-template-properties) for the selected endpoint type.
 
 5.  Do one of the following to save the artifact:
 
@@ -51,25 +51,25 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
 ### Designing the integration
 
-When you have an Endpoint template defined, you can use a **Template Endpoint** in your [mediation sequence](../../../references/synapse-properties/sequence-properties) to call the parameters in the template.
+When you have an Endpoint template defined, you can use a **Template Endpoint** in your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties) to call the parameters in the template.
 
-1.	Open to the **Design View** of your [mediation sequence](../../../references/synapse-properties/sequence-properties).
-2.  Drag the [Call Mediator](../../../references/mediators/call-Mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence](../../../references/synapse-properties/sequence-properties).
+1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+2.  Drag the [Call Mediator]({{base_path}}/reference/mediators/call-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-temp-graphical-editor-1.png" width="700">
 
     !!! Tip
-        Similarly, you can use the [Send Mediator](../../../references/mediators/send-Mediator).
+        Similarly, you can use the [Send Mediator]({{base_path}}/reference/mediators/send-mediator).
 
-3.	Drag a [Template Endpoint](../../../references/mediators/send-Mediator) from the **Endpoints** section in the **Palette** and drop it to the empty box in the [Call Mediator](../../../references/mediators/call-Mediator).
+3.	Drag a [Template Endpoint]({{base_path}}/reference/mediators/send-mediator) from the **Endpoints** section in the **Palette** and drop it to the empty box in the [Call Mediator]({{base_path}}/reference/mediators/call-mediator).
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/endpoint-temp-graphical-editor-2.png" width="700">
 
-4.  Open the [Template Endpoint](../../../references/mediators/send-Mediator) from the project explorer and click **Add Parameters** to open the **Template Endpoint Parameter Configuration** dialog box.
+4.  Open the [Template Endpoint]({{base_path}}/reference/mediators/send-mediator) from the project explorer and click **Add Parameters** to open the **Template Endpoint Parameter Configuration** dialog box.
 5.  Specify the parameter values as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/template-endpoint-properties.png" width="700">
 
 ## Examples
 
-- [Using Endpoint Templates](../../../use-cases/examples/template_examples/using-endpoint-templates)
+- [Using Endpoint Templates]({{base_path}}/integrate/examples/template_examples/using-endpoint-templates)

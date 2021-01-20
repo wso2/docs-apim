@@ -1,12 +1,12 @@
 # Creating a Message Store
 
-Follow the instructions given below to create a new [Message Store](../../../references/synapse-properties/about-message-stores-processors) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [Message Store]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in WSO2 Integration Studio.
 
 ## Instructions
 
 ### Creating the Message Store artifact
 
-1.	Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Message Store** to open the **New Message Store Artifact** dialog box.
+1.	Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and go to **New → Message Store** to open the **New Message Store Artifact** dialog box.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_store/select-message-store.png" width="600">
 
@@ -20,13 +20,13 @@ Follow the instructions given below to create a new [Message Store](../../../ref
 
 	See the links given below for descriptions of message store properties for each store type:
 
-	-	[JMS properties](../../../references/synapse-properties/message-stores/jms-msg-store-properties)
-	-	[JDBC properties](../../../references/synapse-properties/message-stores/jdbc-msg-store-properties)
-	-	[RabbitMQ properties](../../../references/synapse-properties/message-stores/rabbitmq-msg-store-properties)
-	-	[Resequence properties](../../../references/synapse-properties/message-stores/resequence-msg-store-properties)
-	-	[WSO2 MB properties](../../../references/synapse-properties/message-stores/wso2mb-msg-store-properties)
-	-	[In-Memory properties](../../../references/synapse-properties/message-stores/in-memory-msg-store-properties)
-	-	[Custom properties](../../../references/synapse-properties/message-stores/custom-msg-store-properties)
+	-	[JMS properties]({{base_path}}/reference/synapse-properties/message-stores/jms-msg-store-properties)
+	-	[JDBC properties]({{base_path}}/reference/synapse-properties/message-stores/jdbc-msg-store-properties)
+	-	[RabbitMQ properties]({{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties)
+	-	[Resequence properties]({{base_path}}/reference/synapse-properties/message-stores/resequence-msg-store-properties)
+	-	[WSO2 MB properties]({{base_path}}/reference/synapse-properties/message-stores/wso2mb-msg-store-properties)
+	-	[In-Memory properties]({{base_path}}/reference/synapse-properties/message-stores/in-memory-msg-store-properties)
+	-	[Custom properties]({{base_path}}/reference/synapse-properties/message-stores/custom-msg-store-properties)
 
 5. Do one of the following to save the artifact:
 
@@ -39,10 +39,10 @@ The message store is created in the `src/main/synapse-config/message-stores` fol
 
 ### Designing the integration
 
-To add a message store to the integration sequence, use the [Store Mediator](../../../references/mediators/store-Mediator):
+To add a message store to the integration sequence, use the [Store Mediator]({{base_path}}/reference/mediators/store-mediator):
 
-1.	Open to the **Design View** of your [mediation sequence](../../../references/synapse-properties/sequence-properties).
-2.	Drag the [Store Mediator](../../../references/mediators/store-Mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence](../../../references/synapse-properties/sequence-properties):
+1.	Open to the **Design View** of your [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties).
+2.	Drag the [Store Mediator]({{base_path}}/reference/mediators/store-mediator) from the **Palette** and drop it to the relevant position in the [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties):
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_store/message-store-graphical-editor.png" width="700">
 
@@ -62,11 +62,11 @@ Open the new message store artifact from the project explorer. You can use the *
 
 ## Examples
 
--   [Introduction to Message Stores and Processors](../../../use-cases/examples/message_store_processor_examples/intro-message-stores-processors)
--   [JDBC Message Store](../../../use-cases/examples/message_store_processor_examples/using-jdbc-message-store)
--   [JMS Message Store](../../../use-cases/examples/message_store_processor_examples/using-jms-message-stores)
--   [RabbitMQ Message Store](../../../use-cases/examples/message_store_processor_examples/using-rabbitmq-message-stores)
+-   [Introduction to Message Stores and Processors]({{base_path}}/integrate/examples/message_store_processor_examples/intro-message-stores-processors)
+-   [JDBC Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-jdbc-message-store)
+-   [JMS Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-jms-message-stores)
+-   [RabbitMQ Message Store]({{base_path}}/integrate/examples/message_store_processor_examples/using-rabbitmq-message-stores)
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors](../../../use-cases/tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/integrate/tutorials/storing-and-forwarding-messages)
