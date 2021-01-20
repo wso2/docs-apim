@@ -4,7 +4,7 @@ WSO2 Integration Studio contains an embedded Micro Integrator instance, which yo
 
 ## Deploy and run artifacts in the (embedded) server
 
-Once you have the [integration artifacts packaged](../../develop/packaging-artifacts) in a composite application, you can deploy and run them in the embedded Micro Integrator using a single click. 
+Once you have the [integration artifacts packaged]({{base_path}}/integrate/develop/packaging-artifacts) in a composite application, you can deploy and run them in the embedded Micro Integrator using a single click. 
 
 1.  Select the composite application in the project explorer.
 2.  Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon in the menu palette to open the <b>Run As</b> dialog box.
@@ -20,7 +20,7 @@ Once you have the [integration artifacts packaged](../../develop/packaging-artif
 	See the startup log in the **Console** tab:  
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/testing_log.png" width="700">
 
-6.  If you find errors in your mediation sequence, use the [debugging features](debugging-mediation.md) to troubleshoot.
+6.  If you find errors in your mediation sequence, use the [debugging features]({{base_path}}/integrate/develop/debugging-mediation) to troubleshoot.
 
 ## View deployed endpoints in the (embedded) server
 
@@ -76,7 +76,7 @@ WSO2 Micro Integrator supports environment variables for server configurations a
 	To be able to dynamically inject parameters to the embedded Micro Integrator, you must first define the relevant configurations as environment variables. See the following topics for instructions:
 
 	- [Environment variables for server Configurations](../../setup/dynamic_server_configurations)
-	- [Environment variables for synapse configurations](../../develop/injecting-parameters)
+	- [Environment variables for synapse configurations]({{base_path}}/integrate/develop/injecting-parameters)
 
 Follow the steps given below.
 
