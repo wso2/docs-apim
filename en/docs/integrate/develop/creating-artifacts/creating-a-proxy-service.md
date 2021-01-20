@@ -1,6 +1,6 @@
 # Creating a Proxy Service
 
-Follow the instructions given below to create a new [Proxy Service](../../../references/synapse-properties/proxy-service-properties) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [Proxy Service]({{base_path}}/reference/synapse-properties/proxy-service-properties) artifact in WSO2 Integration Studio.
 
 ## Instructions
 
@@ -90,14 +90,14 @@ To add service-level transport parameters:
 
 See the following links for the list of transport parameters you can use:
 
-  - [VFS Parameters](../../../references/synapse-properties/transport-parameters/vfs-transport-parameters)
-  - [JMS Parameters](../../../references/synapse-properties/transport-parameters/jms-transport-parameters)
-  - [FIX Parameters](../../../references/synapse-properties/transport-parameters/fix-transport-parameters)
-  - [MailTo Parameters](../../../references/synapse-properties/transport-parameters/mailto-transport-parameters)
-  - [MQTT Parameters](../../../references/synapse-properties/transport-parameters/mqtt-transport-parameters)
-  - [RabbitMQ Parameters](../../../references/synapse-properties/transport-parameters/rabbitmq-transport-parameters)
+  - [VFS Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters)
+  - [JMS Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters)
+  - [FIX Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/fix-transport-parameters)
+  - [MailTo Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/mailto-transport-parameters)
+  - [MQTT Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/mqtt-transport-parameters)
+  - [RabbitMQ Parameters]({{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters)
 
-3.  See the complete list of [service-level properties and parameters](../../../references/synapse-properties/proxy-service-properties) that you can configure.
+3.  See the complete list of [service-level properties and parameters]({{base_path}}/reference/synapse-properties/proxy-service-properties) that you can configure.
 
 ### Using the Source View
 
@@ -107,7 +107,7 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Using a Simple Proxy Service](../../../use-cases/examples/proxy_service_examples/Introduction-to-Proxy-Services)
--   [Publishing a Custom WSDL](../../../use-cases/examples/proxy_service_examples/publishing-a-custom-wsdl)
--   [Exposing a Proxy Service via Inbound Endpoint](../../../use-cases/examples/proxy_service_examples/exposing-proxy-via-inbound)
--   [Securing Proxy Services](../../../use-cases/examples/proxy_service_examples/securing-proxy-services)
+-   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services)
+-   [Publishing a Custom WSDL]({{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl)
+-   [Exposing a Proxy Service via Inbound Endpoint]({{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound)
+-   [Securing Proxy Services]({{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services)
