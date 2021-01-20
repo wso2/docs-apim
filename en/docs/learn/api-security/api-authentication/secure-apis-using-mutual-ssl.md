@@ -89,7 +89,7 @@ By default, the WSO2 API Manager retrieves the client certificate from the **X-W
 4.  Invoke the API  with the custom header.
 
 ``` bash tab="Format"
-curl -k -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" -H "<MTSL_Header_name>:<Certificate_Key>"
+curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" -H "<MTSL_Header_name>:<Certificate_Key>"
 ```
 
 ``` bash tab="Example"
