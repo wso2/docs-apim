@@ -42,7 +42,7 @@ To perform tasks using the API Controller, a particular user must have required 
             },
             ``` 
 
-    2.  Using API-M management console.
+    2.  Using API-M Admin Portal.
         
         1. Log in to the Admin portal (`https://<APIM_Host>:<APIM_Port>/admin`).
 
