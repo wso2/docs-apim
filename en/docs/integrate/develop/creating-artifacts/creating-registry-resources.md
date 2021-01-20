@@ -96,6 +96,6 @@ Specify the location to save the registry resource and click **Finish**.
 
 ## Editing a Registry Resource
 
-You may need to change the details you entered for a registry resource, for example, the registry path. You can edit such information using the **Registry Resource Editor**. To open this editor, right-click the [Registry Resource project]({{base_path}}/integrate/create-integration-project/#registry-resource-project) and click **Registry Resource Editor**.
+You may need to change the details you entered for a registry resource, for example, the registry path. You can edit such information using the **Registry Resource Editor**. To open this editor, right-click the [Registry Resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project) and click **Registry Resource Editor**.
 
 This editor lists all the registry resources that you have defined in that project and it will list the **Registry Path to Deploy** information per resource.

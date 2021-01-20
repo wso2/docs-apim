@@ -6,7 +6,7 @@ Follow the instructions given below to create a **Scheduled Task** in WSO2 Integ
 
 ### Creating the Scheduled Task artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and click **New** → **Scheduled Task**.  
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and click **New** → **Scheduled Task**.  
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/select-scheduled-task.png">
 

@@ -5,7 +5,7 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 ### Creating the Endpoint artifact
 
-1.  Right-click the [ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) and go to **New → Endpoint** to open the **New Endpoint Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Endpoint** to open the **New Endpoint Artifact** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_endpoint/select-endpoint.png">
 
@@ -25,12 +25,12 @@ Follow the instructions given below to create a new [Endpoint]({{base_path}}/ref
 
 6.  Specify the location to save the endpoint:
 
-    - To save in an existing ([ESB Config project]({{base_path}}/integrate/create-integration-project/#esb-config-project) or [Registry Resource project]({{base_path}}/integrate/create-integration-project/#registry-resource-project)) in your workspace, click **Browse** and select that project.
+    - To save in an existing ([ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) or [Registry Resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project)) in your workspace, click **Browse** and select that project.
     - To save in a new project, click **Create new Project** and create the new project.
 
 7.  Click **Finish**. 
 
-The endpoint is created in the `src/main/synapse-config/endpoints` folder under the ESB Config project or [registry resource project]({{base_path}}/integrate/create-integration-project/#registry-resource-project) you specified.
+The endpoint is created in the `src/main/synapse-config/endpoints` folder under the ESB Config project or [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project) you specified.
 
 ### Designing the integration
 
