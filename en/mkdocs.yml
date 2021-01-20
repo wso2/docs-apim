@@ -1278,9 +1278,9 @@ nav:
                 - MailTo Parameters: references/synapse-properties/transport-parameters/mailto-transport-parameters.md
                 - MQTT Parameters: references/synapse-properties/transport-parameters/mqtt-transport-parameters.md
             - Micro Integrator Security References:
-                - Customizing Secure Vault: references/security/customizing-secure-vault.md
-                - Using Keystores: references/security/using_keystores.md
-                - WS-Security Implementations: references/security/security-implementation.md
+                - Customizing Secure Vault: references/mi-security-reference/customizing-secure-vault.md
+                - Using Keystores: references/mi-security-reference/using_keystores.md
+                - WS-Security Implementations: references/mi-security-reference/security-implementation.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
