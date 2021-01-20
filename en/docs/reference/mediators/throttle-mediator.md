@@ -13,7 +13,7 @@ mediator defines a throttle group which includes the following.
 -   A mediation sequence to handle requests that were rejected based on the throttle policy.
 
 !!! Info
-    The Throttle mediator is a [content unaware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Throttle mediator is a [content unaware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 

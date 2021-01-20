@@ -1233,54 +1233,54 @@ nav:
                 - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
                 - Sequence Properties: reference/synapse-properties/sequence-properties.md
             - Inbound Endpoints:
-                - About Inbound Endpoints: references/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
-                - HTTP Inbound Endpoint: references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties.md
-                - CXF WS RM Inbound Endpoint: references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
-                - HL7 Inbound Endpoint: references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
-                - Websocket Inbound Endpoint: references/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
-                - File Inbound Endpoint: references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
-                - JMS Inbound Endpoint: references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
-                - Kafka Inbound Endpoint: references/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
-                - RabbitMQ Inbound Endpoint: references/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
-                - MQTT Inbound Endpoint: references/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md
-                - Custom Inbound Endpoint: references/synapse-properties/inbound-endpoints/custom-inbound-endpoint-properties.md
+                - About Inbound Endpoints: reference/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
+                - HTTP Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties.md
+                - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
+                - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
+                - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
+                - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
+                - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
+                - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
+                - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
+                - MQTT Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md
+                - Custom Inbound Endpoint: reference/synapse-properties/inbound-endpoints/custom-inbound-endpoint-properties.md
             - Message Stores and Processors:
-                - About Message Stores and Processors: references/synapse-properties/about-message-stores-processors.md
+                - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
                 - Message Stores:
-                    - JMS Message Store: references/synapse-properties/message-stores/jms-msg-store-properties.md
-                    - JDBC Message Store: references/synapse-properties/message-stores/jdbc-msg-store-properties.md
-                    - RabbitMQ Message Store: references/synapse-properties/message-stores/rabbitmq-msg-store-properties.md
-                    - Resequence Message Store: references/synapse-properties/message-stores/resequence-msg-store-properties.md
-                    - WSO2 MB Message Store: references/synapse-properties/message-stores/wso2mb-msg-store-properties.md
-                    - In Memory Message Store: references/synapse-properties/message-stores/in-memory-msg-store-properties.md
-                    - Custom Message Store: references/synapse-properties/message-stores/custom-msg-store-properties.md
+                    - JMS Message Store: reference/synapse-properties/message-stores/jms-msg-store-properties.md
+                    - JDBC Message Store: reference/synapse-properties/message-stores/jdbc-msg-store-properties.md
+                    - RabbitMQ Message Store: reference/synapse-properties/message-stores/rabbitmq-msg-store-properties.md
+                    - Resequence Message Store: reference/synapse-properties/message-stores/resequence-msg-store-properties.md
+                    - WSO2 MB Message Store: reference/synapse-properties/message-stores/wso2mb-msg-store-properties.md
+                    - In Memory Message Store: reference/synapse-properties/message-stores/in-memory-msg-store-properties.md
+                    - Custom Message Store: reference/synapse-properties/message-stores/custom-msg-store-properties.md
                 - Message Processors:
-                    - Message Sampling Processor: references/synapse-properties/message-processors/msg-sampling-processor-properties.md
-                    - Scheduled Message Forwarding Processor: references/synapse-properties/message-processors/msg-sched-forwarding-processor-properties.md
-                    - Scheduled Failover Message Forwarding Processor: references/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties.md
-            - Templates: references/synapse-properties/template-properties.md
-            - Endpoints: references/synapse-properties/endpoint-properties.md
+                    - Message Sampling Processor: reference/synapse-properties/message-processors/msg-sampling-processor-properties.md
+                    - Scheduled Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties.md
+                    - Scheduled Failover Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties.md
+            - Templates: reference/synapse-properties/template-properties.md
+            - Endpoints: reference/synapse-properties/endpoint-properties.md
             - Data Services:
-                - About Data Services: references/synapse-properties/data-services.md
-                - Elements of a Data Service: references/synapse-properties/data-services/elements-of-a-data-service.md
-                - Query Parameters: references/synapse-properties/data-services/query-parameters.md
-                - Datasource Parameters: references/synapse-properties/data-services/datasource-configuration-parameters.md
-                - Input Validators: references/synapse-properties/data-services/input-validators.md
-                - Namespaces: references/synapse-properties/data-services/using-namespaces.md
-                - SQL/Data Types: references/synapse-properties/data-services/mapping-data-types.md
-                - Sample Queries: references/synapse-properties/data-services/sample-queries.md
+                - About Data Services: reference/synapse-properties/data-services.md
+                - Elements of a Data Service: reference/synapse-properties/data-services/elements-of-a-data-service.md
+                - Query Parameters: reference/synapse-properties/data-services/query-parameters.md
+                - Datasource Parameters: reference/synapse-properties/data-services/datasource-configuration-parameters.md
+                - Input Validators: reference/synapse-properties/data-services/input-validators.md
+                - Namespaces: reference/synapse-properties/data-services/using-namespaces.md
+                - SQL/Data Types: reference/synapse-properties/data-services/mapping-data-types.md
+                - Sample Queries: reference/synapse-properties/data-services/sample-queries.md
             - Transport Configs:
-                - VFS Parameters: references/synapse-properties/transport-parameters/vfs-transport-parameters.md
-                - JMS Parameters: references/synapse-properties/transport-parameters/jms-transport-parameters.md
-                - RabbitMQ Parameters: references/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
-                - HL7 Parameters: references/synapse-properties/transport-parameters/hl7-transport-parameters.md
-                - FIX Parameters: references/synapse-properties/transport-parameters/fix-transport-parameters.md
-                - MailTo Parameters: references/synapse-properties/transport-parameters/mailto-transport-parameters.md
-                - MQTT Parameters: references/synapse-properties/transport-parameters/mqtt-transport-parameters.md
+                - VFS Parameters: reference/synapse-properties/transport-parameters/vfs-transport-parameters.md
+                - JMS Parameters: reference/synapse-properties/transport-parameters/jms-transport-parameters.md
+                - RabbitMQ Parameters: reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
+                - HL7 Parameters: reference/synapse-properties/transport-parameters/hl7-transport-parameters.md
+                - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
+                - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
+                - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
             - Micro Integrator Security References:
-                - Customizing Secure Vault: references/mi-security-reference/customizing-secure-vault.md
-                - Using Keystores: references/mi-security-reference/using_keystores.md
-                - WS-Security Implementations: references/mi-security-reference/security-implementation.md
+                - Customizing Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
+                - Using Keystores: reference/mi-security-reference/using_keystores.md
+                - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md

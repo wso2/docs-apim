@@ -32,63 +32,63 @@ The topics below explain the 16 default security scenarios supported by WSO2 Mic
 
 ### UsernameToken
 
-![ws scenario 1](../../assets/img/ws-security/scenario1.png)
+![ws scenario 1]({{base_path}}/assets/img/integrate/ws-security/scenario1.png)
 
 ### Non-repudiation
 
-![ws scenario 2](../../assets/img/ws-security/scenario2.png)
+![ws scenario 2]({{base_path}}/assets/img/integrate/ws-security/scenario2.png)
 
 ### Integrity
 
-![ws scenario 3](../../assets/img/ws-security/scenario3.png)
+![ws scenario 3]({{base_path}}/assets/img/integrate/ws-security/scenario3.png)
 
 ### Confidentiality
 
-![ws scenario 4](../../assets/img/ws-security/scenario4.png)
+![ws scenario 4]({{base_path}}/assets/img/integrate/ws-security/scenario4.png)
 
 ### Sign and Encrypt - X509 Authentication
 
-![ws scenario 5](../../assets/img/ws-security/scenario5.png)
+![ws scenario 5]({{base_path}}/assets/img/integrate/ws-security/scenario5.png)
 
 ### Sign and Encrypt - Anonymous clients
 
-![ws scenario 6](../../assets/img/ws-security/scenario6.png)
+![ws scenario 6]({{base_path}}/assets/img/integrate/ws-security/scenario6.png)
 
 ### Encrypt Only - Username Token Authentication
 
-![ws scenario 7](../../assets/img/ws-security/scenario7.png)
+![ws scenario 7]({{base_path}}/assets/img/integrate/ws-security/scenario7.png)
 
 ### Sign and Encrypt - Username Token Authentication
 
-![ws scenario 8](../../assets/img/ws-security/scenario8.png)
+![ws scenario 8]({{base_path}}/assets/img/integrate/ws-security/scenario8.png)
 
 ### Secure Conversation - Sign only - Service as STS - Bootstrap policy - Sign and Encrypt , X509 Authentication
 
-![ws scenario 9](../../assets/img/ws-security/scenario9.png)
+![ws scenario 9]({{base_path}}/assets/img/integrate/ws-security/scenario9.png)
 
 ### Secure Conversation - Encrypt Only - Service as STS - Sign and Encrypt , X509 Authentication
 
-![ws scenario 10](../../assets/img/ws-security/scenario10.png)
+![ws scenario 10]({{base_path}}/assets/img/integrate/ws-security/scenario10.png)
 
 ### Secure Conversation - Sign and Encrypt - Service as STS - Bootstrap policy - Sign and Encrypt , X509 Authentication
 
-![ws scenario 11](../../assets/img/ws-security/scenario11.png)
+![ws scenario 11]({{base_path}}/assets/img/integrate/ws-security/scenario11.png)
 
 ### Secure Conversation - Sign Only - Service as STS - Bootstrap policy - Sign and Encrypt , Anonymous clients
 
-![ws scenario 3](../../assets/img/ws-security/scenario12.png)
+![ws scenario 3]({{base_path}}/assets/img/integrate/ws-security/scenario12.png)
 
 ### Secure Conversation - Encrypt Only - Service as STS - Bootstrap policy - Sign and Encrypt , Anonymous clients
 
-![ws scenario 13](../../assets/img/ws-security/scenario13.png)
+![ws scenario 13]({{base_path}}/assets/img/integrate/ws-security/scenario13.png)
 
 ### Secure Conversation - Encrypt Only - Service as STS - Bootstrap policy - Sign and Encrypt , Username Token Authentication
 
-![ws scenario 14](../../assets/img/ws-security/scenario14.png)
+![ws scenario 14]({{base_path}}/assets/img/integrate/ws-security/scenario14.png)
 
 ### Secure Conversation - Sign and Encrypt - Service as STS - Bootstrap policy - Sign and Encrypt , Username Token Authentication
 
-![ws scenario 15](../../assets/img/ws-security/scenario15.png)
+![ws scenario 15]({{base_path}}/assets/img/integrate/ws-security/scenario15.png)
 
 ### Kerberos Token-based Security
 

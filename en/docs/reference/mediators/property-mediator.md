@@ -31,7 +31,7 @@ The parameters available for configuring the Property mediator are as follows:
 <td><div class="content-wrapper">
 <p>A name for the property.</p>
 <p>You can provide a static value or a dynamic value for the property name. A dynamic property name can be retrieved
-by using an XPath function. You can use any of the <a href="../../mediators/property-reference/accessing-properties-with-xpath">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
+by using an XPath function. You can use any of the <a href="{{base_path}}/mediators/property-reference/accessing-properties-with-xpath">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
 <p>Note that the XPath function should be contained within curly brackets (<code>{}</code>) as well as double quotations (<code>""</code>). See the examples given below.</p>
   <ul>
     <li>
@@ -44,7 +44,7 @@ by using an XPath function. You can use any of the <a href="../../mediators/prop
       <code>property name="{json-eval({$ctx:propertyName})}"</code>
     </li>
   </ul>
-<p>For names of the generic properties that come by default, see <a href="../../mediators/property-reference/generic-Properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
+<p>For names of the generic properties that come by default, see <a href="{{base_path}}/mediators/property-reference/generic-Properties">Generic Properties</a> . You can select them from the drop-down list if you are adding the Property Mediator as shown below.</p>
 <p><img src="{{base_path}}/assets/img/integrate/mediators/119131214/119131215.png" title="generic properties list" width="800" alt="generic properties list" /></p>
 </div></td>
 </tr>
@@ -128,7 +128,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
 </ul>
-<p>For a detailed explanation of each scope, see <a href="../../mediators/property-reference/accessing-properties-with-xpath">Accessing Properties with XPath</a>.</p></td>
+<p>For a detailed explanation of each scope, see <a href="{{base_path}}/mediators/property-reference/accessing-properties-with-xpath">Accessing Properties with XPath</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -152,8 +152,8 @@ In this example, we are setting the property symbol and later we can log it usin
 
 ### Sending a fault message based on the Accept http header
 
-In this configuration, a response is sent to the client based on the `         Accept        ` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-Mediator) sets the message type
-based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator).
+In this configuration, a response is sent to the client based on the `         Accept        ` header. The [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) transforms the message contents. Then a [Property mediator]({{base_path}}/reference/mediators/property-mediator) sets the message type
+based on the `Accept` header using the `$ctx:accept` expression. The message is then sent back to the client via the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator).
 
 ``` xml
 <payloadFactory media-type="xml">
@@ -234,7 +234,7 @@ Your output log will look like this.
 
 ### Reading SOAP headers
 
-SOAP headers provide information about the message, such as the To and From values. You can use the `         get-property()        ` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadFactory-Mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-Mediator).
+SOAP headers provide information about the message, such as the To and From values. You can use the `         get-property()        ` function of the Property mediator to retrieve these headers. You can also add Custom SOAP Headers using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) and the [Script Mediator]({{base_path}}/reference/mediators/script-mediator).
 
 #### To
 

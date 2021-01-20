@@ -3,7 +3,7 @@
 The **Header Mediator** allows you to manipulate SOAP and HTTP headers.
 
 !!! Info
-    The Header mediator is a [conditionally](../../../concepts/message-processing-units/#classification-of-mediators) [content aware](../../../concepts/message-processing-units/#classification-of-mediators) mediator.
+    The Header mediator is a [conditionally]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) [content aware]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) mediator.
 
 ## Syntax
 

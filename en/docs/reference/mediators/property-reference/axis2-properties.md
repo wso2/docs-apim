@@ -177,7 +177,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>The maximum number of threads that can be added for message consuming. See <a href="../../../../references/mediators/property-reference/axis2-properties/#concurrentconsumers">ConcurrentConsumers</a> .</p></td>
+<td><p>The maximum number of threads that can be added for message consuming. See <a href="{{base_path}}/references/mediators/property-reference/axis2-properties/#concurrentconsumers">ConcurrentConsumers</a> .</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>

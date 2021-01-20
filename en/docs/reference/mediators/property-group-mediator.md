@@ -1,6 +1,6 @@
 # Property Group Mediator
 
-The Property Group Mediator is similar to the [Property Mediator]({{base_path}}/reference/mediators/property-Mediator). It sets or removes properties on the message context flowing through synapse. However, unlike the Property mediator, the Property Group mediator handles multiple properties as a
+The Property Group Mediator is similar to the [Property Mediator]({{base_path}}/reference/mediators/property-mediator). It sets or removes properties on the message context flowing through synapse. However, unlike the Property mediator, the Property Group mediator handles multiple properties as a
 group. You can select the property action (i.e., whether the property
 must be added to or removed from the message context) for each
 individual property. Therefore, in a scenario where you need to
@@ -9,7 +9,7 @@ Mediator configuration instead of multiple Property Mediator
 configurations.
 
 !!! Info
-    The Property Group mediator is a [conditionally content aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Property Group mediator is a [conditionally content aware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
