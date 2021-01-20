@@ -130,6 +130,6 @@ of the toolbar are also editor specific.
 
 ## What's Next?
 
--   See [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-WSO2-Integration-Studio) for installation instructions.
+-   See [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) for installation instructions.
 -   See [Working with WSO2 Integration Studio]({{base_path}}/integrate/develop/working-with-wso2-integration-studio) for more information on how to setup and use tooling.
--   See [Troubleshooting WSO2 Integration Studio]({{base_path}}/integrate/develop/troubleshooting-WSO2-Integration-Studio) for information on troubleshooting errors you may run into while using EI Tooling.
+-   See [Troubleshooting WSO2 Integration Studio]({{base_path}}/integrate/develop/troubleshooting-wso2-integration-studio) for information on troubleshooting errors you may run into while using EI Tooling.

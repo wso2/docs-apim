@@ -20,7 +20,7 @@ Once you have the [integration artifacts packaged]({{base_path}}/integrate/devel
 	See the startup log in the **Console** tab:  
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/testing_log.png" width="700">
 
-6.  If you find errors in your mediation sequence, use the [debugging features](debugging-mediation.md) to troubleshoot.
+6.  If you find errors in your mediation sequence, use the [debugging features]{{base_path}}/integrate/develop/debugging-mediation to troubleshoot.
 
 ## View deployed endpoints in the (embedded) server
 

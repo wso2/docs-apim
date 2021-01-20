@@ -70,6 +70,6 @@ MacOS security settings as described below.
 
 ## What's next?
 
--   Take a [quick tour]({{base_path}}/integrate/develop/WSO2-Integration-Studio) of the WSO2 Integration Studio interface.
+-   Take a [quick tour]({{base_path}}/integrate/develop/wso2-integration-studio) of the WSO2 Integration Studio interface.
 -   [Build a simple integration use case]({{base_path}}/integrate/develop/integration-development-kickstart) to get familiar with the development workflow. 
 -   Build [integration use cases]({{base_path}}/integrate/learn-overview) with WSO2 Integration Studio.
