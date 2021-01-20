@@ -3641,7 +3641,6 @@ definitions:
       applicationId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
-        readOnly: true
       name:
         type: string
         example: CalculatorApp
