@@ -4,7 +4,7 @@ When there are multiple environments, to allow easily configuring environment-sp
 
 ## Generating the Deployment Directory 
 
-When there are multiple artifacts are required to add as deployment-related configurations. It is recommended to use a separate directory to store all these configurations. API controller provides the support to generate this deployment-specific directory using, the following CTL commands.
+When there are multiple artifacts which needs to be added as deployment-related configurations, it is recommended to use a separate directory to store all these configurations. API Controller provides the support to generate this deployment-specific directory using the following commands.
 
 -   **Command**
         ``` bash
@@ -24,7 +24,7 @@ When there are multiple artifacts are required to add as deployment-related conf
             **Flags:**  
             
             -   Required :  
-                `--source` or `-s` : Filepath of the source artifact which is needed to use when generating deployment directory.
+                `--source` or `-s` : File path of the source artifact to be used when generating the deployment directory.
             -   Optional :  
                 `--destination` or `-d` : Path of the directory where the new deployment directory should be generated.    
 
@@ -43,7 +43,7 @@ When there are multiple artifacts are required to add as deployment-related conf
             ```
 
     !!!note
-            If the `--destination` flag is not provided, the deployment directory will be generated in the working directory.
+            If the `--destination` flag is not provided, the deployment directory will be generated in the working directory by default.
 
     A project folder with the following default structure will be created in the given directory.
 
@@ -62,7 +62,7 @@ When there are multiple artifacts are required to add as deployment-related conf
         <tbody>
             <tr class="odd">
                 <td><code>api_params.yaml</code></td>
-                <td>The specification of the Environment specific configurations.</td>
+                <td>The specification of the environment specific configurations.</td>
             </tr>
             <tr class="odd">
                 <td><code>api_meta.yaml</code></td>
