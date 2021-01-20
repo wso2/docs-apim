@@ -75,8 +75,8 @@ The older analytics distribution is referred to as the Classic Observability Dep
 
 You can monitor and manage various artifacts that you have deployed. The following are the options that enable you to do this.
 
-- **[Micro Integrator Dashboard](working-with-monitoring-dashboard)**: Allows you to perform administration tasks related to your Micro Integrator deployment
-- **[Using the Management API](working-with-management-api)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
+- **[Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)**: Allows you to perform administration tasks related to your Micro Integrator deployment
+- **[Using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
 
 ## Integration with external tools
 
