@@ -249,6 +249,8 @@ versioning in the migrated 3.2.0 setup. Follow the instructions below to disable
         /
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
         /
+        COMMIT;
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -3651,6 +3653,8 @@ Follow the instructions below to move all the existing API Manager configuration
                     SCOPE_BINDING VARCHAR2(255) NOT NULL,
                     BINDING_TYPE VARCHAR2(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
+        COMMIT;
         /       
         ```
 

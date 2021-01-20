@@ -247,6 +247,8 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.5.0 setup, it is *
         /
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
         /
+        COMMIT;
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -1927,6 +1929,8 @@ Follow the instructions below to move all the existing API Manager configuration
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /  
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
+        /
+        COMMIT;
         /              
         ```
         
@@ -2795,6 +2799,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         ```tab="Oracle"
         ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
         ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+        COMMIT;
         ```
             
         ```tab="PostgreSQL"
