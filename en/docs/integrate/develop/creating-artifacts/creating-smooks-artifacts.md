@@ -32,7 +32,7 @@ All the Smooks-related libraries have been added to the project classpath.
 You can now run the Smooks configuration:
 
 1. Right-click the file and choose **Run As -> Smooks Run Configuration**. If your Smooks configuration is correct, the console displays the results according to the input model and output model you specified.
-2.  You can now add the Smooks configuration artifact to a proxy service or sequence. To do so, create a [proxy service](creating-a-proxy-service. 
+2.  You can now add the Smooks configuration artifact to a proxy service or sequence. To do so, create a [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service). 
 3.  Drag and drop a Log mediator and a Smooks mediator to the **InSequence**. 
 4.  Double-click the **Smooks** mediator to see the **Property** view. Click the button at the right hand corner of the
 **Configuration Key** field.

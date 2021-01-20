@@ -520,5 +520,5 @@ You will receive the following response:
 ## What's Next?
 
 - [Running the Micro Integrator on Containers](../../setup/installation/run_in_containers).
-- [Writing a unit test for integration artifacts]({{base_path}}/{{base_path}}/integrate/develop/creating-unit-test-suite.
+- [Writing a unit test for integration artifacts]({{base_path}}/integrate/develop/creating-unit-test-suite).
 - [Developing Your First Siddhi Application](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/quick-start-guide/getting-started/getting-started-guide-overview/).
