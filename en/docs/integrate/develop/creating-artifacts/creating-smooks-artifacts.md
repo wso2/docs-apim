@@ -6,7 +6,7 @@
 
 To create a Smooks configuration artifact:
 
-1.  First create a registry resource as described in [Creating Registry Resources](creating-registry-resources. 
+1.  First create a registry resource as described in [Creating Registry Resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources). 
 2.  When creating the registry resource, select the **From Existing Template** option and select **Smooks Configuration** as the template. The `smooksconfig.xml` file is created. 
 3.  Double-click the smooks configuration in the Project Explorer to open it in the embedded JBoss Smooks editor.  
 4.  Click **Input Task**, create the data mapping, and save the configuration file.
