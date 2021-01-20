@@ -80,56 +80,41 @@ Follow the instructions below to add advanced UI customizations to the Developer
         ```
         npm run build:prod
         ```
-3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
-
-     - If you want to override a specific React component or a file from the `<WEBAPP>/source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
-         - `<WEBAPP>/override/src`
 
 ### Overriding files
 
-The following folder structure within devportal/overrides folder can override the original file at devportal/source/src/app/components/Apis/Details/Documents/Documents.jsx. You can find a more detailed explaining with working samples at the end of this article.
+Any file inside devportal/overrides/ folder can override the original file at devportal/source/ folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher app as well. For example, [1] is taking precedence over [2] when the npm build is running. 
 
-    ```sh
-    override
-    └── src
-        ├── Readme.txt
-        └── app
-            └── components
-                └── Apis
-                    └── Details
-                        ├── Documents
-                        │   └── Documentation.jsx
-                        └── Overview.jsx
-    ```
+* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Documents.jsx
+* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Documents.jsx
 
 ### Adding new files to the override folder
 
-    ```sh
-    override
-    └── src
-        ├── Readme.txt
-        └── app
-            └── components
-                └── Apis
-                    └── Details
-                        ├── Documents
-                        │   └── Documentation.jsx
-                        └── Overview.jsx
+```
+override
+└── src
+    ├── Readme.txt
+    └── app
+        └── components
+            └── Apis
+                └── Details
+                    └── Documents
+                        ├── Documents.jsx
                         └── NewFile.jsx
-                        
-    ```
+                    
+```
 
 You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
 
-    ```sh
-    import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
-    ```
+```
+import NewFile from 'AppOverride/src/app/components/Apis/Details/Documents/NewFile.jsx';
+```
 
-A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+A build error will show up if you try to import the **NewFile.jsx** from **Documents.jsx** as follows.
 
-    ```sh
-    import NewFile from './NewFile.jsx';
-    ```
+```
+import NewFile from './NewFile.jsx';
+```
 ## Production Build vs development build
 
 We need to run the build command once and preview changes during active development. Once we run the following command at the web application root folder, it will continually watch for file changes. It also loads the React source to the browser for debugging purposes. It will make a large javascript bundle size.
