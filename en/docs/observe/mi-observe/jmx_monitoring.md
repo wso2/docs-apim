@@ -19,23 +19,23 @@ Once the **product server is started**, you can start the `JConsole` tool as fol
 1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
 2.  Execute the `jconsole` command to open the log-in screen of the **Java Monitoring & Management Console** as
     shown below.  
-    ![jconsole_process](../assets/img/jmx/jconsole-new-connection.png)
+    ![jconsole_process]({{base_path}}/assets/img/integrate/jmx/jconsole-new-connection.png)
 3.  Click on the  `org.wso2.micro.integrator.bootstrap.Bootstrap` process (which is the Micro Integrator) under the Local Process.
 4.  Click **Connect** to open the **Java Monitoring & Management Console**. See the **Oracle** documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html). The following tabs will be available:  
 
     -   **Overview**
-        ![jconsole overview](../assets/img/jmx/jconsole-overview.png)
+        ![jconsole overview]({{base_path}}/assets/img/integrate/jmx/jconsole-overview.png)
     -   **Memory**
-        ![jconsole memory](../assets/img/jmx/jconsole-memory.png)
+        ![jconsole memory]({{base_path}}/assets/img/integrate/jmx/jconsole-memory.png)
     -   **Threads**
-        ![jconsole threads](../assets/img/jmx/jconsole-threads.png)
+        ![jconsole threads]({{base_path}}/assets/img/integrate/jmx/jconsole-threads.png)
     -   **Classes**
-        ![jconsole classes](../assets/img/jmx/jconsole-classes.png)
+        ![jconsole classes]({{base_path}}/assets/img/integrate/jmx/jconsole-classes.png)
     -   **VM**
-        ![jconsole VM](../assets/img/jmx/jconsole-vm-summary.png)
+        ![jconsole VM]({{base_path}}/assets/img/integrate/jmx/jconsole-vm-summary.png)
     -   **MBeans**
-        ![jconsole MBeans](../assets/img/jmx/jconsole-mbeans.png)
+        ![jconsole MBeans]({{base_path}}/assets/img/integrate/jmx/jconsole-mbeans.png)
 
 See the list of [WSO2 Micro Integrator MBeans](#mbeans-for-wso2-micro-integrator) that you can monitor.
 
@@ -46,7 +46,7 @@ JMX Management Beans (MBeans) that can be used for managing and
 monitoring the running server.  When you start JConsole, you can monitor
 these MBeans from the **MBeans** tab. Most of the MBeans are exposed from the underlying Synapse mediation engine.
 
-![micro integrator mbeans](../assets/img/jmx/mi-mbeans.png)
+![micro integrator mbeans]({{base_path}}/assets/img/integrate/jmx/mi-mbeans.png)
 
 The following section summarizes the common MBeans for all WSO2 products:
 

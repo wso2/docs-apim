@@ -28,7 +28,7 @@ To call this function from the data service, create an RDBMS datasource (for you
 select myFunction('WSAS') as ABC
 ```
 
-<img src="../../../../assets/img/data-services/mysql-function-query-sql.png" width="700" alt="sql query of mysql function">
+<img src="{{base_path}}/assets/img/integrate/data-services/mysql-function-query-sql.png" width="700" alt="sql query of mysql function">
 
 The complete data service configuration (.dbs file) will be as follows:
 
@@ -84,7 +84,7 @@ To call this function from the data service, create an RDBMS datasource (for you
       {call ?:=myfunction(?,?)}
       ```
 
-      <img src="../../../../assets/img/data-services/oracle-function-query-sql.png" width="500" alt="sql query of oracle function">
+      <img src="{{base_path}}/assets/img/integrate/data-services/oracle-function-query-sql.png" width="500" alt="sql query of oracle function">
 
 -  Create three <b>Input</b> mappings as follows:
 
@@ -94,7 +94,7 @@ To call this function from the data service, create an RDBMS datasource (for you
       <param name="eid" sqlType="INTEGER" ordinal="3" />
       ```
 
-      <img src="../../../../assets/img/data-services/oracle-function-input-mapping.png" width="500" alt="oracle function input parameters">
+      <img src="{{base_path}}/assets/img/integrate/data-services/oracle-function-input-mapping.png" width="500" alt="oracle function input parameters">
 
       The first input parameter carries the return value of the function. The other two are inputs to the function. Note that you must define an Input parameter with <b>OUT</b> type to get the result of the function (i.e., the first parameter in the query above).
 
@@ -106,7 +106,7 @@ To call this function from the data service, create an RDBMS datasource (for you
       </result>
       ```
 
-      <img src="../../../../assets/img/data-services/oracle-function-output-mapping.png" width="500" alt="oracle function output parameter">
+      <img src="{{base_path}}/assets/img/integrate/data-services/oracle-function-output-mapping.png" width="500" alt="oracle function output parameter">
 
       This output parameter gets the value as a result set from the data service.
 
@@ -147,11 +147,11 @@ Dynamic SQL queries allow you to change SQL queries (e.g., defining additional c
 
 The `QUERY_STRING` data type is available as an SQL type when creating Input mappings for queries:
 
-<img src="../../../../assets/img/data-services/input-query-string.png" width="500" alt="add query string to input">
+<img src="{{base_path}}/assets/img/integrate/data-services/input-query-string.png" width="500" alt="add query string to input">
 
 You can add the SQL query using the mapping name:
 
-<img src="../../../../assets/img/data-services/dynamic-query.png" width="500" alt="dynamic query for data service">
+<img src="{{base_path}}/assets/img/integrate/data-services/dynamic-query.png" width="500" alt="dynamic query for data service">
 
 For example, see the following data service configuration:
 

@@ -10,7 +10,7 @@ Observability can be viewed as a superset of monitoring where monitoring is enri
 
 WSO2 Enterprise Integrator offers two observability solutions referred to as the cloud-native observability deployment and classic observability deployment.
 
-<img src="../../assets/img/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
+<img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
 
 The cloud-native and classic observability solution are suitable for the following combination of operations.
 
