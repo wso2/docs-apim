@@ -44,7 +44,7 @@ from all the available healthcare centers.
 
 ## Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) based on your operating system. For more information, see [Installing WSO2 Integration Studio](../../develop/installing-WSO2-Integration-Studio).
+Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) based on your operating system. For more information, see [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-WSO2-Integration-Studio).
 
 ## Develop the integration artifacts
 
@@ -275,7 +275,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
     </table>
 
     Note the `$1` in the Payload format. It denotes a parameter that can get a value assigned dynamically. The value for the parameters need to be assigned using Arguments **(Args)**. 
-    **Args** can be added using the **PayloadFactoryArgument** dialog box, which appears when you click the (<img src="../..{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="20">) sign.
+    **Args** can be added using the **PayloadFactoryArgument** dialog box, which appears when you click the (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="20">) sign.
 
     <img src="{{base_path}}/assets/img/integrate/developing-first-integration/14-dev-get-started-payloadfactory-expression.png" width="700">
         
@@ -520,5 +520,5 @@ You will receive the following response:
 ## What's Next?
 
 - [Running the Micro Integrator on Containers](../../setup/installation/run_in_containers).
-- [Writing a unit test for integration artifacts](../creating-unit-test-suite/).
+- [Writing a unit test for integration artifacts]({{base_path}}/integrate/develop/creating-unit-test-suite).
 - [Developing Your First Siddhi Application](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/quick-start-guide/getting-started/getting-started-guide-overview/).
