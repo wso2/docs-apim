@@ -84,7 +84,7 @@ Following is the sample rest api configuration that we can use to implement this
 Create the artifacts:
 
 1. [Set up WSO2 Integration Studio](../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an ESB Solution project](../../../develop/creating-projects/#esb-config-project).
+2. [Create an ESB Solution project](../../../develop/create-integration-project/#esb-config-project).
 3. [Create the rest api](../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts](../../../develop/deploy-and-run) in your Micro Integrator.
 

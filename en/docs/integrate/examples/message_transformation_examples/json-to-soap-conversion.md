@@ -191,7 +191,7 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
 Create the artifacts:
 
 1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an ESB Config project](../../../../develop/creating-projects/#esb-config-project).
+2. [Create an ESB Config project](../../../../develop/create-integration-project/#esb-config-project).
 3. [Create the REST API](../../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry](../../../../develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.
 5. [Deploy the artifacts](../../../../develop/deploy-and-run) in your Micro Integrator.

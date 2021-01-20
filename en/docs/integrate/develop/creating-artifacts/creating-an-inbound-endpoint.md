@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [Inbound Endpoint](../../../
 
 ### Creating the Inbound Endpoint artifact
 
-1. If you have already created an [ESB Config project](../../creating-projects/#esb-config-project), right-click the project and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
+1. If you have already created an [ESB Config project](../../create-integration-project/#esb-config-project), right-click the project and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_inbound_endpoint/select-inbound-endpoint.png" width="500">
 

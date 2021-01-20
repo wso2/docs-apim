@@ -6,7 +6,7 @@ Follow the instructions given below to create a new **Endpoint Template** in WSO
 
 ### Creating the Endpoint Template artifact
 
-1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
+1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Template** to open the **New Template Artifact** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_template/select-template.png">
 

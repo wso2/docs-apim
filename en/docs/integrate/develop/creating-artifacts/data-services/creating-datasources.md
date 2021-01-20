@@ -6,7 +6,7 @@ Follow the instructions given below to create a new Datasource connection in WSO
 
 Follow the steps given below to create the datasource file:
 
-1.  Select the already created [**Datasource Config module**](../../../creating-projects/#datasource-project) in the project
+1.  Select the already created [**Datasource Config module**](../../../create-integration-project/#datasource-project) in the project
     navigator, right-click, and go to **New -> Datasource**.
 
     <img src="{{base_path}}/assets/img/integrate/data-services/create-datasource.png">
@@ -15,7 +15,7 @@ Follow the steps given below to create the datasource file:
 
     <img src="{{base_path}}/assets/img/integrate/data-services/create-datasource-dialog.png"> 
 
-2.  Select your [**datasource config module**](../../../creating-projects/#datasource-project) as the **Container**, add the file name for your datasource, and click **Finish**.
+2.  Select your [**datasource config module**](../../../create-integration-project/#datasource-project) as the **Container**, add the file name for your datasource, and click **Finish**.
 
 A datasource file will now be created in your datasource config module. 
 Shown below is the sample configuration that is created. You can now update the values in this configuration.

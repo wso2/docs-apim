@@ -19,7 +19,7 @@ See the topics given below.
 
 Follow the steps below to import connectors into WSO2 Integration Studio:
 
-1.  If you have already created an [ESB Config project](../../creating-projects/#esb-config-project), right click the ESB Config project where you want to use the connector and click **Add or Remove Connector/Module**.
+1.  If you have already created an [ESB Config project](../../create-integration-project/#esb-config-project), right click the ESB Config project where you want to use the connector and click **Add or Remove Connector/Module**.
 2.  On the wizard that appears, select **Add Connector/module** and click **Next**.
     -   If you have not downloaded the connector, search on the required connector in **WSO2 Connector Store** view, and click on the download icon to import the connector into the workspace. Then, click on **Finish**.
     -   If you have already downloaded the connectors, select the **Add from File System** option and browse to the connector file from the file system. Click **Finish**. The connector is imported into the workspace and available for use with all the projects in the workspace.

@@ -6,7 +6,7 @@ Follow the instructions given below to create a new [Message Processor](../../..
 
 ### Creating the Message Processor artifact
 
-1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
+1.  Right-click the [ESB Config project](../../create-integration-project/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/select-message-processor.png">
 
