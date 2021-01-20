@@ -14,7 +14,7 @@ Follow the instructions given below to create a **Scheduled Task** in WSO2 Integ
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/new-task-wizard-1.png" width="500">
 
-3.  Specify values for the [required parameter](../../references/synapse-properties/scheduled-task-properties.md) for the scheduled task.
+3.  Specify values for the [required parameter]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the scheduled task.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/scheduled_task/new-task-wizard-2.png" width="500">
 
