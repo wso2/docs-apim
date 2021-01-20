@@ -16,15 +16,15 @@ For example, we are building an integrated example driven through the [Salesforc
 
 Now that you have configured the Salesforce Inbound Endpoint, use the following Inbound Endpoint configuration to retrieve account details from your Salesforce account. The Salesforce inbound endpoint of WSO2 EI acts as a message receiver. You can inject that message into the mediation flow for getting the required output.
 
-<img src="../../../../assets/img/connectors/salesforce-inboundEP-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-   <img src="../../../../assets/img/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+   <img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
-   <img src="../../../../assets/img/connectors/salesforce-inboundEP-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`. 
 
@@ -74,7 +74,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 **CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="../../../../assets/img/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 
@@ -86,7 +86,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 2. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
 
-4. [Start the WSO2 EI server](https://ei.docs.wso2.com/en/latest/micro-integrator/overview/quick-start-guide/#start-the-micro-integrator). 
+4. Start the WSO2 EI server. 
 
 ## Testing  
 

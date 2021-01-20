@@ -26,12 +26,12 @@ JSMPP is a Java implementation of SMPP protocol. The SMPP server in SMSC have al
 
 5. In the terminal you will see the following list of options. **Enter 1** to start simulation. 
    
-   <img src="../../../../assets/img/connectors/smpp-simulator.png" title="SMSC Simulator Console" width="600" alt="SMSC Simulator Console"/> 
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-simulator.png" title="SMSC Simulator Console" width="600" alt="SMSC Simulator Console"/> 
 
 6. After you enter 1 for simulation it will ask for a **port number**. In this example we added port number as 2775.
 
-   <img src="../../../../assets/img/connectors/smpp-simulator-port.png" title="SMSC Simulator Port" width="600" alt="SMSC Simulator Port"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-simulator-port.png" title="SMSC Simulator Port" width="600" alt="SMSC Simulator Port"/>
     
 7. Once you setup WSO2 MI and invoke the `SmppTestApi` API, you will able to see logs in you simulator as shown below.
    
-   <img src="../../../../assets/img/connectors/smpp-simulator-output.png" title="SMSC Simulator Console Output" width="600" alt="SMSC Simulator Console Output"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-simulator-output.png" title="SMSC Simulator Console Output" width="600" alt="SMSC Simulator Console Output"/>

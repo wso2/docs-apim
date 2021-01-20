@@ -20,13 +20,13 @@ Following diagram shows the overall solution. The user creates a bucket, stores 
 
 To invoke each operation, the user uses the same API. 
 
-<img src="../../../../../assets/img/connectors/Amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Setting up the environment 
 
-Please follow the steps mentioned at [Setting up Amazon S3](../amazons3-connector-1.x-config) document in order to create a Amazon S3 account and obtain credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.  
+Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config) document in order to create a Amazon S3 account and obtain credentials you need to access the Amazon APIs. Keep them saved to be used in the next steps.  
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -35,7 +35,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
 {!references/connectors/importing-connector-to-integration-studio-copy.md!} 
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="../../../../../assets/img/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `S3ConnectorTestAPI` and API context as `/s3connector`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
 
@@ -225,7 +225,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
     * uploadPart - upload message part. There can be multiple parts to the same object. When you invoke the operation, feed `uploadId` and the correct `partNumber`. 
     * completeMultipartUpload - once all parts are done uploading, call this operation. It will add up all the parts and create the object in the requested bucket. 
 * Note that `region` at `host` and `bucketUrl` properties are hard coded. Please change them as per the requirement. 
-* For more information please refer the [reference guide](../amazons3-connector-1.x-reference) for Amazon S3 connector. 
+* For more information please refer the [reference guide]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference) for Amazon S3 connector. 
 
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
 
@@ -237,8 +237,8 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../../assets/attach/connectors/s3-connector.zip">
-    <img src="../../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attach/connectors/s3-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -271,7 +271,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
 
     You should receive 200OK response. Please navigate to Amazon AWS S3 console[s3.console.aws.amazon.com] and see if a bucket called `wso2engineers` is created. If you tried to create a bucket with a name that already exists, it will reply back with a message indicating the conflict. 
 
-    <img src="../../../../../assets/img/connectors/AmazonS3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket.png" title="Creating Amazon S3 bucket" width="800" alt="Creating Amazon S3 bucket"/>
 
 ### Post a message into Amazon S3 bucket
 
@@ -299,7 +299,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     </CompleteMultipartUploadResult>
     ```
     Navigate to AWS S3 console and click on the bucket `wso2engineers`. You will note that a file has been created with the name `Julian.txt`. 
-    <img src="../../../../../assets/img/connectors/AmazonS3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from Amazon S3 bucket
 
@@ -323,4 +323,4 @@ Now let us read the information on `wso2engineers` that we stored in the Amazon 
     Julian Garfield, Software Engineer, Integration Group
     ```
 
-In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide](../amazons3-connector-1.x-reference) to learn more about the operations you can perform with the Amazon S3 connector.
+In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference) to learn more about the operations you can perform with the Amazon S3 connector.

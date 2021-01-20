@@ -13,7 +13,7 @@ Inspired from: [Google Pub/Sub docs](https://cloud.google.com/pubsub/docs/overvi
 
 To see the Google Pub/Sub Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "pubsub".
 
-<img src="../../../../assets/img/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
 
 ## Compatibility
 

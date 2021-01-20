@@ -18,15 +18,15 @@ The [PushTopic](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_stre
 
 1. **Login** to the **Salesforce Account**. Navigate to the top right corner of the **Home page** and click the **Setup** icon. Then select **Developer Console**.
 
-    <img src="../../../../assets/img/connectors/open-the-developer-console-updated.png" title="Open the Developer Console." width="500" alt="Open the Developer Console."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/open-the-developer-console-updated.png" title="Open the Developer Console." width="500" alt="Open the Developer Console."/>
 
 2. After populating the Developer console, click **Debug** -> Open **Execute Anonymous Window**.   
    
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-execute-anonymous-window-updated.png" title="Open the Anonymous Window." width="500" alt="Open the Anonymous Window."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-execute-anonymous-window-updated.png" title="Open the Anonymous Window." width="500" alt="Open the Anonymous Window."/>
    
 3. Add the following entry in the **Enter Apex Code** window and click **Execute**.  
    
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-enter-apex-code-updated.png" title="Enter Apex code." width="700" alt="Enter Apex code."/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-enter-apex-code-updated.png" title="Enter Apex code." width="700" alt="Enter Apex code."/> 
    
     ```
     PushTopic pushTopic = new PushTopic();
@@ -50,29 +50,29 @@ In this step, we need to [subscribe](https://developer.salesforce.com/docs/atlas
 
 1. Using your browser, navigate to the [workbench](https://developer.salesforce.com/page/Workbench).
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-slaesforce-login-workbench.png" title="Login Workbench." width="700" alt="Login Workbench."/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-slaesforce-login-workbench.png" title="Login Workbench." width="700" alt="Login Workbench."/> 
 
 2. Select **Environment** as **Production** and **API Version** as **37.0**.
    
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-select-environment-updated.png" title="Select Environment." width="700" alt="Select Environment."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-select-environment-updated.png" title="Select Environment." width="700" alt="Select Environment."/>
 
 3. **Accept the terms of service**, and click **Login with Salesforce**.
 
 4. After logging in with Salesforce, you establish a connection to your database, and land on the **Select page**.
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-landing-page.png" title="Select page." width="700" alt="Select page."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-landing-page.png" title="Select page." width="700" alt="Select page."/>
 
 5. Select **queries** -> **Streaming Push Topics**.
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-streaming-push-topics-updated.png" title="Streaming PushTopic." width="700" alt="Streaming PushTopic."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-streaming-push-topics-updated.png" title="Streaming PushTopic." width="700" alt="Streaming PushTopic."/>
    
 6. In the **Push Topic** field, select **Account**.   
   
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-select-pushtopic-Account-updated.png" title="Select created PushTopic." width="700" alt="Select created PushTopic."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-select-pushtopic-Account-updated.png" title="Select created PushTopic." width="700" alt="Select created PushTopic."/>
 
 7. Click **Subscribe**. You’ll see the connection and response information and a response like `Subscribed to /topic/Account`.
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-subscribe-updated.png" title="Subscribe to the PushTopic." width="700" alt="Subscribe to the PushTopic."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-subscribe-updated.png" title="Subscribe to the PushTopic." width="700" alt="Subscribe to the PushTopic."/>
    
    > **Note**: Keep this browser window open and make sure that the connection does not time out. You’ll be able to see the event notifications triggered by the Account record you create when testing the PushTopic channel.
    
@@ -82,15 +82,15 @@ In this step, we need to [subscribe](https://developer.salesforce.com/docs/atlas
 
 2. Select **data** -> **Insert**.
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-data-insert-updated.png" title="Insert data to test the PushTopic." width="700" alt="Insert data to test the PudhTopic."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-data-insert-updated.png" title="Insert data to test the PushTopic." width="700" alt="Insert data to test the PudhTopic."/>
 
 3. For **Object Type**, select *Account*. Ensure that the **Single Record** field is selected, and click **Next**. 
    
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-select-single-record-updated.png" title="Select single record." width="700" alt="Select single record."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-select-single-record-updated.png" title="Select single record." width="700" alt="Select single record."/>
    
 4. Type in a value for the `Name` field. Then click **Confirm Insert**.
   
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-insert-values-to-Name-updated.png" title="Insert value to the object." width="500" alt="Insert value to the object."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-insert-values-to-Name-updated.png" title="Insert value to the object." width="500" alt="Insert value to the object."/>
 
 5. Switch to your **Streaming Push Topics** browser window. You’ll see a notification that the *Account* update was created. The notification returns the `Id` and `Name` fields that we defined in the SELECT statement of our **PushTopic query**. Please find the notification message as shown bellow.
    
@@ -115,11 +115,11 @@ In this step, we need to [subscribe](https://developer.salesforce.com/docs/atlas
 
 1. **Login** to the **Salesforce Account**. Navigate to the top right corner of the **Home page** and click **Settings**.
 
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-click-settings-updated.png" title="Select Settings." width="400" alt="Select Settings"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-click-settings-updated.png" title="Select Settings." width="400" alt="Select Settings"/> 
 
 2. Select **Reset My Security Token** and then click **Reset Security Token** button.   
    
-    <img src="../../../../assets/img/connectors/salesforce-inboundEP-resetsecurity-token-updated.png" title="Reset Security Token." width="700" alt="Reset Security Token."/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-resetsecurity-token-updated.png" title="Reset Security Token." width="700" alt="Reset Security Token."/>
       
     When setting up the Inbound Endpoint you need to provide the Salesforce password in the following manner. The password provided here is a concatenation of the user password and the security token provided by Salesforce. For more information, see [information on creating a security token in Salesforce](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
    

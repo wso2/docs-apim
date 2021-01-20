@@ -26,7 +26,7 @@ The Documentum Connector allows you to do the following operations.
 
 To see the Documentum connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Documentum". **Documentum Connector** is the name of the connector that has this functionality.
 
-<img src="../../../../assets/img/connectors/documentum-store.png" title="Documentum Connector Store" width="200" alt="Documentum Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/documentum-store.png" title="Documentum Connector Store" width="200" alt="Documentum Connector Store"/>
 
 ## Compatibility
 

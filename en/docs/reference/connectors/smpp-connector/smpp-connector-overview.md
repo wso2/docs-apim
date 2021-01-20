@@ -4,7 +4,7 @@ SMPP (Short Message Peer-to-Peer Protocol) is an open, industry standard protoco
 
 To see the available SMPP connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "SMPP".
 
-<img src="../../../../assets/img/connectors/smpp-store.png" title="SMPP Connector Store" width="200" alt="SMPP Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/smpp-store.png" title="SMPP Connector Store" width="200" alt="SMPP Connector Store"/>
 
 ## Compatibility
 
