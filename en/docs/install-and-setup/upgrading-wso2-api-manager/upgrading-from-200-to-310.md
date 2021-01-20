@@ -251,6 +251,8 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.0.0 setup, it is *
         /
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
         /
+        COMMIT;
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -1729,6 +1731,8 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         )
+        /
+        COMMIT;
         /
         ```
 
