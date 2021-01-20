@@ -240,7 +240,7 @@ The sample proxy below splits the input message by a sequence of characters.
 Create the artifacts:
 
 1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an ESB Solution project](../../../../develop/create-integration-project/#esb-config-project).
+2. [Create an ESB Solution project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
 3. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts](../../../../develop/deploy-and-run) in your Micro Integrator.
 

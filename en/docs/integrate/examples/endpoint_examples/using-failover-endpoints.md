@@ -180,7 +180,7 @@ Multiple address endpoints are used in this example.
 Create the artifacts:
 
 1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an ESB Solution project](../../../../develop/create-integration-project/#esb-config-project).
+2. [Create an ESB Solution project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
 3. [Create the REST API](../../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts](../../../../develop/deploy-and-run) in your Micro Integrator.
 
