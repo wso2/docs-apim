@@ -315,6 +315,18 @@ paths:
           description: |
             Unsupported media type.
             The entity of the request was in a not supported format.
+        409:
+          description: |
+            Conflict.
+            API to import already exists.
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: |
+            Internal Server Error.
+            Error in importing API.
+          schema:
+            $ref: '#/definitions/Error'
 
   ######################################################
   # The "Individual Application Throttling Policy" resource API
@@ -893,6 +905,18 @@ paths:
           description: |
             Unsupported media type.
             The entity of the request was in a not supported format.
+        409:
+          description: |
+            Conflict.
+            API to import already exists.
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: |
+            Internal Server Error.
+            Error in importing API.
+          schema:
+            $ref: '#/definitions/Error'       
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
@@ -1870,8 +1894,8 @@ paths:
       summary: |
         Retrieve/Search applications
       description: |
-        This operation can be used to retrieve list of applications that is belonged to the given user, If no user
-        is provided then the application for the user associated with the provided access token will be returned.
+        This operation can be used to retrieve list of applications that is belonged to the given user, If no user 
+        query is provided, the application(s) for the user associated with the Authorization Header will be returned
       parameters:
         - $ref: '#/parameters/user'
         - $ref: '#/parameters/limit'
@@ -3130,6 +3154,7 @@ definitions:
       policyId:
         type: string
         description: Id of policy
+        readOnly: true
         example: 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93
       policyName:
         type: string
@@ -3581,15 +3606,42 @@ definitions:
       conditionId:
         type: string
         description: Id of the blocking condition
+        readOnly: true        
         example: b513eb68-69e8-4c32-92cf-852c101363cf
       conditionType:
         type: string
-        description: Type of the blocking condition
+        description: Type of the blocking condition (IP Address, IP Range, API Context, Application, User)
         example: IP
       conditionValue:
         type: object
         description: Value of the blocking condition
-        example: '{"fixedIp":"192.168.1.1":"invert":false}'
+
+
+                    `IP Address type condition`
+
+                      {"conditionType":"IP","conditionValue":{"invert":false,"fixedIp":"127.0.0.2"},"conditionStatus":true}
+
+
+                    `IP Range type condition`
+
+                      {"conditionType":"IPRANGE","conditionValue":{"endingIp":"127.9.9.2","startingIp":"127.9.9.1","invert":false},"conditionStatus":true}
+
+
+                    `Application type condition`
+
+                      {"conditionType":"APPLICATION","conditionValue":"admin:DefaultApplication","conditionStatus":true}
+
+
+                    `API Context type condition`
+
+                      {"conditionType":"API","conditionValue":"/pizzashack/1.0.0","conditionStatus":true}
+
+
+                    `User type condition`
+
+                      {"conditionType":"USER","conditionValue":"admin","conditionStatus":true}
+
+        example: { "fixedIp": "192.168.1.1", "invert":false }
 
   #-----------------------------------------------------
   # The Throttling Blocking Condition List resource
@@ -3804,6 +3856,7 @@ definitions:
       id:
         type: string
         example: "This is not mandatory.Auto generate by code"
+        readOnly: true        
       name:
         type: string
         example: "Public"
@@ -3943,6 +3996,7 @@ definitions:
       id:
         type: string
         example: "01234567-0123-0123-0123-012345678901"
+        readOnly: true        
       name:
         type: string
         example: "Finance"
