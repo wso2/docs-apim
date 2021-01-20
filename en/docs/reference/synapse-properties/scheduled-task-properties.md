@@ -17,11 +17,11 @@ You can schedule a task to run after a time interval of 't' for an 'n' number of
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when you [create a Scheduled Task](../../../develop/creating-artifacts/creating-scheduled-task).
+See the topics given below for the list of properties that can be configured when you [create a Scheduled Task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
 
 ### Required Properties
 
-The following properties are required when [creating a scheduled task](../../../develop/creating-artifacts/creating-scheduled-task).
+The following properties are required when [creating a scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>
@@ -42,7 +42,7 @@ The following properties are required when [creating a scheduled task](../../../
       <tr class="odd">
          <td>Task Implementation</td>
          <td>The default task implementation class ( <code>                 org.apache.synapse.startup.tasks.MessageInjector                </code> ) of the Micro Integrator will be selected by default. This class simply injects a specified message into the Synapse environment when the server starts.<br />
-            If you are want to use a custom task implementation, see the instructions on <a href="../../../develop/customizations/creating-custom-task-scheduling">writing tasks</a> .
+            If you are want to use a custom task implementation, see the instructions on <a href="{{base_path}}/integrate/develop/customizations/creating-custom-task-scheduling">writing tasks</a> .
          </td>
       </tr>
       <tr class="even">
@@ -125,7 +125,7 @@ The following properties are required when [creating a scheduled task](../../../
 
 ### Task Implementation Properties
 
-Listed below are the optional task implementation properties you can use when [creating a scheduled task](../../../develop/creating-artifacts/creating-scheduled-task).
+Listed below are the optional task implementation properties you can use when [creating a scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
 
 <table>
    <thead>
