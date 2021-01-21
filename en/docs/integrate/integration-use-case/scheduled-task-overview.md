@@ -12,10 +12,10 @@ Furthermore, you can use cron expressions for more advanced executing time confi
 			<b>Examples</b></br>
 			<ul>
 				<li>
-					<a href="../../../use-cases/examples/scheduled-tasks/task-scheduling-simple-trigger">Task Scheduling using a Simple Trigger</a>
+					<a href="{{base_path}}/integrate/examples/scheduled-tasks/task-scheduling-simple-trigger">Task Scheduling using a Simple Trigger</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">Injecting Message to a RESTful Endpoint</a>
+					<a href="{{base_path}}/integrate/examples/scheduled-tasks/injecting-messages-to-rest-endpoint">Injecting Message to a RESTful Endpoint</a>
 				</li>
 			</ul>
 		</td>

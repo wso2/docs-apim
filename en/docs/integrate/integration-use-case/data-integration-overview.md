@@ -18,28 +18,28 @@ The data services functionality that is embedded in the Micro Integrator can dec
 			<b>Examples</b></br>
 			<ul>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/rdbms-data-service">Exposing an RDBMS Datasource</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/rdbms-data-service">Exposing an RDBMS Datasource</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/json-with-data-service">Exposing Data in JSON Format</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/json-with-data-service">Exposing Data in JSON Format</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/odata-service">Using and OData Service</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/odata-service">Using and OData Service</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/nested-queries-in-data-service">Using Nested Data Queries</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/nested-queries-in-data-service">Using Nested Data Queries</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/batch-requesting">Batch Requesting</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/batch-requesting">Batch Requesting</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/request-box">Invoking Multiple Operations via Request Box</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/request-box">Invoking Multiple Operations via Request Box</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/distributed-trans-data-service">Using Distributed Transactions in Data Services</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/distributed-trans-data-service">Using Distributed Transactions in Data Services</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/data_integration/data-input-validator">Validating Data Input</a>
+					<a href="{{base_path}}/integrate/examples/data_integration/data-input-validator">Validating Data Input</a>
 				</li>
 			</ul>
 		</td>
