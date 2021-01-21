@@ -1,21 +1,21 @@
 # Managing Integrations with CTL
 
-WSO2 API Controller, **apictl** allows you to monitor the synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line. **apictl** communicates with the management API of WSO2 Micro Integrator to function.
+WSO2 API Controller, **apictl** allows you to monitor the synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
 
 !!! info
     **Before you begin** 
 
-    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
-    -  Make sure to add the micro integrator to an environment before you start working with the following CTL commands.      
-    For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+
+    -  Ensure that the micro integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
 ## Login to a Micro Integrator
 
-After adding an environment, you can log in to the Micro Integrator instance in that environment using credentials.
+After adding an environment, you can login to the Micro Integrator instance of that environment using credentials.
 
-1.  Make sure that the WSO2 Micro Integrator 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.   
-2.  Run any of the following CTL commands to log in to a Micro Integrator.
+1.  Run any of the following CTL commands to login to a Micro Integrator.
 
     -   **Command**
 
@@ -73,10 +73,7 @@ After adding an environment, you can log in to the Micro Integrator instance in 
 
 ## Logout from a Micro Integrator
 
-1.  Make sure that the WSO2 Micro Integrator 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.   
-For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
-
-2.  Run the following command to log out from the current session of the Micro Integrator.
+1.  Run the following command to logout from the current session of the Micro Integrator.
 
     -   **Command** 
 
@@ -222,11 +219,6 @@ You can use the below command to remove a user from the the Micro Integrator.
 ## Monitor Integration Artifacts
 
 Follow the instructions below to display a list of artifacts or get information about a specific artifact in an environment using CTL:
-
-1.  Make sure that the WSO2 Micro Integrator 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.   
-    For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
-
-2.  Log in to the Micro Integrator in the environment by following the instructions in [Login to a Micro Integrator](#login-to-a-micro-integrator).
 
 ### Composite Applications (CApps)
 

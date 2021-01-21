@@ -173,8 +173,9 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         !!! info
             **Flags:**  
             
+            **To add an API Manager**
+
             -    Required :     
-                **To add an API Manager**   
                 (either)     
                 `--apim` : API Manager endpoint for the environments     
                 OR (the following 4)     
@@ -182,10 +183,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--admin` : Admin endpoint for the environment     
                 `--publisher` : Publisher Portal endpoint for the environment     
                 `--devportal` : Developer Portal endpoint for the environment     
-                **To add a Micro Integrator**   
-                `--mi` : Management endpoint of the Micro Integrator
+
             -   Optional :     
                 `--token` : Token endpoint for the environment
+
+            **To add a Micro Integrator**
+
+            -    Required :     
+                `--mi` : Management endpoint of the Micro Integrator
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
@@ -195,6 +200,8 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
             In both of the above cases `--token`  flag is optional and can be used to provide a user preferred token endpoint.
             To add a micro integrator instance to an environment you can use the `--mi` flag.
+
+    -   Adding an API Manager to an environment using `--apim` flag
 
         !!! example
 
@@ -207,28 +214,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl add env dev --apim https://localhost:9443 
             ```               
 
-        !!! example
-
-            ``` bash tab="Linux/Unix"
-            apictl add env dev \
-                        --mi https://localhost:9164
-            ```
-
-            ``` bash tab="Mac/Windows"
-            apictl add env dev --mi https://localhost:9164
-            ```
-
-        !!! example
-
-            ``` bash tab="Linux/Unix"
-            apictl add env test \
-                        --apim https://localhost:9443 \
-                        --mi https://localhost:9164
-            ```
-
-            ``` bash tab="Mac/Windows"
-            apictl add env test --apim https://localhost:9443 --mi https://localhost:9164
-            ```
+    -   Adding an API Manager to an environment using `--registration`, `--publisher`, `--devportal`, `--admin` flags
 
         !!! example
 
@@ -244,7 +230,9 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Mac/Windows"
             apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
             ```  
-    
+
+    -   Adding an API Manager to an environment using some of the `--registration`, `--publisher`, `--devportal`, `--admin` flags along with `--apim` flag
+
         !!! example
 
             ``` bash tab="Linux/Unix"
@@ -257,7 +245,34 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Mac/Windows"
             apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
             ```  
-        
+
+    -   Adding a Micro Integrator to an environment using `--mi` flag
+
+        !!! example
+
+            ``` bash tab="Linux/Unix"
+            apictl add env dev \
+                        --mi https://localhost:9164
+            ```
+
+            ``` bash tab="Mac/Windows"
+            apictl add env dev --mi https://localhost:9164
+            ```
+
+    -   Adding both API Manager and Micro Integrator to an environment
+
+        !!! example
+
+            ``` bash tab="Linux/Unix"
+            apictl add env test \
+                        --apim https://localhost:9443 \
+                        --mi https://localhost:9164
+            ```
+
+            ``` bash tab="Mac/Windows"
+            apictl add env test --apim https://localhost:9443 --mi https://localhost:9164
+            ```
+
         !!!note
             `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
 
@@ -328,7 +343,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         ```bash tab="Example Response"
         NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT             MI MANAGEMENT ENDPOINT
         dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
-        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444
+        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444     https://localhost:9164
         dev-mi                                                                                                                                                                      https://localhost:9164
 
         ```
