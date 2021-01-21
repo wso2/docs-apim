@@ -2,9 +2,9 @@
 
 WSO2 API Manager has three types of threat protectors for the Gateway.
 
--   [Regular Expression Threat Protection for API Gateway](../../../api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md)
--   [JSON Threat Protection for API Gateway](../../../api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md)
--   [XML Threat Protection for API Gateway](../../../api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md)
+-   [Regular Expression Threat Protection for API Gateway]({{base_path}}/publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway)
+-   [JSON Threat Protection for API Gateway]({{base_path}}/publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway)
+-   [XML Threat Protection for API Gateway]({{base_path}}/publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway)
 
 ### Combining threat protectors
 
