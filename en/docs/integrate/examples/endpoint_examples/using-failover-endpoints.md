@@ -60,7 +60,7 @@ property (i.e., `         10        ` miliseconds in the above example).
 
 For all the other errors, it will be marked as
 `         Suspended        ` . For more information about these states
-and properties, see [Endpoint Error Handling](../endpoint-error-handling).
+and properties, see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).
 
 !!! Info
     The retry count is per endpoint, not per message. The retry happens in parallel. Since messages come to this endpoint via many threads, the same message may not be retried three times. Another message may fail and can reduce the retry count.
@@ -110,7 +110,7 @@ send the requests using the next endpoint, which is in the
 Neverthless, when the first endpoint becomes ready to send again, it
 will try again on the first endpoint, even though the second endpoint is
 still active. For more information about these states and properties,
-see [Endpoint Error Handling](../endpoint-error-handling).
+see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).
 
 ### Synapse configuration
 

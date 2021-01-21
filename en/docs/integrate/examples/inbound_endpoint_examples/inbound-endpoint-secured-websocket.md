@@ -35,7 +35,7 @@ The following should take place in this scenario:
 -   The Micro Integrator sends the transformed message in the form of WebSocket frames.
 
 !!! Tip
-    If necessary, you can use the [data mapper](../../references/mediators/data-Mapper-Mediator) to perform data transformation inside the Micro Integrator message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
+    If necessary, you can use the [data mapper](../../references/mediators/data-mapper-mediator) to perform data transformation inside the Micro Integrator message flow. For example, you can perform JSON to JSON transformation. To do this, you have to explicitly apply the required data mapping logic for all WebSocket frames.
 
 ## Synapse configuration
 
@@ -95,7 +95,7 @@ Specify the `websocket.accept.contenType` property to inform the WebSocket sende
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 
     !!! Note
         The Websocket sender functionality of the Micro Integrator is disabled by default. To enable the transport, open the `deployment.toml` file from the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/conf/` directory and add the following: 
@@ -105,9 +105,9 @@ Create the artifacts:
         sender.enable = true
         ```
         
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [mediation sequences](../../../../develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint](../../../../develop/creating-an-inbound-endpoint) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Starting the Websocket client:
 
