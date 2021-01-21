@@ -23,7 +23,7 @@ You can easily download them from the [Micro Integrator Dashboard](../../../admi
 1.  Sign in to the dashboard. 
 2.  Click <b>Log Files</b> as shown below to view the complete list.
 
-    <img alt="download log files" src="../../../assets/img/monitoring-dashboard/log-files-dashboard.png" width="700">
+    <img alt="download log files" src="{{base_path}}/assets/img/monitoring-dashboard/log-files-dashboard.png" width="700">
 
 3.  User the <b>Search</b> option to find a specific log file.
 4.  Click the log file to download.
@@ -54,7 +54,7 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 
 The API log file covers the logs related to APIs deployed in the Micro Integrator. By default, all APIs in the server will print logs to this common log file (`wso2-mi-api.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI is being used.
 
-If you have [individual log files](../../../develop/enabling-logs-for-api/) configured for APIs, you can download the log file that is specific to the API.
+If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-api/) configured for APIs, you can download the log file that is specific to the API.
 
 ```bash
 [2020-11-10 08:44:15,258]  INFO {API_LOGGER.UserInfoRestAPI} - Initializing API: UserInfoRestAPI
@@ -71,7 +71,7 @@ If you have [individual log files](../../../develop/enabling-logs-for-api/) conf
 
 The service log file covers the logs related to proxy services deployed in the Micro Integrator. By default, all services in the server will print logs to this common log file (`wso2-mi-service.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI is being used.
 
-If you have [individual log files](../../../develop/enabling-logs-for-services/) configured services, you can download the log file that is specific to the service.
+If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-services/) configured services, you can download the log file that is specific to the service.
 
 ```bash
 [2020-10-14 10:16:15,399]  INFO {SERVICE_LOGGER.hl7testproxy} - Building Axis service for Proxy service : hl7testproxy
@@ -163,4 +163,4 @@ See [Monitoring Message Round Trip](../../../administer-and-observe/monitoring-c
 
 When you run the Micro Integrator, the console will print logs from the [Carbon log file](#monitoring-carbon-logs) as well as the [Error log file](#monitoring-error-logs).
 
-If you have enabled <b>wire logs</b>, these will also be printed on the console. See the instructions on how to [enable and use Wire Logs](../../../develop/using-wire-logs/).
+If you have enabled <b>wire logs</b>, these will also be printed on the console. See the instructions on how to [enable and use Wire Logs]({{base_path}}/integrate/develop/using-wire-logs/).
