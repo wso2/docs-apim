@@ -149,7 +149,6 @@ When using WSO2 API-M Analytics 3.1.0, when publishing to an HA setup of APIM an
 </p>
 </div>
 </html>
-
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
 <p>If the <code>receiver_urls</code> property is configured in the  <code>[apim.analytics]</code> section , no need to configure the  
@@ -157,7 +156,6 @@ When using WSO2 API-M Analytics 3.1.0, when publishing to an HA setup of APIM an
 </p>
 </div>
 </html>
-
 </td>
 </tr>
 <tr class="odd">
