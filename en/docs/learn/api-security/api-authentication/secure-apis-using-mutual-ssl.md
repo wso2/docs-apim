@@ -55,14 +55,14 @@ When SSL Termination of API requests happens at the loadbalancer/reverse proxy, 
 -   Pass the client SSL certificate to the Gateway in an HTTP Header.
     For more information, see the [NGINX documentation](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate).
 
-The below diagram shows how MutualSSL works in such environment.
+The below diagram shows how MutualSSL works in such an environment.
 
 ![]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
 
 By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. In order to change the header,
 
--  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
--  Configure the *certificate_header* under the [apimgt.mutual_ssl] configuration.
+1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+2.  Configure the *certificate_header* under the [apimgt.mutual_ssl] configuration.
 
     ```toml
     [apimgt.mutual_ssl]
@@ -71,4 +71,4 @@ By default, the WSO2 API Manager retrieves the client certificate from the **X-W
     enable_client_validation = false
     ```
 
--  Start the Server.
+3.  Start the Server.
