@@ -3,17 +3,17 @@
 
 A REST API in WSO2 Micro Integrator is analogous to a web application deployed in the web container. Each API is anchored at a user-defined URL context, much like how a web application deployed in a servlet container is anchored at a fixed URL context. An API will only process requests that fall under its URL context. An API is made of one or more **Resources**, which are logical components of an API that can be accessed by making a particular type of HTTP call. 
 
-A REST API resource is used by the Micro Integrator to process messages before forwarding them to the relevant endpoint. Just as [Proxy Services](../../../references/synapse-properties/proxy-service-properties) and [Inbound Endpoints](../../../references/synapse-properties/inbound-endpoints/about-inbound-endpoints), the REST API resource uses [mediators](../../../references/mediators/about-mediators) and [sequences](../../../references/synapse-properties/sequence-properties) to define the mediation logic for processing messages. The API resource mediates incoming requests, forwards them to a specified endpoint, mediates the responses from the endpoint, and sends the responses back to the client that originally requested them. The [In](../../../references/synapse-properties/sequence-properties/#inout-sequences) sequence handles incoming requests and sends them to the back-end service, and the [Out](../../../references/synapse-properties/sequence-properties/#inout-sequences) sequence handles the responses from the back-end service and sends them to the requesting client. You can also define a [fault sequence](../../../references/synapse-properties/sequence-properties/#fault-sequences) to handle any errors that may occur while mediating a message through a resource.
+A REST API resource is used by the Micro Integrator to process messages before forwarding them to the relevant endpoint. Just as [Proxy Services]({{base_path}}/reference/synapse-properties/proxy-service-properties) and [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints), the REST API resource uses [mediators]({{base_path}}/reference/mediators/about-mediators) and [sequences]({{base_path}}/reference/synapse-properties/sequence-properties) to define the mediation logic for processing messages. The API resource mediates incoming requests, forwards them to a specified endpoint, mediates the responses from the endpoint, and sends the responses back to the client that originally requested them. The [In]({{base_path}}/reference/synapse-properties/sequence-properties/#inout-sequences) sequence handles incoming requests and sends them to the back-end service, and the [Out]({{base_path}}/reference/synapse-properties/sequence-properties/#inout-sequences) sequence handles the responses from the back-end service and sends them to the requesting client. You can also define a [fault sequence]({{base_path}}/reference/synapse-properties/sequence-properties/#fault-sequences) to handle any errors that may occur while mediating a message through a resource.
 
-We can create an API resource to process defined HTTP request methods. Furthermore, you can configure REST [endpoints](../../../references/synapse-properties/endpoint-properties) in an API by directly specifying HTTP verbs (such as POST and GET), URI templates, and URL mappings. Alternatively, you can use the [HTTP Endpoint](../../../references/synapse-properties/endpoint-properties) to define REST endpoints using URI templates.
+We can create an API resource to process defined HTTP request methods. Furthermore, you can configure REST [endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties) in an API by directly specifying HTTP verbs (such as POST and GET), URI templates, and URL mappings. Alternatively, you can use the [HTTP Endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties) to define REST endpoints using URI templates.
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when [creating a REST API artifact](../../develop/creating-artifacts/creating-an-api.md).
+See the topics given below for the list of properties that can be configured when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
 
 ### REST API Properties (Required)
 
-The following properties are required in order to [create the REST API artifact](../../develop/creating-artifacts/creating-an-api.md).
+The following properties are required in order to [create the REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
 
 <table>
     <tr>
@@ -34,7 +34,7 @@ The following properties are required in order to [create the REST API artifact]
 
 ### REST API Properties (Optional)
 
-The following properties are optional properties you can configure when [creating a REST API artifact](../../develop/creating-artifacts/creating-an-api.md).
+The following properties are optional properties you can configure when [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md).
 
 <table>
     <tr>
@@ -59,14 +59,14 @@ The following properties are optional properties you can configure when [creatin
           </td>
           <td>
               The path to a custom Swagger definition (YAML/JSON file) that is stored in a registry project in your workspace.</br></br>
-              Once this API is created and deployed in the Micro Integrator, users will be able to access this custom Swagger definition and not the default Swagger definition of the API. See the instructions on <a href="../../../develop/advanced-development/using-swagger-for-apis">using Swagger documents</a> for more information.
+              Once this API is created and deployed in the Micro Integrator, users will be able to access this custom Swagger definition and not the default Swagger definition of the API. See the instructions on <a href="{{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis">using Swagger documents</a> for more information.
           </td>
       </tr>
 </table>
 
 ### REST API Resource Properties
 
-When you [creating a REST API artifact](../../develop/creating-artifacts/creating-an-api.md), you need to configure the API resource. Listed below are the properties you can configure when [defining an API resource](../../../develop/creating-artifacts/creating-an-api/#step-3-update-api-resource-properties).
+When you [creating a REST API artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api.md), you need to configure the API resource. Listed below are the properties you can configure when [defining an API resource]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api/#step-3-update-api-resource-properties).
 
 <table>
     <tr>

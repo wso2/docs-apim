@@ -1,15 +1,15 @@
 # RabbitMQ Parameters
 
-When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires a RabbitMQ connection, you can use the following RabbitMQ parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-      The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport](../../../../setup/brokers/configure-with-rabbitMQ).
+      The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/brokers/configure-with-rabbitMQ).
 
 ## Service-Level Parameters (Receiving Messages)
 
-{!references/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service](../../../../develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ### Required Parameters
 
@@ -231,7 +231,7 @@ To enable SSL support in RabbitMQ, you need to configure the following paramet
 
 ## Service-Level Parameters (Sending Messages)
 
-In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact](../../../../develop/creating-artifacts/creating-endpoints).
+In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
 
 **Example**:
 
@@ -361,4 +361,4 @@ In your integration solution, the following RabbitMQ send parameters can be spec
 
 ### Mediator Properties
 
-In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator](../../../references/mediators/property-Mediator.md) and the [Property Group mediator](../../../references/mediators/property-Group-Mediator.md).
+In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator.md) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator.md).

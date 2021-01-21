@@ -31,11 +31,11 @@ MQ Telemetry Transport (MQTT) is a lightweight broker-based publish/subscribe me
 
 ## Properties
 
-Listed below are the properties used for [creating an MQTT inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating an MQTT inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a MQTT inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a MQTT inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -102,7 +102,7 @@ The following properties are required when [creating a MQTT inbound endpiont](..
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating an MQTT inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating an MQTT inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
 <thead>

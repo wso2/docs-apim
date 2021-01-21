@@ -1,9 +1,9 @@
 # Template Properties
 ## Introduction
 
-A large number of configuration files in the form of [sequences](../../../references/synapse-properties/sequence-properties), [endpoints](../../../references/synapse-properties/endpoint-properties), [proxy services](../../../references/synapse-properties/proxy-service-properties), and transformations can be required to satisfy all the mediation requirements of your system. To keep your configurations manageable, it's important to avoid scattering configuration files across different locations and to avoid duplicating redundant configurations.
+A large number of configuration files in the form of [sequences]({{base_path}}/reference/synapse-properties/sequence-properties), [endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties), [proxy services]({{base_path}}/reference/synapse-properties/proxy-service-properties), and transformations can be required to satisfy all the mediation requirements of your system. To keep your configurations manageable, it's important to avoid scattering configuration files across different locations and to avoid duplicating redundant configurations.
 
-Templates help minimize this redundancy by creating prototypes that users can use and reuse when needed. This is very much analogous to classes and instances of classes: a template is a class that can be used to wield instance objects such as [sequences](../../../references/synapse-properties/sequence-properties) and [endpoints](../../../references/synapse-properties/endpoint-properties). Thus, templates are an ideal way to improve reusability and readability of configurations/XMLs. Additionally, users can use predefined templates that reflect common enterprise integration patterns for rapid development of message/mediation flows.
+Templates help minimize this redundancy by creating prototypes that users can use and reuse when needed. This is very much analogous to classes and instances of classes: a template is a class that can be used to wield instance objects such as [sequences]({{base_path}}/reference/synapse-properties/sequence-properties) and [endpoints]({{base_path}}/reference/synapse-properties/endpoint-properties). Thus, templates are an ideal way to improve reusability and readability of configurations/XMLs. Additionally, users can use predefined templates that reflect common enterprise integration patterns for rapid development of message/mediation flows.
 
 <table>
     <tr>
@@ -14,7 +14,7 @@ Templates help minimize this redundancy by creating prototypes that users can us
         <td>Endpoint Template</td>
         <td>
             Endpoint template is a generalized form of endpoint configurations. It parameterizes a list of endpoint configurations. This allows a mediation flow to use the template parameters to select specific endpoint configurations (defined in the template) and apply them to the mediation flow.</br></br>
-            Unlike <a href="../../../references/synapse-properties/template-properties/#sequence_template">sequence templates</a>, endpoint templates are always parametrized using <code>$</code> prefixed values (not XPath expressions). Once an endpoint template is created, it can be referred in a mediation flow through a Template Endpoint. Therefore, the template endpoint is the artifact that translates this template into a concrete endpoint. This is semantically similar to the relationship between a <a href="#sequence_template">sequence template</a> and the Call Template Mediator.
+            Unlike <a href="{{base_path}}/reference/synapse-properties/template-properties/#sequence_template">sequence templates</a>, endpoint templates are always parametrized using <code>$</code> prefixed values (not XPath expressions). Once an endpoint template is created, it can be referred in a mediation flow through a Template Endpoint. Therefore, the template endpoint is the artifact that translates this template into a concrete endpoint. This is semantically similar to the relationship between a <a href="#sequence_template">sequence template</a> and the Call Template Mediator.
         </td>
     </tr>
     <tr>
@@ -29,7 +29,7 @@ See the topics given below for the list of properties that can be configured whe
 
 ## Sequence Template Properties
 
-The parameters available to [configure the Sequence Template](../../develop/creating-artifacts/creating-sequence-templates.md) are as follows.
+The parameters available to [configure the Sequence Template]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates.md) are as follows.
 
 <table>
     <tr>
@@ -86,9 +86,9 @@ The parameters available to [configure the Sequence Template](../../develop/crea
         </td>
         <td>
             Set this parameter to 'true' if a value is required to be passed for the configuration.</br></br>
-            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="../../references/synapse-properties/template-properties/call-Template-Mediator">Call Template mediator</a> will be called.</br></br>
+            When this parameter is 'true', if a value is not passed from a Call Template mediator as shown below, the Micro Integrator will first check for a <a href="#defaultValue">defaultvalue</a>. If a <a href="#defaultValue">defaultValue</a> does not exist, the 'onError' sequence of the <a href="{{base_path}}/reference/synapse-properties/template-properties/call-Template-Mediator">Call Template mediator</a> will be called.</br></br>
             If an empty value is passed in the Call Template mediator, the empty value will be used instead of using the default value.</br></br>
-            See the <a href="../../use-cases/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
+            See the <a href="{{base_path}}/integrate/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
     <tr id="defaultValue">
@@ -96,14 +96,14 @@ The parameters available to [configure the Sequence Template](../../develop/crea
             defaultValue
         </td>
         <td>
-            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="../../use-cases/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
+            Specifies a default value that should apply when a value is not passed when calling the template. See the <a href="{{base_path}}/integrate/examples/template_examples/using-sequence-templates/">example use cases</a> for details.
         </td>
     </tr>
 </table>
 
 ## Endpoint Template Properties
 
-The basic parameters available to [configure the Endpoint template](../../develop/creating-artifacts/creating-endpoint-templates.md) are as follows.
+The basic parameters available to [configure the Endpoint template]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates.md) are as follows.
 
 <table>
   <tr>

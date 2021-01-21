@@ -6,11 +6,11 @@ The resequencing store is an extension of the existing JDBC-based message store.
 
 ## Properties
 
-Listed below are the properties used for [creating a Resequence Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+Listed below are the properties used for [creating a Resequence Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 ### Required Properties
 
-The following properties are required when [creating a Resequence Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+The following properties are required when [creating a Resequence Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
   <tr>
@@ -65,7 +65,7 @@ The following properties are required when [creating a Resequence Message Store]
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a Resequencer Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+The following optional properties can be configured when [creating a Resequencer Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
    <thead>

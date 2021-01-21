@@ -1,13 +1,13 @@
 # JMS Parameters
 
-When you implement an integration use case that requires a JMS connection, you can use the following JMS parameters in your [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires a JMS connection, you can use the following JMS parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can listen to a JMS instance or send messages to a JMS instance only if the JMS transport listener and sender are enabled and configured at the server level. Read about the [JMS transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport).
+    The Micro Integrator can listen to a JMS instance or send messages to a JMS instance only if the JMS transport listener and sender are enabled and configured at the server level. Read about the [JMS transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport).
 
-{!references/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service](../../../../develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ## Service-Level JMS Parameters
 
@@ -63,7 +63,7 @@ See [Creating a Proxy Service](../../../../develop/creating-artifacts/creating-a
 The JMS connection factory parameters can be specified at the server level or the service level. Given below are the complete list of connection factory parameters (with a comparison of service-level and server-level parameter names).
 
 !!! Tip
-    To define the parameters at the server level, you need to update the **JMS configurations** in the `deployment.toml` file. See the [configuration catalog](../../../../references/config-catalog) for details on how to apply server configurations.
+    To define the parameters at the server level, you need to update the **JMS configurations** in the `deployment.toml` file. See the [configuration catalog]({{base_path}}/reference/config-catalog) for details on how to apply server configurations.
 
 <table>
       <tr>
