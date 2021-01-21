@@ -31,7 +31,7 @@ The parameters available for configuring the Property mediator are as follows:
 <td><div class="content-wrapper">
 <p>A name for the property.</p>
 <p>You can provide a static value or a dynamic value for the property name. A dynamic property name can be retrieved
-by using an XPath function. You can use any of the <a href="{{base_path}}/mediators/property-reference/accessing-properties-with-xpath">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
+by using an XPath function. You can use any of the <a href="{{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath">XPath functions</a> that you use for the property <b>value</b> or property <b>expression</b>.</p>
 <p>Note that the XPath function should be contained within curly brackets (<code>{}</code>) as well as double quotations (<code>""</code>). See the examples given below.</p>
   <ul>
     <li>
