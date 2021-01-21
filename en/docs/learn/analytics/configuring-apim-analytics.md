@@ -153,7 +153,6 @@ However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Enterpris
 </p>
 </div>
 </html>
-
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
 <p>If the <code>receiver_urls</code> property is configured in the  <code>[apim.analytics]</code> section , no need to configure the  
@@ -161,7 +160,6 @@ However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Enterpris
 </p>
 </div>
 </html>
-
 </td>
 </tr>
 <tr class="odd">
