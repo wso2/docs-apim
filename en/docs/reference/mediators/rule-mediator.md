@@ -6,7 +6,7 @@ rules.
 The Rule mediator uses an XML message as an input and produces a processed XML message after applying a set of rules. The result xml message can be used as the new soap body message. Alternatively, the information in the processed XML message can be used route the message or do any further processing. or the information can be used to route the message. The use the information to route the message or do any other processing.
 
 !!! Info
-    The Rule mediator is a [content aware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Rule mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
