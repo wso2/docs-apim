@@ -392,6 +392,7 @@ nav:
                 - Changing to IBM DB2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
         - Product Compatibility: install-and-setup/product-compatibility.md
+        - Supported Cipher Suites : install-and-setup/supported-cipher-suites.md
         - Performance Tuning and Test Results:
               - Tuning Performance: install-and-setup/performance-tuning-and-test-results/tuning-performance.md
               - Performance Test Results: install-and-setup/performance-tuning-and-test-results/performance-test-results.md
