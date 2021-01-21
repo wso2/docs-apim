@@ -16,7 +16,7 @@ capability into WSO2 Micro Integrator.
 Data Mapper mediator finds the configuration files from the Registry and configures the Data Mapper Engine with the input message type (XML/JSON/CSV) and output message type (XML/JSON/CSV). Then it takes the request message from the Micro Integrator message flow and uses the configured Data Mapper Engine to execute the transformation and adds the output message to the Micro Integrator message flow.
 
 !!! Info
-    The Data Mapper mediator is a [content-aware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Data Mapper mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 

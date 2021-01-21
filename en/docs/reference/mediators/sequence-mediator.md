@@ -16,7 +16,7 @@ two options are described in the table below.
 | Applying changes done to the pre-defined sequence | Any changes done to the sequence saved in the **Registry** after it was selected as the in/out/fault sequence will not be considered when carrying out mediation. | Any changes done to the sequence saved in the **Registry** after it was selected as the in/out/fault sequence will be considered when carrying out mediation. |
 
 !!! Info
-    The Sequence mediator is a [content-unaware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Sequence mediator is a [content-unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 

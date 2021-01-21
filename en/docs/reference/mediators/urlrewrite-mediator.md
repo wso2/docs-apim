@@ -6,7 +6,7 @@ action for each fragment of a selected property value. Alternatively,
 you can rewrite the entire URL string at once.
 
 !!! info
-    The URLRewrite mediator is a [content aware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The URLRewrite mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Syntax
 
