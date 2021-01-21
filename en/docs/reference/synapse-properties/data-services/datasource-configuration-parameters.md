@@ -7,7 +7,7 @@ The datasource configuration in a data service specifies how the service connect
 Shown below is the synapse configuration of an RDBMS datasource in a data service. See the complete list of [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) and the [DBCP configuration guide](http://commons.apache.org/proper/commons-dbcp/configuration.html) for more details.
 
 !!! Note
-      The default values of the following parameters might not be optimal for the specific hardware/server configurations in your environment. We recommend that you carry out load tests in your environment to tune them accordingly. See [Tuning Datasource Configuration Parameters](../../../../setup/performance_tuning/jdbc_tuning) for information on how you can select the best values for these parameters.
+      The default values of the following parameters might not be optimal for the specific hardware/server configurations in your environment. We recommend that you carry out load tests in your environment to tune them accordingly. See [Tuning Datasource Configuration Parameters]({{base_path}}/install-and-setup/performance_tuning/jdbc_tuning) for information on how you can select the best values for these parameters.
 
 ```toml
 <data name="RDBMSDataService" serviceStatus="inactive" transports="http https local">

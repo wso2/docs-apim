@@ -5,7 +5,7 @@ The **Store mediator** enqueues messages passing through its mediation sequence 
 ## Syntax
 
 !!! Info
-    The Store mediator is a [content aware](../../../concepts/message-processing-units/#classification-of-mediators) mediator.
+    The Store mediator is a [content aware]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) mediator.
 
 ``` xml
 <axis2ns1:store xmlns:axis2ns1="http://ws.apache.org/ns/synapse" messageStore="JMSMS" sequence="storeSequence"></axis2ns1:store>

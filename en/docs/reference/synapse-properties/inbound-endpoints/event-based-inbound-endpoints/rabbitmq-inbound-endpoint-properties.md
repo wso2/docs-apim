@@ -24,11 +24,11 @@
 
 ## Properties
 
-Listed below are the properties used for [creating a RabbitMQ inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating a RabbitMQ inbound endpiont]({{base_path}}/integrate//develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-The following properties are required when [creating a RabbitMQ inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+The following properties are required when [creating a RabbitMQ inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
@@ -89,7 +89,7 @@ The following properties are required when [creating a RabbitMQ inbound endpiont
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating an RabbitMQ inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+The following optional properties can be configured when [creating an RabbitMQ inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 Note that the optional properties related to defining a **queue** should contain the `rabbitmq.queue.optional.` prefix,
 and the optional properties related to defining an **exchange** should contain the `rabbitmq.exchange.optional.` prefix.
 
@@ -344,4 +344,4 @@ fails after 5 retry attempts, the Micro Integrator terminates the connection.
 
 ### Mediator Properties
 
-In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator](../../../../../references/mediators/property-Mediator) and the [Property Group mediator](../../../../../references/mediators/property-Group-Mediator).
+In addition to the parameters described above, you can define RabbitMQ properties using the [Property mediator]({{base_path}}/reference/mediators/property-mediator) and the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator).

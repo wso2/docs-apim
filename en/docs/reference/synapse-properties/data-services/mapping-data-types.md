@@ -1,6 +1,6 @@
 # SQL/Data Types
 
-This section describes the data types that are used when defining [Input and Output Mappings](../../../../references/synapse-properties/data-services/query-parameters) in a data service:
+This section describes the data types that are used when defining [Input and Output Mappings]({{base_path}}/reference/synapse-properties/data-services/query-parameters) in a data service:
 
 ## Array data type
 

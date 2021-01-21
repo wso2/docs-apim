@@ -86,7 +86,7 @@ Select one of the following options to define the endpoint to which the message 
 </tr>
 <tr class="even">
 <td><strong>Define Inline</strong></td>
-<td>If this is selected, the endpoint to which the message should be sent can be included within the Call mediator configuration. Click <strong>Add</strong> to add the required endpoint. For more information on Adding an endpoint, see <a href="../../develop/creating-artifacts/creating-endpoints">Adding an Endpoint</a> .</td>
+<td>If this is selected, the endpoint to which the message should be sent can be included within the Call mediator configuration. Click <strong>Add</strong> to add the required endpoint. For more information on Adding an endpoint, see <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints">Adding an Endpoint</a> .</td>
 </tr>
 <tr class="odd">
 <td><strong>Pick From Registry</strong></td>

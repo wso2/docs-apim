@@ -4,7 +4,7 @@ Users can create a message store with their own message store implementation. C
 
 ## Properties
 
-The following properties can be configured when [creating a Custom Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+The following properties can be configured when [creating a Custom Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
   <tr>

@@ -1,8 +1,8 @@
 # About Message Stores and Processors
 
-A **Message Store** is used by a [mediation sequence](../../references/synapse-properties/sequence-properties.md) to temporarily store messages before they are delivered to their destination. This approach is useful for serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. 
+A **Message Store** is used by a [mediation sequence]({{base_path}}/reference/synapse-properties/sequence-properties.md) to temporarily store messages before they are delivered to their destination. This approach is useful for serving traffic to back-end services that can only accept messages at a given rate, whereas incoming traffic arrives at different rates. 
 
-The [Store Mediator](../../references/mediators/store-Mediator.md) in a mediation sequence is used to store incoming messages in the message store. The **Message Processor** retrieves the messages from the message store and delivers them to the back-end service at a given rate.
+The [Store Mediator]({{base_path}}/reference/mediators/store-mediator.md) in a mediation sequence is used to store incoming messages in the message store. The **Message Processor** retrieves the messages from the message store and delivers them to the back-end service at a given rate.
 
 Multiple message processors can use the same message store. For example, in a clustered environment, each of the nodes would have an instance of the same message processor, each of which would connect to the same message store and evenly consume messages. The message store acts as a manager of these consumers and their connections and ensures that messages are processed by only one message processor, preventing message duplication. You can further control which nodes a message processor runs on by specifying pinned servers.
 
@@ -11,13 +11,13 @@ Multiple message processors can use the same message store. For example, in a cl
 
 ## List of Message Stores
 
-- <a href="../../../references/synapse-properties/message-stores/jms-msg-store-properties">JMS Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/jdbc-msg-store-properties">JDBC Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/rabbitmq-msg-store-properties">RabbitMQ Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/resequence-msg-store-properties">Resequence Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/wso2mb-msg-store-properties">WSO2 MB Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/in-memory-msg-store-properties">In-Memory Message Store</a>
-- <a href="../../../references/synapse-properties/message-stores/custom-msg-store-properties">Custom Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/jms-msg-store-properties">JMS Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/jdbc-msg-store-properties">JDBC Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/rabbitmq-msg-store-properties">RabbitMQ Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/resequence-msg-store-properties">Resequence Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/wso2mb-msg-store-properties">WSO2 MB Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/in-memory-msg-store-properties">In-Memory Message Store</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-stores/custom-msg-store-properties">Custom Message Store</a>
 
 <!--
 
@@ -99,9 +99,9 @@ Multiple message processors can use the same message store. For example, in a cl
 
 ## List of Message Processors
 
-- <a href="../../../references/synapse-properties/message-processors/msg-sampling-processor-properties">Message Sampling Processor</a>
-- <a href="../../../references/synapse-properties/message-processors/msg-sched-forwarding-processor-properties">Scheduled Message Forwarding Processor</a>
-- <a href="../../../references/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties">Scheduled Failover Message Forwarding Processor</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties">Message Sampling Processor</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties">Scheduled Message Forwarding Processor</a>
+- <a href="{{base_path}}/reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties">Scheduled Failover Message Forwarding Processor</a>
 
 <!--
 <table>
@@ -116,7 +116,7 @@ Multiple message processors can use the same message store. For example, in a cl
       Message Sampling Processor
     </td>
     <td>
-      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="../../../../references/synapse-properties/sequence-properties">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+      The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="{{base_path}}/reference/synapse-properties/sequence-properties">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
     </td>
   </tr>
   <tr>
@@ -129,7 +129,7 @@ Multiple message processors can use the same message store. For example, in a cl
   <tr>
     <td>Scheduled Message Forwarding Processor</td>
     <td>
-      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="../../../../references/synapse-properties/endpoint-properties">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
+      The scheduled message forwarding processor consumes messages in a message store and sends them to an <a href="{{base_path}}/reference/synapse-properties/endpoint-properties">endpoint</a>. If a message is successfully delivered to the endpoint, the processor deletes the message from the message store. In case of a failure, it will retry after a specified interval.
     </td>
   </tr>
   <tr>

@@ -3,17 +3,17 @@
 
 Proxy services are virtual services that receive messages and optionally process them before forwarding them to a service at a given endpoint. This approach allows you to perform necessary transformations and introduce additional functionality without changing your existing service. 
 
-Just as [REST APIs](../../../references/synapse-properties/rest-api-properties) and [Inbound Endpoints](../../../references/synapse-properties/inbound-endpoints/about-inbound-endpoints), the proxy service uses [mediators](../../../references/mediators/about-mediators) and [sequences](../../../references/synapse-properties/sequence-properties) to define the mediation logic for processing messages. You can also enabling WS-Security to a proxy service, so that it serves as a security gateway to your actual services. The [In](../../../references/synapse-properties/sequence-properties/#inout-sequences) sequence handles incoming requests and sends them to the back-end service, and the [Out](../../../references/synapse-properties/sequence-properties/#inout-sequences) sequence handles the responses from the back-end service and sends them to the requesting client. You can also define a [fault sequence](../../../references/synapse-properties/sequence-properties#fault-sequences) to handle any errors that may occur while mediating a message through a resource.
+Just as [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properties) and [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints), the proxy service uses [mediators]({{base_path}}/reference/mediators/about-mediators) and [sequences]({{base_path}}/reference/synapse-properties/sequence-properties) to define the mediation logic for processing messages. You can also enabling WS-Security to a proxy service, so that it serves as a security gateway to your actual services. The [In]({{base_path}}/reference/synapse-properties/sequence-properties/#inout-sequences) sequence handles incoming requests and sends them to the back-end service, and the [Out]({{base_path}}/reference/synapse-properties/sequence-properties/#inout-sequences) sequence handles the responses from the back-end service and sends them to the requesting client. You can also define a [fault sequence]({{base_path}}/reference/synapse-properties/sequence-properties#fault-sequences) to handle any errors that may occur while mediating a message through a resource.
 
 Any available transport can be used to receive and send messages from the proxy services. A proxy service is externally visible and can be accessed using a URL similar to a normal web service address.
 
 ## Properties
 
-See the topics given below for the list of properties that can be configured when [creating a proxy service](../../develop/creating-artifacts/creating-a-proxy-service.md).
+See the topics given below for the list of properties that can be configured when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md).
 
 ### General Properties
 
-Listed below are the main properties that are required when [creating a proxy service](../../develop/creating-artifacts/creating-a-proxy-service.md) of any type.
+Listed below are the main properties that are required when [creating a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md) of any type.
 
 <table>
   <tr>
@@ -36,17 +36,17 @@ Listed below are the main properties that are required when [creating a proxy se
       The proxy service uses an <b>Endpoint</b> artifact inline to define the location to which messages should be routed. You can choose one of the following options to specify the endpoint.
       <ul>
         <li>Enter the URL of the endpoint.</li>
-        <li>If you have a <a href="../../../develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integration Studio, provide the name of the artifact.</li>
-        <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="../../../concepts/registry-concepts">registry</a>, provide the link to the artifact.</li>
+        <li>If you have a <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints">predefined <b>Endpoint</b></a> artifact in WSO2 Integration Studio, provide the name of the artifact.</li>
+        <li>If you have a predefined <b>Endpoint</b> artifact that is saved in the <a href="{{base_path}}/concepts/registry-concepts">registry</a>, provide the link to the artifact.</li>
       </ul>
-      See <a href="../../../../references/synapse-properties/endpoint-properties">Endpoint Properties</a> for the complete list of properties you can define for the Endpoint artifact.
+      See <a href="{{base_path}}/reference/synapse-properties/endpoint-properties">Endpoint Properties</a> for the complete list of properties you can define for the Endpoint artifact.
     </td>
   </tr>
 </table>
 
 ### Logging Properties
 
-The following properties are required when [creating a logging proxy service](../../develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a logging proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
 
 <table>
   <tr>
@@ -97,7 +97,7 @@ The following properties are required when [creating a logging proxy service](..
 
 ### WSDL Properties
 
-The following properties are required when [creating a WSDL-based proxy service](../../develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a WSDL-based proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
 
 <table>
   <tr>
@@ -138,7 +138,7 @@ The following properties are required when [creating a WSDL-based proxy service]
 
 ### Transformer Proxy Properties
 
-The following properties are required when [creating a transformer proxy service](../../develop/creating-artifacts/creating-a-proxy-service.md):
+The following properties are required when [creating a transformer proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service.md):
 
 <table>
   <tr>
@@ -177,14 +177,14 @@ The following properties are required when [creating a transformer proxy service
 
 - See the list of transport parameters you can configure at service level for a proxy service:
 
-    - [JMS properties](../transport-parameters/jms-transport-parameters)
-    - [MailTo properties](../transport-parameters/mailto-transport-parameters)
-    - [MQTT properties](../transport-parameters/mqtt-transport-parameters)
-    - [RabbitMQ properties](../transport-parameters/rabbitmq-transport-parameters)
-    - [VFS properties](../transport-parameters/vfs-transport-parameters)
-    - [Fix properties](../transport-parameters/fix-transport-parameters)
+    - [JMS properties]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters)
+    - [MailTo properties]({{base_path}}/reference/synapse-properties/transport-parameters/mailto-transport-parameters)
+    - [MQTT properties]({{base_path}}/reference/synapse-properties/transport-parameters/mqtt-transport-parameters)
+    - [RabbitMQ properties]({{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters)
+    - [VFS properties]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters)
+    - [Fix properties]({{base_path}}/reference/synapse-properties/transport-parameters/fix-transport-parameters)
 
-- You can also configure the following service-level property to expose an [Inbound Endpoint](../../concepts/message-entry-points/#inbound-endpoints) through a proxy service:
+- You can also configure the following service-level property to expose an [Inbound Endpoint]({{base_path}}/concepts/message-entry-points/#inbound-endpoints) through a proxy service:
   <table>
      <tr>
         <th>Service Parameter</th>

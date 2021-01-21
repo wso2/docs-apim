@@ -9,7 +9,7 @@ Consequently, the query connected to the operation/resource is executed
 to perform the task.
 
 !!! Info
-	REST resources and Operations are used depending on whether the particular task should be invoked RESTfully, or by using SOAP. Read more about [REST resources and operations](../../../../references/synapse-properties/data-services/elements-of-a-data-service) in data services.
+	REST resources and Operations are used depending on whether the particular task should be invoked RESTfully, or by using SOAP. Read more about [REST resources and operations]({{base_path}}/reference/synapse-properties/data-services/elements-of-a-data-service) in data services.
 
 ## SQL/Query details
 
@@ -92,7 +92,7 @@ For each input, you can specify the following parameter values:
       </tr>
       <tr>
          <td>SQL Type</td>
-         <td>The data type of the corresponding SQL parameter can be selected from this menu. Note that the QUERY_STRING data type cannot be used if the <b>parameter type</b> is set to ARRAY. Read more about <a href="../../../../references/synapse-properties/data-services/mapping-data-types">data types</a>.</td>
+         <td>The data type of the corresponding SQL parameter can be selected from this menu. Note that the QUERY_STRING data type cannot be used if the <b>parameter type</b> is set to ARRAY. Read more about <a href="{{base_path}}/reference/synapse-properties/data-services/mapping-data-types">data types</a>.</td>
       </tr>
       <tr>
          <td>Default Value</td>
@@ -120,7 +120,7 @@ For each input, you can specify the following parameter values:
       <tr>
          <td>Validators</td>
          <td>
-         	See <a href="../../../../references/synapse-properties/data-services/input-validators">input validators</a>
+         	See <a href="{{base_path}}/reference/synapse-properties/data-services/input-validators">input validators</a>
          </td>
       </tr>
    </tbody>
@@ -188,7 +188,7 @@ The following parameters are configurable for XML/RDF output types.
 </div></td>
 <tr class="even">
 <td>Row Namespace</td>
-<td>See <a href="../../../../references/synapse-properties/data-services/using-Namespaces">Defining Namespaces</a> .</td>
+<td>See <a href="{{base_path}}/reference/synapse-properties/data-services/using-namespaces">Defining Namespaces</a> .</td>
 </tr>
 </tbody>
 </table>

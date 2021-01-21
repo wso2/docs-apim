@@ -47,11 +47,11 @@ The HTTP inbound protocol is used to separate endpoint listeners for each HTTP i
 
 ## Properties
 
-Listed below are the properties used for [creating an HTTP/HTTPS inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the properties used for [creating an HTTP/HTTPS inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 ### Required Properties
 
-Listed below are the required properties when [creating an HTTP/HTTPS inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the required properties when [creating an HTTP/HTTPS inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
       <tr>
@@ -90,7 +90,7 @@ Listed below are the required properties when [creating an HTTP/HTTPS inbound en
 
 ### Optional Properties
 
-Listed below are the optional properties you can configure when [creating an HTTP/HTTPS inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+Listed below are the optional properties you can configure when [creating an HTTP/HTTPS inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
    <thead>
@@ -154,7 +154,7 @@ Listed below are the optional properties you can configure when [creating an HTT
 
 ### Worker Pool Configuration Properties
 
-By default inbound endpoints share the PassThrough transport worker pool to handle incoming requests. If you need a separate worker pool for the inbound endpoint, you need to configure the following properties when [creating an HTTP/HTTPS inbound endpiont](../../../../../develop/creating-artifacts/creating-an-inbound-endpoint).
+By default inbound endpoints share the PassThrough transport worker pool to handle incoming requests. If you need a separate worker pool for the inbound endpoint, you need to configure the following properties when [creating an HTTP/HTTPS inbound endpiont]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint).
 
 <table>
   <tr>
