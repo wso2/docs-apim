@@ -79,7 +79,7 @@ The following table lists out the available projects that can be associated with
     </tr>
     <tr>
         <td>Docker Exporter</td>
-        <td>Create a Docker Exporter project if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="{{base_path}}/integrate/develop">Create Docker Project</a>.</td>
+        <td>Create a Docker Exporter project if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="{{base_path}}/integrate/develop/create-docker-project">Create Docker Project</a>.</td>
     </tr>
     <tr>
         <td>Kubernetes Exporter</td>
