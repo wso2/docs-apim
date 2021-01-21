@@ -62,7 +62,7 @@ when using JavaScript `         getPayloadXML        ` and
 and when using Ruby, REXML documents.
 
 !!! Info
-    The Script mediator is a [content-aware]({{base_path}}/references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Script mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Prerequisites
 
