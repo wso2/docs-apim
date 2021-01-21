@@ -204,6 +204,7 @@ nav:
                 - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
+            - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
             - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
     - Consume:
