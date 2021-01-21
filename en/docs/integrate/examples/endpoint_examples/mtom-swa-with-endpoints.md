@@ -64,7 +64,7 @@ Following are the integration artifacts that we can used to implement this scena
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-WSO2-Integration-Studio).
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2.  Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following configurations:
 
     - To enable MTOM:
