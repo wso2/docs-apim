@@ -1,8 +1,8 @@
 # Exporting a Project
 
-With WSO2 Integration Studio, you can export projects from your workspace and later [import them](../importing-projects).
+With WSO2 Integration Studio, you can export projects from your workspace and later [import them]({{base_path}}/integrate/develop/importing-projects).
 
-For example, consider the following [**Maven Multi Module** project](../create-multi-maven-project) in your project explorer. This is a project solution that includes several project types.
+For example, consider the following [**Maven Multi Module** project]({{base_path}}/integrate/develop/create-integration-project) in your project explorer. This is a project solution that includes several project types.
 
 <img src="{{base_path}}/assets/img/integrate/create_project/proj_explorer_mmm_proj_2.png" width="300">
 

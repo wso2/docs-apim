@@ -21,7 +21,7 @@ See the topics given below.
     
     -  **Create a new Docker Exporter Project**
 
-        Select this option to create a new **Docker Exporter Project** and click **Proceed**. You can build a docker image using this Docker Exporter Project. You are now directed to the [Docker Exporter Project wizard](create-docker-project.md).
+        Select this option to create a new **Docker Exporter Project** and click **Proceed**. You can build a docker image using this Docker Exporter Project. You are now directed to the [Docker Exporter Project wizard](create-docker-project.
     
     -  **Generate Docker Image with the Embedded MI**
 
