@@ -155,7 +155,7 @@ However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Enterpris
 </html>
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>If the <code>receiver_urls</code> property is configured in the  <code>[apim.analytics]</code> section , no need to configure the  
+<p>If the <code>receiver_urls</code> property is configured in the <code>[apim.analytics]</code> section, you do not need to configure the  
    <code>[[apim.analytics.url_group]]</code> properties. Configuring either one of these properties is enough.
 </p>
 </div>
@@ -185,7 +185,7 @@ e.g., Two receiver groups with two load balanced receivers in each can be specif
 </p>
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>If the <code>[[apim.analytics.url_group]]</code> property group is configured in the  <code>[apim.analytics]</code> section , no need to configure the  <code>receiver_urls</code> properties. Configuring either one of these properties is enough.
+<p>If the <code>[[apim.analytics.url_group]]</code> property group is configured in the <code>[apim.analytics]</code> section, you do not need to configure the  <code>receiver_urls</code> properties. Configuring either one of these properties is enough.
 </p>
 </div>
 </html>
