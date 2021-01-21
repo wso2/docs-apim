@@ -51,8 +51,8 @@ nav:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: getting-started/quick-start-guide.md
-                - Quick Start Guide Integration: ''
+                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
+                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
                 - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
