@@ -88,12 +88,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
     rabbitmqadmin declare binding --vhost=/ --user=guest --password=guest source=enrollment-error-exchange destination=enrollment-error routing_key=enrollment-error
     ```
 
-8. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-9. [Create an integration project](../../../../develop/create-integration-project) with an ESB Configs module and an Composite Exporter.
-10. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+8. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+9. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an ESB Configs module and an Composite Exporter.
+10. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 11. Enable the RabbitMQ sender and receiver in the Micro-Integrator from the deployment.toml. Refer the 
- [configuring RabbitMQ documentation](../../../setup/brokers/configure-with-rabbitMQ) for more information.
-12. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+ [configuring RabbitMQ documentation](../../../setup/brokers/configure-with-rabbitMQ.md) for more information.
+12. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 13. Make the `http://localhost:8280/enrollment` endpoint unavailable temporarily. 
 14. Publish a message to the enrollment queue.
 15. You will see that the failed message will be retried 3 times for delivery by the EnrollmentService proxy and then be discarded.

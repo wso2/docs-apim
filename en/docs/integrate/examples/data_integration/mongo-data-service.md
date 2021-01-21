@@ -66,10 +66,10 @@ Given below is the data service configuration you need to build. See the instruc
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.        
-2. [Create a Data Service project](../../../../develop/create-data-services-configs).
-3. [Create the data service](../../../../develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator. 
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.        
+2. [Create a Data Service project]({{base_path}}/integrate/develop/create-data-services-configs).
+3. [Create the data service]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator. 
 
 Let's try out this sample by invoking the `find` resource in the data service to GET data. Shown below is the [curl](http://curl.haxx.se/) command to send the GET request:
 

@@ -16,7 +16,7 @@ See the following topics for information and instructions:
 
 In the Cluster dashboard visualizes the overall statistics relating to your WSO2 Micro Integrator cluster. we can view information related to our MI Cluster. 
 
-![Cluster Dashboard]({{base_path}}/assets/img/monitoring-dashboard/grafana-cluster-dashboard.png)
+![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.png)
 
 ### Downloading the dashboard
 
@@ -64,7 +64,7 @@ This dashboard serves the following purposes:
 
 This displays statistics specific to a selected node.
 
-![Node Dashboard]({{base_path}}/assets/img/monitoring-dashboard/grafana-node-metrics.png)
+![Node Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.png)
 
 ### Downloading the dashboard
 
@@ -111,7 +111,7 @@ The purposes of this dashboard are as follows:
 
 In the Proxy service dashboard, we can view information related to a specific Proxy service.
 
-![Proxy Service Metrics Dashboard]({{base_path}}/assets/img/monitoring-dashboard/grafana-proxy-services-dashboard.png)
+![Proxy Service Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-proxy-services-dashboard.png)
 
 ### Downloading the dashboard
 
@@ -153,7 +153,7 @@ The purposes of this dashboard is as follows:
 
 This dashboard displays overall statistics related to a specific API. 
 
-![API Metrics Dashboard]({{base_path}}/assets/img/monitoring-dashboard/grafana-api-services-dashboard.png)
+![API Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-api-services-dashboard.png)
 
 ### Downloading the dashboard
 
@@ -193,7 +193,7 @@ The following is the list of widgets displayed in this dashboard.
 
 At a given time, the Inbound endpoint dashboard displays the overall statistics related to a selected endpoint. we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time,, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time.
 
-![Inbound Endpoint Metrics Dashboard]({{base_path}}/assets/img/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
+![Inbound Endpoint Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
 
 ### Downloading the dashboard
 

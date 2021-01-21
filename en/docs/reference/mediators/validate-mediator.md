@@ -10,7 +10,7 @@ message. Otherwise, the mediator validates the first child of the SOAP
 body of the current message.
 
 !!! Tip
-    A [Fault mediator]({{base_path}}/reference/mediators/fault-Mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
+    A [Fault mediator]({{base_path}}/reference/mediators/fault-mediator) should be added as a child to the Validate mediator in order specify the fault sequence to be followed if the validation fails.
 
 !!! Info
     The Validate mediator is a [content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.

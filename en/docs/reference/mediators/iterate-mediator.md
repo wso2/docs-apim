@@ -7,8 +7,8 @@ the parent message. The Iterate mediator is similar to the [Clone mediator]({{ba
 is, the Iterate mediator splits a message into different parts, whereas the Clone mediator makes multiple identical copies of the message.
 
 !!! Info
-    -   The Iterate mediator is a [content aware](../../../concepts/message-processing-units/#classification-of-mediators) mediator.
-    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/forEach-Mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main difference between ForEach and Iterate mediators:
+    -   The Iterate mediator is a [content aware]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) mediator.
+    -   Iterate Mediator is quite similar to the [ForEach mediator]({{base_path}}/reference/mediators/foreach-mediator). You can use complex XPath expressions or JSON expressions to conditionally select elements to iterate over in both mediators. Following are the main difference between ForEach and Iterate mediators:
         -   Use the ForEach mediator only for message transformations. If you
         need to make back-end calls from each iteration, then use the
         iterate mediator.
@@ -18,8 +18,8 @@ is, the Iterate mediator splits a message into different parts, whereas the Clon
         -   You need to always accompany an Iterate with an Aggregate mediator.
         ForEach loops over the sub-messages and merges them back to the same
         parent element of the message.
-        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-Mediator), [Send]({{base_path}}/reference/mediators/send-Mediator) and
-        [Callout]({{base_path}}/reference/mediators/callout-Mediator) mediators in the sequence.
+        -   In Iterate you need to send the split messages to an endpoint to continue the message flow. However, ForEach does not allow using [Call]({{base_path}}/reference/mediators/call-mediator), [Send]({{base_path}}/reference/mediators/send-mediator) and
+        [Callout]({{base_path}}/reference/mediators/callout-mediator) mediators in the sequence.
         -   ForEach does not split the message flow, unlike Iterate Mediator. It
         guarantees to execute in the same thread until all iterations are
         complete.

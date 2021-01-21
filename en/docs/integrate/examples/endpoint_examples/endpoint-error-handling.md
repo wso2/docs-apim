@@ -1,9 +1,9 @@
 # Endpoint Error Handling
 
 The last step of message processing inside WSO2 Micro Integrator
-is to send the message to a service provider (see also [Working with Mediators](../../../../references/mediators/about-mediators))
+is to send the message to a service provider (see also [Working with Mediators]({{base_path}}/reference/mediators/about-mediators))
 by sending the message to a listening service
-[endpoint](../../../../references/synapse-properties/endpoint-properties). During this process, transport
+[endpoint]({{base_path}}/reference/synapse-properties/endpoint-properties). During this process, transport
 errors can occur. For example, the connection might time out, or it
 might be closed by the actual service. Therefore, endpoint error
 handling is a key part of any successful Micro
@@ -85,10 +85,10 @@ suspensions.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the REST API](../../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Invoke the sample API by executing the following command:
 
@@ -123,14 +123,14 @@ Following is a sample REST API configuration that we can used to implement this 
 </api>
 ```
 
-In this example, the timeout value is defined using a [Property mediator](../../../../references/mediators/property-Mediator) outside
+In this example, the timeout value is defined using a [Property mediator]({{base_path}}/reference/mediators/property-mediator) outside
 the endpoint configuration. The timeout parameter in the endpoint
 configuration is then evaluated against an XPATH expression that is used
 to reference and read the timeout value. Using this timeout values can
 be configured without having to change the endpoint configuration.
 
 !!! Info
-    You also have the option of defining a dynamic timeout for the endpoint as a [local entry](../../../../develop/creating-artifacts/registry/creating-local-registry-entries).
+    You also have the option of defining a dynamic timeout for the endpoint as a [local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries).
     ```xml
     <localEntry key="timeout"><![CDATA[20000]]>
        <description/>
@@ -141,10 +141,10 @@ be configured without having to change the endpoint configuration.
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the REST API](../../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 ## Example 3: Dynamic endpoint failover management
 Let's look at a sample configuration where you have a dynamic URL with failover management for
@@ -216,10 +216,10 @@ Follow any of the options given below to re-enable an endpoint that is suspended
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the REST API](../../../../develop/creating-artifacts/creating-an-api) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 

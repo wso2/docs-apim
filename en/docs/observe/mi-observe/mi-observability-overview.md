@@ -1,4 +1,4 @@
-# Micro Integrator Overview
+# Micro Integrator Observability Overview
 
 This section explains how to set up the observability solutions and perform management tasks for WSO2 Enterprise Integrator.
 
@@ -10,7 +10,7 @@ Observability can be viewed as a superset of monitoring where monitoring is enri
 
 WSO2 Enterprise Integrator offers two observability solutions referred to as the cloud-native observability deployment and classic observability deployment.
 
-<img src="{{base_path}}/assets/img/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
+<img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
 
 The cloud-native and classic observability solution are suitable for the following combination of operations.
 
@@ -75,9 +75,8 @@ The older analytics distribution is referred to as the Classic Observability Dep
 
 You can monitor and manage various artifacts that you have deployed. The following are the options that enable you to do this.
 
-- **[Micro Integrator Dashboard](working-with-monitoring-dashboard.md)**: Allows you to perform administration tasks related to your Micro Integrator deployment
-- **[Micro Integrator CLI](using-the-command-line-interface.md)**: Allows you to perform various management and administration tasks from the command line.
-- **[Using the Management API](working-with-management-api.md)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
+- **[Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)**: Allows you to perform administration tasks related to your Micro Integrator deployment
+- **[Using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
 
 ## Integration with external tools
 
@@ -90,6 +89,6 @@ You can integrate with external tools to do the following.
 
 **TCP Message Monitoring**
 
-- [Starting TCPMon](tcp/starting_tcp_mon.md)
+- [Starting TCPMon]({{base_path}}/observe/mi-observe/tcp/starting_tcp_mon)
 - [Message Monitoring with TCPMon](tcp/message_monitoring_with_tcpmon.md)
 - [Other Usages of TCPMon](tcp/other_usages_of_tcpmon.md)

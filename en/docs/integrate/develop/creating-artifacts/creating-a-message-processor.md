@@ -1,12 +1,12 @@
 # Creating a Message Processor
 
-Follow the instructions given below to create a new [Message Processor](../../../references/synapse-properties/about-message-stores-processors) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [Message Processor]({{base_path}}/reference/synapse-properties/about-message-stores-processors) artifact in WSO2 Integration Studio.
 
 ## Instructions
 
 ### Creating the Message Processor artifact
 
-1.  Right-click the [ESB Config project](../../creating-projects/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
+1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Message Processor** to open the **New Message Processor Artifact** dialog box.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_message_processor/select-message-processor.png">
 
@@ -20,9 +20,9 @@ Follow the instructions given below to create a new [Message Processor](../../..
 
 	See the links given below for descriptions of properties for each message processor type:
 
-	-	[Message Sampling Processor properties](../../../references/synapse-properties/message-processors/msg-sampling-processor-properties)
-	-	[Scheduled Message Forwarding Processor properties](../../../references/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
-	-	[Scheduled Failover Message Forwarding Processor properties](../../../references/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
+	-	[Message Sampling Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties)
+	-	[Scheduled Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
+	-	[Scheduled Failover Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
 
 4.  Do one of the following to save the artifact:
 
@@ -41,27 +41,27 @@ Open the new message processor artifact from the project explorer. You can use t
 
 See the links given below for descriptions of properties for each processor type:
 
--	[Message Sampling Processor properties](../../../references/synapse-properties/message-processors/msg-sampling-processor-properties)
--	[Scheduled Message Forwarding Processor properties](../../../references/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
--	[Scheduled Failover Message Forwarding Processor properties](../../../references/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
+-	[Message Sampling Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties)
+-	[Scheduled Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties)
+-	[Scheduled Failover Message Forwarding Processor properties]({{base_path}}/reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties)
 
 ## Examples
 
 <ul>
 	<li>
-		<a href="../../../../use-cases/examples/message_store_processor_examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/using-message-forwarding-processor">Using the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="../../../../use-cases/examples/message_store_processor_examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
+		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/using-message-sampling-processor">Using the Message Sampling Processor</a>
 	</li>
 	<li>
-		<a href="../../../../use-cases/examples/message_store_processor_examples/securing-message-processor">Securing the Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/securing-message-processor">Securing the Message Forwarding Processor</a>
 	</li>
 	<li>
-		<a href="../../../../use-cases/examples/message_store_processor_examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
+		<a href="{{base_path}}/integrate/examples/message_store_processor_examples/loadbalancing-with-message-processor">Load Balancing with Message Forwarding Processor</a>
 	</li>
 </ul>
 
 ## Tutorials
 
--	See the tutorial on [using message stores and processors](../../../../use-cases/tutorials/storing-and-forwarding-messages)
+-	See the tutorial on [using message stores and processors]({{base_path}}/integrate/tutorials/storing-and-forwarding-messages)

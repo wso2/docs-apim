@@ -15,7 +15,7 @@ See [Configuring Logs](../../../administer-and-observe/logs/configuring_log4j_pr
 
 ## Download Log Files
 
-You can easily download them from the [Micro Integrator Dashboard](../../../administer-and-observe/working-with-monitoring-dashboard). 
+You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard). 
 
 !!! Info
     Alternatively, you can open the the log file from the `<MI_HOME>/repository/logs` directory.
@@ -23,7 +23,7 @@ You can easily download them from the [Micro Integrator Dashboard](../../../admi
 1.  Sign in to the dashboard. 
 2.  Click <b>Log Files</b> as shown below to view the complete list.
 
-    <img alt="download log files" src="{{base_path}}/assets/img/monitoring-dashboard/log-files-dashboard.png" width="700">
+    <img alt="download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="700">
 
 3.  User the <b>Search</b> option to find a specific log file.
 4.  Click the log file to download.
@@ -157,7 +157,7 @@ The Patch log file contain details related to patches applied to the product. Pa
 
 Correlation logs are used for monitoring the round trip of a message that is sent to the Micro Integrator.
 
-See [Monitoring Message Round Trip](../../../administer-and-observe/monitoring-correlation-logs) for details.
+See [Monitoring Message Round Trip]({{base_path}}/observe/mi-observe/logs/monitoring-correlation-logs) for details.
 
 ## Monitoring Console Logs
 

@@ -5,8 +5,8 @@ The **Script Mediator** is used to invoke the functions of a variety of scripti
 !!! Note
     The Micro Integrator uses Rhino engine to execute JavaScripts. Rhino engine converts the script to a method inside a Java class. Therefore, when processing large JSON data volumes, the code length must be less than 65536 characters, since the Script mediator converts the payload into a Java object. However, you can use the following alternative options to process large JSON data volumes.
 
-    -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-Mediator) .
-    -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-Mediator.md) to generate a relatively
+    -   Achieve the same functionality via a [Class mediator]({{base_path}}/reference/mediators/class-mediator) .
+    -   If the original message consists of repetitive sections, you can use the [Iterate mediator]({{base_path}}/reference/mediators/iterate-mediator.md) to generate a relatively
     small payload using those repetitive sections. This will then allow you to use the Script mediator.
     -   The Script Mediator supports using Nashorn to execute JavaScripts, in addition to its default Rhino engine.
 
@@ -62,7 +62,7 @@ when using JavaScript `         getPayloadXML        ` and
 and when using Ruby, REXML documents.
 
 !!! Info
-    The Script mediator is a [content-aware](../../../references/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Script mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
 
 ## Prerequisites
 
