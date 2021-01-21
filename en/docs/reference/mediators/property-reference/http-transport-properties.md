@@ -120,7 +120,7 @@ appending a context to the target URL in RESTful invocations.
 <p>If you set this to true, it disables HTTP chunking for outgoing messages. Instead, the Micro Integrator builds the message to calculate the content length and then sends the particular message to the backend with the content length (e.g., <code>               Content-Length: 25              </code> ).</p>
 <p>You can use this parameter if the client sends the request with HTTP chunking (i.e., with <code>               Transfer Encoding:chunked              </code> ) although you need to send the message without HTTP chunking to the backend, or if you need to modify the message payload, which the client receives before sending it to the backend.</p></br>
 <b>Note</b>:
-<p>This property might decrease performance since the messages get built per each invocation. Also, this property does not affect Callout mediators, whose chunking must be <a href="{{base_path}}/references/mediators/callout-mediator/#disabling-chunking">disabled separately</a>.</p>
+<p>This property might decrease performance since the messages get built per each invocation. Also, this property does not affect Callout mediators, whose chunking must be <a href="{{base_path}}/reference/mediators/callout-mediator/#disabling-chunking">disabled separately</a>.</p>
 </div></td>
 </tr>
 <tr class="even">
