@@ -477,7 +477,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/references/mediators/smooks-Mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are reprocessed. See <a href="{{base_path}}/concepts/messaging-transports/#virtual-file-system-vfs">VFS Transport</a> for a proxy service configuration where this property is used.</p></td>
+<td><p>If this property is set to <code>              true             </code> , the result of file content processing carried out by the <a href="{{base_path}}/reference/mediators/smooks-Mediator">Smooks Mediator</a> will not be loaded into the message context. This is useful in situations where you want to avoid large memory growth/out of heap space issue that may occur when large files processed by the Smooks mediator are reprocessed. See <a href="{{base_path}}/concepts/messaging-transports/#virtual-file-system-vfs">VFS Transport</a> for a proxy service configuration where this property is used.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
