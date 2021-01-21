@@ -23,19 +23,19 @@ Proxy services in the Micro Integrator act as Messaging Gateways, abstracting th
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="../../../use-cases/examples/gateway/expose-http-app-as-soap">Expose HTTP-based Applications as a SOAP Service</a>
+					<a href="{{base_path}}/integrate/examples/gateway/expose-http-app-as-soap">Expose HTTP-based Applications as a SOAP Service</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/gateway/expose-http-app-as-rest-api">Expose HTTP-based Applications as a REST Api</a>
+					<a href="{{base_path}}/integrate/examples/gateway/expose-http-app-as-rest-api">Expose HTTP-based Applications as a REST Api</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/gateway/expose-file-based-system-over-http">Expose File-based Systems over HTTP</a>
+					<a href="{{base_path}}/integrate/examples/gateway/expose-file-based-system-over-http">Expose File-based Systems over HTTP</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/gateway/expose-proprietary-prot-over-stand-protocols">Expose Services on Proprietary Protocols over Standard Protocols</a>
+					<a href="{{base_path}}/integrate/examples/gateway/expose-proprietary-prot-over-stand-protocols">Expose Services on Proprietary Protocols over Standard Protocols</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/gateway/securing-backend-with-request-throttling">Securing Backend with Request Throttling</a>
+					<a href="{{base_path}}/integrate/examples/gateway/securing-backend-with-request-throttling">Securing Backend with Request Throttling</a>
 				</li>
 			</ul>
 		</td>

@@ -13,34 +13,34 @@ For example, messages that are received via HTTP may need to be sent to a JMS qu
 			<b>Examples</b>
 			<ul>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_JMS_to_HTTP">Switching from JMS to HTTP/S</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_JMS_to_HTTP">Switching from JMS to HTTP/S</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_HTTPS_to_JMS">Switching from HTTP/S to JMS</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_HTTPS_to_JMS">Switching from HTTP/S to JMS</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender">Switching from FTP Listener to Mail Sender</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_FTP_listener_to_mail_sender">Switching from FTP Listener to Mail Sender</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_HTTP_to_FIX">Switching from HTTP to FIX</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_HTTP_to_FIX">Switching from HTTP to FIX</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_FIX_to_HTTP">Switching from FIX to HTTP</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_FIX_to_HTTP">Switching from FIX to HTTP</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_FIX_to_AMQP">Switching from FIX to AMQP</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_FIX_to_AMQP">Switching from FIX to AMQP</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_between_FIX_versions">Switching between FIX Versions</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_between_FIX_versions">Switching between FIX Versions</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_TCP_to_HTTPS">Switching from TCP to HTTP/S</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_TCP_to_HTTPS">Switching from TCP to HTTP/S</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_from_UDP_to_HTTPS">Switching from UDP to HTTP/S</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_from_UDP_to_HTTPS">Switching from UDP to HTTP/S</a>
 				</li>
 				<li>
-					<a href="../../../use-cases/examples/protocol-switching/switching_between_HTTP_and_MSMQ">Switching between HTTP to MSMQ</a>
+					<a href="{{base_path}}/integrate/examples/protocol-switching/switching_between_HTTP_and_MSMQ">Switching between HTTP to MSMQ</a>
 				</li>
 			</ul>
 		</td>

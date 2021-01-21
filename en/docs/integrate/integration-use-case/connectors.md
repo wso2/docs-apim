@@ -1,6 +1,6 @@
 # SaaS and B2B Integration
 
-Connectors are a means of interacting with various SaaS applications on the cloud, databases, and popular B2B protocols. See [Connectors Overview]({{base_path}}/reference/connectors/connectors-overview.md) for more information.
+Connectors are a means of interacting with various SaaS applications on the cloud, databases, and popular B2B protocols. See [Connectors Overview]({{base_path}}/reference/connectors/connectors-overview) for more information.
 
 The following are of documented connectors available from the [connector store](https://store.wso2.com/store/assets/esbconnector/list). Click the link of the connector to view the documentation for each connector.
 
