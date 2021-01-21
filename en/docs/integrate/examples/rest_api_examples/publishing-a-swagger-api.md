@@ -2,7 +2,7 @@
 
 When you create a REST API, a default Swagger definition is automatically
 generated. You can access this Swagger document by suffixing the API URL
-with `?swagger.json` or `?swagger.yaml`. See [Using Swagger Documents](../../../../develop/advanced-development/using-swagger-for-apis) for more information.
+with `?swagger.json` or `?swagger.yaml`. See [Using Swagger Documents]({{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis) for more information.
 
 This example demonstrates how a custom Swagger definition is published for a REST API. 
     
@@ -52,16 +52,16 @@ Following is a sample REST API configuration with a custom Swagger definition. S
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with the modules listed below: 
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with the modules listed below: 
     - <b>Config</b> project
     - <b>Registry</b> project
     - <b>Composite Application</b> project.
 3. To create the REST API with the above configurations:
     - Download the Swagger file: [simple_petstore.yaml](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-rest-apis/simple_petstore.yaml).
-    - Follow the instructions on [creating a REST API](../../../../develop/creating-artifacts/creating-an-api).
+    - Follow the instructions on [creating a REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api).
 
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Copy the following URLs to your browser to see the Swagger documents of your API:
 
