@@ -74,7 +74,7 @@ The Synapse artifacts used are explained below.
 </table>
 
 !!! Info
-    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters.md) used in the Micro Integrator.
+    To refer details on JMS transport parameters, you can follow [JMS transport parameters]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) used in the Micro Integrator.
 
       
 !!! Note
