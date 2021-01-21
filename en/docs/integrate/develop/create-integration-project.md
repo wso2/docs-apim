@@ -8,7 +8,7 @@ An integration project is the recommended way of creating an “Integration Solu
 
 To create an integration project:
 
-1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio](installing-WSO2-Integration-Studio/).
+1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio](installing-wso2-integration-studio/).
 
 2. Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
     <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
