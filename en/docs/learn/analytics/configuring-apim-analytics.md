@@ -151,7 +151,7 @@ When using WSO2 API-M Analytics 3.1.0, when publishing to an minimum HA setup of
 <p class="admonition-title">Note</p>
 <p>If the APIM analytics is setting up on an Active-active HA setup, the URLs should have defined with the <b>comma</b> separations, as the setup is configured with the load-balanced configurations.
 <br/><br/>
-When the APIM analytics is on an Active-passive HA setup, the URLs should be defined with <b>pipe</b> separations, as the setup is configured with failover configurations.
+When the APIM analytics is on an Active-passive HA setup, the URLs should be separated with <b>pipe symbol (|)</b>, as the setup is configured with failover configurations.
 </p>
 </div>
 </html>
