@@ -1142,3 +1142,9 @@ html .md-footer-meta.md-typeset a,
   .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
     background-color: #ffaa001f !important;
   }
+  .md-typeset .headerlink.localLink{
+    display: inline;    
+  }
+  .md-typeset h1 {
+      margin: 0 0 1rem;
+  }
