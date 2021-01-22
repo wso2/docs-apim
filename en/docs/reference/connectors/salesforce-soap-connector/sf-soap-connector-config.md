@@ -45,7 +45,7 @@ Follow the steps below to import the Salesforce certificate into the EI client k
 
 ## Re-using Salesforce configurations
 
-You can save the Salesforce connection configuration as a [local entry](../../../../develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
+You can save the Salesforce connection configuration as a [local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
 
 ```
 <salesforce.getUserInformation configKey="MySFConfig"/>

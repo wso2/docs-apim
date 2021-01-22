@@ -46,7 +46,7 @@ You can add custom sequences depending on the threats that you need to address. 
 1.  Create an xml file with your custom sequence, or edit and save the sequence given above.
 2.  Go to **Runtime Configurations** Tab of the relevant API.
 3.  Click **Message Mediation** under **Request**.
-    ![](../../../../assets/img/learn/request-message-mediation.png)
+    ![]({{base_path}}/assets/img/learn/request-message-mediation.png)
 4.  Select and upload your custom sequence.
-    ![](../../../../assets/img/learn/add-custom-mediation-policy.png)
+    ![]({{base_path}}/assets/img/learn/add-custom-mediation-policy.png)
 
