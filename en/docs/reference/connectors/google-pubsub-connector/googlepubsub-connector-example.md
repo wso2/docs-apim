@@ -10,7 +10,7 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 EI 
 2. Insert company update notifications to the created topic.
 3. Retrieve company updates from the created topic.
 
-To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment](googlepubsub-connector-configuration.md) documentation to setup an account.
+To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md) documentation to setup an account.
 
 In this scenario the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to the company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally the user can retrieve the company updates from the subscribed topic while invoking the API.
 
@@ -20,7 +20,7 @@ All three operations are exposed via an API. The API with the context `/resource
 * `/insertCompanyNotifications` : Used to insert company update notifications to the subscribed topic.
 * `/getcompanynotifictions` : Used to retrieve information about the company updates.
 
-> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](../../../references/config-catalog/#http-transport). If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
+> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport). If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
    ```   
    [mediation]
    synapse.enable_xpath_dom_failover=true
@@ -40,7 +40,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
@@ -79,7 +79,7 @@ First create an API, which will be where we configure the integration logic. Rig
         
         <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-drag-and-drop.createtopic.png" title="Drag and drop createTopic operation" width="500" alt="Drag and drop createTopic operation"/>    
     
-    3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
@@ -130,7 +130,7 @@ First create an API, which will be where we configure the integration logic. Rig
 
 4. Forward the backend response to the API caller.
     
-    When you are invoking the created resource, the request of the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator](../../../../references/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you are invoking the created resource, the request of the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop the **respond mediator** to the **Design view**. 
     
@@ -277,7 +277,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -361,4 +361,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
     
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

@@ -16,9 +16,9 @@ For older versions, see the details in the connector store.
 
 ## BigQuery Connector Documentation
 
-* **[BigQuery Connector Example](bigquery-connector-example.md)**: This example demonstrates how to work with the WSO2 EI BigQuery Connector. 
+* **[BigQuery Connector Example]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-example.md)**: This example demonstrates how to work with the WSO2 EI BigQuery Connector. 
 
-* **[BigQuery Connector Reference](bigquery-connector-reference.md)**: This documentation provides a reference guide for the BigQuery Connector.
+* **[BigQuery Connector Reference]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-reference.md)**: This documentation provides a reference guide for the BigQuery Connector.
 
 ## How to contribute
 

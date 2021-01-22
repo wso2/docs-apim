@@ -41,9 +41,9 @@ For older versions, see the details in the connector store.
 
 ## File Connector documentation (latest - 4.x version)
 
-* **[File Connector Example](file-connector-example.md)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
+* **[File Connector Example]({{base_path}}/reference/connectors/file-connector/file-connector-example.md)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
 
-* **[File Connector Reference](file-connector-config.md)**: This documentation provides a reference guide for the File Connector.
+* **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/file-connector-config.md)**: This documentation provides a reference guide for the File Connector.
 
 For older versions, see the details in the relevant links.
 

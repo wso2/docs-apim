@@ -4,7 +4,7 @@ The SMPP inbound endpoint allows you to consume messages from SMSC via WSO2 EI. 
 
 ## What you'll build
 
-This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector](smpp-connector-configuration.md) documentation for more information.
+This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. In this scenario, you should have a connectivity with SMSC (Short Message service center) via SMPP protocol. For this we are using **SMSC simulator** to accomplish the required requirements. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation for more information.
 
 The SMPP inbound endpoint is listening to the Short Message service center for consuming messages using defined port number in the Inbound Endpoint configurations. If SMSC generates some message by itself or user injects SMS messages to the SMSC, WSO2 EI SMPP Inbound Endpoint will receive and notify. Then just log the SMS message content. In your own scenarios, you can inject that message into the mediation flow for getting the required output.
 
@@ -20,7 +20,7 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
 
 2. Right click on **Created Integration Project** -> **New** -> **Inbound Endpoint** -> **Create A New Inbound Endpoint** -> **Inbound Endpoint Creation Type**and select as **custom** -> Click **Next**.
    
-   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-IE.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/smpp-inboundep-create-new-ie.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.smpp.SMPPListeningConsumer`. 
 
@@ -118,11 +118,11 @@ You can download the ZIP file and extract the contents to get the project code.
    
 3. Copy the exported carbon application to the **<PRODUCT-HOME>/repository/deployment/server/carbonapps** folder. 
 
-4. [Start the WSO2 EI server](https://ei.docs.wso2.com/en/latest/micro-integrator/overview/quick-start-guide/#start-the-micro-integrator). 
+4. [Start the WSO2 EI server]({{base_path}}/get-started/quick-start-guide/integration-qsg#start-the-micro-integrator). 
 
 ## Testing  
 
-   Please use the [smpp-connector-example](smpp-connector-example.md) testing steps to test this Inbound Endpoint scenario. You need to send the SMS message to the SMSC via the SMPP connector example API(SmppTestApi.xml).
+   Please use the [smpp-connector-example]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-example/) testing steps to test this Inbound Endpoint scenario. You need to send the SMS message to the SMSC via the SMPP connector example API(SmppTestApi.xml).
    
    **Sample request**
    
@@ -139,4 +139,4 @@ You can download the ZIP file and extract the contents to get the project code.
      ```
 ## What's next
    
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

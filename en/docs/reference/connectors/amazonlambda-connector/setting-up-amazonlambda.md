@@ -1,6 +1,6 @@
 # Setting up the Amazon Lambda Environment
 
-To use the AmazonLambda service, you must have an AWS account. If you don't already have an account, you are prompted to create one when you sign up. You're not charged for any AWS services that you sign up for unless you use them.
+To use the AmazonLambda service, you must have an AWS account. If you do not already have an account, you are prompted to create one when you sign up. You are not charged for any AWS services that you sign up for unless you use them.
 
 ## Signing Up for AWS
 

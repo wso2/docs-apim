@@ -40,6 +40,6 @@ Operations of the WSO2 connector that you import are listed on the right side pa
 
 ## What's Next?
 
-* [Learn how to write a connector from scratch](develop-connectors.md) 
+* [Learn how to write a connector from scratch]({{base_path}}/reference/connectors/develop-connectors.md) 
 * Publication process for connectors 
-* [Connector best practices and Integration Studio](connector-usage.md) 
+* [Connector best practices and Integration Studio]({{base_path}}/reference/connectors/connector-usage.md) 

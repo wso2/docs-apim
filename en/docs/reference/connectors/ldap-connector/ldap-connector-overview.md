@@ -18,11 +18,11 @@ For older versions, see the details in the connector store.
 
 ## LDAP Connector documentation
 
-* **[Setting up an LDAP Server](setting-up-ldap.md)**: This involves setting up an LDAP server.
+* **[Setting up an LDAP Server]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap.md)**: This involves setting up an LDAP server.
 
-* **[LDAP Connector Example](ldap-connector-example.md)**: This example demonstrates on how to use the LDAP connector to create and read LDAP entries on a student directory. 
+* **[LDAP Connector Example]({{base_path}}/reference/connectors/ldap-connector/ldap-connector-example.md)**: This example demonstrates on how to use the LDAP connector to create and read LDAP entries on a student directory. 
 
-* **[LDAP Connector Reference](ldap-server-configuration.md)**: This documentation provides a reference guide for the LDAP Connector.
+* **[LDAP Connector Reference]({{base_path}}/reference/connectors/ldap-connector/ldap-server-configuration.md)**: This documentation provides a reference guide for the LDAP Connector.
 
 ## How to contribute
 

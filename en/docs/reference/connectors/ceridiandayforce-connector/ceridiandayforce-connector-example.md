@@ -21,15 +21,14 @@ parameters must be passed in the body as we will see below.
 
 ## Setting up the environment 
 
-Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment](ceridiandayforce-connector-config.md) 
-document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
+Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
 Dayforce sample APIs. Keep them saved to be used in the next steps.  
 
 ## Configure the connector in WSO2 Integration Studio
 
 Follow these steps to set up the Integration Project and import Dayforce connector into it.
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created ESB Solution Project and select, -> **New** -> **Rest API** to create the REST API.
    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" 
@@ -100,7 +99,7 @@ source view of the XML configuration file of the API and copy the following conf
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are 
 going to deploy to server runtime. 
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
 
@@ -109,14 +108,14 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 You can download the ZIP file and extract the contents to get the project code.
 
 <a href="{{base_path}}/assets/attachments/connectors/ceridiandayforce-connector-1.0.0.zip">
-    <img src="../../../..{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -142,8 +141,7 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/getE
 
 **Note**
 * You may have to change the 'http://192.168.8.100:8290' part depending on the ip address your EI instance is running.
-* You may have to change the 'clientNamespace' in the request body as Dayforce developer instance gets moved around by 
-Ceridian. The address can be obtained ad mentioned in section Setting up the environment 
+* You may have to change the 'clientNamespace' in the request body as Dayforce developer instance gets moved around by Ceridian. The address can be obtained ad mentioned in section Setting up the environment 
  
 **Expected Response**:
 
@@ -235,6 +233,4 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/post
 * You should get a 200 OK response. Please bear in mind that this post will not update the database in the sample 
 environment. However, if you use this in a test or production environment changes will be made to the database.
 
-In this example Ceridian Dayforce connector is used to perform operations with Dayforce HCM.  Please read the 
-[Ceridian Dayforce connector reference guide](ceridiandayforce-connector-reference.md ) to learn more about the 
-operations you can perform with the Dayforce connector.
+In this example Ceridian Dayforce connector is used to perform operations with Dayforce HCM.  Please read the [Ceridian Dayforce connector reference guide]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md ) to learn more about the operations you can perform with the Dayforce connector.

@@ -20,7 +20,7 @@ Before you start configuring the FHIR connector, you also need to download WSO2 
 
 Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the WSO2 EI service.
 
-If you are using **EI7**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters](../../../references/config-catalog/#http-transport) and [Product Configurations](../../micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/) documentations.
+If you are using **EI7**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
 
 ```
 [[custom_message_builders]]
@@ -58,7 +58,7 @@ This server is regularly loaded with a standard set of test data sets and also t
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!references/connectors/importing-connector-to-integration-studio.md!}
+{!reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
 
@@ -241,7 +241,7 @@ To learn about supported operations and their parameters, please refer to `FHIR 
  
 3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -255,7 +255,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
     
 ## Testing
 
@@ -424,4 +424,4 @@ This demonstrates how the WSO2 EI FHIR connector works.
    
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
