@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In this sample scenario, you will use an **Inbound Endpoint** to expose an already defined REST API through a different port. You can reuse the REST API that was defined in the [Sending a Simple Message to a Service]({{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service) tutorial. See [Creating an Inbound Endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint.md) for details on how to work with inbound endpoints using WSO2 Integration Studio.
+In this sample scenario, you will use an **Inbound Endpoint** to expose an already defined REST API through a different port. You can reuse the REST API that was defined in the [Sending a Simple Message to a Service]({{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service) tutorial. See [Creating an Inbound Endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint) for details on how to work with inbound endpoints using WSO2 Integration Studio.
 
 ## Let's get started!
 
@@ -11,10 +11,10 @@ In this sample scenario, you will use an **Inbound Endpoint** to expose an alrea
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service.md) tutorial:
+2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial:
 
     !!! Note
-        This tutorial is a continuation of the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service.md) tutorial.
+        This tutorial is a continuation of the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial.
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/sending-simple-message-tutorial.zip).
     2.  Open WSO2 Integration Studio and go to **File -> Import**. 

@@ -4,7 +4,7 @@
 
 When you integrate the systems in your organizaion, it is also necessary to integrate with third-party systems and its capabilities to enhance your services. WSO2 Micro Integrator uses **Connectors** for the purpose of referring the APIs of third-party systems.
 
-**In this tutorial**, when a client sends an appointment reservation request to the Micro Integrator, the client should receive an email confirming the appointment reservation details. To build this use case, you can add an Email connector to the mediation flow of the REST resource that you defined in the [previous tutorial](storing-and-forwarding-messages.md).
+**In this tutorial**, when a client sends an appointment reservation request to the Micro Integrator, the client should receive an email confirming the appointment reservation details. To build this use case, you can add an Email connector to the mediation flow of the REST resource that you defined in the [previous tutorial](storing-and-forwarding-messages).
 
 ## Let's get started!
 
@@ -13,7 +13,7 @@ When you integrate the systems in your organizaion, it is also necessary to inte
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system. The path to the extracted/installed folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
-2.   If you did not try the [asynchronous messaging](storing-and-forwarding-messages.md) tutorial yet:
+2.   If you did not try the [asynchronous messaging](storing-and-forwarding-messages) tutorial yet:
     1.  Open WSO2 Integration Studio and go to **File -> Import**. 
     2.  Select **Existing WSO2 Projects into workspace** under the **WSO2** category, click **Next**, and then upload the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/StoreAndForwardTutorial.zip).
 

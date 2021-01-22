@@ -4,7 +4,7 @@
 
 In this sample scenario, you will use a **Sequence Template**
 and reuse it in multiple places of the medation flow. You can reuse the
-mediation flow that was defined in the [Service Orchestration]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial and then replace its sections with the sequence template. See [Creating Templates]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates.md) for details
+mediation flow that was defined in the [Service Orchestration]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial and then replace its sections with the sequence template. See [Creating Templates]({{base_path}}/integrate/develop/creating-artifacts/creating-sequence-templates) for details
 on how to work with templates using WSO2 Integration Studio.
 
 ## Let's get started!

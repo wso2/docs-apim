@@ -6,7 +6,7 @@ When information from several services are required to construct a response to a
 
 In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service call to multiple back-end services in order to construct the response that includes all the necessary details. 
 
-To build this mediation flow, you will update the API resource from the [Message Transformation](transforming-message-content.md) tutorial to send messages through the Micro Integrator to the back-end service using the **Call** mediator instead of the **Send** mediator. The Call mediator allows you to specify all service invocations one after the other within a single sequence. You will then use the **PayloadFactory** mediator to take the response from one back-end service and change it to the format that is accepted by the other back-end service.
+To build this mediation flow, you will update the API resource from the [Message Transformation](transforming-message-content) tutorial to send messages through the Micro Integrator to the back-end service using the **Call** mediator instead of the **Send** mediator. The Call mediator allows you to specify all service invocations one after the other within a single sequence. You will then use the **PayloadFactory** mediator to take the response from one back-end service and change it to the format that is accepted by the other back-end service.
 
 ## Let's get started!
 
@@ -15,10 +15,10 @@ To build this mediation flow, you will update the API resource from the [Message
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Message Transformation](transforming-message-content.md) tutorial:
+2.  Set up the project from the [Message Transformation](transforming-message-content) tutorial:
 
     !!! Note
-        This tutorial is a continuation of the [Message Transformation](transforming-message-content.md) tutorial.
+        This tutorial is a continuation of the [Message Transformation](transforming-message-content) tutorial.
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/message-transformation-tutorial.zip).
     2.  Open WSO2 Integration Studio and go to **File -> Import**. 

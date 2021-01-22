@@ -51,10 +51,10 @@ The client message format must be transformed to the back-end service message fo
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Routing Requests Based on Message Content](routing-requests-based-on-message-content.md) tutorial:
+2.  Set up the project from the [Routing Requests Based on Message Content](routing-requests-based-on-message-content) tutorial:
 
     !!! Note
-        This tutorial is a continuation of the [Routing Requests Based on Message Content](routing-requests-based-on-message-content.md) tutorial.
+        This tutorial is a continuation of the [Routing Requests Based on Message Content](routing-requests-based-on-message-content) tutorial.
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/message-routing-tutorial.zip).
     2.  Open WSO2 Integration Studio and go to **File -> Import**. 
@@ -62,7 +62,7 @@ Set up WSO2 Integration Studio as follows:
 
 ### Step 2: Develop the integration artifacts
 
-Let's update the API resource that was used in the [previous tutorial](routing-requests-based-on-message-content.md) by adding a **Data Mapper** mediator to configure the data transforrmation logic.
+Let's update the API resource that was used in the [previous tutorial](routing-requests-based-on-message-content) by adding a **Data Mapper** mediator to configure the data transforrmation logic.
 
 1.  In WSO2 Integration Studio, add a **Data Mapper** mediator just after
     the Property mediator in the In Sequence of the API resource.

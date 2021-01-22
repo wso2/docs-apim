@@ -2,7 +2,7 @@
 
 ## What you'll build
 
-In the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service.md) tutorial, we routed a
+In the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial, we routed a
 simple message to a single endpoint in the back-end service. In this tutorial, we are building on the same sequence by creating the mediation artifacts that can route a message to the relevant endpoint depending on the content of the message payload.
 
 When the client sends the appointment reservation request to the Micro Integrator, the message payload of the request contains the name of the hospital where the appointment needs to be confirmed. The HTTP request method that is used for this is POST. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
@@ -16,10 +16,10 @@ To implement this use case, you will add a new REST resource to the existing RES
 Set up WSO2 Integration Studio as follows:
 
 1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service.md) tutorial:
+2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial:
 
     !!! Note
-        This tutorial is a continuation of the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service.md) tutorial.
+        This tutorial is a continuation of the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial.
 
     1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/sending-simple-message-tutorial.zip).
     2.  Open WSO2 Integration Studio and go to **File -> Import**. 
@@ -110,13 +110,13 @@ Let's create three different HTTP endpoints for the above services.
 You have now created the three endpoints for the hospital back-end services that will be used to make appointment reservations.
 
 !!! Tip
-    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service](exposing-several-services-as-a-single-service.md).
+    You can also create a single endpoint where the differentiation of the hospital name can be handled using a variable in the URI template. See the tutorial on [Exposing Several Services as a Single Service](exposing-several-services-as-a-single-service).
 
     Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
 #### Add a REST resource
 
-To implement the routing scenario, let's add a new API resource to the REST API we created in the [previous tutorial](sending-a-simple-message-to-a-service.md).
+To implement the routing scenario, let's add a new API resource to the REST API we created in the [previous tutorial](sending-a-simple-message-to-a-service).
 
 1.  Select **API Resource** in the API palette of the REST API and drag it to the canvas just below the previous API resource that was created.  
 
