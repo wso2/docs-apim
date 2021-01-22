@@ -185,8 +185,8 @@ e.g., Two receiver groups with two load balanced receivers in each can be specif
 <br/>analytics_url =["tcp://localhost:7612","tcp://localhost:7613"]
 <br/>type = "loadbalance"
 <br/>
-<br />[[apim.analytics.url_group]]
-<br />analytics_url =["tcp://localhost:7712","tcp://localhost:7713"]
+<br/>[[apim.analytics.url_group]]
+<br/>analytics_url =["tcp://localhost:7712","tcp://localhost:7713"]
 <br/>type = "loadbalance"
 </code>
 <br/>
@@ -196,8 +196,8 @@ e.g., Two receiver groups with two load balanced receivers in each can be specif
 <br/>analytics_url =["tcp://localhost:7612"|"tcp://localhost:7613"]
 <br/>type = "failover"
 <br/>
-<br />[[apim.analytics.url_group]]
-<br />analytics_url =["tcp://localhost:7712"|"tcp://localhost:7713"]
+<br/>[[apim.analytics.url_group]]
+<br/>analytics_url =["tcp://localhost:7712"|"tcp://localhost:7713"]
 <br/>type = "failover"
 <code>
 </p>
