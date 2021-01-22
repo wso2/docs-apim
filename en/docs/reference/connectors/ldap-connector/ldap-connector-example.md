@@ -19,7 +19,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap.md) if you need to setup an LDAP and try this out. 
+Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to setup an LDAP and try this out. 
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
@@ -215,4 +215,4 @@ You should get all entries that match with the provided filter. A sample respons
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [LDAP Connector Configuration]({{base_path}}/reference/connectors/ldap-connector/ldap-server-configuration.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [LDAP Connector Configuration]({{base_path}}/reference/connectors/ldap-connector/ldap-server-configuration/) documentation for all operation details of the connector.

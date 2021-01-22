@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
     <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
-3. Follow these steps to [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api.md) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
+3. Follow these steps to [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
 
 4. Provide the API name as **SendMails**. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
 ```xml
@@ -119,4 +119,4 @@ The senders should receive an email with a subject of "Best of Europe — 6 Coun
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Gmail Connector Configuration]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config.md) documentation.
+* To customize this example for your own scenario, see [Gmail Connector Configuration]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config/) documentation.

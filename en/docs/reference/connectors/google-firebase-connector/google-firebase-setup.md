@@ -7,5 +7,5 @@
 4. Click the **Generate New Private Key** button at the bottom of the **Firebase Admin SDK** section of the **Service Accounts** tab.
     <img src="{{base_path}}/assets/img/integrate/connectors/get-firebase-credentials.png" title="Get Firebase credentials" width="600" alt="Get Firebase credentials"/>
 
-    After you click the button, a JSON file containing your service account's credentials will be downloaded. You'll need information in this file to initialize the Google Firebase Connector in the [integration scenario]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-connector-example.md) you are going to build next. 
+    After you click the button, a JSON file containing your service account's credentials will be downloaded. You'll need information in this file to initialize the Google Firebase Connector in the [integration scenario]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-connector-example/) you are going to build next. 
   

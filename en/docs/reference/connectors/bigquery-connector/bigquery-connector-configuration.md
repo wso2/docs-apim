@@ -132,4 +132,4 @@ Follow the steps below to generate user credentials.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-create-table2.png" title="Bigquery create Table step2" width="600" alt="Bigquery create Table step2"/> 
 
-For more information about these operations, please refer to the [BigQuery connector reference guide]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-reference.md).
+For more information about these operations, please refer to the [BigQuery connector reference guide]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-reference/).

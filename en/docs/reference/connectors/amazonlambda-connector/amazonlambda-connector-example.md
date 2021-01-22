@@ -140,7 +140,7 @@ Please use command line terminal or shell to run following commands. Commands ar
 
 ## Create Execution Role
 
-You need to create an Execution Role by referring to the [Setting up the Amazon Lambda Environment](setting-up-amazonlambda.md) documentation.  
+You need to create an Execution Role by referring to the [Setting up the Amazon Lambda Environment]({{base_path}}/reference/connectors/amazonlambda-connector/setting-up-amazonlambda/) documentation.  
 
 ## Get the project
 

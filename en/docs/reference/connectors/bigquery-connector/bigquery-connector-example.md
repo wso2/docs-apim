@@ -20,7 +20,7 @@ All four operations are exposed via an `bigquery-testAPI` API. The API with the 
 * `/getdetails` : This is used to retrieves table data from a specified set of rows.
 * `/runQuery` : The runQuery operation runs an SQL query (BigQuery) and returns results if the query completes within a specified timeout.              
 
- > **Note**: Before starting this scenario, you need to create a **project** in BigQuery. Next, create a **Dataset** and under that Dataset you have to have **Table**. For more information about these operations, please refer to the [Setting up the BigQuery Environment]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-configuration.md). 
+ > **Note**: Before starting this scenario, you need to create a **project** in BigQuery. Next, create a **Dataset** and under that Dataset you have to have **Table**. For more information about these operations, please refer to the [Setting up the BigQuery Environment]({{base_path}}/reference/connectors/bigquery-connector/bigquery-connector-configuration/). 
 
 The following diagram shows the overall solution. User can invoke the table schema level details from the `gettabledetails` resource. Using the response details, the API caller can insert data into the created table. If users need to retrieve table data from a specified set of rows, they need to invoke the `getdetails` resource. Finally `/runQuery` resource runs an SQL query (BigQuery) and returns results back to the API caller.
 
@@ -199,7 +199,7 @@ Create a resource that to invoke an API to get created table details from the Bi
           
       <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-runquery-drag-and-drop.png" title="Drag and drop insertAllTableData operation" width="600" alt="Drag and drop insertAllTableData operation"/>
 
-3. To get the input values in to the `runQuery`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
+3. To get the input values in to the `runQuery`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator/). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
         
    The parameters available for configuring the Property mediator are as follows:
     

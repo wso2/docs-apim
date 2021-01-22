@@ -16,11 +16,11 @@ For older versions, see the details in the connector store.
 
 ## Gmail Connector documentation
 
-* **[Creating the Client ID and Client Secret]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api.md)**: You need to first create Gmail credentials for the connector to use in order to interact with Gmail.
+* **[Creating the Client ID and Client Secret]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)**: You need to first create Gmail credentials for the connector to use in order to interact with Gmail.
 
-* **[Gmail Connector Example]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-example.md)**: This example demonstrates a scenario where a customer feedback Gmail account of a company can be easily managed using the WSO2 Gmail Connector. 
+* **[Gmail Connector Example]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-example/)**: This example demonstrates a scenario where a customer feedback Gmail account of a company can be easily managed using the WSO2 Gmail Connector. 
 
-* **[Gmail Connector Reference]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config.md)**: This documentation provides a reference guide for the Gmail Connector.
+* **[Gmail Connector Reference]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config/)**: This documentation provides a reference guide for the Gmail Connector.
 
 ## How to contribute
 

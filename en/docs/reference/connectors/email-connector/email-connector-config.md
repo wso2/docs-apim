@@ -622,4 +622,4 @@ The following is a sample proxy service that illustrates how to connect to the E
 </proxy>         
 ```
 
-**Note**: For more information on how this works in an actual scenario, see [Email Connector Example](email-connector-example.md).
+**Note**: For more information on how this works in an actual scenario, see [Email Connector Example]({{base_path}}/reference/connectors/email-connector/email-connector-example/).

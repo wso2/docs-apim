@@ -21,7 +21,7 @@ parameters must be passed in the body as we will see below.
 
 ## Setting up the environment 
 
-Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
+Please follow the steps mentioned at [Setting up Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/) document in order to create a Ceridian Dayforce developer account and obtain credentials you need to access the 
 Dayforce sample APIs. Keep them saved to be used in the next steps.  
 
 ## Configure the connector in WSO2 Integration Studio
@@ -185,8 +185,7 @@ You should receive 200 OK response with the response body as follows,
     
 ### POST the contact information of an employee in Dayforce
 
-* Invoke the API as shown below using the curl command. Curl Application can be downloaded from 
-[here](https://curl.haxx.se/download.html).
+* Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 ```
 curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/postEmployeeContact' \
@@ -233,4 +232,4 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/post
 * You should get a 200 OK response. Please bear in mind that this post will not update the database in the sample 
 environment. However, if you use this in a test or production environment changes will be made to the database.
 
-In this example Ceridian Dayforce connector is used to perform operations with Dayforce HCM.  Please read the [Ceridian Dayforce connector reference guide]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md ) to learn more about the operations you can perform with the Dayforce connector.
+In this example Ceridian Dayforce connector is used to perform operations with Dayforce HCM.  Please read the [Ceridian Dayforce connector reference guide]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference/) to learn more about the operations you can perform with the Dayforce connector.

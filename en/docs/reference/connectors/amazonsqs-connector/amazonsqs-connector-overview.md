@@ -18,17 +18,17 @@ For older versions, see the details in the connector store.
 
 The WSO2 Amazon SQS connector allows you to access the exposed API through the WSO2 EI. Through this connector, you can perform CRUD operations for queues in Amazon SQS instance, update permissions and can work with messages. For further reference please refer to [Amazon SQS API reference](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html).
 
-* **[Amazon SQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md)**: This example explains how to use Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to a backend service and send the response to the user. 
+* **[Amazon SQS Connector Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-example/)**: This example explains how to use Amazon SQS Connector to create a queue in the Amazon SQS, send a message to the queue, forward it to a backend service and send the response to the user. 
 
-* **[Amazon SQS Connector Reference]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md)**: This documentation provides a reference guide for the Amazon SQS Connector.
+* **[Amazon SQS Connector Reference]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config/)**: This documentation provides a reference guide for the Amazon SQS Connector.
 
 ## Amazon SQS Inbound Endpoint
 
 The AmazonSQS Inbound Endpoint allows you to connect to Amazon and consume messages form an Amazon SQS queue. The messages are then injected into a WSO2 EI mediation engine for further processing and mediation.
 
-* **[Amazon SQS Inbound Endpoint Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md)**: This example demonstrates how the AmazonSQS inbound endpoint works as a message consumer. 
+* **[Amazon SQS Inbound Endpoint Example]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example/)**: This example demonstrates how the AmazonSQS inbound endpoint works as a message consumer. 
 
-* **[Amazon SQS Inbound Endpoint Reference]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md)**: This documentation provides a reference guide for the Amazon SQS Inbound Endpoint.
+* **[Amazon SQS Inbound Endpoint Reference]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration/)**: This documentation provides a reference guide for the Amazon SQS Inbound Endpoint.
 
 ## How to contribute
 

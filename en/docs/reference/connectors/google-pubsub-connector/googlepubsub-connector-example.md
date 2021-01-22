@@ -10,7 +10,7 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 EI 
 2. Insert company update notifications to the created topic.
 3. Retrieve company updates from the created topic.
 
-To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md) documentation to setup an account.
+To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/) documentation to setup an account.
 
 In this scenario the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to the company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally the user can retrieve the company updates from the subscribed topic while invoking the API.
 

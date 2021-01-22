@@ -38,9 +38,9 @@ For older versions, see the details in the connector store.
 
 ## Documentum Connector documentation
 
-* **[Documentum Connector Example]({{base_path}}/reference/connectors/documentum/documentum-example.md)**: This example explains how to use Documentum Connector to create folder, find folder, delete folder, create document, find document, delete document, create cabinets, find cabinet, delete cabinet, get cabinet, create acl, apply acl, delete acl, get all acls, get all version, get current version and delete all versions. 
+* **[Documentum Connector Example]({{base_path}}/reference/connectors/documentum/documentum-example/)**: This example explains how to use Documentum Connector to create folder, find folder, delete folder, create document, find document, delete document, create cabinets, find cabinet, delete cabinet, get cabinet, create acl, apply acl, delete acl, get all acls, get all version, get current version and delete all versions. 
 
-* **[Documentum Connector Reference]({{base_path}}/reference/connectors/documentum/documentum-reference.md)**: This documentation provides a reference guide for the Documentum Connector.
+* **[Documentum Connector Reference]({{base_path}}/reference/connectors/documentum/documentum-reference/)**: This documentation provides a reference guide for the Documentum Connector.
 
 ## How to contribute
 

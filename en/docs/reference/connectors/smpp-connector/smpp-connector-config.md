@@ -641,4 +641,4 @@ The following is a sample proxy service that illustrates how to connect to the S
    <description/>
 </proxy>       
 ```
-**Note**: For more information on how this works in an actual scenario, see [SMPP Connector Example](smpp-connector-example.md).
+**Note**: For more information on how this works in an actual scenario, see [SMPP Connector Example]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-example/).

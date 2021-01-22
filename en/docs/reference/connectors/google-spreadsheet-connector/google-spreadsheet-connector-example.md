@@ -31,7 +31,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 ## Creating the Integration Logic
 
-1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
+1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
     <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
@@ -391,4 +391,4 @@ The spreadsheet should be edited within the above specified cell range.
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Google Spreadsheet Connector Configuration]({{base_path}}/reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Google Spreadsheet Connector Configuration]({{base_path}}/reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config/) documentation for all operation details of the connector.

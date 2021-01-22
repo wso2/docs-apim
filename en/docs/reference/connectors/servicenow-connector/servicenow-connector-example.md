@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment 
 
-Please follow the steps mentioned in the [Setting up ServiceNow Instance](settingup-servicenow-instance.md) document in order to create a ServiceNow Instance and obtain the credentials. Keep them saved to be used in the next steps.  
+Please follow the steps mentioned in the [Setting up ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/settingup-servicenow-instance/) document in order to create a ServiceNow Instance and obtain the credentials. Keep them saved to be used in the next steps.  
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -261,4 +261,4 @@ You should get the following text returned.
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [ServiceNow Connector Configuration](servicenow-connector-config.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [ServiceNow Connector Configuration]({{base_path}}/reference/servicenow-connector/servicenow-connector-config/) documentation for all operation details of the connector.

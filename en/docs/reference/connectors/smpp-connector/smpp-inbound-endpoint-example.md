@@ -84,7 +84,7 @@ Following diagram shows the overall solution we are going to build. The SMSC wil
       <log level="full"/>
    </sequence>
    ```
-> **Note**: To configure the `systemId` and `password` parameter value, please use the steps given under the topic `Configure the SMSC (Short Message Service Center) simulator` in the [Setting up the SMPP Connector ](smpp-connector-configuration.md) documentation.
+> **Note**: To configure the `systemId` and `password` parameter value, please use the steps given under the topic `Configure the SMSC (Short Message Service Center) simulator` in the [Setting up the SMPP Connector ]({{base_path}}/rference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 > - **systemId** : username to access the SMSC
 > - **password** : password to access the SMSC 
    

@@ -18,11 +18,11 @@ For older versions, see the details in the connector store.
 
 ## Ceredian Dayforce Connector documentation
 
-* **[Setting up the Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md)**: You need to have a Ceridian Dayforce developer account and obtain test user credentials to try this out.
+* **[Setting up the Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/)**: You need to have a Ceridian Dayforce developer account and obtain test user credentials to try this out.
 
-* **[Ceridian Dayforce Connector Example]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md)**: This example depicts how to use Dayforce connector to send a GET request to retrieve address of employees and send a POST request to create contacts of an employee. 
+* **[Ceridian Dayforce Connector Example]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example/)**: This example depicts how to use Dayforce connector to send a GET request to retrieve address of employees and send a POST request to create contacts of an employee. 
 
-* **[Ceridian Dayforce Connector Reference]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md)**: This documentation provides a reference guide for the Ceridian Dayforce Connector.
+* **[Ceridian Dayforce Connector Reference]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference/)**: This documentation provides a reference guide for the Ceridian Dayforce Connector.
 
 ## How to contribute
 

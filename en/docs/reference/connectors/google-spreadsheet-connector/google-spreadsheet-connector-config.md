@@ -8,7 +8,7 @@ The following operations allow you to work with the Google Spreadsheet Connector
 
 To use the Google Spreadsheet connector, add the <googlespreadsheet.init> element in your proxy configuration before use any other Google Spreadsheet operations. The <googlespreadsheet.init> element is used to authenticate the user using OAuth2 authentication and allows the user to access the Google account which contains the spreadsheets. For more information on authorizing requests in Google Spreadsheets, see [https://developers.google.com/sheets/api/guides/authorizing](https://developers.google.com/sheets/api/guides/authorizing).
 
-> **Note**: When trying it out the first time, you need to use valid accessToken to use the connector operations. If the provided accessToken has expired then the token refreshing flow will be handled inside the connector. See the [documetation to set up Google Spreadsheets and get credentials such as clientId, clientSecret, accessToken, and refreshToken]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet.md).
+> **Note**: When trying it out the first time, you need to use valid accessToken to use the connector operations. If the provided accessToken has expired then the token refreshing flow will be handled inside the connector. See the [documetation to set up Google Spreadsheets and get credentials such as clientId, clientSecret, accessToken, and refreshToken]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/).
 
 ??? note "googlespreadsheet.init"
     The googlespreadsheet.init operation initializes the connector to interact with Google Spreadsheet.

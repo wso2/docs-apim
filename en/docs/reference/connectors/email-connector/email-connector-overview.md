@@ -16,9 +16,9 @@ For older versions, see the details in the connector store.
 
 ## Email Connector documentation
 
-* **[Email Connector Example]({{base_path}}/reference/connectors/email-connector/email-connector-example.md)**: This example explains how to use Email Connector to send an email and retrieve the same. 
+* **[Email Connector Example]({{base_path}}/reference/connectors/email-connector/email-connector-example/)**: This example explains how to use Email Connector to send an email and retrieve the same. 
 
-* **[Email Connector Reference]({{base_path}}/reference/connectors/email-connector/email-connector-config.md)**: This documentation provides a reference guide for the Email Connector.
+* **[Email Connector Reference]({{base_path}}/reference/connectors/email-connector/email-connector-config/)**: This documentation provides a reference guide for the Email Connector.
 
 ## How to contribute
 

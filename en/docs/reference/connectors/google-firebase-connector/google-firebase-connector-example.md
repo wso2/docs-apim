@@ -21,7 +21,7 @@ Overall integration scenario would look like below.
 
 ## Setting up the environment
 
-You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup.md) on how to do that. 
+You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -274,4 +274,4 @@ If you have registered some devices to your application, the notification will a
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/setup/installation/run_in_containers).
-* Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration.md) to learn more about the operations you can perform with the connector.
+* Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/) to learn more about the operations you can perform with the connector.

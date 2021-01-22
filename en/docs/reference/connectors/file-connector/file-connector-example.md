@@ -246,9 +246,9 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator runt
 
 4.  If you invoke the API again with a different set of employees, the new employees will get appended to the same file. The response you receive will include all the employees that were added from both messages.
 
-In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2 EI, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config.md) for more information. 
+In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2 EI, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config/) for more information. 
 
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/file-connector-config.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/file-connector-config/) documentation for all operation details of the connector.

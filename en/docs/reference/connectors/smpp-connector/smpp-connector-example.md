@@ -7,7 +7,7 @@ SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS t
 Given below is a sample scenario that demonstrates how to work with the WSO2 EI SMPP Connector and send SMS messages via the SMPP protocol.
 
 The SMPP server in SMSC have all the ESME (External Short Messaging Entity) addresses. This is an external application that connects to a SMSC and the active connection. When you send an SMS to a destination, it comes to the SMSC. Then one of the modules in SMSC checks if the destination address is available or not. If it is available, it creates a connection object that is responsible for sending the SMS message.
-There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer the [Setting up the SMPP Connector](smpp-connector-configuration.md) documentation.
+There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 
 The following `sendSMS`operation is exposed via an API. The API with the context `/send` has one resource.
 

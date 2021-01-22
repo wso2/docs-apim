@@ -26,9 +26,9 @@ All seven operations are exposed via an API. The API with the context `/resource
 * `/listtable` : Retrieve information about the created tables.
 * `/deletetable` : Remove created table in the Amazon DynamoDB.
 
-For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md).
+For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/).
 
-> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration.md) documentation for more information.
+> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration/) documentation for more information.
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 

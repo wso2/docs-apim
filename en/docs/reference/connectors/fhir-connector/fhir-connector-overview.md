@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## FHIR Connector documentation
 
-* **[FHIR Connector Example]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-example.md)**: In this example you will learn how you can connect to a FHIR server and invoke operations. This is illustrated using a sample API. 
+* **[FHIR Connector Example]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-example/)**: In this example you will learn how you can connect to a FHIR server and invoke operations. This is illustrated using a sample API. 
 
-* **[FHIR Connector Reference]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-config.md)**: This documentation provides a reference guide for the FHIR Connector.
+* **[FHIR Connector Reference]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-config/)**: This documentation provides a reference guide for the FHIR Connector.
 
 ## How to contribute
 

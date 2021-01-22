@@ -40,7 +40,7 @@ class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
 
 ## Setting up the AWS Account and DynamoDB Environment
 
-Please follow the steps mentioned in the [Setting up the Amazon Lambda Environment]({{base_path}}/reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md) document in order to create an Amazon account and obtain the access key id and secret access key.
+Please follow the steps mentioned in the [Setting up the Amazon Lambda Environment]({{base_path}}/reference/connectors/amazonlambda-connector/setting-up-amazonlambda/) document in order to create an Amazon account and obtain the access key id and secret access key.
 
 Please find the following steps to navigate in to the Amazon DynamoDB using the AWS account.
 

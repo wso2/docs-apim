@@ -21,9 +21,9 @@ For older versions, see the details in the connector store.
 
 ## Amazon S3 Connector documentation (latest - 2.x version)
 
-* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-example.md)**: This example demonstrates how to use Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it back, and convert it into a message in WSO2 EI integration. 
+* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-example/)**: This example demonstrates how to use Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it back, and convert it into a message in WSO2 EI integration. 
 
-* **[Amazon S3 Connector Reference]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference.md)**: This documentation provides a reference guide for the Amazon S3 Connector.
+* **[Amazon S3 Connector Reference]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference/)**: This documentation provides a reference guide for the Amazon S3 Connector.
 
 ## How to contribute
 

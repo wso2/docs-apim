@@ -337,4 +337,4 @@ Invoke the API as shown below using the curl command. Curl application can be do
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Salesforce bulk Connector Configuration]({{base_path}}/reference/connectors/salesforce-connectors/salesforcebulk-reference/) documentation for all operation details of the connector.
