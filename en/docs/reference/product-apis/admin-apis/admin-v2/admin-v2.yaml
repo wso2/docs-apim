@@ -224,9 +224,9 @@ paths:
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
         409:
-          $ref: '#/definitions/Error'
+          $ref: '#/components/responses/Conflict'
         500:
-          $ref: '#/definitions/Error'
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
@@ -815,9 +815,9 @@ paths:
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
         409:
-          $ref: '#/definitions/Error'
+          $ref: '#/components/responses/Conflict'
         500:
-          $ref: '#/definitions/Error'
+          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
