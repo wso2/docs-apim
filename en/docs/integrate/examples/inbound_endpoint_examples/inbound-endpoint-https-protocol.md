@@ -66,15 +66,15 @@ Set up the back-end service:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. See the instructions on [creating mediation sequences](../../../../develop/creating-artifacts/creating-reusable-sequences) to define the two sequences given above ('Sequence 1' and 'Sequence 2'). 
-4. See the instructions on [creating an inbound endpoint](../../../../develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. See the instructions on [creating mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) to define the two sequences given above ('Sequence 1' and 'Sequence 2'). 
+4. See the instructions on [creating an inbound endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
 
     !!! Tip
         Be sure to add an empty namespace for the keystore and truststore elements (`xmlns=""`) in the inbound endpoint as shown above. This is necessary when you run this example in the embedded Micro Integrator of WSO2 Integration Studio.
         
-5. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Invoke the inbound endpoint with the below request. 
 

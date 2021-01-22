@@ -83,7 +83,7 @@ The parameters available to configure the ForEach mediator are as follows.
 </tr>
 <tr class="odd">
 <td><strong>Sequence</strong></td>
-<td><p>The mediation sequence that should be applied to the messages derived from the parent message. ForEach mediator is used only for transformations, thereby, you should not include <a href="../../mediators/call-Mediator">Call</a> , <a href="../../mediators/send-Mediator">Send</a> and <a href="../../mediators/callout-Mediator">Callout</a> mediators, which are used to invoke endpoints, in t his sequence.</p>
+<td><p>The mediation sequence that should be applied to the messages derived from the parent message. ForEach mediator is used only for transformations, thereby, you should not include <a href="{{base_path}}/reference/mediators/call-mediator">Call</a> , <a href="{{base_path}}/reference/mediators/send-mediator">Send</a> and <a href="{{base_path}}/reference/mediators/callout-mediator">Callout</a> mediators, which are used to invoke endpoints, in t his sequence.</p>
 <p>You can select one of the following options.</p>
 <ul>
 <li><strong>Anonymous</strong>: This allows you to define an anonymous sequence to be applied to the split messages by adding the required mediators as children of the ForEach mediator in the mediator tree.</li>

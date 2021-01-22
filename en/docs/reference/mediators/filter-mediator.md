@@ -7,7 +7,7 @@ Filter mediator executes the other mediators enclosed in the sequence.
 The Filter Mediator closely resembles the "If-else" control structure.
 
 !!! Info
-    The Filter mediator is a [conditionally](../../../concepts/message-processing-units/#classification-of-mediators) [content aware](../../../concepts/message-processing-units/#classification-of-mediators) mediator.
+    The Filter mediator is a [conditionally]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) [content aware]({{base_path}}/concepts/message-processing-units/#classification-of-mediators) mediator.
 
 ## Syntax
 

@@ -121,10 +121,10 @@ In this example, the endpoint template is configured to invoke the endpoints bas
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [REST API](../../../../develop/creating-artifacts/creating-an-api) and [endpoint template](../../../../develop/creating-artifacts/creating-endpoint-templates) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) and [endpoint template]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoint-templates) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 ### Invoke the API
 1. Using REST client:

@@ -310,8 +310,8 @@ Deploy the custom Task implementation.
 
 Follow the steps below to create the task and schedule it.
 
-1.  [Create a ESB Config project](../../../develop/creating-projects/#esb-config-project) named `            PrintStockQuote           `.
-2.  [Create a Sequence](../creating-artifacts/creating-reusable-sequences.md) using the following information named `PrintStockQuoteSequence`. 
+1.  [Create a ESB Config project]({{base_path}}/integrate/develop/create-integration-project) named `            PrintStockQuote           `.
+2.  [Create a Sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) using the following information named `PrintStockQuoteSequence`. 
 3.  Add a **Log Mediator** and a **Drop Mediator** to the sequence and configure them.
 
     ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130461.png)
@@ -326,7 +326,7 @@ Follow the steps below to create the task and schedule it.
     </sequence>
     ```
     
-4.  [Create a Scheduled Task](../creating-artifacts/creating-scheduled-task) using the following information:
+4.  [Create a Scheduled Task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task) using the following information:
     <table>
         <tr>
             <th>Task Property</th>

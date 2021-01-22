@@ -1,19 +1,19 @@
 # Using a Remote Micro Integrator
 
-The light-weight Micro Integrator is already included in your WSO2 Integration Studio package, which allows you to [deploy and run the artifacts instantly](using-embedded-micro-integrator.md). 
+The light-weight Micro Integrator is already included in your WSO2 Integration Studio package, which allows you to [deploy and run the artifacts instantly]({{base_path}}/integrate/develop/using-embedded-micro-integrator). 
 
 The following instructions can be used to run your artifacts in a remote Micro Integrator instance.
 
 ## Deploy and run artifacts in a remote instance
 
-1.	[Download and install](../../setup/installation/install_in_vm) the Micro Integrator server and on your computer. 
-2.	[Package your Synapse artifacts](packaging-artifacts.md) from WSO2 Integration Studio.
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) the Micro Integrator server and on your computer. 
+2.	[Package your Synapse artifacts]({{base_path}}/integrate/develop/packaging-artifacts) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.
 
 !!! Note
     As an alternative, you can skip the steps given below and manually copy the exported CAR file to the `<MI_HOME>/repository/deployment/server/carbonapps/` folder, where `<MI_HOME>` is the root folder of your Micro Integrator installation.
-    For more information on how to export a CAR file, see [Exporting Artifacts](exporting-artifacts.md).
+    For more information on how to export a CAR file, see [Exporting Artifacts]({{base_path}}/integrate/develop/exporting-artifacts).
 
 ## Add a new remote instance
 
@@ -42,7 +42,7 @@ However, when your solutions are ready to be moved to your production environmen
 1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-capps.png" width="500">
 
-2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="../..{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
+2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
 
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-start.png" width="500">   
 

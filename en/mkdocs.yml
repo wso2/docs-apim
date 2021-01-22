@@ -51,9 +51,9 @@ nav:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: getting-started/quick-start-guide.md
-                - Quick Start Guide Integration: ''
-                - Quick Start Guide Streaming: ''
+                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
+                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
+                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
             - Create APIs Overview: design/design-api-overview.md
@@ -204,6 +204,8 @@ nav:
                 - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
+            - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
+            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
@@ -496,6 +498,14 @@ nav:
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
                 - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
                 - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Streaming Integration REST API Guide:
+                      - REST API Guide Overview: develop/streaming-apps/rest-api-guide-overview.md
+                      - Siddhi Application Management APIs: develop/streaming-apps/siddhi-application-management-apis.md
+                      - Permission APIs: develop/streaming-apps/permission-apis.md
+                      - Business Rules APIs: develop/streaming-apps/business-rules-apis.md
+                      - Store APIs: develop/streaming-apps/store-apis.md
+                      - Healthcheck APIs: develop/streaming-apps/healthcheck-apis.md
+                      - HTTP Status Codes: develop/streaming-apps/http-status-codes.md
           - Streaming Examples:
                 - Extracting Data from Static Sources in Real Time:
                        - Capturing MySQL Inserts via CDC: use-cases/examples/streaming-examples/cdc-with-listening-mode.md
@@ -652,24 +662,23 @@ nav:
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Micro Integrator Observability:
-              - Microintegrator Overview: mi-observe/observability-overview.md'
-              - Micro Integrator Dashboard: mi-observe/working-with-monitoring-dashboard.md'
-              - Micro Integrator CLI: mi-observe/using-the-command-line-interface.md'
-              - Using the Management API: mi-observe/working-with-management-api.md'
-              - Observability':
-                  - Cloud Native Observability Solution':
-                    - Viewing Cloud Native Observability Dashboards: mi-observe/cloud-native-observability-dashboards.md'
-                  - Classic Observability Solution':
-                    - Using the EI Analytics Dashboard: mi-observe/using-the-analytics-dashboard.md'
-                  - Monitoring Logs: mi-observe/logs/monitoring_logs.md'
-                  - Monitoring Message Round Trip: mi-observe/observability.md'
+              - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
+              - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
+              - Using the Management API: observe/mi-observe/working-with-management-api.md
+              - Observability:
+                  - Cloud Native Observability Solution:
+                    - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
+                  - Classic Observability Solution:
+                    - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
+                  - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
+                  - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
               - Metrics:
-                  - JMX Monitoring: mi-observe/jmx_monitoring.md'
-                  - SNMP Monitoring: mi-observe/snmp_monitoring.md'
+                  - JMX Monitoring: observe/mi-observe/jmx_monitoring.md
+                  - SNMP Monitoring: observe/mi-observe/snmp_monitoring.md
               - TCP Messages:
-                  - Starting TCPMon: mi-observe/tcp/starting_tcp_mon.md'
-                  - Message Monitoring with TCPMon: mi-observe/tcp/message_monitoring_with_tcpmon.md'
-                  - Other Usages of TCPMon: mi-observe/tcp/other_usages_of_tcpmon.md'
+                  - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
+                  - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
+                  - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
           - Monitoring the Streaming Integrator:
               - Configuring Grafana Dashboards: ''
               - Managing Grafana Dashboards: ''
@@ -720,16 +729,16 @@ nav:
                     - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md
                     - Deploying on Kubernetes: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Installing Micro Integrator:
-                - Installing via the Installer: install-and-setup/installation/install_in_vm_installer.md
-                - Installing via the Binary: install-and-setup/installation/install_in_vm_binary.md
-                - Installing as a Windows Service: setup/installation/install_as_service.md
+                - Installing via the Installer: install-and-setup/install/installing-the-product/install-mi-in-vm-installer.md
+                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
+                - Installing as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
             - Installing Streaming Integrator:
-                - 'Installing via the Installer': install-and-setup/install/installing-the-product/installing-si-in-vm.md
-                - 'Installing via the Binary': install-and-setup/install/installing-the-product/installing-si-binary.md
-                - 'Installing as a Windows Service': install-and-setup/install/installing-the-product/installing-the-binary/installing-si-as-windows-service.md
-                - 'Running the Streaming Integrator in Containers':
-                    - 'Installing in Docker': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
-                    - 'Installing in Kubernetes': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md'
+                - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
+                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
+                - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
+                - Running the Streaming Integrator in Containers:
+                    - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
+                    - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
@@ -742,6 +751,13 @@ nav:
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Configure a Key Manager:
                 - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                 - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -781,6 +797,21 @@ nav:
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                 - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                 - User Account Management: install-and-setup/setup/security/user-account-management.md
+            - Setting up the Streaming Integrator:
+                - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
+                - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
+                - Configuring Data Sources: install-and-setup/setup/si-setup/configuring-data-sources.md
+                - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
+                - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
+                - Supporting Different Transports: install-and-setup/setup/si-setup/supporting-different-transports.md
+                - User Management: install-and-setup/setup/si-setup/user-management.md
+                - Configuring State Persistence: install-and-setup/setup/si-setup/configuring-database-and-file-system-state-persistence.md
+                - Configuring Cluster Coordination: install-and-setup/setup/si-setup/configuring-cluster-coordination.md
+                - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
+                - Adding Third Party Non OSGi Libraries: install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md
+                - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
+                - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
+                - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deployment Best Practices:
             - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
             - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
@@ -936,6 +967,7 @@ nav:
                 - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
                 - Customizing Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                - Customizing the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Adding a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
                 - Adding internationalization: reference/customize-product/customizations/adding-internationalization.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
@@ -990,70 +1022,70 @@ nav:
                     - Initializing: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md
                     - Employee: reference/connectors/ceridiandayforce-connector/employee.md
                     - Configuration:
-                        - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgUnits.md
-                        - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgUnitDetails.md
+                        - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgunits.md
+                        - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgunitdetails.md
                     - Employee Documents:
-                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listOfDocuments.md
-                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentDetails.md
+                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listofdocuments.md
+                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentdetails.md
                     - Employee Employemnt Information:
-                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeClockDeviceGroups.md
-                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCompensationSummary.md
-                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCourses.md
-                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentAgreements.md
-                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentStatuses.md
-                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentTypes.md
-                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHighlyCompensatedEmployees.md
-                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHRIncidents.md
-                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeLaborDefaults.md
-                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOnboardingPolicies.md
-                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOrgInfo.md
-                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayAdjustmentCodeGroups.md
-                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayGradeRates.md
-                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePerformanceRatings.md
-                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeProperties.md
-                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeSkills.md
-                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeTrainingPrograms.md
-                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeUnionMemberships.md
-                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkAssignments.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md
+                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeclockdevicegroups.md
+                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecompensationsummary.md
+                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecourses.md
+                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentagreements.md
+                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentstatuses.md
+                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymenttypes.md
+                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehighlycompensatedemployees.md
+                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehrincidents.md
+                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeelabordefaults.md
+                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeonboardingpolicies.md
+                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeorginfo.md
+                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepayadjustmentcodegroups.md
+                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepaygraderates.md
+                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeperformanceratings.md
+                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeproperties.md
+                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeskills.md
+                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeetrainingprograms.md
+                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeunionmemberships.md
+                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkassignments.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
                     - Employee Personal Information:
-                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeAddresses.md
-                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeCANTaxes.md
-                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeContacts.md
-                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeDirectDeposits.md
-                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeEmergencyContacts.md
-                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeHealthandWellness.md
-                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeMaritalStatuses.md
-                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeUSTaxes.md
+                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeaddresses.md
+                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecantaxes.md
+                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecontacts.md
+                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeedirectdeposits.md
+                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeemergencycontacts.md
+                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeehealthandwellness.md
+                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeemaritalstatuses.md
+                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeustaxes.md
                     - Employee Time Management:
                         - availability: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md
-                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeePunches.md
-                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeeRawPunches.md
+                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeepunches.md
+                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeerawpunches.md
                         - schedules: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md
-                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeAwayFromWork.md
+                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeawayfromwork.md
                     - Employment Eligibility Verification:
-                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9Order.md
+                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9order.md
                     - Recruiting:
-                        - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobPostings.md
+                        - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobpostings.md
                     - Reporting:
-                        - reportMetadataForAListOfReports: reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForAListOfReports.md
-                        - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForASpecificReport.md
+                        - reportMetadataForAListOfReports: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforalistofreports.md
+                        - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforaspecificreport.md
                         - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
                     - User Security Authority And Management:
-                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentManagementSecurityGroups.md
-                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeLocations.md
-                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeManagers.md
-                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeRoles.md
-                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeSSOAccounts.md
-                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeWorkAssignmentManagers.md
-                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userPayAdjustmentCodeGroups.md
+                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentmanagementsecuritygroups.md
+                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeelocations.md
+                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeemanagers.md
+                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeroles.md
+                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeessoaccounts.md
+                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeworkassignmentmanagers.md
+                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userpayadjustmentcodegroups.md
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
                 - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
             - Documentum Connector:
-                - Documentum Overview: reference/connectors/documentum/documentum-overview.md'
+                - Documentum Overview: reference/connectors/documentum/documentum-overview.md
                 - Documentum Example: reference/connectors/documentum/documentum-example.md
                 - Documentum Reference: reference/connectors/documentum/documentum-reference.md
             - Email Connector:
@@ -1191,13 +1223,65 @@ nav:
                 - Validate Mediator: reference/mediators/validate-mediator.md
                 - XQuery Mediator: reference/mediators/xquery-mediator.md
                 - XSLT Mediator: reference/mediators/xslt-mediator.md
-                - Property Catalog:
-                    - Generic Properties: reference/mediators/property-reference/generic-Properties.md
-                    - HTTP Transport Properties: reference/mediators/property-reference/http-transport-properties.md
-                    - SOAP Headers: reference/mediators/property-reference/soap-headers.md
-                    - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
-                    - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
-                    - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Property Catalog:
+                - Generic Properties: reference/mediators/property-reference/generic-properties.md
+                - HTTP Transport Properties: reference/mediators/property-reference/http-transport-properties.md
+                - SOAP Headers: reference/mediators/property-reference/soap-headers.md
+                - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
+                - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
+                - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Synapse Properties:
+                - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+                - Sequence Properties: reference/synapse-properties/sequence-properties.md
+            - Inbound Endpoints:
+                - About Inbound Endpoints: reference/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
+                - HTTP Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties.md
+                - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
+                - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
+                - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
+                - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
+                - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
+                - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
+                - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
+                - MQTT Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md
+                - Custom Inbound Endpoint: reference/synapse-properties/inbound-endpoints/custom-inbound-endpoint-properties.md
+            - Message Stores and Processors:
+                - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
+                - Message Stores:
+                    - JMS Message Store: reference/synapse-properties/message-stores/jms-msg-store-properties.md
+                    - JDBC Message Store: reference/synapse-properties/message-stores/jdbc-msg-store-properties.md
+                    - RabbitMQ Message Store: reference/synapse-properties/message-stores/rabbitmq-msg-store-properties.md
+                    - Resequence Message Store: reference/synapse-properties/message-stores/resequence-msg-store-properties.md
+                    - WSO2 MB Message Store: reference/synapse-properties/message-stores/wso2mb-msg-store-properties.md
+                    - In Memory Message Store: reference/synapse-properties/message-stores/in-memory-msg-store-properties.md
+                    - Custom Message Store: reference/synapse-properties/message-stores/custom-msg-store-properties.md
+                - Message Processors:
+                    - Message Sampling Processor: reference/synapse-properties/message-processors/msg-sampling-processor-properties.md
+                    - Scheduled Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties.md
+                    - Scheduled Failover Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties.md
+            - Templates: reference/synapse-properties/template-properties.md
+            - Endpoints: reference/synapse-properties/endpoint-properties.md
+            - Data Services:
+                - About Data Services: reference/synapse-properties/data-services.md
+                - Elements of a Data Service: reference/synapse-properties/data-services/elements-of-a-data-service.md
+                - Query Parameters: reference/synapse-properties/data-services/query-parameters.md
+                - Datasource Parameters: reference/synapse-properties/data-services/datasource-configuration-parameters.md
+                - Input Validators: reference/synapse-properties/data-services/input-validators.md
+                - Namespaces: reference/synapse-properties/data-services/using-namespaces.md
+                - SQL/Data Types: reference/synapse-properties/data-services/mapping-data-types.md
+                - Sample Queries: reference/synapse-properties/data-services/sample-queries.md
+            - Transport Configs:
+                - VFS Parameters: reference/synapse-properties/transport-parameters/vfs-transport-parameters.md
+                - JMS Parameters: reference/synapse-properties/transport-parameters/jms-transport-parameters.md
+                - RabbitMQ Parameters: reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
+                - HL7 Parameters: reference/synapse-properties/transport-parameters/hl7-transport-parameters.md
+                - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
+                - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
+                - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
+            - Micro Integrator Security References:
+                - Customizing Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
+                - Using Keystores: reference/mi-security-reference/using_keystores.md
+                - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
@@ -1210,11 +1294,11 @@ nav:
             - API Security Sample: reference/samples/api-security-sample.md
             - API Versioning Sample: reference/samples/api-versioning-sample.md
         - Troubleshooting:
-              - Error Handling: reference/troubleshooting/error-handling.md
-              - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
+              - Error Handling: troubleshooting/error-handling.md
+              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-              - Cleaning Up Partially Created Keys: reference/troubleshooting/cleaning-up-partially-created-keys.md
-              - Troubleshooting 'Registered callback does not match with the provided url' error: reference/troubleshooting/troubleshooting-invalid-callback-error.md
+              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
 
 # Extensions
 markdown_extensions:
@@ -1381,6 +1465,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
+              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:

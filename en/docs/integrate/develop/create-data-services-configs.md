@@ -14,5 +14,5 @@ Create this project directory to start creating data services (.dbs files) for e
     </li>
 </ol>
 
-You can now start <a href="../../integrate/develop/creating-artifacts/data-services/creating-data-services/">managing data service artifacts</a> using <b>WSO2 Integration Studio</b>.
+You can now start <a href="{{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services/">managing data service artifacts</a> using <b>WSO2 Integration Studio</b>.
 

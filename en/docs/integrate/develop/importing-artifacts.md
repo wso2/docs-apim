@@ -2,7 +2,7 @@
 
 Follow the instructions given below to import an integration artifact into WSO2 Integration Studio.
 
-1.  [Create an ESB project](../../develop/creating-projects).
+1.  [Create an ESB project]({{base_path}}/integrate/develop/create-integration-project).
 2.	Right-click the ESB project, click **New**, and select the type of artifact you want to import. For example, let's import a REST API artifact.
 
 	<img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png">

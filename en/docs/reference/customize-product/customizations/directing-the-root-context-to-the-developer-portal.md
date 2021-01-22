@@ -7,7 +7,7 @@ WSO2 API Manager includes separate Web applications as the Publisher and the Dev
 
 If you open the root context, which is <https://apis.com:9443> in your browser, it directs to the Publisher by default. You can set this to go to the Developer Portal as follows:
 
-1.  Open the bundle `<API-M_HOME>/repository/components/plugins/org.wso2.am.styles_3.2.0.jar`.
+1.  Open the bundle `<API-M_HOME>/repository/components/plugins/org.wso2.am.styles_4.0.0.jar`.
 2.  Open the `component.xml` file that is inside `META-INF` directory.
 3.  Change the &lt;context-name&gt; element, which points to Publisher by default, to Developer Portal:
 
