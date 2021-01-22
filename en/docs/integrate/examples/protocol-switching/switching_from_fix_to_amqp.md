@@ -31,11 +31,11 @@ Following are the integration artifacts (proxy service) that we can used to impl
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location.
-5. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 [Enable the FIX transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 

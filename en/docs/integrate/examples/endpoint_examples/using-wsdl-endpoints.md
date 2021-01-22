@@ -33,10 +33,10 @@ Following is a sample REST API configuration that we can used to implement this 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create a proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
 The wsdl uri of the endpoint needs to be updated with the path to the `sample_proxy_1.wsdl` file.

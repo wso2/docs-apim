@@ -164,22 +164,22 @@ Alternatively, you can use one of the following JSON templates for the response 
     </result>
     ```
 
--   If you want to write a nested query using JSON, see the example on [nested queries](../../../../use-cases/examples/data_integration/nested-queries-in-data-service).
+-   If you want to write a nested query using JSON, see the example on [nested queries]({{base_path}}/integrate/examples/data_integration/nested-queries-in-data-service).
 
 ## Build and run
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio). The path to this folder is referred to as `MI_TOOLING_HOME` throughout this tutorial.
 2.  Download the JDBC driver for MySQL from [here](http://dev.mysql.com/downloads/connector/j/) and copy it to the `MI_TOOLING_HOME/Contents/Eclipse/runtime/microesb/lib/` (for MacOS) or 
 `MI_TOOLING_HOME/runtime/microesb/lib/` (for Windows) directory. 
 
     !!! Note
         If the driver class does not exist in the relevant folders when you create the datasource, you will get an exception such as `Cannot load JDBC driver class com.mysql.jdbc.Driver`.
         
-3. [Create a Data Service project](../../../../develop/create-data-services-configs).
-4. [Create the data service](../../../../develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
-5. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator. 
+3. [Create a Data Service project]({{base_path}}/integrate/develop/create-data-services-configs).
+4. [Create the data service]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services) with the configurations given above.
+5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator. 
 
 ### GET data in JSON
 

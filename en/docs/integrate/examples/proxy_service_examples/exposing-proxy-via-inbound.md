@@ -36,10 +36,10 @@ Following is a sample proxy service configuration that we can used to implement 
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) and [security policy](../../../../develop/creating-artifacts/registry/creating-local-registry-entries) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) and [security policy]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the back-end service:
 

@@ -1,13 +1,13 @@
 # MQTT Parameters
 
-When you implement an integration use case that requires an MQTT connection, you can use the following MQTT parameters in your [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that requires an MQTT connection, you can use the following MQTT parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
-    The Micro Integrator can communicate through MQTT only if the MQTT transport listener and sender are enabled and configured at the server level. Read about the [MQTT transport](../../../../../setup/transport_configurations/configuring-transports/#configuring-the-mqtt-transport).
+    The Micro Integrator can communicate through MQTT only if the MQTT transport listener and sender are enabled and configured at the server level. Read about the [MQTT transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-mqtt-transport).
 
-{!references/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
-See [Creating a Proxy Service](../../../../develop/creating-artifacts/creating-a-proxy-service) for instructions.
+See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
 ## Service-Level Parameters
 

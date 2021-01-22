@@ -1,6 +1,6 @@
 # Message Sampling Processor Properties
 ## Introduction
-The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="../../../../references/synapse-properties/sequence-properties">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
+The message sampling processor consumes messages in a <a href="#list-of-message-stores">message store</a> and sends them to a configured <a href="{{base_path}}/reference/synapse-properties/sequence-properties">sequence</a>. This process happens at a preconfigured interval. This message processor does not ensure reliable messaging.
 
 ## Properties
 
@@ -8,7 +8,7 @@ See the topics given below for the list of properties that can be configured for
 
 ### Required Properties
 
-Following are the required parameters you can set when [adding a Scheduled Message Forwarding Processor](../../../develop/creating-artifacts/creating-a-message-processor.md):
+Following are the required parameters you can set when [adding a Scheduled Message Forwarding Processor]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-processor.md):
 
 <table>
 	<tr>
@@ -43,7 +43,7 @@ Following are the required parameters you can set when [adding a Scheduled Messa
 
 ### Optional Properties
 
-Following are the additional parameters you can set when [adding a message sampling processor](../../../develop/creating-artifacts/creating-a-message-processor.md):
+Following are the additional parameters you can set when [adding a message sampling processor]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-processor.md):
 
 <table>
    <thead>

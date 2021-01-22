@@ -4,11 +4,11 @@ Persists messages in a RabbitMQ queue inside a RabbitMQ broker. The RabbitMQ mes
 
 ## Properties
 
-Listed below are the properties used for [creating a RabbitMQ Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+Listed below are the properties used for [creating a RabbitMQ Message Store]({{base_path}}/integrate//develop/creating-artifacts/creating-a-message-store.md).
 
 ###  Required Properties
 
-The following optional properties can be configured when [creating a RabbitMQ Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+The following optional properties can be configured when [creating a RabbitMQ Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
   <tr>
@@ -37,7 +37,7 @@ The following optional properties can be configured when [creating a RabbitMQ Me
 
 ### Optional Properties
 
-The following optional properties can be configured when [creating a RabbitMQ Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+The following optional properties can be configured when [creating a RabbitMQ Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
   <tr>

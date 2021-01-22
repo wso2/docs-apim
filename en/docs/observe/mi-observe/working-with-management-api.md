@@ -3,8 +3,8 @@
 The Management API of WSO2 Micro Integrator is an internal REST API, which was introduced to substitute
 the **admin services** that were available in WSO2 EI 6.x.x.
 
-The [Micro Integrator CLI](../../administer-and-observe/using-the-command-line-interface) and the [Micro Integrator dashboard](../../administer-and-observe/working-with-monitoring-dashboard) communicates with this service to
-obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the [resources](#accessing-api-resources) of the management API by following the instructions given below.
+The [Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) communicates with this service to
+obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard, you can directly access the [resources](#accessing-api-resources) of the management API by following the instructions given below.
 
 ## Securely invoking the API
 The management API is secured using JWT authentication by default. Therefore, when you directly access the management API, you must first acquire a JWT token with your valid username and password.

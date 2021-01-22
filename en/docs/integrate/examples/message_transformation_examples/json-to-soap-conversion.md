@@ -8,7 +8,7 @@ The following examples explain different methods of converting JSON messages to 
 
 ## Using the PayloadFactory Mediator
 
-Let's convert JSON messages to SOAP using the [PayloadFactory mediator](../../../../references/mediators/payloadFactory-Mediator).
+Let's convert JSON messages to SOAP using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
 Following is a sample REST Api configuration that we can use to implement this scenario. 
@@ -68,7 +68,7 @@ See the instructions on how to [build and run](#build-and-run-example-1) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-WSO2-Integration-Studio).
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
 3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
@@ -131,7 +131,7 @@ The JSON client will receive the following response from the backend confirming 
 
 ## Using the XSLT Mediator
 
-Let's convert JSON messages to SOAP using the [XSLT mediator](../../../../references/mediators/xSLT-Mediator). The XSLT, which specifies the message conversion parameters, is stored in the product registry as a **local entry**.
+Let's convert JSON messages to SOAP using the [XSLT mediator]({{base_path}}/reference/mediators/xslt-mediator). The XSLT, which specifies the message conversion parameters, is stored in the product registry as a **local entry**.
 
 ### Synapse configuration
 Following are the synapse configurations for implementing this scenario. 
@@ -190,7 +190,7 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-WSO2-Integration-Studio).
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 2. [Create an ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project).
 3. [Create the REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Create a local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries) named **in_transform** with the above XSLT configuration.

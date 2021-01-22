@@ -9,7 +9,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
 <table>
 	<tr>
 		<td>
-			<a href="{{base_path}}/integrate/develop/WSO2-Integration-Studio">Quick Tour of WSO2 Integration Studio</a>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">Quick Tour of WSO2 Integration Studio</a>
 		</td>
 		<td>
 			Get introduced to the main functions of WSO2 Integration Studio.
@@ -17,7 +17,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
 	</tr>
 	<tr>
 		<td>
-			<a href="{{base_path}}/integrate/develop/installing-WSO2-Integration-Studio">Installing WSO2 Integration Studio</a>
+			<a href="{{base_path}}/integrate/develop/installing-wso2-integration-studio">Installing WSO2 Integration Studio</a>
 		</td>
 		<td>
 			Find the instructions on how to download and install the tool on your operating system.
@@ -25,7 +25,7 @@ WSO2 Integration Studio is the comprehensive developer tool, which you will use 
 	</tr>
 	<tr>
 		<td>
-			<a href="{{base_path}}/integrate/develop/troubleshooting-WSO2-Integration-Studio">Troubleshooting WSO2 Integration Studio</a>
+			<a href="{{base_path}}/integrate/develop/troubleshooting-wso2-integration-studio">Troubleshooting WSO2 Integration Studio</a>
 		</td>
 		<td>
 			Find details on how to troubleshoot errors you might encounter as you use WSO2 Integration Studio.
@@ -41,7 +41,7 @@ Integration developers will follow the workflow illustrated by the following dia
 
 ### Set up the workspace
 
-To start developing integration solutions, you need to first <a href="{{base_path}}/integrate/develop/installing-WSO2-Integration-Studio">install and set up WSO2 Integration Studio</a>.
+To start developing integration solutions, you need to first <a href="{{base_path}}/integrate/develop/installing-wso2-integration-studio">install and set up WSO2 Integration Studio</a>.
 
 ### Develop
 

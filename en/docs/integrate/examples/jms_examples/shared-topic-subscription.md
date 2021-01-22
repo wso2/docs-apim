@@ -96,10 +96,10 @@ See the descriptions of the above configurations:
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service), [registry artifact](../../../../develop/creating-artifacts/creating-registry-resources), [scheduled task](../../../../develop/creating-artifacts/creating-scheduled-task), and [sequences](../../../../develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), [registry artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources), [scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task), and [sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Set up the broker:
 

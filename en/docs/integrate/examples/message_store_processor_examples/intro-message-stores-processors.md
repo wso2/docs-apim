@@ -1,5 +1,5 @@
 # Introduction to Message Stores
-This sample demonstrates the basic functionality of a [message store](../../../../references/synapse-properties/about-message-stores-processors).
+This sample demonstrates the basic functionality of a [message store]({{base_path}}/reference/synapse-properties/about-message-stores-processors).
 
 ## Synapse configuration
 
@@ -48,10 +48,10 @@ Following are the artifact configurations that we can use to implement this scen
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. Create the [proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service), [message store](../../../../develop/creating-artifacts/creating-a-message-store), and [mediation sequences](../../../../develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), [message store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store), and [mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Send the following request to invoke the service:
 

@@ -6,7 +6,7 @@ This is a basic <b>message store</b> that stores messages in an in-memory queue.
 
 ## Properties
 
-Listed below are the properties that can be configured when [creating an In-Memory Message Store](../../../develop/creating-artifacts/creating-a-message-store.md).
+Listed below are the properties that can be configured when [creating an In-Memory Message Store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store.md).
 
 <table>
   <tr>

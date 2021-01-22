@@ -3,7 +3,7 @@
 Listed below are some complex <b>query</b> definitions that you may require when defining an RDBMS data service.
 
 !!! Info
-    For detailed instructions on defining a data service using WSO2 Integration Studio, see [Creating a Data Service](../../../../develop/creating-artifacts/data-services/creating-data-services).
+    For detailed instructions on defining a data service using WSO2 Integration Studio, see [Creating a Data Service]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services).
 
 ## Calling a MySQL function
 
