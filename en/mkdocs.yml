@@ -439,7 +439,7 @@ nav:
                 - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance and Capacity Planning: install-and-setup/setup/deployment-best-practices/performance-and-capacity-planning.md
+                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results.md
           - SSO:
                 - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
                 - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md  
@@ -712,6 +712,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
+              'install-and-setup/setup/deployment-best-practices/performance-and-capacity-planning.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/performance-test-results/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
@@ -733,3 +734,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
     base_path: https://apim.docs.wso2.com/en/3.2.0
+    

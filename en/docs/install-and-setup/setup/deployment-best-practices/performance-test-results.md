@@ -1,8 +1,4 @@
-# WSO2 API-M Performance and Capacity Planning
-
-The following sections analyze the results of WSO2 API Manager performance tests.
-
-## Summary
+# Performance Test Results
 
 The performance of WSO2 API Manager was measured using the following APIs, which invoke a simple “Netty HTTP Echo Service.” As the name suggests, the Netty service echoes back any request posted to the service.
 
