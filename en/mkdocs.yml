@@ -691,18 +691,18 @@ nav:
           - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
-              - Sending a Simple Message to a Service: ''
-              - Message Routing: ''
-              - Message Transformation: ''
-              - Service Orchestration: ''
-              - Asynchronous Messaging: ''
-              - Connecting Web APIs/Cloud Services: ''
-              - Data Integration: ''
-              - File Processing: ''
-              - Periodic Execution of Integration Process: ''
-              - Using Inbound Endpoints: ''
-              - Reusing Mediation Sequences: ''
-              - Integrating with SAP: ''
+              - Sending a Simple Message to a Service': tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
+              - Message Routing: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
+              - Message Transformation: tutorials/integration-tutorials/transforming-message-content.md
+              - Service Orchestration: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
+              - Asynchronous Messaging: tutorials/integration-tutorials/storing-and-forwarding-messages.md
+              - Connecting Web APIs/Cloud Services: tutorials/integration-tutorials/using-the-gmail-connector.md
+              - Data Integration: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+              - File Processing: tutorials/integration-tutorials/file-processing.md
+              - Periodic Execution of Integration Process: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
+              - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
+              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
