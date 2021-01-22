@@ -16,11 +16,11 @@ For older versions, see the details in the connector store.
 
 ## Microsoft Azure Storage Connector documentation
 
-* **[Setting up the Microsoft Azure Storage Environment](microsoft-azure-storage-configuration.md)**: This involves setting up a Microsoft Azure Storage account and obtaining access credentials.
+* **[Setting up the Microsoft Azure Storage Environment]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/)**: This involves setting up a Microsoft Azure Storage account and obtaining access credentials.
 
-* **[Microsoft Azure Storage Connector Example](microsoft-azure-storage-connector-example.md)**: This example demonstrates how to work with container and blob operations using the WSO2 Microsoft Azure Storage Connector. 
+* **[Microsoft Azure Storage Connector Example]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example/)**: This example demonstrates how to work with container and blob operations using the WSO2 Microsoft Azure Storage Connector. 
 
-* **[Microsoft Azure Storage Connector Reference](microsoft-azure-storage-configuration.md)**: This documentation provides a reference guide for the Microsoft Azure Storage Connector.
+* **[Microsoft Azure Storage Connector Reference]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/)**: This documentation provides a reference guide for the Microsoft Azure Storage Connector.
 
 ## How to contribute
 

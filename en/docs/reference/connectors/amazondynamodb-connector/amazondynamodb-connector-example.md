@@ -26,9 +26,9 @@ All seven operations are exposed via an API. The API with the context `/resource
 * `/listtable` : Retrieve information about the created tables.
 * `/deletetable` : Remove created table in the Amazon DynamoDB.
 
-For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide](amazondynamodb-connector-configuration.md).
+For more information about these operations, please refer to the [Amazon DynamoDB connector reference guide]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/).
 
-> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration.md) documentation for more information.
+> **Note**: Before invoking the API, you need to configure message builders/formatters in deployment.toml. See [Setting up the Amazon DynamoDB Connector](amazondynamodb-connector-configuration/) documentation for more information.
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
@@ -44,7 +44,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.  
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
@@ -91,7 +91,7 @@ Now follow the steps below to add resources to the API.
         
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table-parameters.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/> 
     
-    3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under the **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under the **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
@@ -341,7 +341,7 @@ Now follow the steps below to add resources to the API.
     
 #### Get a response.   
  
-When you are invoking the created API, the request of the message is going through the each resource. Finally, it is passed to the [Respond mediator](../../../mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response. 
+When you are invoking the created API, the request of the message is going through the each resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response. 
 
 Drag and drop **respond mediator** to the **Design view**.
 
@@ -520,7 +520,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -940,4 +940,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

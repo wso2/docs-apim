@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## DB Event Inbound Endpoint
 
-* **[DB Event Inbound Endpoint Example](db-event-inbound-endpoint-example.md)**: In this example you will learn how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. 
+* **[DB Event Inbound Endpoint Example]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md)**: In this example you will learn how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. 
 
-* **[DB Event Inbound Endpoint Reference](db-event-inbound-endpoint-config.md)**: This documentation provides a reference guide for the DB Event Inbound Endpoint.
+* **[DB Event Inbound Endpoint Reference]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md)**: This documentation provides a reference guide for the DB Event Inbound Endpoint.
 
 ## How to contribute
 

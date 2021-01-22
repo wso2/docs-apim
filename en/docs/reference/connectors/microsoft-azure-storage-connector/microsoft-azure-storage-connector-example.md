@@ -22,9 +22,9 @@ All six operations are exposed via an API. The API with the context `/resources`
 * `/deletedetails` : Remove added employee data from the specified text or binary employee data (blob).
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
 
-For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide](microsoft-azure-storage-reference.md).
+For more information about these operations, please refer to the [Microsoft Azure Storage connector reference guide]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference/).
 
-> **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration](microsoft-azure-storage-configuration.md) documentation for more information.
+> **Note**: Before invoking the API, you need to create a **Storage Account** in **Microsoft Azure Storage account**. See [Azure Storage Configuration]({{base_path}}/reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration/) documentation for more information.
 
 The following diagram shows the overall solution. The user creates a container, stores some text or binary employee data (blob) into the container, and then receives it back. To invoke each operation, the user uses the same API. 
 
@@ -36,7 +36,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the ESB Solution Project and the Connector Exporter Project.
 
-{!references/connectors/importing-connector-to-integration-studio.md!}
+{!reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -178,7 +178,7 @@ Follow these steps to set up the ESB Solution Project and the Connector Exporter
     
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!/references/connectors/exporting-artifacts.md!}
+{!/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -195,7 +195,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -288,4 +288,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
 
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

@@ -32,7 +32,7 @@ Create a folder in your local file system with read and write access. This will 
 
 Follow these steps to set up the Integration Project and the Connector Exporter. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ## Creating the Integration Logic
 
@@ -172,7 +172,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter.
 
     3.  Add the fault sequence to the API resource as its fault sequence. 
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 <!--
 ## Get the project
@@ -188,14 +188,14 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
 1. Create a file called data.json with the following payload. 
 
     !!! Note
-        When you configuring this `source` parameter in the Windows operating system, set this property as `<source>C:\\Users\Kasun\Desktop\Salesforcebulk-connector\create.txt</source>`.
+        When you configuring this `source` parameter in the Windows operating system, set this property as `<source>C:\\Users\Name\Desktop\Salesforcebulk-connector\create.txt</source>`.
 
     ```xml
     <test>
@@ -246,9 +246,9 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator runt
 
 4.  If you invoke the API again with a different set of employees, the new employees will get appended to the same file. The response you receive will include all the employees that were added from both messages.
 
-In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2 EI, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide](file-connector-config.md) for more information. 
+In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2 EI, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config/) for more information. 
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [File Connector Configuration](file-connector-config.md) documentation for all operation details of the connector.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/file-connector-config/) documentation for all operation details of the connector.

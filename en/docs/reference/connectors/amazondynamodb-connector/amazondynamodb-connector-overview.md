@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## Amazon DynamoDB Connector documentation
 
-* **[Amazon DynamoDB Connector Example](amazondynamodb-connector-example.md)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
+* **[Amazon DynamoDB Connector Example]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example/)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
 
-* **[Amazon DynamoDB Connector Reference](amazondynamodb-connector-configuration.md)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
+* **[Amazon DynamoDB Connector Reference]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
 
 ## How to contribute
 
