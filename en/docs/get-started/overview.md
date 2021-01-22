@@ -73,7 +73,7 @@ The Key Manager manages all clients, security and access token-related operation
  
  Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
 
-You can avoid making the Gateway connect with the Key Manager every time it receives an API invocation call, by enabling API Gateway [caching](../../administer/product-configurations/configuring-caching). When caching is not enabled, a verification call happens every time the Gateway receives an API invocation call. For this verification, the Gateway passes an access token, the API, and API version to the Key Manager. Communication between the API Gateway and the Key Manager happens in either of the following ways:
+You can avoid making the Gateway connect with the Key Manager every time it receives an API invocation call, by enabling API Gateway [caching]({{base_path}}/administer/product-configurations/configuring-caching). When caching is not enabled, a verification call happens every time the Gateway receives an API invocation call. For this verification, the Gateway passes an access token, the API, and API version to the Key Manager. Communication between the API Gateway and the Key Manager happens in either of the following ways:
 
 -   Through a Web service call
 

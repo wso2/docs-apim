@@ -16,4 +16,4 @@ sample environment by selecting sample option.
 
 ## Obtaining Test User Credentials
 
-Navigate to **API Explorer > Employee > GET Employees**. There you can see the basic authentication credentials, username and password for the sample environment. Click on the GET method to expand it. Execute the method to view the request and response corresponding to the GET Employees method. In the request you can see the sample environment URI
+Navigate to **API Explorer > Employee > GET Employees**. There you can see the basic authentication credentials, username and password for the sample environment. Click on the GET method to expand it. Execute the method to view the request and response corresponding to the GET Employees method. In the request you can see the sample environment URI.

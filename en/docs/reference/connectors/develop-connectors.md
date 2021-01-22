@@ -12,7 +12,7 @@ This document is an in-depth guide for developers to follow when developing a ne
 
 A connector is a collection or a set of operations that can be used in WSO2 Enterprise Integrator integration flow to access a specific service or a functionality. These operations are invoked from proxy services, sequences and APIs to interact.
 
-* A connector operation is made using [sequence templates](../synapse-properties/template-properties/) in WSO2 EI. 
+* A connector operation is made using [sequence templates]({{base_path}}/reference/synapse-properties/template-properties/) in WSO2 EI. 
 * The integration logic inside a connector operation is constructed using WSO2 EI mediators. 
 * The integration logic inside a connector operation needs some custom functionality not provided by the WSO2 EI mediators, a java implementation can be attached to the associated sequence template. This is using the Custom Class Mediator approach. 
 * If the third party service provider provides a Java SDK to interact with the service, connector operation can use them extending the java implementation. 
@@ -24,7 +24,7 @@ A connector is a collection or a set of operations that can be used in WSO2 Ente
 
 There are two types of connectors.
 
-* Application / SaaS connectors - which connect to cloud applications. These are implemented purely using WSO2 EI mediators and constructs. E.g., Amazon S3, Salesforce
+* Application/SaaS connectors - which connect to cloud applications. These are implemented purely using WSO2 EI mediators and constructs. E.g., Amazon S3, Salesforce
 * Technology connectors - which implement different B2B protocols. Logic for these are implemented using mainly Java. E.g., JMS, NATS, Email
 
 ### Connector Structure
@@ -768,10 +768,10 @@ If the connector has many operations, instead of adding templates for all the op
 Developers may define a template with the `<hidden>true</hidden>` property in `component.xml` related to the template ([example component.xml](https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/resources/config/component.xml)). Then that template will not be presented as a connector operation to the users when rendered in WSO2 Integration Studio. It is a private template which you can refer to construct logic in other templates. This provides a way to keep a reusable logic inside the connector for easy maintenance. See the [example](https://github.com/niruhan/esb-connector-salesforcerest/tree/master/src/main/resources/salesforcerest-config) for more information. 
 
 **Use property Group if there are a lot of properties to define** 
-Within some operations we need to define a number of properties together. When you use Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make xml definition also more readable you can group properties together using [Property Group mediator](../mediators/property-Group-Mediator/). 
+Within some operations we need to define a number of properties together. When you use Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make xml definition also more readable you can group properties together using [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/). 
 
 **Use `$ctx`: syntax instead of `get-property()` when reading properties**
-When you use the [property mediator](../mediators/property-Mediator/) to read properties, always use `$ctx:` syntax. It delivers better performance. Make sure to use properties in the correct scope. 
+When you use the [property mediator]({{base_path}}/reference/mediators/property-mediator/) to read properties, always use `$ctx:` syntax. It delivers better performance. Make sure to use properties in the correct scope. 
 
 **Avoid old mediators** 
 Please do not use mediators like `<send/>`, `<loopback/>` in sequence templates. They are there for the sake of backward compatibility. Always stick to mediators like `<call/>` and `<respond/>`. 
@@ -782,13 +782,13 @@ Connection timeout is an environment dependent configuration. Developers may def
 **Handle errors meaningfully. Use ERROR CODES**
 Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyse use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
 
-Please read the [WSO2 Error Code guide](../error_handling/). 
+Please read the [WSO2 Error Code guide]({{base_path}}/reference/error_handling/). 
 
 **Write test cases**
 
 ## Input and Output schema
 
-Input and output schema can be defined for connectors so that a [datamapper mediator](../mediators/data-Mapper-Mediator/) can be used to easily transform the payloads required for each operation.
+Input and output schema can be defined for connectors so that a [datamapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator/) can be used to easily transform the payloads required for each operation.
 
 These schemas are placed inside `/resources` under `input_schema` and `output_schema` folders.
 
@@ -917,7 +917,7 @@ The schema of an operation is as follows.
   "connectorName": "email",
   "operationName": "send",
   "title": "Send Email",
-  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/reference/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
   "elements": []
 }
 ```
@@ -1172,7 +1172,7 @@ Additional parameters to be added.
   "connectorName": "email",
   "operationName": "send",
   "title": "Send Email",
-  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://apim.docs.wso2.com/en/latest/reference/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
   "elements": [
     {
       "type": "attributeGroup",

@@ -25,4 +25,4 @@ From the <KAFKA_HOME> directory, run the following command to start the Kafka se
 bin/kafka-server-start.sh config/server.properties
 ```
 
-Now that you have connected to Kafka, you can start publishing and consuming messages using the Kafka brokers. For more information, see [Publishing Messages using Kafka](kafka-connector-producer-example.md) and [Consuming Messages using Kafka](kafka-inbound-endpoint-example.md).
+Now that you have connected to Kafka, you can start publishing and consuming messages using the Kafka brokers. For more information, see [Publishing Messages using Kafka]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-producer-example/) and [Consuming Messages using Kafka]({{base_path}}/reference/connectors/kafka-connector/kafka-inbound-endpoint-example/).

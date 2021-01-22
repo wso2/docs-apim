@@ -22,7 +22,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio-copy.md!} 
+{!reference/connectors/importing-connector-to-integration-studio-copy.md!} 
 
 ## Creating the Integration Logic
 
@@ -38,7 +38,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - filePath - location that the file is going to be created.
     - inputContent - what needs to be written to the file. 
 
-5. The above two parameters are saved to properties. Drag and drop the Property Mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-Mediator/).
+5. The above two parameters are saved to properties. Drag and drop the Property Mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property mediator]({{base_path}}/reference/mediators/property-mediator/).
     <img src="{{base_path}}/assets/img/integrate/connectors/filecon-3.x/filecon-1.png" title="Adding a property" width="800" alt="Adding a property"/>
 
 6. Add the another Property Mediator to get the InputContent value copied. Do the same as in the above step. 
@@ -122,7 +122,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
     ```
 
-{!references/connectors/exporting-artifacts-copy.md!}
+{!reference/connectors/exporting-artifacts-copy.md!}
 
 
 ## Get the project
@@ -137,7 +137,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp-copy.md!}
+{!reference/connectors/deploy-capp-copy.md!}
 
 ## Testing
 
@@ -181,5 +181,5 @@ This is a test file.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
 * To customize this example for your own scenario, see [File Connector Configuration]({{base_path}}/reference/connectors/file-connector/3.x/file-connector-3.x-config) documentation for all operation details of the connector.

@@ -39,7 +39,7 @@
 2. Select **Use your own OAuth credentials**, and provide the obtained Client ID and Client Secret values as above click on Close.
   <img src="{{base_path}}/assets/img/integrate/connectors/oath-configuration.png" title="Obtaining Oauth-configuration" width="800" alt="Obtaining Oauth-configuration" />
 
-3. Under Step 1, select `Gmail API v1` from the list of APIs, select all the scopes expect the [gmail.metadata scope](https://www.googleapis.com/auth/gmail.metadata scope).
+3. Under Step 1, select `Gmail API v1` from the list of APIs, select all the scopes expect the [gmail.metadata scope](https://www.googleapis.com/auth/gmail.metadata) scope.
 
   <img src="{{base_path}}/assets/img/integrate/connectors/select-scopes.png" title="Selecting Scopes" width="800" alt="Selecting Scopes" />
 

@@ -27,11 +27,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ## Creating the Integration Logic
 
-1. Follow these steps to [Configure Google Sheets API](get-credentials-for-google-spreadsheet.md) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
+1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
     <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
@@ -47,7 +47,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - range - It provides the sheet name and the range that data need to be inserted. 
     - values - Data to be inserted.
 
-6. The above four parameters are saved to a property group. Drag and drop the Property Group mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property Group mediator](../../mediators/property-Group-Mediator). You can add set of properties as below. 
+6. The above four parameters are saved to a property group. Drag and drop the Property Group mediator onto the canvas in the design view and do as shown below. For further reference, you can read about the [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator). You can add set of properties as below. 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sheetcon1.png" title="Adding a property into a property group" width="800" alt="Adding a property"/>
 
@@ -216,7 +216,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 ```
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 
 ## Get the project
@@ -234,7 +234,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -390,5 +390,5 @@ The spreadsheet should be edited within the above specified cell range.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Google Spreadsheet Connector Configuration](google-spreadsheet-connector-config.md) documentation for all operation details of the connector.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [Google Spreadsheet Connector Configuration]({{base_path}}/reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config/) documentation for all operation details of the connector.

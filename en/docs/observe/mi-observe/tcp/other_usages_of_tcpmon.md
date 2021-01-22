@@ -2,7 +2,7 @@
 
 TCPMon is primarily used for message monitoring. Additionally, TCPMon
 can also be used for sending requests to web services and as a proxy
-service. Refer [Starting TCPMon](../tcp/starting_tcp_mon.md) for
+service. Refer [Starting TCPMon]({{base_path}}/observe/mi-observe/tcp/starting_tcp_mon) for
 details on how to start the tool.
 
 ## Sending requests to Web services

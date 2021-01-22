@@ -7,7 +7,7 @@ Following are the main features of the event generator.
 
 ## What you'll build
 
-In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above feature no:1 is used here. Please refer to [reference guide](db-event-inbound-endpoint-config.md) if you need to use other features. 
+In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above feature no:1 is used here. Please refer to [reference guide]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) if you need to use other features. 
 
 In an enterprise system, a relational database table is used to store customer information. Customers' information is added by an external system to the database which is not in enterprise's control. As soon as a new customer is inserted, the system need to pick up and process its data. `WSO2 EI` is used here to listen to DB changes and invoke the relevant processes. It can invoke backend APIs or place data into a message bus after required data transformations. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 EI mediators. 
 
@@ -139,5 +139,5 @@ Now WSO2 EI will start listening to the data changes of `CDC_CUSTOM` table.
 > **Note**: You can do any type of advanced integration using the rich WSO2 EI mediator catalog, not just logging. 
 
 ## What's Next
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration](db-event-inbound-endpoint-config.md) documentation for all configuration options of the endpoint.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) documentation for all configuration options of the endpoint.

@@ -10,7 +10,7 @@ This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 
 
 The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence into WSO2 EI.
 
-See [ISO8583 connector configuration](ISO8583-connector-configuration.md) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators](https://docs.wso2.com/display/EI660/ESB+Mediators). 
+See [ISO8583 connector configuration]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-configuration/) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators](https://docs.wso2.com/display/EI660/ESB+Mediators). 
 
 The following diagram illustrates all the required functionality of the ISO8583 inbound operations that you are going to build. 
 
@@ -107,4 +107,4 @@ For example, while transferring bank and financial sector information using the 
    ```   
 ## What's next
    
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
