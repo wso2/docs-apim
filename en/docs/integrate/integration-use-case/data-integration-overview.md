@@ -10,7 +10,7 @@ The data services functionality that is embedded in the Micro Integrator can dec
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
 				</li>
 			</ul>
 		</td>

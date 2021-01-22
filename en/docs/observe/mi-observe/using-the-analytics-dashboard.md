@@ -84,20 +84,20 @@ Use `admin` for both the username and password.
 
 ## Publishing statistics to the Portal
 
-Let's **test this solution** by running the [service chaining](../../use-cases/tutorials/exposing-several-services-as-a-single-service) tutorial. When the artifacts deployed in the Micro Integrator are invoked, the statistics will be available in the portal. 
+Let's **test this solution** by running the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial. When the artifacts deployed in the Micro Integrator are invoked, the statistics will be available in the portal. 
 
 Follow the steps given below.
 
 ??? note "Step 1: Deploy integration artifacts"
     
-    If you have already started the Micro Integrator server, let's deploy the artifacts. Let's use the integration artifacts from the [service chaining](../../use-cases/tutorials/exposing-several-services-as-a-single-service) tutorial.
+    If you have already started the Micro Integrator server, let's deploy the artifacts. Let's use the integration artifacts from the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial.
 
     1. Download the [CAR file](https://github.com/wso2-docs/WSO2_EI/blob/master/Analytics/Integration-Artifacts/SampleServicesCompositeExporter_1.0.0.car).
     2. Copy the CAR file to the `<MI_HOME>/repository/deployment/server/carbonapps/` directory.
 
 ??? note "Step 2: Start the backend"
     
-    Let's start the hospital service that serves as the backend to the [service chaining](../../use-cases/tutorials/exposing-several-services-as-a-single-service) use case: 
+    Let's start the hospital service that serves as the backend to the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) use case: 
 
     1. Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
     2. Open a terminal, navigate to the location where your saved the back-end service.

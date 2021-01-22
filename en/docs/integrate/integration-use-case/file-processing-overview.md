@@ -20,7 +20,7 @@ In many business domains, there are different use cases related to managing file
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/file-processing">file processing</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/file-processing">file processing</a>
 				</li>
 			</ul>
 		</td>

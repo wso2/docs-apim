@@ -38,17 +38,17 @@ The integration tutorials will walk you through the main capabilities and featur
     <tr>
         <td>
             <ul>
-                <li><a href="../../use-cases/tutorials/sending-a-simple-message-to-a-service">Sending a Simple Message to a Service</a></li>
-                <li><a href="../../use-cases/tutorials/routing-requests-based-on-message-content">Message Routing</a></li>
-                <li><a href="../../use-cases/tutorials/transforming-message-content">Message Transformation</a></li>
-                <li><a href="../../use-cases/tutorials/exposing-several-services-as-a-single-service">Service Orchestration</a></li>
-                <li><a href="../../use-cases/tutorials/storing-and-forwarding-messages">Asynchronous Messaging</a></li>
-                <li><a href="../../use-cases/tutorials/sending-a-simple-message-to-a-datasource">Data Integration</a></li>
-                <li><a href="../../use-cases/tutorials/file-processing">File Processing</a></li>
-                <li><a href="../../use-cases/tutorials/using-scheduled-tasks">Periodic Execution of Integration Process</a></li>
-                <li><a href="../../use-cases/tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
-                <li><a href="../../use-cases/tutorials/using-templates">Reusing Mediation Sequences</a></li>
-                <li><a href="../../use-cases/tutorials/sap-integration">Integrating with SAP</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service">Sending a Simple Message to a Service</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">Message Routing</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">Message Transformation</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service">Service Orchestration</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">Asynchronous Messaging</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">Data Integration</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/file-processing">File Processing</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-scheduled-tasks">Periodic Execution of Integration Process</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Integrating with SAP</a></li>
             </ul>
         </td>
     </tr>

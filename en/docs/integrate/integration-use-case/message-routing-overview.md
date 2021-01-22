@@ -18,7 +18,7 @@ The following image depicts a form of message routing where a message is routed 
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/routing-requests-based-on-message-content">message routing</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">message routing</a>
 				</li>
 			</ul>
 		</td>
@@ -58,7 +58,7 @@ The following image depicts a typical message transormation scenario using the T
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/transforming-message-content">message transformation</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">message transformation</a>
 				</li>
 			</ul>
 		</td>

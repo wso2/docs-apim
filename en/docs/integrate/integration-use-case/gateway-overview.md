@@ -15,7 +15,7 @@ Proxy services in the Micro Integrator act as Messaging Gateways, abstracting th
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/integration/service-gateway-tutorial">using the Micro Integrator as a service gateway</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/integration/service-gateway-tutorial">using the Micro Integrator as a service gateway</a>
 				</li>
 			</ul>
 		</td>

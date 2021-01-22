@@ -20,7 +20,7 @@ Disadvantages of asynchronous messaging includes the additional component of a m
 			<b>Tutorials</b></br>
 			<ul>
 				<li>
-					Try the end-to-end use case on <a href="../../../use-cases/tutorials/storing-and-forwarding-messages">asynchronous messaging</a>
+					Try the end-to-end use case on <a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">asynchronous messaging</a>
 				</li>
 			</ul>
 		</td>
