@@ -740,6 +740,14 @@ nav:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
+        - Deploy:
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
         - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
             - All-In-One Deployment:
@@ -751,13 +759,6 @@ nav:
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
-            - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
-                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
-                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
-                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
-                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
-                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Configure a Key Manager:
                 - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                 - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
