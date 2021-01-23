@@ -143,15 +143,15 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <html><div class="admonition warning">
 <p class="admonition-title">From DAS to SI</p>
 <p>
-When using WSO2 API-M Analytics 3.1.0, when publishing to an minimum HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+When using WSO2 API-M Analytics 3.1.0, when publishing to an minimum HA setup of APIM analytics, you need to separate the Receiver URLs by using a pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>If the APIM analytics is setting up on an Active-active HA setup, the URLs should have defined with the <b>comma</b> separations, as the setup is configured with the load-balanced configurations.
+<p>If you are setting up APIM analytics on an Active-active HA setup, you need to define the URLs with <b>comma</b> separations, as the setup is configured with load-balanced configurations.
 <br/><br/>
-When the APIM analytics is on an Active-passive HA setup, the URLs should be separated with <b>pipe symbol (|)</b>, as the setup is configured with failover configurations.
+When you are configuring APIM analytics on an Active-passive HA setup, you should separate the URLs using the <b>pipe symbol (|)</b>, as the setup is configured with failover configurations.
 </p>
 </div>
 </html>
