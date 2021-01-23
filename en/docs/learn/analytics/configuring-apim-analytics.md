@@ -147,7 +147,7 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <p class="admonition-title">From DAS to SI</p>
 <p>
 Previously, when WSO2 API-M Analytics was powered by WSO2 Data Analytics Server 3.1.0, you had to add a comma to separate the DAS URLs so that the analytics events were published to both nodes. 
-However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, when publishing to a minimum HA setup of APIM analytics, you need to separate the Receiver URLs by using the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+However, when using WSO2 API-M Analytics 3.0.0. and when publishing to a minimum HA setup of APIM analytics, you need to separate the Receiver URLs by using the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
