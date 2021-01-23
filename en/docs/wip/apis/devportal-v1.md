@@ -15,7 +15,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../devportal-v1.yaml",
+    url: "../devportal-v2.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
