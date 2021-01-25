@@ -318,7 +318,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "You can define the custom claim retiriver implmentation by adding the following \n apim.jwt.enable_user_claims=true. \n\n Make sure that it is the fully-qualified class name."
+                            "description": "You can define the custom claim retriever implementation by adding the following \n apim.jwt.enable_user_claims=true. \n\n Make sure that it is the fully-qualified class name."
                         },
                         {
                             "name": "claim_dialect",
@@ -334,7 +334,7 @@
                             "required": false,
                             "default": "SHA256withRSA",
                             "possible": "NONE",
-                            "description": "Specify NONE to disbale the sigining."
+                            "description": "Specify NONE to disable the signing."
                         }
                     ]
                 }
