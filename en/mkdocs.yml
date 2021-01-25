@@ -1104,7 +1104,7 @@ nav:
                     - File Connector Reference: reference/connectors/file-connector/file-connector-config.md
                 - 3.x:
                     - File Connector Example: reference/connectors/file-connector/3.x/file-connector-3.x-example.md
-                - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
+                    - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
             - Gmail Connector:
                 - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
                 - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
