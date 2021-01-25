@@ -839,6 +839,36 @@ Run the following CTL command to set the HTTP request timeout.
         - Required :   
           `--http-request-timeout` : Timeout for HTTP Client (default 10000)
 
+## Set TLS renegotiation mode
+
+By default, TLS renegotiation is disabled for the CTL tool. However, the TLS renegotiation mode can be configured by 
+running the following command, which will be applied globally to all subsequent TLS connections established by the CTL.
+
+-   **Command**
+        ``` go
+        apictl set --tls-renegotiation-mode <never|once|freely>
+        ```
+    
+    !!! example
+        ```bash
+        apictl set --tls-renegotiation-mode freely
+        ```
+    
+    !!! info
+        **Flags:** 
+
+        - Required :   
+          `--tls-renegotiation-mode`
+
+          Allowed values for this flag are,
+
+          **never**: Disable TLS renegotiation
+
+          **once**: Allow TLS renegotiation once
+
+          **freely**: Allow unrestricted TLS renegotiation
+
+
 ## Set export directory
 
 Run the following CTL command to change the default location of the export directory.
