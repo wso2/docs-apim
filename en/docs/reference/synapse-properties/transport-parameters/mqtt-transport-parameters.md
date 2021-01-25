@@ -5,7 +5,7 @@ When you implement an integration use case that requires an MQTT connection, you
 !!! Info
     The Micro Integrator can communicate through MQTT only if the MQTT transport listener and sender are enabled and configured at the server level. Read about the [MQTT transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-mqtt-transport).
 
-{!/reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 

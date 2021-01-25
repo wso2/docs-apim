@@ -7,7 +7,7 @@ When you implement an integration use case that requires a RabbitMQ connection, 
 
 ## Service-Level Parameters (Receiving Messages)
 
-{!/reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 

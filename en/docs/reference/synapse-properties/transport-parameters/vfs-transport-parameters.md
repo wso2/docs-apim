@@ -5,7 +5,7 @@ When you implement an integration use case that requires file processing, you ca
 !!! Info
     The VFS transport is enabled and configured for the Micro Integrator by default, which allows you to run VFS use cases without any server configurations. Read about the [VFS transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-vfs-transport).
 
-{!/reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
