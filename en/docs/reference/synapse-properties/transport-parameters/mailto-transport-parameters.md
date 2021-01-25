@@ -5,7 +5,7 @@ When you implement an integration use case that requires the capability of sendi
 !!! Info
     The Micro Integrator can use the MailTo transport only if the transport listener and sender are enabled and configured at the server level. Read about the [MailTo transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport).
 
-{!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
+{!/reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
 
 See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) for instructions.
 
