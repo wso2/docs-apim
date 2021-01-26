@@ -39,21 +39,9 @@ Once the Oauth2 provider is configured, its time to create a static oauth client
 
 2. Navigate to the above created client under Applications -> client Id of the App -> Core -> Access Token LifeTime and set a long value to Access Token LifeTime to obtain a registration access token which would be used to dynamically register and update clients.
     
-3. Navigate to the advance tab and confure the grant type which you need to use to obtain the access token. Configue Password grant type to use the example in step 4.
+3. Navigate to the advance tab and confure the client_credential grant type which you need to use to obtain the access token. Configue Password grant type to use the example in step 4.
    
       ![alt text]({{base_path}}/assets/img/administer/forgerock-client-grant.png)
-
-4. Obtain a registration access token by curl or some rest client as follows. Ensure to obtain a long living as the above token is used for oauth clients creation and update.
-   
-    `curl --request POST --user "username:password" --data "grant_type=password&username=username&password=password&scope=dynamic_client_registration am-introspect-all-tokens" http://localhost:8080/openam/oauth2/realms/root/access_token`
-   
-     We recommend to create the above token in Reference format for encryption purposes within the API Manager. 
-     The toggle button  available under the core configs of Oauth2 provider as shown in the image could be used to decide whether tokens should be created in Reference or JWT format. 
-     So only while generating the registation token we recommend to disable it and you could enable it back once the registration token is generated.        
-    
-     ![alt text]({{base_path}}/assets/img/administer/forgerock-token-format.png)
-    
-5. Save the access token obtained through the previous step.
 
 If you want to work with scopes then the relevant scopes should be assigned to the relevant oauth clients before hand.    
 
@@ -171,11 +159,6 @@ If you want to work with scopes then the relevant scopes should be assigned to t
             <td><b>Connector Configurations</b></td>
             <td></td>
             <td></td>
-          </tr>
-          <tr class="even">
-            <td>Registration Access token</td>
-            <td>The token obtained using the registered static client</td>
-            <td>Mandatory</td>
           </tr>
           <tr class="even">
             <td>Client ID</td>
