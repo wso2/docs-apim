@@ -101,4 +101,4 @@ Follow the instructions below to change the header:
     ```
 
 !!! note
-     The above MTLS flow described is specifically with the **Nginx** load balancer. When using a different ELB to configure the MTSL with SSL termination, please check the service provider's documentation and feature catalog and do the necessary configurations.
+     The MTLS flow described above uses the **Nginx** load balancer. When using a different ELB to configure the MTSL with SSL termination, refer the service provider's documentation and feature catalog to do the necessary configurations.
