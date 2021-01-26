@@ -26,14 +26,15 @@ The endpoint type can be Leaf Endpoint (i.e. Address/WSDL/Default/HTTP)
 or Group Endpoint (i.e. Failover/Load balance/Recipient list). Group
 Endpoint is only supported in non-blocking mode.
 
-By default, when you use Call mediator, the current message body in the mediation will be sent out as the request payload and the response that we receive will replace the current message body.
+By default, when you use the Call mediator, the current message body in the mediation is sent out 
+as the request payload. The response you receive replaces the current message body.
 
 !!! Info
     The Call mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators).
 
 ## Enabling mutual SSL in the blocking mode
 
-When using the Call mediator in the **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
+When using the Call mediator in **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
 
 ``` java
 -Djavax.net.ssl.keyStore="$CARBON_HOME/repository/resources/security/wso2carbon.jks" \
@@ -118,9 +119,9 @@ The following properties are available:
 
 -   **Type**
     -   **Custom** - Users can provide a valid xpath/json-eval expression as the value of the source element. Result of that expression will be set as the payload.
-    -   **Inline** - Users can provide a static payload as the value of the source element. Proper encoding and escaping have to be used.
-    -   **Property** - Users can provide a property name as the value of source element. We will only support properties in synapse scope with this. For other properties, users can use xpath option.
--   **contentType** - User can define the contentType which will be used for the mediation. After mediation is finished the original content type will be restored.
+    -   **Inline** - Users can provide a static payload as the value of the source element. Proper encoding and escaping is required.
+    -   **Property** - Users can provide a property name as the value of the source element. Only properties in synapse scope is supported. For other properties, use the xpath option.
+-   **contentType** - User can define the contentType that will be used for the mediation. After the mediation is completed, the original content type is restored.
 
 ### Target configuration
 
@@ -301,74 +302,73 @@ If you want to receive the response message headers, when you use the Call media
 </proxy>
 ```
 
-## Examples using Source Configuration
+## Examples using the source configuration
 
-#### Payload
+Consider the following payload that is sent to the example sequences listed below.
 
 ```json
 {"INCOMING" : {"INCOMING2":"INCOMING2"}}
 ```
 
-All of the below examples will receive `application/json` as Content Type and will send the request via the Call mediator with the Content Type `application/xml`. The incoming response will be stored into a property. The mediation will continue with the original payload that was received.
+All of the following example sequences receive `application/json` as the content type and sends the request (via the Call mediator) with `application/xml` as the content type. The incoming response will be stored in a property. The mediation continues with the original payload that was received.
 
 ### Example 5 - Using Property
 
-```
-   <inSequence>
-      <property name= "SOURCE" expression="$body//INCOMING" type="OM"/>
-      <log level="custom">
-         <property name="log" expression="$ctx:SOURCE"/>
-      </log>
-      <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-      <call>
-         <endpoint name="Sample">
-            <address uri="<BACKEND_URL>"></address>
-         </endpoint>
-         <source contentType="application/xml" type="property">SOURCE</source>
-         <target type="property">TARGET</target>
-      </call>
-      <log level="custom">
-         <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
-      </log>
-      <respond/>
-   </inSequence>
+```xml
+<inSequence>
+  <property name= "SOURCE" expression="$body//INCOMING" type="OM"/>
+  <log level="custom">
+     <property name="log" expression="$ctx:SOURCE"/>
+  </log>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="property">SOURCE</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
 ```
 
 ### Example 6 - Using XPath
 
-```
-   <inSequence>
-      <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-      <call>
-         <endpoint name="Sample">
-            <address uri="<BACKEND_URL>"></address>
-         </endpoint>
-         <source contentType="application/xml" type="custom">$body//INCOMING2</source>
-         <target type="property">TARGET</target>
-      </call>
-      <log level="custom">
-         <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
-      </log>
-      <respond/>
-   </inSequence>
-
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="custom">$body//INCOMING2</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
 ```
 
 ### Example 7 - Using Property
 
-```
-   <inSequence>
-      <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-      <call>
-         <endpoint name="Sample">
-            <address uri="<BACKEND_URL>"></address>
-         </endpoint>
-         <source contentType="application/xml" type="inline"><Intermediate><Intermediate1>Intermediate</Intermediate1></Intermediate></source>
-         <target type="property">TARGET</target>
-      </call>
-      <log level="custom">
-         <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
-      </log>
-      <respond/>
-   </inSequence>
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="inline"><Intermediate><Intermediate1>Intermediate</Intermediate1></Intermediate></source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
 ```
