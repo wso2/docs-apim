@@ -1,6 +1,6 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc and managing WSO2 Micro Integrator.
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc. and managing WSO2 Micro Integrator.
 
 ## Download and initialize the CTL Tool
 
@@ -74,7 +74,7 @@ Run the following CTL command to check the version of the CTL.
 
     From the API Controller 4.0.0 onwards the flag (--mode) which was used to set the mode of the CTL has been deprecated. Now, you do not need to set the mode of the CTL, because if you want to execute Kubernetes based commads, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default the API Controller will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
 
-    You can still use the `mode` flag as explained below if you need, but it will be removed in future.
+    You can still use the `mode` flag as explained below if you need it, but it will be removed in the future.
         
     -   **Command**
 
@@ -198,8 +198,8 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         !!! note
             You can either provide only the flag `--apim` , or all the other 4 flags (`--registration`, `--publisher`, `--devportal`, `--admin`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
-            In both of the above cases `--token`  flag is optional and can be used to provide a user preferred token endpoint.
-            To add a micro integrator instance to an environment you can use the `--mi` flag.
+            In both of the above cases `--token`  flag is optional and can be used to provide a user-preferred token endpoint.
+            You can use the `--mi` flag to add a micro integrator instance to an environment.
 
     -   Adding an API Manager to an environment using `--apim` flag
 
@@ -274,7 +274,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```
 
         !!!note
-            `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
+            `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead, use `apictl add env` as shown above. 
 
     -   **Response**
     
@@ -349,7 +349,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         ```
 
         !!!note
-            `apictl list envs` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get envs` as shown above. 
+            `apictl list envs` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get envs` as shown above. 
 
 ## Login to an environment
 
@@ -466,7 +466,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                     `--environment` or `-e` : Environment to be searched  
                 -   Optional :  
                     `--query` or `-q` : Search query pattern  
-                    `--limit` or `-l` : Maximum number of apis to return (Default 25)
+                    `--limit` or `-l` : Maximum number of APIs to return (Default 25)
                     `--format` : pretty-print environments using templates
 
             !!! example
@@ -506,7 +506,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 be returned as a result.
 
             !!!note
-                `apictl list apis` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get apis` as shown above. 
+                `apictl list apis` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apis` as shown above. 
 
     2. Get API Products in an environment.
     
@@ -550,7 +550,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
             ```
 
             !!!note
-                `apictl list api-products` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
+                `apictl list api-products` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
 
     3. Get Applications in an environment.
 
@@ -600,7 +600,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 - When someone has invoked the command **by specifying the owner flag**, it will list all the applications belongs to that particular owner in that environment.
 
             !!!note
-                `apictl list apps` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
+                `apictl list apps` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
         
 ## Delete an API/API Product/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
