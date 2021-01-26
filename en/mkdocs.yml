@@ -275,6 +275,7 @@ nav:
                 - Installing WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
+            - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
@@ -470,6 +471,7 @@ nav:
                     - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
             - Working with Transactions: integrate/examples/working-with-transactions.md
             - JSON Examples: integrate/examples/json_examples/json-examples.md
+            - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
           - Streaming Overview: use-cases/streaming-usecase/use-cases.md
           - Streaming Use Cases:
@@ -1104,7 +1106,7 @@ nav:
                     - File Connector Reference: reference/connectors/file-connector/file-connector-config.md
                 - 3.x:
                     - File Connector Example: reference/connectors/file-connector/3.x/file-connector-3.x-example.md
-                - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
+                    - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
             - Gmail Connector:
                 - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
                 - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
@@ -1179,6 +1181,8 @@ nav:
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
         - Synapse Configurations:
+            - REST API Properties: reference/synapse-properties/rest-api-properties.md
+            - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
             - Mediator Catalog:
                 - About Mediators: reference/mediators/about-mediators.md
                 - Aggregate Mediators: reference/mediators/aggregate-mediator.md
@@ -1231,6 +1235,7 @@ nav:
                 - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
                 - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
                 - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
             - Synapse Properties:
                 - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
                 - Sequence Properties: reference/synapse-properties/sequence-properties.md
