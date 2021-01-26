@@ -129,73 +129,28 @@ consumes:
 produces:
   - application/json
 
-x-wso2-security:
-  apim:
-    x-wso2-scopes:
-      - description: ""
-        roles: admin
-        name: apim:tier_view
-        key: apim:tier_view
-      - description: ""
-        roles: admin
-        name: apim:tier_manage
-        key: apim:tier_manage
-      - description: ""
-        roles: admin
-        name: apim:bl_view
-        key: apim:bl_view
-      - description: ""
-        roles: admin
-        name: apim:bl_manage
-        key: apim:bl_manage
-      - description: ""
-        roles: admin
-        name: apim:mediation_policy_view
-        key: apim:mediation_policy_view
-      - description: ""
-        roles: admin
-        name: apim:mediation_policy_create
-        key: apim:mediation_policy_create
-      - description: ""
-        roles: admin
-        name: apim:app_owner_change
-        key: apim:app_owner_change
-      - description: ""
-        roles: admin
-        name: apim:app_import_export
-        key: apim:app_import_export
-      - description: ""
-        roles: admin
-        name: apim:api_import_export
-        key: apim:api_import_export
-      - description: ""
-        roles: admin
-        name: apim:label_manage
-        key: apim:label_manage
-      - description: ""
-        roles: admin
-        name: apim:label_read
-        key: apim:label_read
-      - description: ""
-        roles: admin
-        name: apim:monetization_usage_publish
-        key: apim:monetization_usage_publish
-      - description: ""
-        roles: admin
-        name: apim:api_workflow
-        key: apim:api_workflow
-      - description: ""
-        roles: admin
-        name: apim:bot_data
-        key: apim:bot_data
-      - description: ""
-        roles: admin
-        name: apim:tenantInfo
-        key: apim:tenantInfo
-      - description: ""
-        roles: admin
-        name: apim:admin_operations
-        key: apim:admin_operations
+securityDefinitions:
+  OAuth2Security:
+    type: oauth2
+    flow: password
+    tokenUrl: https://localhost:9443/oauth2/token
+    scopes:
+      apim:tier_view: View throttling policies
+      apim:tier_manage: Update and delete throttling policies
+      apim:bl_view: View deny policies
+      apim:bl_manage: Update and delete deny policies
+      apim:mediation_policy_view: View mediation policies
+      apim:mediation_policy_create: Create and update mediation policies
+      apim:app_owner_change: Retrieve and manage applications
+      apim:app_import_export: Import and export applications related operations
+      apim:api_import_export: Import and export APIs related operations
+      apim:label_manage: Manage microgateway labels
+      apim:label_read: Retrieve microgateway labels
+      apim:monetization_usage_publish: Retrieve and publish Monetization related usage records
+      apim:api_workflow: Manage workflows
+      apim:bot_data: Retrieve bot detection data
+      apim:tenantInfo: Retrieve tenant related information
+      apim:admin_operations: Manage API categories and Key Managers related operations
 
 ######################################################
 # The "API Collection" resource APIs
@@ -496,7 +451,9 @@ paths:
 # Upload a global mediation policy
 #----------------------------------------------------------------------------
     post:
-      x-scope: apim:mediation_policy_create
+      security:
+        - OAuth2Security:
+          - apim:mediation_policy_create
       x-code-samples:
         - lang: Curl
           source: |-
@@ -558,7 +515,9 @@ paths:
 # Retrieve a particular global mediation policy
 #-----------------------------------------------------
     get:
-      x-scope: apim:mediation_policy_view
+      security:
+        - OAuth2Security:
+          - apim:mediation_policy_view
       x-code-samples:
         - lang: Curl
           source: |-
@@ -608,7 +567,9 @@ paths:
 # Delete the mediation policy
 #-----------------------------------------------------
     delete:
-      x-scope: apim:mediation_policy_create
+      security:
+        - OAuth2Security:
+          - apim:mediation_policy_create
       x-code-samples:
         - lang: Curl
           source: |-
@@ -642,7 +603,9 @@ paths:
 # Update the a mediation policy
 #-----------------------------------------------------
     put:
-      x-scope: apim:mediation_policy_create
+      security:
+        - OAuth2Security:
+          - apim:mediation_policy_create
       x-code-samples:
         - lang: Curl
           source: |-
@@ -710,7 +673,9 @@ paths:
 # Retrieve all Subscription level policies
 #-----------------------------------------------------
     get:
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       x-code-samples:
         - lang: Curl
           source: |-
@@ -757,7 +722,9 @@ paths:
 # Add a Subscription level Throttling Policy
 #-----------------------------------------------------
     post:
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -818,7 +785,9 @@ paths:
 # Retrieve a certain Subscription Policy
 #-----------------------------------------------------
     get:
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       x-code-samples:
         - lang: Curl
           source: |-
@@ -867,7 +836,9 @@ paths:
 # Delete a Subscription level throttling policy
 #-----------------------------------------------------
     delete:
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -895,7 +866,9 @@ paths:
 # Update a Subscription Throttling Policy
 #-----------------------------------------------------
     put:
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -959,7 +932,9 @@ paths:
 # Retrieve all Custom Rules
 #-----------------------------------------------------
     get:
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1013,7 +988,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/custom"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Add a Custom Rule
       description: |
         Adds a new Custom Rule.
@@ -1069,7 +1046,9 @@ paths:
 # Retrieve a certain Custom Rule
 #-----------------------------------------------------
     get:
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1125,7 +1104,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Delete a Custom Rule
       description: |
         Delete a Custom Rule. We need to provide the Id of the policy as a path parameter.
@@ -1156,7 +1137,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Update a Custom Rule
       description: |
         Updates an existing Custom Rule.
@@ -1224,7 +1207,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/advanced"
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       summary: Get All Advanced Throttling Policies.
       description: |
         Retrieves all existing Advanced level throttling policies.
@@ -1271,7 +1256,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/advanced"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Add an Advanced Throttling Policy
       description: |
         Add a new Advanced level throttling policy.
@@ -1328,7 +1315,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
-      x-scope: apim:tier_view
+      security:
+        - OAuth2Security:
+          - apim:tier_view
       summary: Get an Advanced Policy
       description: |
         Retrieves an Advanced Policy.
@@ -1377,7 +1366,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Delete an Advanced Throttling Policy
       description: |
         Deletes an Advanced level throttling policy.
@@ -1405,7 +1396,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
-      x-scope: apim:tier_manage
+      security:
+        - OAuth2Security:
+          - apim:tier_manage
       summary: Update an Advanced Throttling Policy
       description: |
         Updates an existing Advanced level throttling policy.
@@ -1469,7 +1462,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/blacklist"
-      x-scope: apim:bl_view
+      security:
+        - OAuth2Security:
+          - apim:bl_view
       summary: Get All Blocking Condtions
       description: |
         Retrieves all existing blocking condtions.
@@ -1516,7 +1511,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/blacklist"
-      x-scope: apim:bl_manage
+      security:
+        - OAuth2Security:
+          - apim:bl_manage
       summary: Add a Blocking Condition
       description: |
         Adds a new Blocking condition.
@@ -1573,7 +1570,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/blacklist/b513eb68-69e8-4c32-92cf-852c101363c"
-      x-scope: apim:bl_view
+      security:
+        - OAuth2Security:
+          - apim:bl_view
       summary: Get a Blocking Condition
       description: |
         Retrieves a Blocking Condition providing the condition Id
@@ -1622,7 +1621,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/throttling/policies/blacklist/b513eb68-69e8-4c32-92cf-852c101363c"
-      x-scope: apim:bl_manage
+      security:
+        - OAuth2Security:
+          - apim:bl_manage
       summary: Delete a Blocking condition
       description: |
         Deletes an existing Blocking condition
@@ -1651,7 +1652,9 @@ paths:
 # Retrieve a list of all applications of a certain subscriber
 #-----------------------------------------------------
     get:
-      x-scope: apim:app_owner_change
+      security:
+        - OAuth2Security:
+          - apim:app_owner_change
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1710,7 +1713,9 @@ paths:
 # Change the owner of an Application
 #-----------------------------------------------------
     post:
-      x-scope: apim:app_owner_change
+      security:
+        - OAuth2Security:
+          - apim:app_owner_change
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1747,7 +1752,9 @@ paths:
   /export/applications:
 
     get:
-      x-scope: apim:app_import_export
+      security:
+        - OAuth2Security:
+          - apim:app_import_export
       produces:
         - application/json
         - application/zip
@@ -1804,7 +1811,9 @@ paths:
   /import/applications:
 
     post:
-      x-scope: apim:app_import_export
+      security:
+        - OAuth2Security:
+          - apim:app_import_export
       consumes:
         - multipart/form-data
       x-code-samples:
@@ -1880,7 +1889,9 @@ paths:
   /import/api:
 
     post:
-      x-scope: apim:api_import_export
+      security:
+        - OAuth2Security:
+          - apim:api_import_export
       consumes:
         - multipart/form-data
       x-code-samples:
@@ -1935,7 +1946,9 @@ paths:
   /export/api:
 
     get:
-      x-scope: apim:api_import_export
+      security:
+        - OAuth2Security:
+          - apim:api_import_export
       produces:
         - application/zip
       x-code-samples:
@@ -2007,7 +2020,9 @@ paths:
 # Retrieve all labels
 #-----------------------------------------------------
     get:
-      x-scope: apim:label_read
+      security:
+        - OAuth2Security:
+          - apim:label_read
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2029,7 +2044,9 @@ paths:
 # Add a Label
 #-----------------------------------------------------
     post:
-      x-scope: apim:label_manage
+      security:
+        - OAuth2Security:
+          - apim:label_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2067,7 +2084,9 @@ paths:
   /botData/getEmailList:
 
     get:
-      x-scope: apim:bot_data
+      security:
+        - OAuth2Security:
+          - apim:bot_data
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2106,7 +2125,9 @@ paths:
   /botData/deleteEmail:
 
     delete:
-      x-scope: apim:bot_data
+      security:
+        - OAuth2Security:
+          - apim:bot_data
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2136,7 +2157,9 @@ paths:
   /botData/addEmail:
 
     post:
-      x-scope: apim:bot_data
+      security:
+        - OAuth2Security:
+          - apim:bot_data
       summary: Add an Email
       description: |
           Here we can use this to configure email
@@ -2174,7 +2197,9 @@ paths:
 # Update a Label
 #-----------------------------------------------------
     put:
-      x-scope: apim:label_manage
+      security:
+        - OAuth2Security:
+          - apim:label_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2212,7 +2237,9 @@ paths:
 # Delete a Label
 #-----------------------------------------------------
     delete:
-      x-scope: apim:label_manage
+      security:
+        - OAuth2Security:
+          - apim:label_manage
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2248,7 +2275,9 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93\" -X POST -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v0.16/monetization/publish-usage"
       x-wso2-request: "POST https://localhost:9443/api/am/admin/v0.16/monetization/publish-usage\r\nAuthorization: Bearer 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93\r\nContent-Type: application/json"
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n\"status\":\"successfull\",\r\n\"message\":\"Records published successfully\"\r\n}"
-      x-scope: apim:monetization_usage_publish
+      security:
+        - OAuth2Security:
+          - apim:monetization_usage_publish
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2281,7 +2310,9 @@ paths:
     # Retrieve the status monetization usage publsih job
     #-----------------------------------------------------
     get:
-      x-scope: apim:monetization_usage_publish
+      security:
+        - OAuth2Security:
+          - apim:monetization_usage_publish
       x-wso2-request: |
         GET https://localhost:9443/api/am/admin/v0.16/monetization/publish-usage/status
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
@@ -2313,7 +2344,9 @@ paths:
     # Resume the workflow by approving or rejecting the workflow request
     #-------------------------------------------------------------------
     post:
-      x-scope: apim:api_workflow
+      security:
+        - OAuth2Security:
+          - apim:api_workflow
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/publisher/v0.16/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1\""
       x-wso2-request: "POST https://localhost:9443/api/am/publisher/v0.16/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"status\" : \"APPROVED\",\n   \"attributes\" : {\n      \"apiCurrentState\": \"Created\",\n      \"apiLCAction\": \"Publish\",\n      \"apiName\":\"APIname\",\n      \"apiVersion\" : \"1.0.0\",\n      \"apiProvider\" : \"admin\",\n      \"invoker\": \"admin\"\n   }\n}"
       x-wso2-response: "HTTP/1.1 200 OK"
@@ -2364,7 +2397,9 @@ paths:
     # Retrieve tenant information of the given username
     #--------------------------------------------------------
     get:
-      x-scope: apim:tenantInfo
+      security:
+        - OAuth2Security:
+          - apim:tenantInfo
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X GET \"https://localhost:9443/api/am/admin/v0.16/tenant-info/john/info\""
       x-wso2-request: "GET https://localhost:9443/api/am/admin/v0.16/tenant-info/john\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"tenantDomain\" : \"carbon.super\",\n   \"tenantId\" : -1234 \n}"
       x-wso2-response: "HTTP/1.1 200 OK"
@@ -2414,7 +2449,9 @@ paths:
     # Retrieve custom url information of the given tenant domain
     #----------------------------------------------------------
     get:
-      x-scope: apim:tenantInfo
+      security:
+        - OAuth2Security:
+          - apim:tenantInfo
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X GET \"https://localhost:9443/api/am/admin/v0.16/custom-url/foo.com\""
       x-wso2-request: "GET https://localhost:9443/api/am/admin/v0.16/custom-url/foo.com\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"tenantDomain\" : \"foo.com\",\n}"
       x-wso2-response: "HTTP/1.1 200 OK"
@@ -2462,7 +2499,9 @@ paths:
 # Retrieve all categories
 #-----------------------------------------------------
     get:
-      x-scope: apim:admin_operations
+      security:
+        - OAuth2Security:
+          - apim:admin_operations
       x-wso2-request: |
               GET https://localhost:9443/api/am/admin/v0.16/api-categories
               Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
@@ -2489,7 +2528,9 @@ paths:
 # Add a Category
 #-----------------------------------------------------
     post:
-      x-scope: apim:admin_operations
+      security:
+        - OAuth2Security:
+          - apim:admin_operations
       x-wso2-curl: "curl -k -X POST -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://apis.wso2.com/api/am/admin/v0.16/api-categories -d @data.json"
       x-wso2-request: "POST https://localhost:9443/api/am/admin/v0.16/api-categories\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n -d  {\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n }"
       x-wso2-response: "HTTP/1.1 201 Created\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
@@ -2534,7 +2575,9 @@ paths:
   # Update a Category
   #-----------------------------------------------------
     put:
-      x-scope: apim:admin_operations
+      security:
+        - OAuth2Security:
+          - apim:admin_operations
       x-wso2-curl: "curl -k -X PUT -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v0.16/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779 -d @data.json"
       x-wso2-request: "PUT https://localhost:9443/api/am/admin/v0.16/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n   {\r\n       \"name\":\"update_internal\",\r\n	\"description\":\"Updated label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n     }"
       x-wso2-response: "HTTP/1.1 200 Ok\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
@@ -2575,7 +2618,9 @@ paths:
   # Delete an API Category
   #-----------------------------------------------------
     delete:
-      x-scope: apim:admin_operations
+      security:
+        - OAuth2Security:
+          - apim:admin_operations
       x-code-samples:
         - lang: Curl
           source: |-
