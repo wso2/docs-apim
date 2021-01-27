@@ -117,7 +117,7 @@ Select one of the following options to define the endpoint to which the message 
 
 ### Source configuration
 
-The following properties are available when you want to configure the source of the incoming payload.
+The following properties are available when you want to configure the source of the request payload.
 
 <table>
   <tr>
