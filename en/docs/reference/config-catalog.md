@@ -6580,3 +6580,69 @@ overuse_charge= "0"</code></pre>
     </section>
 </div>
 
+## Global handler configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="54" type="checkbox" id="_tab_54">
+                <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre>
+<code class="toml">
+[synapse_handlers.custom_handler_name]
+enabled=true
+class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
+</code>
+</pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_handlers.custom_handler_name]</code>
+                            <p>
+                                configuration used to define or enable disable global handler. 
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable a defined global handler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>class</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Fully qualified class name of the global handler.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
