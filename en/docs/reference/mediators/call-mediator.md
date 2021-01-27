@@ -26,12 +26,15 @@ The endpoint type can be Leaf Endpoint (i.e. Address/WSDL/Default/HTTP)
 or Group Endpoint (i.e. Failover/Load balance/Recipient list). Group
 Endpoint is only supported in non-blocking mode.
 
+By default, when you use the Call mediator, the current message body in the mediation is sent out 
+as the request payload. The response you receive replaces the current message body.
+
 !!! Info
-    The Call mediator is a [content-unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Call mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators).
 
 ## Enabling mutual SSL in the blocking mode
 
-When using the Call mediator in the **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
+When using the Call mediator in **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
 
 ``` java
 -Djavax.net.ssl.keyStore="$CARBON_HOME/repository/resources/security/wso2carbon.jks" \
@@ -43,7 +46,11 @@ When using the Call mediator in the **blocking mode** (blocking=true), enable th
 ## Syntax
 
 ``` java
-<call [blocking="true"] />
+<call [blocking="true|false"]>
+   <source contentType=" " type="custom|inline|property">{xpath|inline|property}</source>?
+   <target type=”property”>{property_name}</target>?
+   (endpointref | endpoint)
+</call>
 ```
 
 !!! Note
@@ -105,6 +112,23 @@ Select one of the following options to define the endpoint to which the message 
 </tr>
 </tbody>
 </table>
+
+### Source configuration
+
+The following properties are available:
+
+-   **Type**
+    -   **Custom** - Users can provide a valid xpath/json-eval expression as the value of the source element. Result of that expression will be set as the payload.
+    -   **Inline** - Users can provide a static payload as the value of the source element. Proper encoding and escaping is required.
+    -   **Property** - Users can provide a property name as the value of the source element. Only properties in synapse scope is supported. For other properties, use the xpath option.
+-   **contentType** - User can define the contentType that will be used for the mediation. After the mediation is completed, the original content type is restored.
+
+### Target configuration
+
+The following properties are available:
+
+-   **Type**
+    -   **Property** - User can use this type to indicate that they want to store the response to property. Property name has to be provided as the value of the element. New property will be created in synapse scope with the correct data type.
 
 ## Example
 
@@ -276,4 +300,75 @@ If you want to receive the response message headers, when you use the Call media
    </target>
    <description/>
 </proxy>
+```
+
+## Examples using the source configuration
+
+Consider the following payload that is sent to the example sequences listed below.
+
+```json
+{"INCOMING" : {"INCOMING2":"INCOMING2"}}
+```
+
+All of the following example sequences receive `application/json` as the content type and sends the request (via the Call mediator) with `application/xml` as the content type. The incoming response will be stored in a property. The mediation continues with the original payload that was received.
+
+### Example 5 - Using Property
+
+```xml
+<inSequence>
+  <property name= "SOURCE" expression="$body//INCOMING" type="OM"/>
+  <log level="custom">
+     <property name="log" expression="$ctx:SOURCE"/>
+  </log>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="property">SOURCE</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
+```
+
+### Example 6 - Using XPath
+
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="custom">$body//INCOMING2</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
+```
+
+### Example 7 - Using Property
+
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="<BACKEND_URL>"></address>
+     </endpoint>
+     <source contentType="application/xml" type="inline"><Intermediate><Intermediate1>Intermediate</Intermediate1></Intermediate></source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
 ```
