@@ -1,6 +1,6 @@
 # Managing Integrations with CTL
 
-WSO2 API Controller, **apictl** allows you to monitor the synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
+WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
 
 !!! info
     **Before you begin** 
@@ -9,7 +9,7 @@ WSO2 API Controller, **apictl** allows you to monitor the synapse artifacts (dep
 
     -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
-    -  Ensure that the micro integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
 ## Login to a Micro Integrator
 
@@ -66,7 +66,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
         ```
 
     !!! warning
-        Using -`-password` in CTL is not secure. You can use `--password-stdin` instead. For example,
+        Using `--password` in CTL is not secure. You can use `--password-stdin` instead. For example,
         ```bash
         cat ~/.mypassword | ./apictl mi login dev --username admin --password-stdin -k
         ```          
@@ -136,7 +136,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
         capp-tester
         ```
 
-2.  Get information of a specific user.
+2.  Get information on a specific user.
 
     -   **Command**
         ``` bash
@@ -166,7 +166,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ### Add a new user
 
-You can use the below command to add a new user to a micro integrator.
+You can use the command below to add a new user to a Micro Integrator.
 
 -   **Command**
     ``` bash
@@ -192,7 +192,7 @@ You can use the below command to add a new user to a micro integrator.
 
 ### Delete a user
 
-You can use the below command to remove a user from the the Micro Integrator.
+You can use the command below to remove a user from the Micro Integrator.
 
 -   **Command**
     ``` bash
@@ -250,7 +250,7 @@ Follow the instructions below to display a list of artifacts or get information 
         FoodServiceCApp                 2.0.0
         ```
 
-2.  Get information of a specific composite application in an environment.
+2.  Get information on a specific composite application in an environment.
 
     -   **Command**
         ``` bash
@@ -322,7 +322,7 @@ Follow the instructions below to display a list of artifacts or get information 
         FoodService       http://localhost:8480/foodservice
         ```
 
-2.  Get information of a specific integration API in an environment.
+2.  Get information on a specific integration API in an environment.
 
     -   **Command**
         ``` bash
@@ -414,7 +414,7 @@ Follow the instructions below to display a list of artifacts or get information 
         RESTDataService     http://localhost:8290/services/RESTDataService?wsdl     http://localhost:8290/services/RESTDataService?wsdl2
         ```
 
-2.  Get information of a specific data service in an environment.
+2.  Get information on a specific data service in an environment.
 
     -   **Command**
         ``` bash
@@ -478,7 +478,7 @@ Follow the instructions below to display a list of artifacts or get information 
         PineValleyEndpoint      http      true
         ```
 
-2.  Get information of a specific endpoint in an environment.
+2.  Get information on a specific endpoint in an environment.
 
     -   **Command**
         ``` bash
@@ -537,7 +537,7 @@ Follow the instructions below to display a list of artifacts or get information 
         httpInboundEP        http
         ```
 
-2.  Get information of a specific inbound endpoint in an environment.
+2.  Get information on a specific inbound endpoint in an environment.
 
     -   **Command**
         ``` bash
@@ -603,7 +603,7 @@ Follow the instructions below to display a list of artifacts or get information 
         sample-local-entry      Inline Text
         ```
 
-2.  Get information of a specific local entry in an environment.
+2.  Get information on a specific local entry in an environment.
 
     -   **Command**
         ``` bash
@@ -660,7 +660,7 @@ Follow the instructions below to display a list of artifacts or get information 
         scheduled-msg-processor   Scheduled-message-forwarding-processor   active
         ```
 
-2.  Get information of a specific message processor in an environment.
+2.  Get information on a specific message processor in an environment.
 
     -   **Command**
         ``` bash
@@ -731,7 +731,7 @@ Follow the instructions below to display a list of artifacts or get information 
         in-memory-message-store   in-memory-message-store   0
         ```
 
-2.  Get information of a specific message store in an environment.
+2.  Get information on a specific message store in an environment.
 
     -   **Command**
         ``` bash
@@ -793,7 +793,7 @@ Follow the instructions below to display a list of artifacts or get information 
         StockQuoteProxy     http://localhost:8290/services/StockQuoteProxy?wsdl     http://localhost:8290/services/StockQuoteProxy?wsdl2
         ```
 
-2.  Get information of a specific proxy service in an environment.
+2.  Get information on a specific proxy service in an environment.
 
     -   **Command**
         ``` bash
@@ -854,7 +854,7 @@ Follow the instructions below to display a list of artifacts or get information 
         sample-sequence     disabled            disabled
         ```
 
-2.  Get information of a specific sequence in an environment.
+2.  Get information on a specific sequence in an environment.
 
     -   **Command**
         ``` bash
@@ -914,7 +914,7 @@ Follow the instructions below to display a list of artifacts or get information 
         CheckPriceTask
         ```
 
-2.  Get information of a specific scheduled task in an environment.
+2.  Get information on a specific scheduled task in an environment.
 
     -   **Command**
         ``` bash
@@ -972,7 +972,7 @@ Follow the instructions below to display a list of artifacts or get information 
         sample_template       Endpoint
         ```
 
-2.  List specific type of templates in an environment.
+2.  List a specific type of template in an environment.
 
     -   **Command**
         ``` bash
@@ -1002,7 +1002,7 @@ Follow the instructions below to display a list of artifacts or get information 
         sample_seq_template
         ```
 
-3.  Get information of a specific template in an environment.
+3.  Get information on a specific template in an environment.
 
     -   **Command**
         ``` bash
@@ -1031,11 +1031,11 @@ Follow the instructions below to display a list of artifacts or get information 
 
 ## Change status of an Artifact
 
-You can use the below commands to activate or deactivate endpoints, message processors or proxy services deployed in a micro integrator.
+You can use the commands below to activate or deactivate endpoints, message processors or proxy services deployed in a Micro Integrator.
 
 ### Endpoint
 
-1.  Activate an endpoint deployed in a micro integrator.
+1.  Activate an endpoint deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1059,7 +1059,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
         GrandOakEndpoint is switched On
         ```
 
-2.  Deactivate an endpoint deployed in a micro integrator.
+2.  Deactivate an endpoint deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1085,7 +1085,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
 
 ### Message Processor
 
-1.  Activate a message processor deployed in a micro integrator.
+1.  Activate a message processor deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1109,7 +1109,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
         scheduled-msg-processor : is activated
         ```
 
-2.  Deactivate a message processor deployed in a micro integrator.
+2.  Deactivate a message processor deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1135,7 +1135,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
 
 ### Proxy Service
 
-1.  Activate a proxy service deployed in a micro integrator.
+1.  Activate a proxy service deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1159,7 +1159,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
         Proxy service StockQuoteProxy started successfully
         ```
 
-2.  Deactivate a proxy service deployed in a micro integrator.
+2.  Deactivate a proxy service deployed in a Micro Integrator.
 
     -   **Command**
         ``` bash
@@ -1185,7 +1185,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
 
 ## Manage Loggers used in Micro Integrator
 
-### Get information of a specific logger
+### Get information on a specific logger
 
 -   **Command**
     ``` bash
@@ -1214,7 +1214,7 @@ You can use the below commands to activate or deactivate endpoints, message proc
 
 ### Add a new logger
 
-You can use the below command to add a new logger to a micro integrator.
+You can use the command below to add a new logger to a Micro Integrator.
 
 -   **Command**
     ``` bash
@@ -1240,7 +1240,7 @@ You can use the below command to add a new logger to a micro integrator.
 
 ### Update a logger
 
-You can use the below command to update the log level of an existing logger.
+You can use the command below to update the log level of an existing logger.
 
 -   **Command**
     ``` bash
@@ -1332,7 +1332,7 @@ You can use the below command to update the log level of an existing logger.
 
 ### Transaction Counts
 
-You can use the below command to get information about the inbound transactions received by the Micro Integrator.
+You can use the command below to get information about the inbound transactions received by the Micro Integrator.
 
 -   **Command**
     ``` bash
@@ -1367,7 +1367,7 @@ You can use the below command to get information about the inbound transactions 
 
 ### Transaction Reports
 
-You can use the below command to generate transaction count summary report about the inbound transactions received by the Micro Integrator.
+You can use the command below to generate the transaction count summary report based on the inbound transactions received by the Micro Integrator.
 
 -   **Command**
     ``` bash
