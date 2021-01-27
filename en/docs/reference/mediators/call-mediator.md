@@ -148,7 +148,7 @@ The following properties are available when you want to configure the source of 
       contentType
     </td>
     <td>
-      Use this paramter to define the content type that will be used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
     </td>
   </tr>
 </table>
