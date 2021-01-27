@@ -7,11 +7,11 @@ and also map it with arguments provided in the payloadfactory configuration.
 You can use two methods to format the payload using this mediator.
 
 -   Use the **default** template to write the payload in the required format (JSON, XML, or text).
--   Use the **freemarker** template to write the payload. This is particularly useful when 
-    defining a complext JSON payload.
+-   Use the **FreeMarker** template to write the payload. This is particularly useful when 
+    defining complex JSON payloads.
 
 You can provide arguments in the mediator configuration to pass values to your payload during runtime.
-You can specify a static value or use an XPath or JSON expression to pass values dynamically. 
+You can specify a static value or use an XPath/JSON expression to pass values dynamically. 
 The values passed by the arguments are evaluated against the existing 
 message.
 
@@ -45,71 +45,71 @@ the outgoing message, such as to change it to JSON, add the
 Parameters available to configure the PayloadFactory mediator are as follows:
 
 <table>
-	<tr>
-		<th>
-			Parameter Name
-		</th>
-		<th>
-			Description
-		</th>
-	</tr>
-	<tr>
-		<td>
-			media-type
-		</td>
-		<td>
-			This parameter is used to specify whether the message payload should be formatted in JSON, XML, or Text. If no media type is specified, the message is formatted in XML.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			template-type
-		</td>
-		<td>
-			The template type determines how you define a new payload. Select one of the following template types:
-			<ul>
+  <tr>
+    <th>
+      Parameter Name
+    </th>
+    <th>
+      Description
+    </th>
+  </tr>
+  <tr>
+    <td>
+      media-type
+    </td>
+    <td>
+      This parameter is used to specify whether the message payload should be formatted in JSON, XML, or Text. If no media type is specified, the message is formatted in XML.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      template-type
+    </td>
+    <td>
+      The template type determines how you define a new payload. Select one of the following template types:
+      <ul>
                 <li>
-					<b>default</b>: If you select this template type, you can define the payload using the normal syntax of the specified media type.
-				</li>
-				<li>
-					<b>freemarker</b>: If you select this template type, the mediator will accept freemarker templates to define the payload.
-				</li>
-			</ul>
+          <b>default</b>: If you select this template type, you can define the payload using the normal syntax of the specified media type.
+        </li>
+        <li>
+          <b>FreeMarker</b>: If you select this template type, the mediator will accept FreeMarker templates to define the payload.
+        </li>
+      </ul>
             See the examples given below for details.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			format
-		</td>
-		<td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      format
+    </td>
+    <td>
             Select one of the following values:
-			<ul>
-				<li>
-					<b>Define Inline</b>: If this is selected, the payload format can be defined within the PayloadFactory mediator in the <b>Payload</b> field.
-				</li>
-				<li>
-					<b>Pick from Registry</b>: If this is selected, an existing payload format that is saved in the registry can be selected. Click either <strong>Governance Registry</strong> or <strong>Configuration Registry</strong> as relevant to select the payload format from the resource tree.
-				</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Payload
-		</td>
-		<td>
-			Define the payload accoding to the template type you selected for the <b>template-type</b> parameter.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Arguments
-		</td>
-		<td>
-			This section is used to add an argument that defines the actual value of each variable in the format definition.
-		</td>
-	</tr>
+      <ul>
+        <li>
+          <b>Define Inline</b>: If this is selected, the payload format can be defined within the PayloadFactory mediator in the <b>Payload</b> field.
+        </li>
+        <li>
+          <b>Pick from Registry</b>: If this is selected, an existing payload format that is saved in the registry can be selected. Click either <strong>Governance Registry</strong> or <strong>Configuration Registry</strong> as relevant to select the payload format from the resource tree.
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Payload
+    </td>
+    <td>
+      Define the payload accoding to the template type you selected for the <b>template-type</b> parameter.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Arguments
+    </td>
+    <td>
+      This section is used to add an argument that defines the actual value of each variable in the format definition.
+    </td>
+  </tr>
 </table>
 
 You need to specify the payload format and arguments depending on the <b>template-type</b> you specified in the mediator configuration.
@@ -133,20 +133,20 @@ If you select **default** as the **template-type**, you can define the payload a
 </payloadFactory>
 ```
 
--	Payload Format
+- Payload Format
 
-	As shown above, you can add content to the payload by specifying variables for each value that you want to add. Use the $<em>n</em> format. Start with n=1 and then increment the value for each additional variable as follows: `$1`, `$2`, etc.
+  As shown above, you can add content to the payload by specifying variables for each value that you want to add. Use the $<em>n</em> format. Start with n=1 and then increment the value for each additional variable as follows: `$1`, `$2`, etc.
 
--	Arguments
+- Arguments
 
-	The arguments must be entered in the same order as the variables in the payload format. That is, the first argument defines the value for variable $1, the second argument defines the value for variable $2, etc. An argument can specify a literal string (e.g., "John") or an XPath/JSON expression that extracts the value from the content in the incoming payload as shown above.
+  The arguments must be entered in the same order as the variables in the payload. That is, the first argument defines the value for variable $1, the second argument defines the value for variable $2, etc. An argument can specify a literal string (e.g., "John") or an XPath/JSON expression that extracts the value from the content in the incoming payload as shown above.
 
-### Freemarker Template
+### FreeMarker Template
 
-The payloadFactory mediator of WSO2 APIM 4.0.0 supports [Freemarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can use a freemarker template when defining the payload as shown below. This example defines a JSON payload.
+The payloadFactory mediator of WSO2 APIM 4.0.0 supports [FreeMarker Templates](https://freemarker.apache.org/docs/). If you select **freemarker** as the **template-type**, you can define the payload as a FreeMarker template. The following example defines a JSON payload.
 
 !!! Note
-    -   FreeMarker version 2.3.30 is tested with the current WSO2 APIM version.
+    -   FreeMarker version 2.3.30 is tested with WSO2 APIM 4.0.0.
     -   You are not required to specify the CDATA tag manually when defining the payload. WSO2 Integration Studio will apply the tag automatically.
 
 ```xml
@@ -163,9 +163,9 @@ The payloadFactory mediator of WSO2 APIM 4.0.0 supports [Freemarker Templates](h
 </payloadFactory>
 ```
 
-When you use the freemarker template type as shown above, note that the script is wrapped inside a CDATA tag. This is applicable for all media types when the payload is defined **inline**. If you get the payload from the registry, the CDATA tag does not apply.
+When you use the FreeMarker template type as shown above, note that the script is wrapped inside a CDATA tag. This is applicable for all media types when the payload is defined **inline**. If you get the payload from the registry, the CDATA tag does not apply.
 
-The following root variables are available when you format a freemarker payload:
+The following root variables are available when you format a FreeMarker payload:
 
 <table>
   <tr>
@@ -173,7 +173,7 @@ The following root variables are available when you format a freemarker payload:
       <code>payload</code>
     </th>
     <td>
-      This variable represents the current payload in the message context. It could be JSON, XML, or TEXT. Regardless of the payload type, the payload variable is a <a href="https://freemarker.apache.org/docs/pgui_datamodel_parent.html#autoid_32">FreeMarker Hash type container</a>.
+      This variable represents the current payload in the message context. It can be JSON, XML, or TEXT. Regardless of the payload type, the payload variable is a <a href="https://freemarker.apache.org/docs/pgui_datamodel_parent.html#autoid_32">FreeMarker Hash type container</a>.
     </td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ The following root variables are available when you format a freemarker payload:
       <code>ctx</code>
     </th>
     <td>
-      You can use the ctx variable to access default scoped properties. For example, if you have a property named 'customer_id' in the default scope, you can get the property in the FreeMarker template by using 'ctx.customer_id'.
+      You can use the ctx variable to access properties with the 'default' scope. For example, if you have a property named 'customer_id' in the default scope, you can get the property in the FreeMarker template by using 'ctx.customer_id'.
     </td>
   </tr>
   <tr>
@@ -197,7 +197,7 @@ The following root variables are available when you format a freemarker payload:
       <code>trp</code>
     </th>
     <td>
-      This variable represents transport headers. You can access transport header values as similar to the above property access methods.
+      This variable represents transport headers. You can access transport header values in the same way as accessing properties.
     </td>
   </tr>
   <tr>
@@ -205,7 +205,7 @@ The following root variables are available when you format a freemarker payload:
       <code>arg</code>
     </th>
     <td>
-      This variable represents the arguments created at the PayloadFactory mediator. You can use 'args.arg#' to get any argument. Replace '#'' with the argument index. For example, if you want to access the 1st argument in the freemarker template, you can use 'args.arg1'.
+      This variable represents the arguments created at the PayloadFactory mediator. You can use 'args.arg#' to get any argument. Replace '#' with the argument index. For example, if you want to access the 1st argument in the FreeMarker template, you can use 'args.arg1'.
     </td>
   </tr>
 </table>
@@ -1047,4 +1047,4 @@ This example shows how to use arguments in a freemarker template to pass values 
     </payloadFactory>
     ```
 
-In this example, the value for the “argument one” key is replaced by the first argument's value. The argument for the "argument two" key is replaced by the second argument's value.
+In this example, the value for the “argument one” key is replaced by the first argument value. The argument for the "argument two" key is replaced by the second argument value.
