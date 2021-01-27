@@ -1,0 +1,3 @@
+[synapse_handlers.custom_handler_name]
+enabled=true
+class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
