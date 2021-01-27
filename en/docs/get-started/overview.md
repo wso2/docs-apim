@@ -89,6 +89,11 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 
 The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate-limiting of API requests. For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
 
+#### Streaming Integrator
+
+![]({{base_path}}/assets/img/get_started/streaming-integrator.png)
+
+The Streaming Integrator allows API Manager to publish streaming data via the API Publisher asynchronously. It can also consume APIs to perform stream processing on API data as well as to expose API data to streaming applications.
 
 #### Analytics
 
