@@ -22,7 +22,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
     ``` go
     ./apictl
     ```
-    The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
+    The directory structure for the configuration files (`<USER_HOME>/.wso2apictl`) will be created upon the execution of the `apictl` command.
 
     !!! Tip
         If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
@@ -199,7 +199,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             You can either provide only the flag `--apim` , or all the other 4 flags (`--registration`, `--publisher`, `--devportal`, `--admin`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
             In both of the above cases `--token`  flag is optional and can be used to provide a user-preferred token endpoint.
-            You can use the `--mi` flag to add a micro integrator instance to an environment.
+            You can use the `--mi` flag to add a Micro Integrator instance to an environment.
 
     -   Adding an API Manager to an environment using `--apim` flag
 
