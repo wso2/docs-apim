@@ -77,6 +77,8 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 
 ## Configuration
 
+### Endpoint configuration
+
 Select one of the following options to define the endpoint to which the message should be delivered.
 
 <table>
@@ -115,22 +117,62 @@ Select one of the following options to define the endpoint to which the message 
 
 ### Source configuration
 
-The following properties are available:
+The following properties are available when you want to configure the source of the request payload.
 
--   **Type**
-    -   **Custom** - Users can provide a valid xpath/json-eval expression as the value of the source element. Result of that expression will be set as the payload.
-    -   **Inline** - Users can provide a static payload as the value of the source element. Proper encoding and escaping is required.
-    -   **Property** - Users can provide a property name as the value of the source element. Only properties in synapse scope is supported. For other properties, use the xpath option.
--   **contentType** - User can define the contentType that will be used for the mediation. After the mediation is completed, the original content type is restored.
+<table>
+  <tr>
+    <th>Parameter Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      You can use one of the following source types:
+      <ul>
+        <li>
+          <b>Custom</b>: Provide a valid XPATH/json-eval expression as the source element. The result that is derived from this expression will be the payload.
+        </li>
+        <li>
+          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encording and escaping.
+        </li>
+        <li>
+          <b>Property</b>: Provide a property as the payload source. You can only refer properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      contentType
+    </td>
+    <td>
+      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+    </td>
+  </tr>
+</table>
 
 ### Target configuration
 
-The following properties are available:
+The following properties are available when you want to configure a target property to store the response (received from the endpoint).
 
--   **Type**
-    -   **Property** - User can use this type to indicate that they want to store the response to property. Property name has to be provided as the value of the element. New property will be created in synapse scope with the correct data type.
+<table>
+  <tr>
+    <th>Paramete Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      Use <b>property</b> as the target type to store the response (received from the endpoint) to a property. The property name has to be provided as the value of this element. When you use this target type, a new property is generated for the mediation sequence with the correct data type. 
+    </td>
+  </tr>
+</table>
 
-## Example
+## Examples - Using Endpoint configurations
 
 ### Example 1 - Service orchestration
 
@@ -302,17 +344,18 @@ If you want to receive the response message headers, when you use the Call media
 </proxy>
 ```
 
-## Examples using the source configuration
+## Examples - Using Source and Target configurations
 
-Consider the following payload that is sent to the example sequences listed below.
+Consider the following payload that is sent to the example sequences listed below. 
+The content type used for this request is `application/json`.
 
 ```json
 {"INCOMING" : {"INCOMING2":"INCOMING2"}}
 ```
 
-All of the following example sequences receive `application/json` as the content type and sends the request (via the Call mediator) with `application/xml` as the content type. The incoming response will be stored in a property. The mediation continues with the original payload that was received.
+In all of the following example sequences, the `contentType` property of the Call mediator's **source configuration** is set to `application/xml`. Therefore, the sequence receives `application/json` as the content type and converts it to `application/xml` before sending the request to the endpoint. The Call mediator's **target configuration** will store the response (received from the endpoint) to a property. Thereafter, the mediation continues with the original payload that was received by the sequence.
 
-### Example 5 - Using Property
+### Example 1 - Using a property as the payload source
 
 ```xml
 <inSequence>
@@ -323,7 +366,7 @@ All of the following example sequences receive `application/json` as the content
   <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
   <call>
      <endpoint name="Sample">
-        <address uri="<BACKEND_URL>"></address>
+        <address uri="BACKEND_URL"></address>
      </endpoint>
      <source contentType="application/xml" type="property">SOURCE</source>
      <target type="property">TARGET</target>
@@ -335,14 +378,14 @@ All of the following example sequences receive `application/json` as the content
 </inSequence>
 ```
 
-### Example 6 - Using XPath
+### Example 2 - Using an XPath as the payload source
 
 ```xml
 <inSequence>
   <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
   <call>
      <endpoint name="Sample">
-        <address uri="<BACKEND_URL>"></address>
+        <address uri="BACKEND_URL"></address>
      </endpoint>
      <source contentType="application/xml" type="custom">$body//INCOMING2</source>
      <target type="property">TARGET</target>
@@ -354,14 +397,14 @@ All of the following example sequences receive `application/json` as the content
 </inSequence>
 ```
 
-### Example 7 - Using Property
+### Example 3 - Using an inline payload as the source
 
 ```xml
 <inSequence>
   <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
   <call>
      <endpoint name="Sample">
-        <address uri="<BACKEND_URL>"></address>
+        <address uri="BACKEND_URL"></address>
      </endpoint>
      <source contentType="application/xml" type="inline"><Intermediate><Intermediate1>Intermediate</Intermediate1></Intermediate></source>
      <target type="property">TARGET</target>

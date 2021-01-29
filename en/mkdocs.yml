@@ -67,6 +67,7 @@ nav:
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
+            - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
             - Prototype APIs:
@@ -871,6 +872,7 @@ nav:
             - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/migrating-applications-to-different-environments.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
