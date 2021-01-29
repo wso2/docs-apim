@@ -147,21 +147,20 @@ INFO {org.wso2.extension.siddhi.io.http.sink.HttpSink} - Request sent successful
     
     2. Start the application and check whether the expected output appears in the terminal.
 
-???info "Click here to view the sample Siddhi application."
+??? info "Click here to view the sample Siddhi application."
     ```sql
     @App:name("PublishHttpOAuthRequest")
     @App:description("Send HTTP events to an OAuth-protected endpoint")
+       
+    define stream SweetProductionStream (name string, amount double);
     
+    @sink(type='http', method="xxxxx", publisher.url='https://localhost:8005/abc',
+    headers="'Authorization:  Bearer xxxxxxxxx'", consumer.key="xxxxxxxxxx", consumer.secret="xxxxxxxxxxx",
+    token.url='https://localhost:8005/token',@map(type='json', @payload( "{'name': {{name}}, 'amount': {{amount}}}")))
+    define stream LowProductionAlertStream (name string, amount double);
     
-     define stream SweetProductionStream (name string, amount double);
-    
-     @sink(type='http', method="xxxxx", publisher.url='https://localhost:8005/abc',
-     headers="'Authorization:  Bearer xxxxxxxxx'", consumer.key="xxxxxxxxxx", consumer.secret="xxxxxxxxxxx",
-     token.url='https://localhost:8005/token',@map(type='json', @payload( "{'name': {{name}}, 'amount': {{amount}}}")))
-     define stream LowProductionAlertStream (name string, amount double);
-    
-     @info(name='query1')
-     from SweetProductionStream
-     select *
-     insert into LowProductionAlertStream;
+    @info(name='query1')
+    from SweetProductionStream
+    select *
+    insert into LowProductionAlertStream;
     ```
