@@ -43,4 +43,4 @@ docker run -it wso2/streaming-integrator/1.0.0
         wso2/streaming-integrator
     ```
 
-   For more details about the ports in Streaming Integrator, see [Configuring Default Ports](../ref/configuring-default-ports.md)
+   For more details about the ports in Streaming Integrator, see [Configuring Default Ports]({{base_path}}/install-and-setup/setup/si-setup/configuring-default-ports).
