@@ -288,7 +288,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.  
+1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.  
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to remove an environment.
 
@@ -317,7 +317,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Get environments
 
-1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.    
+1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.    
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to list the environments.  
 
@@ -347,6 +347,9 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         dev-mi                                                                                                                                                                      https://localhost:9164
 
         ```
+
+        !!!note
+            Output of the `get envs` command can be formatted with Go Templates. For more information on formatting the get commandss, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/formatting-the-output-of-get-command.md)
 
         !!!note
             `apictl list envs` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get envs` as shown above. 
@@ -431,90 +434,6 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl logout dev
             ```
                     
-## Formatting the outputs of get
-
-Output of `get envs`, `get apis`, `get api-products` and `get apps` can be formatted with Go Templates. 
-
-#### Available formatting options
-
-<table>
-    <thead>
-        <tr class="header">
-            <th>Name</th>
-            <th>Usage</th>
-            <th>Example</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="odd">
-            <td>table</td>
-            <td>This is the default format and the output is displayed as a table</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ``` 
-                    --format "table {% raw %}{{.Name}}\t{{.Id}}{% endraw %}" 
-                    ```
-                </div>
-            </td>
-        </tr>
-        <tr class="odd">
-            <td>json</td>
-            <td>Output is formatted as JSON</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ```
-                    --format "{% raw %}{{ json . }}{% endraw %}" 
-                    ```
-                </div>
-            </td>
-        </tr>
-        <tr class="odd">
-            <td>jsonPretty</td>
-            <td>Outputs a human-readable JSON with indented by 2 spaces</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ``` 
-                    --format "table {% raw %}{{ jsonPretty . }}{% endraw %}" 
-                    ```
-                </div>
-            </td>
-        </tr>
-        <tr class="odd">
-            <td>upper</td>
-            <td>Convert string to uppercase</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ``` 
-                    --format "{% raw %}{{upper .Name}}\t{{upper .Context}}{% endraw %}" 
-                    ```
-                </div>
-            </td>
-        </tr>
-        <tr class="odd">
-            <td>lower</td>
-            <td>Convert string to lowercase</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ``` 
-                    --format "{% raw %}{{lower .Name}}\t{{lower .Context}}{% endraw %}"
-                    ```
-                </div>
-            </td>
-        </tr>
-        <tr class="odd">
-            <td>title</td>
-            <td>Convert the first letter to uppercase of a string</td>
-            <td>
-                <div style="width: 100%; display: block; overflow: auto;">
-                    ``` 
-                    --format "{% raw %}{{title .Name}}\t{{title .Context}}{% endraw %}" 
-                    ```
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
 ## Set HTTP request timeout
 
 Run the following CTL command to set the HTTP request timeout.

@@ -74,6 +74,9 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 be returned as a result.
 
             !!!note
+                Output of the `get apis` and `get api-products` commands can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/formatting-the-output-of-get-command.md)
+
+            !!!note
                 `apictl list apis` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apis` as shown above. 
 
     2. Get API Products in an environment.
