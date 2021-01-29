@@ -3,17 +3,16 @@
 ## Add APIs/API Products in an environment
 
 You can add APIs and API Products via the Publisher Portal and Developer Portal.
-However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach).
+However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
 
 ## Get APIs/API Products in an environment
 
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
-     For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-
-2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
-3.  Run the corresponding CTL command below to get (list) APIs/API Products/Applications in an environment.
+     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding CTL command below to get (list) APIs or API Products in an environment.
 
     1. Get APIs in an environment.
 
@@ -122,12 +121,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 `apictl list api-products` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
 
 ## Delete an API or API Product in an environment
-Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
+
+Follow the instructions below to delete an API or Application in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
-3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
+For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding CTL command below to delete an API or an API Product in an environment.
 
     1. Delete an API in an environment.
 
@@ -209,11 +209,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```
     
 ## Change status of an API in an environment
+
 Follow the instructions below to change the status of an API in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APTCTL is running.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
+1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
+For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding CTL command below to change the status of an API in an environment.
 
     -   **Command**
