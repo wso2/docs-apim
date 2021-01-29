@@ -883,6 +883,7 @@ nav:
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                 - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Administer:
         - Admister Overview: administer/admin-overview.md
         - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md

@@ -1,11 +1,11 @@
 # Managing APIs and API Products
 
-## Add APIs/API Products in an environment
+## Add APIs or API Products in an environment
 
 You can add APIs and API Products via the Publisher Portal and Developer Portal.
-However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
+However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
 
-## Get APIs/API Products in an environment
+## Get APIs or API Products in an environment
 
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
@@ -74,7 +74,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 be returned as a result.
 
             !!!note
-                Output of the `get apis` and `get api-products` commands can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/formatting-the-output-of-get-command.md)
+                Output of the `get apis` and `get api-products` commands can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
 
             !!!note
                 `apictl list apis` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apis` as shown above. 

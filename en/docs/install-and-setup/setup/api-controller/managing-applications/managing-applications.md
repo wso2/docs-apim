@@ -2,7 +2,7 @@
 
 ## Add Applications in an environment
 
-You can add APIs/API Products/Applications via the Publisher Portal and Developer Portal.
+You can add Applications via the Publisher Portal and Developer Portal.
 
 ## Get Applications in an environment
 
@@ -59,7 +59,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
             - When someone has invoked the command **by specifying the owner flag**, it will list all the applications belongs to that particular owner in that environment.
 
         !!!note
-            Output of the `get apps` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/formatting-the-output-of-get-command.md)
+            Output of the `get apps` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
 
         !!!note
             `apictl list apps` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
