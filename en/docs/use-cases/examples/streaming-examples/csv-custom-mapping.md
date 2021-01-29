@@ -13,11 +13,11 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 ## Executing and testing the Sample
 
-To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** => **Run**.
+To execute the sample open the saved Siddhi application in Streaming Integrator Tooling, and start it by clicking the **Start** button (shown below) or by clicking **Run** -> **Run**.
 
 ![Start button]({{base_path}}/assets/img/streaming/amazon-s3-sink-sample/start.png)
 
-If the Siddhi application starts successfully, the following message appears in the console.
+If the Siddhi application starts successfully, the Streaming Integrator logs the following messages in the console.
 
 `CSVCustomMapping.siddhi - Started Successfully!`
 

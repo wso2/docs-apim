@@ -5,15 +5,15 @@
 Siddhi query API is the REST API exposed by the Streaming Integrator (SI). It gives you a set of APIs to perform all of the essential operations relating to Siddhi applications, including developing, testing, and querying them.
 
 Siddhi query API provides APIs related to:
-- Siddhi application management (such as creating, updating, deleting a Siddhi application; Listing all running Siddhi applications etc.)
+- Siddhi application management (such as creating, updating, deleting a Siddhi application; listing all running Siddhi applications etc.)
 - Event simulation
-- Authentication and Permission management
+- Authentication and permission management
 - Health check
-- Siddhi Store operations
+- Siddhi store operations
 
 For a comprehensive reference on the Siddhi query API, see [Streaming Integration REST API Guide](https://ei.docs.wso2.com/en/next/streaming-integrator/ref/si-rest-api-guide/).
 
-This tutorial demonstrates how you can use the Siddhi query API to perform essential operations in SI, using simple examples.
+This tutorial demonstrates how you can use the Siddhi query API to perform essential operations in WSO2 Streaming Integrator using simple examples.
 
 ## Preparing the server
 

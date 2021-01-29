@@ -474,8 +474,9 @@ nav:
             - JSON Examples: integrate/examples/json_examples/json-examples.md
             - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
-          - Streaming Overview: use-cases/streaming-usecase/use-cases.md
+          - Streaming Overview: streaming/streaming-overview.md
           - Streaming Use Cases:
+                - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
                 - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
                 - Receiving Data in Transit: use-cases/streaming-usecase/receiving-data-in-transit.md
                 - Loading and Writing Data: use-cases/streaming-usecase/loading-and-writing-date.md
@@ -568,6 +569,7 @@ nav:
                        - Sending Custom JSON Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-json-format-with-custom-mapping.md
                        - Publishing XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format.md
                        - Publishing Custom XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format-with-custom-mapping.md
+                       - Publishing HTTP Events to to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request.md
                        - Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type: use-cases/examples/streaming-examples/publish-http-oauth-request-with-refresh-token.md
                        - Publishing HTTP Events via an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-response.md
                        - Publishing HTTP Events to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-with-oauth-user.md
@@ -592,6 +594,7 @@ nav:
                        - Receiving and Publishing Events in Custom CSV Format:  use-cases/examples/streaming-examples/csv-custom-mapping.md
                        - Publishing and Receiving CSV Events via Files: use-cases/examples/streaming-examples/csv-default-mapping.md
                        - Preprocessing Data Received via TCP: use-cases/examples/streaming-examples/data-preprocessing.md
+                       - Performing Streaming Learning Using a Clustree Model: use-cases/examples/streaming-examples/clus-tree-test-app.md
                        - Processing Geo Data: use-cases/examples/streaming-examples/execution-geo-sample.md
                        - Counting the Frequency of Values with BottomK: use-cases/examples/streaming-examples/extrema-bottom-k.md
                        - Calculating the Distance Between Two Locations: use-cases/examples/streaming-examples/geo-distance-calculation.md
