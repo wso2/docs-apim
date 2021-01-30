@@ -98,11 +98,10 @@ The following diagram shows the communication/network paths that occur when an A
 -   **Key validation**
 
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/deployment.toml` file. All timeout values are in milliseconds.
-
-            ``` java
-                [transport.client.http.properties]
-                SO_TIMEOUT = 6000
-                CONNECTION_TIMEOUT = 6000
+            ``` toml
+            [transport.client.http.properties]
+            SO_TIMEOUT = 60000
+            CONNECTION_TIMEOUT = 60000
             ```
 
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
@@ -151,7 +150,7 @@ Some general APIM-level recommendations are listed below:
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;">
 <code>[transport.client]</code>
 <code>default_max_connection_per_host = 1000</code>
-<code>max_total_connections = 3000</code>
+<code>max_total_connections = 30000</code>
 </code>
 </pre>
 </div> 
