@@ -23,7 +23,7 @@ icon on the upper menu and add the jar to select libraries section.
 
 ### Step 3: Adding the custom Inbound Endpoint
 
-1. If you have already created an [Integration Project](../create-integration-project), right-click the [ESB Config module](../create-integration-project/#types-of-projects) and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
+1. If you have already created an [Integration Project]({{base_path}}/integrate/develop/create-integration-project), right-click the [ESB Config module]({{base_path}}/integrate/develop/create-integration-project/#types-of-projects) and go to **New → Inbound Endpoint** to open the **New Inbound Endpoint Artifact**.
 2. Select **Create a New Inbound Endpoint** and click **Next**.
 3. Type a unique name for the inbound endpoint, and then select **Custom** as the **Inbound Endpoint Creation Type**.
 5. Specify the location where the artifact should be saved: Select an existing ESB Config project in your workspace, or click **Create new Project** and create a new project.

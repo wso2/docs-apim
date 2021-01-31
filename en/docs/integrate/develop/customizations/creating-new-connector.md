@@ -93,13 +93,13 @@ Now, let's look at how you can use the new connector in a mediation sequence.
 
 ### Step 1: Adding the connector to your mediation sequence
 
-1. [Set up WSO2 Integration Studio](../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an ESB Config project](../../../develop/creating-projects/#esb-config-project) and [import the connector](../../../develop/creating-artifacts/adding-connectors/#importing-connectors) to your project.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an ESB Config project]({{base_path}}/integrate/develop/create-integration-project) and [import the connector]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors/#importing-connectors) to your project.
 
     !!! Tip
         Be sure to select the new `googleBooks-connector-1.0.0.zip` file from your `org.wso2.carbon.esb.connector.googlebooks/target` directory.
 
-3. [Create a custom proxy service](../../../develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Design View**, you will note that the new connector is added to the tool palette.
+3. [Create a custom proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) named **googlebooks_listVolume**. In the **Design View**, you will note that the new connector is added to the tool palette.
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-connector-pallet.png" width="500">
 
 4. Now, update the proxy service as shown below. You will be defining a mediation logic using the **Propertry** mediator, the new **googleBooks** connector, and the **Respond** mediator:
@@ -130,7 +130,7 @@ You need to package the new connector file and the proxy service separately.
 
 1. Create a **Connector Exporter project** and add the connector.
 
-    See the instructions on [packaging a new connector file](../../../develop/creating-artifacts/adding-connectors/#packaging-connectors).
+    See the instructions on [packaging a new connector file]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors/#packaging-connectors).
 
 2. Create a new **Composite Application project** and add the proxy service as well as the connector as dependencies.
 
@@ -139,7 +139,7 @@ You need to package the new connector file and the proxy service separately.
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-capp-project-with-depenencies.png" width="500">
 
-    See the instructions on [packaging ESB artifacts](../../../develop/packaging-artifacts/#creating-a-new-composite-application).
+    See the instructions on [packaging ESB artifacts]({{base_path}}/integrate/develop/packaging-artifacts/#creating-a-new-composite-application).
 
 ### Step 3: Deploying the artifacts
 

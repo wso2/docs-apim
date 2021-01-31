@@ -1,6 +1,6 @@
 # Debugging Mediation
 
-Once you [deploy and run](using-embedded-micro-integrator) your integration solution, you may encounter errors and identify the required modifications for your artifacts. Use the mediation debugging feature in WSO2 Integration Studio to troubleshoot errors.
+Once you [deploy and run]({{base_path}}/integrate/develop/using-embedded-micro-integrator) your integration solution, you may encounter errors and identify the required modifications for your artifacts. Use the mediation debugging feature in WSO2 Integration Studio to troubleshoot errors.
 
 There are two ways to debug a developed mediation flow.
 

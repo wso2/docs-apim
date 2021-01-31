@@ -7,7 +7,7 @@ SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS t
 Given below is a sample scenario that demonstrates how to work with the WSO2 EI SMPP Connector and send SMS messages via the SMPP protocol.
 
 The SMPP server in SMSC have all the ESME (External Short Messaging Entity) addresses. This is an external application that connects to a SMSC and the active connection. When you send an SMS to a destination, it comes to the SMSC. Then one of the modules in SMSC checks if the destination address is available or not. If it is available, it creates a connection object that is responsible for sending the SMS message.
-There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer the [Setting up the SMPP Connector](smpp-connector-configuration.md) documentation.
+There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
 
 The following `sendSMS`operation is exposed via an API. The API with the context `/send` has one resource.
 
@@ -27,7 +27,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the ESB Solution Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
@@ -73,7 +73,7 @@ Create a resource to send an SMS to the Short Message Service Center.
         
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-sendSMS-parameters.png" title="Drag and drop send operation" width="500" alt="Drag and drop send operation"/> 
     
-    3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown bellow.
     
         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
@@ -104,7 +104,7 @@ Create a resource to send an SMS to the Short Message Service Center.
         
 3. Get a response from the user.
     
-    When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator](https://ei.docs.wso2.com/en/next/micro-integrator/references/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you are invoking the created API, the request of the message is going through the `/send` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop **respond mediator** to the **Design view**. 
     
@@ -166,11 +166,11 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
-Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
+Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
 
 **Sample request**
 
@@ -199,4 +199,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   ```
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

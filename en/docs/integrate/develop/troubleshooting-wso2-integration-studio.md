@@ -33,7 +33,7 @@ When you use **display scaling** that exceed 150% (in **Windows** or **Linux** e
 
 ## Error creating Docker image (on MacOS)
 
-When you run WSO2 Integration Studio on MacOS, you will sometimes get the following error when you [generate a Docker image](../../develop/generate-docker-image) of your integration artifacts: "**Error creating Docker image**".
+When you run WSO2 Integration Studio on MacOS, you will sometimes get the following error when you [generate a Docker image]({{base_path}}/integrate/develop/generate-docker-image) of your integration artifacts: "**Error creating Docker image**".
 
 The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log)
 
@@ -75,7 +75,7 @@ This error is because the **Docker UI** installation on your MacOs has a feature
 
 ## Error creating Docker image (on Windows)
 
-When you build a Docker image either via [Docker Exporter Project](../../develop/create-docker-project) or [Kubernetes Exporter Project](../../develop/create-kubernetes-project) in WSO2 Integration Studio on Windows, you may sometimes get the following error: "**Docker image generation failed**".
+When you build a Docker image either via [Docker Exporter Project]({{base_path}}/integrate/develop/create-docker-project) or [Kubernetes Exporter Project]({{base_path}}/integrate/develop/create-kubernetes-project) in WSO2 Integration Studio on Windows, you may sometimes get the following error: "**Docker image generation failed**".
 
 The details of the error are given below. To access WSO2 Integration Studio errors, see the instructions on [viewing the WSO2 Integration Studio error log](#view-wso2-integration-studio-error-log)
 

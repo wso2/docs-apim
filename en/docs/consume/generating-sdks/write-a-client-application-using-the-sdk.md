@@ -151,7 +151,7 @@
     The base path for the client application is the production (or sandbox) URL of the API. This will be in the form of ```http(s)://<host>:<port>/<context-of-the-api>```. The default ports for HTTP and HTTPS are ```8280``` and ```8243``` respectively.
     
     The context of the API can be found from the API Overview in Developer Portal.
-    ![Context of the API](../../assets/img/learn/context-of-api.png)
+    ![Context of the API]({{base_path}}/assets/img/learn/context-of-api.png)
 
 10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 

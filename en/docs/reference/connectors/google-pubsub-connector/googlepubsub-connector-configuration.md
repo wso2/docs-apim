@@ -22,7 +22,7 @@ Follow the steps below to generate user credentials.
    
 3. Next, **select** Web Application, and **create a client**.
   
-    <img src="../../../..{{base_path}}/assets/img/integrate/connectors/pubsub-select-web-application.png" title="Select web application" width="600" alt="Select web application"/> 
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-select-web-application.png" title="Select web application" width="600" alt="Select web application"/> 
 
 4. Add [https://developers.google.com/oauthplayground](https://developers.google.com/oauthplayground/) as the redirect URL under **Authorized redirect URIs**, and then click **Create**. This displays the **client ID** and **client secret**.
 

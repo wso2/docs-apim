@@ -9,7 +9,7 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 EI 
 The user sends the request to invoke an API to get stock details. This REST call will get converted into a SOAP message and is sent to the back-end service. While the response from the backend service is converted back to JSON and sent back to the API caller, WSO2 EI will extract stock volume details from the response and store it into a configured Redis server.
 When users need to retrieve stock volumes collected, they can invoke the `getstockvolumedetails` resource. This example also demonstrates how users can manipulate this stock volume details by removing unwanted items from the Redis server.
 
-> **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector](redis-connector-configuration.md) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
+> **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
 This example demonstrates how to use Redis connector to:
 
 1. Retrieve stock volume details from the Stockquote back-end service. This is done while extracting the stock volume, creating a Redis hash map, and adding stock volume details to the Redis server. (In this example, Redis hashes are used to store different companies' stocks volume details. Since the “symbol” that is sent in the request is “WSO2”, the request is routed to the WSO2 endpoint. Once the response from the WSO2 endpoint is received, it is transformed according to the specified template and sent to the client. Then create a hash map and insert extracted details to the Redis hashmap).
@@ -36,7 +36,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
@@ -100,7 +100,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
         
         <img src="{{base_path}}/assets/img/integrate/connectors/redis-hset-drag-and-drop-parameter.png" title="hSet parameters" width="500" alt="hSet parameters"/> 
     
-7. To get the input values in to the `hSet`, we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
+7. To get the input values in to the `hSet`, we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators onto the Design pane as shown below.    
       > **Note**: The properties should be added to the pallet before creating the operation.
         
         The parameters available for configuring the Property mediator are as follows:
@@ -121,7 +121,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
         
 8. Forward the backend response to the API caller.
     
-    When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator](../../../../references/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you are invoking the created resource, the request of the message is going through the `/getstockquote` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop **respond mediator** to the **Design view**. 
     
@@ -269,7 +269,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -412,4 +412,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      ```     
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

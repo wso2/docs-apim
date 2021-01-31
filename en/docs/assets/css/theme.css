@@ -1109,3 +1109,9 @@ html .md-footer-meta.md-typeset a,
     padding: 5px;
     line-height: 1;
 }
+  .md-typeset .headerlink.localLink{
+    display: inline;    
+  }
+  .md-typeset h1 {
+      margin: 0 0 1rem;
+  }

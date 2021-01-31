@@ -1,6 +1,6 @@
 # Creating a REST API
 
-Follow the instructions given below to create a new [REST API](../../../references/synapse-properties/rest-api-properties) artifact in WSO2 Integration Studio.
+Follow the instructions given below to create a new [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties) artifact in WSO2 Integration Studio.
 
 You can refer to the following video to get a quick understanding of how this is done.
 
@@ -202,7 +202,7 @@ To update API-level properties from the **Design** view:
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-properties.png" width="700">
 
-2.  See the complete list of [optional REST API properties](../../../references/synapse-properties/rest-api-properties/#rest-api-properties-optional) you can configure.
+2.  See the complete list of [optional REST API properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-properties-optional) you can configure.
 
 To update API resource properties from the **Design** view:
 
@@ -210,7 +210,7 @@ To update API resource properties from the **Design** view:
 
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-resource-properties.png" width="700">
 
-2.  See the complete list of [API Resource properties](../../../references/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
+2.  See the complete list of [API Resource properties]({{base_path}}/reference/synapse-properties/rest-api-properties/#rest-api-resource-properties) you can configure.
 
 ### Using the Source View
 
@@ -229,12 +229,12 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 
 ## Examples
 
--   [Using a Simple Rest API](../../../use-cases/examples/rest_api_examples/introduction-rest-api)
--   [Working with Query Parameters](../../../use-cases/examples/rest_api_examples/setting-query-params-outgoing-messages)
--   [Exposing a SOAP Endpoint as a RESTful API](../../../use-cases/examples/rest_api_examples/enabling-rest-to-soap)
--   [Exposing Non-HTTP Services as RESTful APIs](../../../use-cases/examples/rest_api_examples/configuring-non-http-endpoints)
--   [Handling Non Matching Resources](../../../use-cases/examples/rest_api_examples/handling-non-matching-resources)
--   [Handling HTTP Status Codes](../../../use-cases/examples/rest_api_examples/setting-https-status-codes)
--   [Manipulating Content Types](../../../use-cases/examples/rest_api_examples/transforming-content-type)
--   [Securing a REST API](../../../use-cases/examples/rest_api_examples/securing-rest-apis)
--   [Special Cases](../../../use-cases/examples/rest_api_examples/special-cases)
+-   [Using a Simple Rest API]({{base_path}}/integrate/examples/rest_api_examples/introduction-rest-api)
+-   [Working with Query Parameters]({{base_path}}/integrate/examples/rest_api_examples/setting-query-params-outgoing-messages)
+-   [Exposing a SOAP Endpoint as a RESTful API]({{base_path}}/integrate/examples/rest_api_examples/enabling-rest-to-soap)
+-   [Exposing Non-HTTP Services as RESTful APIs]({{base_path}}/integrate/examples/rest_api_examples/configuring-non-http-endpoints)
+-   [Handling Non Matching Resources]({{base_path}}/integrate/examples/rest_api_examples/handling-non-matching-resources)
+-   [Handling HTTP Status Codes]({{base_path}}/integrate/examples/rest_api_examples/setting-https-status-codes)
+-   [Manipulating Content Types]({{base_path}}/integrate/examples/rest_api_examples/transforming-content-type)
+-   [Securing a REST API]({{base_path}}/integrate/examples/rest_api_examples/securing-rest-apis)
+-   [Special Cases]({{base_path}}/integrate/examples/rest_api_examples/special-cases)

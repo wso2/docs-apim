@@ -18,11 +18,11 @@ For older versions, see the details in the connector store.
 
 ## Google Firebase Connector documentation
 
-* **[Setting up Google Firebase Environment](google-firebase-setup.md)**: You need to first create a project and generate private keys for the connector to use in order to interact with Google Firebase.
+* **[Setting up Google Firebase Environment]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/)**: You need to first create a project and generate private keys for the connector to use in order to interact with Google Firebase.
 
-* **[Google Firebase Connector Example](google-firebase-connector-example.md)**: This example demonstrates how to use Google Firebase Connector to generate a push notification based on an HTTP API invocation. 
+* **[Google Firebase Connector Example]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-connector-example/)**: This example demonstrates how to use Google Firebase Connector to generate a push notification based on an HTTP API invocation. 
 
-* **[Google Firebase Connector Reference](google-firebase-configuration.md)**: This documentation provides a reference guide for the Google Firebase Connector.
+* **[Google Firebase Connector Reference]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/)**: This documentation provides a reference guide for the Google Firebase Connector.
 
 ## How to contribute
 

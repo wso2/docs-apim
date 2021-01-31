@@ -20,6 +20,7 @@ To view a sample data source configuration for each database type supported, exp
     ``` xml
         wso2.datasources:
          dataSources:
+         name: TEST_DB
          description: The datasource used for test database
          jndiConfig:
          definition:
@@ -36,6 +37,24 @@ To view a sample data source configuration for each database type supported, exp
              validationTimeout: 30000
              isAutoCommit: false
     ```
+    
+    ** Parameter descriptions*
+    
+    | **Parameter**         | **Description**                                                           |
+    |-----------------------|---------------------------------------------------------------------------|
+    | `name`                | A unique name for the data source. |
+    | `description`         | A description of the data source. |
+    | `type`                | The database type to which the data source connects. |
+    | `jdbcUrl`             | The string used by the database driver to connect to the database. |
+    | `username`            | the username with which WSO2 Streaming Integrator accesses the database.|
+    | `password`            | The password with which WSO2 Streaming Integrator accesses the database. |
+    | `driverClassName`     | The name of the driver class that establishes the connection to the database. |
+    | `minIdle`             | The minimum number of active connections that can remain idle in the pool at a given time without extra connections being created. e.g., If you specify `2` as the value for this parameter, the system creates a new connection to the database only if the connection pool currently has only two or less active and idle connections. | 
+    | `maxPoolSize`         | The maximum number of total connections that are allowed to exist in the connection pool at a given time. |
+    | `idleTimeout`         | The maximum duration of time (in milliseconds) for which the system allows a connection to the database to be idle before closing it. |
+    | `connectionTestQuery` | The test query executed on the database to check the validity of the connection. |
+    | `validationTimeout`   | The maximum duration of time (in milliseconds) that is allowed between validation tests carried out for the database connection. |
+    | `isAutoCommit`        | If this parameter is set to `true`, each database query you perform during a single session is treated as a separate database transaction. As a result, the result of any query is visible to other database sessions soon after it is executed. If this parameter is set to `true`, the system considers the whole database session as a single transaction. Therefore, the reults of all the queries you execute within a single session are visible only after the session is over. |
     
 ???info "POSTGRES"
     ``` xml
@@ -57,6 +76,21 @@ To view a sample data source configuration for each database type supported, exp
             validationTimeout: 30000
             isAutoCommit: false
     ```
+    | **Parameter**         | **Description**                                                           |
+    |-----------------------|---------------------------------------------------------------------------|
+    | `name`                | A unique name for the data source. |
+    | `description`         | A description of the data source. |
+    | `type`                | The database type to which the data source connects. |
+    | `jdbcUrl`             | The string used by the database driver to connect to the database. |
+    | `username`            | the username with which WSO2 Streaming Integrator accesses the database.|
+    | `password`            | The password with which WSO2 Streaming Integrator accesses the database. |
+    | `driverClassName`     | The name of the driver class that establishes the connection to the database. |
+    | `minIdle`             | The minimum number of active connections that can remain idle in the pool at a given time without extra connections being created. e.g., If you specify `2` as the value for this parameter, the system creates a new connection to the database only if the connection pool currently has only two or less active and idle connections. | 
+    | `maxPoolSize`         | The maximum number of total connections that are allowed to exist in the connection pool at a given time. |
+    | `idleTimeout`         | The maximum duration of time (in milliseconds) for which the system allows a connection to the database to be idle before closing it. |
+    | `connectionTestQuery` | The test query executed on the database to check the validity of the connection. |
+    | `validationTimeout`   | The maximum duration of time (in milliseconds) that is allowed between validation tests carried out for the database connection. |
+    | `isAutoCommit`        | If this parameter is set to `true`, each database query you perform during a single session is treated as a separate database transaction. As a result, the result of any query is visible to other database sessions soon after it is executed. If this parameter is set to `true`, the system considers the whole database session as a single transaction. Therefore, the reults of all the queries you execute within a single session are visible only after the session is over. |
     
 ???info "Oracle"
     There are two ways to configure this database type. If you have a System
@@ -111,7 +145,46 @@ To view a sample data source configuration for each database type supported, exp
     The Oracle driver need to be converted to OSGi (using `jartobundle.sh`) before put into `SI_HOME/lib` directory. For detailed
     instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md).
     
-      
+    If you are using persisted aggregations, you can include the `connectionInitSql` parameter instead of `connectionTestQuery` as shown in the following sample configuration.
+    
+    ```
+    Sample datasource configuration -
+    
+     - name: TEST_DB
+       description: The datasource used for test database
+       jndiConfig:
+         name: jdbc/TEST_DB
+       definition:
+         type: RDBMS
+         configuration:
+           jdbcUrl: jdbc:oracle:thin:@localhost:1521/ORCLCDB.localdomain
+           username: <username>
+           password: <password>
+           driverClassName: oracle.jdbc.driver.OracleDriver
+           minIdle: 5
+           maxPoolSize: 50
+           idleTimeout: 60000
+           connectionInitSql: ALTER SESSION SET NLS_DATE_FORMAT='RRRR/fmMM/fmDD'
+           validationTimeout: 30000
+           isAutoCommit: false  
+    ```
+    
+    | **Parameter**       | **Description**                                                           |
+    |---------------------|---------------------------------------------------------------------------|
+    | name                | A unique name for the data source. |
+    | description         | A description of the data source. |
+    | type                | The database type to which the data source connects. |
+    | jdbcUrl             | The string used by the database driver to connect to the database. |
+    | username            | the username with which WSO2 Streaming Integrator accesses the database.|
+    | password            | The password with which WSO2 Streaming Integrator accesses the database. |
+    | driverClassName     | The name of the driver class that establishes the connection to the database. |
+    | minIdle             | The minimum number of active connections that can remain idle in the pool at a given time without extra connections being created. e.g., If you specify `2` as the value for this parameter, the system creates a new connection to the database only if the connection pool currently has only two or less active and idle connections. | 
+    | maxPoolSize         | The maximum number of total connections that are allowed to exist in the connection pool at a given time. |
+    | idleTimeout         | The maximum duration of time (in milliseconds) for which the system allows a connection to the database to be idle before closing it. |
+    | connectionInitSql   | The test query executed on the database to check the validity of the connection. You can use this parameter instead of the `connectionTestQuery` parameter when you are using persisted aggregations. This is because when you use persisted aggregation with an Oracle database, the database connection session time format needs to be changed to `RRRR/fmMM/fmDD`. This is addressed when you use the `connectionInitSql` parameter. |
+    | connectionTestQuery | The test query executed on the database to check the validity of the connection. |
+    | validationTimeout   | The maximum duration of time (in milliseconds) that is allowed between validation tests carried out for the database connection. |
+    | isAutoCommit        | If this parameter is set to `true`, each database query you perform during a single session is treated as a separate database transaction. As a result, the result of any query is visible to other database sessions soon after it is executed. If this parameter is set to `true`, the system considers the whole database session as a single transaction. Therefore, the reults of all the queries you execute within a single session are visible only after the session is over. |      
     
 ???info "MSSQL"
     ``` xml

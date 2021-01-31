@@ -4,13 +4,13 @@ The following examples explain different methods of converting POX messages to J
 
 ## Using the messageType property
 
-Let's convert a POX message to JSON using the [messageType property](../../../../references/mediators/property-reference/generic-Properties#messagetype).
+Let's convert a POX message to JSON using the [messageType property]({{base_path}}/reference/mediators/property-reference/generic-Properties#messagetype).
 
 ### Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. 
 
 !!! Tip
-    Note that after the [messageType property](../../../../references/mediators/property-reference/generic-Properties#messagetype) completes the message convertion, we are using the [Respond mediator](../../../../references/mediators/respond-Mediator) to return the converted message back to the JSON client.
+    Note that after the [messageType property]({{base_path}}/reference/mediators/property-reference/generic-Properties#messagetype) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
 
 See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
@@ -36,10 +36,10 @@ See the instructions on how to [build and run](#build-and-run-example-1) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Invoke the proxy service:
 
@@ -97,13 +97,13 @@ The converted JSON response is returned as follows:
 
 ## Using the PayloadFactory Mediator
 
-Let's convert a POX message to JSON using a [PayloadFactory mediator](../../../../references/mediators/payloadFactory-Mediator).
+Let's convert a POX message to JSON using a [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
 Following is a sample proxy service configuration that we can use to implement this scenario. 
 
 !!! Tip
-    Note that after the [PayloadFactory mediator](../../../../references/mediators/payloadFactory-Mediator) completes the message convertion, we are using the [Respond mediator](../../../../references/mediators/respond-Mediator) to return the converted message back to the JSON client.
+    Note that after the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator) completes the message convertion, we are using the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator) to return the converted message back to the JSON client.
 
 See the instructions on how to [build and run](#build-and-run-example-2) this example.
 
@@ -154,10 +154,10 @@ See the instructions on how to [build and run](#build-and-run-example-2) this ex
 
 Create the artifacts:
 
-1. [Set up WSO2 Integration Studio](../../../../develop/installing-WSO2-Integration-Studio).
-2. [Create an integration project](../../../../develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
-3. [Create the proxy service](../../../../develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
-4. [Deploy the artifacts](../../../../develop/deploy-artifacts) in your Micro Integrator.
+1. [Set up WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
+2. [Create an integration project]({{base_path}}/integrate/develop/create-integration-project) with an <b>ESB Configs</b> module and an <b>Composite Exporter</b>.
+3. [Create the proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
+4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
 Invoke the proxy service:
 

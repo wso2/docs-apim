@@ -8,7 +8,7 @@ An integration project is the recommended way of creating an “Integration Solu
 
 To create an integration project:
 
-1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio](installing-WSO2-Integration-Studio/).
+1. [Download](https://wso2.com/integration/integration-studio/) and [install WSO2 Integration Studio]({{base_path}}/integrate/develop/instaling-wso2-integration-studio).
 
 2. Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
     <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
@@ -79,7 +79,7 @@ The following table lists out the available projects that can be associated with
     </tr>
     <tr>
         <td>Docker Exporter</td>
-        <td>Create a Docker Exporter project if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="develop/create-docker-project">Create Docker Project</a>.</td>
+        <td>Create a Docker Exporter project if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="{{base_path}}/integrate/develop/create-docker-project">Create Docker Project</a>.</td>
     </tr>
     <tr>
         <td>Kubernetes Exporter</td>

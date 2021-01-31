@@ -29,14 +29,14 @@ subordinate relationship. These relationships are relevant only for a
 particular transaction.
 
 For an example that demonstrates how the [transaction
-mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/transaction-Mediator/) can
+mediator]({{base_path}}/reference/mediators/transaction-mediator/) can
 be used to manage distributed transactions , see [Transaction Mediator
 Example](https://docs.wso2.com/display/EI650/Transaction+Mediator+Example).
 
 ### Java Message Service (JMS) transactions
 
 In addition to the [transaction
-mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/transaction-Mediator/) ,
+mediator]({{base_path}}/reference/mediators/transaction-mediator/) ,
 WSO2 Micro Integrator (WSO2 MI) also supports JMS transactions.
 
 !!! Note
@@ -81,7 +81,7 @@ The sample scenario can be depicted as follows:
 
 -   Windows, Linux or Solaris operating systems with WSO2 MI
     installed. For instructions on downloading and installing WSO2 MI,
-    see [Installation Guide](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/installation/install_in_vm/) .
+    see [Installation Guide]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
     see [Configure with ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)
     .
@@ -195,7 +195,7 @@ The sample scenario can be depicted as follows:
 
     !!! Info
         Due to the asynchronous behavior of the [Send
-        Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/send-Mediator/) , you
+        Mediator]({{base_path}}/reference/mediators/send-mediator/) , you
         cannot you use it with a http/https endpoint, but you can use it in
         asynchronous use cases, for example with another JMS as endpoint.
     
@@ -256,7 +256,7 @@ entire transaction should be rolled back.
 -   Windows, Linux or Solaris operating systems with WSO2 MI
     installed. For instructions on downloading and installing WSO2 MI,
     see [Installation
-    Guide](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/installation/install_in_vm/) .
+    Guide]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
     see [Configure with
     ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)
@@ -379,7 +379,7 @@ depicted as follows.
 ##### Prerequisites
 
 -   Install WSO2 MI. For instructions , see [Installation
-    Guide](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/installation/install_in_vm/) .
+    Guide]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) .
 -   WSO2 MI JMS transport configured with ActiveMQ. For instructions,
         see [Configure with
         ActiveMQ](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/brokers/configure-with-ActiveMQ/)

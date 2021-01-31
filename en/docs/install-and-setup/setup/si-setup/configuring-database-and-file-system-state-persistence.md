@@ -57,7 +57,7 @@ To configure periodic data persistence, update the
 <tr class="even">
 <td><code>persistenceStore</code></td>
 <td>The persistence store .</td>
-<td><code>org.wso2.carbon.stream.processor.core.persistence.DBPersistenceStore</code></td>
+<td><code>org.wso2.carbon.streaming.integrator.core.persistence.DBPersistenceStore</code></td>
 </tr>
 <tr class="odd">
 <td><code>config &gt; datasource</code></td>
@@ -83,7 +83,7 @@ configure file system persistence.
       enabled: true
       intervalInMin: 1
       revisionsToKeep: 3
-      persistenceStore: org.wso2.carbon.stream.processor.core.persistence.DBPersistenceStore
+      persistenceStore: org.wso2.carbon.streaming.integrator.core.persistence.DBPersistenceStore
       config:
         datasource: <DATASOURCE NAME>   # A datasource with this name should be defined in wso2.datasources namespace
         table: <TABLE NAME>
@@ -127,7 +127,7 @@ back-ups. To configure state persistence, update the
 <tr class="even">
 <td><code>persistenceStore</code></td>
 <td>The persistence store.</td>
-<td><pre><code>org.wso2.carbon.stream.processor.core.persistence.FileSystemPersistenceStore</code></pre></td>
+<td><pre><code>org.wso2.carbon.streaming.integrator.core.persistence.FileSystemPersistenceStore</code></pre></td>
 </tr>
 <tr class="odd">
 <td><code>config &gt; location</code></td>
@@ -150,7 +150,7 @@ configure file system persistence.
       enabled: true
       intervalInMin: 1
       revisionsToKeep: 2
-      persistenceStore: org.wso2.carbon.stream.processor.core.persistence.FileSystemPersistenceStore
+      persistenceStore: org.wso2.carbon.streaming.integrator.core.persistence.FileSystemPersistenceStore
       config:
         location: siddhi-app-persistence
 ```

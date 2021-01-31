@@ -101,8 +101,8 @@ The following diagram shows the communication/network paths that occur when an A
 
     ```toml
     [transport.client.http.properties]
-    SO_TIMEOUT = 6000
-    CONNECTION_TIMEOUT = 6000
+    SO_TIMEOUT = 60000
+    CONNECTION_TIMEOUT = 60000
     ```
 
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
@@ -151,7 +151,7 @@ Some general API-M-level recommendations are listed below:
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;"><code>
 [transport.client]
 default_max_connection_per_host = 1000
-max_total_connections = 3000
+max_total_connections = 30000
 </code>
 </pre>
 </div> 

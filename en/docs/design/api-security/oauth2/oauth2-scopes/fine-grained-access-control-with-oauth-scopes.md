@@ -237,7 +237,7 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
-     <a href="../../../../../assets/img/learn/unauthorized-access.png" ><img src="../../../../../assets/img/learn/unauthorized-access.png" alt="Token scopes" 
+     <a href="{{base_path}}/assets/img/learn/unauthorized-access.png" ><img src="{{base_path}}/assets/img/learn/unauthorized-access.png" alt="Token scopes" 
          title="Token Scopes" width="50%" /></a>
 
 !!! info

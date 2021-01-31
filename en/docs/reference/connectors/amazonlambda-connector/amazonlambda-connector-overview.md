@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## Amazon Lambda Connector documentation
 
-* **[Amazon Lambda Connector Example](amazonlambda-connector-example.md)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
+* **[Amazon Lambda Connector Example]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-example/)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
 
-* **[Amazon Lambda Connector Reference](amazonlambda-connector-config.md)**: This documentation provides a reference guide for the Amazon Lambda Connector.
+* **[Amazon Lambda Connector Reference]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/)**: This documentation provides a reference guide for the Amazon Lambda Connector.
 
 ## How to contribute
 

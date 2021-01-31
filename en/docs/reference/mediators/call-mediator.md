@@ -26,12 +26,15 @@ The endpoint type can be Leaf Endpoint (i.e. Address/WSDL/Default/HTTP)
 or Group Endpoint (i.e. Failover/Load balance/Recipient list). Group
 Endpoint is only supported in non-blocking mode.
 
+By default, when you use the Call mediator, the current message body in the mediation is sent out 
+as the request payload. The response you receive replaces the current message body.
+
 !!! Info
-    The Call mediator is a [content-unaware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators) mediator.
+    The Call mediator is a [conditionally content aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators).
 
 ## Enabling mutual SSL in the blocking mode
 
-When using the Call mediator in the **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
+When using the Call mediator in **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
 
 ``` java
 -Djavax.net.ssl.keyStore="$CARBON_HOME/repository/resources/security/wso2carbon.jks" \
@@ -43,7 +46,11 @@ When using the Call mediator in the **blocking mode** (blocking=true), enable th
 ## Syntax
 
 ``` java
-<call [blocking="true"] />
+<call [blocking="true|false"]>
+   <source contentType=" " type="custom|inline|property">{xpath|inline|property}</source>?
+   <target type=”property”>{property_name}</target>?
+   (endpointref | endpoint)
+</call>
 ```
 
 !!! Note
@@ -70,6 +77,8 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 
 ## Configuration
 
+### Endpoint configuration
+
 Select one of the following options to define the endpoint to which the message should be delivered.
 
 <table>
@@ -86,7 +95,7 @@ Select one of the following options to define the endpoint to which the message 
 </tr>
 <tr class="even">
 <td><strong>Define Inline</strong></td>
-<td>If this is selected, the endpoint to which the message should be sent can be included within the Call mediator configuration. Click <strong>Add</strong> to add the required endpoint. For more information on Adding an endpoint, see <a href="../../develop/creating-artifacts/creating-endpoints">Adding an Endpoint</a> .</td>
+<td>If this is selected, the endpoint to which the message should be sent can be included within the Call mediator configuration. Click <strong>Add</strong> to add the required endpoint. For more information on Adding an endpoint, see <a href="{{base_path}}/integrate/develop/creating-artifacts/creating-endpoints">Adding an Endpoint</a> .</td>
 </tr>
 <tr class="odd">
 <td><strong>Pick From Registry</strong></td>
@@ -106,7 +115,64 @@ Select one of the following options to define the endpoint to which the message 
 </tbody>
 </table>
 
-## Example
+### Source configuration
+
+The following properties are available when you want to configure the source of the request payload.
+
+<table>
+  <tr>
+    <th>Parameter Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      You can use one of the following source types:
+      <ul>
+        <li>
+          <b>Custom</b>: Provide a valid XPATH/json-eval expression as the source element. The result that is derived from this expression will be the payload.
+        </li>
+        <li>
+          <b>Inline</b>: Provide a static payload inline as the payload source. Be sure to use proper encording and escaping.
+        </li>
+        <li>
+          <b>Property</b>: Provide a property as the payload source. You can only refer properties with the <code>synpase</code> scope. For other properties, use an XPath with the <b>Custom</b> source type.
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      contentType
+    </td>
+    <td>
+      Use this paramter to define the content type that is used when sending the message to the endpoint specified in the Call mediator. When the response from the endpoint is received, the original content type is restored.
+    </td>
+  </tr>
+</table>
+
+### Target configuration
+
+The following properties are available when you want to configure a target property to store the response (received from the endpoint).
+
+<table>
+  <tr>
+    <th>Paramete Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      Use <b>property</b> as the target type to store the response (received from the endpoint) to a property. The property name has to be provided as the value of this element. When you use this target type, a new property is generated for the mediation sequence with the correct data type. 
+    </td>
+  </tr>
+</table>
+
+## Examples - Using Endpoint configurations
 
 ### Example 1 - Service orchestration
 
@@ -276,4 +342,76 @@ If you want to receive the response message headers, when you use the Call media
    </target>
    <description/>
 </proxy>
+```
+
+## Examples - Using Source and Target configurations
+
+Consider the following payload that is sent to the example sequences listed below. 
+The content type used for this request is `application/json`.
+
+```json
+{"INCOMING" : {"INCOMING2":"INCOMING2"}}
+```
+
+In all of the following example sequences, the `contentType` property of the Call mediator's **source configuration** is set to `application/xml`. Therefore, the sequence receives `application/json` as the content type and converts it to `application/xml` before sending the request to the endpoint. The Call mediator's **target configuration** will store the response (received from the endpoint) to a property. Thereafter, the mediation continues with the original payload that was received by the sequence.
+
+### Example 1 - Using a property as the payload source
+
+```xml
+<inSequence>
+  <property name= "SOURCE" expression="$body//INCOMING" type="OM"/>
+  <log level="custom">
+     <property name="log" expression="$ctx:SOURCE"/>
+  </log>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="BACKEND_URL"></address>
+     </endpoint>
+     <source contentType="application/xml" type="property">SOURCE</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
+```
+
+### Example 2 - Using an XPath as the payload source
+
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="BACKEND_URL"></address>
+     </endpoint>
+     <source contentType="application/xml" type="custom">$body//INCOMING2</source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
+```
+
+### Example 3 - Using an inline payload as the source
+
+```xml
+<inSequence>
+  <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+  <call>
+     <endpoint name="Sample">
+        <address uri="BACKEND_URL"></address>
+     </endpoint>
+     <source contentType="application/xml" type="inline"><Intermediate><Intermediate1>Intermediate</Intermediate1></Intermediate></source>
+     <target type="property">TARGET</target>
+  </call>
+  <log level="custom">
+     <property name="TARGET PAYLOAD" expression="$ctx:TARGET"/>
+  </log>
+  <respond/>
+</inSequence>
 ```

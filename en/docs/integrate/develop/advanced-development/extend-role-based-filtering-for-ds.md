@@ -9,7 +9,7 @@ only accessible to a given type of users.
 
 Follow the steps below to filter a data service according to a specific user role.
 
-1. [Secure the dataservice](../../../develop/creating-artifacts/data-services/securing-data-services) using `UsernameToken` for user authentication.
+1. [Secure the dataservice]({{base_path}}/integrate/develop/creating-artifacts/data-services/securing-data-services) using `UsernameToken` for user authentication.
 2. Add `requiredRoles` attribute to the output mapping with the comma separated list of user roles.
     ```xml
     <query id="getEmployeesQuery" useConfig="datasource">

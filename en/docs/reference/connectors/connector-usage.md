@@ -101,11 +101,11 @@ The following are some other ways to externalize connection initialization param
 
 There are no special requirements when deploying WSO2 EI with artifacts with WSO2 EI connectors. However, the following facts need to be considered. 
 
-To seamlessly refresh tokens, use a registry location that is visible to all [WSO2 EI cluster members](../../setup/deployment/deploying_wso2_ei/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant WSO2 ESB connectors, see the documentation for the relevant connector.
+To seamlessly refresh tokens, use a registry location that is visible to all [WSO2 EI cluster members]({{base_path}}/install-and-setup/deployment/deploying_wso2_ei/) (for example, config registry mounted). Here the refresh token value should be passed as a connector parameter. For detailed information on how this can be done for the relevant WSO2 ESB connectors, see the documentation for the relevant connector.
 
 ## Performance tuning and monitoring
 
-SaaS connectors use HTTP/HTTPS protocol to communicate. They use WSO2 EI mediation engine itself. Hence [HTTP protocol related tunings](../../setup/performance_tuning/http_transport_tuning/) are applied. 
+SaaS connectors use HTTP/HTTPS protocol to communicate. They use WSO2 EI mediation engine itself. Hence [HTTP protocol related tunings]({{base_path}}/install-and-setup/performance_tuning/http_transport_tuning/) are applied. 
 
 Technology connectors use protocols that are custom. Thus their tuning needs to be done at the connector itself. All connection related tunings are present in the form you get when you create a new connection for the connector. For the older connectors, configurations will be present in the `init` operation. 
 
@@ -117,13 +117,13 @@ Please refer to the reference documentation of the connector for details.
 
 Connector implementations will have DEBUG and TRACE level logs. You can enable them to see in detail what is going on with the connector. 
 
-* See [Configuring Log4j2 Properties section of the documentation](../../administer-and-observe/logs/configuring_log4j_properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
+* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/mi-observe/logs/configuring_log4j_properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
 
-* To get the package name of the connector implementation, refer to the [How to contribute section of the overview page of connector documentation](connectors-overview/#contribute-to-the-connector-project). 
+* To get the package name of the connector implementation, refer to the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 
 ### Enable wire logging 
 
-For SaaS connectors which use HTTP transport of WSO2 EI, developers can enable wire logs to see details of the messages that are sent from WSO2 EI to the backend service and the response sent back to WSO2 EI. This is useful to check the exact message that is sent out by the connector to the backend service. See [documentation on monitoring wire logs](../../administer-and-observe/logs/monitoring_logs/#wire-logs) for instructions on how to enable wire logs. 
+For SaaS connectors which use HTTP transport of WSO2 EI, developers can enable wire logs to see details of the messages that are sent from WSO2 EI to the backend service and the response sent back to WSO2 EI. This is useful to check the exact message that is sent out by the connector to the backend service. See [documentation on monitoring wire logs]({{base_path}}/observe/mi-observe/logs/monitoring_logs/#wire-logs) for instructions on how to enable wire logs. 
 
 ### Mediation debug 
 
@@ -137,7 +137,7 @@ Please refer to [the Debugging Mediation documentation]({{base_path}}/integrate/
 
 ### Debugging connector code 
 
-You can get the source code of WSO2 EI connector and remotely debug it with your scenario to find out issues. Refer to the ["How to contribute” section of the connector overview page](connectors-overview/#contribute-to-the-connector-project), get the GitHub repository, clone it, checkout the relevant version, and debug. It is open source!
+You can get the source code of WSO2 EI connector and remotely debug it with your scenario to find out issues. Refer to the ["How to contribute” section of the connector overview page]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project), get the GitHub repository, clone it, checkout the relevant version, and debug. It is open source!
 
 Start the server with `./integrator.sh -debug <port>` and connect to that port from your IDE (IntelliJ IDEA). 
 
