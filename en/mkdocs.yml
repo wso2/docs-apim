@@ -143,9 +143,9 @@ nav:
                     - Threat Protection:
                             - Bot Detection: design/api-security/threat-protection/bot-detection.md
                             - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
-                            - Regular Expression Threat Protection: publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                            - JSON Threat Protection: publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                            - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                            - Regular Expression Threat Protection: deploy/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                            - JSON Threat Protection: deploy/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                            - XML Threat Protection: deploy/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                     - OpenID Connect:
                             - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
             - Rate Limiting:
@@ -170,42 +170,85 @@ nav:
                 - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-    - Publish:
-        - Publish APIs Overview: publish/publish-api-overview.md
-        - Publish an API: publish/publish-an-api.md
-        - Publish through Multiple API Gateways: publish/publish-through-multiple-api-gateways.md
-        - Publish an API to a Cloud Cluster in PrivateJet Mode: publish/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
-        - Publish to Multiple External API Developer Portals: publish/publish-to-multiple-external-api-stores.md
-        - Gateway:
-            - Overview of the WSO2 API Gateway: publish/api-gateway/overview-of-the-api-gateway.md
+    - Deploy:
+        - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
+        - API Gateway:
+            - Overview of the WSO2 API Gateway: deploy/api-gateway/overview-of-the-api-gateway.md
+            - Publish APIs Overview: deploy/publish-api-overview.md
+            - Deploy an API: deploy/deploy-an-api.md
+            - Publish through Multiple API Gateways: deploy/publish-through-multiple-api-gateways.md
+            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
+            - Publish to Multiple External API Developer Portals: deploy/publish-to-multiple-external-api-stores.md
             - Message Mediation:
-                - Changing the Default Mediation Flow of API Requests: publish/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                - Creating and Uploading using Integration Studio: publish/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                - Adding Dynamic Endpoints: publish/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                - Removing Specific Request Headers From Response: publish/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                - Passing a Custom Authorization Token to the Backend: publish/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: publish/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disabling Message Chunking: publish/api-gateway/message-mediation/disabling-message-chunking.md
-                - Transforming API Message Payload: publish/api-gateway/message-mediation/transforming-api-message-payload.md
-                - Adding a Non-Blocking Send Operation: publish/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                - Adding a Class Mediator:  publish/api-gateway/message-mediation/adding-a-class-mediator.md
-                - Configuring message builders and formatters: publish/api-gateway/message-mediation/configuring-message-builders-formatters.md
-            - Response Caching: publish/api-gateway/response-caching.md
-            - Message Tracing: publish/api-gateway/message-tracing.md
+                - Changing the Default Mediation Flow of API Requests: deploy/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                - Creating and Uploading using Integration Studio: deploy/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                - Adding Dynamic Endpoints: deploy/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                - Removing Specific Request Headers From Response: deploy/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                - Passing a Custom Authorization Token to the Backend: deploy/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: deploy/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disabling Message Chunking: deploy/api-gateway/message-mediation/disabling-message-chunking.md
+                - Transforming API Message Payload: deploy/api-gateway/message-mediation/transforming-api-message-payload.md
+                - Adding a Non-Blocking Send Operation: deploy/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                - Adding a Class Mediator:  deploy/api-gateway/message-mediation/adding-a-class-mediator.md
+                - Configuring message builders and formatters: deploy/api-gateway/message-mediation/configuring-message-builders-formatters.md
+            - Response Caching: deploy/api-gateway/response-caching.md
+            - Message Tracing: deploy/api-gateway/message-tracing.md
             - Threat Protectors:
-                - Regular Expression Threat Protection: publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - Regular Expression Threat Protection: deploy/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                - JSON Threat Protection: deploy/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                - XML Threat Protection: deploy/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
-                - Passing Enduser Attributes to the Backend Using JWT: publish/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
-            - Gateway Environments: publish/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-            - Scaling the Gateway: publish/api-gateway/scaling-the-gateway.md
+                - Passing Enduser Attributes to the Backend Using JWT: deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Gateway Environments: deploy/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+            - Scaling the Gateway: deploy/api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-        - Microgateway:
-            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
-            - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
+                - API Gateways with Dedicated Backends: deploy/api-gateway/api-gateways-with-dedicated-backends.md
+                - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+        - WSO2 API Microgateway:
+            - Getting Started:
+                - Quick start Guide:
+                    - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
+                    - Quick Start Guide-Docker: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
+                    - Quick Started Guide-Kubernetes: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                - Microgateway Key Concepts: deploy/api-microgateway/getting-started/api-microgateway-key-concepts.md
+            - Import API:
+                - Using an OpenAPI Definition: deploy/api-microgateway/import-api/using-an-openapi-definition.md
+            - Endpoints:
+                - Endpoint Types: design/endpoints/endpoint-types.md
+                - Defining Endpoints in an OpenAPI Definition: deploy/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
+                - Overriding Endpoint Information:
+                    - Overriding Endpoints for Developer-centric Approach APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.
+                    - Overriding Endpoints for Imported APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                - Defining a Backend Security Scheme: deploy/api-microgateway/endpoints/defining-a-backend-security-scheme.md
+            - HTTP 2.0: deploy/api-microgateway/http-2.0.md
+            - Rate Limiting:
+                 - Enabling distributed throttling: deploy/api-microgateway/rate-limiting/distributed-throttling.md
+            - Service Discovery: deploy/api-microgateway/service-discovery.md
+            - Security:
+                - Authentication:
+                    - API Authentication: deploy/security/api-authentication/api-authentication.md
+                    - Secure APIs Using OAuth2.0 Access Tokens:
+                        - Secure APIs using JWT - Self Contained JWT: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                        - Secure APIs Using Opaque Tokens: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                    - Mutual SSL Authentication: deploy/security/api-authentication/mutual-ssl-authentication.md
+                    - Configuring an External Key Manager: deploy/security/api-authentication/configuring-an-external-key-manager.md
+                    - Making Application Security Optional: deploy/security/api-authentication/making-application-security-optional.md
+                    - Disabling Security: deploy/security/api-authentication/disabling-security.md
+                - Authorization:
+                    - Scope Validation: deploy/security/api-authorization/scope-validation.md
+                    - Subscription Validation: deploy/security/api-authorization/subscription-validation.md
+                - Transport Security: deploy/security/transport-security.md
+                - Enabling CORS: deploy/security/enabling-cors.md
+                - Use a Custom Authorization Header: deploy/security/use-a-custom-authorization-header.md
+                - Rejecting Revoked Tokens: deploy/security/rejecting-revoked-tokens.md
+                - Importing Certificates to the API Microgateway Truststore: deploy/security/importing-certificates-to-the-api-microgateway-truststore.md
+                - Define Security Using Extension: deploy/security/define-security-using-extension.md
+            - File Upload via Multipart Requests: deploy/file-upload-via-multipart-requests.md
+            - Configure Caching: deploy/configure-caching.md
+            - Manage Microgateway APIs with WSO2 API Manager: deploy/manage-microgateway-apis-with-wso2-api-manager.md
+            - Passing Enduser Attributes to the Backend Using JWT: deploy/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Custom Claims Mapping: deploy/support-custom-claims-mapping.md
+            - Grouping APIs with Labels: deploy/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -376,7 +419,7 @@ nav:
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
                     - Point to Point: integrate/examples/rabbitmq_examples/point-to-point-rabbitmq.md
-                    - Publish/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - deploy/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
                     - Guaranteed Delivery:
                         - Message Store and Message Processor: integrate/examples/rabbitmq_examples/store-forward-rabbitmq.md
                         - Retry failed messages with a delay: integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
@@ -633,6 +676,7 @@ nav:
                 - Alert Types: observe/api-manager-analytics/alert-types.md
                 - Setup & Configuration:
                     - Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
+                    - Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
                     - Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
                     - Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
                     - Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
@@ -1303,7 +1347,7 @@ plugins:
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'
               'learn/consume-api/customizations/customizing-login-pages-for-dev-portal-and-publisher.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-login-pages-for-dev-portal-and-publisher/'
-              'publish/api-gateway/handlers/writing-custom-handlers.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/extending-api-manager/extending-gateway/writing-custom-handlers/'
+              'deploy/api-gateway/handlers/writing-custom-handlers.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/extending-api-manager/extending-gateway/writing-custom-handlers/'
               'observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md': 'https://apim.docs.wso2.com/en/3.1.0/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/'
               'install-and-setup/installation-guide/installation-prerequisites.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installation-prerequisites/'
               'install-and-setup/installation-guide/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-via-the-installer/'
@@ -1328,7 +1372,7 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-hostname/'
               'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
               'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/publish/api-gateway/message-mediation/configuring-message-builders-formatters/'
+              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/deploy/api-gateway/message-mediation/configuring-message-builders-formatters/'
               'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
               'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/'
@@ -1394,7 +1438,7 @@ plugins:
               'administer/product-security/enabling-java-security-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/enabling-java-security-manager/'
               'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
               'administer/product-security/configuring-transport-level-security.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-transport-level-security/'
-              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.2.0/publish/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
+              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.2.0/deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
               'administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
               'administer/product-security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/'
               'observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
@@ -1415,7 +1459,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:
@@ -1437,5 +1481,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next
