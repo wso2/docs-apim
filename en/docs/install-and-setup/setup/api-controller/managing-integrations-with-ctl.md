@@ -1395,3 +1395,35 @@ You can use the command below to generate the transaction count summary report b
     ```go
     Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
     ```
+
+## Update HashiCorp configuration
+
+You can use the command below to update the secret ID of the HashiCorp configuration used in the the Micro Integrator.
+
+!!! note
+    For more information on **configuring HashiCorp**, see [Using HashiCorp Secrets]()
+
+!!! note
+    This command will update the SecretId of the current runtime. To persist the new SecretId in the next server startup, Update the deployment.toml file.
+
+-   **Command**
+    ``` bash
+    apictl mi update hashicorp-secret [secret_id] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator of which the HashiCorp secret ID should be updated
+
+    !!! example
+        ```bash
+        apictl mi update hashicorp-secret 47c39b09-c0a9-6ebf-196e-038eb7aad336 -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    SecretId value is updated in HashiCorp vault runtime configurations. To persist the new SecretId in the next server startup, please update the deployment.toml file
+    ```
