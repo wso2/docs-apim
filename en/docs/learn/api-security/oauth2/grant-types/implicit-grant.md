@@ -152,8 +152,10 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
     ``` toml
     [oauth.response_type.token]
     enable = false
+
     [oauth.response_type.id_token]
     enable = false
+
     [oauth.response_type.id_token_token]
     enable = false
     ```
