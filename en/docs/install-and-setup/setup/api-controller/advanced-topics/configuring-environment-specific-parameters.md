@@ -75,6 +75,57 @@ When there are multiple artifacts which needs to be added as deployment-related 
         </tbody>
     </table>
 
+
+## Bundling the generated directory before import
+
+After generating the deployment directory, API controller is packed with a bundle command which provides the support
+to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
+file of a given directory. If api_meta.yaml file ( or api_product_meta.yaml or application_meta.yaml) is included in
+the project, the created archive file name will be the combination of project name, version and the revision number.
+
+-   **Command**
+        ``` bash
+        apictl bundle -s <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle -s <path-to-source-directory>  -d <path-to-the-archive-destination>
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory>  --destination <path-to-the-archive-destination>
+        ```
+        
+    !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--source` or `-s` : File path of the source directory to archive.
+            -   Optional :  
+                `--destination` or `-d` : Path of the directory where the archive file should be generated.    
+
+    !!! example
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  
+            ```
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  -d /Deployment/apis/Dev
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1   
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1  --destination /Deployment/apis/Dev
+            ```
+
+    !!!note
+            - If the `--destination` flag is not provided, the archive will be created in the working directory by
+             default.
+            - If the api_meta.yaml (or api_product_meta.yaml or application_meta.yaml) is not included in the
+              project, source directory name would be used as the archived file name.
+
+
 ## Defining the api_params.yaml file.
 
 The following is the structure of the parameter file.
