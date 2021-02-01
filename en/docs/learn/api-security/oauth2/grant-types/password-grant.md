@@ -96,4 +96,10 @@ Instead of using the Token API, you can generate access tokens from the API Deve
 !!! note
     Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](#password-grant) type.
 
+!!! tip
+    If you want to disable the **Password grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
+    ``` toml
+    [oauth.grant_type.password]
+    enable = false
+    ```

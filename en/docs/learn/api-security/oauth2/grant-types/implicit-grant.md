@@ -146,4 +146,14 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 !!! note
     For users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](../password-grant/) type.
 
+!!! tip
+    If you want to disable the **Implicit grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
+    ``` toml
+    [oauth.response_type.token]
+    enable = false
+    [oauth.response_type.id_token]
+    enable = false
+    [oauth.response_type.id_token_token]
+    enable = false
+    ```

@@ -62,6 +62,14 @@ The client can request an access token using only its client credentials with th
 
     ![]({{base_path}}/assets/img/learn/client-credentials.png)
 
+!!! tip
+    If you want to disable the **Client Credentials grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+
+    ``` toml
+    [oauth.grant_type.client_credentials]
+    enable = false
+    ```
+
 !!! info
     **Setting a custom validity time for access tokens**
 
