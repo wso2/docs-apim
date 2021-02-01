@@ -147,4 +147,11 @@ The steps below show how access tokens are generated for the authorization code 
      You will receive the access token as follows:
 
     [![]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)
-        
+
+!!! tip
+    If you want to disable the **Authorization Code grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+
+    ``` toml
+    [oauth.grant_type.authorization_code]
+    enable = false
+    ```
