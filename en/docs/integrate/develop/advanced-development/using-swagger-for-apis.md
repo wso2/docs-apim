@@ -9,10 +9,8 @@ When you create a REST API artifact or a RESTful data service from WSO2 Integrat
 If your REST API is deployed, copy the following URLs (with your API details) to your browser:
 
 !!! Note
-    If you have a custom Swagger definition attached to the API, the following URLs will return the custom definition and not the default Swagger definition of the API.
-    
-!!! Note
-    When attaching, both swagger 2.0 and OpenAPI definitions can be used.     
+    -   If you have a custom Swagger definition attached to the API, the following URLs will return the custom definition and not the default Swagger definition of the API.
+    -   Both swagger 2.0 and OpenAPI definitions are supported as the custom swagger definition.     
 
 
 -   To access the `swagger.json` file, use the following URL:
