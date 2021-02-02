@@ -6,9 +6,9 @@ In this tutorial, you can try out a few scenarios that involve transforming data
 
 ## Transforming data from one format to another
 
-To understand how the Streaming Integrator can transform streaming data from one format to another, let's convert events in CSV format to JSON format. To do this, follow the steps below:
+To understand how the Streaming Integrator can transform streaming data from one format to another, consider an example where a bot in an airport generates and stores departure flight details in the CSV format, but these records need to be converted to JSON format for further processing. To do this via the Streaming Integrator, follow the steps below:
 
-1. Download `productions.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice.
+1. Download `flights.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/flights.csv) and save it in a location of your choice.
 
 2. Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
    
@@ -22,38 +22,43 @@ To understand how the Streaming Integrator can transform streaming data from one
     @App:name("ConvertStreamingEventsApp")
     ```
    
-4. Create a stream that consumes events from the `productions.csv` file in the CSV format as follows:
+4. Create a stream that consumes events from the `flights.csv` file in the CSV format as follows:
 
     ```
     @source(type='file', mode='LINE',
-        file.uri='file:/Users/foo/productions.csv',
+        file.uri='file:/Users/foo/flights.csv',
         tailing='true',
         @map(type='csv'))
-    define stream ProductionStream(name string, amount double);
+    define stream FlightsStream(flight string, passengers int);
     ```
+    !!! info
+        Replace `Users/foo` with the actual path to the location in which you saved the `flights.csv` file.
    
-   The above stream definition receives events with values for the `name` and `amount` fields. The source annotation connected to it specifies that these events are counsumed from a file named `productions.csv` in the `/Users/foo/` directory in the `CSV` format. This file is tailed for new events. 
+   The above stream definition receives events with values for the `flight` and `passengers` fields. The source annotation connected to it specifies that these events are counsumed from a file named `flights.csv` in the `/Users/foo/` directory in the `CSV` format. This file is tailed for new events. 
    
 5. To generate the output in `JSON`, define an output stream as follows.
 
     ```
-    @sink(type = 'file', file.uri = "file:/Users/foo/output.csv",
+    @sink(type = 'file', file.uri = "file:/Users/foo/convertedflightdetails.json",
     	@map(type = 'json'))
-    define stream OutputStream(name string, amount double);
+    define stream OutputStream(flight string, passengers int);
     ```
    
-   The above stream generates output events with values for the `name` and `amount` attributes. The connected sink annotation of the `file` type specifies that output events generated in the stream are published to the `Users/foo/output.csv` file in JSON format.
+   !!! info
+       You can replace `Users/foo` with a path to a preferred location in your machine.
    
-6. To direct the events from the `ProductionStream` stream to the `OutputStream` stream, write a query as follows.
+   The above stream generates output events with values for the `flight` and `passengers` attributes. The connected sink annotation of the `file` type specifies that output events generated in the stream are published to the `Users/foo/output.json` file in JSON format.
+   
+6. To direct the events from the `FlightsStream` stream to the `OutputStream` stream, write a query as follows.
 
     ```
     @info(name = 'Generate JSON Events')
-    from ProductionStream 
+    from FlightsStream 
     select * 
     insert into OutputStream;
     ```
    
-   The above query selects all the events in the `ProductionStream` stream and inserts them into the `OutputStream` stream.
+   The above query selects all the events in the `FlightsStream` stream and inserts them into the `OutputStream` stream.
    
 7. Save the Siddhi application. The complete Siddhi application is as follows:
 
@@ -62,17 +67,17 @@ To understand how the Streaming Integrator can transform streaming data from one
     @App:description('Description of the plan')
     
     @source(type='file', mode='LINE',
-        file.uri='file:/Users/foo/productions.csv',
+        file.uri='file:/Users/foo/flights.csv',
         tailing='true',
         @map(type='csv'))
-    define stream ProductionStream(name string, amount double);
+    define stream FlightsStream(flight string, passengers int);
     
-    @sink(type = 'file', file.uri = "file:/Users/foo/output.csv",
+    @sink(type = 'file', file.uri = "file:/Users/foo/convertedflightdetails.json",
     	@map(type = 'json'))
-    define stream OutputStream(name string, amount double);
+    define stream OutputStream(flight string, passengers int);
     
     @info(name = 'Generate JSON Events')
-    from ProductionStream 
+    from FlightsStream 
     select * 
     insert into OutputStream;
     ```
@@ -81,23 +86,149 @@ To understand how the Streaming Integrator can transform streaming data from one
 
     ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
     
-9. Open the `Users/foo/productions.csv` file and add a new row as follows.
+9. Open the `Users/foo/flights.csv` file and add a new row as follows.
 
     ```
-    Chocolate cake,30.0
+    TK-1435,230
     ```
       
     Save the change you made.
     
-10. Open the `Users/foo/output.csv`. It contains the output events in JSON format as shown in the following extract.
+10. Open the `Users/foo/output.json`. It contains the output events in JSON format as shown in the following extract.
 
-    ![Converted JSON Events](({{base_path}}/assets/img/streaming/transforming-data-tutorial/json-events-extract.png))
+    ![Converted JSON Events]({{base_path}}/assets/img/streaming/transforming-data-tutorial/json-events-extract.png)
 
 ## Transforming JSON
 
-### Converting one JSON format to another JSON format
+In this section, let's manipulate streaming data in JSON format.
 
 ### Converting one JSON format to another JSON format
+
+To convert an event in one JSON format to another JSON format, consider an example of an airport where passenger flight details during the day are generated by a bot in a specific JSON format. However, a record keeper needs to store them in a different JSON format.
+
+The flight details are received as follows:
+
+```
+{
+  "flightNo": "QR-1405",
+  "type": "passenger"
+  "Details": {
+    "aircraft": "A320",
+    "seats": 240
+    "passengers": 221
+  }
+}
+```
+
+Assume that the record keeper only wants to record the flight number and the number of passengers, and that he/she needs to record them in the following format. 
+
+```
+
+{
+  "event": {
+    "flight": "QR-1405",
+    "passengers": 221
+  }
+}
+```
+
+To do this, follow the steps below:
+
+1. In Streaming Integrator Tooling, open a new file and start creating a new Siddhi application named `ConvertFormatApp`.
+
+    ```
+    @App:name("ConvertFormatApp")
+    ```
+   
+2. Define an input stream named `ReceiveFlightDetailsStream` to receive JSON events in the expected format (i.e., as per the given example).
+
+    ```
+    @source(type='http', receiver.url='http://localhost:5005/FlightsEP', @map(type = 'json', @attributes(flight = '$.flightNo', passengers = '$.Details.passengers')))
+    define stream ReceiveFlightDetailsStream (flight string, passengers int);
+    ```
+   
+   The `ReceiveFlightDetailsStream` selects events that present the flight number as `flight`, and the number of passengers as `passengers`. These events are received as HTTP events. The source annotation (i.e., `@source`) connected to the stream listens to the events at the `http://localhost:5005/FlightsEP` port. The map annotation (i.e., `@map`) extracts the required information from the HTTP event via `JSONPath` expressions. `flight = '$.flightNo'` specifies that the value of the `flightNo` attribute in the HTTP event is the value for `flight`. Similarly, `passengers = '$.Details.passengers'` that the `passengers` attribute nested under `Details` in the HTTP event is the value for `passengers`.
+   
+3. To save the converted events in a file, define an output stream with a sink of the `file` type connected to it as shown below.
+
+    ```
+    @sink(type='file' , file.uri='file:/Users/foo/flightdetails.json', @map(type = 'json')) 
+    define stream RecordFlightDetailsStream (flight string, passengers int);
+    ```
+   
+    The `RecordFlightDetailsStream` output stream has the same attributes as the `ReceiveFlightDetailsStream` input stream. The file sink connected to it indicates that each output event generated in the stream is saved in the `Users/foo/flightdetails.json` file in JSON format.
+    
+    !!! info
+        You can replace `Users/foo` with a path to a preferred location in your machine.
+    
+4. To direct the events from the `ReceiveFlightDetailsStream` stream to the `RecordFlightDetailsStream` stream, write a query as follows.
+   
+   ```
+   @info(name = 'Save Converted Events')
+   from ReceiveFlightDetailsStream 
+   select * 
+   insert into RecordFlightDetailsStream;
+   ```
+  
+  The above query selects all the events in the `ReceiveFlightDetailsStream ` stream and inserts them into the `RecordFlightDetailsStream` stream.
+  
+5. Save the Siddhi application. The complete Siddhi application is as follows:
+
+    ```
+    @App:name("ConvertFormatApp")
+    
+    @source(type='http', receiver.url='http://localhost:5005/FlightsEP', @map(type = 'json', @attributes(flight = '$.flightNo', passengers = '$.Details.passengers')))
+    define stream ReceiveFlightDetailsStream (flight string, passengers int);
+    
+    @sink(type='file' , file.uri='file:/Users/foo/flightdetails.json', @map(type = 'json')) 
+    define stream RecordFlightDetailsStream (flight string, passengers int);
+    
+    @info(name = 'Save Converted Events')
+    from ReceiveFlightDetailsStream 
+    select * 
+    insert into RecordFlightDetailsStream;
+    ```
+   
+6. Start the Siddhi application by clicking on the **Play** icon.
+   
+    ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
+    
+7. Issue the following CURL commands.
+
+    ```   
+    curl -X POST \
+      http://localhost:5005/FlightsEP \
+      -H 'content-type: application/json' \
+      -d '{
+      "flightNo": "QR-1405",
+      "type": "passenger",
+      "Details": {
+        "aircraft": "A320",
+        "seats": 240,
+        "passengers": 221
+      }
+    }'
+    ```
+  
+    ```   
+    curl -X POST \
+      http://localhost:5005/FlightsEP \
+      -H 'content-type: application/json' \
+      -d '{
+      "flightNo": "TK-2320",
+      "type": "passenger",
+      "Details": {
+        "aircraft": "A321",
+        "seats": 240,
+        "passengers": 210
+      }
+    }'
+    ```
+8. Open the `Users/foo/flightdetails.json` file. The events you generated by issuing CURL commands are saved in JSON format as follows:
+
+    ![Output JSON Events in Converted Format]({{base_path}}/assets/img/streaming/transforming-data-tutorial/converted-json-events-extract.png)
+   
+
 
 ### Manipulating a JSON object using execution JSON
 
