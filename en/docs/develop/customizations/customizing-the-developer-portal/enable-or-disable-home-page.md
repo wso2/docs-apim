@@ -1,20 +1,22 @@
 # Enable or Disable Home Page
 
-When the developer portal required to present corporate branding it’s a common requirement to have a landing page. The default landing page is the API listing page. But when we enable home page, there will be an additional landing page. It can be customized based on the design requirements. 
+It is a common requirement to have a Landing Page if the developer portal is required to present corporate branding. The default Landing Page is the API listing page. But when we enable the Home Page, there will be an additional Landing Page. It can be customized based on the design requirements by configuring the `defaultTheme.js` file.
 
-### The home page has four sections.
-1. carousel
-2. First Description and the listing of APIs filtered by a given tag ( provided via the theme file ).
-3. Second description and the listing of APIs filtered by a given tag ( provided via the theme file ).
-4. Contact us section
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+   
+### The Home Page has Four Sections
+1. Carousel
+2. First Description and the listing of APIs filtered by a given tag (provided via the theme file)
+3. Second description and the listing of APIs filtered by a given tag (provided via the theme file)
+4. "Contact Us" section
 
  ![enable or disable home page]({{base_path}}/assets/img/learn/enable-or-disable-home-page.png) 
 
-## Landing page configuration options
+## Steps to Configure the Landing Page
 
-1. Open  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
-   
-    Following JSON defines the look and feel and behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components refered by the attribute names)
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the attributes accordingly.
+
+    Following JSON is an example for a `defaultTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components refered by the attribute names)
 
     <div>
     <div class="jsonTreeOutput"></div>
@@ -166,4 +168,4 @@ When the developer portal required to present corporate branding it’s a common
 
 2. Refresh the Developer Portal to view the changes.
 
-The landing page provides a headstart for developers who tries to rebrand the developer portal for their needs. If the requirements are much complicated, then you need to override the relevant components. The step to override only specific react components can be found [here]({{base_path}}/develop/customizations/advanced-ui-customization/).
+The Landing Page provides a headstart for developers who try to rebrand the developer portal for their needs. If the requirements are much complicated, then you need to override the relevant components. The steps to override only specific react components can be found [here]({{base_path}}/develop/customizations/advanced-ui-customization/).
