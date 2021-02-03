@@ -1160,9 +1160,9 @@
                             "name": "enable_unlimited_tier",
                             "type": "string",
                             "required": false,
-                            "default": "false",
+                            "default": "true",
                             "possible": "",
-                            "description": "Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations."
+                            "description": "Specifying this config to false will disable the unlimited throttling tier of basic throttling configurations."
                         },
                         {
                             "name": "enable_jwt_claim_based_throttling",
