@@ -80,7 +80,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 3. Download the WSO2 IS Connector based on the API-M version.
      - [WSO2 IS Connector for GA Relealse]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16_ga.zip).
-     - [WSO2 IS Connector for WUM updated version]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16.zip).
+     - [WSO2 IS Connector for WUM updated version(as at 1611933891844)]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.16.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
