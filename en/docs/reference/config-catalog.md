@@ -2924,7 +2924,7 @@ enable_persistence = true
 enable_header_based_throttling = true
 enable_jwt_claim_based_throttling = true
 enable_query_param_based_throttling = true
-enable_unlimited_tier = false
+enable_unlimited_tier = true
 throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]
 skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerMin"] </code></pre>
                     </div>
@@ -3009,12 +3009,12 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations.</p>
+                                        <p>Specifying this config to false will disable the unlimited throttling tier of basic throttling configurations.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3566,7 +3566,7 @@ type = "failover"</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         
                                     </div>
