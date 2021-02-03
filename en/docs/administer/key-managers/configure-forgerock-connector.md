@@ -8,7 +8,8 @@ Follow the instructions given below to configure ForgeRock as a third-party Key 
 
 ## Before you begin
 
-- [Install ForgeRock](https://backstage.forgerock.com/downloads/).
+- [Install ForgeRock](https://backstage.forgerock.com/downloads/) - ForgeRock 6.5.3 is recommended.
+
 - [Download and install WSO2 API Manager 3.2.0]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
 
 ## Step 1 - Configure ForgeRock
