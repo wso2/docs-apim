@@ -519,6 +519,7 @@ nav:
                 - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
                 - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
+          - Disabling Anonymous Access to the Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
