@@ -452,7 +452,7 @@ nav:
                 - Monitoring TCP-Based Messages: administer/product-administration/monitoring/monitoring-tcp-based-messages.md
             - Revoke OAuth2 Application: administer/product-administration/revoke-oauth2-application.md
             - Removing Unused Tokens from the Database: administer/product-administration/removing-unused-tokens-from-the-database.md
-            - Disabling Anonymous Access to Developer Portal: administer/product-administration/disabling-anonymous-access-to-developer-portal.md
+            - Disabling Anonymous Access to the Developer Portal: administer/product-administration/disabling-anonymous-access-to-developer-portal.md
         - Product Configurations:
             - Changing the Default Transport: administer/product-configurations/changing-the-default-transport.md
             - Default Product Ports: administer/product-configurations/default-product-ports.md
