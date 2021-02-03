@@ -1,12 +1,12 @@
-# Disabling Anonymous Access to Developer Portal
+# Disabling Anonymous Access to the Developer Portal
 
-When accessing the Developer portal in WSO2 API Manager, the user is not needed to be authenticated (do not require to be logged in) by default. This is called the "Anonymous access to Developer Portal". But in some cases, you might need to prevent such behavior. You can achieve this by simply disabling the anonymous access to Developer Portal. When the anonymous access is disabled, anyone is not allowed to access the Developer Portal UI without proper login or an access token.
+By default, anonymous access to the Developer Portal is enabled. Therefore, users do not need to authenticate themselves by way of signing in when accessing the Developer Portal in WSO2 API Manager. However, if required, you can disable anonymous access to the Developer Portal to prevent anonymous users from accessing the Developer Portal. When anonymous access is disabled, users will not be allowed to access the Developer Portal UI without appropriate login details or an access token.
 
-## Steps to Disable Anonymous Access to Developer Portal
+Follow the instructions below to disable anonymous access to the Developer Portal for a particular tenant:
 
-This setting can be disabled tenant-wise by following the below steps for a particular tenant.
+1. Sign in to the WSO2 API-M Management Console as a tenant admin user.
 
-1. Sign in to the API-M management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as a tenant admin user.
+    `https://<API-M_host>:<API-M_port>/carbon`
 
 2. Navigate to **Main > Resources > Browse** 
 
@@ -18,7 +18,11 @@ This setting can be disabled tenant-wise by following the below steps for a part
 
 5. Restart the server or wait for 15 mins until the registry cache expires.
 
-6. Navigate to the Developer Portal (`https://<APIM_Host>:<APIM_Port>/devportal`). You will be automatically redirected to login screen if you are not previously authenticated.
+6. Navigate to the Developer Portal.
+
+     `https://<API-M_host>:<API-M_port>/devportal` 
+
+     You will be automatically redirected to the Sign In page if you have not previously authenticated yourself by signing in to the Developer Portal.
 
     !!! info
-        If you have a multi-tenant environment, when you navigate to `https://<APIM_Host>:<APIM_Port>/devportal`, it will ask you to select the tenant first. When you select a tenant, if the anonymous mode is disabled for that tenant (by following the above steps), you will be redirected to the login page if you are not previously authenticated.
+        If you have a multi-tenant environment, when you navigate to `https://<API-M_host>:<API-M_port>/devportal`, it will ask you to select the tenant first. When you select a tenant, if the anonymous mode is disabled for that tenant (by following the above steps), you will be redirected to the Sign In page if you have not previously authenticated yourself by signing in to the Developer Portal.
