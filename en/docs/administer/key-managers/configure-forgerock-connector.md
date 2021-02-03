@@ -8,7 +8,7 @@ Follow the instructions given below to configure ForgeRock as a third-party Key 
 
 ## Before you begin
 
-- Install ForgeRock.
+- [Install ForgeRock](https://backstage.forgerock.com/downloads/).
 - [Download and install WSO2 API Manager 3.2.0]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
 
 ## Step 1 - Configure ForgeRock
@@ -165,7 +165,9 @@ Create a static OAuth client as follows so that you can use the OAuth client key
 
 2. Navigate to the above created client under **Applications** -> **Client ID of the App** -> **Core** -> **Access Token LifeTime**.
 
-3. Set a long value for the **Access Token LifeTime** to obtain a long living registration access token. You will use this token to register and update clients dynamically.
+3. Set a large value as the **Access Token LifeTime** so that the registration access token will not expire in a short period of time. 
+
+     You will use this token to register and update clients dynamically.
     
 4. Navigate to the **Advanced** tab and configure the `client_credential` grant type that you need to use to obtain the access token.
    
@@ -297,7 +299,7 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
           </tr>
           <tr class="even">
             <td>Client ID</td>
-            <td>The client Id of the static client to invoke the introspection endpoint. </td>
+            <td>The client ID of the static client to invoke the introspection endpoint. </td>
             <td>Mandatory</td>
           </tr>
           <tr class="odd">
