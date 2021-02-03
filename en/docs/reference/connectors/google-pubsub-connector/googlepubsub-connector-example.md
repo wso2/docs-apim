@@ -10,7 +10,7 @@ Given below is a sample scenario that demonstrates how to work with the WSO2 EI 
 2. Insert company update notifications to the created topic.
 3. Retrieve company updates from the created topic.
 
-To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment](googlepubsub-connector-configuration.md) documentation to setup an account.
+To work with the Google Pub/Sub connector, you need to have a Google Cloud Platform account. Please refer the [Setting up the Google Pub Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/) documentation to setup an account.
 
 In this scenario the user needs to create a **Topic** in **Google Cloud Platform account** under **Big Data**. This topic is used to store notifications related to the company updates. Once the user invokes the `createTopic` resource, the subscribing operation also gets triggered simultaneously. Then the user can insert company update notifications to the created topic. Finally the user can retrieve the company updates from the subscribed topic while invoking the API.
 
@@ -20,7 +20,7 @@ All three operations are exposed via an API. The API with the context `/resource
 * `/insertCompanyNotifications` : Used to insert company update notifications to the subscribed topic.
 * `/getcompanynotifictions` : Used to retrieve information about the company updates.
 
-> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations](../../../references/config-catalog/#http-transport). If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
+> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport). If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
    ```   
    [mediation]
    synapse.enable_xpath_dom_failover=true
@@ -28,7 +28,7 @@ All three operations are exposed via an API. The API with the context `/resource
    
 The following diagram shows the overall solution. The user creates a topic, stores some company update notifications, and then receives it back. To invoke each operation, the user uses the same API.
 
-<img src="../../../../assets/img/connectors/Google-pubsub-Connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-pubsub-connector1.png" title="pub-sub connector example" width="700" alt="pub-sub connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -40,13 +40,13 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ### Add integration logic
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `pubsubApi` and API context as `/resources`.
     
-<img src="../../../../assets/img/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configuring the API
 
@@ -56,7 +56,7 @@ First create an API, which will be where we configure the integration logic. Rig
     
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Googlepubsub Connector** section. Then drag and drop the `init` operation into the Design pane.
         
-        <img src="../../../../assets/img/connectors/pubsub-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-drag-and-drop-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
     
     2. Add the property values into the `init` operation as shown below. Replace the `accessToken`, `apiUrl`, `apiVersion` with your values.
         
@@ -64,7 +64,7 @@ First create an API, which will be where we configure the integration logic. Rig
         - **apiUrl** : The application URL of Google Pub/Sub.
         - **apiVersion** : The version of the Google Pub/Sub API.     
     
-        <img src="../../../../assets/img/connectors/pubsub-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
 
 2. Set up the **createTopic** operation.
 
@@ -77,11 +77,11 @@ First create an API, which will be where we configure the integration logic. Rig
         
         While invoking the API, topicName values is populated as an input value for the operation.
         
-        <img src="../../../../assets/img/connectors/pubsub-drag-and-drop.createTopic.png" title="Drag and drop createTopic operation" width="500" alt="Drag and drop createTopic operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-drag-and-drop.createtopic.png" title="Drag and drop createTopic operation" width="500" alt="Drag and drop createTopic operation"/>    
     
-    3. To get the input values in to the API we can use the [property mediator](../../../mediators/property-Mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
+    3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
-        <img src="../../../../assets/img/connectors/pubsub-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-drag-and-drop-property-mediator.png" title="Add property mediators" width="800" alt="Add property mediators"/>
 
         The parameters available for configuring the Property mediator are as follows:
     
@@ -92,7 +92,7 @@ First create an API, which will be where we configure the integration logic. Rig
         - **name** : topicName
         - **expression** : json-eval($.topicName)
    
-        <img src="../../../../assets/img/connectors/pubsub-api-property-mediator-property1-value1.png" title="Add property mediators topicName" width="600" alt="Add property mediators topicName"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-property-mediator-property1-value1.png" title="Add property mediators topicName" width="600" alt="Add property mediators topicName"/>
 
 3. Set up the **createTopicSubscription** operation.
     
@@ -105,40 +105,40 @@ First create an API, which will be where we configure the integration logic. Rig
          - **topicName** : The name of the topic for which you want to create a subscription.
          - **ackDeadlineSeconds** :  The maximum time a subscriber can take to acknowledge a message that is received.
             
-         <img src="../../../../assets/img/connectors/pubsub-api-createTopicSubscription-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-createtopicsubscription-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
     
     3. Add the property mediator to capture the `subscriptionName` values. This contains the name of the subscription.
    
         - **name** : subscriptionName
         - **expression** : json-eval($.subscriptionName)
      
-        <img src="../../../../assets/img/connectors/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="600" alt="Add values to capture subscriptionName"/>  
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-property-mediator-property2-value2.png" title="Add values to capture subscriptionName" width="600" alt="Add values to capture subscriptionName"/>  
     
     4. Add the property mediator to store the name of the created Topic value from the response of the createTopic operation. 
     
         - **name** : nameforsubscription
         - **expression** : json-eval($.name)
         
-        <img src="../../../../assets/img/connectors/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="600" alt="Add values to capture nameforsubscription"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-property-mediator-nameforsubscription.png" title="Add values to capture nameforsubscription" width="600" alt="Add values to capture nameforsubscription"/>
         
     5. Add the property mediator to capture the Topic name from the response using the splitting separators in the results.  
         
          - **name** : nameforsubscription
          - **expression** : json-eval($.name)
             
-        <img src="../../../../assets/img/connectors/pubsub-api-property-mediator-splitting.png" title="Add values to capture splitting value" width="600" alt="Add values to capture splitting value"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-property-mediator-splitting.png" title="Add values to capture splitting value" width="600" alt="Add values to capture splitting value"/>    
 
 4. Forward the backend response to the API caller.
     
-    When you are invoking the created resource, the request of the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator](../../../../references/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you are invoking the created resource, the request of the message is going through the `/createTopic` resource. Finally, it is passed to the [Respond mediator]({{base_path}}/reference/mediators/respond-Mediator/). The Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop the **respond mediator** to the **Design view**. 
     
-         <img src="../../../../assets/img/connectors/smpp-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
+         <img src="{{base_path}}/assets/img/integrate/connectors/smpp-drag-and-drop-respond-mediator.png" title="Add Respond mediator" width="800" alt="Add Respond mediator"/> 
 
     2. Once you have setup the sequences and API, you can see the `/createTopic` resource as shown below.
     
-         <img src="../../../../assets/img/connectors/createTopic-design-view.png" title="API Design view" width="600" alt="API Design view"/>
+         <img src="{{base_path}}/assets/img/integrate/connectors/createtopic-design-view.png" title="API Design view" width="600" alt="API Design view"/>
                
 **Configure a resource for the publishMessage operation**
 
@@ -152,21 +152,21 @@ First create an API, which will be where we configure the integration logic. Rig
        - **topicName** : The name of the topic for which you want to create a subscription.
        - **data** :  The message payload.
             
-       <img src="../../../../assets/img/connectors/pubsub-api-publishMessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-api-publishmessage-operation.png" title="Add values to the createTopicSubscription operation" width="800" alt="Add values to the createTopicSubscription operation"/>
                
    3. Add the property mediator to capture the `topicName` values.               
            
        - **name** : topicName
        - **expression** : json-eval($.topicName)
        
-       <img src="../../../../assets/img/connectors/pubsub-topicname1.png" title="Add values to the topicName operation" width="800" alt="Add values to the topicName operation"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-topicname1.png" title="Add values to the topicName operation" width="800" alt="Add values to the topicName operation"/>
        
    4. Add the property mediator to capture the `data` values.    
        
        - **name** : data
        - **expression** : json-eval($.data)
        
-       <img src="../../../../assets/img/connectors/pubsub-data.png" title="Add values to the data operation" width="800" alt="Add values to the data operation"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-data.png" title="Add values to the data operation" width="800" alt="Add values to the data operation"/>
 
 **Configure a resource for the pullMessage operation**
 
@@ -181,7 +181,7 @@ First create an API, which will be where we configure the integration logic. Rig
        - **maxMessages** :  The maximum number of messages to retrieve.
        - **returnImmediately** : Set this to true if you want the server to respond immediately.
             
-       <img src="../../../../assets/img/connectors/pubsub-pullmessages.png" title="Add values to the pull messages operation" width="800" alt="Add values to the pull messages operation"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-pullmessages.png" title="Add values to the pull messages operation" width="800" alt="Add values to the pull messages operation"/>
                
    3. Add the property mediator to capture the `subscriptionName` values. Follow the steps given in createTopicSubscription operation.     
            
@@ -266,8 +266,8 @@ Now you can switch into the Source view and check the XML configuration files of
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/googlepubsub-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/googlepubsub-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -277,7 +277,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -308,11 +308,11 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   
   - Created Topic.
   
-    <img src="../../../../assets/img/connectors/pubsub-gcloudTopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudtopic.png" title="pubsub-gcloudTopic" width="800" alt="pubsub-gcloudTopic"/>
     
   - Created subscription for the Topic that you specify in the G-Cloud.
     
-    <img src="../../../../assets/img/connectors/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-gcloudsubscription.png" title="pubsub-gcloudSubscription" width="800" alt="pubsub-gcloudSubscription"/>
   
 2. Insert company update notifications to the created topic.
 
@@ -357,8 +357,8 @@ Invoke the API as shown below using the curl command. Curl Application can be do
   
   - View published company update notification.
   
-    <img src="../../../../assets/img/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
+    <img src="{{base_path}}/assets/img/integrate/connectors/pubsub-viewmessages.png" title="pubsub-viewmessages" width="800" alt="pubsub-viewmessages"/>  
     
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

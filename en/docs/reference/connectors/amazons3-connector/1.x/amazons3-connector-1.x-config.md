@@ -1,6 +1,6 @@
 # Setting up the Amazon S3 Environment
 
-To use the AmazonS3 service, you must have an AWS account. If you don't already have an account, you are prompted to create one when you sign up. You're not charged for any AWS services that you sign up for unless you use them.
+To use the AmazonS3 service, you must have an AWS account. If you do not already have an account, you are prompted to create one when you sign up. You are not charged for any AWS services that you sign up for unless you use them.
 
 ## Signing Up for AWS
 
@@ -22,15 +22,15 @@ You can access the Amazon S3 service using the root user credentials but these c
 
   1. Go to the AWS Management Console.
      
-     <img src="../../../../../assets/img/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
   
   2. Hover over your company name in the right top menu and click "My Security Credentials".
 
-     <img src="../../../../../assets/img/connectors/my-security-credentials.png" title="My security credentials" width="800" alt="My security credentials"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/my-security-credentials.png" title="My security credentials" width="800" alt="My security credentials"/>
   
   3. Scroll to the "Access Keys" section.
   
-     <img src="../../../../../assets/img/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
   
   4. Click on "Create New Access Key".
   5. Copy both the Access Key ID (YOUR_AMAZON_S3_KEY) and Secret Access Key (YOUR_AMAZON_S3_SECRET).
@@ -39,24 +39,24 @@ You can access the Amazon S3 service using the root user credentials but these c
 
   1. Sign in to the AWS Management Console and open the IAM console.
 
-     <img src="../../../../../assets/img/connectors/iam.png" title="IAM" width="800" alt="IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/iam.png" title="IAM" width="800" alt="IAM"/>
   
   2. In the navigation pane, choose Users.
 
-     <img src="../../../../../assets/img/connectors/iam-users.png" title="IAM users" width="200" alt="IAM users"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/iam-users.png" title="IAM users" width="200" alt="IAM users"/>
      
   3. Add a checkmark next to the name of the desired user, and then choose User Actions from the top.
   4. Click on Manage Access Keys.
   
-     <img src="../../../../../assets/img/connectors/security-credentials.png" title="Security credentials" width="800" alt="Security credentials"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/security-credentials.png" title="Security credentials" width="800" alt="Security credentials"/>
   
   5. Click on Create Access Key.
         
-     <img src="../../../../../assets/img/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
      
   6. Click on Show User Security Credentials. Copy and paste the Access Key ID and Secret Access Key values, or click on Download Credentials to download the credentials in a CSV (file).
      
-     <img src="../../../../../assets/img/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
 
 
-The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4) will be required to configure WSO2 EI Amazon S3 connector.  You can manage S3 buckets logging into S3 console.
+The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4) will be required to configure WSO2 EI Amazon S3 connector. You can manage S3 buckets logging into S3 console.

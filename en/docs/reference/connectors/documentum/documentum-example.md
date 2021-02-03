@@ -20,7 +20,7 @@ The example consists of an API named as Documentum API with two resources create
 
 The following diagram shows the overall solution.
 
-<img src="../../../../assets/img/connectors/Documentum-example.png" title="Documentum connector example" width="400" alt="Documentum connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/documentum-example.png" title="Documentum connector example" width="400" alt="Documentum connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -32,7 +32,7 @@ Connectors can be added to integration flows in [WSO2 Integration Studio](https:
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 Now the connector is added to the palette.
 
@@ -69,19 +69,19 @@ Now the connector is added to the palette.
 
 You can see the newly added connector in the design palette.
 
-<img src="../../../../assets/img/connectors/Documentum-proxy.png" title="Documentum proxy" width="800" alt="Documentum proxy"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/documentum-proxy.png" title="Documentum proxy" width="800" alt="Documentum proxy"/>
 
 ### Configure the connection and create folder operation
 
 1. Do the following configurations to initialize the connector.
-    <img src="../../../../assets/img/connectors/Documentum-connection.png" title="Documentum connection" width="800" alt="Documentum connection"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum-connection.png" title="Documentum connection" width="800" alt="Documentum connection"/>
 
 2. Do the following configurations to set up the `create folder` operation.
-    <img src="../../../../assets/img/connectors/Documentum-create-folder.png" title="Documentum create folder" width="800" alt="Documentum create folder"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/documentum-create-folder.png" title="Documentum create folder" width="800" alt="Documentum create folder"/>
 
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
 
@@ -89,8 +89,8 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/googlepubsub-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/googlepubsub-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -100,7 +100,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}   
+{!reference/connectors/deploy-capp.md!}   
 
 ## Testing
 
@@ -229,4 +229,4 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

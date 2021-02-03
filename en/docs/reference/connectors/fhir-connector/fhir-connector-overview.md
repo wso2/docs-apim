@@ -6,7 +6,7 @@ This connector uses the [HAPI FHIR APIs](https://hapifhir.io) to connect with a 
 
 To see the FHIR Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "fhir".
 
-<img src="../../../../assets/img/connectors/fhir-store.png" title="FHIR Connector Store" width="200" alt="FHIR Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/fhir-store.png" title="FHIR Connector Store" width="200" alt="FHIR Connector Store"/>
 
 ## Compatibility
 
@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## FHIR Connector documentation
 
-* **[FHIR Connector Example](fhir-connector-example.md)**: In this example you will learn how you can connect to a FHIR server and invoke operations. This is illustrated using a sample API. 
+* **[FHIR Connector Example]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-example/)**: In this example you will learn how you can connect to a FHIR server and invoke operations. This is illustrated using a sample API. 
 
-* **[FHIR Connector Reference](fhir-connector-config.md)**: This documentation provides a reference guide for the FHIR Connector.
+* **[FHIR Connector Reference]({{base_path}}/reference/connectors/fhir-connector/fhir-connector-config/)**: This documentation provides a reference guide for the FHIR Connector.
 
 ## How to contribute
 

@@ -1,0 +1,30 @@
+[mediation]
+synapse.core_threads = 20
+synapse.max_threads = 100
+synapse.threads_queue_length = 10
+
+synapse.global_timeout_interval = "120000ms"
+
+synapse.enable_xpath_dom_failover=true
+synapse.temp_data_chunk_size=3072
+
+synapse.command_debugger_port=9005
+synapse.event_debugger_port=9006
+
+synapse.script_mediator_pool_size=15
+synapse.enable_xml_nil=false
+synapse.disable_auto_primitive_regex = "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$"
+synapse.disable_custom_replace_regex = "@@@"
+synapse.enable_namespace_declaration = false
+synapse.build_valid_nc_name = false
+synapse.enable_auto_primitive = false
+synapse.json_out_auto_array = false
+synapse.preserve_namespace_on_xml_to_json=false
+flow.statistics.enable=false
+flow.statistics.capture_all=false
+statistics.enable_clean=true
+statistics.clean_interval = "1000ms"
+stat.tracer.collect_payloads=false
+stat.tracer.collect_mediation_properties=false
+inbound.core_threads = 20
+inbound.max_threads = 100

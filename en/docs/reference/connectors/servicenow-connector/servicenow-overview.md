@@ -6,7 +6,7 @@ The WSO2 ServiceNow connector allows you to access the ServiceNow REST API throu
 
 To see the available ServiceNow connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ServiceNow".
 
-<img src="../../../../assets/img/connectors/servicenow-store.png" title="ServiceNow Connector Store" width="200" alt="ServiceNow Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/servicenow-store.png" title="ServiceNow Connector Store" width="200" alt="ServiceNow Connector Store"/>
 
 ## Compatibility
 
@@ -18,11 +18,11 @@ For older versions, see the details in the connector store.
 
 ## ServiceNow Connector documentation
 
-* **[Setting up the ServiceNow Instance](servicenow-connector-config.md)**: This involves creating and setting up a developer account and instance.
+* **[Setting up the ServiceNow Instance]({{base_path}}/reference/servicenow-connector/servicenow-connector-config/)**: This involves creating and setting up a developer account and instance.
 
-* **[ServiceNow Connector Example](servicenow-connector-example.md)**: This example explains how to use ServiceNow Connector to create records in a table and retrieve its information. 
+* **[ServiceNow Connector Example]({{base_path}}/reference/servicenow-connector/servicenow-connector-example/)**: This example explains how to use ServiceNow Connector to create records in a table and retrieve its information. 
 
-* **[ServiceNow Connector Reference](servicenow-connector-config.md)**: This documentation provides a reference guide for the ServiceNow.
+* **[ServiceNow Connector Reference]({{base_path}}/reference/servicenow-connector/servicenow-connector-config/)**: This documentation provides a reference guide for the ServiceNow.
 
 ## How to contribute
 

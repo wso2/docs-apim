@@ -5,7 +5,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 !!! info
     **Before you begin** 
 
-    -   Make sure that the WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure that the WSO2 API Manager CTL Tool is downloaded and initialized, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -   Make sure you already have added an environment using the CTL tool for the API Manager environment you plan to import the API to. 
 
@@ -33,113 +33,141 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
                 ```bash 
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
-            !!! note
-                Note that API definition is different from Swagger2 or OpenAPI3 specification. The following is a sample API definition that can be used to generate an API Project.
-    
-                !!! example
-                       ```yaml
-                        type: api
-                        version: v4
-                        data:
-                            name: PizzaShackAPI
-                            description: This is a simple API for Pizza Shack online pizza delivery store.
-                            context: /pizzashack
-                            version: 1.0.0
-                            provider: admin
-                            lifeCycleStatus: PUBLISHED
-                            cacheTimeout: 300
-                            enableStore: true
-                            type: HTTP
-                            transport:
-                            - http
-                            - https
-                            tags:
-                            - pizza
-                            policies:
-                            - Unlimited
-                            authorizationHeader: Authorization
-                            securityScheme:
-                            - oauth2
-                            - oauth_basic_auth_api_key_mandatory
-                            visibility: PUBLIC
-                            gatewayEnvironments:
-                            - Production and Sandbox
-                            subscriptionAvailability: CURRENT_TENANT
-                            accessControl: NONE
-                            businessInformation:
-                                businessOwner: Jane Roe
-                                businessOwnerEmail: marketing@pizzashack.com
-                                technicalOwner: John Doe
-                                technicalOwnerEmail: architecture@pizzashack.com
-                            corsConfiguration:
-                                accessControlAllowCredentials: false
-                                accessControlAllowHeaders:
-                                - authorization
-                                - Access-Control-Allow-Origin
-                                - Content-Type
-                                - SOAPAction
-                                - apikey
-                                - testKey
-                                accessControlAllowMethods:
-                                - GET
-                                - PUT
-                                - POST
-                                - DELETE
-                                - PATCH
-                                - OPTIONS
-                                accessControlAllowOrigins:
-                                - '*'
-                                corsConfigurationEnabled: false
-                            createdTime: Dec 14, 2020 3:52:06 PM
-                            lastUpdatedTime: Dec 14, 2020 3:52:28 PM
-                            endpointConfig:
-                                endpoint_type: http
-                                production_endpoints:
-                                    url: https://localhost:9443/am/sample/pizzashack/v1/api/
-                                sandbox_endpoints:
-                                    url: https://localhost:9443/am/sample/pizzashack/v1/api/
-                            endpointImplementationType: ENDPOINT
-                            operations:
-                            - authType: Application & Application User
-                                id: ""
-                                scopes: []
-                                target: /order
-                                throttlingPolicy: Unlimited
-                                usedProductIds: []
-                                verb: POST
-                            - authType: Application & Application User
-                                id: ""
-                                scopes: []
-                                target: /menu
-                                throttlingPolicy: Unlimited
-                                usedProductIds: []
-                                verb: GET
-                            - authType: Application & Application User
-                                id: ""
-                                scopes: []
-                                target: /order/{orderId}
-                                throttlingPolicy: Unlimited
-                                usedProductIds: []
-                                verb: GET
-                            - authType: Application & Application User
-                                id: ""
-                                scopes: []
-                                target: /order/{orderId}
-                                throttlingPolicy: Unlimited
-                                usedProductIds: []
-                                verb: PUT
-                            - authType: Application & Application User
-                                id: ""
-                                scopes: []
-                                target: /order/{orderId}
-                                throttlingPolicy: Unlimited
-                                usedProductIds: []
-                                verb: DELETE
-                            keyManagers:
-                            - all
-                       ```
-
             
+            The following is a sample API definition that can be used to generate an API Project.
+            
+            !!! example
+                ```yaml
+                type: api
+                version: v4
+                data:
+                  id: 9045413f-109a-4d95-86ab-44a9af028351
+                  name: PizzaShackAPI
+                  description: This is a simple API for Pizza Shack online pizza delivery store.
+                  context: /pizzashack
+                  version: 1.0.0
+                  provider: admin
+                  lifeCycleStatus: PUBLISHED
+                  responseCachingEnabled: false
+                  cacheTimeout: 300
+                  isDefaultVersion: false
+                  enableSchemaValidation: false
+                  enableStore: true
+                  type: HTTP
+                  transport:
+                   - http
+                   - https
+                  tags:
+                   - pizza
+                  policies:
+                   - Unlimited
+                  authorizationHeader: Authorization
+                  securityScheme:
+                   - oauth2
+                   - oauth_basic_auth_api_key_mandatory
+                  visibility: PUBLIC
+                  visibleRoles: []
+                  visibleTenants: []
+                  gatewayEnvironments:
+                   - Production and Sandbox
+                  deploymentEnvironments: []
+                  labels: []
+                  mediationPolicies: []
+                  subscriptionAvailability: CURRENT_TENANT
+                  subscriptionAvailableTenants: []
+                  additionalProperties: {}
+                  accessControl: NONE
+                  accessControlRoles: []
+                  businessInformation:
+                    businessOwner: Jane Roe
+                    businessOwnerEmail: marketing@pizzashack.com
+                    technicalOwner: John Doe
+                    technicalOwnerEmail: architecture@pizzashack.com
+                  corsConfiguration:
+                    corsConfigurationEnabled: false
+                    accessControlAllowOrigins:
+                     - '*'
+                    accessControlAllowCredentials: false
+                    accessControlAllowHeaders:
+                     - authorization
+                     - Access-Control-Allow-Origin
+                     - Content-Type
+                     - SOAPAction
+                     - apikey
+                     - testKey
+                    accessControlAllowMethods:
+                     - GET
+                     - PUT
+                     - POST
+                     - DELETE
+                     - PATCH
+                     - OPTIONS
+                  createdTime: Dec 16, 2020 8:58:06 AM
+                  lastUpdatedTime: Dec 16, 2020 8:58:35 AM
+                  endpointConfig:
+                    endpoint_type: http
+                    sandbox_endpoints:
+                      url: https://localhost:9443/am/sample/pizzashack/v1/api/
+                    endpoint_security:
+                      production:
+                        password: admin
+                        customParameters: {}
+                        type: BASIC
+                        enabled: true
+                        username: admin
+                      sandbox:
+                        customParameters: {}
+                        enabled: false
+                    production_endpoints:
+                      url: https://localhost:9443/am/sample/pizzashack/v1/api/
+                  endpointImplementationType: ENDPOINT
+                  scopes: []
+                  operations:
+                   -
+                    id: ""
+                    target: /order
+                    verb: POST
+                    authType: Application & Application User
+                    throttlingPolicy: Unlimited
+                    scopes: []
+                    usedProductIds: []
+                   -
+                    id: ""
+                    target: /menu
+                    verb: GET
+                    authType: Application & Application User
+                    throttlingPolicy: Unlimited
+                    scopes: []
+                    usedProductIds: []
+                   -
+                    id: ""
+                    target: /order/{orderId}
+                    verb: GET
+                    authType: Application & Application User
+                    throttlingPolicy: Unlimited
+                    scopes: []
+                    usedProductIds: []
+                   -
+                    id: ""
+                    target: /order/{orderId}
+                    verb: PUT
+                    authType: Application & Application User
+                    throttlingPolicy: Unlimited
+                    scopes: []
+                    usedProductIds: []
+                   -
+                    id: ""
+                    target: /order/{orderId}
+                    verb: DELETE
+                    authType: Application & Application User
+                    throttlingPolicy: Unlimited
+                    scopes: []
+                    usedProductIds: []
+                  categories: []
+                  keyManagers:
+                   - all
+                ```
+
         -   Response    
             ```go
             Initializing a new WSO2 API Manager project in /home/user/work/SampleAPI

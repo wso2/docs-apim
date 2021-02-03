@@ -1,0 +1,24 @@
+name: 3.2.0 monitoring Dashboard
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign to One Project
+    steps:
+    - name: track progress
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: contains(github.event.issue.labels.*.name, 'in-progress')
+      with:
+        project: 'https://github.com/wso2/docs-apim/projects/2'
+        column_name: 'in-progress' 
+
+    - name: Assign issues and pull requests with `bug` label to project 8
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: contains(github.event.issue.labels.*.name, 'PR-sent')
+      with:
+        project: 'https://github.com/wso2/docs-apim/projects/8'
+        column_name: 'PR-sent'

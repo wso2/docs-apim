@@ -7,13 +7,13 @@ Following are the main features of the event generator.
 
 ## What you'll build
 
-In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above feature no:1 is used here. Please refer to [reference guide](db-event-inbound-endpoint-config.md) if you need to use other features. 
+In this example let us see how to configure `DB-event Inbound Endpoint` so that it can listen to data changes done to a `MySQL` table. Out of the features mentioned above feature no:1 is used here. Please refer to [reference guide]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) if you need to use other features. 
 
 In an enterprise system, a relational database table is used to store customer information. Customers' information is added by an external system to the database which is not in enterprise's control. As soon as a new customer is inserted, the system need to pick up and process its data. `WSO2 EI` is used here to listen to DB changes and invoke the relevant processes. It can invoke backend APIs or place data into a message bus after required data transformations. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 EI mediators. 
 
 Following diagram shows the overall solution we are going to build. External system will update the MySQL DB and WSo2 EI will trigger events based on the inserts and updates. 
 
-<img src="../../../../assets/img/connectors/db-event-diagram.png" title="Overview of DB event inbound EP use case" width="600" alt="Overview of DB event inbound EP use case"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-diagram.png" title="Overview of DB event inbound EP use case" width="600" alt="Overview of DB event inbound EP use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -43,10 +43,10 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="../../../../assets/img/connectors/solution-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+<img src="{{base_path}}/assets/img/integrate/connectors/solution-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
-<img src="../../../../assets/img/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="400" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating DB event inbound endpoint" width="400" alt="Creating DB event inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.poll.dbeventlistener.DBEventPollingConsumer`. 
 
@@ -80,7 +80,7 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 **CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="../../../../assets/img/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 
@@ -90,8 +90,8 @@ First, install [MySQL database](https://www.mysql.com/downloads/) locally. If yo
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/db-event-listener.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/db-event-listener.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -101,9 +101,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 1. Navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for `DB Event Listener`. Click on `DB Event Listener` and download the .jar file by clicking on `Download Inbound Endpoint`. Copy this .jar file into the <PRODUCT-HOME>/lib folder. 
 
-2. Download [`mysql-connector-java`](https://dev.mysql.com/downloads/connector/j/) associated with `MySQL` server version and add it to the <PRODUCT-HOME>/lib folder.
+2. Download [`mysql-connector-java`](https://dev.mysql.com/downloads/connector/j/) associated with `MySQL` server version and add it to the <PRODUCT-HOME>/lib folder.`
 
-3. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
+3. Copy the exported carbon application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder. 
 
 4. Start the server 
 
@@ -139,5 +139,5 @@ Now WSO2 EI will start listening to the data changes of `CDC_CUSTOM` table.
 > **Note**: You can do any type of advanced integration using the rich WSO2 EI mediator catalog, not just logging. 
 
 ## What's Next
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration](db-event-inbound-endpoint-config.md) documentation for all configuration options of the endpoint.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [DB Event Inbound Endpoint Configuration]({{base_path}}/reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config/) documentation for all configuration options of the endpoint.

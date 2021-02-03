@@ -12,19 +12,19 @@ This document is an in-depth guide for developers to follow when developing a ne
 
 A connector is a collection or a set of operations that can be used in WSO2 Enterprise Integrator integration flow to access a specific service or a functionality. These operations are invoked from proxy services, sequences and APIs to interact.
 
-* A connector operation is made using [sequence templates](../synapse-properties/template-properties/) in WSO2 EI. 
+* A connector operation is made using [sequence templates]({{base_path}}/reference/synapse-properties/template-properties/) in WSO2 EI. 
 * The integration logic inside a connector operation is constructed using WSO2 EI mediators. 
 * The integration logic inside a connector operation needs some custom functionality not provided by the WSO2 EI mediators, a java implementation can be attached to the associated sequence template. This is using the Custom Class Mediator approach. 
 * If the third party service provider provides a Java SDK to interact with the service, connector operation can use them extending the java implementation. 
 
 
-<img src="../../../assets/img/connectors/dev-connectors.png" title="Developing Connectors" width="800" alt="Developing Connectors"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/dev-connectors.png" title="Developing Connectors" width="800" alt="Developing Connectors"/>
 
 ### Connector Types
 
 There are two types of connectors.
 
-* Application / SaaS connectors - which connect to cloud applications. These are implemented purely using WSO2 EI mediators and constructs. E.g., Amazon S3, Salesforce
+* Application/SaaS connectors - which connect to cloud applications. These are implemented purely using WSO2 EI mediators and constructs. E.g., Amazon S3, Salesforce
 * Technology connectors - which implement different B2B protocols. Logic for these are implemented using mainly Java. E.g., JMS, NATS, Email
 
 ### Connector Structure
@@ -360,11 +360,11 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
 
 ### Step 4: Testing the connector
 
-1. Open Integration Studio and [create an Integration Project](../../develop/create-integration-project.md) by clicking **New Integration Project**.
+1. Open Integration Studio and [create an Integration Project]({{base_path}}/integrate/develop/create-integration-project) by clicking **New Integration Project**.
 
-2. In the window that appears, make sure you select **Connector Exporter Project"* as a module of the project.
+2. In the window that appears, make sure you select **Connector Exporter Project"** as a module of the project.
 
-    <img src="../../../assets/img/connectors/connector-project.png" title="Connector Exporter Project" width="600" alt="Connector Exporter Project"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/connector-project.png" title="Connector Exporter Project" width="600" alt="Connector Exporter Project"/>
 
 3. In the newly created project, navigate to SampleConnector/SampleConnectorConfigs/src/main/synapse-config/api in Integration Studio. Right click and select **New** -> **Rest API**.
 
@@ -374,7 +374,7 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
 
 5. Right click on the SampleConnectorConfigs project, and select **Add or Remove Connector**. In the window that appears, select **Add from File System** and select the file path to the `<sample_connector_folder>/target/sample-connector-1.0.0.zip` file. You may observe the sample-connector added in the pallette as shown below.
 
-    <img src="../../../assets/img/connectors/connector-explorer.png" title="Connector Expolorer" width="300" alt="Connector Explorer"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/connector-explorer.png" title="Connector Expolorer" width="300" alt="Connector Explorer"/>
 
 6. Switch to source view and update the configuration as below.
     ```xml
@@ -393,17 +393,17 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
     </api>
     ```
 
-    <img src="../../../assets/img/connectors/studio-sequence.png" title="Integration Studio Sequence" width="400" alt="Integration Studio Sequence"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/studio-sequence.png" title="Integration Studio Sequence" width="400" alt="Integration Studio Sequence"/>
 
 7. Right click on the SampleConnectorConnectorExporter project -> **New** -> **Add or Remove Connectors** -> **Select ‘workspace’**. Select the connector from the below window and click **OK**. Click **Finish**.
 
-    <img src="../../../assets/img/connectors/workspace-connector.png" title="Connector Workspace" width="400" alt="Connector Workspace"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/workspace-connector.png" title="Connector Workspace" width="400" alt="Connector Workspace"/>
 
 8. To run the project, right click on the project and select **Run As** -> **Run on Micro Integrator**.
 
 9. Select the artifacts to be exported and click **Finish**.
 
-    <img src="../../../assets/img/connectors/select-artifacts.png" title="Select Artifacts" width="500" alt="Select Artifacts"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/select-artifacts.png" title="Select Artifacts" width="500" alt="Select Artifacts"/>
 
 10. Send a POST call to http://localhost:8290/sample/listVolume with the below request payload.
     ```json
@@ -414,7 +414,7 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
 
 11. A JSON response containing book information will be returned.
 
-    <img src="../../../assets/img/connectors/json-response.png" title="JSON response" width="800" alt="JSON Response"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/json-response.png" title="JSON response" width="800" alt="JSON Response"/>
 
 
 ## Extending Connector Capabilities with Java
@@ -430,7 +430,7 @@ This sample is an extension to the ‘Writing your first connector’ section. L
 
 In the same project, you may observe the sampleConnector class created under /src/main/java/org.wso2.carbon.connector/ directory.
 
-<img src="../../../assets/img/connectors/sampleConnector-class.png" title="sampleConnector class" width="300" alt="sampleConnector class"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/sampleconnector-class.png" title="sampleConnector class" width="300" alt="sampleConnector class"/>
 
 The class would look similar to the following.
 
@@ -484,10 +484,10 @@ In the sample, when the connect method is invoked, it should log message “samp
     * URI Style: URI_TEMPLATE
     * URI Template: /sampleTemplate
     * Methods: POST
-    <img src="../../../assets/img/connectors/REST-API-resource.png" title="REST API resource" width="700" alt="REST API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/rest-api-resource.png" title="REST API resource" width="700" alt="REST API resource"/>
 
 2. Drag and drop the sample_template operation as indicated below, and configure the generated_param expression as `json-eval($.generatedParam)`.
-    <img src="../../../assets/img/connectors/sample-template-operation.png" title="Sample template operation" width="500" alt="Sample template operation"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/sample-template-operation.png" title="Sample template operation" width="500" alt="Sample template operation"/>
 
     The API resource would now look similar to the following.
     ```xml
@@ -508,7 +508,7 @@ In the sample, when the connect method is invoked, it should log message “samp
 	    "generatedParam": "Hello World"
     }
     ```
-    <img src="../../../assets/img/connectors/sample-template-payload.png" title="Sample template payload" width="300" alt="Sample template payload"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/sample-template-payload.png" title="Sample template payload" width="300" alt="Sample template payload"/>
 
 **AbstractConnector class** - Any Java class being invoked from a template sequence must extend the `AbstractConnector` class and override the `connect()` method. The logic to be invoked must be inside the `connect()` method. 
 
@@ -768,10 +768,10 @@ If the connector has many operations, instead of adding templates for all the op
 Developers may define a template with the `<hidden>true</hidden>` property in `component.xml` related to the template ([example component.xml](https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/resources/config/component.xml)). Then that template will not be presented as a connector operation to the users when rendered in WSO2 Integration Studio. It is a private template which you can refer to construct logic in other templates. This provides a way to keep a reusable logic inside the connector for easy maintenance. See the [example](https://github.com/niruhan/esb-connector-salesforcerest/tree/master/src/main/resources/salesforcerest-config) for more information. 
 
 **Use property Group if there are a lot of properties to define** 
-Within some operations we need to define a number of properties together. When you use Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make xml definition also more readable you can group properties together using [Property Group mediator](../mediators/property-Group-Mediator/). 
+Within some operations we need to define a number of properties together. When you use Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make xml definition also more readable you can group properties together using [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/). 
 
 **Use `$ctx`: syntax instead of `get-property()` when reading properties**
-When you use the [property mediator](../mediators/property-Mediator/) to read properties, always use `$ctx:` syntax. It delivers better performance. Make sure to use properties in the correct scope. 
+When you use the [property mediator]({{base_path}}/reference/mediators/property-mediator/) to read properties, always use `$ctx:` syntax. It delivers better performance. Make sure to use properties in the correct scope. 
 
 **Avoid old mediators** 
 Please do not use mediators like `<send/>`, `<loopback/>` in sequence templates. They are there for the sake of backward compatibility. Always stick to mediators like `<call/>` and `<respond/>`. 
@@ -782,13 +782,13 @@ Connection timeout is an environment dependent configuration. Developers may def
 **Handle errors meaningfully. Use ERROR CODES**
 Sometimes it is required to handle errors within the connector. Sometimes it is required to let the calling template handle the error. Sometimes it is required to forward the error message back to the connector operation invoker as it is. It is good to analyse use cases, and then design which errors need to be handled at which instance. However, it is a good practice to define and use error codes. 
 
-Please read the [WSO2 Error Code guide](../error_handling/). 
+Please read the [WSO2 Error Code guide]({{base_path}}/reference/error_handling/). 
 
 **Write test cases**
 
 ## Input and Output schema
 
-Input and output schema can be defined for connectors so that a [datamapper mediator](../mediators/data-Mapper-Mediator/) can be used to easily transform the payloads required for each operation.
+Input and output schema can be defined for connectors so that a [datamapper mediator]({{base_path}}/reference/mediators/data-mapper-mediator/) can be used to easily transform the payloads required for each operation.
 
 These schemas are placed inside `/resources` under `input_schema` and `output_schema` folders.
 
@@ -845,11 +845,11 @@ Output Schema
 
 In order to support the new Integration Studio (version 7.1.0 +) properties window shown below, the UI schema should be derived for each operation. If this schema is present in the connector,  when imported to the Integration Studio properties panel will automatically get generated as per the information there. 
 
-<img src="../../../assets/img/connectors/UI-schema.png" title="UI schema" width="500" alt="UI schema"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ui-schema.png" title="UI schema" width="500" alt="UI schema"/>
 
 When adding the UI Model to the connector, the JSON files containing the schema should be included in a directory called ‘uischema’ under the resources directory.
 
-<img src="../../../assets/img/connectors/UI-schema-directory.png" title="UI schema directory" width="300" alt="UI schema directory"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ui-schema-directory.png" title="UI schema directory" width="300" alt="UI schema directory"/>
 
 Let us go through the constructs available in the UI schema. 
 
@@ -906,7 +906,7 @@ The schema of a connection is as follows.
 
 Connection operation will be portrayed in the new Integration Studio connector view as shown below.
 
-<img src="../../../assets/img/connectors/connection-operation.png" title="Connection operation" width="700" alt="Connection operation"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/connection-operation.png" title="Connection operation" width="700" alt="Connection operation"/>
 
 Operation schema for each operation should be created in a separate file. As a practice, the name of the file should be the name of the operation. 
 
@@ -917,7 +917,7 @@ The schema of an operation is as follows.
   "connectorName": "email",
   "operationName": "send",
   "title": "Send Email",
-  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/reference/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
   "elements": []
 }
 ```
@@ -1172,7 +1172,7 @@ Additional parameters to be added.
   "connectorName": "email",
   "operationName": "send",
   "title": "Send Email",
-  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://ei.docs.wso2.com/en/latest/micro-integrator/references/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
+  "help": "<h1>Send Email</h1> <b>The send operation sends an email.</b><br><br><ul><li><a href=\"https://apim.docs.wso2.com/en/latest/reference/connectors/file-connector/file-connector-config/\"> More Help </a></li></ul>",
   "elements": [
     {
       "type": "attributeGroup",
@@ -1244,6 +1244,6 @@ Additional parameters to be added.
 
 Icons for the connector must be added to the icon folder under the root folder of the connector.
 
-<img src="../../../assets/img/connectors/icon-folder.png" title="Icon folder" width="300" alt="Icon folder"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/icon-folder.png" title="Icon folder" width="300" alt="Icon folder"/>
 
 The icon names are icon-large(72x80) and icon-small(25x25) and they should be in .png format.

@@ -26,7 +26,7 @@ The Documentum Connector allows you to do the following operations.
 
 To see the Documentum connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Documentum". **Documentum Connector** is the name of the connector that has this functionality.
 
-<img src="../../../../assets/img/connectors/documentum-store.png" title="Documentum Connector Store" width="200" alt="Documentum Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/documentum-store.png" title="Documentum Connector Store" width="200" alt="Documentum Connector Store"/>
 
 ## Compatibility
 
@@ -38,9 +38,9 @@ For older versions, see the details in the connector store.
 
 ## Documentum Connector documentation
 
-* **[Documentum Connector Example](documentum-example.md)**: This example explains how to use Documentum Connector to create folder, find folder, delete folder, create document, find document, delete document, create cabinets, find cabinet, delete cabinet, get cabinet, create acl, apply acl, delete acl, get all acls, get all version, get current version and delete all versions. 
+* **[Documentum Connector Example]({{base_path}}/reference/connectors/documentum/documentum-example/)**: This example explains how to use Documentum Connector to create folder, find folder, delete folder, create document, find document, delete document, create cabinets, find cabinet, delete cabinet, get cabinet, create acl, apply acl, delete acl, get all acls, get all version, get current version and delete all versions. 
 
-* **[Documentum Connector Reference](documentum-reference.md)**: This documentation provides a reference guide for the Documentum Connector.
+* **[Documentum Connector Reference]({{base_path}}/reference/connectors/documentum/documentum-reference/)**: This documentation provides a reference guide for the Documentum Connector.
 
 ## How to contribute
 

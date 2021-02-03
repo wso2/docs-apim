@@ -13,7 +13,7 @@ Inspired from: [Google Pub/Sub docs](https://cloud.google.com/pubsub/docs/overvi
 
 To see the Google Pub/Sub Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "pubsub".
 
-<img src="../../../../assets/img/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/pubsub-store.png" title="Google PubSub Connector Store" width="200" alt="Google PubSub Connector Store"/>
 
 ## Compatibility
 
@@ -25,11 +25,11 @@ For older versions, see the details in the connector store.
 
 ## Google Pub/Sub Connector documentation
 
-* **[Setting up the Google Pub/Sub Environment](googlepubsub-connector-configuration.md)**: You need to first generate user credentials and access tokens in order to interact with Google PubSub.
+* **[Setting up the Google Pub/Sub Environment]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration/)**: You need to first generate user credentials and access tokens in order to interact with Google PubSub.
 
-* **[Google Pub/Sub Connector Example](googlepubsub-connector-example.md)**: This example demonstrates how to work with the WSO2 EI Google Pub/Sub Connector. 
+* **[Google Pub/Sub Connector Example]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-example/)**: This example demonstrates how to work with the WSO2 EI Google Pub/Sub Connector. 
 
-* **[Google Pub/Sub Connector Reference](googlepubsub-connector-reference.md)**: This documentation provides a reference guide for the Google Pub/Sub Connector.
+* **[Google Pub/Sub Connector Reference]({{base_path}}/reference/connectors/google-pubsub-connector/googlepubsub-connector-reference/)**: This documentation provides a reference guide for the Google Pub/Sub Connector.
 
 ## How to contribute
 

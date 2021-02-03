@@ -1,0 +1,5 @@
+[project]
+org-name= "isuru"
+version= "0.1.0"
+
+[dependencies]

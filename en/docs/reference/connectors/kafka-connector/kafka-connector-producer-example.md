@@ -10,19 +10,19 @@ API has the context `/publishMessages`. It will publish messages via the topic t
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build.
 
-<img src="../../../../assets/img/connectors/KafkaConnectorPublishMessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/kafkaconnectorpublishmessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
 ## Set up Kafka
 
-Before you begin, set up Kafka by following the instructions in [Setting up Kafka](setting-up-kafka.md).
+Before you begin, set up Kafka by following the instructions in [Setting up Kafka]({{base_path}}/reference/connectors/ksfka-connector/setting-up-kafka/).
 
 ## Configure the connector in WSO2 Integration Studio
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!references/connectors/importing-connector-to-integration-studio.md!}
+{!reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
 
@@ -51,21 +51,21 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     ```
 Now we can export the imported connector and the API into a single CAR application. The CAR application needs to be deployed during server runtime. 
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/Kafka-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/kafka-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
     
 ## Testing
 
@@ -104,5 +104,5 @@ This demonstrates how the Kafka connector publishes messages to the Kafka broker
    
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [kafka Connector Configuration](kafka-connector-config.md) documentation.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers/).
+* To customize this example for your own scenario, see [kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.

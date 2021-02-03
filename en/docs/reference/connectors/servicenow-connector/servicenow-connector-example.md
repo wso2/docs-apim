@@ -8,7 +8,7 @@ This example explains how to use ServiceNow Connector to create records in a tab
 
 It will have two HTTP API resources, which are `postRecord` and `readRecord`. 
 
-<img src="../../../../assets/img/connectors/serviceNow.png" title="ServiceNow Scenario" width="800" alt="ServiceNow Scenario"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/servicenow.png" title="ServiceNow Scenario" width="800" alt="ServiceNow Scenario"/>
 
 * `/postRecord`: It creates a new record in the existing incident table in the ServiceNow instance.
 
@@ -18,19 +18,19 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Setting up the environment 
 
-Please follow the steps mentioned in the [Setting up ServiceNow Instance](settingup-servicenow-instance.md) document in order to create a ServiceNow Instance and obtain the credentials. Keep them saved to be used in the next steps.  
+Please follow the steps mentioned in the [Setting up ServiceNow Instance]({{base_path}}/reference/connectors/servicenow-connector/settingup-servicenow-instance/) document in order to create a ServiceNow Instance and obtain the credentials. Keep them saved to be used in the next steps.  
 
 ## Configure the connector in WSO2 Integration Studio
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. First let's create postRecord sequence and ReadRecord sequences. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
-    <img src="../../../../assets/img/connectors/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
 
 2. Provide the Sequence name as PostRecord. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-    ```
+    ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="PostRecord" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
       <servicenow.init>
@@ -55,7 +55,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       </sequence>
     ```
 3. Create the ReadRecord sequence as below. 
-  ```
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="ReadRecord" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <servicenow.init>
@@ -68,11 +68,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
             <tableName>incident</tableName>
         </servicenow.getRecordById>
     </sequence>
-  ```
+    ```
 4. Now right click on the created Integration Project and select **New** -> **Rest API** to create the REST API. 
   
 5. Provide the API name as ServiceNowAPI and the API context as `/servicenow`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
-    ```
+    ```xml
       <?xml version="1.0" encoding="UTF-8"?>
       <api context="/servicenow" name="ServiceNowAPI" xmlns="http://ws.apache.org/ns/synapse">
           <resource methods="POST" uri-template="/postRecord">
@@ -98,14 +98,14 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
     ```
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/ServiceNow.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/servicenow.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -115,7 +115,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -260,5 +260,5 @@ You should get the following text returned.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [ServiceNow Connector Configuration](servicenow-connector-config.md) documentation for all operation details of the connector.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [ServiceNow Connector Configuration]({{base_path}}/reference/servicenow-connector/servicenow-connector-config/) documentation for all operation details of the connector.

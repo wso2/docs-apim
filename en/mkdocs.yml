@@ -51,14 +51,14 @@ nav:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: getting-started/quick-start-guide.md
-                - Quick Start Guide Integration: ''
-                - Quick Start Guide Streaming: ''
+                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
+                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
+                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
             - Create APIs Overview: design/design-api-overview.md
             - Create a New API:
-                    - Create a REST API: design-api/create-api/create-a-rest-api.md
+                    - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
                     - Create a Streaming API: ''
@@ -67,6 +67,7 @@ nav:
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
+            - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
             - Prototype APIs:
@@ -148,9 +149,6 @@ nav:
                             - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                     - OpenID Connect:
                             - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-                    - User Account Management:
-                            - Recover Password: learn/user-account-management/recover-password.md
-                            - Change Password: learn/user-account-management/change-dev-portal-password.md
             - Rate Limiting:
                     - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                     - Adding New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
@@ -174,7 +172,7 @@ nav:
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Publish:
-        - Publish APIs Overview: publish/control-api-overview.md
+        - Publish APIs Overview: publish/publish-api-overview.md
         - Publish an API: publish/publish-an-api.md
         - Publish through Multiple API Gateways: publish/publish-through-multiple-api-gateways.md
         - Publish an API to a Cloud Cluster in PrivateJet Mode: publish/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
@@ -207,22 +205,11 @@ nav:
                 - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - Microgateway:
+            - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
+            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
-        - API Controller:
-            - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
-            - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
-            - Migrating APIs to Different Environments: learn/api-controller/migrating-apis-to-different-environments.md
-            - Migrating API Products (with or without dependent APIs) to Different Environments: learn/api-controller/migrating-api-products-to-different-environments.md
-            - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
-            - CI/CD with WSO2 API Manager: learn/api-controller/ci-cd-with-wso2-api-management.md
-            - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
-            - Advanced Topics:
-                - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-                - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-                - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
     - Consume:
-        - Consume APIs Overview: learn/consume-api-overview.md
+        - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
             - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
@@ -267,352 +254,375 @@ nav:
         - Generating SDKs:
             - Generate SDKs in Developer Portal: consume/generating-sdks/generate-sdks-in-dev-portal.md
             - Write a Client Application Using the SDK: consume/generating-sdks/write-a-client-application-using-the-sdk.md
-    - Integration:
-        - Integration Overview: ''
+        - User Account Management:
+            - Recover Password: consume/user-account-management/recover-password.md
+            - Change Password: consume/user-account-management/change-dev-portal-password.md
+    - Integrate:
+        - Integration Overview: integrate/learn-overview.md
         - Integration Use Cases:
-            - Message Routing and Transformation: ''
-            - Service Orchestration: ''
-            - Asynchronous Message Processing: ''
-            - SaaS and B2B Connectivity: ''
-            - Data Integration: ''
-            - Protocol Switching: ''
-            - Gateway: ''
-            - File Processing: ''
-            - Periodic Execution of Integration Processes: ''
+            - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
+            - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
+            - Asynchronous Message Processing: integrate/integration-use-case/asynchronous-message-overview.md
+            - SaaS and B2B Connectivity: integrate/integration-use-case/connectors.md
+            - Data Integration: integrate/integration-use-case/data-integration-overview.md
+            - Protocol Switching: integrate/integration-use-case/protocol-switching-overview.md
+            - Gateway: integrate/integration-use-case/gateway-overview.md
+            - File Processing: integrate/integration-use-case/file-processing-overview.md
+            - Periodic Execution of Integration Processes: integrate/integration-use-case/scheduled-task-overview.md
         - Develop Integrations:
-            - Developing Integration Solutions: ''
+            - Developing Integration Solutions: integrate/develop/intro-integration-development.md
             - WSO2 Integration Studio:
-                - Quick Tour - WSO2 Integration Studio: ''
-                - Installing WSO2 Integration Studio: ''
-                - Working with WSO2 Integration Studio: ''
-                - Troubleshooting WSO2 Integration Studio: ''
-            - Service Catalog:
-                - Integration with Service Catalogs: ''
+                - Quick Tour - WSO2 Integration Studio: integrate/develop/wso2-integration-studio.md
+                - Installing WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
+                - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
+                - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
+            - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
             - Creating Projects:
-                - Creating an Integration Project: ''
-                - Creating Data Service Configs: ''
-                - Creating Datasource Configs: ''
-                - Importing Projects: ''
-                - Exporting Projects: ''
-                - Creating Docker Exporter: ''
-                - Creating Kubernetes Exporter: ''
+                - Creating an Integration Project: integrate/develop/create-integration-project.md
+                - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
+                - Creating Datasource Configs: integrate/develop/create-datasources.md
+                - Importing Projects: integrate/develop/importing-projects.md
+                - Exporting Projects: integrate/develop/export_project.md
+                - Creating Docker Exporter: integrate/develop/create-docker-project.md
+                - Creating Kubernetes Exporter: integrate/develop/create-kubernetes-project.md
             - Creating Artifacts:
-                - Importing Artifacts: ''
-                - Creating a REST API: ''
-                - Creating a Proxy Service: ''
-                - Creating an Inbound Endpoint: ''
-                - Creating Scheduled Tasks: ''
-                - Creating a Message Store: ''
-                - Creating a Message Processor: ''
-                - Creating an Endpoint: ''
-                - Creating an Endpoint Template: ''
-                - Creating a Sequence Template: ''
-                - Creating a Reusable Sequence: ''
-                - Creating a Registry Resource: ''
-                - Creating Local Registry Entries: ''
-                - Creating a Smooks Configuration: ''
-                - Creating a Data Service: ''
-                - Creating a Datasource: ''
-                - Creating a Data Service Input Validator: ''
-                - Adding Connectors: ''
+                - Importing Artifacts: integrate/develop/importing-artifacts.md
+                - Creating a REST API: integrate/develop/creating-artifacts/creating-an-api.md
+                - Creating a Proxy Service: integrate/develop/creating-artifacts/creating-a-proxy-service.md
+                - Creating an Inbound Endpoint: integrate/develop/creating-artifacts/creating-an-inbound-endpoint.md
+                - Creating Scheduled Tasks: integrate/develop/creating-artifacts/creating-scheduled-task.md
+                - Creating a Message Store: integrate/develop/creating-artifacts/creating-a-message-store.md
+                - Creating a Message Processor: integrate/develop/creating-artifacts/creating-a-message-processor.md
+                - Creating an Endpoint: integrate/develop/creating-artifacts/creating-endpoints.md
+                - Creating an Endpoint Template: integrate/develop/creating-artifacts/creating-endpoint-templates.md
+                - Creating a Sequence Template: integrate/develop/creating-artifacts/creating-sequence-templates.md
+                - Creating a Reusable Sequence: integrate/develop/creating-artifacts/creating-reusable-sequences.md
+                - Creating a Registry Resource: integrate/develop/creating-artifacts/creating-registry-resources.md
+                - Creating Local Registry Entries: integrate/develop/creating-artifacts/registry/creating-local-registry-entries.md
+                - Creating a Smooks Configuration: integrate/develop/creating-artifacts/creating-smooks-artifacts.md
+                - Creating a Data Service: integrate/develop/creating-artifacts/data-services/creating-data-services.md
+                - Creating a Datasource: integrate/develop/creating-artifacts/data-services/creating-datasources.md
+                - Creating a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
+                - Adding Connectors: integrate/develop/creating-artifacts/adding-connectors.md
             - Creating Custom Artifacts:
-                - Creating a Custom Inbound Endpoint: ''
-                - Creating a Custom Mediator: ''
-                - Creating a Synapse Handler: ''
-                - Creating a New Connector: ''
-                - Customizing Task Scheduling: ''
-                - Exporting Artifacts: ''
+                - Creating a Custom Inbound Endpoint: integrate/develop/customizations/creating-custom-inbound-endpoint.md
+                - Creating a Custom Mediator: integrate/develop/customizations/creating-custom-mediators.md
+                - Creating a Synapse Handler: integrate/develop/customizations/creating-synapse-handlers.md
+                - Creating a New Connector: integrate/develop/customizations/creating-new-connector.md
+                - Customizing Task Scheduling: integrate/develop/customizations/creating-custom-task-scheduling.md
+            - Exporting Artifacts: integrate/develop/exporting-artifacts.md
             - Securing Artifacts:
-                - Using Docker Secrets in Synapse Configurations: ''
-                - Using Kubernetes Secrets in Synapse Configurations: ''
-                - Applying Security to a REST API: ''
-                - Applying Security to a Proxy Service: ''
-                - Applying Security to a Data Service: ''
-                - Packaging Artifacts: ''
-                - Deploying Artifacts: ''
+                - Using Docker Secrets in Synapse Configurations: integrate/develop/creating-artifacts/using_docker_secrets.md
+                - Using Kubernetes Secrets in Synapse Configurations: integrate/develop/creating-artifacts/using_k8s_secrets.md
+                - Applying Security to a REST API: integrate/develop/advanced-development/applying-security-to-an-api.md
+                - Applying Security to a Proxy Service: integrate/develop/advanced-development/applying-security-to-a-proxy-service.md
+                - Applying Security to a Data Service: integrate/develop/creating-artifacts/data-services/securing-data-services.md
+            - Packaging Artifacts: integrate/develop/packaging-artifacts.md
+            - Deploying Artifacts: integrate/develop/deploy-artifacts.md
             - Testing Integrations:
-                - Using the Embedded Micro Integrator: ''
-                - Using a Remote Micro Integrator: ''
-                - Hot Deploying Artifacts: ''
-                - Creating a Unit Test Suite: ''
-                - Using the HTTP REST Client: ''
-                - Generating Docker Images: ''
+                - Using the Embedded Micro Integrator: integrate/develop/using-embedded-micro-integrator.md
+                - Using a Remote Micro Integrator: integrate/develop/using-remote-micro-integrator.md
+                - Hot Deploying Artifacts: integrate/develop/hot-deployment.md
+                - Creating a Unit Test Suite: integrate/develop/creating-unit-test-suite.md
+                - Using the HTTP REST Client: integrate/develop/using-http_rest_client.md
+                - Generating Docker Images: integrate/develop/generate-docker-image.md
             - Debugging Integrations:
-                - Mediation Debugging: ''
-                - Using Wire Logs: ''
-                - Endpoint Tracing: ''
-            - Running on WSO2 Integration Cloud: ''
+                - Mediation Debugging: integrate/develop/debugging-mediation.md
+                - Using Wire Logs: integrate/develop/using-wire-logs.md
+                #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
+                #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
+                - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
+            - Running on WSO2 Integration Cloud: integrate/develop/deploying-in-integration-cloud.md
             - Advanced Development Tasks:
-                - Injecting Parameters': ''
-                - Changing the Endpoint of a Deployed Service: ''
-                - Using Swagger Documents: ''
-                - Extend Role-based Data Filtering: ''
-                - Dynamic User Authentication: ''
+                - Injecting Parameters: integrate/develop/injecting-parameters.md
+                - Changing the Endpoint of a Deployed Service: integrate/develop/advanced-development/changing-the-endpoint-of-deployed-service.md
+                - Using Swagger Documents: integrate/develop/advanced-development/using-swagger-for-apis.md
+                - Extend Role-based Data Filtering: integrate/develop/advanced-development/extend-role-based-filtering-for-ds.md
+                - Dynamic User Authentication: integrate/develop/advanced-development/dynamic-user-authentication.md
         - Integration Examples:
             - Message Routing:
-                - Routing Based on Message Headers: ''
-                - Routing Based on Message Payload: ''
-                - Splitting Messages and Aggregating Responses: ''
+                - Routing Based on Message Headers: integrate/examples/routing_examples/routing_based_on_headers.md
+                - Routing Based on Message Payload: integrate/examples/routing_examples/routing_based_on_payloads.md
+                - Splitting Messages and Aggregating Responses: integrate/examples/routing_examples/splitting_aggregating_messages.md
             - Message Transformation:
-                - Converting JSON Messages to SOAP: ''
-                - Converting POX Messages to JSON: ''
+                - Converting JSON Messages to SOAP: integrate/examples/message_transformation_examples/json-to-soap-conversion.md
+                - Converting POX Messages to JSON: integrate/examples/message_transformation_examples/pox-to-json-conversion.md
             - Protocol Switching:
-                - Switching from JMS to HTTP/S: ''
-                - Switching from HTTP/S to JMS: ''
-                - Switching from FTP Listener to Mail Sender: ''
-                - Switching from HTTP to FIX: ''
-                - Switch from FIX to HTTP: ''
-                - Switch from FIX to AMQP: ''
-                - Switching between FIX Versions: ''
-                - Switching from TCP to HTTP/S: ''
-                - Switching from UDP to HTTP/S: ''
-                - Switching between HTTP to MSMQ: ''
+                - Switching from JMS to HTTP/S: integrate/examples/protocol-switching/switching_from_jms_to_http.md
+                - Switching from HTTP/S to JMS: integrate/examples/protocol-switching/switching_from_https_to_jms.md
+                - Switching from FTP Listener to Mail Sender: integrate/examples/protocol-switching/switching_from_ftp_listener_to_mail_sender.md
+                - Switching from HTTP to FIX: integrate/examples/protocol-switching/switching_from_http_to_fix.md
+                - Switch from FIX to HTTP: integrate/examples/protocol-switching/switching_from_fix_to_http.md
+                - Switch from FIX to AMQP: integrate/examples/protocol-switching/switching_from_fix_to_amqp.md
+                - Switching between FIX Versions: integrate/examples/protocol-switching/switching_between_fix_versions.md
+                - Switching from TCP to HTTP/S: integrate/examples/protocol-switching/switching_from_tcp_to_https.md
+                - Switching from UDP to HTTP/S: integrate/examples/protocol-switching/switching_from_udp_to_https.md
+                - Switching between HTTP to MSMQ: integrate/examples/protocol-switching/switching_between_http_and_msmq.md
             - File Processing:
-                - Using VFS for File Transferring: ''
-                - Accessing a Windows Share Using VFS: ''
-                - Sending and Receiving Emails: ''
+                - Using VFS for File Transferring: integrate/examples/file-processing/vfs-transport-examples.md
+                - Accessing a Windows Share Using VFS: integrate/examples/file-processing/accessing_windows_share_using_vfs_transport.md
+                - Sending and Receiving Emails: integrate/examples/file-processing/mailto-transport-examples.md
             - Data Integration:
-                - Exposing an RDBMS datasource: ''
+                - Exposing an RDBMS datasource: integrate/examples/data_integration/rdbms-data-service.md
                 - Exposing Other Datasources:
-                    - Exposing a CSV datasource: ''
-                    - Exposing a Carbon datasource: ''
-                - Exposing Data in JSON Format: ''
-                - Using an OData Service: ''
-                - Using Nested Data Queries: ''
-                - Batch Requesting: ''
-                - Invoking Multiple Operations as a Request Box: ''
-                - Using Distributed Transactions in Data Services: ''
-                - Validating Data Input: ''
-                - Swagger Documents of RESTful Data Services: ''
+                    - Exposing a CSV datasource: integrate/examples/data_integration/csv-data-service.md
+                    - Exposing a Mongo datasource: integrate/examples/data_integration/mongo-data-service.md
+                    - Exposing a Carbon datasource: integrate/examples/data_integration/carbon-data-service.md
+                - Exposing Data in JSON Format: integrate/examples/data_integration/json-with-data-service.md
+                - Using an OData Service: integrate/examples/data_integration/odata-service.md
+                - Using Nested Data Queries: integrate/examples/data_integration/nested-queries-in-data-service.md
+                - Batch Requesting: integrate/examples/data_integration/batch-requesting.md
+                - Invoking Multiple Operations as a Request Box: integrate/examples/data_integration/request-box.md
+                - Using Distributed Transactions in Data Services: integrate/examples/data_integration/distributed-trans-data-service.md
+                - Validating Data Input: integrate/examples/data_integration/data-input-validator.md
+                - Swagger Documents of RESTful Data Services: integrate/examples/data_integration/swagger-data-services.md
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
-                    - Point to Point: ''
-                    - Publish/Subscribe: ''
-                - Guaranteed Delivery:
-                    - Message Store and Message Processor: ''
-                    - Retry failed messages with a delay: ''
-                    - Requeue a message preserving the order: ''
-                    - Publish messages to DLX: ''
-                - Dual Channel: ''
+                    - Point to Point: integrate/examples/rabbitmq_examples/point-to-point-rabbitmq.md
+                    - Publish/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - Guaranteed Delivery:
+                        - Message Store and Message Processor: integrate/examples/rabbitmq_examples/store-forward-rabbitmq.md
+                        - Retry failed messages with a delay: integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
+                        - Requeue a message preserving the order: integrate/examples/rabbitmq_examples/requeue-msgs-with-errors-rabbitmq.md
+                        - Publish messages to DLX: integrate/examples/rabbitmq_examples/move-msgs-to-dlq-rabbitmq.md
+                    - Dual Channel: integrate/examples/rabbitmq_examples/request-response-rabbitmq.md
                 - JMS Examples:
-                    - Consuming JMS Messages: ''
-                    - Producing JMS Messages: ''
-                    - Consuming and Producing JMS Messages: ''
-                    - Dual Channel HTTP-to-JMS: ''
-                    - Quad Channel JMS-to-JMS: ''
-                    - Guaranteed Delivery with Failover: ''
-                    - Publish and Subscribe with JMS: ''
-                    - Shared Topic Subscription: ''
-                    - Detecting Repeatedly Redelivered Messages: ''
-                    - Specifying Delivery Delay on Messages: ''
+                    - Consuming JMS Messages: integrate/examples/jms_examples/consuming-jms.md
+                    - Producing JMS Messages: integrate/examples/jms_examples/producing-jms.md
+                    - Consuming and Producing JMS Messages: integrate/examples/jms_examples/consume-produce-jms.md
+                    - Dual Channel HTTP-to-JMS: integrate/examples/jms_examples/dual-channel-http-to-jms.md
+                    - Quad Channel JMS-to-JMS: integrate/examples/jms_examples/quad-channel-jms-to-jms.md
+                    - Guaranteed Delivery with Failover: integrate/examples/jms_examples/guaranteed-delivery-with-failover.md
+                    - Publish and Subscribe with JMS: integrate/examples/jms_examples/publish-subscribe-with-jms.md
+                    - Shared Topic Subscription: integrate/examples/jms_examples/shared-topic-subscription.md
+                    - Detecting Repeatedly Redelivered Messages: integrate/examples/jms_examples/detecting-repeatedly-redelivered-messages.md
+                    - Specifying Delivery Delay on Messages: integrate/examples/jms_examples/specifying-a-delivery-delay-on-messages.md
                     #- 'JMS Map Messaging': 'use-cases/examples/jms_examples/jms-map-message.md'
-            - Components:
+            - Examples of Components:
                 - REST APIs:
-                    - Using a Simple REST API: ''
-                    - Setting Query Parameters on Outgoing Messages: ''
-                    - Exposing a SOAP Endpoint as a RESTful API: ''
-                    - Exposing Non-HTTP Services as RESTful APIs: ''
-                    - Handling Non-Matching Resources: ''
-                    - Handling HTTP Status Codes: ''
-                    - Transforming Content Types: ''
-                    - Securing a REST API: ''
-                    - Publishing a Custom Swagger Document: ''
-                - Handling Special Cases:
-                    - Using GET with a Message Body: ''
-                    - Using POST with Empty Message Body: ''
-                    - Using POST with Query Parameters: ''
+                    - Using a Simple REST API: integrate/examples/rest_api_examples/introduction-rest-api.md
+                    - Setting Query Parameters on Outgoing Messages: integrate/examples/rest_api_examples/setting-query-params-outgoing-messages.md
+                    - Exposing a SOAP Endpoint as a RESTful API: integrate/examples/rest_api_examples/enabling-rest-to-soap.md
+                    - Exposing Non-HTTP Services as RESTful APIs: integrate/examples/rest_api_examples/configuring-non-http-endpoints.md
+                    - Handling Non-Matching Resources: integrate/examples/rest_api_examples/handling-non-matching-resources.md
+                    - Handling HTTP Status Codes: integrate/examples/rest_api_examples/setting-https-status-codes.md
+                    - Transforming Content Types: integrate/examples/rest_api_examples/transforming-content-type.md
+                    - Securing a REST API: integrate/examples/rest_api_examples/securing-rest-apis.md
+                    - Publishing a Custom Swagger Document: integrate/examples/rest_api_examples/publishing-a-swagger-api.md
+                    - Special Cases: integrate/examples/rest_api_examples/special-cases.md
                 - Proxy Services:
-                    - Using a Simple Proxy Service: ''
-                    - Publishing a Custom WSDL: ''
+                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
+                    - Publishing a Custom WSDL: integrate/examples/proxy_service_examples/publishing-a-custom-wsdl.md
                     #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
-                    - Exposing a Proxy Service via Inbound Endpoints: ''
-                    - Securing a Proxy Service: ''
+                    - Exposing a Proxy Service via Inbound Endpoints: integrate/examples/proxy_service_examples/exposing-proxy-via-inbound.md
+                    - Securing a Proxy Service: integrate/examples/proxy_service_examples/securing-proxy-services.md
                 - Inbound Endpoints:
-                    - JMS Inbound Endpoint: ''
-                    - File Inbound Endpoint: ''
-                    - HTTP Inbound Endpoint: ''
-                    - HTTPS Inbound Endpoint: ''
-                    - HL7 Inbound Endpoint: ''
-                    - MQTT Inbound Endpoint: ''
-                    - RabbitMQ Inbound Endpoint: ''
+                    - JMS Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-jms-protocol.md
+                    - File Inbound Endpoint: integrate/examples/inbound_endpoint_examples/file-inbound-endpoint.md
+                    - HTTP Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-http-protocol.md
+                    - HTTPS Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-https-protocol.md
+                    - HL7 Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-hl7-protocol-auto-ack.md
+                    - MQTT Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-mqtt-protocol.md
+                    - RabbitMQ Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-rabbitmq-protocol.md
                     #- 'CXF WS RM Inbound Endpoint': 'use-cases/examples/inbound_endpoint_examples/using-CXF-WS-RM-Inbound.md'
-                    - Kafka Inbound Endpoint: ''
-                    - Secured WebSocket Inbound Endpoint: ''
-                    - Using Inbound Endpoints with Registry: ''
+                    - Kafka Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-kafka.md
+                    - Secured WebSocket Inbound Endpoint: integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket.md
+                    - Using Inbound Endpoints with Registry: integrate/examples/inbound_endpoint_examples/inbound-endpoint-with-registry.md
                 - Scheduled Tasks:
-                    - Task Scheduling using a Simple Trigger: ''
-                    - Injecting Messages to a RESTful Endpoint: ''
-                - Local Registry Entries: ''
+                    - Task Scheduling using a Simple Trigger: integrate/examples/scheduled-tasks/task-scheduling-simple-trigger.md
+                    - Injecting Messages to a RESTful Endpoint: integrate/examples/scheduled-tasks/injecting-messages-to-rest-endpoint.md
+                - Local Registry Entries: integrate/examples/registry_examples/local-registry-entries.md
                 - Templates:
-                    - Using Sequence Templates: ''
-                    - Using Endpoint Templates: ''
+                    - Using Sequence Templates: integrate/examples/template_examples/using-sequence-templates.md
+                    - Using Endpoint Templates: integrate/examples/template_examples/using-endpoint-templates.md
                 - Message Stores & Processors:
-                    - Introduction to Message Stores and Processors: ''
-                    - JDBC Message Store: ''
-                    - JMS Message Store: ''
-                    - RabbitMQ Message Store: ''
-                    - Message Sampling Processor: ''
-                    - Message Forwarding Processor: ''
-                    - Securing the Message Forwarding Processor: ''
-                    - Load Balancing with Message Forwarding Processor: ''
+                    - Introduction to Message Stores and Processors: integrate/examples/message_store_processor_examples/intro-message-stores-processors.md
+                    - JDBC Message Store: integrate/examples/message_store_processor_examples/using-jdbc-message-store.md
+                    - JMS Message Store: integrate/examples/message_store_processor_examples/using-jms-message-stores.md
+                    - RabbitMQ Message Store: integrate/examples/message_store_processor_examples/using-rabbitmq-message-stores.md
+                    - Message Sampling Processor: integrate/examples/message_store_processor_examples/using-message-sampling-processor.md
+                    - Message Forwarding Processor: integrate/examples/message_store_processor_examples/using-message-forwarding-processor.md
+                    - Securing the Message Forwarding Processor: integrate/examples/message_store_processor_examples/securing-message-processor.md
+                    - Load Balancing with Message Forwarding Processor: integrate/examples/message_store_processor_examples/loadbalancing-with-message-processor.md
                 - Endpoints:
-                    - Address Endpoint: ''
-                    - Failover Endpoints: ''
-                    - HTTP Endpoint: ''
-                    - WebSocket Endpoint: ''
-                    - WSDL Endpoint: ''
-                    - Load Balance Endpoint: ''
+                    - Address Endpoint: integrate/examples/endpoint_examples/using-address-endpoints.md
+                    - Failover Endpoints: integrate/examples/endpoint_examples/using-failover-endpoints.md
+                    - HTTP Endpoint: integrate/examples/endpoint_examples/using-http-endpoints.md
+                    - WebSocket Endpoint: integrate/examples/endpoint_examples/using-websocket-endpoints.md
+                    - WSDL Endpoint: integrate/examples/endpoint_examples/using-wsdl-endpoints.md
+                    - Load Balance Endpoint: integrate/examples/endpoint_examples/using-loadbalancing-endpoints.md
                     - Recipient List of Endpoints:
-                        - Static List of Recepients: ''
-                        - Dynamic List of Recepients: ''
-                        - Dynamic List of Recepients with Aggregated Responses: ''
-                    - Reusing Endpoints: ''
-                    - Endpoint Error Handling: ''
-                    - MTOM and SwA Optimizations: ''
+                        - Static List of Recepients: integrate/examples/endpoint_examples/using-static-recepient-list-endpoints.md
+                        - Dynamic List of Recepients: integrate/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-1.md
+                        - Dynamic List of Recepients with Aggregated Responses: integrate/examples/endpoint_examples/using-dynamic-recepient-list-endpoints-2.md
+                    - Reusing Endpoints: integrate/examples/endpoint_examples/reusing-endpoints.md
+                    - Endpoint Error Handling: integrate/examples/endpoint_examples/endpoint-error-handling.md
+                    - MTOM and SwA Optimizations: integrate/examples/endpoint_examples/mtom-swa-with-endpoints.md
                 - Sequences:
-                    - Breaking Complex Flows into Multiple Sequences: ''
-                    - Using Fault Sequences: ''
-                    - Reusing Sequences: ''
-                - Transports:
-                    - Using the TCP Transport: ''
-                    - Using the FIX Transport: ''
-                    - Using the MQTT Transport: ''
-                - Working with Transactions: ''
-                - JSON Examples: ''
+                    - Breaking Complex Flows into Multiple Sequences: integrate/examples/sequence_examples/using-multiple-sequences.md
+                    - Using Fault Sequences: integrate/examples/sequence_examples/using-fault-sequences.md
+                    - Reusing Sequences: integrate/examples/sequence_examples/custom-sequences-with-proxy-services.md
+            - Transports:
+                - Using the TCP Transport: integrate/examples/transport_examples/tcp-transport-examples.md
+                - Using the FIX Transport: integrate/examples/transport_examples/fix-transport-examples.md
+                - Using the MQTT Transport: integrate/examples/transport_examples/Pub_Sub_using_MQTT.md
+                - HL7 Examples:
+                    - Mediating HL7 Messages: integrate/examples/hl7-examples/hl7_proxy_service.md
+                    - Acknowledging HL7 Messages: integrate/examples/hl7-examples/acknowledge_hl7_messages.md
+                    - Using HL7 Messages with File Systems: integrate/examples/hl7-examples/file_transfer_using_hl7.md
+            - Working with Transactions: integrate/examples/working-with-transactions.md
+            - JSON Examples: integrate/examples/json_examples/json-examples.md
+            - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
-          - Streaming Overview: ''
+          - Streaming Overview: streaming/streaming-overview.md
           - Streaming Use Cases:
-                - Extracting Data from static Sources in Real Time: ''
-                - Receiving Data in Transit: ''
-                - Loading and Writing Data: ''
-                - Publishing Data: ''
-                - Processing Data: ''
-                - Handling Errors: ''
-                - Performing ETL Operations: ''
-                - Triggering Integration Flows: ''
-          - Quick Start: ''
+                - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
+                - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
+                - Receiving Data in Transit: use-cases/streaming-usecase/receiving-data-in-transit.md
+                - Loading and Writing Data: use-cases/streaming-usecase/loading-and-writing-date.md
+                - Publishing Data: use-cases/streaming-usecase/publishing-data-to-event-stream-consumers.md
+                - Stream Processing:
+                    - Stream Processing Overview: use-cases/streaming-usecase/processing-data.md
+                    - Cleansing Data: use-cases/streaming-usecase/cleansing-data.md
+                    - Transforming Data: use-cases/streaming-usecase/transforming-data.md
+                    - Enriching Data: use-cases/streaming-usecase/enriching-data.md
+                    - Summarizing Data: use-cases/streaming-usecase/summarizing-data.md
+                    - Correlating Data: use-cases/streaming-usecase/correlating-data.md
+                - Handling Errors: use-cases/streaming-usecase/handling-errors.md
+                - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
+                - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
+          - Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
-                - Developing Streaming Integrator Solutions: ''
+                - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
                 - Streaming Integrator Tooling:
-                      - Streaming Integrator Tooling Overview: ''
-                      - Working with the Design View: ''
-                - Creating Siddhi Applications: ''
-                - Installing Siddhi Extensions: ''
-                - Testing Siddhi Applications: ''
-                - Deploying Siddhi Applications: ''
-                - Exporting Siddhi Applications: ''
+                      - Streaming Integrator Tooling Overview: develop/streaming-apps/streaming-integrator-studio-overview.md
+                      - Working with the Design View: develop/streaming-apps/working-with-the-design-view.md
+                - Creating Siddhi Applications: develop/streaming-apps/creating-a-siddhi-application.md
+                - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
+                - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
+                - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
+                - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Streaming Integration REST API Guide:
+                      - REST API Guide Overview: develop/streaming-apps/rest-api-guide-overview.md
+                      - Siddhi Application Management APIs: develop/streaming-apps/siddhi-application-management-apis.md
+                      - Permission APIs: develop/streaming-apps/permission-apis.md
+                      - Business Rules APIs: develop/streaming-apps/business-rules-apis.md
+                      - Store APIs: develop/streaming-apps/store-apis.md
+                      - Healthcheck APIs: develop/streaming-apps/healthcheck-apis.md
+                      - HTTP Status Codes: develop/streaming-apps/http-status-codes.md
           - Streaming Examples:
                 - Extracting Data from Static Sources in Real Time:
-                       - Capturing MySQL Inserts via CDC: ''
-                       - Capturing MySQL Inserts and Updates via CDC Polling Mode: ''
-                       - Publishing and Receiving CSV Events via Files: ''
-                       - Receiving Events via File: ''
-                       - Text Mapping with In-memory Transport: ''
+                       - Capturing MySQL Inserts via CDC: use-cases/examples/streaming-examples/cdc-with-listening-mode.md
+                       - Capturing MySQL Inserts and Updates via CDC Polling Mode: use-cases/examples/streaming-examples/cdc-with-polling-mode.md
+                       - Publishing and Receiving CSV Events via Files: use-cases/examples/streaming-examples/csv-default-mapping.md
+                       - Receiving Events via File: use-cases/examples/streaming-examples/receive-events-from-file.md
+                       - Text Mapping with In-memory Transport: use-cases/examples/streaming-examples/text-mapping-with-in-memory-transport.md
                 - Receiving Data in Transit:
-                       - Publishing HTTP Requests, Receiving Responses, and Processing Them: ''
-                       - Consuming Messages from IBM Message Queues: ''
-                       - Receiving Events via HTTP Transport: ''
-                       - Receiving XML Events via Email: ''
-                       - Receiving Messages from a Google Pub/Sub Topic: ''
-                       - Receiving ER7 Events via HL7: ''
-                       - Receiving Custom XML Messages via HL7: ''
-                       - Receiving XML Events via HTTP: ''
-                       - Receiving Custom XML Events via HTTP: ''
-                       - Receiving JSON Events via HTTP: ''
-                       - Receiving Custom JSON Events via HTTP: ''
-                       - Receiving JSON Events via JMS: ''
-                       - Receiving Key Value Events via JMS: ''
-                       - Receiving Binary Events via Kafka: ''
-                       - Receiving Custom Text Events via Kafka: ''
-                       - Receiving XML events via MQTT: ''
-                       - Receiving Prometheus Metrics: ''
-                       - Receiving JSON Events via RabbitMQ: ''
-                       - Receiving JSON Events via TCP: ''
-                       - Receiving Binary Events via TCP: ''
-                       - Receiving Custom Text Events via TCP: ''
-                       - Receiving Text Events via TCP: ''
-                       - Receiving XML Events via Websocket: ''
-                       - Receiving Custom Key Value Events via SNMP: ''
-                       - Receiving Data via TCP and Preprocessing: ''
-                       - Receiving Email Alerts: ''
+                       - Publishing HTTP Requests, Receiving Responses, and Processing Them: use-cases/examples/streaming-examples/http-request-response-sample.md
+                       - Consuming Messages from IBM Message Queues: use-cases/examples/streaming-examples/ibm-message-queue.md
+                       - Receiving Events via HTTP Transport: use-cases/examples/streaming-examples/receive-and-count.md
+                       - Receiving XML Events via Email: use-cases/examples/streaming-examples/receive-email-in-xml-format.md
+                       - Receiving Messages from a Google Pub/Sub Topic: use-cases/examples/streaming-examples/receive-google-pubsub-messages-in-text-format.md
+                       - Receiving ER7 Events via HL7: use-cases/examples/streaming-examples/receive-hl7-in-er7-format.md
+                       - Receiving Custom XML Messages via HL7: use-cases/examples/streaming-examples/receive-hl7-in-xml-format.md
+                       - Receiving XML Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-xml-format-with-default-mapping.md
+                       - Receiving Custom XML Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-xml-format-with-custom-mapping.md
+                       - Receiving JSON Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-json-format-with-default-mapping.md
+                       - Receiving Custom JSON Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-json-format-with-custom-mapping.md
+                       - Receiving JSON Events via JMS: use-cases/examples/streaming-examples/receive-jms-in-json-format.md
+                       - Receiving Key Value Events via JMS: use-cases/examples/streaming-examples/receive-jms-in-keyvalue-format.md
+                       - Receiving Binary Events via Kafka: use-cases/examples/streaming-examples/receive-kafka-in-binary-format.md
+                       - Receiving Custom Text Events via Kafka: use-cases/examples/streaming-examples/receive-kafka-in-text-format-with-custom-mapping.md
+                       - Receiving XML events via MQTT: use-cases/examples/streaming-examples/receive-mqtt-in-xml-format.md
+                       - Receiving Prometheus Metrics: use-cases/examples/streaming-examples/receive-prometheus-metrics.md
+                       - Receiving JSON Events via RabbitMQ: use-cases/examples/streaming-examples/receive-rabbitmq-in-json-format.md
+                       - Receiving JSON Events via TCP: use-cases/examples/streaming-examples/receive-tcp-in-json-format.md
+                       - Receiving Binary Events via TCP: use-cases/examples/streaming-examples/receive-tcp-in-binary-format.md
+                       - Receiving Custom Text Events via TCP: use-cases/examples/streaming-examples/receive-tcp-in-text-format-with-custom-mapping.md
+                       - Receiving Text Events via TCP: use-cases/examples/streaming-examples/receive-tcp-in-text-format.md
+                       - Receiving XML Events via Websocket: use-cases/examples/streaming-examples/receive-web-socket-in-xml-format.md
+                       - Receiving Custom Key Value Events via SNMP: use-cases/examples/streaming-examples/snmp-get-request-app.md
+                       - Receiving Data via TCP and Preprocessing: use-cases/examples/streaming-examples/sweet-production-data-preprocessing.md
+                       - Receiving Email Alerts: use-cases/examples/streaming-examples/alerts-and-thresholds.md
                 - Loading and Writing Data:
-                       - Publishing Aggregated Events to the Amazon AWS S3 Bucket: ''
-                       - Publishing and Receiving CSV Events via Files: ''
-                       - Publishing Events to a GCS Bucket: ''
-                       - Publishing JSON Events to Files: ''
-                       - Receive Events via Simulator and Persist in Cassandra Store': ''
-                       - Receiving Events via Simulator and Persisting in a Store: ''
-                       - Working with an influxDB Store: ''
-                       - Receiving Events and Persisting in MongoDB Store: ''
-                       - Receiving Events via Simulator and Persisting in RDBMS Store: ''
-                       - Receiving Events and Persisting Them in Redis Store: ''
-                       - Receiving Events via Simulator and Persisting in SOLR Store: ''
-                       - Receiving Data via TCP and Preprocessing': ''
-                       - Text Mapping with In-memory Transport: ''
+                       - Publishing Aggregated Events to the Amazon AWS S3 Bucket: use-cases/examples/streaming-examples/amazon-s3-sink-sample.md
+                       - Publishing and Receiving CSV Events via Files: use-cases/examples/streaming-examples/csv-default-mapping.md
+                       - Publishing Events to a GCS Bucket: use-cases/examples/streaming-examples/gcs-sink-sample.md
+                       - Publishing JSON Events to Files: use-cases/examples/streaming-examples/publish-events-to-file.md
+                       - Receive Events via Simulator and Persist in Cassandra Store': use-cases/examples/streaming-examples/store-cassandra.md
+                       - Receiving Events via Simulator and Persisting in a Store: use-cases/examples/streaming-examples/store-hbase.md
+                       - Working with an influxDB Store: use-cases/examples/streaming-examples/store-influxdb.md
+                       - Receiving Events and Persisting in MongoDB Store: use-cases/examples/streaming-examples/store-mongodb.md
+                       - Receiving Events via Simulator and Persisting in RDBMS Store: use-cases/examples/streaming-examples/store-rdbms.md
+                       - Receiving Events and Persisting Them in Redis Store: use-cases/examples/streaming-examples/store-redis.md
+                       - Receiving Events via Simulator and Persisting in SOLR Store: use-cases/examples/streaming-examples/store-solr.md
+                       - Receiving Data via TCP and Preprocessing': use-cases/examples/streaming-examples/sweet-production-data-preprocessing.md
+                       - Text Mapping with In-memory Transport: use-cases/examples/streaming-examples/text-mapping-with-in-memory-transport.md
                 - Publishing Data:
-                       - Consuming Events from a Kafka Topic and Publishing to Another Kafka Topic: ''
-                       - Publishing Text Events via Email: ''
-                       - Publishing Emails in XML Format: ''
-                       - Publishing Events to a Google Pub/Sub Topic: ''
-                       - Publishing ER7 Events via HL7: ''
-                       - Publishing XML messages via HL7: ''
-                       - Publishing JSON Events via HTTP: ''
-                       - Sending Custom JSON Events via HTTP: ''
-                       - Publishing XML Events via HTTP: ''
-                       - Publishing Custom XML Events via HTTP: ''
-                       - Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type: ''
-                       - Publishing HTTP Events via an OAuth-protected Endpoint: ''
-                       - Publishing HTTP Events to to an OAuth-protected Endpoint: ''
-                       - Publishing HTTP Events to an OAuth-protected Endpoint: ''
-                       - Publishing HTTP Events to to an OAuth-protected Endpoint without an Access Token: ''
-                       - Publishing XML Events via JMS: ''
-                       - Publishing Key-value events via JMS: ''
-                       - Publishing Custom Avro Events via Kafka: ''
-                       - Publishing JSON Events via Kafka: ''
-                       - Publishing Binary Events via Kafka: ''
-                       - Publishing Avro Events via Kafka: ''
-                       - Publishing XML Events via MQTT: ''
-                       - Publishing Consumed Events to Prometheus Metrics and Exposing them via HTTP: ''
-                       - Publishing XML Events via RabbitMQ: ''
-                       - Publishing JSON Events via TCP: ''
-                       - Publishing Text Events via TCP: ''
-                       - Publishing Binary Events via TCP: ''
-                       - Publishing XML Events via WebSocket: ''
-                       - Sending Custom Keyvalue Events via SNMP: ''
+                       - Consuming Events from a Kafka Topic and Publishing to Another Kafka Topic: use-cases/examples/streaming-examples/hello-kafka.md
+                       - Publishing Text Events via Email: use-cases/examples/streaming-examples/publish-email-in-text-format.md
+                       - Publishing Emails in XML Format: use-cases/examples/streaming-examples/publish-email-in-xml-format.md
+                       - Publishing Events to a Google Pub/Sub Topic: use-cases/examples/streaming-examples/publish-google-pubsub-messages-in-text-format.md
+                       - Publishing ER7 Events via HL7: use-cases/examples/streaming-examples/publish-hl7-in-er7-format.md
+                       - Publishing XML messages via HL7: use-cases/examples/streaming-examples/publish-hl7-in-xml-format.md
+                       - Publishing JSON Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-json-format.md
+                       - Sending Custom JSON Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-json-format-with-custom-mapping.md
+                       - Publishing XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format.md
+                       - Publishing Custom XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format-with-custom-mapping.md
+                       - Publishing HTTP Events to to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request.md
+                       - Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type: use-cases/examples/streaming-examples/publish-http-oauth-request-with-refresh-token.md
+                       - Publishing HTTP Events via an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-response.md
+                       - Publishing HTTP Events to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-with-oauth-user.md
+                       - Publishing HTTP Events to an OAuth-protected Endpoint without an Access Token: use-cases/examples/streaming-examples/publish-http-oauth-request-without-access-token.md
+                       - Publishing XML Events via JMS: use-cases/examples/streaming-examples/publish-jms-in-xml-format.md
+                       - Publishing Key-value events via JMS: use-cases/examples/streaming-examples/publish-jms-in-keyvalue-format.md
+                       - Publishing Custom Avro Events via Kafka: use-cases/examples/streaming-examples/publish-kafka-in-custom-avro-format.md
+                       - Publishing JSON Events via Kafka: use-cases/examples/streaming-examples/publish-kafka-in-json-format.md
+                       - Publishing Binary Events via Kafka: use-cases/examples/streaming-examples/publish-kafka-in-binary-format.md
+                       - Publishing Avro Events via Kafka: use-cases/examples/streaming-examples/publish-kafka-in-avro-format-using-schema-registry.md
+                       - Publishing XML Events via MQTT: use-cases/examples/streaming-examples/publish-mqtt-in-xml-format.md
+                       - Publishing Consumed Events to Prometheus Metrics and Exposing them via HTTP: use-cases/examples/streaming-examples/publish-prometheus-metrics-http-server.md
+                       - Publishing XML Events via RabbitMQ: use-cases/examples/streaming-examples/publish-rabbitmq-in-xml-format.md
+                       - Publishing JSON Events via TCP: use-cases/examples/streaming-examples/publish-tcp-in-json-format.md
+                       - Publishing Text Events via TCP: use-cases/examples/streaming-examples/publish-tcp-in-text-format.md
+                       - Publishing Binary Events via TCP: use-cases/examples/streaming-examples/publish-tcp-in-binary-format.md
+                       - Publishing XML Events via WebSocket: use-cases/examples/streaming-examples/publish-web-socket-in-xml-format.md
+                       - Sending Custom Keyvalue Events via SNMP: use-cases/examples/streaming-examples/snmp-set-request-app.md
                 - Processing Data:
-                       - Aggregating Data Incrementally: ''
-                       - Receiving Email Alerts: ''
-                       - Receiving and Publishing Events in Custom CSV Format:  ''
-                       - Publishing and Receiving CSV Events via Files: ''
-                       - Preprocessing Data Received via TCP: ''
-                       - Processing Geo Data: ''
-                       - Counting the Frequency of Values with BottomK: ''
-                       - Calculating the Distance Between Two Locations: ''
-                       - Extracting Values from a String: ''
-                       - Making Predictions via Hoeffding Classifier Model: ''
-                       - Joining Streaming Data with Stored Data in RDBMS: ''
-                       - Inserting and Accessing Data in a Map: ''
-                       - Rounding up Amounts via the Math Function: ''
-                       - Identifying Event Patterns Based On Order of Event Arrival: ''
-                       - Making Predictions via PMML Model: ''
-                       - Sending Custom JSON Events via HTTP: ''
-                       - Publishing Custom XML Events via HTTP: ''
-                       - Publishing Custom Avro Events via Kafka: ''
-                       - Receiving Custom XML Events via HTTP: ''
-                       - Receiving Custom JSON Events via HTTP: ''
-                       - Receiving Custom Text Events via Kafka: ''
-                       - Receiving Custom Text Events via TCP: ''
-                       - Identifying Sub-sequences in Input Sequences: ''
-                       - Using Javascript Functions in Siddhi Applications: ''
-                       - Making Predictions via a Streaming Perceptron Model: ''
-                       - Using StreamingML Kmeans for Clustering: ''
-                       - Making Predictions via a Regressor Model: ''
-                       - Converting String Values to Lowercase: ''
-                       - Receiving Data via TCP and Preprocessing: ''
-                       - Performing Regression Tasks via an Imported Tensorflow Model: ''
-                       - Text Mapping with In-memory Transport: ''
-                       - Converting Units: ''
-                       - Calculating Aggregations Over Time': ''
+                       - Aggregating Data Incrementally: use-cases/examples/streaming-examples/aggregate-data-incrementally.md
+                       - Receiving Email Alerts: use-cases/examples/streaming-examples/alerts-and-thresholds.md
+                       - Receiving and Publishing Events in Custom CSV Format:  use-cases/examples/streaming-examples/csv-custom-mapping.md
+                       - Publishing and Receiving CSV Events via Files: use-cases/examples/streaming-examples/csv-default-mapping.md
+                       - Preprocessing Data Received via TCP: use-cases/examples/streaming-examples/data-preprocessing.md
+                       - Performing Streaming Learning Using a Clustree Model: use-cases/examples/streaming-examples/clus-tree-test-app.md
+                       - Processing Geo Data: use-cases/examples/streaming-examples/execution-geo-sample.md
+                       - Counting the Frequency of Values with BottomK: use-cases/examples/streaming-examples/extrema-bottom-k.md
+                       - Calculating the Distance Between Two Locations: use-cases/examples/streaming-examples/geo-distance-calculation.md
+                       - Extracting Values from a String: use-cases/examples/streaming-examples/gpl-nlp-find-name-entity-type.md
+                       - Making Predictions via Hoeffding Classifier Model: use-cases/examples/streaming-examples/hoeffding-adaptive-tree-sample.md
+                       - Joining Streaming Data with Stored Data in RDBMS: use-cases/examples/streaming-examples/join-with-stored-data.md
+                       - Inserting and Accessing Data in a Map: use-cases/examples/streaming-examples/map-extension-sample.md
+                       - Rounding up Amounts via the Math Function: use-cases/examples/streaming-examples/math-extension-sample.md
+                       - Identifying Event Patterns Based On Order of Event Arrival: use-cases/examples/streaming-examples/pattern-matching.md
+                       - Making Predictions via PMML Model: use-cases/examples/streaming-examples/pmml-model-processor.md
+                       - Sending Custom JSON Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-json-format-with-custom-mapping.md
+                       - Publishing Custom XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format-with-custom-mapping.md
+                       - Publishing Custom Avro Events via Kafka: use-cases/examples/streaming-examples/publish-kafka-in-custom-avro-format.md
+                       - Receiving Custom XML Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-xml-format-with-custom-mapping.md
+                       - Receiving Custom JSON Events via HTTP: use-cases/examples/streaming-examples/receive-http-in-json-format-with-custom-mapping.md
+                       - Receiving Custom Text Events via Kafka: use-cases/examples/streaming-examples/receive-kafka-in-text-format-with-custom-mapping.md
+                       - Receiving Custom Text Events via TCP: use-cases/examples/streaming-examples/receive-tcp-in-text-format-with-custom-mapping.md
+                       - Identifying Sub-sequences in Input Sequences: use-cases/examples/streaming-examples/regex-execution-sample.md
+                       - Using Javascript Functions in Siddhi Applications: use-cases/examples/streaming-examples/script-js-sample.md
+                       - Making Predictions via a Streaming Perceptron Model: use-cases/examples/streaming-examples/streaming-perceptron-sample.md
+                       - Using StreamingML Kmeans for Clustering: use-cases/examples/streaming-examples/streaming-kmeans-sample.md
+                       - Making Predictions via a Regressor Model: use-cases/examples/streaming-examples/streaming-regressor.md
+                       - Converting String Values to Lowercase: use-cases/examples/streaming-examples/string-extension-sample.md
+                       - Receiving Data via TCP and Preprocessing: use-cases/examples/streaming-examples/sweet-production-data-preprocessing.md
+                       - Performing Regression Tasks via an Imported Tensorflow Model: use-cases/examples/streaming-examples/tensor-flow-test-app.md
+                       - Text Mapping with In-memory Transport: use-cases/examples/streaming-examples/text-mapping-with-in-memory-transport.md
+                       - Converting Units: use-cases/examples/streaming-examples/unit-conversion-extension-sample.md
+                       - Calculating Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Observe:
           - Observability Overview: observe/observe-overview.md
           - API Manager Analytics:
@@ -658,24 +668,23 @@ nav:
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
           - Micro Integrator Observability:
-              - 'Micro Integrator Dashboard': ''
-              - 'Micro Integrator CLI': ''
-              - 'Monitoring Message Round Trip': ''
-              - 'Analyzing Statistics and Tracing': ''
-              - 'Using the Management API': ''
-              - Logging:
-                  #- 'Logs in WSO2 Micro Integrator' : 'administer-and-observe/logs/monitoring_logs.md'
-                  #- 'Configuring Log4j2 Properties' : 'administer-and-observe/logs/configuring_log4j_properties.md'
-                  - 'Managing Log Growth': ''
-                  - 'Masking Sensitive Information in Logs': ''
+              - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
+              - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
+              - Using the Management API: observe/mi-observe/working-with-management-api.md
+              - Observability:
+                  - Cloud Native Observability Solution:
+                    - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
+                  - Classic Observability Solution:
+                    - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
+                  - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
+                  - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
               - Metrics:
-                  - 'JMX Monitoring': ''
-                  - 'SNMP Monitoring': ''
-                  - 'Prometheus for Monitoring': ''
+                  - JMX Monitoring: observe/mi-observe/jmx_monitoring.md
+                  - SNMP Monitoring: observe/mi-observe/snmp_monitoring.md
               - TCP Messages:
-                  - 'Starting TCPMon': ''
-                  - 'Message Monitoring with TCPMon': ''
-                  - 'Other Usages of TCPMon': ''
+                  - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
+                  - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
+                  - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
           - Monitoring the Streaming Integrator:
               - Configuring Grafana Dashboards: ''
               - Managing Grafana Dashboards: ''
@@ -688,29 +697,30 @@ nav:
           - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
-              - Sending a Simple Message to a Service: ''
-              - Message Routing: ''
-              - Message Transformation: ''
-              - Service Orchestration: ''
-              - Asynchronous Messaging: ''
-              - Connecting Web APIs/Cloud Services: ''
-              - Data Integration: ''
-              - File Processing: ''
-              - Periodic Execution of Integration Process: ''
-              - Using Inbound Endpoints: ''
-              - Reusing Mediation Sequences: ''
-              - Integrating with SAP: ''
+              - Sending a Simple Message to a Service': tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
+              - Message Routing: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
+              - Message Transformation: tutorials/integration-tutorials/transforming-message-content.md
+              - Service Orchestration: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
+              - Asynchronous Messaging: tutorials/integration-tutorials/storing-and-forwarding-messages.md
+              - Connecting Web APIs/Cloud Services: tutorials/integration-tutorials/using-the-gmail-connector.md
+              - Data Integration: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+              - File Processing: tutorials/integration-tutorials/file-processing.md
+              - Periodic Execution of Integration Process: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
+              - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
+              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
-              - Tutorials Overview: ''
-              - Performing Real-time ETL with MySQL: ''
-              - Performing Real-time ETL with Files: ''
-              - Creating an ETL Application via Wizard: ''
-              - Working with Kafka: ''
-              - Working with Business Rules: ''
-              - Exposing Processed Data as API: ''
-              - Managing Streaming Data with Errors: ''
-              - Triggering Integrations via MI: ''
-              - Running SI with Docker and Kubernetes: ''
+              - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
+              - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
+              - Performing Real-time ETL with Files: use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
+              - Creating an ETL Application via Wizard: use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
+              - Working with Kafka: use-cases/streaming-tutorials/working-with-kafka.md
+              - Integrating Stores: use-cases/streaming-tutorials/integrating-stores.md
+              - Working with Business Rules: use-cases/streaming-tutorials/creating-business-rules-templates.md
+              - Exposing Processed Data as API: use-cases/streaming-tutorials/exposing-processed-data-as-api.md
+              - Managing Streaming Data with Errors: use-cases/streaming-tutorials/handling-requests-with-errors.md
+              - Triggering Integrations via MI: use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md
+              - Running SI with Docker and Kubernetes: use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md
     - Install and Setup:
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
@@ -725,17 +735,25 @@ nav:
                     - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md
                     - Deploying on Kubernetes: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Installing Micro Integrator:
-                - Installing via the Installer: install-and-setup/installation/install_in_vm_installer.md
-                - Installing via the Binary: install-and-setup/installation/install_in_vm_binary.md
-                - Installing as a Windows Service: setup/installation/install_as_service.md
-                - Installing Streaming Integrator:
-                    - 'Installing via the Installer': install-and-setup/install/installing-the-product/installing-si-in-vm.md
-                    - 'Installing via the Binary': install-and-setup/install/installing-the-product/installing-si-binary.md
-                    - 'Installing as a Windows Service': install-and-setup/install/installing-the-product/installing-the-binary/installing-si-as-windows-service.md
-                    - 'Running the Streaming Integrator in Containers':
-                        - 'Installing in Docker': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
-                        - 'Installing in Kubernetes': install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md'
+                - Installing via the Installer: install-and-setup/install/installing-the-product/install-mi-in-vm-installer.md
+                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
+                - Installing as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
+            - Installing Streaming Integrator:
+                - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
+                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
+                - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
+                - Running the Streaming Integrator in Containers:
+                    - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
+                    - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
+        - Deploy:
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
         - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
             - All-In-One Deployment:
@@ -786,6 +804,21 @@ nav:
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                 - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                 - User Account Management: install-and-setup/setup/security/user-account-management.md
+            - Setting up the Streaming Integrator:
+                - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
+                - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
+                - Configuring Data Sources: install-and-setup/setup/si-setup/configuring-data-sources.md
+                - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
+                - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
+                - Supporting Different Transports: install-and-setup/setup/si-setup/supporting-different-transports.md
+                - User Management: install-and-setup/setup/si-setup/user-management.md
+                - Configuring State Persistence: install-and-setup/setup/si-setup/configuring-database-and-file-system-state-persistence.md
+                - Configuring Cluster Coordination: install-and-setup/setup/si-setup/configuring-cluster-coordination.md
+                - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
+                - Adding Third Party Non OSGi Libraries: install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md
+                - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
+                - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
+                - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deployment Best Practices:
             - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
             - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
@@ -842,6 +875,7 @@ nav:
             - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/migrating-applications-to-different-environments.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
@@ -866,6 +900,7 @@ nav:
                 - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
             - Configuring Secondary User Store: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
             - Writing a custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
+            - Configuring the Authorization Manager: administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager.md
         - Multitenancy:
             - Introduction to Multitenancy: administer/multitenancy/introduction-to-multitenancy.md
             - Managing Tenants: administer/multitenancy/managing-tenants.md
@@ -878,275 +913,386 @@ nav:
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
-    - reference:
+    - Reference:
+        - Product REST APIs:
+            - Overview: reference/product-apis/overview.md
+            - Publisher APIs:
+                - Publisher v2: reference/product-apis/publisher-apis/publisher-v2/publisher-v2.md
+            - Developer Portal APIs:
+                - Developer Portal API v2: reference/product-apis/devportal-apis/devportal-v2/devportal-v2.md
+            - Admin APIs:
+                - Admin APIs v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
+                - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+            - Gateway APIs:
+                - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+            - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Configuration Catalog: reference/config-catalog.md
+        - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
         - Customize Product:
-            - Product REST APIs:
-                - Overview: reference/customize-product/product-apis/overview.md
-                - Publisher APIs:
-                    - Publisher v1: reference/customize-product/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                - Developer Portal APIs:
-                    - Developer Portal API v1: reference/customize-product/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                - Admin APIs:
-                    - Admin APIs v1: reference/customize-product/product-apis/admin-apis/admin-v1/admin-v1.md
-                    - Admin APIs v0.17: reference/customize-product/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
-                - Gateway APIs:
-                    - Gateway v1: reference/customize-product/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-                - Advanced Configurations: reference/customize-product/product-apis/advanced-configurations.md
             - Extending WSO2 API Manager:
                 - Extending Key Management:
-                    - Extending Key Validation: reference/extending-api-manager/extending-key-management/extending-key-validation.md
-                    - Extending Scope Validation: reference/extending-api-manager/extending-key-management/extending-scope-validation.md
-                    - Extending Key Manager: reference/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-                    - Writing Custom Grant Types: reference/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                    - Extending Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
+                    - Extending Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
+                    - Extending Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                    - Writing Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
                 - Extending API Gateway:
-                    - Customizing API Template: reference/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-                    - Writing Custom Handlers: reference/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                    - Customizing API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                    - Writing Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
                 - Extending Workflows:
-                    - Invoking the API Manager from the BPEL Engine: reference/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
-                    - Customizing a Workflow Extension: reference/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
-                    - Configuring HTTP Redirection for Workflows: reference/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
-                    - Configuring Workflows for Tenants: reference/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
-                    - Configuring Workflows in a Cluster: reference/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
-                    - Changing the Default User Role in Workflows: reference/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
-                    - Cleaning Up Workflow Tasks: reference/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
+                    - Invoking the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                    - Customizing a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                    - Configuring HTTP Redirection for Workflows: reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                    - Configuring Workflows for Tenants: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                    - Configuring Workflows in a Cluster: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                    - Changing the Default User Role in Workflows: reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                    - Cleaning Up Workflow Tasks: reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
                 - SAML2 SSO:
-                    - Configuring Single Sign On with SAML2: reference/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
-                    - Configuring External IDP Through Identity Server for SSO: reference/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-                    - Configuring Identity Server as IDP for SSO: reference/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                    - Multi Factor Authentication for Publisher and Developer Portals: reference/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+                    - Configuring Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
+                    - Configuring External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
+                    - Configuring Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Customizations:
                 - Customizing the Developer Portal:
-                    - Overriding Developer Portal Theme: reference/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                    - Overriding Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                     - Customize API Listing:
-                        - API Category based Grouping: reference/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-                        - Change Default View: reference/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-                    - Enabling or Disabling API Detail Tabs: reference/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-                    - Override API Overview Page per API: reference/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-                    - Enable or Disable Rating: reference/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-                    - Enable or Disable Home Page: reference/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-                    - Enable or Disable Tag Cloud: reference/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-                    - Enable or Disable Footer: reference/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-                    - Enable or Disable Banner: reference/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-                    - Styling API Details Left Menu: reference/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-                    - Styling API Details Info Section: reference/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
-                    - Styling the Logo and Header: reference/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-                    - Enabling or Disabling Self Signup: reference/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-                    - Advanced Customization: reference/customizations/customizing-the-developer-portal/advanced-customization.md
-                - Log in to the Developer Portal using Social Media: reference/customizations/log-in-to-the-dev-portal-using-social-media.md
-                - Directing the Root Context to the Developer Portal: reference/customizations/directing-the-root-context-to-the-developer-portal.md
-                - Customizing User Signup in Developer Portal: reference/customizations/customizing-user-signup-in-developer-portal.md
-                - Customizing Login Pages for Developer Portal and Publisher: reference/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-                - Adding a User Signup Workflow: reference/customizations/adding-a-user-signup-workflow.md
-                - Adding internationalization: reference/customizations/adding-internationalization.md
-            - Admin Services: develop/wso2-admin-services.md
-            - Working with the Source Code: develop/working-with-the-source-code.md
-            - Java Documentation: develop/java-documentation.md
+                        - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
+                        - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                    - Enabling or Disabling API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                    - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                    - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                    - Enable or Disable Tag Cloud: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                    - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                    - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                    - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                    - Styling API Details Info Section: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                    - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                    - Enabling or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                - Overriding the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
+                - Log in to the Developer Portal using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
+                - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customizing User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
+                - Customizing Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                - Customizing the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
+                - Adding a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
+                - Adding internationalization: reference/customize-product/customizations/adding-internationalization.md
+                - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
+            - Admin Services: reference/wso2-admin-services.md
+            - Working with the Source Code: reference/working-with-the-source-code.md
+            - Java Documentation: reference/java-documentation.md
         - Guides:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Connectors:
-            - 'Connectors Overview' : 'reference/connectors/connectors-overview.md'
-            - 'When to Use Connectors' : 'reference/connectors/why-connectors.md'
-            - 'Connector Usage Guidelines' : 'reference/connectors/connector-usage.md'
-            - 'Connector Developer Guidelines' : 'reference/connectors/develop-connectors.md'
+            - Connectors Overview: reference/connectors/connectors-overview.md
+            - When to Use Connectors: reference/connectors/why-connectors.md
+            - Connector Usage Guidelines: reference/connectors/connector-usage.md
+            - Connector Developer Guidelines: reference/connectors/develop-connectors.md
             - Amazon DynamoDB Connector:
-                - 'Amazon DynamoDB Overview': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md'
-                - 'Setting up Amazon DynamoDB': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md'
-                - 'Amazon DynamoDB Example': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md'
-                - 'Amazon DynamoDB Reference': 'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md'
+                - Amazon DynamoDB Overview: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-overview.md
+                - Setting up Amazon DynamoDB: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration.md
+                - Amazon DynamoDB Example: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md
+                - Amazon DynamoDB Reference: reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md
             - Amazon Lambda Connector:
-                - 'Amazon Lambda Overview': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md'
-                - 'Setting up Amazon Lambda': 'reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md'
-                - 'Amazon Lambda Example': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md'
-                - 'Amazon Lambda Reference': 'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md'
+                - Amazon Lambda Overview: reference/connectors/amazonlambda-connector/amazonlambda-connector-overview.md
+                - Setting up Amazon Lambda: reference/connectors/amazonlambda-connector/setting-up-amazonlambda.md
+                - Amazon Lambda Example: reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md
+                - Amazon Lambda Reference: reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md
             - Amazon S3 Connector:
-                - 'AmazonS3 Overview': 'reference/connectors/amazons3-connector/amazons3-connector-overview.md'
-                - '2.x':
-                    - 'Setting up Amazon S3': 'reference/connectors/amazons3-connector/amazons3-connector-config.md'
-                    - 'AmazonS3 Example': 'reference/connectors/amazons3-connector/amazons3-connector-example.md'
-                    - 'AmazonS3 Reference': 'reference/connectors/amazons3-connector/amazons3-connector-reference.md'
-                - '1.x':
-                    - 'Setting up Amazon S3': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md'
-                    - 'AmazonS3 Example': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md'
-                    - 'AmazonS3 Reference': 'reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md'
+                - AmazonS3 Overview: reference/connectors/amazons3-connector/amazons3-connector-overview.md
+                - 2.x:
+                    - Setting up Amazon S3: reference/connectors/amazons3-connector/amazons3-connector-config.md
+                    - AmazonS3 Example: reference/connectors/amazons3-connector/amazons3-connector-example.md
+                    - AmazonS3 Reference: reference/connectors/amazons3-connector/amazons3-connector-reference.md
+                - 1.x:
+                    - Setting up Amazon S3: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-config.md
+                    - AmazonS3 Example: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-example.md
+                    - AmazonS3 Reference: reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference.md
             - Amazon SQS Connector:
-                - 'Amazon SQS Overview': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md'
-                - 'Amazon SQS Example': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md'
-                - 'Amazon SQS Reference': 'reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md'
-                - 'Amazon SQS Inbound Endpoint Example': 'reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md'
-                - 'Amazon SQS Inbound Endpoint Reference': 'reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md'
+                - Amazon SQS Overview: reference/connectors/amazonsqs-connector/amazonsqs-connector-overview.md
+                - Amazon SQS Example: reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md
+                - Amazon SQS Reference: reference/connectors/amazonsqs-connector/amazonsqs-connector-config.md
+                - Amazon SQS Inbound Endpoint Example: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-example.md
+                - Amazon SQS Inbound Endpoint Reference: reference/connectors/amazonsqs-connector/amazonsqs-inbound-endpoint-reference-configuration.md
             - BigQuery Connector:
-                - 'BigQuery Overview': 'reference/connectors/bigquery-connector/bigquery-connector-overview.md'
-                - 'Setting up the BigQuery Environment': 'reference/connectors/bigquery-connector/bigquery-connector-configuration.md'
-                - 'BigQuery Example': 'reference/connectors/bigquery-connector/bigquery-connector-example.md'
-                - 'BigQuery Reference': 'reference/connectors/bigquery-connector/bigquery-connector-reference.md'
+                - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
+                - Setting up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
+                - BigQuery Example: reference/connectors/bigquery-connector/bigquery-connector-example.md
+                - BigQuery Reference: reference/connectors/bigquery-connector/bigquery-connector-reference.md
             - Ceridian Dayforce Connector:
-                - 'Ceridian Dayforce Overview': 'reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md'
-                - 'Setting up the Ceridian Dayforce Connector': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md'
-                - 'Ceridian Dayforce Example': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md'
-                - 'Ceridian Dayforce Reference':
-                    - 'Initializing': 'reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md'
-                    - 'Employee': 'reference/connectors/ceridiandayforce-connector/employee.md'
-                    - 'Configuration':
-                        - 'orgUnits': 'reference/connectors/ceridiandayforce-connector/configuration/orgUnits.md'
-                        - 'orgUnitDetails': 'reference/connectors/ceridiandayforce-connector/configuration/orgUnitDetails.md'
-                    - 'Employee Documents':
-                        - 'listOfDocuments': 'reference/connectors/ceridiandayforce-connector/employeeDocuments/listOfDocuments.md'
-                        - 'documentDetails': 'reference/connectors/ceridiandayforce-connector/employeeDocuments/documentDetails.md'
-                    - 'Employee Employemnt Information':
-                        - 'employeeClockDeviceGroups': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeClockDeviceGroups.md'
-                        - 'employeeCompensationSummary': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCompensationSummary.md'
-                        - 'employeeCourses': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeCourses.md'
-                        - 'employeeEmploymentAgreements': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentAgreements.md'
-                        - 'employeeEmploymentStatuses': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentStatuses.md'
-                        - 'employeeEmploymentTypes': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeEmploymentTypes.md'
-                        - 'employeeHighlyCompensatedEmployees': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHighlyCompensatedEmployees.md'
-                        - 'employeeHRIncidents': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeHRIncidents.md'
-                        - 'employeeLaborDefaults': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeLaborDefaults.md'
-                        - 'employeeOnboardingPolicies': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOnboardingPolicies.md'
-                        - 'employeeOrgInfo': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeOrgInfo.md'
-                        - 'employeePayAdjustmentCodeGroups': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayAdjustmentCodeGroups.md'
-                        - 'employeePayGradeRates': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePayGradeRates.md'
-                        - 'employeePerformanceRatings': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeePerformanceRatings.md'
-                        - 'employeeProperties': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeProperties.md'
-                        - 'employeeSkills': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeSkills.md'
-                        - 'employeeTrainingPrograms': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeTrainingPrograms.md'
-                        - 'employeeUnionMemberships': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeUnionMemberships.md'
-                        - 'employeeWorkAssignments': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkAssignments.md'
-                        - 'employeeWorkContracts': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md'
-                        - 'employeeWorkContracts': 'reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeWorkContracts.md'
-                    - 'Employee Personal Information':
-                        - 'employeeAddresses': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeAddresses.md'
-                        - 'employeeCANTaxes': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeCANTaxes.md'
-                        - 'employeeContacts': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeContacts.md'
-                        - 'employeeDirectDeposits': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeDirectDeposits.md'
-                        - 'employeeEmergencyContacts': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeEmergencyContacts.md'
-                        - 'employeeHealthandWellness': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeHealthandWellness.md'
-                        - 'employeeMaritalStatuses': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeMaritalStatuses.md'
-                        - 'employeeUSTaxes': 'reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeUSTaxes.md'
-                    - 'Employee Time Management':
-                        - 'availability': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md'
-                        - 'employeePunches': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeePunches.md'
-                        - 'employeeRawPunches': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeeRawPunches.md'
-                        - 'schedules': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md'
-                        - 'timeAwayFromWork': 'reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeAwayFromWork.md'
-                    - 'Employment Eligibility Verification':
-                        - 'i9Order': 'reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9Order.md'
-                    - 'Recruiting':
-                        - 'jobPostings': 'reference/connectors/ceridiandayforce-connector/recruiting/jobPostings.md'
-                    - 'Reporting':
-                        - 'reportMetadataForAListOfReports': 'reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForAListOfReports.md'
-                        - 'reportMetadataForASpecificReport': 'reference/connectors/ceridiandayforce-connector/reporting/reportMetadataForASpecificReport.md'
-                        - 'reports': 'reference/connectors/ceridiandayforce-connector/reporting/reports.md'
-                    - 'User Security Authority And Management':
-                        - 'documentManagementSecurityGroups': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentManagementSecurityGroups.md'
-                        - 'employeeLocations': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeLocations.md'
-                        - 'employeeManagers': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeManagers.md'
-                        - 'employeeRoles': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeRoles.md'
-                        - 'employeeSSOAccounts': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeSSOAccounts.md'
-                        - 'employeeWorkAssignmentManagers': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeWorkAssignmentManagers.md'
-                        - 'userPayAdjustmentCodeGroups': 'reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userPayAdjustmentCodeGroups.md'
+                - Ceridian Dayforce Overview: reference/connectors/ceridiandayforce-connector/cerediandayforce-overview.md
+                - Setting up the Ceridian Dayforce Connector: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config.md
+                - Ceridian Dayforce Example: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-example.md
+                - Ceridian Dayforce Reference:
+                    - Initializing: reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-reference.md
+                    - Employee: reference/connectors/ceridiandayforce-connector/employee.md
+                    - Configuration:
+                        - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgunits.md
+                        - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgunitdetails.md
+                    - Employee Documents:
+                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listofdocuments.md
+                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentdetails.md
+                    - Employee Employemnt Information:
+                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeclockdevicegroups.md
+                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecompensationsummary.md
+                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecourses.md
+                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentagreements.md
+                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentstatuses.md
+                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymenttypes.md
+                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehighlycompensatedemployees.md
+                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehrincidents.md
+                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeelabordefaults.md
+                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeonboardingpolicies.md
+                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeorginfo.md
+                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepayadjustmentcodegroups.md
+                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepaygraderates.md
+                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeperformanceratings.md
+                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeproperties.md
+                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeskills.md
+                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeetrainingprograms.md
+                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeunionmemberships.md
+                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkassignments.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
+                    - Employee Personal Information:
+                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeaddresses.md
+                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecantaxes.md
+                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecontacts.md
+                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeedirectdeposits.md
+                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeemergencycontacts.md
+                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeehealthandwellness.md
+                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeemaritalstatuses.md
+                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeustaxes.md
+                    - Employee Time Management:
+                        - availability: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md
+                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeepunches.md
+                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeerawpunches.md
+                        - schedules: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md
+                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeawayfromwork.md
+                    - Employment Eligibility Verification:
+                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9order.md
+                    - Recruiting:
+                        - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobpostings.md
+                    - Reporting:
+                        - reportMetadataForAListOfReports: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforalistofreports.md
+                        - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforaspecificreport.md
+                        - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
+                    - User Security Authority And Management:
+                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentmanagementsecuritygroups.md
+                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeelocations.md
+                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeemanagers.md
+                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeroles.md
+                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeessoaccounts.md
+                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeworkassignmentmanagers.md
+                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userpayadjustmentcodegroups.md
             - DB Event Listener Inbound Endpoint:
-                - 'Database Event Listener Overview': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md'
-                - 'Database Event Listener Example': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md'
-                - 'Database Event Listener Reference': 'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md'
+                - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
+                - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
+                - Database Event Listener Reference: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md
             - Documentum Connector:
-                - 'Documentum Overview': 'reference/connectors/documentum/documentum-overview.md'
-                - 'Documentum Example': 'reference/connectors/documentum/documentum-example.md'
-                - 'Documentum Reference': 'reference/connectors/documentum/documentum-reference.md'
+                - Documentum Overview: reference/connectors/documentum/documentum-overview.md
+                - Documentum Example: reference/connectors/documentum/documentum-example.md
+                - Documentum Reference: reference/connectors/documentum/documentum-reference.md
             - Email Connector:
-                - 'Email Connector Overview': 'reference/connectors/email-connector/email-connector-overview.md'
-                - 'Email Connector Example': 'reference/connectors/email-connector/email-connector-example.md'
-                - 'Email Connector Reference': 'reference/connectors/email-connector/email-connector-config.md'
+                - Email Connector Overview: reference/connectors/email-connector/email-connector-overview.md
+                - Email Connector Example: reference/connectors/email-connector/email-connector-example.md
+                - Email Connector Reference: reference/connectors/email-connector/email-connector-config.md
             - FHIR Connector:
-                - 'FHIR Overview': 'reference/connectors/fhir-connector/fhir-connector-overview.md'
-                - 'FHIR Example': 'reference/connectors/fhir-connector/fhir-connector-example.md'
-                - 'FHIR Reference': 'reference/connectors/fhir-connector/fhir-connector-config.md'
+                - FHIR Overview: reference/connectors/fhir-connector/fhir-connector-overview.md
+                - FHIR Example: reference/connectors/fhir-connector/fhir-connector-example.md
+                - FHIR Reference: reference/connectors/fhir-connector/fhir-connector-config.md
             - File Connector:
-                - 'File Connector Overview': 'reference/connectors/file-connector/file-connector-overview.md'
+                - File Connector Overview: reference/connectors/file-connector/file-connector-overview.md
                 - 4.x:
-                    - 'File Connector Example': 'reference/connectors/file-connector/file-connector-example.md'
-                    - 'File Connector Reference': 'reference/connectors/file-connector/file-connector-config.md'
+                    - File Connector Example: reference/connectors/file-connector/file-connector-example.md
+                    - File Connector Reference: reference/connectors/file-connector/file-connector-config.md
                 - 3.x:
-                    - 'File Connector Example': 'reference/connectors/file-connector/3.x/file-connector-3.x-example.md'
-                - 'File Connector Reference': 'reference/connectors/file-connector/3.x/file-connector-3.x-config.md'
+                    - File Connector Example: reference/connectors/file-connector/3.x/file-connector-3.x-example.md
+                    - File Connector Reference: reference/connectors/file-connector/3.x/file-connector-3.x-config.md
             - Gmail Connector:
-                - 'Gmail Overview': 'reference/connectors/gmail-connector/gmail-connector-overview.md'
-                - 'Gmail Example': 'reference/connectors/gmail-connector/gmail-connector-example.md'
-                - 'Gmail Reference': 'reference/connectors/gmail-connector/gmail-connector-config.md'
+                - Gmail Overview: reference/connectors/gmail-connector/gmail-connector-overview.md
+                - Gmail Example: reference/connectors/gmail-connector/gmail-connector-example.md
+                - Gmail Reference: reference/connectors/gmail-connector/gmail-connector-config.md
             - Google Firebase Connector:
-                - 'Google Firebase Overview': 'reference/connectors/google-firebase-connector/google-firebase-overview.md'
-                - 'Setting up Google Firebase': 'reference/connectors/google-firebase-connector/google-firebase-setup.md'
-                - 'Google Firebase Example': 'reference/connectors/google-firebase-connector/google-firebase-connector-example.md'
-                - 'Google Firebase Reference': 'reference/connectors/google-firebase-connector/google-firebase-configuration.md'
+                - Google Firebase Overview: reference/connectors/google-firebase-connector/google-firebase-overview.md
+                - Setting up Google Firebase: reference/connectors/google-firebase-connector/google-firebase-setup.md
+                - Google Firebase Example: reference/connectors/google-firebase-connector/google-firebase-connector-example.md
+                - Google Firebase Reference: reference/connectors/google-firebase-connector/google-firebase-configuration.md
             - Google Pub/Sub Connector:
-                - 'Google PubSub Overview': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md'
-                - 'Setting up the Google PubSub Environment': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md'
-                - 'Google PubSub Example': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md'
-                - 'Google PubSub Reference': 'reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md'
+                - Google PubSub Overview: reference/connectors/google-pubsub-connector/googlepubsub-connector-overview.md
+                - Setting up the Google PubSub Environment: reference/connectors/google-pubsub-connector/googlepubsub-connector-configuration.md
+                - Google PubSub Example: reference/connectors/google-pubsub-connector/googlepubsub-connector-example.md
+                - Google PubSub Reference: reference/connectors/google-pubsub-connector/googlepubsub-connector-reference.md
             - Google Spreadsheet Connector:
-                - 'Google Spreadsheet Overview': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md'
-                - 'Google Spreadsheet Example': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md'
-                - 'Google Spreadsheet Reference': 'reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md'
+                - Google Spreadsheet Overview: reference/connectors/google-spreadsheet-connector/google-spreadsheet-overview.md
+                - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
+                - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
             - ISO8583 Connector:
-                - 'ISO8583 Overview': 'reference/connectors/ISO8583-connector/ISO8583-connector-overview.md'
-                - 'Setting up ISO8583': 'reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md'
-                - 'ISO8583 Example': 'reference/connectors/ISO8583-connector/ISO8583-connector-example.md'
-                - 'ISO8583 Reference': 'reference/connectors/ISO8583-connector/ISO8583-connector-reference.md'
-                - 'ISO8583 Inbound Endpoint Example': 'reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md'
-                - 'ISO8583 Inbound Endpoint Reference': 'reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md'
+                - ISO8583 Overview: reference/connectors/ISO8583-connector/ISO8583-connector-overview.md
+                - Setting up ISO8583: reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md
+                - ISO8583 Example: reference/connectors/ISO8583-connector/ISO8583-connector-example.md
+                - ISO8583 Reference: reference/connectors/ISO8583-connector/ISO8583-connector-reference.md
+                - ISO8583 Inbound Endpoint Example: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md
+                - ISO8583 Inbound Endpoint Reference: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md
             - Kafka Connector:
-                - 'Kafka Overview': 'reference/connectors/kafka-connector/kafka-connector-overview.md'
-                - 'Setting up Kafka': 'reference/connectors/kafka-connector/setting-up-kafka.md'
-                - 'Enabling Security for Kafka': 'reference/connectors/kafka-connector/enabling-security-for-kafka.md'
-                - 'Kafka Example': 'reference/connectors/kafka-connector/kafka-connector-producer-example.md'
-                - 'Kafka Connector Reference': 'reference/connectors/kafka-connector/kafka-connector-config.md'
-                - 'Kafka Inbound Endpoint Example': 'reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md'
+                - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
+                - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
+                - Enabling Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
+                - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
+                - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
             - LDAP Connector:
-                - 'LDAP Overview': 'reference/connectors/ldap-connector/ldap-connector-overview.md'
-                - 'Setting up an LDAP Server': 'reference/connectors/ldap-connector/setting-up-ldap.md'
-                - 'LDAP Example': 'reference/connectors/ldap-connector/ldap-connector-example.md'
-                - 'LDAP Reference': 'reference/connectors/ldap-connector/ldap-server-configuration.md'
+                - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
+                - Setting up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
+                - LDAP Example: reference/connectors/ldap-connector/ldap-connector-example.md
+                - LDAP Reference: reference/connectors/ldap-connector/ldap-server-configuration.md
             - Microsoft Azure Storage Connector:
-                - 'Microsoft Azure Storage Overview': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md'
-                - 'Setting up Microsoft Azure Storage': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md'
-                - 'Microsoft Azure Storage Example': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md'
-                - 'Microsoft Azure Storage Reference': 'reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md'
+                - Microsoft Azure Storage Overview: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-overview.md
+                - Setting up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
+                - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
+                - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - Redis Connector:
-                - 'Redis Overview': 'reference/connectors/redis-connector/redis-connector-overview.md'
-                - 'Setting up the Environment': 'reference/connectors/redis-connector/redis-connector-configuration.md'
-                - 'Redis Example': 'reference/connectors/redis-connector/redis-connector-example.md'
-                - 'Redis Reference': 'reference/connectors/redis-connector/redis-connector-reference.md'
+                - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
+                - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
+                - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
+                - Redis Reference: reference/connectors/redis-connector/redis-connector-reference.md
             - Salesforce Connectors:
-                - 'Salesforce Overview': 'reference/connectors/salesforce-connectors/sf-overview.md'
-                - 'Salesforce Access Token Generation': 'reference/connectors/salesforce-connectors/sf-access-token-generation.md'
-                - 'Setting up the PushTopic in Salesforce': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md'
-                - 'Salesforce REST API Example': 'reference/connectors/salesforce-connectors/sf-rest-connector-example.md'
-                - 'Salesforce REST API Reference': 'reference/connectors/salesforce-connectors/sf-rest-connector-config.md'
-                - 'Salesforce Inbound Endpoint Example': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md'
-                - 'Salesforce Inbound Endpoint Reference': 'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md'
-                - 'Salesforce Bulk Configuration': 'reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md'
-                - 'Salesforce Bulk API Example': 'reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md'
-                - 'Salesforce Bulk API Reference': 'reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md'
-                - 'Salesforce SOAP Connector Configuration': 'reference/connectors/salesforce-connectors/sf-soap-connector-config.md'
-                - 'Salesforce SOAP Connector Example': 'reference/connectors/salesforce-connectors/sf-soap-connector-example.md'
-                - 'Salesforce SOAP Connector Reference': 'reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md'
+                - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
+                - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
+                - Setting up the PushTopic in Salesforce: reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration.md
+                - Salesforce REST API Example: reference/connectors/salesforce-connectors/sf-rest-connector-example.md
+                - Salesforce REST API Reference: reference/connectors/salesforce-connectors/sf-rest-connector-config.md
+                - Salesforce Inbound Endpoint Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md
+                - Salesforce Inbound Endpoint Reference: reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md
+                - Salesforce Bulk Configuration: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-configuration.md
+                - Salesforce Bulk API Example: reference/connectors/salesforcebulk-connector/salesforcebulk-connector-example.md
+                - Salesforce Bulk API Reference: reference/connectors/salesforcebulk-connector/salesforcebulk-reference.md
+                - Salesforce SOAP Connector Configuration: reference/connectors/salesforce-connectors/sf-soap-connector-config.md
+                - Salesforce SOAP Connector Example: reference/connectors/salesforce-connectors/sf-soap-connector-example.md
+                - Salesforce SOAP Connector Reference: reference/connectors/salesforce-soap-connector/salesforce-soap-reference.md
             - ServiceNow Connector:
-                - 'ServiceNow Overview': 'reference/connectors/servicenow-connector/servicenow-overview.md'
-                - 'Setting up Servicenow': 'reference/connectors/servicenow-connector/settingup-servicenow-instance.md'
-                - 'ServiceNow Example': 'reference/connectors/servicenow-connector/servicenow-connector-example.md'
-                - 'ServiceNow Reference': 'reference/connectors/servicenow-connector/servicenow-connector-config.md'
+                - ServiceNow Overview: reference/connectors/servicenow-connector/servicenow-overview.md
+                - Setting up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
+                - ServiceNow Example: reference/connectors/servicenow-connector/servicenow-connector-example.md
+                - ServiceNow Reference: reference/connectors/servicenow-connector/servicenow-connector-config.md
             - SMPP Connector:
-                - 'SMPP Overview': 'reference/connectors/smpp-connector/smpp-connector-overview.md'
-                - 'Setting up the SMPP Connector': 'reference/connectors/smpp-connector/smpp-connector-configuration.md'
-                - 'SMPP Example': 'reference/connectors/smpp-connector/smpp-connector-example.md'
-                - 'SMPP Reference': 'reference/connectors/smpp-connector/smpp-connector-config.md'
-                - 'SMPP Inbound Endpoint Example': 'reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md'
-                - 'SMPP Inbound Endpoint Reference': 'reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md'
+                - SMPP Overview: reference/connectors/smpp-connector/smpp-connector-overview.md
+                - Setting up the SMPP Connector: reference/connectors/smpp-connector/smpp-connector-configuration.md
+                - SMPP Example: reference/connectors/smpp-connector/smpp-connector-example.md
+                - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
+                - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
+                - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+        - Synapse Configurations:
+            - REST API Properties: reference/synapse-properties/rest-api-properties.md
+            - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
+            - Mediator Catalog:
+                - About Mediators: reference/mediators/about-mediators.md
+                - Aggregate Mediators: reference/mediators/aggregate-mediator.md
+                - Builder Mediator: reference/mediators/builder-mediator.md
+                - Cache Mediator: reference/mediators/cache-mediator.md
+                - Call Mediator: reference/mediators/call-mediator.md
+                - Call Template Mediator: reference/mediators/call-template-mediator.md
+                - Callout Mediator: reference/mediators/callout-mediator.md
+                - Class Mediator: reference/mediators/class-mediator.md
+                - Clone Mediator: reference/mediators/clone-mediator.md
+                - Data Mapping:
+                    - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
+                    - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+                - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
+                - DB Report Mediator: reference/mediators/db-report-mediator.md
+                - Drop Mediator: reference/mediators/drop-mediator.md
+                - EJB Mediator: reference/mediators/ejb-mediator.md
+                - Enrich Mediator: reference/mediators/enrich-mediator.md
+                - Entitlement Mediator: reference/mediators/entitlement-mediator.md
+                - FastXSLT Mediator: reference/mediators/fastxslt-mediator.md
+                - Fault Mediator: reference/mediators/fault-mediator.md
+                - Filter Mediator: reference/mediators/filter-mediator.md
+                - ForEach Mediator: reference/mediators/foreach-mediator.md
+                - Header Mediator: reference/mediators/header-mediator.md
+                - Iterate Mediator: reference/mediators/iterate-mediator.md
+                - JSON Transform Mediator: reference/mediators/json-transform-mediator.md
+                - Log Mediator: reference/mediators/log-mediator.md
+                - Loopback Mediator: reference/mediators/loopback-mediator.md
+                - OAuth Mediator: reference/mediators/oauth-mediator.md
+                - PayloadFactory Mediator: reference/mediators/payloadfactory-mediator.md
+                - Property Mediator: reference/mediators/property-mediator.md
+                - Property Group Mediator: reference/mediators/property-group-mediator.md
+                - Respond Mediator: reference/mediators/respond-mediator.md
+                - Script Mediator: reference/mediators/script-mediator.md
+                - Send Mediator: reference/mediators/send-mediator.md
+                - Sequence Mediator: reference/mediators/sequence-mediator.md
+                - Smooks Mediator: reference/mediators/smooks-mediator.md
+                - Store Mediator: reference/mediators/store-mediator.md
+                - Switch Mediator: reference/mediators/switch-mediator.md
+                - Throttle Mediator: reference/mediators/throttle-mediator.md
+                - Transaction Mediator: reference/mediators/transaction-mediator.md
+                - URLRewrite Mediator: reference/mediators/urlrewrite-mediator.md
+                - Validate Mediator: reference/mediators/validate-mediator.md
+                - XQuery Mediator: reference/mediators/xquery-mediator.md
+                - XSLT Mediator: reference/mediators/xslt-mediator.md
+            - Property Catalog:
+                - Generic Properties: reference/mediators/property-reference/generic-properties.md
+                - HTTP Transport Properties: reference/mediators/property-reference/http-transport-properties.md
+                - SOAP Headers: reference/mediators/property-reference/soap-headers.md
+                - Axis2 Properties: reference/mediators/property-reference/axis2-properties.md
+                - Synapse Message Context Properties: reference/mediators/property-reference/message-context-properties.md
+                - Accessing Properties with XPath : reference/mediators/property-reference/accessing-properties-with-xpath.md
+            - Scheduled Task Properties: reference/synapse-properties/scheduled-task-properties.md
+            - Synapse Properties:
+                - Endpoint Properties: reference/synapse-properties/endpoint-properties.md
+                - Sequence Properties: reference/synapse-properties/sequence-properties.md
+            - Inbound Endpoints:
+                - About Inbound Endpoints: reference/synapse-properties/inbound-endpoints/about-inbound-endpoints.md
+                - HTTP Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties.md
+                - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
+                - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
+                - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
+                - File Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md
+                - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
+                - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
+                - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
+                - MQTT Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/mqtt-inbound-endpoint-properties.md
+                - Custom Inbound Endpoint: reference/synapse-properties/inbound-endpoints/custom-inbound-endpoint-properties.md
+            - Message Stores and Processors:
+                - About Message Stores and Processors: reference/synapse-properties/about-message-stores-processors.md
+                - Message Stores:
+                    - JMS Message Store: reference/synapse-properties/message-stores/jms-msg-store-properties.md
+                    - JDBC Message Store: reference/synapse-properties/message-stores/jdbc-msg-store-properties.md
+                    - RabbitMQ Message Store: reference/synapse-properties/message-stores/rabbitmq-msg-store-properties.md
+                    - Resequence Message Store: reference/synapse-properties/message-stores/resequence-msg-store-properties.md
+                    - WSO2 MB Message Store: reference/synapse-properties/message-stores/wso2mb-msg-store-properties.md
+                    - In Memory Message Store: reference/synapse-properties/message-stores/in-memory-msg-store-properties.md
+                    - Custom Message Store: reference/synapse-properties/message-stores/custom-msg-store-properties.md
+                - Message Processors:
+                    - Message Sampling Processor: reference/synapse-properties/message-processors/msg-sampling-processor-properties.md
+                    - Scheduled Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-forwarding-processor-properties.md
+                    - Scheduled Failover Message Forwarding Processor: reference/synapse-properties/message-processors/msg-sched-failover-forwarding-processor-properties.md
+            - Templates: reference/synapse-properties/template-properties.md
+            - Endpoints: reference/synapse-properties/endpoint-properties.md
+            - Data Services:
+                - About Data Services: reference/synapse-properties/data-services.md
+                - Elements of a Data Service: reference/synapse-properties/data-services/elements-of-a-data-service.md
+                - Query Parameters: reference/synapse-properties/data-services/query-parameters.md
+                - Datasource Parameters: reference/synapse-properties/data-services/datasource-configuration-parameters.md
+                - Input Validators: reference/synapse-properties/data-services/input-validators.md
+                - Namespaces: reference/synapse-properties/data-services/using-namespaces.md
+                - SQL/Data Types: reference/synapse-properties/data-services/mapping-data-types.md
+                - Sample Queries: reference/synapse-properties/data-services/sample-queries.md
+            - Transport Configs:
+                - VFS Parameters: reference/synapse-properties/transport-parameters/vfs-transport-parameters.md
+                - JMS Parameters: reference/synapse-properties/transport-parameters/jms-transport-parameters.md
+                - RabbitMQ Parameters: reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters.md
+                - HL7 Parameters: reference/synapse-properties/transport-parameters/hl7-transport-parameters.md
+                - FIX Parameters: reference/synapse-properties/transport-parameters/fix-transport-parameters.md
+                - MailTo Parameters: reference/synapse-properties/transport-parameters/mailto-transport-parameters.md
+                - MQTT Parameters: reference/synapse-properties/transport-parameters/mqtt-transport-parameters.md
+            - Micro Integrator Security References:
+                - Customizing Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
+                - Using Keystores: reference/mi-security-reference/using_keystores.md
+                - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
@@ -1159,11 +1305,11 @@ nav:
             - API Security Sample: reference/samples/api-security-sample.md
             - API Versioning Sample: reference/samples/api-versioning-sample.md
         - Troubleshooting:
-              - Error Handling: reference/troubleshooting/error-handling.md
-              - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
+              - Error Handling: troubleshooting/error-handling.md
+              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-              - Cleaning Up Partially Created Keys: reference/troubleshooting/cleaning-up-partially-created-keys.md
-              - Troubleshooting 'Registered callback does not match with the provided url' error: reference/troubleshooting/troubleshooting-invalid-callback-error.md
+              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
 
 # Extensions
 markdown_extensions:
@@ -1213,7 +1359,7 @@ plugins:
               'learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-info-section.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/styling-api-details-info-section/'
               'learn/consume-api/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/'
-              'learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/advanced-customization/'
+              'learn/consume-api/customizations/advanced-ui-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/advanced-ui-customization/'
               'learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/log-in-to-the-dev-portal-using-social-media/'
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'
@@ -1329,6 +1475,8 @@ plugins:
               'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
+              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:
@@ -1350,4 +1498,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
+    #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/next

@@ -4,7 +4,7 @@ Gmail is a free, Web-based e-mail service provided by Google. It allows you to s
 
 To see the Gmail Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "gmail".
 
-<img src="../../../../assets/img/connectors/gmail-store.png" title="Gmail Connector Store" width="200" alt="Gmail Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/gmail-store.png" title="Gmail Connector Store" width="200" alt="Gmail Connector Store"/>
 
 ## Compatibility
 
@@ -16,11 +16,11 @@ For older versions, see the details in the connector store.
 
 ## Gmail Connector documentation
 
-* **[Creating the Client ID and Client Secret](configuring-gmail-api.md)**: You need to first create Gmail credentials for the connector to use in order to interact with Gmail.
+* **[Creating the Client ID and Client Secret]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/)**: You need to first create Gmail credentials for the connector to use in order to interact with Gmail.
 
-* **[Gmail Connector Example](gmail-connector-example.md)**: This example demonstrates a scenario where a customer feedback Gmail account of a company can be easily managed using the WSO2 Gmail Connector. 
+* **[Gmail Connector Example]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-example/)**: This example demonstrates a scenario where a customer feedback Gmail account of a company can be easily managed using the WSO2 Gmail Connector. 
 
-* **[Gmail Connector Reference](gmail-connector-config.md)**: This documentation provides a reference guide for the Gmail Connector.
+* **[Gmail Connector Reference]({{base_path}}/reference/connectors/gmail-connector/gmail-connector-config/)**: This documentation provides a reference guide for the Gmail Connector.
 
 ## How to contribute
 

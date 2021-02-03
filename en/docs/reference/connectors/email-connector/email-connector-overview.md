@@ -4,7 +4,7 @@ The Email Connector allows you to list, send emails and perform other actions su
 
 To see the available Email connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Email".
 
-<img src="../../../../assets/img/connectors/email-connector-store.png" title="Email Connector Store" width="200" alt="Email Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/email-connector-store.png" title="Email Connector Store" width="200" alt="Email Connector Store"/>
 
 ## Compatibility
 
@@ -16,9 +16,9 @@ For older versions, see the details in the connector store.
 
 ## Email Connector documentation
 
-* **[Email Connector Example](email-connector-example.md)**: This example explains how to use Email Connector to send an email and retrieve the same. 
+* **[Email Connector Example]({{base_path}}/reference/connectors/email-connector/email-connector-example/)**: This example explains how to use Email Connector to send an email and retrieve the same. 
 
-* **[Email Connector Reference](email-connector-config.md)**: This documentation provides a reference guide for the Email Connector.
+* **[Email Connector Reference]({{base_path}}/reference/connectors/email-connector/email-connector-config/)**: This documentation provides a reference guide for the Email Connector.
 
 ## How to contribute
 

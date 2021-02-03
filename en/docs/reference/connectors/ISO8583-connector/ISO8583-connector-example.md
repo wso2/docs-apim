@@ -10,7 +10,7 @@ Given below is a sample API that illustrates how you can configure ISO8583 with 
 
 To know the further information about the  `init` and `iso8583.sendMessage` operations please refer this link.
 
-<img src="../../../../assets/img/connectors/ISO8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/iso8583-connector.png" title="ISO8583 Connector" width="800" alt="ISO8583 Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -18,7 +18,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!references/connectors/importing-connector-to-integration-studio.md!}
+{!reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -49,21 +49,21 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
    ```
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!/references/connectors/exporting-artifacts.md!}
+{!/reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/iso8583-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/iso8583-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
     
 ## Testing
 
@@ -94,4 +94,4 @@ Invoke the API as shown below using the curl command. Curl Application can be do
    ```                           
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

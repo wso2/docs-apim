@@ -93,13 +93,20 @@ directory and add below handler before `</Handlers>` .
     <handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/> 
     ```
 
-2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j.properties` file to enable printing DEBUG logs.
+2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j2.properties` file to enable printing DEBUG logs.
 
     ``` java
-    log4j.logger.org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler = DEBUG
+    logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
+    logger.log-msg-handler.name = DEBUG
+    ```
+    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
+
+    ```
+    loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
-3.  Restart API Manager.
+    !!! note
+        The logger name `log-msg-handler` can be replaced by any logger-name.
 
 **To enable Message Logging into APIS created from publisher automatically :**
 
@@ -136,7 +143,7 @@ Let's see how you can write a custom handler and apply it to the API Manager. In
 authentication handler. Make sure your custom handler name is not the same as the name of an existing handler.
 
 WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation 
-is <a href="../../../../assets/attachments/learn/APIAuthenticationHandler.java" download>here</a>. Similarly, you can extend the API Manager to 
+is <a href="{{base_path}}/assets/attachments/learn/APIAuthenticationHandler.java" download>here</a>. Similarly, you can extend the API Manager to 
 support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive 
@@ -187,10 +194,36 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     }
 }
 ```
+Make sure to update the pom file for the above project you created(or downloaded) with below dependency.
+
+```
+  <dependencies>
+        <dependency>
+            <groupId>org.apache.synapse</groupId>
+            <artifactId>synapse-core</artifactId>
+            <version>2.1.7-wso2v183</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.synapse</groupId>
+            <artifactId>synapse-commons</artifactId>
+            <version>2.1.7-wso2v183</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.apimgt</groupId>
+            <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
+            <version>6.7.206</version>
+        </dependency>
+    </dependencies>
+```
 ## Engaging the custom handler
 
-1.  Build the custom authenticaor code downloaded previously, and copy the resulting jar to 
-`<APIM_HOME>/repository/components/dropins` directory.
+1.  Build the custom authenticaor code created/downloaded previously, and copy the resulting jar to 
+`<APIM_HOME>/repository/components/lib` directory.
+
+    !!! note
+        If the jar you created is non-OSGI, you should place the jar in the  `<APIM_HOME>/repository/components/lib` directory. <br>
+        If the jar you created is OSGI, then you should place the jar in the `<APIM_HOME>/repository/components/dropins` driectory.
+
 2.  Engage the custom handler using the API template as explained below:
     You can engage a custom handler to all APIs at once or only to selected APIs. To engage a custom handler to APIs, 
     you need to add the custom handler with its logic in the `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` 
@@ -199,7 +232,16 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     <div class="admonition note">
         <p class="admonition-title">Note</p>
         <p>
-            It is not recommended to update the API source code via the source view UI or file system when engaging a 
+            A quicker way to engage the handler for the **purpose of trying it out** is to add the handler to the relevant API artifact file resides in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory using the following segment.
+        </p>
+        <p>
+            ```
+            <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
+
+            ```
+        </p>
+        <p>
+            However, it is not recommended to update the API source code via the source view UI or file system when engaging a 
             custom handler to selected APIs, because the customizations get overridden by the publisher updates.
         </p>
     </div>
@@ -208,6 +250,7 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     `velocity_template.xml` file while making sure that it skips the default `APIAuthenticationHandler` implementation:
 
     ``` java
+    <handlers xmlns="http://ws.apache.org/ns/synapse">
     <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
         #foreach($handler in $handlers)
             #if(!($handler.className == "org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"))

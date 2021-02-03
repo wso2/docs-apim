@@ -16,16 +16,16 @@ You can search for APIs in the API Publisher or Developer Portal. To check more 
 Rates and comments give useful insights to potential API consumers on the quality and usefulness of an API. You can rate and comment on each API version.
 
 1.  Log in to the Developer Portal and click on a published API.
-    ![](../../assets/img/learn/community-features-api.png)
+    ![]({{base_path}}/assets/img/learn/community-features-api.png)
 2.  The API's **Overview** page opens. Note the rating options there:
-    ![](../../assets/img/learn/community-features-rating-page.png)
+    ![]({{base_path}}/assets/img/learn/community-features-rating-page.png)
 3.  Add a rating.
-    ![](../../assets/img/learn/community-features-rating.png)
+    ![]({{base_path}}/assets/img/learn/community-features-rating.png)
 4.  Go to **Comments** tab.
-    ![](../../assets/img/learn/community-features-comments-page.png)
+    ![]({{base_path}}/assets/img/learn/community-features-comments-page.png)
 5.  Type a comment and click **Add Comment**.
-    ![](../../assets/img/learn/community-features-comments.png)
+    ![]({{base_path}}/assets/img/learn/community-features-comments.png)
 6.  Note that the comments appear sorted by the time they were entered, alongside the author's name.
-    ![](../../assets/img/learn/community-features-view-comments.png)
+    ![]({{base_path}}/assets/img/learn/community-features-view-comments.png)
 7.  You can also check the comments in the **Overview** page.
-    ![](../../assets/img/learn/community-features-view-comments-overview.png) 
+    ![]({{base_path}}/assets/img/learn/community-features-view-comments-overview.png) 

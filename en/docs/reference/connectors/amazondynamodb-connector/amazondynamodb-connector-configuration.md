@@ -10,7 +10,7 @@ Before you start configuring the  Amazon DynamoDB connector, you also need WSO2 
 
 Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the WSO2 EI service.
 
-If you are using **EI7**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters](../../../references/config-catalog/#http-transport) and [Product Configurations](../../micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/) documentations.
+If you are using **EI7**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
 
 ```
 [[custom_message_formatters]]
@@ -40,17 +40,17 @@ class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
 
 ## Setting up the AWS Account and DynamoDB Environment
 
-Please follow the steps mentioned in the [Setting up the Amazon Lambda Environment](../amazonlambda-connector/setting-up-amazonlambda.md) document in order to create an Amazon account and obtain the access key id and secret access key.
+Please follow the steps mentioned in the [Setting up the Amazon Lambda Environment]({{base_path}}/reference/connectors/amazonlambda-connector/setting-up-amazonlambda/) document in order to create an Amazon account and obtain the access key id and secret access key.
 
 Please find the following steps to navigate in to the Amazon DynamoDB using the AWS account.
 
 1. Sign in to the AWS Management Console and search **Database** section under **Services**.
 
-<img src="../../../../assets/img/connectors/dynamodb-aws-console.png" title="Amazon Dynamodb aws console" width="600" alt="Amazon Dynamodb aws console"/> 
+<img src="{{base_path}}/assets/img/integrate/connectors/dynamodb-aws-console.png" title="Amazon Dynamodb aws console" width="600" alt="Amazon Dynamodb aws console"/> 
 
 2. You can see the following operations and sub operations. The output in the AWS DynamoDB console are shown below.
 
     - Working with Items in Amazon DynamoDB
     - Working with Tables in Amazon DynamoDB
 
-<img src="../../../../assets/img/connectors/dynamodb-aws-results-console.png" title="Amazon Dynamodb Table view" width="600" alt="Amazon Dynamodb Table view"/> 
+<img src="{{base_path}}/assets/img/integrate/connectors/dynamodb-aws-results-console.png" title="Amazon Dynamodb Table view" width="600" alt="Amazon Dynamodb Table view"/> 

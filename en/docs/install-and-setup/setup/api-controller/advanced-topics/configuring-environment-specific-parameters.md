@@ -1,8 +1,133 @@
 #  Configuring Environment Specific Parameters
 
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. It is recommended to store the parameter file with the API Project; however, it can be stored anywhere as required. 
+When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml` or an additional directory to store these deployment-related artifacts. It is recommended to store the parameter file inside the deployment directory if there are certificates and other details are included; however, it can be stored somewhere else when certificates are not specified via this additional `api_params.yaml` file. 
 
-After the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. 
+## Generating the Deployment Directory 
+
+When there are multiple artifacts which needs to be added as deployment-related configurations, it is recommended to use a separate directory to store all these configurations. API Controller provides the support to generate this deployment-specific directory using the following commands.
+
+-   **Command**
+        ``` bash
+        apictl gen deployment-dir -s <path-to-API-Source-archive> 
+        ```
+        ``` bash
+        apictl gen deployment-dir -s <path-to-API-Source-archive> -d <path-to-the-Deployment-archive>
+        ```
+        ``` bash
+        apictl gen deployment-dir --source <path-to-API-Source-archive> 
+        ```
+        ``` bash
+        apictl gen deployment-dir --source <path-to-API-Source-archive> --destination <path-to-the-Deployment-archive>
+        ```
+
+    !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--source` or `-s` : File path of the source artifact to be used when generating the deployment directory.
+            -   Optional :  
+                `--destination` or `-d` : Path of the directory where the new deployment directory should be generated.    
+
+    !!! example
+            ```bash
+            apictl gen deployment-dir  -s  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            ```
+            ```bash
+            apictl gen deployment-dir  -s /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  -d /desktop/deployment/Dev
+            ```
+            ```bash
+            apictl gen deployment-dir  --source  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            ```
+            ```bash
+            apictl gen deployment-dir  --source /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  --destination /desktop/deployment/Dev
+            ```
+
+    !!!note
+            If the `--destination` flag is not provided, the deployment directory will be generated in the working directory by default.
+
+    A project folder with the following default structure will be created in the given directory.
+
+    ``` java
+    ├── api_params.yaml
+    ├── api_meta.yaml
+    └── certificates    
+    ```
+    <table>
+        <thead>
+            <tr class="header">
+                <th>Sub Directory/File</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td><code>api_params.yaml</code></td>
+                <td>The specification of the environment specific configurations.</td>
+            </tr>
+            <tr class="odd">
+                <td><code>api_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name, version, and revision of the source).</td>
+            </tr>
+            <tr class="odd">
+                <td>certificates</td>
+                <td>Contains the client certificates for Mutual SSL enabled APIs and endpoint certificates for endpoint security enabled APIs.</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+## Bundling the Generated Directory before Import
+
+After generating the deployment directory, API controller is packed with a bundle command which provides the support
+to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
+file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
+the project, the created archive file name will be the combination of the project name, version and the revision
+number(if there is any).  
+
+-   **Command**
+        ``` bash
+        apictl bundle -s <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle -s <path-to-source-directory>  -d <path-to-the-archive-destination>
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory>  --destination <path-to-the-archive-destination>
+        ```
+        
+    !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--source` or `-s` : File path of the source directory to archive  
+            -   Optional :  
+                `--destination` or `-d` : Path of the directory where the archive file should be generated     
+
+    !!! example
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  
+            ```
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  -d /Deployment/apis/Dev
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1   
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1  --destination /Deployment/apis/Dev
+            ```
+
+    !!!note
+            - If the `--destination` flag is not provided, the archive will be created in the working directory by
+             default.
+            - If the api_meta.yaml (or api_product_meta.yaml or application_meta.yaml) is not included in the
+              project, source directory name would be used as the archived file name.
+
+
+## Defining the api_params.yaml file.
 
 The following is the structure of the parameter file.
 
@@ -32,12 +157,15 @@ environments:
             - <gateway_environment_name>           
         certs:
             - hostName: <endpoint_url>
-                alias: <certificate_alias>
-                path: <certificate_name>
+              alias: <certificate_alias>
+              path: <certificate_name>
         mutualSslCerts:
             - tierName: <subscription_tier_name>
-                alias: <certificate_alias>
-                path: <certificate_name>
+              alias: <certificate_alias>
+              path: <certificate_name>
+        policies:
+            - <subscription_policy_1_name>
+            - <subscription_policy_2_name>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
@@ -59,7 +187,10 @@ The following code snippet contains sample configuration of the parameter file.
                   alias: Dev
                   path: dev.crt 
             gatewayEnvironments:
-                - Production and Sandbox    
+                - Production and Sandbox   
+            policies:
+                - Gold
+                - Silver 
         - name: test
           configs:
             endpoints:
@@ -99,9 +230,10 @@ Instead of the default `api_params.yaml`, you can a provide custom parameter fil
 
 !!! info
     -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
-    -   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then non of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
+    -   Under the `security` field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
     -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
     - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-types).
+    - You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
 
 !!! note
 

@@ -6,7 +6,7 @@ Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
 
 To see the Amazon DynamoDB connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "DynamoDB".
 
-<img src="../../../../assets/img/connectors/amazon-dynamodb-store.png" title="Amazon DynamoDB Connector Store" width="200" alt="Amazon DynamoDB Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-store.png" title="Amazon DynamoDB Connector Store" width="200" alt="Amazon DynamoDB Connector Store"/>
 
 ## Compatibility
 
@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## Amazon DynamoDB Connector documentation
 
-* **[Amazon DynamoDB Connector Example](amazondynamodb-connector-example.md)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
+* **[Amazon DynamoDB Connector Example]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example/)**: This example explains how to perform various `table` and `items` operations with Amazon DynamoDB. 
 
-* **[Amazon DynamoDB Connector Reference](amazondynamodb-connector-configuration.md)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
+* **[Amazon DynamoDB Connector Reference]({{base_path}}/reference/connectors/amazondynamodb-connector/amazondynamodb-connector-configuration/)**: This documentation provides a reference guide for the Amazon DynamoDB Connector.
 
 ## How to contribute
 

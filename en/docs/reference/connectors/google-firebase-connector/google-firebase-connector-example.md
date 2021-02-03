@@ -17,17 +17,17 @@ In this example let us see how we can use Google Firebase Connector to generate 
 
 Overall integration scenario would look like below. 
 <br/><br/>
-<img src="../../../../assets/img/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/google-firebase-scenario.png" title="Google Firebase Connector scenario" width="800" alt="Google Firebase Connector scenario"/>
 
 ## Setting up the environment
 
-You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase](google-firebase-setup.md) on how to do that. 
+You need to create an application at Google Firebase and get the credentials required. Please follow [Setting up Google Firebase]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-setup/) on how to do that. 
 
 ## Configure the connector in WSO2 Integration Studio
 
 Follow these steps to set up the Integration Project and import Google Firebase connector into it.
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 2. Specify the API name as `FirebaseNotify` and API context as `/firebasenotify`. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
@@ -179,14 +179,14 @@ clientCertUrl --> client_x509_cert_url
 Now we can export the imported connector, sequence, and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime.
 
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/google-firebase-test-project.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/google-firebase-test-project.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -203,7 +203,7 @@ Now the exported CApp can be deployed in Enterprise Integrator Runtime so that w
 4. [api-common-1.7.0.jar](https://mvnrepository.com/artifact/com.google.api/api-common/1.7.0)
 and place those into `<Product_HOME>/lib` folder.
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -257,7 +257,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
         "webPushNotificationVibrate":"200,100,200"
     }
     ```
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] (https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" --request POST --data @data.xml http://127.0.0.1:8280/firebasenotify/send
     ```
@@ -273,5 +273,5 @@ If you have registered some devices to your application, the notification will a
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* Please read the [Google Firebase Connector reference guide](google-firebase-configuration.md) to learn more about the operations you can perform with the connector.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/setup/installation/run_in_containers).
+* Please read the [Google Firebase Connector reference guide]({{base_path}}/reference/connectors/google-firebase-connector/google-firebase-configuration/) to learn more about the operations you can perform with the connector.

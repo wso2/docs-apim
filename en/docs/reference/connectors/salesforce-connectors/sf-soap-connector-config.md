@@ -21,10 +21,10 @@ Follow the steps below to import the Salesforce certificate into the EI client k
 1. To view the certificate, log in to your Salesforce account in your browser.
 2. Search the **Certificate and Key Management** in the search box.
 
-   <img src="../../../../assets/img/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
+   <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
-4. Import the certificate to the EI client keystore using either the following [command](../../../../setup/security/importing_ssl_certificate/) or the EI Management Console.
+4. Import the certificate to the EI client keystore using either the following [command]({{base_path}}/install-and-setup/security/importing_ssl_certificate/) or the EI Management Console.
 
     ```
     keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "Salesforce"
@@ -41,11 +41,11 @@ Follow the steps below to import the Salesforce certificate into the EI client k
     </salesforce.init>
     ```
 
-> **Note**: Secure Vault is supported for [encrypting passwords](../../../../setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.
+> **Note**: Secure Vault is supported for [encrypting passwords]({{base_path}}/install-and-setup/security/encrypting_plain_text/). See, Working with Passwords on integrating and using Secure Vault.
 
 ## Re-using Salesforce configurations
 
-You can save the Salesforce connection configuration as a [local entry](../../../../develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
+You can save the Salesforce connection configuration as a [local entry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries/) and then easily reference it with the configKey attribute in your operations. For example, if you saved the above <salesforce.init> entry as a local entry named MySFConfig, you could reference it from an operation like getUserInfo as follows:
 
 ```
 <salesforce.getUserInformation configKey="MySFConfig"/>

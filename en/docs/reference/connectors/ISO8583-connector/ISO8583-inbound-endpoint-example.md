@@ -10,21 +10,21 @@ This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 
 
 The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence into WSO2 EI.
 
-See [ISO8583 connector configuration](ISO8583-connector-configuration.md) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators](https://docs.wso2.com/display/EI660/ESB+Mediators). 
+See [ISO8583 connector configuration]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-configuration/) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators](https://docs.wso2.com/display/EI660/ESB+Mediators). 
 
 The following diagram illustrates all the required functionality of the ISO8583 inbound operations that you are going to build. 
 
 For example, while transferring bank and financial sector information using the ISO85883 message format among the banking networks, the message receiving can be done by using inbound endpoints. The ISO8583 inbound endpoint of WSO2 EI acts as an ISO8583 message receiver. You can inject that message into the mediation flow for getting the required output.
 
-<img src="../../../../assets/img/connectors/ISO8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
 ## Configure inbound endpoint using WSO2 Integration Studio
 
 1. Download [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Create an **Integration Project** as below. 
-<img src="../../../../assets/img/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
+<img src="{{base_path}}/assets/img/integrate/connectors/integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right click on **Source** -> **main** -> **synapse-config** -> **inbound-endpoints** and add a new **custom inbound endpoint**.</br> 
-<img src="../../../../assets/img/connectors/db-event-inbound-ep.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/db-event-inbound-ep.png" title="Creating inbound endpoint" width="400" alt="Creating inbound endpoint" style="border:1px solid black"/>
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.iso8583.listening.ISO8583MessageConsumer`. 
 
@@ -58,7 +58,7 @@ For example, while transferring bank and financial sector information using the 
 **CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
-  <img src="../../../../assets/img/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 
@@ -72,7 +72,7 @@ For example, while transferring bank and financial sector information using the 
 
 3. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
 
-4. [Start the WSO2 EI server](https://ei.docs.wso2.com/en/latest/micro-integrator/overview/quick-start-guide/#start-the-micro-integrator). 
+4. Start the WSO2 EI server. 
 
 ## Testing  
 
@@ -107,4 +107,4 @@ For example, while transferring bank and financial sector information using the 
    ```   
 ## What's next
    
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).

@@ -15,7 +15,7 @@ Follow the instructions below to install API Manager on Windows.
 
 ## Installing the API Manager
 
-1.  [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/).
+1.  [Download WSO2 API Manager 4.0.0 distribution](https://wso2.com/api-management/).
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
 ## Installing and setting up snappy-java
@@ -43,7 +43,7 @@ You set up `JAVA_HOME` using the System Properties, as described below. Alternat
 
 2.  In the System Properties window, click the **Advanced** tab, and then click **Environment Variables**.
 
-    ![](../../../../assets/attachments/26838941/27042150.png)
+    ![]({{base_path}}/assets/attachments/26838941/27042150.png)
 
 3.  Click **New** under **System variables** (for all users) or under **User variables** (just for the user who is currently logged in).
 

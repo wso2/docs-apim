@@ -1,4 +1,7 @@
 # Configuration Catalog
+
+The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
+
 This document describes all the configuration parameters that are used in WSO2 API Manager. 
 
 ## Instructions for use
@@ -4221,7 +4224,7 @@ persistent_notifier.password = "root"</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl</code></span>
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.notification.TokenRevocationNotifier</code></span>
                                         </div>
                                         
                                     </div>
@@ -4466,6 +4469,25 @@ enable_authentication = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>signature</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Signature of the sender account.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>hostname</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -4607,7 +4629,7 @@ enable_email_domain = true</code></pre>
 
 
 
-## Multi-tenancy Configurations
+## Enable Password Recovery
 
 
 <div class="mb-config-catalog">
@@ -4617,6 +4639,202 @@ enable_email_domain = true</code></pre>
             
             <input name="35" type="checkbox" id="_tab_35">
                 <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[output_adapter.email]
+from_address = "wso2am@gmail.com"
+username = "wso2amtest"
+password = "Wso2@am70"
+signature = "do not reply"
+hostname = "smtp.gmail.com"
+port = "587"
+enable_start_tls = true
+enable_authentication = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[output_adapter.email]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>from_address</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The email address you use to send emails.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The email address used to authenticate the mail server. This can be the same email address as the from_address.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Password used to authenticate the mail server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>hostname</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server to connect to.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>signature</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Signature of the sender account.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>25</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_start_tls</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, enables the use of the `STARTTLS` command (if supported by the server, before issuing any login commands). Note that an appropriate trust store must be configured so that the client will trust the certificate of the server. Defaults to false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_authentication</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If true, it attempts to authenticate the user using the AUTH command. Defaults to false.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Multi-tenancy Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="36" type="checkbox" id="_tab_36">
+                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos]
@@ -4869,8 +5087,8 @@ sso_loading_message = "Loading..."</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="36" type="checkbox" id="_tab_36">
-                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
+            <input name="37" type="checkbox" id="_tab_37">
+                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos.paypal]
@@ -5003,8 +5221,8 @@ environment = "live"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="37" type="checkbox" id="_tab_37">
-                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
+            <input name="38" type="checkbox" id="_tab_38">
+                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.stratos.manager_service]
@@ -5097,8 +5315,8 @@ admin_password = "admin"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="38" type="checkbox" id="_tab_38">
-                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
+            <input name="39" type="checkbox" id="_tab_39">
+                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.usage_agent.data_persistence_task]
@@ -5193,8 +5411,8 @@ execution_interval_in_ms = "-1"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="39" type="checkbox" id="_tab_39">
-                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
+            <input name="40" type="checkbox" id="_tab_40">
+                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.throttling_manager_tasks]
@@ -5250,8 +5468,8 @@ data_providers = [
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="40" type="checkbox" id="_tab_40">
-                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
+            <input name="41" type="checkbox" id="_tab_41">
+                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.throttling_manager_tasks.parameters]
@@ -5326,8 +5544,8 @@ delay = "60"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="41" type="checkbox" id="_tab_41">
-                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
+            <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.cloud_services]
@@ -5482,8 +5700,8 @@ description = "API Manager in the cloud"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="42" type="checkbox" id="_tab_42">
-                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
+            <input name="43" type="checkbox" id="_tab_43">
+                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo]
@@ -5556,8 +5774,8 @@ subscription_charge = 0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="43" type="checkbox" id="_tab_43">
-                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
+            <input name="44" type="checkbox" id="_tab_44">
+                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.users]
@@ -5630,8 +5848,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="44" type="checkbox" id="_tab_44">
-                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
+            <input name="45" type="checkbox" id="_tab_45">
+                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.resource_volume]
@@ -5704,8 +5922,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="45" type="checkbox" id="_tab_45">
-                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
+            <input name="46" type="checkbox" id="_tab_46">
+                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.demo.bandwidth]
@@ -5778,8 +5996,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="46" type="checkbox" id="_tab_46">
-                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
+            <input name="47" type="checkbox" id="_tab_47">
+                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb]
@@ -5852,8 +6070,8 @@ subscription_charge = "100"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="47" type="checkbox" id="_tab_47">
-                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
+            <input name="48" type="checkbox" id="_tab_48">
+                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.users]
@@ -5926,8 +6144,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="48" type="checkbox" id="_tab_48">
-                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
+            <input name="49" type="checkbox" id="_tab_49">
+                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.resource_volume]
@@ -6000,8 +6218,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="49" type="checkbox" id="_tab_49">
-                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
+            <input name="50" type="checkbox" id="_tab_50">
+                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.smb.bandwidth]
@@ -6074,8 +6292,8 @@ overuse_charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="50" type="checkbox" id="_tab_50">
-                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
+            <input name="51" type="checkbox" id="_tab_51">
+                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom]
@@ -6148,8 +6366,8 @@ subscription_charge = "500"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="51" type="checkbox" id="_tab_51">
-                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
+            <input name="52" type="checkbox" id="_tab_52">
+                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.users]
@@ -6222,8 +6440,8 @@ charge= "0"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="52" type="checkbox" id="_tab_52">
-                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
+            <input name="53" type="checkbox" id="_tab_53">
+                <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.resource_volume]
@@ -6296,8 +6514,8 @@ overuse_charge = "0.03"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="53" type="checkbox" id="_tab_53">
-                <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
+            <input name="54" type="checkbox" id="_tab_54">
+                <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[multi_tenancy.billing.package.custom.bandwidth]
@@ -6362,3 +6580,69 @@ overuse_charge= "0"</code></pre>
     </section>
 </div>
 
+## Global handler configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="54" type="checkbox" id="_tab_54">
+                <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre>
+<code class="toml">
+[synapse_handlers.custom_handler_name]
+enabled=true
+class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
+</code>
+</pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_handlers.custom_handler_name]</code>
+                            <p>
+                                configuration used to define or enable disable global handler. 
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable a defined global handler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>class</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Fully qualified class name of the global handler.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

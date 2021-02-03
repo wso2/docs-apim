@@ -2,6 +2,10 @@
 
 ## Engaging the Approval Workflow Executor in API Manager
 
+!!! important
+    When there are multiple tenants, first enable self sign up for tenant admin for each tenant by following the steps mentioned in [Enabling self signup]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/#enabling-self-signup). 
+    Then to add a user sign-up workflow with regard to the Developer Portal, follow the below instructions from step 2 after sign in to the API-M Management Console as tenant admin for each tenant.
+
 Follow the instructions below to add a user sign-up workflow with regard to the Developer Portal.
 
 1. Sign in to the API-M Management Console.

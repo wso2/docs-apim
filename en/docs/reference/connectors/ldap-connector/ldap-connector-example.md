@@ -5,7 +5,7 @@ Given below is a sample scenario that demonstrates how to perform CRUD operation
 ## What you'll build
 
 This example demonstrates on how to use the LDAP connector to create and read LDAP entries on a student directory. 
-    ![image](../../../assets/img/connectors/ldap_connector/ldap_connector_usecase.png)
+    ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap_connector_usecase.png)
 
 This will have 2 API resources, `create`, `search`.
 
@@ -19,11 +19,11 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Before you begin, see [Setting up LDAP](setting-up-ldap.md) if you need to setup an LDAP and try this out. 
+Before you begin, see [Setting up LDAP]({{base_path}}/reference/connectors/ldap-connector/setting-up-ldap/) if you need to setup an LDAP and try this out. 
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!references/connectors/importing-connector-to-integration-studio.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. 
    
@@ -110,21 +110,21 @@ sequences.
         </sequence>
         ```
 
-{!references/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/ldap_connector_project.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/ldap_connector_project.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -152,8 +152,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
         }
     ```
 
-2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here] 
-(https://curl.haxx.se/download.html).
+2. Invoke the API as shown below using the curl command. Curl Application can be downloaded from [here](https://curl.haxx.se/download.html).
     ```
     curl -H "Content-Type: application/json" -X POST --data @student_data.json http://localhost:8290/student/create
     ```
@@ -163,7 +162,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 2. Open Apache Directory Studio and category DIT (Directory Information Tree) shows the hierarchical content of the 
 directory. Expand, collapse the tree and you will see the new entries. Select the entry and you will see it's attributes 
 and values on Entry Editor.
-    ![image](../../../assets/img/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
+    ![image]({{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector-directory-studio-view.png)
 
 ### Search ldap entries
 
@@ -215,5 +214,5 @@ You should get all entries that match with the provided filter. A sample respons
 ```
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [LDAP Connector Configuration](ldap-server-configuration.md) documentation for all operation details of the connector.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [LDAP Connector Configuration]({{base_path}}/reference/connectors/ldap-connector/ldap-server-configuration/) documentation for all operation details of the connector.

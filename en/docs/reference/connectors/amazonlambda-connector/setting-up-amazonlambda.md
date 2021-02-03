@@ -1,6 +1,6 @@
 # Setting up the Amazon Lambda Environment
 
-To use the AmazonLambda service, you must have an AWS account. If you don't already have an account, you are prompted to create one when you sign up. You're not charged for any AWS services that you sign up for unless you use them.
+To use the AmazonLambda service, you must have an AWS account. If you do not already have an account, you are prompted to create one when you sign up. You are not charged for any AWS services that you sign up for unless you use them.
 
 ## Signing Up for AWS
 
@@ -21,15 +21,15 @@ You can access the Amazon Lambda service using the root user credentials but the
 
   1. Go to the AWS Management Console.
      
-     <img src="../../../../assets/img/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
   
   2. Hover over your company name in the right top menu and click "My Security Credentials".
 
-     <img src="../../../../assets/img/connectors/my-security-credentials.png" title="My security credentials" width="800" alt="My security credentials"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/my-security-credentials.png" title="My security credentials" width="800" alt="My security credentials"/>
   
   3. Scroll to the "Access Keys" section.
   
-     <img src="../../../../assets/img/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
   
   4. Click on "Create New Access Key".
   5. Copy both the Access Key ID (YOUR_AMAZON_LAMBDA_KEY) and Secret Access Key (YOUR_AMAZON_LAMBDA_SECRET).
@@ -38,24 +38,24 @@ You can access the Amazon Lambda service using the root user credentials but the
 
   1. Sign in to the AWS Management Console and open the IAM console.
 
-     <img src="../../../../assets/img/connectors/iam.png" title="IAM" width="800" alt="IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/iam.png" title="IAM" width="800" alt="IAM"/>
   
   2. In the navigation pane, choose Users.
 
-     <img src="../../../../assets/img/connectors/iam-users.png" title="IAM users" width="300" alt="IAM users"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/iam-users.png" title="IAM users" width="300" alt="IAM users"/>
      
   3. Add a checkmark next to the name of the desired user, and then choose User Actions from the top.
   4. Click on Manage Access Keys.
   
-     <img src="../../../../assets/img/connectors/security-credentials.png" title="Security credentials" width="800" alt="Security credentials"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/security-credentials.png" title="Security credentials" width="800" alt="Security credentials"/>
   
   5. Click on Create Access Key.
         
-     <img src="../../../../assets/img/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
      
   6. Click on Show User Security Credentials. Copy and paste the Access Key ID and Secret Access Key values, or click on Download Credentials to download the credentials in a CSV (file).
      
-     <img src="../../../../assets/img/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
   
 ## Create Amazon S3 Bucket
 
@@ -63,11 +63,11 @@ You can access the Amazon Lambda service using the root user credentials but the
   2. Click **Services** tab on left top of the screen.
   3. Select **Storage** and click **S3**.
   
-     <img src="../../../../assets/img/connectors/amazon-services.png" title="Select amazon services" width="800" alt="Select amazon services"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-services.png" title="Select amazon services" width="800" alt="Select amazon services"/>
 
   4. Create a bucket.
   
-     <img src="../../../../assets/img/connectors/amazon-s3-create-bucket-sample-2.png" title="Create S3 bucket" width="800" alt="Create S3 bucket"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-create-bucket-sample-2.png" title="Create S3 bucket" width="800" alt="Create S3 bucket"/>
        
 ## Create Deployment Package
 
@@ -84,7 +84,7 @@ You can access the Amazon Lambda service using the root user credentials but the
      ```
   3. Upload the ZIP archive you created into the S3 bucket that you created.
    
-     <img src="../../../../assets/img/connectors/upload-deployement-file.png" title="Upload deployment package" width="800" alt="Upload deployment package"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/upload-deployement-file.png" title="Upload deployment package" width="800" alt="Upload deployment package"/>
    
 ## Create Execution Role
     
@@ -94,7 +94,7 @@ Creating an [Execution Role](https://docs.aws.amazon.com/lambda/latest/dg/lambda
 
    1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles) in the IAM console.
       
-      <img src="../../../../assets/img/connectors/create-iam-roles.png" title="Create IAM roles" width="800" alt="Create IAM roles"/>
+      <img src="{{base_path}}/assets/img/integrate/connectors/create-iam-roles.png" title="Create IAM roles" width="800" alt="Create IAM roles"/>
       
    2. Choose Create role.
    3. Under Common use cases, choose Lambda.

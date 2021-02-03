@@ -15,7 +15,7 @@ To create a function, you need a deployment package and an execution role. The d
 
 The following diagram illustrates all the required functionality of the Amazon Lambda Service that you are going to build.
 
-<img src="../../../../assets/img/connectors/AmazonLambdaConnectorSample.png" title="Amazon Lambda Connector" width="800" alt="Amazon Lambda Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazonlambdaconnectorsample.png" title="Amazon Lambda Connector" width="800" alt="Amazon Lambda Connector"/>
 
 This example demonstrates, how to create an Amazon Lambda function easily using the WSO2 Amazon Lambda Connector. Before creating an Amazon Lambda function inside the AWS Lambda service, you need to implement the required deployment package (ZIP Archive) locally.
 
@@ -27,7 +27,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project.
 
-{!references/connectors/importing-connector-to-integration-studio.md!}
+{!reference/connectors/importing-connector-to-integration-studio.md!}
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
@@ -101,7 +101,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     ```
 3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-{!/references/connectors/exporting-artifacts.md!}
+{!/reference/connectors/exporting-artifacts.md!}
 
 ## Create Amazon Lambda Deployment Package (Lambda function) 
 In this scenario we created sample AWS Deployment Package (Lambda function) in Python.
@@ -140,14 +140,14 @@ Please use command line terminal or shell to run following commands. Commands ar
 
 ## Create Execution Role
 
-You need to create an Execution Role by referring to the [Setting up the Amazon Lambda Environment](setting-up-amazonlambda.md) documentation.  
+You need to create an Execution Role by referring to the [Setting up the Amazon Lambda Environment]({{base_path}}/reference/connectors/amazonlambda-connector/setting-up-amazonlambda/) documentation.  
 
 ## Get the project
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attach/connectors/amazon-lambda-connector.zip">
-    <img src="../../../../assets/img/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/assets/attachments/connectors/amazon-lambda-connector.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 !!! tip
@@ -157,7 +157,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!references/connectors/deploy-capp.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
@@ -226,18 +226,18 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
 6. Log in to the AWS Management Console.
 
 7. Navigate to the AWS Lambda and Functions tab.
-   <img src="../../../../assets/img/connectors/AWSLambdaFunction.png" title="Amazon Lambda Function" width="800" alt="Amazon Lambda Function"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/awslambdafunction.png" title="Amazon Lambda Function" width="800" alt="Amazon Lambda Function"/>
    
 8. Next you need to execute the function. Navigate to **Configure test events**. <br>
-   <img src="../../../../assets/img/connectors/configureTestEvent.png" title="Configure Test Event" width="800" alt="Configure Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/configuretestevent.png" title="Configure Test Event" width="800" alt="Configure Test Event"/>
    
 9. Click **Create new test event**.
-   <img src="../../../../assets/img/connectors/createTestEvent.png" title="Create Test Event" width="800" alt="Create Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/createtestevent.png" title="Create Test Event" width="800" alt="Create Test Event"/>
    
 10. Navigate and select the created test event from the dropdown in the top right corner. Click the **Test** button and execute the test event.
-   <img src="../../../../assets/img/connectors/executeCreatedEvent.png" title="Execute Test Event" width="800" alt="Execute Test Event"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/executecreatedevent.png" title="Execute Test Event" width="800" alt="Execute Test Event"/>
  
 ## What's next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Amazon Lambda Connector Configuration](amazonlambda-configuration.md) documentation.
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
+* To customize this example for your own scenario, see [Amazon Lambda Connector Configuration]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/) documentation.

@@ -1,13 +1,19 @@
 # Overriding Developer Portal Theme
 
-Developers can easily customize the Developer Portal UI by modifying a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family for the entire Developer Portal by modifying the JSON file.  Hence, developers are not required to have any prior knowledge on React, CSS, or HTML to customize the UI.
-The Developer Portal theme can be customized not only for the look and feel but also for changing the listing view from default to grid view or vice versa, hiding social features, etc.
+There are mainly 2 ways to customize and override the developer portal theme. 
 
+1. Theming using `defaultTheme.js`
+2. Overriding React components
+
+In this section, we will cover the first method which is the easiest way to change the appearance of Developer portal.
+
+For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
 You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
-The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. 
+Using the above file as reference, you can override the parameters defined in the above file by altering `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
@@ -41,6 +47,21 @@ Enable landing page. **defaultTheme.json** (Tenant theming).
   }
 }
 ```
+
+The following documents describe some of the most commonly used customizations, that you can do by changing the `defaultTheme.js`
+
+  - [Enabling or Disabling API Detail Tabs](enabling-or-disabling-api-detail-tabs.md)
+  - [Override API Overview Page per API](override-api-overview-page-per-api.md)
+  - [Enable or Disable Rating](enable-or-disable-rating.md)
+  - [Enable or Disable Home Page](enable-or-disable-home-page.md)
+  - [Enable or Disable Tag Cloud](enable-or-disable-tag-cloud.md)
+  - [Enable or Disable Footer](enable-or-disable-footer.md)
+  - [Enable or Disable Banner](enable-or-disable-banner.md)
+  - [Styling API Details Left Menu](styling-api-details-left-menu.md)
+  - [Styling API Details Info Section](styling-api-details-info-section.md)
+  - [Styling the Logo and Header](styling-the-logo-and-header.md)
+  - [Customize API Listing Default View](customize-api-listing/change-default-view.md)
+
 ## Tenant Theming 
 
 ### Uploading Devportal theme via the Admin Portal (Tenants Only)
@@ -242,7 +263,8 @@ The following is the Devportal app theme object merging with the React Material 
     },
     "overview": {
       "titleIconColor": "#89b4ff",
-      "titleIconSize": 16
+      "titleIconSize": 16,
+      "noContentBackground": "rgba(255, 255, 255, 0.2)"
     },
     "adminRole": "admin",
     "commentsLimit": 5,
@@ -257,7 +279,7 @@ The following is the Devportal app theme object merging with the React Material 
       "get": "#02a8f4",
       "post": "#8ac149",
       "put": "#ff9700",
-      "delete": "#fd5621",
+      "delete": "#de3702",
       "options": "#5f7c8a",
       "patch": "#785446",
       "head": "#785446"
@@ -311,6 +333,7 @@ The following is the Devportal app theme object merging with the React Material 
     "noApiImage": "/site/public/images/nodata.svg",
     "landingPage": {
       "active": false,
+      "activeForAnonymous": true,
       "carousel": {
         "active": true,
         "slides": [
@@ -364,7 +387,8 @@ The following is the Devportal app theme object merging with the React Material 
         ]
       },
       "contact": {
-        "active": true
+        "active": true,
+        "contactHTML": "<div><strong>Mailing Address</strong><p><div>787 Castro Street</div><div>Mountain View,</div><div>CA 94041</div></p><div>Tel: +1 650 745 4499 </div><div>Fax: +1 650 584 3894</div></div>"
       }
     },
     "tagWise": {
@@ -395,7 +419,15 @@ The following is the Devportal app theme object merging with the React Material 
       }
     },
     "social": {
-      "showRating": true
+      "showRating": true,
+      "showSharing": {
+        "active": false,
+        "showFacebook": true,
+        "showReddit": true,
+        "showTwitter": true,
+        "showEmbad": true,
+        "showEmail": true
+      }
     },
     "apiDetailPages": {
       "showCredentials": true,
@@ -403,7 +435,11 @@ The following is the Devportal app theme object merging with the React Material 
       "showTryout": true,
       "showDocuments": true,
       "showSdks": true,
-      "onlyShowSdks": []
+      "onlyShowSdks": [],
+      "sdkBackground": "#ffffff",
+      "swaggerUIBackground": "#efefef",
+      "documentBackground": "#efefef",
+      "tokenTextBoxBackground": "#efefef"
     },
     "banner": {
       "active": false,
@@ -419,9 +455,11 @@ The following is the Devportal app theme object merging with the React Material 
     },
     "footer": {
       "active": true,
+      "footerHTML": "",
       "text": "",
       "background": "#000",
-      "color": "#fff"
+      "color": "#fff",
+      "height": 50
     },
     "title": {
       "prefix": "[Devportal]",
@@ -462,6 +500,13 @@ The following is the Devportal app theme object merging with the React Material 
       "showFlag": true,
       "showText": true,
       "minWidth": 60
+    },
+    "info": {
+      "color": "#64b5f6"
+    },
+    "publicTenantStore": {
+      "active": true,
+      "redirectToIfInactive": "https://wso2.com/api-management/cloud/"
     }
   }
 }
@@ -523,153 +568,3 @@ The following is the Devportal app theme object merging with the React Material 
     
 4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fileds. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
 5. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.
-
-## Publisher
-
-The default theme of the Publisher portal is built into the portal bundle file. You can find the pre-packed default theme file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/source/src/app/data/defaultTheme.js` source directory.
-
-This can be used as a reference to identify the custom extension points that are available in the Publisher theme file.
-
-To override the default theme parameters, you have to update the [externalized](https://webpack.js.org/configuration/externals/) `userThemes.js` file in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/userThemes.js` file.
-
-Changes done in the `userThemes.js` file are reflected directly in the Publisher app (You do not need to restart the server or rebuild the source code).
-
-When modifying the theme, you can only provide the custom parameter that you want to override in the default theme, the rest of the theme parameters will be inherited from the built-in default theme configuration. 
-
-### Content of defaultTheme.js
-
-The following is the Publisher app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
-
-
-<div>
-<div class="jsonTreeOutput"></div>
-<textarea class="jsonTreeInput">
-{
-  "palette": {
-    "primary": {
-      "main": "#15b8cf"
-    },
-    "secondary": {
-      "light": "#0066ff",
-      "main": "#a2ecf5",
-      "contrastText": "#ffcc00"
-    },
-    "background": {
-      "default": "#f6f6f6",
-      "paper": "#ffffff",
-      "appBar": "#1d344f",
-      "appBarSelected": "#1d344f",
-      "leftMenu": "#1a1f2f",
-      "leftMenuActive": "#254061",
-      "drawer": "#1a1f2f",
-      "activeMenuItem": "#254061"
-    }
-  },
-  "typography": {
-    "fontFamily": "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif",
-    "fontSize": 12,
-    "subtitle2": {
-      "fontWeight": 600,
-      "fontSize": "0.875rem"
-    },
-    "h4": {
-      "fontSize": "1.3rem"
-    }
-  },
-  "zIndex": {
-    "apiCreateMenu": 1250,
-    "operationDeleteUndo": 1600,
-    "overviewArrow": 1,
-    "goToSearch": 2
-  },
-  "custom": {
-    "wrapperBackground": "#f9f9f9",
-    "starColor": "#f2c73a",
-    "disableColor": "#D3D3D3",
-    "leftMenuWidth": 210,
-    "contentAreaWidth": 1240,
-    "drawerWidth": 200,
-    "logo": "/site/public/images/logo.svg",
-    "logoHeight": 40,
-    "logoWidth": 222,
-    "defaultApiView": "grid",
-    "showApiHelp": false,
-    "leftMenu": "icon left",
-    "leftMenuIconSize": 24,
-    "leftMenuIconMainSize": 52,
-    "leftMenuTextStyle": "capitalize",
-    "resourceChipColors": {
-      "get": "#61affe",
-      "post": "#49cc90",
-      "put": "#fca130",
-      "delete": "#f93e3e",
-      "options": "#0d5aa7",
-      "patch": "#50e3c2",
-      "head": "#9012fe",
-      "trace": "#785446",
-      "disabled": "#ebebeb"
-    },
-    "operationChipColor": {
-      "query": "#b3e6fe",
-      "mutation": "#c1dea0",
-      "subscription": "#ffcc80"
-    },
-    "overviewStepper": {
-      "backgrounds": {
-        "completed": "#eeeeee",
-        "active": "#fff",
-        "inactive": "#e0e0e0"
-      },
-      "iconSize": 32
-    },
-    "thumbnail": {
-      "backgrounds": [
-        {
-          "prime": 2406206207,
-          "sub": 1338177791
-        },
-        {
-          "prime": 4101969663,
-          "sub": 3453762047
-        },
-        {
-          "prime": 4097980159,
-          "sub": 4274063359
-        },
-        {
-          "prime": 563540991,
-          "sub": 2934571263
-        },
-        {
-          "prime": 4288086271,
-          "sub": 4293606655
-        },
-        {
-          "prime": 4288086271,
-          "sub": 4267123455
-        }
-      ],
-      "document": {
-        "icon": "library_books",
-        "backgrounds": {
-          "prime": 3489136639,
-          "sub": 3808425983
-        }
-      }
-    },
-    "adminRole": "admin",
-    "commentsLimit": 5,
-    "maxCommentLength": 1300,
-    "productSampleProgess": {
-      "backgroundMain": "#15b8cf",
-      "backgroundChip": "#5aebf9"
-    },
-    "warningColor": "#ffc439",
-    "title": {
-      "prefix": "[Devportal]",
-      "sufix": "- WSO2 APIM"
-    }
-  }
-}
-</textarea>
-</div>

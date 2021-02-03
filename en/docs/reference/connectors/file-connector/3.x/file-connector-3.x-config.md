@@ -1400,4 +1400,4 @@ The following is a sample proxy service that illustrates how to connect to the F
 </proxy>         
 ```
 
-**Note**: For more information on how this works in an actual scenario, see [File Connector Example](../file-connector-3.x-example).
+**Note**: For more information on how this works in an actual scenario, see [File Connector Example]({{base_path}}/reference/connectors/file-connector/3.x/file-connector-3.x-example).

@@ -6,7 +6,7 @@ The Amazon Lambda Connector allows you to access the REST API of [Amazon Web Ser
 
 To see the Amazon Lambda connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Amazon".
 
-<img src="../../../../assets/img/connectors/amazon-lambda-store.png" title="Amazon Lambda Connector Store" width="200" alt="Amazon Lambda Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-lambda-store.png" title="Amazon Lambda Connector Store" width="200" alt="Amazon Lambda Connector Store"/>
 
 ## Compatibility
 
@@ -18,9 +18,9 @@ For older versions, see the details in the connector store.
 
 ## Amazon Lambda Connector documentation
 
-* **[Amazon Lambda Connector Example](amazonlambda-connector-example.md)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
+* **[Amazon Lambda Connector Example]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-example/)**: This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation. 
 
-* **[Amazon Lambda Connector Reference](amazonlambda-connector-config.md)**: This documentation provides a reference guide for the Amazon Lambda Connector.
+* **[Amazon Lambda Connector Reference]({{base_path}}/reference/connectors/amazonlambda-connector/amazonlambda-connector-config/)**: This documentation provides a reference guide for the Amazon Lambda Connector.
 
 ## How to contribute
 

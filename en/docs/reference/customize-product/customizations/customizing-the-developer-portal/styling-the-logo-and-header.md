@@ -1,8 +1,15 @@
 # Changing the Logo and Header Styles
 
 The header section can be customized to match different design needs. Following is the default look and the configuration.
+The default header of the API Manager Developer Portal is shown below.
 
  ![changing the logo and header]({{base_path}}/assets/img/learn/changing-the-logo-and-header1.png) 
+
+!!! note
+    -   You can find the default theme in the following location
+    `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`
+    -   Using the above file as reference you can override the parameters defined in the above file by altering the `defaultTheme.js` file in following location
+    `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`
 
 ```js
 const Configurations = {

@@ -11,6 +11,7 @@ Follow the instructions below to enable notifications for new API versions:
     from_address = "abcd@gmail.com"
     username = "abcd@gmail.com"
     password = "xxxxxx"
+    signature = "do not reply"
     hostname = "smtp.gmail.com"
     port = "587"
     enable_start_tls = true
@@ -22,6 +23,8 @@ Follow the instructions below to enable notifications for new API versions:
     | from_address           | The email address you use to send emails.                                                                                  |
     | username               | The email address used to authenticate the mail server. This can be the same email address as the `from_address`. |
     | password               | Password used to authenticate the mail server.                                                                            |
+    | signature              | Signature of the sender account.
+                                                                                |
     
     For more information, see [Enable Notifications]({{base_path}}/reference/config-catalog/#enable-notifications).    
 
