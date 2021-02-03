@@ -16,6 +16,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
      WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). 
     
      For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites).
+
+     [![apim download page]({{base_path}}/assets/img/learn/apim-download-page.png)]({{base_path}}/assets/img/learn/apim-download-page.png)   
     
 2.  Download and install WSO2 API-M Analytics.
 
@@ -75,6 +77,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
 ## Standard Setup
+
+![Analytics standard architecture diagram]({{base_path}}/assets/img/learn/analytics-standard-architecture-diagram.png)
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 

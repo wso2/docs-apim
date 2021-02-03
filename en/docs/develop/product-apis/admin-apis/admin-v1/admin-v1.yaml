@@ -299,6 +299,10 @@ paths:
           $ref: '#/responses/BadRequest'
         415:
           $ref: '#/responses/UnsupportedMediaType'
+        409:
+          $ref: '#/definitions/Error'
+        500:
+          $ref: '#/definitions/Error'
 
   ######################################################
   # The "Individual Application Throttling Policy" resource API
@@ -871,6 +875,10 @@ paths:
           $ref: '#/responses/BadRequest'
         415:
           $ref: '#/responses/UnsupportedMediaType'
+        409:
+          $ref: '#/definitions/Error'
+        500:
+          $ref: '#/definitions/Error'
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
@@ -1939,8 +1947,8 @@ paths:
       summary: |
         Retrieve/Search Applications
       description: |
-        This operation can be used to retrieve list of applications owned by the given user, If no user
-        is provided, the applications owned by the user associated with the provided access token will be returned.
+        This operation can be used to retrieve list of applications that is belonged to the given user, If no user 
+        query is provided, the application(s) for the user associated with the Authorization Header will be returned
       parameters:
         - $ref: '#/parameters/user'
         - $ref: '#/parameters/limit'
@@ -4870,15 +4878,42 @@ definitions:
       conditionId:
         type: string
         description: Id of the blocking condition
+        readOnly: true        
         example: b513eb68-69e8-4c32-92cf-852c101363cf
       conditionType:
         type: string
-        description: Type of the blocking condition
+        description: Type of the blocking condition (IP Address, IP Range, API Context, Application, User)
         example: IP
       conditionValue:
         type: object
         description: Value of the blocking condition
-        example: {"fixedIp":"192.168.1.1", "invert":false}
+
+
+                    `IP Address type condition`
+
+                      {"conditionType":"IP","conditionValue":{"invert":false,"fixedIp":"127.0.0.2"},"conditionStatus":true}
+
+
+                    `IP Range type condition`
+
+                      {"conditionType":"IPRANGE","conditionValue":{"endingIp":"127.9.9.2","startingIp":"127.9.9.1","invert":false},"conditionStatus":true}
+
+
+                    `Application type condition`
+
+                      {"conditionType":"APPLICATION","conditionValue":"admin:DefaultApplication","conditionStatus":true}
+
+
+                    `API Context type condition`
+
+                      {"conditionType":"API","conditionValue":"/pizzashack/1.0.0","conditionStatus":true}
+
+
+                    `User type condition`
+
+                      {"conditionType":"USER","conditionValue":"admin","conditionStatus":true}
+
+        example: { "fixedIp": "192.168.1.1", "invert":false }
       conditionStatus:
         type: boolean
         description: Status of the blocking condition
