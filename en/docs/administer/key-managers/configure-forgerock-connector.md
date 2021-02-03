@@ -165,7 +165,7 @@ Create a static OAuth client as follows so that you can use the OAuth client key
 
 2. Navigate to the above created client under **Applications** -> **Client ID of the App** -> **Core** -> **Access Token LifeTime**.
 
-3. Set a long value for the **Access Token LifeTime** to obtain a registration access token. You will use this token to register and update clients dynamically.
+3. Set a long value for the **Access Token LifeTime** to obtain a long living registration access token. You will use this token to register and update clients dynamically.
     
 4. Navigate to the **Advanced** tab and configure the `client_credential` grant type that you need to use to obtain the access token.
    
