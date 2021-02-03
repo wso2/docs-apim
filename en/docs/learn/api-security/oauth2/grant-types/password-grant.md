@@ -107,3 +107,10 @@ If you have multiple Carbon servers running on the same computer, [change the po
 
 Instead of using the Token API, you can generate access tokens from the API Developer Portal's UI.
 
+!!! tip
+    If you want to disable the **Password grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+
+    ``` toml
+    [oauth.grant_type.password]
+    enable = false
+    ```
