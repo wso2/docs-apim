@@ -882,7 +882,7 @@ nav:
                 - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
     - Administer:
-        - Admister Overview: administer/admin-overview.md
+        - Administer Overview: administer/admin-overview.md
         - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
@@ -913,7 +913,7 @@ nav:
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
-        - Disabling Anonymous Access to Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
+        - Disabling Anonymous Access to the Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
