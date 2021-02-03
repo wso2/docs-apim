@@ -25,7 +25,7 @@ environments:
       gatewayEnvironments:
         - <gateway_environment_name>           
       certs:
-        - hostName: <endpoint_url>
+        - host: <endpoint_url>
           alias: <certificate_alias>
           path: <certificate_file_path>
 ```
@@ -39,7 +39,7 @@ The following code snippet contains sample configuration of the parameter file.
             production:
               url: 'https://dev.wso2.com'
           certs:
-            - hostName: 'https://dev.wso2.com'
+            - host: 'https://dev.wso2.com'
               alias: Dev
               path: ~/.certs/dev.pem 
           gatewayEnvironments:
