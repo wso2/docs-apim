@@ -1,183 +1,53 @@
-# Configure ForgeRock as a Key Manager
+# Configure Forgerock as a Key Manager
 
-WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager. Additionally, WSO2 API Manager is prepacked with an inbuilt resident Key Manager.
+WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager.
+Additionally it is prepacked with an inbuilt resident Key Manager.
 
-WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock).
+WSO2 API Manager can connect to Forgerock out-of-the-box using the [WSO2 API-M Forgerock Connector](https://github.com/wso2-extensions/apim-km-forgerock).
 
-Follow the instructions given below to configure ForgeRock as a third-party Key Manager:
+Follow the instructions given below to configure Forgerock as a third-party Key Manager:
 
-## Before you begin
+### Configure Forgerock Server to work with APIM
+We assume that you already have a Forgerock installation and follow the steps below to configure the Fogerock Authorization server to work with WSO2 API Manager.
 
-- Install ForgeRock.
-- [Download and install WSO2 API Manager 3.2.0]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
-
-## Step 1 - Configure ForgeRock
-
-Follow the instructions given below to configure the Fogerock Authorization Server to work with WSO2 API Manager.
-
-### Step 1.1 - Configure OAuth2 Provider
-
-1. Navigate to the URL where the ForgeRock Authorization server is deployed.
-
-2. Navigate to **Realms** -> **Top Level Realm**. 
+#### Connfigure Oauth2 Provider
+1. Go to the URL where the Forgerock Authorization server is deployed and <br> navigate to 
+   Realms -> Top Level Realm. Top level realm which exists by default is the root realm and the examples and configurations in this guide are based on that.
    
-    !!! note
-        The examples and configurations in this guide are based on the root realm named **Top level realm**, which exists by default.
+    ![alt text]({{base_path}}/assets/img/administer/forgerock-realms.png)
+
+2. Navigate to Root Realm -> Dashboard -> Configure Oauth provider -> Configure Ouath 2.0 and create an oauth provider by filling up the values.
    
-    [![ForgeRock realms]({{base_path}}/assets/img/administer/forgerock-realms.png)]({{base_path}}/assets/img/administer/forgerock-realms.png)
+    ![alt text]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)   
 
-3. Navigate to **Root Realm** -> **Dashboard** -> **Configure OAuth Provider** -> **Configure OAuth 2.0** section.
-
-4. Create an OAuth provider based on the following values.
-
-     <table>
-     <tr>
-     <th><b>Field</b></th> <th><b>Value</b></th>
-     </tr>
-     <tr>
-     <td>Realm</td> <td>/</td>
-     </tr>
-     </tr>
-     <tr>
-     <td>Refresh Token Lifetime (seconds)</td> <td>60</td>
-     </tr>
-
-     </tr>
-     <tr>
-     <td>Authorization Code Lifetime (seconds)</td> <td>120</td>
-     </tr>
-     </tr>
-     <tr>
-     <td>Access Token Lifetime (seconds)</td> <td>3600</td>
-     </tr>
-
-     </tr>
-     <tr>
-     <td>Issue Refresh Tokens</td> <td>Enabled</td>
-     </tr>
-
-     </tr>
-     <tr>
-     <td>Issue Refresh Tokens on Refreshing Access Tokens</td> <td>Disabled</td>
-     </tr>
-
-     </tr>
-     <tr>
-     <td>Scope Implementation Class</td> <td>org.forgerock.openam.oauth2</td>
-     </tr>
-
-     </table>
-  
+3. Navigate to Root Realm -> Service Provider -> Oauth2 Provider-> Advance tab and configure scopes and signing algorithm of the created oauth2 provider as in the image
    
-    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)
+    ![alt text]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)
 
-5. Navigate to **Root Realm** -> **Service Provider** -> **OAuth2 Provider** and click on the **Advanced** tab.
-
-6. Configure the scopes and the signing algorithm of the created OAuth2 Provider using the following values.
-
-     <table>
-     <tr>
-     <th><b>Field</b></th> <th><b>Value</b></th>
-     </tr>
-
-     <tr>
-     <td>Client Registration Scope Whitelist</td> <td>default</td>
-     </tr>
-
-     <tr>
-     <td>Subject Types supported</td> <td>public</td>
-     </tr>
-
-     <tr>
-     <td>Default Client Scopes</td> <td>default</td>
-     </tr>
-
-     <tr>
-     <td>OAuth2 Token Signing Algorithm</td> <td>RS258</td>
-     </tr>
-     </table>
+4. Navigate to the Dynamic client registration tab and configure it to allow dynamic client registration as follows.
    
-    [![ForgeRock provider advance config]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)
-
-7. Navigate to the **Dynamic client registration** tab and configure it to allow dynamic client registration using the following values.
-
-     <table>
-     <tr>
-     <th><b>Field</b></th> <th><b>Value</b></th>
-     </tr>
-
-     <tr>
-     <td>Require Software Statement for Dynamic Client Registration</td> <td>Disabled</td>
-     </tr>
-
-     <tr>
-     <td>Required Software Statement Attested Attributes</td> <td>redirect_uris</td>
-     </tr>
-
-     <tr>
-     <td>Allow Open Dynamic Client Registration</td> <td>Disabled</td>
-     </tr>
-
-     <tr>
-     <td>Generate Registration Access Tokens</td> <td>Enabled</td>
-     </tr>
-
-     <tr>
-     <td>Scope to give access to dynamic client registration</td> <td>dynamic_client_registration</td>
-     </tr>
-
-     </table>
-
+    ![alt text]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)
    
-    [![ForgeRock configure dcr]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)
+The other properties of the Oauth2 provider could be configured as per your requirement.   
+
+#### Configure Oauth2 client   
+Once the Oauth2 provider is configured, its time to create a static oauth client, whose keys will be used for dynamic client registration
+
+1. Move to Realm -> Oauth 2.0 -> Applications -> Add client to create a client. Ensure to add the two scopes which are shown in the image while creating the client. These are rquired for dynamic client registration and introspection.
    
-You can configure the other properties of the OAuth2 provider based on your requirements.
+     ![alt text]({{base_path}}/assets/img/administer/forgerock-add-client.png)
 
-### Step 1.2 - Configure an OAuth2 client
-
-Create a static OAuth client as follows so that you can use the OAuth client keys for the purpose of dynamic client registration.
-
-1. Navigate to **Realm** -> **OAuth 2.0** -> **Applications** -> **Add client** to create a client.
-   
-    !!! note
-        Ensure to add the mentioned two scopes when creating the client because these scopes are required for dynamic client registration and introspection.
-
-     <table>
-     <tr>
-     <th><b>Field</b></th> <th><b>Value</b></th>
-     </tr>
-     
-     <tr>
-     <td>Client ID</td> <td>amAdmin</td>
-     </tr>
-
-     <tr>
-     <td>Client secret</td> <td>Enter a value of your choice.</td>
-     </tr>
-
-     <tr>
-     <td>Scope(s)</td> <td><code>am-introspect-all-tokens</code> </br><code>dynamic_client_registration</code></td>
-     </tr>
-
-     </table>
-   
-     [![ForgeRock add client]({{base_path}}/assets/img/administer/forgerock-add-client.png)]({{base_path}}/assets/img/administer/forgerock-add-client.png)
-
-2. Navigate to the above created client under **Applications** -> **Client ID of the App** -> **Core** -> **Access Token LifeTime**.
-
-3. Set a long value for the **Access Token LifeTime** to obtain a registration access token. You will use this token to register and update clients dynamically.
+2. Navigate to the above created client under Applications -> client Id of the App -> Core -> Access Token LifeTime and set a long value to obtain a long living registration access token which would be used to dynamically register and update clients.
     
-4. Navigate to the **Advanced** tab and configure the `client_credential` grant type that you need to use to obtain the access token.
+3. Navigate to the advance tab and confure the client_credential grant type which you need to use to obtain the access token. Configue Password grant type to use the example in step 4.
    
-      [![ForgeRock client grant]({{base_path}}/assets/img/administer/forgerock-client-grant.png)]({{base_path}}/assets/img/administer/forgerock-client-grant.png)
+      ![alt text]({{base_path}}/assets/img/administer/forgerock-client-grant.png)
 
-If you want to work with scopes, then you need to assign the relevant scopes to the relevant OAuth clients beforehand.    
+If you want to work with scopes then the relevant scopes should be assigned to the relevant oauth clients before hand.    
 
-## Step 2 - Configure WSO2 API Manager
+### Step 2: Configure WSO2 API Manager 
 
-Follow the instructions given below to configure WSO2 API Manager to work with the Fogerock Authorization Server.
-
-1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+1. Start WSO2 API Manager.
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 
@@ -188,18 +58,13 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
          `https://<hostname>:9443/admin`
 
     2. Click Key Manager and then click **Add Key Manager**.
-
-         [![Add Key Manger]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
-
+         ![Add Key Manger]({{base_path}}/assets/img/administer/add-key-manager.png)
     3. Add the following configuration to add a new Key Manager.
 
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-1.png)]({{base_path}}/assets/img/administer/forgerock-add-km-1.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-2.png)]({{base_path}}/assets/img/administer/forgerock-add-km-2.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-3.png)]({{base_path}}/assets/img/administer/forgerock-add-km-3.png)
-
-         [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-4.png)]({{base_path}}/assets/img/administer/forgerock-add-km-4.png)
+         ![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-1.png)
+         ![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-2.png)
+         ![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-3.png)
+         ![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km-4.png)
 
          The following table provides definitions for each of the configurations.
 
@@ -337,8 +202,8 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
           </tr>
           <tr class="even">
             <td>JWKS</td>
-            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns PingFederate's public key set in JSON web key set format.
-            This contains the signing key(s) the Relying Party (RP) uses to validate signatures from PingFederate.</td>
+            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns ForgeRock's public key set in JSON web key set format.
+            This contains the signing key(s) the Relying Party (RP) uses to validate signatures from ForgeRock.</td>
             <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -375,15 +240,18 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
             <td>Use introspect</td>
             <td>The JWKS endpoint is used to validate the JWT token signature.
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
-                For the PingFederate it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-            </br> Example: </br> Claim Key : iss
-            </br>Claim Value : https://localhost:9031 </td>
+            </td>
             <td>Optional</td>
           </tr>
           <tr class="even">
             <td><b>Token Handling Options</b></td>
             <td>Provides a way to validate the token for this particular authorization server.
-            This is mandatory if the Token Validation Method is <b>introspect</b></td>
+            This is mandatory if the Token Validation Method is <b>introspect</b></br>
+            For Forgerock if its <b>JWT</b> it is required to specify a claim mapping as a unique identifier and
+            If its <b>REFERENCE</b> its required to set a regular expression for the length of the token.
+            </br><b>Example For JWT</b> </br> Claim Key : iss
+            </br>Claim Value : http://loccbcalhost:8080/openam/oauth2
+            </br> <b>Example for Reference</b><br>{27}</td>
             <td></td>
           </tr>
           <tr class="odd">
@@ -418,6 +286,6 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
 3. Create a new application or use the default application.
 4. Click **Production Keys**.
 
-     [![ForgeRock Developer Portal generate keys]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)
+     ![ForgeRock Developer Portal generate keys]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)
 
 5. Click **Generate Keys**.
