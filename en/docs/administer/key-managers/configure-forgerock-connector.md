@@ -37,7 +37,7 @@ Once the Oauth2 provider is configured, its time to create a static oauth client
    
      ![alt text]({{base_path}}/assets/img/administer/forgerock-add-client.png)
 
-2. Navigate to the above created client under Applications -> client Id of the App -> Core -> Access Token LifeTime and set a long value to Access Token LifeTime to obtain a registration access token which would be used to dynamically register and update clients.
+2. Navigate to the above created client under Applications -> client Id of the App -> Core -> Access Token LifeTime and set a long value to obtain a long living registration access token which would be used to dynamically register and update clients.
     
 3. Navigate to the advance tab and confure the client_credential grant type which you need to use to obtain the access token. Configue Password grant type to use the example in step 4.
    
@@ -202,8 +202,8 @@ If you want to work with scopes then the relevant scopes should be assigned to t
           </tr>
           <tr class="even">
             <td>JWKS</td>
-            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns PingFederate's public key set in JSON web key set format.
-            This contains the signing key(s) the Relying Party (RP) uses to validate signatures from PingFederate.</td>
+            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns ForgeRock's public key set in JSON web key set format.
+            This contains the signing key(s) the Relying Party (RP) uses to validate signatures from ForgeRock.</td>
             <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -240,15 +240,18 @@ If you want to work with scopes then the relevant scopes should be assigned to t
             <td>Use introspect</td>
             <td>The JWKS endpoint is used to validate the JWT token signature.
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
-                For the PingFederate it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-            </br> Example: </br> Claim Key : iss
-            </br>Claim Value : https://localhost:9031 </td>
+            </td>
             <td>Optional</td>
           </tr>
           <tr class="even">
             <td><b>Token Handling Options</b></td>
             <td>Provides a way to validate the token for this particular authorization server.
-            This is mandatory if the Token Validation Method is <b>introspect</b></td>
+            This is mandatory if the Token Validation Method is <b>introspect</b></br>
+            For Forgerock if its <b>JWT</b> it is required to specify a claim mapping as a unique identifier and
+            If its <b>REFERENCE</b> its required to set a regular expression for the length of the token.
+            </br><b>Example For JWT</b> </br> Claim Key : iss
+            </br>Claim Value : http://loccbcalhost:8080/openam/oauth2
+            </br> <b>Example for Reference</b><br>{27}</td>
             <td></td>
           </tr>
           <tr class="odd">
