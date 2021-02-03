@@ -21,7 +21,7 @@ Once the workflow configurations are finalized at the BPEL, the call-back URL of
 </tr>
 <tr class="even">
 <td>REST</td>
-<td><a href="https://localhost:9443/api/am/publisher/v0.15/workflows/update-workflow-status" class="uri">https://localhost:9443/api/am/publisher/v0.15/workflows/update-workflow-status</a></td>
+<td><a href="https://localhost:9443/api/am/admin/v0.15/workflows/update-workflow-status" class="uri">https://localhost:9443/api/am/admin/v0.15/workflows/update-workflow-status</a></td>
 </tr>
 </tbody>
 </table>
@@ -65,7 +65,7 @@ The endpoint expects the following list of parameters:
 A sample curl request for invoking the REST endpoint is as follows:
 
 ```
-curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST https://localhost:9443/api/am/publisher/v0.15/workflows/update-workflow-status -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
+curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST https://localhost:9443/api/am/admin/v0.15/workflows/update-workflow-status -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
 ```
 
 A sample SOAP request is given below:
