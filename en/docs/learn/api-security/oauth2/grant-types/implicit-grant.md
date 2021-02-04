@@ -168,4 +168,16 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 
     [![]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)
 
+!!! tip
+    If you want to disable the **Implicit grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
+    ``` toml
+    [oauth.response_type.token]
+    enable = false
+
+    [oauth.response_type.id_token]
+    enable = false
+
+    [oauth.response_type.id_token_token]
+    enable = false
+    ```
