@@ -185,7 +185,7 @@ eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6WyJodHRwczpcL1wvbG9jYWxob3N0Ojk
 ```
 
 !!! tip
-    If you want to disable the **JWT Bearer grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+    If you want to **disable the JWT Bearer grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.jwt_bearer]
