@@ -19,3 +19,10 @@
     curl -k -d "grant_type=iwa:ntlm&windows_token=<give the NTLM token you got in step 3>" -H "Authorization: Basic <give the string you got in step2>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
+!!! tip
+    If you want to **disable the NTLM grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+
+    ``` toml
+    [oauth.grant_type.iwa_ntlm]
+    enable = false
+    ```
