@@ -20,7 +20,7 @@
     ```
 
 !!! tip
-    If you want to disable the **NTLM grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+    If you want to **disable the NTLM grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.iwa_ntlm]
