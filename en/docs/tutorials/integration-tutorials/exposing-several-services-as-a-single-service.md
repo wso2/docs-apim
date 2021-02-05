@@ -4,35 +4,112 @@
 
 When information from several services are required to construct a response to a client request, service chaining needs to be implemented. That is, several services are integrated based on some business logic and exposed as a single, aggregated service. 
 
-In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service call to multiple back-end services in order to construct the response that includes all the necessary details. 
+In this tutorial, when a client sends a request for a medical appointment, the Micro Integrator performs several service call to multiple back-end services in order to construct the response that includes all the necessary details. The **Call** mediator allows you to specify all service invocations one after the other within a single sequence. You will then use the **PayloadFactory** mediator to take the response from one back-end service and change it to the format that is accepted by the other back-end service.
 
-To build this mediation flow, you will update the API resource from the [Message Transformation](transforming-message-content) tutorial to send messages through the Micro Integrator to the back-end service using the **Call** mediator instead of the **Send** mediator. The Call mediator allows you to specify all service invocations one after the other within a single sequence. You will then use the **PayloadFactory** mediator to take the response from one back-end service and change it to the format that is accepted by the other back-end service.
+### Concepts and artifacts used
+
+-   REST API
+-   HTTP Endpoint
+-   Property Meditor
+-   Call Mediator
+-   Log Mediator
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
-Set up WSO2 Integration Studio as follows:
-
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Message Transformation](transforming-message-content) tutorial:
-
-    !!! Note
-        This tutorial is a continuation of the [Message Transformation](transforming-message-content) tutorial.
-
-    1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/message-transformation-tutorial.zip).
-    2.  Open WSO2 Integration Studio and go to **File -> Import**. 
-    3.  Select **Existing WSO2 Projects into workspace** under the **WSO2** category, click **Next**, and then upload the **prepackaged project**.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
+#### Create an Integration project
+
+An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
+
+1.  Open **WSO2 Integration Studio**.
+2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+
+    <img src="{{base_path}}/assets/img/create_project/create-integration-project.png" width="700">
+
+    This will open the <b>New Integration Project</b> dialog box.
+
+3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
+    -   **Create ESB Configs**
+    -   **Create Composite Exporter**
+
+    <img src="{{base_path}}/assets/img/tutorials/119132413/create-simple-message-project.png" width="500">
+
+4.  Click **Finish**. 
+
+    You can see the projects listed in the **Project Explorer** as shown below:
+
+    <img src="{{base_path}}/assets/img/tutorials/119132413/project-explorer-simple-service.png" width="300">
+
 #### Create new Endpoints
 
-Let's create new HTTP endpoints to represent the back-end services that are required for checking the channelling fee and to settle the payment.
+Let's create new HTTP endpoints to represent the back-end services that are required for reserving a doctors' appointment at the required hospital, checking the channelling fee, and for settling the payment.
 
-1.  Right click **SampleServicesConfigs** in the Project Explorer and navigate to **New -> Endpoint**. 
-2.  Ensure **Create a New Endpoint** is selected and click **Next.**
-3.  Enter the details given below:
+1.  Right click **SampleServicesConfigs** in the project explorer and navigate to **New -> Endpoint**. 
+2.  Ensure **Create a New Endpoint** is selected and click **Next**.
+3.  Enter the details given below to create the first endpoint (for doctor reservation).
+
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Endpoint Name </td>
+            <td>
+                <code>GrandOakEP</code>
+            </td>
+            <td>
+                The name of the endpoint representing the Grand Oaks Hospital service.
+            </td>
+        </tr>
+        <tr>
+            <td>Endpoint Type </td>
+            <td>
+                <code>HTTP Endpoint</code>
+            </td>
+            <td>
+                Indicates that the back-end service is HTTP.
+            </td>
+        </tr>
+        <tr>
+            <td>URI Template</td>
+            <td>
+                <code>http://localhost:9090/grandoaks/categories/{uri.var.category}/reserve</code>
+            </td>
+            <td>
+                The template for the request URL expected by the back-end service.
+            </td>
+        </tr>
+        <tr>
+            <td>Method</td>
+            <td>
+                <code>POST</code>
+            </td>
+            <td>
+                Endpoint HTTP REST Method.
+            </td>
+        </tr>
+        <tr>
+         <td>Static Endpoint</td>
+         <td><br/>
+         </td>
+         <td>Select this option because we are going to use this endpoint only in this ESB Config module and will not reuse it in other projects.</br/></br/> <b>Note</b>: If you need to create a reusable endpoint, save it as a Dynamic Endpoint in either the Configuration or Governance Registry.</td>
+      </tr>
+      <tr>
+         <td>Save Endpoint in</td>
+         <td><code>               SampleServicesConfigs              </code></td>
+         <td>This is the ESB Config module we created in the last section.</td>
+      </tr>
+    </table>
+
+4.  Click **Finish**.
+5.  Create another endpoint for the Channelling back-end service and specify the details given below:
     <table>
         <tr>
             <th>Property</th>
@@ -84,11 +161,11 @@ Let's create new HTTP endpoints to represent the back-end services that are requ
       </tr>
     </table>
 
-4.  Click **Finish**.
+6.  Click **Finish**.
 
     <img src="{{base_path}}/assets/img/tutorials/119132228/119132240.png" width="500">
 
-5.  Create another endpoint for the Settle Payment back-end service and specify the details given below:
+7.  Create another endpoint for the Settle Payment back-end service and specify the details given below:
     <table>
         <tr>
             <th>Property</th>
@@ -146,15 +223,127 @@ Let's create new HTTP endpoints to represent the back-end services that are requ
 
 You have now created the additional endpoints that are required for this tutorial.
 
+#### Create a REST API
+
+1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
+2.  Ensure **Create A New API Artifact** is selected and click **Next**.
+3.  Enter the details given below to create a new REST API.
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><code>HealthcareAPI</code></td>
+        <td>
+          The name of the REST API.
+        </td>
+      </tr>
+      <tr>
+        <td>Context</td>
+        <td><code>/healthcare </code></td>
+        <td>
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+        </td>
+      </tr>
+      <tr>
+        <td>Save location</td>
+        <td>
+          SampleServicesConfigs
+        </td>
+        <td>
+          This is the <b>ESB Config</b> module where the artifact will be saved.
+        </td>
+      </tr>
+    </table>
+                                                                                                                                                                                                                       |
+    <img src="{{base_path}}/assets/img/tutorials/119132413/create-rest-api.png" width="500">
+
+#### Update the API resource
+
+Click the new API Resource to access the **Properties** tab and enter the following details:
+
+<table>
+<tr>
+    <th>Property</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>Url Style</td>
+    <td>
+        Click in the <b>Value</b> field, click the down arrow, and select <b>URI_TEMPLATE</b> from the list.
+    </td>
+</tr>
+<tr>
+    <td>URI-Template</td>
+    <td>
+        Enter <code>/categories/{category}/reserve</code>.
+    </td>
+</tr>
+<tr>
+    <td>Methods</td>
+    <td>
+        From the list of methods, select <b>POST</b>.
+    </td>
+</tr>
+</table>
+
+<img src="{{base_path}}/assets/img/tutorials/119132155/119132164.png">
+
 #### Update the mediation flow
 
 You can now start updating the API resource with the mediation flow.
 
-1.  Add a new **Property** mediator just after the **Get Hospital** Property mediator in the In Sequence of the API resource to retrieve and store the card number that is sent in the request payload.
+1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. This is used to extract the hospital name that is sent in the request payload. 
+2.  With the **Property** mediator selected, access the **Properties** tab and give the following details:
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+      <tr class="odd">
+         <td>Property Name</td>
+         <td>Enter <code>New Property...</code>.</td>
+      </tr>
+      <tr class="even">
+         <td>New Property Name</td>
+         <td>Enter <code>Hospital</code>.</td>
+      </tr>
+      <tr class="odd">
+         <td>Property Action</td>
+         <td>Enter <code>set</code>.</td>
+      </tr>
+      <tr class="even">
+         <td>Property Scope</td>
+         <td>Enter <code>default</code>.</td>
+      </tr>
+      <tr class="odd">
+         <td>Value</td>
+         <td>
+            <div class="content-wrapper">
+              <p>Follow the steps given below to specify the expression value:</p>
+              <img src="{{base_path}}/assets/img/tutorials/119132155/expression-value.png">
+            <ol>
+                <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
+                <li>
+                  Now, click the <strong>f</strong> button to open the <b>Expression Selector</b> dialog box.
+                </li>
+               <li>Enter <code>json-eval($.hospital)</code> as the expression value.</li>
+            </ol>
+               <b>Note</b>:
+               This is the JSONPath expression that will extract the hospital from the request payload.
+            </div>
+         </td>
+      </tr>
+    </table>
+
+3.  Add a new **Property** mediator just after the **Get Hospital** Property mediator in the In Sequence of the API resource to retrieve and store the card number that is sent in the request payload.
 
     ![]({{base_path}}/assets/img/tutorials/119132228/119132238.png?effects=drop-shadow)  
 
-2.  With the Property mediator selected, access the Properties tab and specify the following details:
+4.  With the Property mediator selected, access the Properties tab and specify the following details:
 
     <table>
         <tr>
@@ -197,65 +386,18 @@ You can now start updating the API resource with the mediation flow.
       </tr>
     </table>
 
-3. Go to the first case box of the Switch mediator. Add a Property mediator just after the Log mediator to store the value for the `          uri.var.hospital         ` variable that will be used when sending requests to **ChannelingFeeEP** service. 
-
-    ![]({{base_path}}/assets/img/tutorials/119132228/119132237.png)
-
-4.  With the Property mediator selected, access the Properties tab and specify the following details:
-    <table>
-        <tr>
-            <th>Property</th>
-            <th>Description</th>
-        </tr>
-      <tr class="odd">
-         <td>Property Name</td>
-         <td>Enter <code>               New Property...              </code>.</td>
-      </tr>
-      <tr class="even">
-         <td>New Property Name</td>
-         <td>Enter <code>uri.var.hospital </code>.</td>
-      </tr>
-      <tr class="odd">
-         <td>Property Action</td>
-         <td>Enter <code>               set              </code>.</td>
-      </tr>
-      <tr>
-          <td>Property Data Type</td>
-          <td>STRING</td>
-      </tr>
-      <tr class="odd">
-         <td>Value</td>
-         <td>
-            <code>grandoaks</code>
-         </td>
-      </tr>
-      <tr>
-          <td>Description</td>
-          <td>Set Hospital Variable</td>
-      </tr>
-    </table>
-
-5.  Similarly, add property mediators in the other two case boxes in the Switch mediator. Change only the **Value** field as follows:
-    -   Case 2: `clemency`
-    -   Case 3: `pinevalley`  
-
-    ![]({{base_path}}/assets/img/tutorials/119132228/119132236.png)
-
-6.  Delete the Send mediator by right clicking on the mediator and selecting **Delete from Model**. Replace this with a Call mediator from the **Mediators** palette and add GrandOakEP from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.  
-      
-7.  Replace the Send mediators in the following two case boxes as well and add ClemencyEP and PineValleyEP to the respective boxes adjoining the Call mediators.  
-    ![]({{base_path}}/assets/img/tutorials/119132228/119132235.png)
+5.  Add a Call mediator from the **Mediators** palette and add the DoctorReservation endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
     !!! Info
         Using the Call mediator allows us to define other service invocations following this mediator.
     
     Let's use Property mediators to retrieve and store the values that you get from the response you receive from GrandOakEP, ClemencyEP, or PineValleyEP.
 
-8.  Next to the Switch mediator, add a Property mediator to retrieve and store the value sent as `appointmentNumber` .
+6.  Add a Property mediator to retrieve and store the value sent as `appointmentNumber` .
 
     ![]({{base_path}}/assets/img/tutorials/119132228/119132234.png) 
 
-9.  With the Property mediator selected, access the Properties tab and specify the following details:
+7.  With the Property mediator selected, access the Properties tab and specify the following details:
 
     <table>
     <thead>
@@ -322,7 +464,7 @@ You can now start updating the API resource with the mediation flow.
                "confirmed":false}
         ```
 
-10.  Similarly, add two more Property mediators. They will retrieve and store the `           doctor          ` details and `           patient          ` details respectively from the response that is received from GrandOakEP, ClemencyEP, or PineValleyEP.
+8.  Similarly, add two more Property mediators. They will retrieve and store the `           doctor          ` details and `           patient          ` details respectively from the response that is received from GrandOakEP, ClemencyEP, or PineValleyEP.
 
       - To store `doctor` details:
 
@@ -426,9 +568,9 @@ You can now start updating the API resource with the mediation flow.
 
     ![]({{base_path}}/assets/img/tutorials/119132228/119132233.png)
 
-11.  Add a Call mediator and add the ChannelingFeeEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
-12.  Add a Property mediator adjoining the Call mediator box to retrieve and store the value sent as `actualFee`. 
-13.  Access the Property tab of the mediator and specify the following details:
+9.  Add a Call mediator and add the ChannelingFeeEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+10.  Add a Property mediator adjoining the Call mediator box to retrieve and store the value sent as `actualFee`. 
+11.  Access the Property tab of the mediator and specify the following details:
 
       <table>
             <tr>
@@ -488,7 +630,7 @@ You can now start updating the API resource with the mediation flow.
         "actualFee":"7000.0"}
         ```     
 
-14. Let's use the **PayloadFactory** mediator to construct the following message payload for the request sent to SettlePaymentEP.
+12. Let's use the **PayloadFactory** mediator to construct the following message payload for the request sent to SettlePaymentEP.
 
     ```json
     {"appointmentNumber":2,
@@ -513,10 +655,10 @@ You can now start updating the API resource with the mediation flow.
     }
     ```
 
-15.  Add a PayloadFactory mediator (from the **mediators** palette) next to the Property mediator to construct the above message payload.
+13.  Add a PayloadFactory mediator (from the **mediators** palette) next to the Property mediator to construct the above message payload.
       ![]({{base_path}}/assets/img/tutorials/119132228/119132229.png) 
 
-16. With the Payloadfactory mediator selected, access the properties tab of the mediator and specify the following details:
+14. With the Payloadfactory mediator selected, access the properties tab of the mediator and specify the following details:
 
     | Property       |Descripttion                                                                                            |
     |----------------|--------------------------------------------------------------------------------------------------------|
@@ -524,7 +666,7 @@ You can now start updating the API resource with the mediation flow.
     | Media Type     | Select <strong>json</strong>                                                                           |
     | Payload        | `{"appointmentNumber":$1, "doctor":$2, "patient":$3, "fee":$4, "confirmed":"false", "card_number":"$5"}`</br></br> This is the message payload to send with the request to SettlePaymentEP. In this payload, $1, $2, $3, $4, and $5 indicate variables. |
     
-17. To add the arguments for the PayloadFactory mediator:
+15. To add the arguments for the PayloadFactory mediator:
     1. Click the **plus** icon (<img src="{{base_path}}/assets/img/tutorials/common/plus-icon.png" width="30">) in the **Args** field to open the **PayloadFactoryArgument** dialog. 
     2. Enter the following information in the **PayloadFactoryArgument** dialog box. This provides the argument that defines the actual value of the first variable (used in the format definition given in the previous step).
 
@@ -575,7 +717,7 @@ You can now start updating the API resource with the mediation flow.
           </tr>
         </table>
     
-18. Similarly, click **Add** and add more arguments to define the other variables that are used in the message payload format definition. Use the following as the **Value** for each of them:
+16. Similarly, click **Add** and add more arguments to define the other variables that are used in the message payload format definition. Use the following as the **Value** for each of them:
 
     -   `$ctx:doctor_details`  
     -   `$ctx:patient_details`  
@@ -584,8 +726,8 @@ You can now start updating the API resource with the mediation flow.
 
     ![]({{base_path}}/assets/img/tutorials/119132228/119132231.png)
 
-19. Add a Call mediator and add SettlePaymentEP from the Defined Endpoints palette to the empty box adjoining the Call mediator.
-20. Add a **Respond** mediator to send the response to the client. 
+17. Add a Call mediator and add SettlePaymentEP from the Defined Endpoints palette to the empty box adjoining the Call mediator.
+18. Add a **Respond** mediator to send the response to the client. 
 
 You should now have a completed configuration that looks like this: 
 
@@ -600,12 +742,9 @@ Package the artifacts in your composite exporter (SampleServicesCompositeExporte
 
     -   SampleServicesCompositeExporter
         -   `HealthcareAPI`
-        -   `ClemencyEP`
-        -   `GrandOakEP`
-        -   `PineValleyEP`
+        -   `DoctorReservationEP`
         -   `ChannelingFeeEP`
         -   `SettlePaymentEP`
-    -   SampleServicesRegistryResources
 
 3.  Save the changes.
 
@@ -744,3 +883,8 @@ You will see the response received to your <b>HTTP Client</b>:
 ```
 
 You have now explored how the Micro Integrator can do service chaining using the Call mediator and transform message payloads from one format to another using the **PayloadFactory** mediator.
+
+## What's Next?
+
+
+
