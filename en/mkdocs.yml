@@ -763,9 +763,9 @@ nav:
                     - EI Kubernetes Operator: install-and-setup/setup/mi-setup/deployment/ei_kubernetes_operator.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                     - K8s Deployment Samples:
-                        - Sample 1: Hello World: install-and-setup/setup/mi-setup/deployment/k8s-samples/hello-world.md
-                        - Sample 2: Message Routing: install-and-setup/setup/mi-setup/deployment/k8s-samples/content-based-routing.md
-                        - Sample 3: JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/k8s-samples/jms-sender-receiver.md
+                        - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/k8s-samples/hello-world.md
+                        - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/k8s-samples/content-based-routing.md
+                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/k8s-samples/jms-sender-receiver.md
                     - K8s Pipeline:
                         - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
                         - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
@@ -773,7 +773,7 @@ nav:
                         - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
                         - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
                         - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
-                        - Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
+                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
                 - Deploy on a Virtual Machine:
                     - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                     - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
