@@ -336,7 +336,7 @@ that you want to use in your Siddhi applications.
 -   For the complete list of Siddhi extensions that you can search for
     via the Operator Finder, see [Siddhi Extensions](http://siddhi-io.github.io/siddhi/extensions/).
 -   For detailed instructions to find and use a Siddhi extension via the
-    Operator Finder demonstrated with an example, see [Creating a Siddhi Application](Creating-a-Siddhi-Application_112390796.html#CreatingaSiddhiApplication-Extension_Finder).
+    Operator Finder demonstrated with an example, see [Creating a Siddhi Application]({{base_path}}/develop/streaming-apps/creating-a-siddhi-application).
 
 ### Template Variables
 

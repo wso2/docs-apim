@@ -1160,9 +1160,9 @@
                             "name": "enable_unlimited_tier",
                             "type": "string",
                             "required": false,
-                            "default": "false",
+                            "default": "true",
                             "possible": "",
-                            "description": "Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations."
+                            "description": "Specifying this config to false will disable the unlimited throttling tier of basic throttling configurations."
                         },
                         {
                             "name": "enable_jwt_claim_based_throttling",
@@ -4977,6 +4977,35 @@
                 }
             ],
             "exampleFile": "user_store.properties.toml"
-        }                                                                                           
+        },
+        {
+            "title": "Global handler configurations",
+            "options": [
+                {
+                    "name": "synapse_handlers.custom_handler_name",
+                    "required": false,
+                    "description": "configuration used to define or enable disable global handler.",
+                    "params": [
+                         {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Enable or disable a defined global handler."
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Fully qualified class name of the global handler."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_handlers.toml"
+        }
     ]
 }

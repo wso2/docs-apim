@@ -21,7 +21,7 @@ Once the workflow configurations are finalized at the BPEL, the call-back URL of
 </tr>
 <tr class="even">
 <td>REST</td>
-<td><a href="https://localhost:9443/store/site/blocks/workflow/workflow-listener/ajax/workflow-listener.jag" class="uri">https://localhost:9443/store/site/blocks/workflow/workflow-listener/ajax/workflow-listener.jag</a></td>
+<td><a href="https://localhost:9443/api/am/admin/v2/workflows/update-workflow-status" class="uri">https://localhost:9443/api/am/admin/v2/workflows/update-workflow-status</a></td>
 </tr>
 </tbody>
 </table>
@@ -64,21 +64,21 @@ The endpoint expects the following list of parameters:
 
 A sample curl request for invoking the REST endpoint is as follows:
 
-``` html/xml
-    curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST http://localhost:9763/store/site/blocks/workflow/workflow-listener/ajax/workflow-listener.jag -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
+``` 
+curl -H "Authorization:Basic YWRtaW46YWRtaW4=" -X POST https://localhost:9443/api/am/admin/v2/workflows/update-workflow-status -d 'workflowReference=b530be39-9174-43b3-acb3-2603a223b094&status=APPROVED&description=DESCRIPTION'
 ```
 
 A sample SOAP request is given below:
 
-``` html/xml
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://callback.workflow.apimgt.carbon.wso2.org">
-       <soapenv:Header/>
-       <soapenv:Body>
-          <cal:resumeEvent>
-             <cal:workflowReference>b530be39-9174-43b3-acb3-2603a223b094</cal:workflowReference>
-             <cal:status>APPROVED</cal:status>
-             <cal:description>DESCRIPTION</cal:description>
-          </cal:resumeEvent>
-       </soapenv:Body>
-    </soapenv:Envelope>
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cal="http://callback.workflow.apimgt.carbon.wso2.org">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cal:resumeEvent>
+         <cal:workflowReference>b530be39-9174-43b3-acb3-2603a223b094</cal:workflowReference>
+         <cal:status>APPROVED</cal:status>
+         <cal:description>DESCRIPTION</cal:description>
+      </cal:resumeEvent>
+   </soapenv:Body>
+</soapenv:Envelope>
 ```

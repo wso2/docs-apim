@@ -93,4 +93,4 @@ apictl set --vcs-config-path <full-path-to-store-vcs_config.yaml>
 By setting the above, `apictl vcs deploy` command will create the `vcs_config.yaml` if it is not available in the specified path and reuse it for the succeeding commands.
 
 !!! info
-    - To learn about using API Controller to deploy API Projects using a Git repository to different environments, refer the section [CI/CD with WSO2 API Manager]({{base_path}}/learn/api-controller/ci-cd-with-wso2-api-management/).
+    - To learn about using API Controller to deploy API Projects using a Git repository to different environments, refer the section [CI/CD with WSO2 API Manager]({{base_path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/).

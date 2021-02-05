@@ -18,7 +18,7 @@ To deploy your Siddhi application in the Streaming Integrator server, follow the
 
     The **Deploy Siddhi Apps to Server** dialog box opens as follows.
 
-    ![Deploy Siddhi Apps to Server](creating-siddhi-applications/assets/img/streaming/quick-start-guide-101/deploy-to-server-dialog-box.png)
+    ![Deploy Siddhi Apps to Server]({{base_path}}/assets/img/streaming/quick-start-guide-101/deploy-to-server-dialog-box.png)
 
 3. In the **Add New Server** section, enter information as follows:
 

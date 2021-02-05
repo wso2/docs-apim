@@ -67,6 +67,7 @@ nav:
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
+            - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
             - Prototype APIs:
@@ -473,8 +474,9 @@ nav:
             - JSON Examples: integrate/examples/json_examples/json-examples.md
             - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
-          - Streaming Overview: use-cases/streaming-usecase/use-cases.md
+          - Streaming Overview: streaming/streaming-overview.md
           - Streaming Use Cases:
+                - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
                 - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
                 - Receiving Data in Transit: use-cases/streaming-usecase/receiving-data-in-transit.md
                 - Loading and Writing Data: use-cases/streaming-usecase/loading-and-writing-date.md
@@ -567,6 +569,7 @@ nav:
                        - Sending Custom JSON Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-json-format-with-custom-mapping.md
                        - Publishing XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format.md
                        - Publishing Custom XML Events via HTTP: use-cases/examples/streaming-examples/publish-http-in-xml-format-with-custom-mapping.md
+                       - Publishing HTTP Events to to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request.md
                        - Publishing HTTP Events to an OAuth-protected Endpoint while Using a Refresh Token Grant Type: use-cases/examples/streaming-examples/publish-http-oauth-request-with-refresh-token.md
                        - Publishing HTTP Events via an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-response.md
                        - Publishing HTTP Events to an OAuth-protected Endpoint: use-cases/examples/streaming-examples/publish-http-oauth-request-with-oauth-user.md
@@ -591,6 +594,7 @@ nav:
                        - Receiving and Publishing Events in Custom CSV Format:  use-cases/examples/streaming-examples/csv-custom-mapping.md
                        - Publishing and Receiving CSV Events via Files: use-cases/examples/streaming-examples/csv-default-mapping.md
                        - Preprocessing Data Received via TCP: use-cases/examples/streaming-examples/data-preprocessing.md
+                       - Performing Streaming Learning Using a Clustree Model: use-cases/examples/streaming-examples/clus-tree-test-app.md
                        - Processing Geo Data: use-cases/examples/streaming-examples/execution-geo-sample.md
                        - Counting the Frequency of Values with BottomK: use-cases/examples/streaming-examples/extrema-bottom-k.md
                        - Calculating the Distance Between Two Locations: use-cases/examples/streaming-examples/geo-distance-calculation.md
@@ -865,19 +869,26 @@ nav:
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
             - Getting Started with WSO2 API Controller: install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
-            - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/importing-apis-via-dev-first-approach.md
-            - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/migrating-apis-to-different-environments.md
-            - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/migrating-api-products-to-different-environments.md
-            - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/migrating-applications-to-different-environments.md
+            - Managing APIs and API Products:
+                - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
+                - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
+                - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+            - Managing Applications:
+                - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
+                - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Managing Integrations:
+                - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                 - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Administer:
-        - Admister Overview: administer/admin-overview.md
+        - Administer Overview: administer/admin-overview.md
         - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
@@ -908,6 +919,7 @@ nav:
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
+        - Disabling Anonymous Access to the Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
