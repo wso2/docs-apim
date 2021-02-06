@@ -2,32 +2,43 @@
 
 ## What you'll build
 
-In the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial, we routed a
-simple message to a single endpoint in the back-end service. In this tutorial, we are building on the same sequence by creating the mediation artifacts that can route a message to the relevant endpoint depending on the content of the message payload.
+In this tutorial, we are creating the mediation artifacts that can route a message to the relevant endpoint depending on the content of the message payload.
 
 When the client sends the appointment reservation request to the Micro Integrator, the message payload of the request contains the name of the hospital where the appointment needs to be confirmed. The HTTP request method that is used for this is POST. Based on the hospital name sent in the request message, the Micro Integrator should route the appointment reservation to the relevant hospital's back-end service.
 
-To implement this use case, you will add a new REST resource to the existing REST API and define the new content-based mediation logic.
+### Concepts and artifacts used
+
+-   REST API
+-   HTTP Endpoint
+-   Property Meditor
+-   Call Mediator
 
 ## Let's get started!
 
 ### Step 1: Set up the workspace
 
-Set up WSO2 Integration Studio as follows:
-
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
-2.  Set up the project from the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial:
-
-    !!! Note
-        This tutorial is a continuation of the [Sending a Simple Message to a Service](sending-a-simple-message-to-a-service) tutorial.
-
-    1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/sending-simple-message-tutorial.zip).
-    2.  Open WSO2 Integration Studio and go to **File -> Import**. 
-    3.  Select **Existing WSO2 Projects into workspace** under the **WSO2** category, click **Next**, and then upload the **prepackaged project**.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 
 Follow the instructions given in this section to create and configure the required artifacts.
+
+##### Create an Integration project
+
+An Integration project is a maven multi module project, which groups all the required modules for the integration solution.
+
+1.  Open **WSO2 Integration Studio**.
+2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
+
+    This will open the <b>New Integration Project</b> dialog box.
+
+3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
+    -   **Create ESB Configs**
+    -   **Create Composite Exporter**
+
+4.  Click **Finish**. 
+
+    You can see the projects listed in the **Project Explorer** as shown below:
 
 #### Create Endpoints
 
@@ -100,7 +111,7 @@ Let's create three different HTTP endpoints for the above services.
       </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/tutorials/119132155/119132166.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132166.png" width="500">
 
 4.  Click **Finish**.
 5.  Similarly, create the HTTP endpoints for the other two hospital services using the URI Templates given below:
@@ -114,15 +125,44 @@ You have now created the three endpoints for the hospital back-end services tha
 
     Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
-#### Add a REST resource
+##### Create a REST API
 
-To implement the routing scenario, let's add a new API resource to the REST API we created in the [previous tutorial](sending-a-simple-message-to-a-service).
+1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
+2.  Ensure **Create A New API Artifact** is selected and click **Next**.
+3.  Enter the details given below to create a new REST API.
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><code>HealthcareAPI</code></td>
+        <td>
+          The name of the REST API.
+        </td>
+      </tr>
+      <tr>
+        <td>Context</td>
+        <td><code>/healthcare </code></td>
+        <td>
+          Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+        </td>
+      </tr>
+      <tr>
+        <td>Save location</td>
+        <td>
+          SampleServicesConfigs
+        </td>
+        <td>
+          This is the <b>ESB Config</b> module where the artifact will be saved.
+        </td>
+      </tr>
+    </table>                                                                   
 
-1.  Select **API Resource** in the API palette of the REST API and drag it to the canvas just below the previous API resource that was created.  
+4.  Click the new API Resource to access the **Properties** tab and enter the following details:
 
-    <img src="{{base_path}}/assets/img/tutorials/119132155/119132165.png">
-
-2.  Click the new API Resource to access the **Properties** tab and enter the following details:
     <table>
     <tr>
         <th>Property</th>
@@ -148,7 +188,7 @@ To implement the routing scenario, let's add a new API resource to the REST API 
     </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/tutorials/119132155/119132164.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132164.png">
 
 #### Define the mediation flow 
 
@@ -182,7 +222,7 @@ You can now start configuring the API resource.
          <td>
             <div class="content-wrapper">
               <p>Follow the steps given below to specify the expression value:</p>
-              <img src="{{base_path}}/assets/img/tutorials/119132155/expression-value.png">
+              <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/expression-value.png">
             <ol>
                 <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                 <li>
@@ -200,11 +240,11 @@ You can now start configuring the API resource.
 3.  Add a **Switch** mediator from the **Mediator** palette just after the Property Mediator.
 4.  Right-click the Switch mediator you just added and select **Add/Remove Case** to add the number of cases you want to specify.  
 
-    <img src="{{base_path}}/assets/img/tutorials/119132155/119132163.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132163.png">
 
     We have three different hospital endpoints, which corresponds to three switch cases. Enter 3 for **Number of branches** and click **OK**.  
 
-    <img src="{{base_path}}/assets/img/tutorials/119132155/switch-cases-dialog.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/switch-cases-dialog.png">
 
 5.  With the Switch mediator selected, go to the **Properties** tab and give the following details:
     <table>
@@ -291,7 +331,7 @@ You can now start configuring the API resource.
             Follow the steps given below to extract the stock symbol from the request and print a welcome message in the log:
             <ol>
                 <li>
-                    Click the <b>plus</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/plus-icon.png" width="30">)
+                    Click the <b>plus</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="30">)
     to start defining a property. This opens the <b>LogProperty</b> dialog box.
                 </li>
                 <li>
@@ -321,16 +361,14 @@ You can now start configuring the API resource.
     </tr>
     </table>
 
-8.  Add a **Send** mediator adjoining the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Send mediator.  
-
-    <img src="{{base_path}}/assets/img/tutorials/119132155/119132159.png">
+8.  Add a **Call** mediator adjoining the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Send mediator. 
 
 9.  Add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to name the two Log mediators as follows:
 
     -   `Clemency Log`
     -   `Pine Valley Log`
 
-10. Add **Send** mediators adjoining these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
+10. Add **Call** mediators adjoining these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
 
     !!! Info
         You have now configured the Switch mediator to log the `Routing to <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
@@ -345,10 +383,6 @@ You can now start configuring the API resource.
 12. Drag a **Respond mediator** next to the Log mediator you just added. This ensures that there is no further processing of the current message and returns the request message back to the client.  
 
 13. Drag a **Send** mediator to the **Out sequence** of the API resource to send the response back to the client.
-
-The In Sequence of the API resource configuration should now look like this:  
-
-<img src="{{base_path}}/assets/img/tutorials/119132155/119132158.png?effects=drop-shadow">
 
 You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
 
@@ -402,9 +436,9 @@ Let's send a request to the API resource to make a reservation. You can use the 
     !!! Tip
         If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
 
-    <img src="{{base_path}}/assets/img/tutorials/common/http4e-client-empty.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
 
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/play-head-icon.png" width="20">).
+2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
     
     <table>
         <tr>
@@ -458,7 +492,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/tutorials/119132155/http4e-client.png" width="800">
+     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/http4e-client.png" width="800">
 
 If you want to send the client request from your terminal:
 
