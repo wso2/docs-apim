@@ -1,20 +1,20 @@
 # Styling API and Application Details Info Section
 
-The "API Details Info" section shown below, can be customized according to your design needs.
+The "API Details Info" section which is shown below can be customized according to your design needs by configuring the `defaultTheme.js` file.
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
  [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)
 
-Edit the attributes in `themes.light.custom.infoBar` to change the styling "API Details Info" section and the "Application Details Info" section.
+Edit the attributes in `themes.light.custom.infoBar` by following the below steps to change the styling of "API Details Info" section and the "Application Details Info" section.
 
-1. Go to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory.
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.infoBar` attributes.
 
-2. Open the `defaultTheme.js` file and update the `themes.light.custom.infoBar` attributes.
+2. Refresh the Developer Portal to view the changes.
 
-3. Refresh the Developer Portal to view the changes.
+### The following attributes are available for infoBar
 
-### Attributes available for infoBar
-
-The JSON sample code given below defines the default look and feel.
+The JSON sample code that is given below defines the default look and feel.
 
 ```js
 const Configurations = {

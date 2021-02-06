@@ -1,8 +1,8 @@
 # Override API Overview page per API
 
-It's possible to display a custom Overview content for any API by adding a document by following the steps given bellow.
+It is possible to display a custom Overview content for any API by adding a document by following the steps given bellow.
 
-1. Login to API Publisher go to documents tab of the API you want to override.
+1. Login to API Publisher go to documents tab of the API you want to override.Login to the API Publisher and go to the `Documents` tab of the API that you want to override.
 
 2. Create a new document with the following settings.
     ![override api overview page per api publisher]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-publisher1.png) 
@@ -15,11 +15,11 @@ It's possible to display a custom Overview content for any API by adding a docum
     | Other Document Type | _overview |
     | Source | Markdown |
 
-3. Click the save button and from the dialog box select **ADD CONTENT**
+3. Click the save button and select **ADD CONTENT** from the dialog box.
 
-4. Add markdown content.
+4. Add the markdown content.
 
-    Following keys can be use within the markdown to get some of the API properties.
+    Following keys can be used within the markdown to get some of the API properties.
 
     | Property Name | Key to use in markdown |
     | --- | --- |
@@ -35,8 +35,8 @@ It's possible to display a custom Overview content for any API by adding a docum
 
     ![override api overview page per api publisher]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-publisher2.png) 
 
-Above screen demonstrate the use of `___name___` key to display API name within the markdown content.
+    Above screen demonstrates the use of `___name___` key to display API name within the markdown content.
 
-Overview for the selected API will be rendered from the markdown content in the devportal.
+    Overview for the selected API will be rendered from the markdown content in the developer portal.
 
-![override api overview page per api devportal]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-devportal.png) 
+    ![override api overview page per api devportal]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-devportal.png) 
