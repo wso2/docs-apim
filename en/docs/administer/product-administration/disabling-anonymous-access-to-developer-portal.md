@@ -1,5 +1,11 @@
 # Disabling Anonymous Access to the Developer Portal
 
+!!! warning
+    This feature is supported by default only from WSO2 API Manager 3.2.0 onwards. It is 
+    available for WSO2 APIM 3.0.0 only as a **WUM** update and is effective from 29th January 2021 (2021-01-29). For more 
+    information on how to update using WUM, see 
+    [Getting WSO2 Updates](https://docs.wso2.com/display/ADMIN44x/Getting+WSO2+Updates) documentation.
+
 By default, anonymous access to the Developer Portal is enabled. Therefore, users do not need to authenticate themselves by way of signing in when accessing the Developer Portal in WSO2 API Manager. However, if required, you can disable anonymous access to the Developer Portal to prevent anonymous users from accessing the Developer Portal. When anonymous access is disabled, users will not be allowed to access the Developer Portal UI without appropriate login details or an access token.
 
 Follow the instructions below to disable anonymous access to the Developer Portal for a particular tenant:
