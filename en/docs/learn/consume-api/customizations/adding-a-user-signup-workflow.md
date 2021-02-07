@@ -184,7 +184,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 !!! important
     When there are multiple tenants, first enable self sign up for tenant admin for each tenant by following the steps mentioned in [Enabling self signup]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/#enabling-self-signup). 
-    Then to add a user sign-up workflow with regard to the Developer Portal, follow the below instructions from step 1 after sign in to the API-M Management Console as tenant admin for each tenant.
+    Then to add a user sign-up workflow with regard to the Developer Portal, follow the below instructions from step 1 after sign in to the API Manager Management Console as tenant admin for each tenant.
 
 1.  Log in to API-M management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
 
@@ -209,7 +209,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 3.  Go to the Developer Portal Web interface of API Manager and sign up / register as a new user.
 
-    ![Register now option](../../../assets/img/learn/register-now.png)
+    ![Register now option]({{base_path}}/assets/img/learn/register-now.png)
 
     It invokes the signup process and creates a Human Task instance that holds the execution of the BPEL until some action is performed on it.
 
