@@ -1,29 +1,39 @@
 # Changing the Logo and Header Styles
 
-The header section can be customized to match different design needs. Following is the default look and the configuration.
+The header section can be customized to match different design needs by configuring the `defaultTheme.js` file.
 
- ![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header1.png) 
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#overriding-the-default-theme).
 
-!!! note
-    -   You can find the default configurations at the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` in `defaultTheme.js` file.
-    -   Make sure to take a backup of the `defaultTheme.js` before making any changes.
-    -   Using the above file as reference you can override the parameters defined in the that file by altering the parameters in `defaultTheme.js` file.
+The following is the default look and the configuration. The default header of the API Manager Developer Portal is shown below.
 
-```js
-appBar: {
-    logo: '/site/public/images/logo.svg',
-    logoHeight: 19,
-    logoWidth: 208,
-    background: '#1d344f',
-    activeBackground: '#254061',
-    showSearch: true,
-    drawerWidth: 200,
-},
-```
+![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header1.png) 
+
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the attributes accordingly as shown below which customizes the logo and the header of the developer portal.
+
+    ```js
+    appBar: {
+        logo: '/site/public/images/logo.svg',
+        logoHeight: 19,
+        logoWidth: 208,
+        background: '#1d344f',
+        activeBackground: '#254061',
+        showSearch: true,
+        drawerWidth: 200,
+    },
+    ```
+
+    | Option | type | Description |
+    | ------ | -- | ----------- |
+    | logo | string | Relative path to logo |
+    | logoHeight | integer | Logo height in pixels |
+    | logoWidth | integer | Logo width in pixels |
+    | background | string | Background color of the header |
+    | activeBackground | string | Background color of the selected header menu item |
+    | drawerWidth | integer | Small resolutions will collopse the top menu in to a toggle drawer. This property sets the it's width in pixels |
+
 #### Example
 
 We can change the logo and header background as follows by changing the above parameters.
- ![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header2.png) 
 
 ```js
  appBar: {
@@ -37,11 +47,6 @@ We can change the logo and header background as follows by changing the above pa
 },
 ```
 
-| Option | type | Description |
-| ------ | -- | ----------- |
-| logo | string | Relative path to logo |
-| logoHeight | integer | Logo height in pixels |
-| logoWidth | integer | Logo width in pixels |
-| background | string | Background color of the header |
-| activeBackground | string | Background color of the selected header menu item |
-| drawerWidth | integer | Small resolutions will collopse the top menu in to a toggle drawer. This property sets the it's width in pixels |
+Make sure you restart the server for the changes to take effect.
+
+![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header2.png) 
