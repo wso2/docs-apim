@@ -1,16 +1,18 @@
 # Styling API Details Left Menu
 
-The API details left menu can be customized to match with your design needs.
+The API details left menu can be customized to match with your design needs by configuring the `defaultTheme.js` file.
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
  ![styling api details left menu]({{base_path}}/assets/img/learn/styling-api-details-left-menu1.png) 
 
-You can change the themes.light.custom.leftMenu attributes to change the left menu styling. Note these changes will effect the same way to application details left menu.
+You can change the `themes.light.custom.leftMenu` attributes to change the left menu styling. Note that, these changes will effect the same way to application details left menu as well.
 
-1. Go to  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory, open the `defaultTheme.js` file and update `themes.light.custom.leftMenu` attributes.
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and update the `themes.light.custom.leftMenu` attributes.
 
 2. Refresh the Developer Portal to view the changes.
 
-### Following attributes available for leftMenu.
+### The following attributes are available for the leftMenu
 
 ```js
  const Configurations = {
@@ -35,9 +37,9 @@ You can change the themes.light.custom.leftMenu attributes to change the left me
 };
 ```
 
-Above JSON defines the default look and feel.
+The above JSON defines the default look and feel.
 
-We can change the menu to take different positions. For an example following sets the menu as a toolbar by just changing the values of above json as follows.
+We can change the menu to take different positions. For an example, the following configuration sets the menu as a toolbar by just changing the values of the above JSON as follows.
 ```js
 const Configurations = {
     custom: {
@@ -52,7 +54,7 @@ const Configurations = {
  ![styling api details left menu]({{base_path}}/assets/img/learn/styling-api-details-left-menu2.png) 
 
 
-Following will set the menu to right hand side and disable the icons.
+The following will set the menu to the right hand side and will disable the icons.
 
 ```js
 const Configurations = {
