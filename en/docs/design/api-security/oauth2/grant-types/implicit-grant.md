@@ -2,7 +2,7 @@
 
 Implicit grant type is used to obtain access tokens if your application (client) is a mobile application or a browser based app such as a JavaScript client. Similar to authorization code grant, the implicit grant type is also based on redirection flow. The redirection URI includes the access token in the URI fragment. Therefore, the client application is capable of interacting with the resource owner user agent to obtain the access token from the redirection URI which is sent from the authorization server.
 
-#### Flow
+## Flow
 
 The implicit grant type does not require client authentication, and relies on the presence of the resource owner and the registration of the redirection URI. The resource owner is authenticated by the authorization server to obtain the access token. The access token is encoded into the redirection URI. This may be exposed to the resource owner and other applications residing inside the same device.
 
@@ -78,7 +78,7 @@ https://localhost:9443/oauth2/authorize?response_type=id_token+token
 &scope=openid
 ```
 
-#### Try implicit grant to generate tokens
+## Try implicit grant to generate tokens
 
 In this example we use the WSO2 Playground app, which is hosted as a web application, to obtain the access token with implicit grant.
 
@@ -168,4 +168,16 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 
     [![]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)
 
+!!! tip
+    If you want to **disable the Implicit grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
+    ``` toml
+    [oauth.response_type.token]
+    enable = false
+
+    [oauth.response_type.id_token]
+    enable = false
+
+    [oauth.response_type.id_token_token]
+    enable = false
+    ```

@@ -1,7 +1,6 @@
 # Publishing a Custom Swagger Document
 
-When you create a REST API, a default Swagger definition is automatically
-generated. You can access this Swagger document by suffixing the API URL
+When you create a REST API, by default a Swagger 3.0 (OpenApi) definition is generated automatically. You can access this Swagger document by suffixing the API URL
 with `?swagger.json` or `?swagger.yaml`. See [Using Swagger Documents]({{base_path}}/integrate/develop/advanced-development/using-swagger-for-apis) for more information.
 
 This example demonstrates how a custom Swagger definition is published for a REST API. 

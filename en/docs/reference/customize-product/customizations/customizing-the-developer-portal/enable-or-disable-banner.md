@@ -1,16 +1,18 @@
 # Enable or Disable Banner
 
-The banner section is hidden by default. The banner section can use to show an announcement to developer portal users as follows. 
+The banner section is hidden by default. The banner section can be used to show an announcement to the developer portal users as follows. 
 
  ![enable or disable banner]({{base_path}}/assets/img/learn/enable-or-disable-banner.png) 
 
-You can show banner by changing themes.light.custom.banner.active to true as follows.
+You can show a banner by configuring the `defaultTheme.js` file.
 
-1. Go to  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory, open the `defaultTheme.js` file and set the `themes.light.custom.banner.active` attribute as true to show the banner.
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.banner.active` attribute as `true` to show the banner.
 
 2. Refresh the Developer Portal to view the changes.
 
-### Following attributes available for banner.
+### The following attributes available for the banner
 
 ```js
 const Configurations = {
