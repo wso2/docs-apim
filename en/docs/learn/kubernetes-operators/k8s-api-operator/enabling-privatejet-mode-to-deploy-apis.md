@@ -14,7 +14,7 @@ Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs 
 
 1. Install and setup [Kubernetes API Operator](https://github.com/wso2/k8s-api-operator/blob/master/docs/GettingStarted/quick-start-guide.md#step-3-install-api-operator). 
 
-2. Follow the prerequisites given below in order to expose APIs using ingress controller.  Go to the README guide of [Expose an API using Ingress](https://github.com/wso2/k8s-api-operator/tree/v1.2.0-alpha/scenarios/scenario-17) for scenarios. 
+2. Follow the prerequisites given below in order to expose APIs using ingress controller.  Go to the README guide of [Expose an API using Ingress](https://github.com/wso2/k8s-api-operator/tree/v1.2.2/scenarios/scenario-17) for scenarios. 
 
     **Prerequisites:**
     
