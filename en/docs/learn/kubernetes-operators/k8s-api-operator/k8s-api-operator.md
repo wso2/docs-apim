@@ -6,11 +6,11 @@ As microservices are increasingly being deployed on Kubernetes, the need to expo
 
 ## Quick Start Guide
 
-[Quick Start Guide v1.1.0](https://github.com/wso2/k8s-api-operator/blob/v1.1.0/README.md).
+[Quick Start Guide v1.2.0](https://github.com/wso2/k8s-api-operator/blob/v1.2.0/README.md).
 
 ## Kubernetes API Operator doc space
 
-[Kubernetes API Operator documentation space](https://github.com/wso2/k8s-api-operator/tree/v1.1.0/docs)
+[Kubernetes API Operator documentation space](https://github.com/wso2/k8s-api-operator/tree/v1.2.0/docs)
  
 ## Install K8s API Operator using OperatorHub.io
  
