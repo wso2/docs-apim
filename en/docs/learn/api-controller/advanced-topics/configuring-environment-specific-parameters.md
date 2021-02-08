@@ -53,7 +53,7 @@ The following code snippet contains sample configuration of the parameter file.
             sandbox:
               url: 'https://test.sandbox.wso2.com'
     ```
-Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
+Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
 !!! example
     ```go
