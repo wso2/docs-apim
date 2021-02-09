@@ -58,7 +58,7 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 !!! info
     Shared Artifacts
 
-    The following artifacts can be shared among API Manager nodes
+    The following artifacts can be shared among APIM Analytics nodes
 
     1. <API-M_HOME>/repository/deployment/server/synapse-configs
     2. <API-M_HOME>/repository/deployment/server/executionplans
