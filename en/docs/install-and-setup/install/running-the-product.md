@@ -76,6 +76,21 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
 
     3.  Start the product by following the [above instructions](#on-solaris).
 
+### Accessing the API Manager Web Portals
+
+WSO2 API Manager has several web portals such as the Management Console, the API Publisher, and the Developer Portal. You can refer to the topics listed below and learn about accessing web portals.
+
+-   [Accessing the Management Console](#accessing-the-management-console)
+-   [Accessing the API Publisher](#accessing-the-api-publisher)
+-   [Accessing the Developer Portal](#accessing-the-developer-portal)
+
+ When signing-in to the web portals, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
+
+!!! info
+    Web portals are based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access these portals, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
+
+   This scenario is suitable for testing purposes or for running the program on the company's internal networks. If you want to make the above portals available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization. Refer [Creating new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) to learn more about the information on configuring the keystores using certificates.
+
 ### Accessing the Management Console
 
 Once the server has started, you can run the Management Console by typing its URL in a web browser. The following sections provide more information about running the Management Console:
@@ -110,14 +125,6 @@ You can use this URL to access the Management Console on this computer from any 
 ##### Signing in
 
 At the sign-in screen, you can sign in to the Management Console using **admin** as both the username and password.
-
-!!! info
-
-    When the Management Console sign-in page appears, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
-
-    The Management Console is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the Management Console, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
-
-    This scenario is suitable for testing purposes, or for running the program on the company's internal networks. If you want to make the Management Console available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization.
 
 ##### Getting help
 
@@ -162,15 +169,6 @@ You can use this URL to access the API Publisher on this computer from any other
 
 At the sign-in screen, you can sign in to the API Publisher using **admin** as both the username and password.
 
-!!! info
-
-    When the API Publisher sign-in page appears, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
-
-    The API Publisher is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the API Publisher, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
-
-    This scenario is suitable for testing purposes, or for running the program on the company's internal networks. If you want to make the API Publisher available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization.
-
-
 ### Accessing the Developer Portal
 
 Once the server has started, you can run the Developer Portal by typing its URL in a web browser. The following sections provide more information about running the Developer Portal:
@@ -190,14 +188,6 @@ You can use this URL to access the Developer Portal on this computer from any ot
 ##### Signing in
 
 At the Developer Portal home page, you can click sign in link at top right corner to sign-in to the API Publisher using **admin** as both the username and password.
-
-!!! info
-
-    When the Developer Portal home page appears, the Web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
-
-    The Developer Portal is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the Developer Portal, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
-
-    This scenario is suitable for testing purposes, or for running the program on the company's internal networks. If you want to make the Developer Portal available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization.
 
 ### Stopping the server
 
