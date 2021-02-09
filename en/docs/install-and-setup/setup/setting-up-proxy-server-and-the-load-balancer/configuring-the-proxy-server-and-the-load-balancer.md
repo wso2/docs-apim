@@ -445,7 +445,7 @@ Carry out the following steps to configure the load balancer to front multiple 
             error_log /etc/nginx/log/km/https/error.log;
     }
     ```
-    
+
     ```tab="HA for Traffic Manager"
     upstream tm.am.wso2.com {
     server {tm-1-ip-address}:9443;
@@ -516,6 +516,8 @@ hostname = "sample.com"
 ### Step 4 - Configure the dynamic callback origin
 
 When you have a custom URL configured for WSO2 API-M client applications (Publisher/ Developer Portal/ Admin Portal), the callback origin also has to be changed dynamically according to the X-Forwarded-For header in a typical scenario.
+
+The following instructions are optional if you do not have a custom URL configured.
 
 1. Open the new configuration file for reverse proxy config in the react applications.
 
