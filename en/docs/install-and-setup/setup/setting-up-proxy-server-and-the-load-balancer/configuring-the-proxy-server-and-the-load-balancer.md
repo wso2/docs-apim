@@ -510,13 +510,13 @@ To do that add the following to the `<API-M_HOME>/repository/conf/deployment.tom
 [transport.https.properties]
 proxyPort = 443
 [server]
-hostname = "sample.com"
+hostname = "<loadbalancer_hostname>""
 ```
 !!!note 
     When using a load balancer with the '9443' port, you only need to update the hostname of the load balancer in the `<API-M_HOME>/repository/conf/deployment.toml` file. An example is shown below.
     ```java
     [server]
-    hostname = "sample.com"
+    hostname = "<loadbalancer_hostname>"
     ```
 
 ### Step 4 - Configure the dynamic callback origin
