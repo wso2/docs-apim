@@ -1,4 +1,4 @@
-# Message Routing
+# Routing Requests based on Message Content
 
 ## What you'll build
 
@@ -23,14 +23,18 @@ Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/too
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-##### Create an Integration project
+#### Create an Integration project
 
-An Integration project is a maven multi module project, which groups all the required modules for the integration solution.
+An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
 
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+
     This will open the <b>New Integration Project</b> dialog box.
+
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -38,7 +42,7 @@ An Integration project is a maven multi module project, which groups all the req
 
 4.  Click **Finish**. 
 
-    You can see the projects listed in the **Project Explorer** as shown below:
+You will now see the projects listed in the **Project Explorer**.
 
 #### Create Endpoints
 
@@ -53,7 +57,7 @@ The request method is POST and the format of the request URL expected by the ba
 
 Let's create three different HTTP endpoints for the above services.
 
-1.  Right-click **SampleServicesConfigs** in the Project Explorer and navigate to **New -> Endpoint**. 
+1.  Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
 2.  Ensure **Create a New Endpoint** is selected and click **Next**.
 3.  Enter the information given below to create the new endpoint.
     <table>
@@ -99,16 +103,10 @@ Let's create three different HTTP endpoints for the above services.
             </td>
         </tr>
         <tr>
-         <td>Static Endpoint</td>
-         <td><br/>
-         </td>
-         <td>Select this option because we are going to use this endpoint only in this ESB Config module and will not reuse it in other projects.</br/></br/> <b>Note</b>: If you need to create a reusable endpoint, save it as a Dynamic Endpoint in either the Configuration or Governance Registry.</td>
-      </tr>
-      <tr>
-         <td>Save Endpoint in</td>
-         <td><code>               SampleServicesConfigs              </code></td>
-         <td>This is the ESB Config module we created in the last section.</td>
-      </tr>
+            <td>Save Endpoint in</td>
+            <td><code>SampleServicesConfigs</code></td>
+            <td>This is the ESB Config module we created in the last section.</td>
+        </tr>
     </table>
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132166.png" width="500">
@@ -125,9 +123,9 @@ You have now created the three endpoints for the hospital back-end services tha
 
     Using three different endpoints is advantageous when the back-end services are very different from one another and/or when there is a requirement to configure error handling differently for each of them.
 
-##### Create a REST API
+#### Create a REST API
 
-1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
+1.  In the Project Explorer, right-click **SampleServicesConfigs** and go to **New -> REST API**.
 2.  Ensure **Create A New API Artifact** is selected and click **Next**.
 3.  Enter the details given below to create a new REST API.
     <table>
@@ -161,7 +159,7 @@ You have now created the three endpoints for the hospital back-end services tha
       </tr>
     </table>                                                                   
 
-4.  Click the new API Resource to access the **Properties** tab and enter the following details:
+4.  Click the default API Resource to access the **Properties** tab and enter the following details:
 
     <table>
     <tr>
@@ -194,8 +192,13 @@ You have now created the three endpoints for the hospital back-end services tha
 
 You can now start configuring the API resource.
 
-1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. This is used to extract the hospital name that is sent in the request payload. 
+1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. 
+
+    !!! Info
+        This is used to extract the hospital name that is sent in the request payload. 
+
 2.  With the **Property** mediator selected, access the **Properties** tab and give the following details:
+
     <table>
         <tr>
             <th>Property</th>
@@ -237,7 +240,7 @@ You can now start configuring the API resource.
       </tr>
     </table>
 
-3.  Add a **Switch** mediator from the **Mediator** palette just after the Property Mediator.
+3.  Drag a **Switch** mediator from the **Mediator** palette just after the Property mediator.
 4.  Right-click the Switch mediator you just added and select **Add/Remove Case** to add the number of cases you want to specify.  
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/119132163.png">
@@ -292,7 +295,11 @@ You can now start configuring the API resource.
    </tr>
     </table>
 
-6.  Let's add a **Log** mediator to print a message indicating to which hospital the request message is being routed. Drag a Log mediator to the first Case box of the Switch mediator and name it **Grand Oak Log**.  
+6.  Drag a Log mediator to the first Case box of the Switch mediator and name it **Grand Oak Log**.  
+
+    !!! Info
+        This prints a message indicating to which hospital the request message is being routed. 
+
 7.  With the Log mediator selected, access the **Properties** tab and give the following details:
     <table>
     <tr>
@@ -361,14 +368,14 @@ You can now start configuring the API resource.
     </tr>
     </table>
 
-8.  Add a **Call** mediator adjoining the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Send mediator. 
+8.  Drag a **Call** mediator from the **Mediators** pallete after the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Call mediator. 
 
 9.  Add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to name the two Log mediators as follows:
 
     -   `Clemency Log`
     -   `Pine Valley Log`
 
-10. Add **Call** mediators adjoining these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
+10. Add **Call** mediators after these log mediators and add the **ClemencyEP** and **PineValleyEP** endpoints respectively from the **Defined Endpoints** palette.
 
     !!! Info
         You have now configured the Switch mediator to log the `Routing to <Hospital Name>` message when a request is sent to this API resource. The request message will then be routed to the relevant hospital back-end service based on the hospital name that is sent in the request payload.
@@ -380,9 +387,7 @@ You can now start configuring the API resource.
 
     The default case of the Switch mediator handles the invalid hospital requests that are sent to the request payload. This logs the message (`Invalid hospital - <Hospital Name>`) for requests that have the invalid hospital name.
 
-12. Drag a **Respond mediator** next to the Log mediator you just added. This ensures that there is no further processing of the current message and returns the request message back to the client.  
-
-13. Drag a **Send** mediator to the **Out sequence** of the API resource to send the response back to the client.
+12. Drag a **Respond mediator** next to the **Switch** mediator to return the response from the health care service back to the client.
 
 You have successfully created all the artifacts that are required for routing messages to a back-end service depending on the content in the request payload. 
 
@@ -434,7 +439,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
 1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
 
     !!! Tip
-        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
+        If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View -> Other</b> and select <b>HTTP Client</b> to enable the client pane.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
 
@@ -479,6 +484,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
                     "email": "johndoe@gmail.com"
                     },
                     "doctor": "thomas collins",
+                    "hospital_id": "grandoaks",
                     "hospital": "grand oak community hospital",
                     "appointment_date": "2025-04-02"
                 }
@@ -492,8 +498,6 @@ Let's send a request to the API resource to make a reservation. You can use the 
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/http4e-client.png" width="800">
-
 If you want to send the client request from your terminal:
 
 1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
@@ -509,6 +513,7 @@ If you want to send the client request from your terminal:
         "email": "johndoe@gmail.com"
         },
         "doctor": "thomas collins",
+        "hospital_id": "grandoaks",
         "hospital": "grand oak community hospital",
         "appointment_date": "2025-04-02"
     }

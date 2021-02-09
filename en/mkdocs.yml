@@ -697,18 +697,23 @@ nav:
           - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
-              - Sending a Simple Message to a Service': tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
-              - Message Routing: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
-              - Message Transformation: tutorials/integration-tutorials/transforming-message-content.md
-              - Service Orchestration: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
-              - Asynchronous Messaging: tutorials/integration-tutorials/storing-and-forwarding-messages.md
-              - Connecting Web APIs/Cloud Services: tutorials/integration-tutorials/using-the-gmail-connector.md
-              - Data Integration: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+              - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
+              - Message Routing: 
+                    -   Routing Requests based on Message Content: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
+              - Exposing Serveral Services as a Single Service: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
+              - Message Transformation: 
+                    -   Translating Message Formats: tutorials/integration-tutorials/transforming-message-content.md
+              - Asynchronous Messaging: 
+                    -   Store and Forward Messages for Guaranteed Delivery: tutorials/integration-tutorials/storing-and-forwarding-messages.md
+              - Integrating with SaaS Systems: 
+                    -   Sending Emails from an Integration Service: tutorials/integration-tutorials/using-the-gmail-connector.md
+              - Data Integration: 
+                    -   Exposing Datasources as a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
               - File Processing: tutorials/integration-tutorials/file-processing.md
-              - Periodic Execution of Integration Process: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
-              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
@@ -1505,5 +1510,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next

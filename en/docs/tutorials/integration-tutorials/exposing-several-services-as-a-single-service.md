@@ -24,14 +24,18 @@ Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/too
 
 ### Step 2: Develop the integration artifacts
 
-##### Create an Integration project
+#### Create an Integration project
 
-An Integration project is a maven multi module project, which groups all the required modules for the integration solution.
+An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
 
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+
     This will open the <b>New Integration Project</b> dialog box.
+
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -39,13 +43,13 @@ An Integration project is a maven multi module project, which groups all the req
 
 4.  Click **Finish**. 
 
-    You can see the projects listed in the **Project Explorer** as shown below:
+You will now see the projects listed in the **Project Explorer**.
 
-##### Create new Endpoints
+#### Create new Endpoints
 
-Let's create three HTTP endpoints to represent the three back-end services: Hospital Service, Channelling Service, Payment Service.
+Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channelling Service, Payment Service.
 
-1.  Right click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
+1.  Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
 2.  Ensure **Create a New Endpoint** is selected and click **Next**.
 3.  Let's create the hospital service endpoint (**HospitalServicesEP**) using the following values:
 
@@ -221,9 +225,9 @@ Let's create three HTTP endpoints to represent the three back-end services: Hosp
 
 6.  Click **Finish**.
 
-You have now created the additional endpoints that are required for this tutorial.
+You have now created the endpoints that are required for this tutorial.
 
-##### Create a REST API
+#### Create a REST API
 
 1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
 2.  Ensure **Create A New API Artifact** is selected and click **Next**.
@@ -259,7 +263,7 @@ You have now created the additional endpoints that are required for this tutoria
       </tr>
     </table>                                                                   
 
-4.  Click the new API Resource to access the **Properties** tab and enter the following details:
+4.  Click the default API Resource to access the **Properties** tab and enter the following details:
 
     <table>
     <tr>
@@ -296,7 +300,7 @@ You have now created the additional endpoints that are required for this tutoria
     </tr>
     </table>
 
-##### Update the mediation flow
+#### Update the mediation flow
 
 You can now start updating the API resource with the mediation flow.
 
@@ -336,7 +340,7 @@ You can now start updating the API resource with the mediation flow.
         <td>
           <div class="content-wrapper">
             <p>Follow the steps given below to specify the expression value:</p>
-            <img src="{{base_path}}/assets/img/tutorials/119132155/expression-value.png">
+            <img src="{{base_path}}/assets/img/integrate/tutorials/119132155/expression-value.png">
           <ol>
               <li>
                 Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.
@@ -385,7 +389,7 @@ You can now start updating the API resource with the mediation flow.
         <td>
             <div class="content-wrapper">
                 <p>Follow the steps given below to specify the expression:</p>
-                <img src="{{base_path}}/assets/img/tutorials/119132228/expression-value.png">
+                <img src="{{base_path}}/assets/img/integrate/tutorials/119132228/expression-value.png">
                 <ol>
                     <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                     <li>
@@ -465,7 +469,7 @@ You can now start updating the API resource with the mediation flow.
         <td>
             <div class="content-wrapper">
                 <p>Follow the steps given below to specify the expression:</p>
-                <img src="{{base_path}}/assets/img/tutorials/119132228/expression-value.png">
+                <img src="{{base_path}}/assets/img/integrate/tutorials/119132228/expression-value.png">
                 <ol>
                     <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                     <li>
@@ -524,10 +528,11 @@ You can now start updating the API resource with the mediation flow.
             </tr>
             <tr>
                 <td>Value (Expression)</td>
+                <td><code>json-eval(&#36;.doctor)</code></td>
                 <td>
                     <div class="content-wrapper">
                         <p>Follow the steps given below to specify the expression:</p>
-                        <img src="{{base_path}}/assets/img/tutorials/119132228/expression-value.png">
+                        <img src="{{base_path}}/assets/img/integrate/tutorials/119132228/expression-value.png">
                         <ol>
                             <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                             <li>
@@ -574,10 +579,11 @@ You can now start updating the API resource with the mediation flow.
             </tr>
             <tr class="even">
                 <td>Value</td>
+                <td><code>json-eval(&#36;.patient)</code></td>
                 <td>
                     <div class="content-wrapper">
                         <p>Follow the steps given below to specify the expression:</p>
-                        <img src="{{base_path}}/assets/img/tutorials/119132228/expression-value.png">
+                        <img src="{{base_path}}/assets/img/integrate/tutorials/119132228/expression-value.png">
                         <ol>
                             <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                             <li>
@@ -639,7 +645,7 @@ You can now start updating the API resource with the mediation flow.
                 <td>
                     <div class="content-wrapper">
                         <p>Follow the steps given below to specify the expression:</p>
-                        <img src="{{base_path}}/assets/img/tutorials/119132228/expression-value.png">
+                        <img src="{{base_path}}/assets/img/integrate/tutorials/119132228/expression-value.png">
                         <ol>
                             <li>Click the <strong>Ex</strong> button before the <b>Value</b> field. This specifies the value type as <i>expression</i>.</li>
                             <li>
@@ -696,7 +702,7 @@ You can now start updating the API resource with the mediation flow.
     | Payload        | `{"appointmentNumber":$1, "doctor":$2, "patient":$3, "fee":$4, "confirmed":"false", "card_number":"$5"}`</br></br> This is the message payload to send with the request to SettlePaymentEP. In this payload, $1, $2, $3, $4, and $5 indicate variables. |
     
 16. To add the arguments for the PayloadFactory mediator:
-    1. Click the **plus** icon (<img src="{{base_path}}/assets/img/tutorials/common/plus-icon.png" width="30">) in the **Args** field to open the **PayloadFactoryArgument** dialog. 
+    1. Click the **plus** icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="30">) in the **Args** field to open the **PayloadFactoryArgument** dialog. 
     2. Enter the following information in the **PayloadFactoryArgument** dialog box. This provides the argument that defines the actual value of the first variable (used in the format definition given in the previous step).
 
         !!! Tip
@@ -760,7 +766,7 @@ You can now start updating the API resource with the mediation flow.
 
 Package the artifacts in your composite exporter (SampleServicesCompositeExporter) to be able to deploy the artifacts in the server.
 
-1.  Open the `          pom.xml         ` file in the composite exporter.
+1.  Open the `pom.xml` file in the composite exporter.
 2.  Ensure that the following projects and artifacts are selected in the POM file.
 
     -   SampleServicesCompositeExporter
@@ -807,7 +813,7 @@ Let's send a request to the API resource to make a reservation. You can use the 
     !!! Tip
         If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
     
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/play-head-icon.png" width="20">).
+2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
     
     <table>
         <tr>
@@ -886,6 +892,7 @@ If you want to send the client request from your terminal:
     }
     ```
 3. Open a terminal and navigate to the directory where you have saved the `request.json` file.
+
 4. Execute the following command.
 
     ```bash
@@ -897,9 +904,7 @@ If you want to send the client request from your terminal:
 You will see the response received to your <b>HTTP Client</b>:
 
 ```json
-{  
-"appointmentNo":1,
-"doctorName":"thomas collins",
+{
 "patient":"John Doe",
 "actualFee":7000.0,
 "discount":20,
@@ -910,5 +915,3 @@ You will see the response received to your <b>HTTP Client</b>:
 ```
 
 You have now explored how the Micro Integrator can do service chaining using the Call mediator and transform message payloads from one format to another using the **PayloadFactory** mediator.
-
-## What's Next?
