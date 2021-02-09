@@ -70,6 +70,13 @@ The **WSO2 API Manager 3.0.0** is the **latest** **WSO2 API Manager release*
 
     - [Jaggery based Store APIs](https://docs.wso2.com/display/AM260/Store+APIs)
 
+## WUM updates
+
+This section lists out the features that were updated or introduced newly to WSO2 API-M 3.0.0 via WUM updates.
+
+| Updated or newly introduced feature | The date of the update |
+| ----------------------------------- | ---------------------- |
+| [Disabling Anonymous Access to the Developer Portal]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#disabling-anonymous-access-to-the-developer-portal) | 29 Januray, 2021 | 
 
 ## Compatible WSO2 product versions
 
