@@ -546,7 +546,7 @@ The following instructions are optional if you do not have a custom URL configur
         
     customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
         enabled: true,
-        forwardedHeader: 'X-Forwarded-For',
+        forwardedHeader: 'X-Forwarded-Host',
     },
     ```
 
