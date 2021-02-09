@@ -116,12 +116,12 @@ Carry out the following steps to configure the load balancer to front multiple 
 !!! info
     ```tab="Single node"
     -   The placeholder {node-ip-address} corresponds to the IP address of the backend node in which the WSO2 API-M server is running.
-    -   In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (publisher, devportal, admin, and carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+    -   In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (Publisher, Developer Portal, Admin, and Carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
     ```
 
     ```tab="Active-Active"
     - The placeholders {node-1-ip-address} and {node-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM servers are running.
-    - In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (publisher, devportal, admin and carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+    - In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (Publisher, Developer Portal, Admin, and Carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
     - This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
 
     - In an Active-Active deployment, it is mandatory to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Developer Portal**, and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.
