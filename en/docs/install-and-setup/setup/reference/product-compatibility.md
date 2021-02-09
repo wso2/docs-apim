@@ -1,5 +1,5 @@
 # Product Compatibility
-The following compatibility details are with regard to WSO2 API Manager (WSO2 API-M) 3.2.0.
+The following compatibility details are with regard to WSO2 API Manager (WSO2 API-M) 3.2.0 and WSO2 API-M Analytics 3.2.0.
 
 ## Tested Operating Systems and JDKs
 As WSO2 API Manager is a Java application, you can generally run WSO2 API-M on most operating systems. The following are the JDKs that are tested with WSO2 API-M.
