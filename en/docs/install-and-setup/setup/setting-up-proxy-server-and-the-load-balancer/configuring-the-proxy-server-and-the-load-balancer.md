@@ -141,8 +141,8 @@ Carry out the following steps to configure the load balancer to front multiple 
     ```
 
     ```tab="HA for Developer Portal"
-    -   The placeholders {store-1-ip-address} and {store-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Developer Portals are running.
-    -   In the sample configuration given below, the hostname store.am.wso2.com is used to access Publisher portal. Only HTTPS is allowed.
+    -   The placeholders {devportal-1-ip-address} and {devportal-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Developer Portals are running.
+    -   In the sample configuration given below, the hostname devportal.am.wso2.com is used to access Publisher portal. Only HTTPS is allowed.
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
     ```
 
@@ -373,9 +373,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     ```
 
     ```tab="HA for Developer Portal"
-    upstream store.am.wso2.com {
-        server {store-1-ip-address}:9443;
-        server {store-2-ip-address}:9443;
+    upstream devportal.am.wso2.com {
+        server {devportal-1-ip-address}:9443;
+        server {devportal-2-ip-address}:9443;
         #ip_hash;
         sticky learn create=$upstream_cookie_jsessionid
             lookup=$cookie_jsessionid
@@ -384,13 +384,13 @@ Carry out the following steps to configure the load balancer to front multiple 
     
     server {
         listen 80;
-        server_name store.am.wso2.com;
-        rewrite ^/(.*) https://store.am.wso2.com/$1 permanent;
+        server_name devportal.am.wso2.com;
+        rewrite ^/(.*) https://devportal.am.wso2.com/$1 permanent;
     }
     
     server {
         listen 443 ssl;
-        server_name store.am.wso2.com;
+        server_name devportal.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
@@ -401,11 +401,11 @@ Carry out the following steps to configure the load balancer to front multiple 
                 proxy_set_header Host $http_host;
                 proxy_read_timeout 5m;
                 proxy_send_timeout 5m;
-                proxy_pass https://store.am.wso2.com;
+                proxy_pass https://devportal.am.wso2.com;
             }
     
-            access_log /etc/nginx/log/store/https/access.log;
-            error_log /etc/nginx/logs/store/https/error.log;
+            access_log /etc/nginx/log/devportal/https/access.log;
+            error_log /etc/nginx/logs/devportal/https/error.log;
     }
     ```
 
