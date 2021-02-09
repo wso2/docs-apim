@@ -1017,7 +1017,6 @@ nav:
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
-        - Disabling Anonymous Access to the Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
