@@ -105,7 +105,7 @@ You can define custom password policies for API developer portal user signup. Op
     passwordPolicy.properties.'class.PasswordPatternPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordPatternPolicy"
 ```
 
-### Disabling Anonymous Access to the Developer Portal
+### Disabling anonymous access to the Developer Portal
 
 !!! warning
     This feature is supported by default only from WSO2 API Manager 3.2.0 onwards. It is 
