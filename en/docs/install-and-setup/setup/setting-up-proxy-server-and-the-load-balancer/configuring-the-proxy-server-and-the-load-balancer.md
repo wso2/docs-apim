@@ -500,7 +500,7 @@ sudo service nginx restart
     sudo service nginx reload
     ```
 
-### Step 3 - Configure the reverse proxy settings in the product
+### Step 3 - Configure the load balancer/reverse proxy settings in the product
 
 When using a load balancer, you need to configure the proxy host and the port to be able to work with the Proxy Server configuration.
 
@@ -512,6 +512,12 @@ proxyPort = 443
 [server]
 hostname = "sample.com"
 ```
+!!!note 
+    When using a load balancer with the '9443' port, you only need to update the hostname of the load balancer in the `<API-M_HOME>/repository/conf/deployment.toml` file. An example is shown below.
+    ```java
+    [server]
+    hostname = "sample.com"
+    ```
 
 ### Step 4 - Configure the dynamic callback origin
 
