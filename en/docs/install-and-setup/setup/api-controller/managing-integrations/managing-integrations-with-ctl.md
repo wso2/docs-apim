@@ -98,6 +98,8 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ## Manage Users
 
+You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the CTL with administrator credentials, you can also add new users, and remove users from the user store.
+
 ### Get information about users
 
 1.  List users of the Micro Integrator.
@@ -1401,7 +1403,7 @@ You can use the command below to generate the transaction count summary report b
 You can use the command below to update the secret ID of the HashiCorp configuration used in the the Micro Integrator.
 
 !!! note
-    For more information on **configuring HashiCorp**, see [Using HashiCorp Secrets]()
+    For more information on **configuring HashiCorp**, see [Using HashiCorp Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/using-hashicorp-secrets)
 
 !!! note
     This command will update the SecretId of the current runtime. To persist the new SecretId in the next server startup, Update the deployment.toml file.
