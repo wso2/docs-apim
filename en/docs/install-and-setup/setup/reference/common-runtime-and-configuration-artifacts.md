@@ -53,25 +53,19 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 
 ### Persistent Runtime Artifacts
 
-1. `<API-M_ANALYTICS_HOME>/repository/deployment/server` - Contains webapps, execution plans, event receivers, etc that are related to customizing WSO2 APIM Analytics during a deployment. Required for deploying a super tenant. It is sufficient to only share the Synapse configurations and execution plans between the nodes.
-
-2. `<API-M_ANALYTICS_HOME>/repository/data` - Contains the indexing files
-
-3. `<API-M_ANALYTICS_HOME>/repository/conf/analytics/` - My node id and shard allocation related data are stored in this directory.
+1. `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files`
 
 !!! info
-        Shared Artifacts
+    Shared Artifacts
 
-    The following artifact can be shared among API Manager nodes
+    The following artifacts can be shared among API Manager nodes
 
-    1. `<API-M_HOME>/repository/deployment/server/synapse-configs`
-    2. `<API-M_HOME>/repository/deployment/server/executionplans`
+    1. <API-M_HOME>/repository/deployment/server/synapse-configs
+    2. <API-M_HOME>/repository/deployment/server/executionplans
 
 
 ### Persistent Configuration Artifacts
 
-1. `<API-M_ANALYTICS_HOME>/repository/resources` - Resources such as key stores, templates, etc.
+1. `<API-M_ANALYTICS_HOME>/conf/worker`
 
-2. `<API-M_ANALYTICS_HOME>/repository/conf` - This folder contains the configuration files related to servers, datasources, registry, user management, etc.
-
-3. `<API-M_ANALYTICS_HOME>/bin` - Contains files for JVM changes, profile changes, etc.
+2. `<API-M_ANALYTICS_HOME>/wso2/worker/bin` -  Contains files for JVM changes, profile changes, etc.
