@@ -2876,7 +2876,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2901,7 +2901,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 

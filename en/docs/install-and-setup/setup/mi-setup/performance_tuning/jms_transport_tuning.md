@@ -40,6 +40,27 @@ To adjust the values of these properties, you can modify the server startup scri
     -   `snd_t_core=200`
     -   `snd_t_max=250`
 
+    !!! note "Determine a suitable value for lst_t_core and snd_t_core"
+        Make sure that the above mentioned recommended values per server satisfy the following criterion.
+
+        ```
+        lst_t_core > Total number of consumers + 20
+
+        lst_t_core < lst_t_max
+
+        snd_t_core > Total number of consumers + 20
+
+        snd_t_core < snd_t_max
+        ```
+
+        - `Total number of consumers = transport.jms.MaxConcurrentConsumers x Number of JMS proxies`
+        - 20 threads have been added as a buffer.
+        - Default value for `lst_t_core` and `snd_t_core` is 20.
+        - If you do not specify a value for `lst_t_core` and `snd_t_core`, the default values are applied.
+
+        !!! warning
+            If the above values that you derived exceed the recommended values, make sure that your server has the necessary resources to handle the defined thread pool size efficiently.
+
 2.  Create a directory called `conf` under your `MI_HOME` directory and save the file in this directory.
 
 ## Tuning the JMS Listener
