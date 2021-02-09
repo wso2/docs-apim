@@ -978,7 +978,7 @@ nav:
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
                 - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
-                - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/managing-integrations/encrypting-secrets-with-ctl.md
+            - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md

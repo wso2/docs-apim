@@ -26,12 +26,12 @@ synapse_secret = "[secret_2]"
 
 ### Dynamic secrets
 
-Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 Micro Integrator CLI and injected to the environment.
+Dynamic secrets are specified in configurations as environment variables, system properties, Docker secrets, or Kubernetes secrets. The actual secrets is then encrypted using the WSO2 API Controller, **apictl** and injected to the environment.
 
 1.  First, list the dynamic secrets in the `deployment.toml` file under the `[secrets]` section. However, unlike for static secrets, specify the secret value as an environment variable or system property.
 
     !!! Note
-        In this example, `dynamic_secret` is a placeholder for the secret. You will use this placeholder as the secret's alias when you encrypt the plain-text secret using the CLI (in the next step).
+        In this example, `dynamic_secret` is a placeholder for the secret. You will use this placeholder as the secret's alias when you encrypt the plain-text secret using the apictl (in the next step).
 
     ```toml tab='Environment Variable'
     [secrets]
@@ -43,40 +43,7 @@ Dynamic secrets are specified in configurations as environment variables, system
     server_secret = "$sys{dynamic_secret}"
     ``` 
 
-2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the Micro Integrator CLI.
-
-    1.  Download and [set up the CLI tool](../../../administer-and-observe/using-the-command-line-interface).
-    3.  Execute one of the following commands to generate the secret:
-
-        -   To generate secrets for a VM deployment, use the following commands:
-
-            ```bash
-            # To encrypt secret and get output to console
-            mi secret create
-
-            # To encrypt secret and get output to file
-            mi secret create file
-
-            # To bulk encrypt secrets defined in a properties file
-            mi secret create -f=</file_path>
-            ```
-            
-            !!! Note
-                A sample file `sample.properties` denoted by `</file_path>` above, can have the following content:
-                ```properties
-                keystore_password=wso2carbon
-                trustore_password=wso2carbon
-                ```
-        
-        -   To generate secrets in a .yaml file for a Kubernetes environment, use the following commands:
-
-            ```bash
-            # To encrypt secret and get output as a .yaml file
-            mi secret create k8
-
-            # To bulk encrypt secrets defined in a properties file and get the output as a .yaml file
-            mi secret create k8 -f=</file_path>
-            ```
+2.  Now, encrypt a plain-text secret for the `dynamic_secret` alias by using the WSO2 API Controller. For more information, see [Encrypting Secrets with CTL]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl)
 
 ## Step 2: Running the Cipher Tool
 
@@ -166,4 +133,4 @@ export env_carbon_sec=<ENCRYPTED_VALUE>
 
 ### In a Kubernetes environment
 
-If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the Micro Integrator CLI. See [defining dynamic secrets](#dynamic-secrets).
+If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the WSO2 API Controller, **apictl**. See [defining dynamic secrets](#dynamic-secrets).
