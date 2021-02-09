@@ -152,6 +152,11 @@ Carry out the following steps to configure the load balancer to front multiple 
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
     ```
 
+    ```tab="HA for Traffic Manager"
+    -   The placeholders {tm-1-ip-address} and {tm-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Traffic-Managers are running.
+    -   In the sample configuration given below, the hostname tm.am.wso2.com is used to access Traffic-Manager. Only HTTPS is allowed.  
+    ```
+
 !!! configurations
     ```tab="Single node"
     upstream sslapi.am.wso2.com {
@@ -439,6 +444,39 @@ Carry out the following steps to configure the load balancer to front multiple 
             access_log /etc/nginx/log/km/https/access.log;
             error_log /etc/nginx/log/km/https/error.log;
     }
+    ```
+    
+    ```tab="HA for Traffic Manager"
+    upstream tm.am.wso2.com {
+    server {tm-1-ip-address}:9443;
+    server {tm-2-ip-address}:9443  backup;
+    }
+                                
+    server {
+        listen 80;
+        server_name tm.am.wso2.com;
+        rewrite ^/(.*) https://tm.am.wso2.com/$1 permanent;
+    }
+
+    server {
+        listen 443 ssl;
+        server_name tm.am.wso2.com;
+        proxy_set_header X-Forwarded-Port 443;
+        ssl_certificate /etc/nginx/ssl/{cert_name};
+        ssl_certificate_key /etc/nginx/ssl/{key_name};
+        location / {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                proxy_pass https://tm.am.wso2.com;
+            }
+
+            access_log /etc/nginx/log/tm/https/access.log;
+            error_log /etc/nginx/log/tm/https/error.log;
+    
     ```
 
 The ports and URLs that are used internally by API Manager are given below:
