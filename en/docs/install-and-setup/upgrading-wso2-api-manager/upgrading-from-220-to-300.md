@@ -439,6 +439,7 @@ Follow the instructions below to move all the existing API Manager configuration
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
         -   /sequences/main.xml
+        -   /proxy-services/WorkflowCallbackService.xml
 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
