@@ -181,7 +181,7 @@ You can display a list of policy guidelines in the change password page that app
     </div>
     </html>
 
-## Disabling Anonymous Access to the Developer Portal
+## Disabling anonymous access to the Developer Portal
 
 By default, anonymous access to the Developer Portal is enabled. Therefore, users do not need to authenticate themselves by way of signing in when accessing the Developer Portal in WSO2 API Manager. However, if required, you can disable anonymous access to the Developer Portal to prevent anonymous users from accessing the Developer Portal. When anonymous access is disabled, users will not be allowed to access the Developer Portal UI without appropriate login details or an access token.
 
