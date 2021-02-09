@@ -502,7 +502,7 @@ sudo service nginx restart
 
 ### Step 3 - Configure the load balancer/reverse proxy settings in the product
 
-When using a load balancer, you need to configure the proxy host and the port to be able to work with the Proxy Server configuration.
+When using a load balancer, you need to configure the proxy host and the port to be able to work with the Proxy Server configuration of the load balancer.
 
 To do that add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
