@@ -23,7 +23,7 @@ in your Jenkins server.
 4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
      [![Setup apictl in Jenkins]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)
   
@@ -62,10 +62,10 @@ Initialize an API Project using the OpenAPI definition, API definition template,
     **Before you begin...**   
 
     -   As the API Developer, make sure WSO2 API Manager CTL Tool is initialized and running in your local machine, 
-    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
     
     
-Run the following sample command to initialize an API Project using the CTL by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+Run the following sample command to initialize an API Project using the CTL by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! example
     ``` bash
@@ -98,7 +98,7 @@ Add a thumbnail image of any image file type with the name `icon.<img-extension>
     -   Similarly, developers can add any additional meta information to the `api.yaml` file and also add the required API documentation and the required custom mediations to the respective folders of the same API project.
 
     -   To get an understanding of the directory structure of an API project, see 
-    [Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+    [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 ### Step 4 - Define environment specific data
 
@@ -111,7 +111,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
-    -   For more information on using an environment template, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters). 
+    -   For more information on using an environment template, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
 !!! tip
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
@@ -144,7 +144,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
 2. Add the two environments using the following sample `apictl` commands.
 
     !!! warning
-        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     !!! example
         ```bash
@@ -161,7 +161,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
         --token https://prod.apim.wso2.com/token
         ```
 
-     For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+     For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
     !!!note
         `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 

@@ -1,12 +1,14 @@
 # Enable or Disable Footer
 
-The footer section is visible by default. You can hide footer by changing themes.light.custom.footer.active to false as follows.
+The footer section is visible by default. You can hide the footer by configuring the `defaultTheme.js` file.
 
-1. Go to  `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory, open the `defaultTheme.js` file and set the `themes.light.custom.footer.active` attribute as false to hide the footer.
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file in a text editor and set the `themes.light.custom.footer.active` attribute as `false` to hide the footer.
 
 2. Refresh the Developer Portal to view the changes.
 
-### Following attributes available for footer.
+### The following attributes are available for the footer
 
 ```js
 const Configurations = {

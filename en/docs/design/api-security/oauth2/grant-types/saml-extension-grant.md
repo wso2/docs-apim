@@ -195,5 +195,10 @@ Here's an example consumer key and secret combination:
     curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=PRODUCTION" -H "Authorization: Basic <base64_encoded_consumer-key:consumer_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
+!!! tip
+    If you want to **disable the SAML Extension grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
-
+    ``` toml
+    [oauth.grant_type.saml_bearer]
+    enable = false
+    ```

@@ -47,7 +47,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
 2.  Download and setup WSO2 API Controller 4.0.0 version, `apictl`. 
 
-     For more information, see [Download and initialize the ctl tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and initialize the ctl tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
 3.  Add API Manager environments using the `add env` command.
 
@@ -66,7 +66,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
         apictl add env prod --apim https://localhost:9444 
         ```    
 
-    For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    For more information, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
     
     !!!note
         `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
@@ -112,7 +112,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
         apictl login dev -u admin -p admin -k
         ```
 
-     For more information, see [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
     !!! tip
         A user with `admin` role is allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
@@ -124,7 +124,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
         apictl export api -e dev -n SwaggerPetstore -v 1.0.0 --provider admin
         ```
 
-     For more information, see [Export an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#export-an-api).
+     For more information, see [Export an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#export-an-api).
 
     !!!note
         `apictl export-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
@@ -150,7 +150,7 @@ Execute the following command to directly generate the `PetstoreAPI` project usi
 - For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
 
 For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
-[Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+[Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 <a name="E"></a>
 ### (E.) - Prepare an API project for CI/CD
@@ -191,7 +191,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
         - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is required. These paths can be stored in the Automation Server.
         - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
-        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
+        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
 
 3.  Commit the project to the version control system.        
@@ -242,9 +242,9 @@ The repository that you committed the project in the above step <a href="#E">E</
 
     !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
-        [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+        [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
-        - A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-api-controller-operations).
+        - A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-api-controller-operations).
 
     !!! example
         ```bash
@@ -333,7 +333,7 @@ You can use the following alternative approach to promote a single API via CI/CD
         
         - The import command prepares an API Project for WSO2 API Manager by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it.
 
-        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#import-an-api).
+        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#import-an-api).
         
         - `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
@@ -361,7 +361,7 @@ Follow the instructions below to generate a JWT/OAuth token for testing purposes
 
 !!! tip
     - Make sure that WSO2 API Manager is started and the CTL tool is running. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
-    - You should log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+    - You should log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
 Run any of the following CTL commands to get keys for the API/API Product.
 
@@ -389,7 +389,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
             
         -   Required :  
             `--environment` or `-e` : Key generation environment  
-            `--name` or `-n` : API or API Product to enerate keys for   
+            `--name` or `-n` : API or API Product to generate keys for   
         -   Optional :  
             `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the `add env` command)       
             `--provider` or `-r` : Provider of the API or API Product  
@@ -404,7 +404,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
-    - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
+    - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
     - When running the above command, if you have not specified the --version (-v), the tool will consider the version as 1.0.0 by default. If you have specified the version, then that value will be considered.
 
 ### (H.) - Extending a CI/CD pipeline to support API Products
@@ -573,4 +573,4 @@ Now, you know the building blocks of creating a CI/CD pipeline using **apictl**.
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
 
 !!! More
-    Next let's use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).
+    Next let's use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).

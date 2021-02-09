@@ -1,6 +1,6 @@
 #  Configuring Different Endpoint Types
 
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. (Please refer [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information). You can specify different types of endpoints in this file, as discussed in this section.
+When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. (Please refer [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information). You can specify different types of endpoints in this file, as discussed in this section.
 
 API Manager supports four (4) main types of endpoints as follows.
 

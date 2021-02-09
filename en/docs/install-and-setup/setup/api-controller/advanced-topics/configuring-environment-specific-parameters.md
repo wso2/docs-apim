@@ -75,6 +75,58 @@ When there are multiple artifacts which needs to be added as deployment-related 
         </tbody>
     </table>
 
+
+## Bundling the Generated Directory before Import
+
+After generating the deployment directory, API controller is packed with a bundle command which provides the support
+to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
+file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
+the project, the created archive file name will be the combination of the project name, version and the revision
+number(if there is any).  
+
+-   **Command**
+        ``` bash
+        apictl bundle -s <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle -s <path-to-source-directory>  -d <path-to-the-archive-destination>
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory> 
+        ```
+        ``` bash
+        apictl bundle --source <path-to-source-directory>  --destination <path-to-the-archive-destination>
+        ```
+        
+    !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--source` or `-s` : File path of the source directory to archive  
+            -   Optional :  
+                `--destination` or `-d` : Path of the directory where the archive file should be generated     
+
+    !!! example
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  
+            ```
+            ```bash
+            apictl bundle -s /Source/apis/dev/API1-1  -d /Deployment/apis/Dev
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1   
+            ```
+            ```bash
+            apictl bundle --source /Source/apis/dev/API1-1  --destination /Deployment/apis/Dev
+            ```
+
+    !!!note
+            - If the `--destination` flag is not provided, the archive will be created in the working directory by
+             default.
+            - If the api_meta.yaml (or api_product_meta.yaml or application_meta.yaml) is not included in the
+              project, source directory name would be used as the archived file name.
+
+
 ## Defining the api_params.yaml file.
 
 The following is the structure of the parameter file.
@@ -166,7 +218,7 @@ The following code snippet contains sample configuration of the parameter file.
                       alias: Prod2
                       path: prod2.crt
     ```
-Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
+Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
 !!! example
     ```go
@@ -180,7 +232,7 @@ Instead of the default `api_params.yaml`, you can a provide custom parameter fil
     -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
     -   Under the `security` field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
     -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
-    - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/learn/api-controller/advanced-topics/configuring-different-endpoint-types).
+    - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
     - You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
 
 !!! note

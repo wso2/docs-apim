@@ -151,4 +151,10 @@ curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refres
     < Transfer-Encoding: chunked
 ```
 
+!!! tip
+    If you want to **disable the Refresh Token grant type** in the APIM instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
 
+    ``` toml
+    [oauth.grant_type.refresh_token]
+    enable = false
+    ```
