@@ -40,6 +40,16 @@ To adjust the values of these properties, you can modify the server startup scri
     -   `snd_t_core=200`
     -   `snd_t_max=250`
 
+    !!! note "Determine a suitable value for lst_t_core and snd_t_core"
+        **`lst_t_core > Total number of consumers + 20`**
+
+        **`snd_t_core > Total number of consumers + 20`**
+
+        - `Total number of consumers = transport.jms.MaxConcurrentConsumers x Number of proxies`
+        - 20 is added as a buffer.
+        - Default value for `lst_t_core` and `snd_t_core` is 20.
+        - If you do not specify a value for `lst_t_core` and `snd_t_core`, the default values are applied.
+
 2.  Create a directory called `conf` under your `MI_HOME` directory and save the file in this directory.
 
 ## Tuning the JMS Listener
