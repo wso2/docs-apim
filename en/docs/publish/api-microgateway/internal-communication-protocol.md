@@ -1,6 +1,6 @@
 # Communication Protocol of API Microgateway Components
 
-WSO2 API Microgateway uses an implementation of Envoy's [xDS protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol#xds-rest-and-grpc-protocol) to communicate between it's components, especially the Adapter -> Enforcer and Adapter -> Router communication. Here, the Adapter -> Router communication is already implemented by Envoy and it's control plane. WSO2 implements same protocol for Adapter -> Enforcer communication.
+WSO2 API Microgateway uses an implementation of Envoy's [xDS protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol#xds-rest-and-grpc-protocol) to communicate between its components, especially the Adapter -> Enforcer and Adapter -> Router communication. Here, the Adapter -> Router communication is already implemented by Envoy and its control plane. WSO2 implements same protocol for Adapter -> Enforcer communication.
 
 Envoy xDS protocol is implemented on top of gRPC. This allows both the server and the client to stream data between each other. Therefore client's can request for required data from the server and server can push the requested data back to client when new data is available.
 
