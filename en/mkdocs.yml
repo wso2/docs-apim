@@ -208,6 +208,7 @@ nav:
             - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
             - Internal Communication Protocol: publish/api-microgateway/internal-communication-protocol.md
+            - Consul Service Discovery: publish/api-microgateway/consul-service-discovery.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
