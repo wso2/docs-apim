@@ -645,6 +645,7 @@ plugins:
               'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
               'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
               'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
+              'administer/disabling-anonymous-access-to-developer-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/#disabling-anonymous-access-to-the-developer-portal'
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
