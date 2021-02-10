@@ -128,7 +128,6 @@ nav:
                                     - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
                                     - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
                                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                                     - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
                                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
@@ -226,7 +225,6 @@ nav:
                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                     - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
             - Obtain Access Token:
                 - Overview of Access Tokens: consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
