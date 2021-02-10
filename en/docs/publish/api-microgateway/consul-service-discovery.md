@@ -1,6 +1,7 @@
 # Consul Service Discovery
 
 WSO2 Envoy based Microgateway supports [Consul](https://www.hashicorp.com/products/consul) service discovery to read from the Consul service catalog and discover upstreams automatically.
+Please refer to the [Consul official documentation](https://www.consul.io/docs) to set up Consul securely.
 
 #### Enabling Consul service discovery
 
@@ -23,7 +24,7 @@ The configurations are described in the table below.
 |---------------------------------------|--------------------------------------------------------------------------------|
 | `enable`                              | Set this to true to enable Consul service discovery. |
 | `url`                                 | The `URL` of the [Consul HTTP API](https://www.consul.io/api-docs#http-api-structure).|
-| `pollInterval`                        | The time interval (in seconds) which the Microgateway should fetch updates from Consul service catalog.|
+| `pollInterval`                        | The time interval (in seconds) in which the Microgateway should fetch updates from Consul service catalog.|
 | `aclToken`                            | [ACL Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul.|
 | `caFile`                              | CaFile is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.|
 | `certFile`                            | CertFile is the optional path to the certificate for Consul communication. If this is set then you need to also set `keyFile`.|
@@ -31,9 +32,9 @@ The configurations are described in the table below.
 
 
 !!! note
-`caFile`, `certFile`, and `keyFile` are optional and needed and only when you need to override the Adapter's default CA, certificate, and private key.<br>
-If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to true, the certificate and private key has to be signed by the same
-CA which the Consul agents' certificates are signed.
+        `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br>
+        If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to true, the certificate and private key has to be signed by the same
+        CA that the Consul agents' certificates are signed.
 
 
 #### Deploy an API that contains services registered with Consul service catalog
@@ -76,11 +77,15 @@ x-wso2-production-endpoints:
 
 <!-- todo rumesh check the keyword for loadbalance once implemented -->
 
-Consul upstreams can be set both on `x-wso2-production-endpoints` and `x-wso2-sandbox-endpoints`.<br>
-Both API level and Resource level endpoints are supported.<br>
-Type should always be `loadbalance`.<br>
-
-Upon deploying your API, the Adapter will poll the Consul HTTP API for any changes regarding the service.
-If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
+!!! info
+        1. The adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
+        During that time requests that arrive at the Microgateway are served from the
+        `default_host`. <br>
+        2. Consul upstreams can be set both on `x-wso2-production-endpoints` and `x-wso2-sandbox-endpoints`.<br>
+        3. Microgateway supports Both API level and Resource level endpoints for Consul service discovery.<br>
+        4. Type under the vendor extension should be `loadbalance`.
+        <br>
+        5. Upon successfully [deploying your API](quick-start-guide.md#step-2---create-and-deploy-an-api-project), the Adapter will poll the Consul HTTP API for changes concerning the services.
+        If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
 
        
