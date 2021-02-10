@@ -162,6 +162,10 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **[Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs**.
 
+- **[Implicit Grant]({{base_path}}/learn/api-security/oauth2/grant-types/implicit-grant)**
+
+     This has been deprecated since the OAuth 2.1.0 has removed/discouraged the use of the implicit grant type due to security concerns. Please refer [here](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14#section-2.1.2) for more details. 
+
 ### Removed features and functionalities
 
 - **Tag wise grouping**
