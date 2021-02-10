@@ -53,7 +53,7 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 
 ### Persistent Runtime Artifacts
 
-1. `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` -  Contains the siddhi application artifacts related to APIM analytics worker runtime.
+1. `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` -  Contains the Siddhi application artifacts related to APIM analytics worker runtime.
 
 !!! info
     Shared Artifacts
