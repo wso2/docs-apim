@@ -46,6 +46,10 @@ The **WSO2 API Manager 4.0.0-M1** is the **latest** **WSO2 API Manager relea
 
 ### Removed features and functionalities
 
+- **Implicit Grant**
+
+OAuth 2.1.0 has removed/discouraged the use of Implicit grant type due to security concerns. Therefore, the support for Implicit grant has been removed from WSO2 API Manager. See [here](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14#section-2.1.2) for more details. 
+
 ## Compatible WSO2 product versions
 
 WSO2 API-M 4.0.0-M1 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.11.0 when working with WSO2 API-M 4.0.0-M1. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 4.0.0-M1, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
