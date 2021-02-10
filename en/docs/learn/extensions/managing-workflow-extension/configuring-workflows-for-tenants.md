@@ -145,7 +145,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
         - The ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. 
         - The wsa:Address should point to the gateway nodes. (https:///services/WorkflowCallbackService) and the user credentials which grant access to that service should be used.
 
-6.  Open `ApplicationCallbackService-Tenant.epr` in a text editor and and add the tenant admin credentials.
+6.  Open `ApplicationCallbackService-Tenant.epr` in a text editor and add the tenant admin credentials.
 
 7.  Point the `deploy.xml` file of the extracted folder to the new.epr files provided in the BPEL archive. 
 
