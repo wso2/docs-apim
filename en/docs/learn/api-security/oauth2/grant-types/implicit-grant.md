@@ -1,7 +1,7 @@
 # Implicit Grant
 
 !!! note
-    The Implicit Grant has been deprecated in WSO2 API Manager 3.2.0 and will be removed from the future releases. This has been done since the OAuth 2.1.0 has removed/discouraged the use of the implicit grant type due to security concerns. Please refer [here](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14#section-2.1.2) for more details.
+    The Implicit Grant has been deprecated in WSO2 API Manager 3.2.0 and will be removed from the future releases. This has been done since the OAuth 2.1.0 has removed/discouraged the use of the implicit grant type due to security concerns. For more information, see [OAuth 2.0 Security Best Current Practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
 
 Implicit grant type is used to obtain access tokens if your application (client) is a mobile application or a browser based app such as a JavaScript client. Similar to authorization code grant, the implicit grant type is also based on redirection flow. The redirection URI includes the access token in the URI fragment. Therefore, the client application is capable of interacting with the resource owner user agent to obtain the access token from the redirection URI which is sent from the authorization server.
 
