@@ -135,7 +135,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 4.  Copy `ApplicationService.epr` and `ApplicationCallbackService.epr` from the `<APIM_HOME>/business-processes/epr` folder to the folder extracted before. Then, rename the two files as `ApplicationService-Tenant.epr` and `ApplicationCallbackService-Tenant.epr` respectively.
 
-5.  Open `ApplicationService-Tenant.epr` and change the `wsa:Address` to `http://localhost:9765/services/t/<domain>/ApplicationService` and add the tenant admin credentials.
+5.  Open `ApplicationService-Tenant.epr` in a text editor and change the `wsa:Address` to `http://localhost:9765/services/t/<domain>/ApplicationService` and add the tenant admin credentials.
 
     !!! info
         In a distributed setup - 
