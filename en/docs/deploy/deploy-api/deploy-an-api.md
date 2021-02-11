@@ -1,12 +1,12 @@
-# Publish an API
+# Deploy an API
 
-**API Publishing** is the process of making the API visible in the Developer Portal and available for subscription. An API in the lifecycle state CREATED will have the  API metadata added to the Developer Portal, but not deployed to the API Gateway. Therefore, it is not visible to subscribers in the Developer Portal. When the API is published, it gets deployed on the API Gateway, and the API lifecycle state will be changed to **PUBLISHED**. 
+**API Deploying** is the process of making the API available for subscription. An API in the lifecycle state CREATED will have the  API metadata added to the Developer Portal, but not deployed to the API Gateway. Therefore, it is not visible to subscribers in the Developer Portal. When the API is published, it gets deployed on the API Gateway, and the API lifecycle state will be changed to **PUBLISHED**. 
 
 Follow the steps below to publish an API using WSO2 API Manager.
 
-1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide](/learn/design-api/create-api/create-a-rest-api/) to create a new API. 
+1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide]({{base_path}}/design/create-api/create-a-rest-api/) to create a new API. 
 
-     The list of APIs in the API Publisher appears. If there are no APIs created, [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) before starting.
+     The list of APIs in the API Publisher appears. If there are no APIs created, [create an API]({{base_path}}/design/create-api/create-a-rest-api/) before starting.
 
 2.  Click on an API that is in the **CREATED** state.
 
