@@ -128,7 +128,6 @@ nav:
                                     - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
                                     - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
                                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                                     - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
                                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
@@ -208,6 +207,7 @@ nav:
             - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
             - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
             - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
+            - Internal Communication Protocol: publish/api-microgateway/internal-communication-protocol.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -225,7 +225,6 @@ nav:
                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                     - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
             - Obtain Access Token:
                 - Overview of Access Tokens: consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
@@ -978,7 +977,7 @@ nav:
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
                 - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
-                - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/managing-integrations/encrypting-secrets-with-ctl.md
+            - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
@@ -1017,7 +1016,6 @@ nav:
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
             - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
-        - Disabling Anonymous Access to the Developer Portal: administer/disabling-anonymous-access-to-developer-portal.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
