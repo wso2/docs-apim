@@ -1,6 +1,6 @@
-# Consul Service Discovery
+# Service Discovery
 
-WSO2 Envoy based Microgateway supports [Consul](https://www.hashicorp.com/products/consul) service discovery to read from the Consul service catalog and discover upstreams automatically.
+WSO2 Microgateway supports service discovery by connecting to [Consul service registry](https://www.hashicorp.com/products/consul) and discover upstream services automatically.
 Please refer to the [Consul official documentation](https://www.consul.io/docs) to set up Consul securely.
 
 #### Enabling Consul service discovery
