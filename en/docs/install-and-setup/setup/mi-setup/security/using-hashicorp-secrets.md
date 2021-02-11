@@ -179,6 +179,9 @@ If you want to update the secret token dynamically without restarting the server
     }
     ```
 
+!!! Tip
+    You can use the WSO2 API Controller (APICTL) to update the secret token dynamically. For more information, see [Update HashiCorp configuration]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#update-hashicorp-configurations).
+
 ## Using Namespaces for the HashiCorp connection
 
 Namespace support is available only in the Enterprise edition of HashiCorp. 
