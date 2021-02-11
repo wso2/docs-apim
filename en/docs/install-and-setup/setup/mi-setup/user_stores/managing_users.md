@@ -39,29 +39,9 @@ Users that do not have admin privileges can access the management API, the CLI, 
 
 ## Managing users from the CLI
 
-See the [Micro Integrator CLI documentation](../../../administer-and-observe/using-the-command-line-interface) to set up the tool. Be sure to log in to the Micro Integrator server (from the CLI) with your admin user name and password.
+You can use the WSO2 API Controller (APICTL) to view details of users, add new users, and remove users from the user store.
 
-Use the [mi user](../../../administer-and-observe/using-the-command-line-interface/#mi-user) option in the CLI with the required commands as shown in the following examples:
-
-```bash
-# To add a new user.
-mi user add [new user-id] [password] [is-admin]
-
-# To remove a user
-mi user remove [user-id]
-
-# To list all the users
-mi user show
-
-# To list user by user ID
-mi user show [user ID]
-
-# To list users by user role
-mi user show -r [role name]
-
-# To list users matching a user name regex pattern
-mi user show -p [user name regex pattern]
-```
+For more information, see [Manage Users]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#manage-users)
 
 ## Managing users from the Dashboard
 

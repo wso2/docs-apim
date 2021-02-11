@@ -170,45 +170,85 @@ nav:
                 - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-    - Publish:
-        - Publish APIs Overview: publish/publish-api-overview.md
-        - Publish an API: publish/publish-an-api.md
-        - Publish through Multiple API Gateways: publish/publish-through-multiple-api-gateways.md
-        - Publish an API to a Cloud Cluster in PrivateJet Mode: publish/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
-        - Publish to Multiple External API Developer Portals: publish/publish-to-multiple-external-api-stores.md
-        - Gateway:
-            - Overview of the WSO2 API Gateway: publish/api-gateway/overview-of-the-api-gateway.md
+    - Deploy:
+        - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
+        - API Gateway:
+            - Overview of the WSO2 API Gateway: deploy/api-gateway/overview-of-the-api-gateway.md
+            - Publish APIs Overview: deploy/publish-api-overview.md
+            - Deploy an API: deploy/deploy-an-api.md
+            - Publish through Multiple API Gateways: deploy/publish-through-multiple-api-gateways.md
+            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
+            - Publish to Multiple External API Developer Portals: deploy/publish-to-multiple-external-api-stores.md
             - Message Mediation:
-                - Changing the Default Mediation Flow of API Requests: publish/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                - Creating and Uploading using Integration Studio: publish/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                - Adding Dynamic Endpoints: publish/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                - Removing Specific Request Headers From Response: publish/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                - Passing a Custom Authorization Token to the Backend: publish/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: publish/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disabling Message Chunking: publish/api-gateway/message-mediation/disabling-message-chunking.md
-                - Transforming API Message Payload: publish/api-gateway/message-mediation/transforming-api-message-payload.md
-                - Adding a Non-Blocking Send Operation: publish/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                - Adding a Class Mediator:  publish/api-gateway/message-mediation/adding-a-class-mediator.md
-                - Configuring message builders and formatters: publish/api-gateway/message-mediation/configuring-message-builders-formatters.md
-            - Response Caching: publish/api-gateway/response-caching.md
-            - Message Tracing: publish/api-gateway/message-tracing.md
+                - Changing the Default Mediation Flow of API Requests: deploy/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                - Creating and Uploading using Integration Studio: deploy/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                - Adding Dynamic Endpoints: deploy/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                - Removing Specific Request Headers From Response: deploy/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                - Passing a Custom Authorization Token to the Backend: deploy/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: deploy/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disabling Message Chunking: deploy/api-gateway/message-mediation/disabling-message-chunking.md
+                - Transforming API Message Payload: deploy/api-gateway/message-mediation/transforming-api-message-payload.md
+                - Adding a Non-Blocking Send Operation: deploy/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                - Adding a Class Mediator:  deploy/api-gateway/message-mediation/adding-a-class-mediator.md
+                - Configuring message builders and formatters: deploy/api-gateway/message-mediation/configuring-message-builders-formatters.md
+            - Response Caching: deploy/api-gateway/response-caching.md
+            - Message Tracing: deploy/api-gateway/message-tracing.md
             - Threat Protectors:
-                - Regular Expression Threat Protection: publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - Regular Expression Threat Protection: deploy/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                - JSON Threat Protection: deploy/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                - XML Threat Protection: deploy/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
-                - Passing Enduser Attributes to the Backend Using JWT: publish/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
-            - Gateway Environments: publish/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-            - Scaling the Gateway: publish/api-gateway/scaling-the-gateway.md
+                - Passing Enduser Attributes to the Backend Using JWT: deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Gateway Environments: deploy/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+            - Scaling the Gateway: deploy/api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-        - Microgateway:
-            - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
-            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
-            - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
-            - Internal Communication Protocol: publish/api-microgateway/internal-communication-protocol.md
-            - Service Discovery: publish/api-microgateway/service-discovery.md
+                - API Gateways with Dedicated Backends: deploy/api-gateway/api-gateways-with-dedicated-backends.md
+                - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+        - WSO2 API Microgateway:
+            - Getting Started:
+                - Quick start Guide:
+                    - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
+                    - Quick Start Guide-Docker: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
+                    - Quick Started Guide-Kubernetes: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                - Microgateway Key Concepts: deploy/api-microgateway/getting-started/api-microgateway-key-concepts.md
+            - Import API:
+                - Using an OpenAPI Definition: deploy/api-microgateway/import-api/using-an-openapi-definition.md
+            - Endpoints:
+                - Endpoint Types: design/endpoints/endpoint-types.md
+                - Defining Endpoints in an OpenAPI Definition: deploy/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
+                - Overriding Endpoint Information:
+                    - Overriding Endpoints for Developer-centric Approach APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.
+                    - Overriding Endpoints for Imported APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                - Defining a Backend Security Scheme: deploy/api-microgateway/endpoints/defining-a-backend-security-scheme.md
+            - HTTP 2.0: deploy/api-microgateway/http-2.0.md
+            - Rate Limiting:
+                 - Enabling distributed throttling: deploy/api-microgateway/rate-limiting/distributed-throttling.md
+            - Service Discovery: deploy/api-microgateway/service-discovery.md
+            - Security:
+                - Authentication:
+                    - API Authentication: deploy/security/api-authentication/api-authentication.md
+                    - Secure APIs Using OAuth2.0 Access Tokens:
+                        - Secure APIs using JWT - Self Contained JWT: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                        - Secure APIs Using Opaque Tokens: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                    - Mutual SSL Authentication: deploy/security/api-authentication/mutual-ssl-authentication.md
+                    - Configuring an External Key Manager: deploy/security/api-authentication/configuring-an-external-key-manager.md
+                    - Making Application Security Optional: deploy/security/api-authentication/making-application-security-optional.md
+                    - Disabling Security: deploy/security/api-authentication/disabling-security.md
+                - Authorization:
+                    - Scope Validation: deploy/security/api-authorization/scope-validation.md
+                    - Subscription Validation: deploy/security/api-authorization/subscription-validation.md
+                - Transport Security: deploy/security/transport-security.md
+                - Enabling CORS: deploy/security/enabling-cors.md
+                - Use a Custom Authorization Header: deploy/security/use-a-custom-authorization-header.md
+                - Rejecting Revoked Tokens: deploy/security/rejecting-revoked-tokens.md
+                - Importing Certificates to the API Microgateway Truststore: deploy/security/importing-certificates-to-the-api-microgateway-truststore.md
+                - Define Security Using Extension: deploy/security/define-security-using-extension.md
+            - File Upload via Multipart Requests: deploy/file-upload-via-multipart-requests.md
+            - Configure Caching: deploy/configure-caching.md
+            - Manage Microgateway APIs with WSO2 API Manager: deploy/manage-microgateway-apis-with-wso2-api-manager.md
+            - Passing Enduser Attributes to the Backend Using JWT: deploy/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Custom Claims Mapping: deploy/support-custom-claims-mapping.md
+            - Grouping APIs with Labels: deploy/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
