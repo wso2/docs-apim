@@ -20,7 +20,7 @@ In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and runni
 
 ## Step 2 - Create an external OAuth2 client
 
-1.  Sign in to the WSO2 WSO2 IS Management Console (`https://<Server Host>:9444/carbon`) 
+1.  Sign in to the WSO2 IS Management Console (`https://<Server Host>:9444/carbon`) 
 
 2. Click **Main** --> **Service Providers** --> **Add**.
 
