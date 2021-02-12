@@ -14,11 +14,11 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its k
 
 You can use any identity provider to obtain a JWT. As an example, this step will discuss how to obtain a JWT from WSO2 Identity Server (WSO2 IS).
 
-1. Download and install the [latest WSO2 Identity Server](https://wso2.com/identity-and-access-management/#).
+1. Download and install the [latest WSO2 IS](https://wso2.com/identity-and-access-management/#).
      
      If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
 
-     Start WSO2 Identity Server with a port offset. (`portOffset` is required only if you are running both API-M and ID in the same) JVM.
+     Start WSO2 IS with a port offset. (`portOffset` is required only if you are running both API-M and IS in the same JVM).
 
       `sh wso2server.sh -DportOffset=1`
 
@@ -83,18 +83,16 @@ Now you have obtained a JWT from WSO2 IS. In the next step, let us register an i
         !!! info
             The **Identity Provider Public Certificate** is the public certificate belonging to the identity provider. Uploading this is necessary to authenticate the response from the identity provider.
 
-            This can be any certificate. If the identity provider is another API Manager or an Identity Server, this can be a `wso2.crt` file. 
-            
-            Since we have used WSO2 IS as the identity provider here, follow the below steps to create the identity provider certificate from the `wso2carbon.jks file`.
+            This can be any certificate. Since we have used WSO2 IS as the identity provider here, follow the below steps to create the identity provider certificate from the `wso2carbon.jks file`.
 
             - Open your command line interface, navigate to the `<IS_HOME>/repository/resources/security/` directory and run the following command.
               ``` java
               keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon
               ```
 
-            - Once you run this command, the `wso2.crt` file will be generated inside the same folder. You can upload it by clicking **Choose File** in Identity Provider section in the Management Console.
+            - Once you run this command, the certificate will be exported as `wso2.crt` in the same folder. You can upload it by clicking **Choose File** in Identity Provider section in the Management Console.
 
-            See [Using Asymmetric Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) in the WSO2 Product Administration Guide for more information on how public keys work and how to sign these keys by a certification authority.
+            See [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/) for more information on how public keys work and how to sign these keys by a certification authority.
 
     -   **Alias** : Give the audience (`aud` value) of the JWTs issued by the identity provider (WSO2 IS).
 
