@@ -105,10 +105,10 @@ Now you have successfully mapped an out-of-band OAuth client to an application.
 
 ## Step 4 - Invoke an API
 
-1. [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) via this application.
+1. [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) via this application.
 
 2. Obtain an access token for it.
    
-    You cannot obtain an access token from the Developer Portal for the provisioned applications. You need to use the command line (cURL). For more information, see [Obtain Access Token]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens).
+    You cannot obtain an access token from the Developer Portal for the provisioned applications. You need to use the command line (cURL). For more information, see [Obtain Access Token]({{base_path}}/consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens).
 
-3. [Invoke the API]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+3. [Invoke the API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
