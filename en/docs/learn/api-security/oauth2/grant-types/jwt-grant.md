@@ -51,22 +51,7 @@ You can use any identity provider to obtain a JWT. As an example, this step will
    
     [![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)
 
-7.  Use the following sample cURL command to obtain a JWT. Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/).
-
-    ``` java tab="Format"
-    curl -k -d "grant_type=<grant_type_of_your_choice>" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_Server_Host>:9444/oauth2/token
-    ```
-
-    ``` java tab="Example"
-    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9444/oauth2/token
-    ```
-
-    **Sample Response**
-    ```
-    {"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA","refresh_token":"b6549344-c5ba-3103-8f93-475aa5416759","token_type":"Bearer","expires_in":3600}
-    ```
-
-Now you have obtained a JWT from WSO2 IS. In the next step, let us register an identity provider and create a service provider in WSO2 API-M.
+Now you have configured a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let us register an identity provider and create a service provider in WSO2 API-M.
 
 ### Step 2 - Configure an Identity Provider and a Service Provider in WSO2 API-M
 
@@ -117,36 +102,51 @@ Now we have a registered identity provider and as well as a service provider wit
 
 ## Using the JWT grant
 
-Execute the below cURL command to retrieve the access token and refresh the token using a JWT.
+1.  Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that we configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/).
 
-``` java tab="Format"
-curl -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/token
-```
-
-``` java tab="Example"
-curl -X POST -u 4WCCBckEpMMM5oFmC59EEtJXpzEa:_htM8KV73STHfzBO4TGbnC9iSswa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:8243/token
-```
-
-!!! note
-     - The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value (You can use the **OAuth Client Key** and an **OAuth Client Secret** that we obtained at the end of [Step 2](#step-2-configure-an-identity-provider-and-a-service-provider-in-wso2-api-m) here). 
-     - The assertion parameter value (`<JWT>`) is the signed base64 encoded JWT. (You can use the JWT that we obtained at the end of [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) here). The value of the assertion parameter **MUST** contain a **single JWT.** You can refer [JWT Bearer Grant](#jwt-bearer-grant) for more information about assertion.
-
-!!! info
-    If you have configured the service provider and identity provider in a tenant, you have to add the tenant domain as a query parameter to the access token endpoint.
-
-    If the tenant domain is `wso2.com` , the access token endpoint will be as follows.
-
-    ``` java
-    Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
+    ``` java tab="Format"
+    curl -k -d "grant_type=<grant_type_of_your_choice>" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_Server_Host>:9444/oauth2/token
     ```
 
-You would have now received the response from the token endpoint. The response would contain the access token, refresh token, expiry time, scope and token type.
+    ``` java tab="Example"
+    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9444/oauth2/token
+    ```
 
-**Sample response**
+    **Sample Response**
+    ```
+    {"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA","refresh_token":"b6549344-c5ba-3103-8f93-475aa5416759","token_type":"Bearer","expires_in":3600}
+    ```
 
-``` java
-{"access_token":"650547f8-1dd3-3586-bbd0-57d01e097afe","refresh_token":"d65152ee-64bf-3d2f-853b-eb54b9baac63","scope":"default","token_type":"Bearer","expires_in":3600}
-```
+2. Execute the below cURL command to retrieve the access token from WSO2 API-M for the generated JWT in the previous step.
+
+    ``` java tab="Format"
+    curl -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/token
+    ```
+
+    ``` java tab="Example"
+    curl -X POST -u 4WCCBckEpMMM5oFmC59EEtJXpzEa:_htM8KV73STHfzBO4TGbnC9iSswa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:8243/token
+    ```
+
+    !!! note
+        - The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value (You can use the **OAuth Client Key** and an **OAuth Client Secret** that we obtained at the end of [Step 2](#step-2-configure-an-identity-provider-and-a-service-provider-in-wso2-api-m) here). 
+        - The assertion parameter value (`<JWT>`) is the signed base64 encoded JWT. (You can use the JWT that we obtained at the end of [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) here). The value of the assertion parameter **MUST** contain a **single JWT.** You can refer [JWT Bearer Grant](#jwt-bearer-grant) for more information about assertion.
+
+    !!! info
+        If you have configured the service provider and identity provider in a tenant, you have to add the tenant domain as a query parameter to the access token endpoint.
+
+        If the tenant domain is `wso2.com` , the access token endpoint will be as follows.
+
+        ``` java
+        Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
+        ```
+
+    You would now have received the response from the token endpoint of WSO2 API-M. The response would contain the access token, refresh token, expiry time, scope and token type.
+
+    **Sample response**
+
+    ``` java
+    {"access_token":"650547f8-1dd3-3586-bbd0-57d01e097afe","refresh_token":"d65152ee-64bf-3d2f-853b-eb54b9baac63","scope":"default","token_type":"Bearer","expires_in":3600}
+    ```
 
 ## JWT Bearer Grant
 
