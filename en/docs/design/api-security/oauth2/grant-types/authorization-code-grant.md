@@ -2,7 +2,7 @@
 
 Instead of requesting authorization directly from the resource owner (resource owner's credentials), in this grant type, the client directs the resource owner to an authorization server. The authorization server works as an intermediary between the client and resource owner to issues an authorization code, authenticate the resource owner and obtain authorization. As this is a redirection-based flow, the client must be capable of interacting with the resource owner's user-agent (typically a Web browser) and receiving incoming requests (via redirection) from the authorization server.
 
-#### Flow
+## Flow
 
 The client initiates the flow by directing the resource owner's user-agent to the authorization endpoint (you can use the `/authorize` endpoint for the authorization code grant type of OAuth 2.0). It includes the client identifier, response\_type, requested scope, and a redirection URI to which the authorization server sends the user-agent back after granting access. The authorization server authenticates the resource owner (via the user-agent) and establishes whether the resource owner granted or denied the client's access request. Assuming the resource owner grants access, the authorization server then redirects the user-agent back to the client using the redirection URI provided earlier. The redirection URI includes an authorization code.
 
@@ -12,7 +12,7 @@ The diagram below depicts the flow of Authorization Code Grant :
 
 ![]({{base_path}}/assets/img/learn/oauth-authorization-code-grant-diagram.png)
 
-#### Invoking the Token API to generate tokens
+## Invoking the Token API to generate tokens
 
 Assuming that both the client and the API Gateway are run on the same server, the Authorization API URL is `http://wso2is.local:8080/authorize`.
 
@@ -62,14 +62,14 @@ login_url="/authenticationendpoint/login.do"
 retry_url="/authenticationendpoint/retry.do"
 ```
 
-### Try Authorization Code Grant
+## Try Authorization Code Grant
 
 The steps below show how access tokens are generated for the authorization code grant type.
 
 !!! note
     **Before you begin**
 
-    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.10.0/develop/deploying-the-sample-app/).
+    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.10.0/learn/deploying-the-sample-app/#deploying-the-playground2-webapp) .
 
 
 1.  Open a terminal window and add the following entry to the `/etc/hosts` file of your machine to configure the hostname.
@@ -148,3 +148,10 @@ The steps below show how access tokens are generated for the authorization code 
 
     [![]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)
         
+!!! tip
+    If you want to **disable the Authorization Code grant type** in the API-M instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+
+    ``` toml
+    [oauth.grant_type.authorization_code]
+    enable = false
+    ```
