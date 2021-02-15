@@ -229,15 +229,257 @@ To do this, follow the steps below:
     ![Output JSON Events in Converted Format]({{base_path}}/assets/img/streaming/transforming-data-tutorial/converted-json-events-extract.png)
    
 
-
 ### Manipulating a JSON object using execution JSON
+
+This section explains how to manipulate a JSON object via the `siddhi-execution-json` Siddhi extension. To try this out, consider a scenario where the flight operators in the departure terminals of WUA airport need to keep the flight display systems updated with the latest information relating to flights. The flight operator needs to add each flight to the display two hours before departure. The information in the display item needs to be updated when a gate is assigned, and when there is a change in the gate status. To allow the flight operators do this via the system, let's write a Siddhi application as follows:
+
+1. In Streaming Integrator Tooling, open a new file and start creating a new application named `FlightInformationDisplayApp`.
+
+    ```
+    @App:name("FlightInformationDisplayApp")
+    ```
+   
+2. To get the flight details in JSON format, define an input stream as follows.
+
+    ```
+    define stream FlightInfoStream (flight string, destination string, time string, gate string, status string);
+    ```
+   
+3. To present the information to be displayed in the flight information display, define an output stream as follows.
+
+    ```
+    define stream OutputStream  (flight string, destination string, time string, gate string);
+    ```
+   
+4. To get extract events from the JSON payload, write a query as follows:
+
+``` 
+curl -X POST \
+  http://localhost:5005/FlightsInfoEP \
+  -H 'content-type: application/json' \
+  -d '{
+  "flightNo": "TK-2320",
+  "passenger": true,
+  "direction": "arrival",
+  "Details": {
+    "aircraft": "A321",
+    "seats": 240,
+    "passengers": 210
+  }
+}'
+```
 
 ### Splitting a JSON array to multiple events
 
+In this section, let's learn how to split a JSON array into multiple JSON objects via the [siddhi-execution-json Siddhi extension](https://siddhi-io.github.io/siddhi-execution-json/api/latest/).
+
+Consider an example at WUA airport where once a gate controller at a terminal opens the gate for a few flights, he/she sends the list of flights in batch as a JSON array. However, when sending the same information to flight information display systems for passengers, the status of each flight must be extracted from the JSON array and sent as a separate JSON object. 
+
+To understand how this can be done via the Streaming Integrator, follow the steps below:
+
+1. In Streaming Integrator Tooling, open a new file and start creating a new Siddhi application named `GateStatusUpdateApp`.
+
+    ```
+    @App:name("GateStatusUpdateApp")
+    ```
+   
+2. Define an input stream to receive the update about the gate status as a JSON array.
+
+    ```
+    @source(type = 'http', receiver.url = "http://localhost:5005/GateInfoEP",
+        @map(type = 'json',
+            @attributes(flight = "$.flight", status = "$.gateStatus")))
+    define stream InputStream (status string, flight string);
+    ```
+   
+   The source of the `http` type connected to the stream that the event is received in JSOn format to the `http://localhost:5005/GateInfoEP` HTTP endpoint. The `@attributes` annotation specifies the JSON expressions via which the values for the attributes are derived from the JSON event.
+   
+3. To generate the response (i.e., The JSON objects derived by splitting the array), define an output stream as follows:
+
+    ```
+    @sink(type = 'file', file.uri = "file:/Users/rukshani/documents/csvfiles/gatedetails.json",
+        @map(type = 'json'))
+    define stream OutputStream (status string, flight string);
+    ```
+   
+    The connected sink of the `file` type indicates that the JSON objects derived by splitting the array are saved in the `Users/foo/gatedetails.json`.
+
+4. To generate JSON objects as events in the output stream, write a Siddhi query as follows:
+
+    ```text
+    @info(name = 'query1')
+    from InputStream#json:tokenize(flight, '$')  
+    select json:getString(status, '$.gateStatus') as status, flight 
+    insert into OutputStream;
+    ```   
+   
+   This query gets the input event (i.e., the JSON array) from `InputStream` stream and inserts the output events (i.e., the JSON objects) into the `OutputStream` stream. The `json:tokenize()` function is applied to the input stream, and it specifies that the `flight, '$` path in the JSON event needs to be tokenized (split). 
+   
+5. Save the Siddhi application. The complete Siddhi application looks as follows:
+
+    ```
+    @App:name('GateStatusUpdateApp')
+    @App:description('Description of the plan')
+    
+    @source(type = 'http', receiver.url = "http://localhost:5005/GateInfoEP",
+        @map(type = 'json',
+            @attributes(flight = "$.flight", status = "$.gateStatus")))
+    define stream InputStream (status string, flight string);
+    
+    @sink(type = 'file', file.uri = "file:/Users/rukshani/documents/csvfiles/gatedetails.json",
+        @map(type = 'json'))
+    @sink(type = 'log', prefix = "split events",
+        @map(type = 'json'))
+    define stream OutputStream (status string, flight string);
+    
+    @info(name = 'query1')
+    from InputStream#json:tokenize(flight, '$')  
+    select json:getString(status, '$.gateStatus') as status, flight 
+    insert into OutputStream;
+    ```
+
+6. Start the Siddhi application by clicking on the **Play** icon.
+      
+    ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
+    
+7. Issue the following CURL command
+
+    ``` 
+    curl -X POST  http://localhost:5005/GateInfoEP -H 'content-type: application/json' -d '{"gateStatus":"open", "flight": [{"flight":"TK-2320"},{"flight":"TK-2310"},{"flight":"QR-1405"}]}'
+    ```
+8. Open the `Users/rukshani/documents/csvfiles/gatedetails.json` file. The contents are as follows:
+
+    ```
+    
+    ```
+
+
 ## Transforming XML
+
+This section shows you how the Streaming Integrator component transforms data received in XML format.
+
 
 ### Converting one XML format to another XML format
 
+For this scenario, consider the example where flight details are received in the following XML format:
+
+```    
+<flightevent>
+    <flight>QR-1405</flight>
+    <details>
+       <destination>lisbon</destination>
+       <passengers>200</passengers>
+       <duration>3h 30 min</duration>
+    </details>
+</flightevent>
+```
+ 
+However, the record keeper needs to save them in a file in the following format:
+
+```
+<flight>QR-1405</flight>
+<destination>lisbon</destination>
+<passengers>200</passengers>
+<timeDuration>3.5</duration>
+```
+
+To perform this transformation, follow the steps below:
+
+1. Open a new file in your favourite text editor. Copy the following content to it and save it in a preferred location.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <flights>
+       <flightevent>
+          <flight>QR-1405</flight>
+          <details>
+             <destination>lisbon</destination>
+             <passengers>200</passengers>
+             <duration>6 35m</duration>
+          </details>
+       </flightevent>
+       <flightevent>
+          <flight>QR-0273</flight>
+          <details>
+             <destination>amsterdam</destination>
+             <passengers>220</passengers>
+             <duration>7h 40m</duration>
+          </details>
+       </flightevent>
+       <flightevent>
+          <flight>QR-1019</flight>
+          <details>
+             <destination>amsterdamn</destination>
+             <passengers>210</passengers>
+             <duration>7h 35m</duration>
+          </details>
+       </flightevent>
+    </flights>
+    ```
+   For this example, let's assume that it is saved in the `/users/foo` directory.
+   
+2. In streaming Integrator Tooling, open a new file and start creating a new Siddhi application named `ConvertXMLFormatApp`.
+
+    ```
+    @App:name("ConvertXMLFormatApp")
+    ```
+   
+3. To receive the XML events, define an input stream as follows.
+
+    ```
+    @source(type = 'file', file.uri = "file:/users/rukshani/documents/xmlfiles/flights.xml",
+        @map(type = 'xml', enclosing.element = "flights",
+            @attributes(flight = "flight", destination = "details/destination", passengers = "details/passengers", timeDuration = "details/duration")))
+    define stream FlightInfoStream (flight string, destination string, passengers int, timeDuration string);
+    ```
+   
+   The stream definition has all the attributes of the expected format in the required format (i.e., `flight`, `destination`, `passengers` and `timeDuration`). The connected source specifies that the events are received from the `users/documents/xmlfiles/flights.xml` file that you previously saved. According to the `@map` annotation, these events are received in XML format. The `@attributes` annotation specifies how the value for each attribute in the stream, is derived from the stream. The value for the `flight` attribute is derived from the attribute of the same name in the incoming event. The values for the other attributes are nested below the `details` attribute in the incoming event, and to indicate this, `@attribute` annotation specifies the XPath expression (e.g., `passengers = "details/passengers"`). When the name of the corresponding attribute in the incoming event is different, the XPath expression specifies it (e.g., `timeDuration = "details/duration"`).
+   
+4. To generate the output events, define an output stream as follows:
+
+    ```
+    @sink(type = 'file', file.uri = "file:/users/foo/formatttedflights.xml",
+    @map(type = 'xml'))
+    define stream FormattedFlightInfoStream (flight string, destination string, passengers int, timeDuration string);
+    ```
+   The above stream definition has the same attributes as the `FlightInfoStream` input stream. The connected sink of the `file` type publishes the output events generated in the stream to the `users/foo/formatttedflights.xml` file in XML format.
+   
+5. To select all the events from the `FlightInfoStream` input stream and insert them into the `FormattedFlightInfoStream`, add a query as follows.
+
+    ```
+    @info(name = 'Publish formatted events')
+    from FlightInfoStream 
+    select * 
+    insert into FormattedFlightInfoStream;
+    ```
+   
+6. Save the Siddhi application. The complete Siddhi application is as follows:
+
+    ```
+    @App:name('ConvertXMLFormatApp')
+    @App:description('Description of the plan')
+    
+    @source(type = 'file', file.uri = "file:/users/foo/flights.xml",
+    	@map(type = 'xml',
+    		@attributes(flight = "flight", passengers = "details/passengers", destination = "details/destination", timeDuration = "details/duration")))
+    define stream FlightInfoStream (flight string, destination string, passengers int, timeDuration string);
+    
+    @sink(type = 'file', file.uri = "file:/users/foo/formatttedflights.xml",
+    	@map(type = 'xml'))
+    define stream FormattedFlightInfoStream (flight string, destination string, passengers int, timeDuration string);
+    
+    @info(name = 'Publish formatted events')
+    from FlightInfoStream 
+    select * 
+    insert into FormattedFlightInfoStream;
+    ```
+   
+7. Start the Siddhi application by clicking on the **Play** icon.
+   
+   ![Play]({{base_path}}/assets/img/streaming/extracting-data-from-static-sources/play.png)
+   
+
+   
 ### Performing XSLT like transformation
 
 ### Splitting an XML array to multiple events
