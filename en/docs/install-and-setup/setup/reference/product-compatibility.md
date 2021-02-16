@@ -23,7 +23,7 @@ As WSO2 API Manager is a Java application, you can generally run WSO2 API-M on m
 <ul>
 <li>Ubuntu 18.04</li>
 <li>CentOS 7.4, 7.5</li>
-<li>Red Hat Enterprise Linux 7.0</li>
+<li>Red Hat Enterprise Linux 8.3</li>
 <li>SUSE Linux 12</li>
 <li>Windows Server 2016</li>
 </ul>
