@@ -1,10 +1,10 @@
 # Advanced UI Customization
 
-The user interface of the WSO2 API-M Developer Portal and Publisher Portal can be customized simply without editing the React codebase or the CSS in most cases. You will be required to modify the React codebase only if you need to do advanced customizations.
+The user interface of the WSO2 API-M Developer Portal, Publisher Portal and Admin Portal can be customized simply without editing the React codebase or the CSS in most cases. You will be required to modify the React codebase only if you need to do advanced customizations.
 
 ## Structure
 
-First, let’s see how the portal’s source code is organized. The Source of the publisher and devportal resides in the following Directory. 
+First, let’s see how the portal’s source code is organized. The Source of the devportal, publisher and admin apps resides in the following Directory. 
 
 ```
 <API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/
@@ -12,7 +12,7 @@ First, let’s see how the portal’s source code is organized. The Source of th
 
  ![folder structure]({{base_path}}/assets/img/learn/ui-customize-pic0.png)
 
-We ship the React apps source code along with the distribution for the customization purpose. Otherwise, You will not need to react application source code in the run time. The basic folder structure is the same for both publisher and devportal. Let’s look at how the source code is organized.
+We ship the React apps source code along with the distribution for the customization purpose. Otherwise, You will not need to react application source code in the run time. The basic folder structure is the same for publisher, devportal and admin apps. Let’s look at how the source code is organized.
 
 **override**
 
@@ -51,29 +51,32 @@ If you are new to JaggeryJS, JaggeryJS is a javascript backend server that can r
 
 The rest of the files are runtime configurations for eslint, jest, webpack, npm. You would probably recognize them by their names.
 
-## Adding advanced UI customizations to WSO2 API-M UIs (Publisher and Developer Portal)
+## Adding advanced UI customizations to WSO2 API-M UIs (Publisher, Developer Portal and Admin web-apps)
 
-Follow the instructions below to add advanced UI customizations to the Developer Portal and/or Publisher. 
-
-!!! note "Prerequisites"
-    - **NodeJS** (minimum 8.12.0) - This is a platform required for ReactJS development.
-    - **NPM**(minimum 5.7.0)
-
-1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/<APP-ROOT>` directory in a terminal and run the following command. ( `<APP-ROOT>` is publisher or devportal )
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
 
      ```js
-     npm ci
+     npm install
      ```
 
-     This will install the local package dependencies in the publisher/devportal applications.
+     This will install the dependencies for the `lerna` package manager.
+     
+2. Run the following command from the same directory in a terminal.
 
-3. Build with customizations
+     ```js
+     npm run bootstrap
+     ```
 
-     Run the following command to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
+     This will install the local package dependencies in the Publisher and Developer Portal applications.
 
-    ```
+3. Navigate to the desired web application folder (devportal, publisher or admin). Run the command given below.
+
+    ```js
     npm run build:dev
     ```
+
+    Note that it will continuously watch for any changes and rebuild the project.
+
     !!! note "Production deployment"
         The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
         
@@ -83,7 +86,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
 
 ### Overriding files
 
-Any file inside devportal/overrides/ folder can override the original file at devportal/source/ folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher app as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+Any file inside <APP-ROOT>/overrides/ folder can override the original file at <APP-ROOT>/source/ folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
 
 * [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Documents.jsx
 * [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Documents.jsx
@@ -153,7 +156,7 @@ Following examples will let you get familiar with the codebase.
 !!! note
     React component overriding is implemented via a custom webpack loader. There are some improvements and bug fixes that went into this customer loader after the product release. If the APIM product is not a WUM updated pack, you can still apply these fixes by replacing the [loader.js from the github repo](https://github.com/wso2/carbon-apimgt/blob/master/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher/loader.js). 
 
-    You can simply override the file of any of the webapps (publisher, devportal, admin 3.2 onwards). We recommend you to apply this fix before trying out the following samples.
+    You can simply override the file of any of the webapps (publisher, devportal, admin). We recommend you to apply this fix before trying out the following samples.
 
 ### Example 1 - Overriding API Listing Page ( devportal )
 
