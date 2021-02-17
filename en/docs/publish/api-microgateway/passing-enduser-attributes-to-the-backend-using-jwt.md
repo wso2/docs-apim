@@ -8,11 +8,11 @@ A set of claims is referred to as a dialect (e.g., http://wso2.org/claims). The 
 
 If you enable JWT generation in WSO2 API Microgateway, each API request will carry a JWT to the back-end service. When the request goes through the API Microgateway, the JWT is appended as a transport header to the outgoing message. The back-end service fetches the JWT and retrieves the required information about the user, application, or token.
 
-### Generating a JWT in Microgateway
+## Generating a JWT in Microgateway
 
 Microgateway uses [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support jwt generation within Microgateway.
 
-####Configuring JWT generation
+### Configuring JWT generation
 
 Before passing end-user attributes, you need to enable and configure the JWT implementation in the <MG_HOME>/resources/conf/config.toml file. The relevant elements are described below. If you do not configure these elements, they take their default values.
 
@@ -72,12 +72,11 @@ Following is a sample configuration.
     claimDialect = "http://wso2.org/claims"
     header = "X-JWT-Assertion"
     signingAlgorithm = "SHA256withRSA"
-    enableUserClaims = false
     gatewayGeneratorImpl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
     publicCertificatePath = "/home/wso2/security/truststore/mg.pem"
     privateKeyPath = "/home/wso2/security/keystore/mg.key"
 ```
-###Customizing the JWT generation
+### Customizing the JWT generation
 
 When generating the backend JWT, it retrieves the claims from the invoked JWT.
 If you need to change the way that JWT is generated in the Microgateway, such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the Gateway JWT generation:
