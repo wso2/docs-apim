@@ -154,7 +154,7 @@ The following output appears in the command line:
 {"status":"active"}
 ```
 
-## Preserving thge state with snapshots
+## Preserving the state with snapshots
 
 This section of the tutorial shows you how to preserve the state by taking snapshots of Siddhi applications.
 

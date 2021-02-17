@@ -92,7 +92,7 @@ To create and deploy a Siddhi application, follow the steps below:
 
     - For Linux: `./streaming-integrator-tooling.sh`
     
-    Then Access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
+    Then access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
     
 2. Copy paste the following three Siddhi applications to four separate new files and save.
 
@@ -340,7 +340,7 @@ To manage the error in the Error Store Explorer, follow the procedure below:
     
     This indicates that the event was dropped because the end point was not available.
     
-2. To view details of the error, click **Detailed Info**. The following is displayed.
+3. To view details of the error, click **Detailed Info**. The following is displayed.
 
     ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry-for-sink-transport-error-test.png)
     
@@ -355,7 +355,34 @@ To manage the error in the Error Store Explorer, follow the procedure below:
     ```
     INFO {io.siddhi.core.stream.output.sink.LogSink} - ReceiveAndCount : TotalCountStream : Event{timestamp=1597857170244, data=[1], isExpired=false}    
     ```
-### Step 7.2: Deploy the StoreRdbmsError siddhi application
+### Step 7: Handle events that fail at database level
+
+#### Step 7.1: Create a MySQL database table
+
+Create a MySQL table as follows:
+
+1. To create a database named `production`, issue the following MySQL command.
+
+    ```
+    CREATE SCHEMA production;
+    ```
+    
+2.To create a table in the `production` database, issue the following commands:
+
+    ```
+    use production;   
+    ```
+
+    ```
+    CREATE TABLE SweetProductionTable (
+        batchID int NOT NULL,
+        amount double,
+        factoryID int,
+        PRIMARY KEY (batchID)
+    );
+    ```
+
+#### Step 7.2: Deploy the StoreRdbmsError Siddhi application
 
 In this step, let's start the service at `http://localhost:8006/insertStream` via the `StoreRdbmsError` Siddhi 
 application as follows:
@@ -372,7 +399,7 @@ application as follows:
     INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App StoreRdbmsError deployed successfully
     ```
 
-### Step 7.2: Publish an event to the StoreRdbmsError Siddhi application
+#### Step 7.3: Publish an event to the StoreRdbmsError Siddhi application
 
 Send an event to the `InsertStream` input stream of the `StoreRdbmsError` Siddhi application by issuing the following CURL 
 command.
@@ -395,7 +422,7 @@ in the wso2si terminal. It shows that the erroneous event has been captured and 
 [2020-11-03 11:48:28,951] ERROR {io.siddhi.core.table.Table} - Error on 'StoreRdbmsError' while performing add for events  at 'SweetProductionTable'. Events saved 'EventChunk{first=StreamEvent{ timestamp=1604384308930, beforeWindowData=null, onAfterWindowData=null, outputData=[1, 45.6, 102], type=CURRENT, next=null}}'
 ```
 
-### Step 7.3: Manage the error in the Error Store Explorer
+#### Step 7.4: Manage the error in the Error Store Explorer
 
 To manage the error in the Error Store Explorer, follow the procedure below:
 
@@ -407,23 +434,23 @@ To manage the error in the Error Store Explorer, follow the procedure below:
 
     As a result, an error is displayed as follows.
 
-    ![Error Store Explorer]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-store-explorer-with-store-rdbms-error.png)
+    ![Error Store Explorer]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-store-explorer-with-StoreRdbmsError.png)
 
     This indicates that the event was dropped due to database constrained violation.
 
 2. To view details of the error, click **Detailed Info**. The following is displayed.
 
-    ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry-for-store-rdbms-error.png)
+    ![Error Entry]({{base_path}}/assets/img/streaming/handling-requests-with-errors/error-entry-for-StoreRdbmsError.png)
 
     The erroneous event is displayed as a editable table as shown below. Change the value of batchID from `1` to `2` and 
     click **Replay**.
 
-    ![Replay Error]({{base_path}}/assets/img/streaming/handling-requests-with-errors/replay-error-store-rdbms-error.png)
+    ![Replay Error]({{base_path}}/assets/img/streaming/handling-requests-with-errors/replay-error-StoreRdbmsError.png)
 
     As a result, the **Error Entry** dialog box closes, and the **Error Store Explorer** dialog box is displayed with 
     no errors.
 
-    You can view the records in the `SweetProductionTable` to verify if the edited event has been added successfuly. To do this, issue the following MySQL command.
+    You can view the records in the `SweetProductionTable` to verify if the edited event has been added successfully. To do this, issue the following MySQL command.
     
     `select * from SweetProductionTable;`
     

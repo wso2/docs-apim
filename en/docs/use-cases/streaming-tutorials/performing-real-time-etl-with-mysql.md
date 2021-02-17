@@ -392,7 +392,7 @@ Now you can write a simple Siddhi application to monitor the `SweetProductionTab
     INFO {org.wso2.siddhi.core.stream.output.sink.LogSink} - CDCWithPollingMode : LogStream : Event{timestamp=1563378804914, data=[chocolate, 100.0], isExpired=false}
     ```
 
-### Capturing Updates
+### Capturing updates
 
 For capturing updates, you can use the same `CDCPolling.siddhi` Siddhi application that you deployed in the [Capturing inserts](#capturing-inserts_1) section.
 
