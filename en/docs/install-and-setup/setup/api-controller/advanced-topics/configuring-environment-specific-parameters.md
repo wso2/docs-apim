@@ -218,7 +218,7 @@ The following code snippet contains sample configuration of the parameter file.
                       alias: Prod2
                       path: prod2.crt
     ```
-Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
+Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
 
 !!! example
     ```go

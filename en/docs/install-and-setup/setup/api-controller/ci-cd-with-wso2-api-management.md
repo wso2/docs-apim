@@ -389,7 +389,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
             
         -   Required :  
             `--environment` or `-e` : Key generation environment  
-            `--name` or `-n` : API or API Product to enerate keys for   
+            `--name` or `-n` : API or API Product to generate keys for   
         -   Optional :  
             `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the `add env` command)       
             `--provider` or `-r` : Provider of the API or API Product  

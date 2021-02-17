@@ -98,6 +98,8 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ## Manage Users
 
+You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the CTL with administrator credentials, you can also add new users, and remove users from the user store.
+
 ### Get information about users
 
 1.  List users of the Micro Integrator.
@@ -1394,4 +1396,36 @@ You can use the command below to generate the transaction count summary report b
 
     ```go
     Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
+    ```
+
+## Update HashiCorp configurations
+
+You can use the command below to update the HashiCorp secret ID that is used by the Micro Integrator to connect with HashiCorp.
+
+!!! note
+    - The HashiCorp secret ID is only applicable when **AppRole Pull** authentication is used between the Micro Integrator and HashiCorp.
+    - This command only updates the SecretId for the current session of the Micro Integrator. To persist the Secret Id, you need to update the `deployment.toml` file and restart the Micro Integrator.
+    
+    See [Using HashiCorp Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/using-hashicorp-secrets) for details.
+
+-   **Command**
+    ``` bash
+    apictl mi update hashicorp-secret [secret_id] -e <environment>
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Required :  
+            `--environment` or `-e` : Environment of the Micro Integrator for which the HashiCorp secret ID should be updated.
+
+    !!! example
+        ```bash
+        apictl mi update hashicorp-secret 47c39b09-c0a9-6ebf-196e-038eb7aad336 -e dev
+        ```
+
+-   **Response**
+
+    ```go
+    SecretId value is updated in HashiCorp vault runtime configurations. To persist the new SecretId in the next server startup, please update the deployment.toml file
     ```
