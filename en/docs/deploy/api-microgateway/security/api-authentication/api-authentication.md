@@ -8,11 +8,13 @@ By default, APIs are secured with application security. However, if you want to 
 
 Application security can be provided in the API and resource levels. The following are the API authentication types granted by WSO2 Microgateway.
 
--   [JWT authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/)
--   [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
--   [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
--   [API Key authentication]({{base_path}}/publish/security/api-authentication/api-key-authentication/)
+-   [JWT authentication]({{base_path}}/deploy/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
+   [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
+   [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
+   [API Key authentication]({{base_path}}/publish/security/api-authentication/api-key-authentication/)
+-->
 
+<!-- TODO: Enable once the feature is completed for MGW 4.0.0
 If you provide two or more security types for a resource or API, API invocation would be successful if one of the given authentications passed for the API request. i.e. Application security types have OR relationship with one another.
 
 ### Transport Security
@@ -27,3 +29,4 @@ By default, Application security is mandatory for API authentication. However, i
 
 By default Application security and transport security is in AND relationship. i.e. if mutual SSL authentication is enabled, a successful API invocation requires passing the mutual SSL handshake as well as passing one of the provided application security. To override this behavior, i.e. to combine Application security and transport security authentication schemes with OR combination, make application security optional. For more details, follow the documentation on [make application security optional]({{base_path}}/deploy/api-microgateway/security/api-authentication/making-application-security-optional/)
 
+-->

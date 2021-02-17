@@ -226,16 +226,16 @@ nav:
             - Service Discovery: deploy/api-microgateway/service-discovery.md
             - Security:
                 - Authentication:
-                    - API Authentication: deploy/security/api-authentication/api-authentication.md
+                    - API Authentication: deploy/api-microgateway/security/api-authentication/api-authentication.md
                     - Secure APIs Using OAuth2.0 Access Tokens:
-                        - Secure APIs using JWT - Self Contained JWT: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                        - Secure APIs using JWT - Self Contained JWT: deploy/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                         - Secure APIs Using Opaque Tokens: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
                     - Mutual SSL Authentication: deploy/security/api-authentication/mutual-ssl-authentication.md
                     - Configuring an External Key Manager: deploy/security/api-authentication/configuring-an-external-key-manager.md
                     - Making Application Security Optional: deploy/security/api-authentication/making-application-security-optional.md
                     - Disabling Security: deploy/security/api-authentication/disabling-security.md
                 - Authorization:
-                    - Scope Validation: deploy/security/api-authorization/scope-validation.md
+                    - Scope Validation: deploy/api-microgateway/security/api-authorization/scope-validation.md
                     - Subscription Validation: deploy/security/api-authorization/subscription-validation.md
                 - Transport Security: deploy/security/transport-security.md
                 - Enabling CORS: deploy/security/enabling-cors.md
