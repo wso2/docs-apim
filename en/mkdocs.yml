@@ -128,7 +128,6 @@ nav:
                                     - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
                                     - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
                                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                                     - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
                                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
@@ -144,9 +143,9 @@ nav:
                     - Threat Protection:
                             - Bot Detection: design/api-security/threat-protection/bot-detection.md
                             - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
-                            - Regular Expression Threat Protection: publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                            - JSON Threat Protection: publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                            - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                            - Regular Expression Threat Protection: deploy/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                            - JSON Threat Protection: deploy/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                            - XML Threat Protection: deploy/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                     - OpenID Connect:
                             - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
             - Rate Limiting:
@@ -171,43 +170,85 @@ nav:
                 - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-    - Publish:
-        - Publish APIs Overview: publish/publish-api-overview.md
-        - Publish an API: publish/publish-an-api.md
-        - Publish through Multiple API Gateways: publish/publish-through-multiple-api-gateways.md
-        - Publish an API to a Cloud Cluster in PrivateJet Mode: publish/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
-        - Publish to Multiple External API Developer Portals: publish/publish-to-multiple-external-api-stores.md
-        - Gateway:
-            - Overview of the WSO2 API Gateway: publish/api-gateway/overview-of-the-api-gateway.md
+    - Deploy:
+        - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
+        - API Gateway:
+            - Overview of the WSO2 API Gateway: deploy/api-gateway/overview-of-the-api-gateway.md
+            - Publish APIs Overview: deploy/publish-api-overview.md
+            - Deploy an API: deploy/deploy-an-api.md
+            - Publish through Multiple API Gateways: deploy/publish-through-multiple-api-gateways.md
+            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
+            - Publish to Multiple External API Developer Portals: deploy/publish-to-multiple-external-api-stores.md
             - Message Mediation:
-                - Changing the Default Mediation Flow of API Requests: publish/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
-                - Creating and Uploading using Integration Studio: publish/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                - Adding Dynamic Endpoints: publish/api-gateway/message-mediation/adding-dynamic-endpoints.md
-                - Removing Specific Request Headers From Response: publish/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
-                - Passing a Custom Authorization Token to the Backend: publish/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: publish/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disabling Message Chunking: publish/api-gateway/message-mediation/disabling-message-chunking.md
-                - Transforming API Message Payload: publish/api-gateway/message-mediation/transforming-api-message-payload.md
-                - Adding a Non-Blocking Send Operation: publish/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                - Adding a Class Mediator:  publish/api-gateway/message-mediation/adding-a-class-mediator.md
-                - Configuring message builders and formatters: publish/api-gateway/message-mediation/configuring-message-builders-formatters.md
-            - Response Caching: publish/api-gateway/response-caching.md
-            - Message Tracing: publish/api-gateway/message-tracing.md
+                - Changing the Default Mediation Flow of API Requests: deploy/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                - Creating and Uploading using Integration Studio: deploy/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                - Adding Dynamic Endpoints: deploy/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                - Removing Specific Request Headers From Response: deploy/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                - Passing a Custom Authorization Token to the Backend: deploy/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: deploy/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disabling Message Chunking: deploy/api-gateway/message-mediation/disabling-message-chunking.md
+                - Transforming API Message Payload: deploy/api-gateway/message-mediation/transforming-api-message-payload.md
+                - Adding a Non-Blocking Send Operation: deploy/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                - Adding a Class Mediator:  deploy/api-gateway/message-mediation/adding-a-class-mediator.md
+                - Configuring message builders and formatters: deploy/api-gateway/message-mediation/configuring-message-builders-formatters.md
+            - Response Caching: deploy/api-gateway/response-caching.md
+            - Message Tracing: deploy/api-gateway/message-tracing.md
             - Threat Protectors:
-                - Regular Expression Threat Protection: publish/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: publish/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: publish/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - Regular Expression Threat Protection: deploy/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                - JSON Threat Protection: deploy/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                - XML Threat Protection: deploy/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
-                - Passing Enduser Attributes to the Backend Using JWT: publish/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
-            - Gateway Environments: publish/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-            - Scaling the Gateway: publish/api-gateway/scaling-the-gateway.md
+                - Passing Enduser Attributes to the Backend Using JWT: deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Gateway Environments: deploy/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+            - Scaling the Gateway: deploy/api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - API Gateways with Dedicated Backends: publish/api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between API Gateway and Backend: publish/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-        - Microgateway:
-            - Quick Start Guide: publish/api-microgateway/quick-start-guide.md
-            - Get Started with Kubernetes for Microgateway: publish/api-microgateway/get-started-with-kubernetes-for-microgateway.md
-            - Grouping APIs with Labels: publish/api-microgateway/grouping-apis-with-labels.md
+                - API Gateways with Dedicated Backends: deploy/api-gateway/api-gateways-with-dedicated-backends.md
+                - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+        - WSO2 API Microgateway:
+            - Getting Started:
+                - Quick start Guide:
+                    - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
+                    - Quick Start Guide-Docker: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
+                    - Quick Started Guide-Kubernetes: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                - Microgateway Key Concepts: deploy/api-microgateway/getting-started/api-microgateway-key-concepts.md
+            - Import API:
+                - Using an OpenAPI Definition: deploy/api-microgateway/import-api/using-an-openapi-definition.md
+            - Endpoints:
+                - Endpoint Types: design/endpoints/endpoint-types.md
+                - Defining Endpoints in an OpenAPI Definition: deploy/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
+                - Overriding Endpoint Information:
+                    - Overriding Endpoints for Developer-centric Approach APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.
+                    - Overriding Endpoints for Imported APIs: deploy/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                - Defining a Backend Security Scheme: deploy/api-microgateway/endpoints/defining-a-backend-security-scheme.md
+            - HTTP 2.0: deploy/api-microgateway/http-2.0.md
+            - Rate Limiting:
+                 - Enabling distributed throttling: deploy/api-microgateway/rate-limiting/distributed-throttling.md
+            - Service Discovery: deploy/api-microgateway/service-discovery.md
+            - Security:
+                - Authentication:
+                    - API Authentication: deploy/security/api-authentication/api-authentication.md
+                    - Secure APIs Using OAuth2.0 Access Tokens:
+                        - Secure APIs using JWT - Self Contained JWT: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                        - Secure APIs Using Opaque Tokens: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                    - Mutual SSL Authentication: deploy/security/api-authentication/mutual-ssl-authentication.md
+                    - Configuring an External Key Manager: deploy/security/api-authentication/configuring-an-external-key-manager.md
+                    - Making Application Security Optional: deploy/security/api-authentication/making-application-security-optional.md
+                    - Disabling Security: deploy/security/api-authentication/disabling-security.md
+                - Authorization:
+                    - Scope Validation: deploy/security/api-authorization/scope-validation.md
+                    - Subscription Validation: deploy/security/api-authorization/subscription-validation.md
+                - Transport Security: deploy/security/transport-security.md
+                - Enabling CORS: deploy/security/enabling-cors.md
+                - Use a Custom Authorization Header: deploy/security/use-a-custom-authorization-header.md
+                - Rejecting Revoked Tokens: deploy/security/rejecting-revoked-tokens.md
+                - Importing Certificates to the API Microgateway Truststore: deploy/security/importing-certificates-to-the-api-microgateway-truststore.md
+                - Define Security Using Extension: deploy/security/define-security-using-extension.md
+            - File Upload via Multipart Requests: deploy/file-upload-via-multipart-requests.md
+            - Configure Caching: deploy/configure-caching.md
+            - Manage Microgateway APIs with WSO2 API Manager: deploy/manage-microgateway-apis-with-wso2-api-manager.md
+            - Passing Enduser Attributes to the Backend Using JWT: deploy/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Custom Claims Mapping: deploy/support-custom-claims-mapping.md
+            - Grouping APIs with Labels: deploy/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -225,7 +266,6 @@ nav:
                     - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
                     - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
                     - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                    - Implicit Grant: design/api-security/oauth2/grant-types/implicit-grant.md
                     - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
             - Obtain Access Token:
                 - Overview of Access Tokens: consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
@@ -379,7 +419,7 @@ nav:
             - Asynchronous Messaging:
                 - RabbitMQ Examples:
                     - Point to Point: integrate/examples/rabbitmq_examples/point-to-point-rabbitmq.md
-                    - Publish/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
+                    - deploy/Subscribe: integrate/examples/rabbitmq_examples/pub-sub-rabbitmq.md
                     - Guaranteed Delivery:
                         - Message Store and Message Processor: integrate/examples/rabbitmq_examples/store-forward-rabbitmq.md
                         - Retry failed messages with a delay: integrate/examples/rabbitmq_examples/retry-delay-failed-msgs-rabbitmq.md
@@ -640,6 +680,7 @@ nav:
                 - Alert Types: observe/api-manager-analytics/alert-types.md
                 - Setup & Configuration:
                     - Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
+                    - Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
                     - Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
                     - Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
                     - Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
@@ -747,14 +788,6 @@ nav:
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
         - Deploy:
-            - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
-                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
-                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
-                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
-                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
-                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
-        - Setup:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
             - All-In-One Deployment:
                 - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
@@ -765,46 +798,162 @@ nav:
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
-            - Configure a Key Manager:
-                - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
-            - Configure Analytics for High Availability:
-                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
-                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
-                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
-            - Setting up Databases:
-                - Overview: install-and-setup/setup/setting-up-databases/overview.md
-                - Changing Default Databases:
-                    - Changing to MySQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql.md
-                    - Changing to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
-                    - Changing to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
-                    - Changing to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
-                    - Changing to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
-                    - Changing to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
-                    - Changing to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
-                - Managing Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
-            - Setting up Proxy Server and the Load Balancer:
-                - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
-                - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
-            - Security:
-                - Logins and Passwords:
-                    - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
-                    - Securing Passwords:
-                        - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                        - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
-                        - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
-                - Configuring Keystores:
-                    - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
-                    - Keystore Basics:
-                        - Creating a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
-                        - Renewing a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                        - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
-                - Enabling HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
-                - Enabling Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
-                - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
-                - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
-                - User Account Management: install-and-setup/setup/security/user-account-management.md
-            - Setting up the Streaming Integrator:
+            - Deploying Micro Integrator:
+                - Deploy on Kubernetes:
+                    - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
+                    - EI Kubernetes Operator: install-and-setup/setup/mi-setup/deployment/ei_kubernetes_operator.md
+                    - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                    - K8s Deployment Samples:
+                        - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/k8s-samples/hello-world.md
+                        - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/k8s-samples/content-based-routing.md
+                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/k8s-samples/jms-sender-receiver.md
+                    - K8s Pipeline:
+                        - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
+                        - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
+                        - Testing the Pipeline Environment: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment.md
+                        - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
+                        - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
+                        - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
+                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
+                - Deploy on a Virtual Machine:
+                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
+                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
+                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
+                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md   
+                - Deployment Best Practices:
+                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
+                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
+                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
+                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
+                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
+                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
+            - Deployment Best Practices:
+                - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
+                - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
+                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md 
+        - Setup:
+            - Setting up API Manager:
+                - Configure a Key Manager:
+                    - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
+                    - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
+                - Configure Analytics for High Availability:
+                    - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
+                    - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
+                    - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
+                - Setting up Databases:
+                    - Overview: install-and-setup/setup/setting-up-databases/overview.md
+                    - Changing Default Databases:
+                        - Changing to MySQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql.md
+                        - Changing to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
+                        - Changing to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
+                        - Changing to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
+                        - Changing to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
+                        - Changing to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
+                        - Changing to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
+                    - Managing Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
+                - Setting up Proxy Server and the Load Balancer:
+                    - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
+                    - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
+                - Security:
+                    - Logins and Passwords:
+                        - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
+                        - Securing Passwords:
+                            - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
+                            - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                            - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
+                    - Configuring Keystores:
+                        - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
+                        - Keystore Basics:
+                            - Creating a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
+                            - Renewing a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
+                    - Enabling HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
+                    - Enabling Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
+                    - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
+                    - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
+                    - User Account Management: install-and-setup/setup/security/user-account-management.md
+            - Setting up Micro Integrator:
+                - Data Stores:
+                    - User Stores:
+                        - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
+                        - Managing Users: install-and-setup/setup/mi-setup/user_stores/managing_users.md
+                    - Databases:
+                        - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MySQL.md
+                        - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MSSQL.md
+                        - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-Oracle.md
+                        - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL.md
+                        - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2.md
+                    - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md       
+                - Security:
+                    - Setting up Keystores:
+                        - Creating New Keystores: install-and-setup/setup/mi-setup/security/creating_keystores.md
+                        - Adding SSL certificates to keystores: install-and-setup/setup/mi-setup/security/importing_ssl_certificate.md
+                        - Renewing a CA-signed Certificate: install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore.md
+                        - Configuring Keystores: install-and-setup/setup/mi-setup/security/configuring_keystores.md
+                    - Complying with GDPR:
+                        - GDPR for the WSO2 Micro Integrator: install-and-setup/setup/mi-setup/security/gdpr_ei.md
+                        - About the Identity Anonymization Tool: install-and-setup/setup/mi-setup/security/about_forgetme_tool.md
+                    - Working with Secrets:
+                        - Encrypting Secrets using WSO2 Secure Vault: install-and-setup/setup/mi-setup/security/encrypting_plain_text.md
+                        - Using Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
+                        - Using Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
+                    - Securing the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
+                    - Customizing Error Messages: install-and-setup/setup/mi-setup/customizing_error_pages.md
+                - Performance:
+                    - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
+                    - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
+                    - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
+                    - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
+                    - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
+                    - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
+                    - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
+                    - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md       
+                - Message Brokers:
+                    - AMQP (RabbitMQ):
+                        - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ.md
+                        - Connecting to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ.md
+                    - JMS:
+                        - Connecting to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-ActiveMQ.md
+                        - Connecting to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-Apache-Artemis.md
+                        - Connecting to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-HornetQ.md
+                        - Connecting to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphere-app-server.md
+                        - Connecting to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphereMQ.md
+                        - Connecting to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-JBossMQ.md
+                        - Connecting to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-MSMQ.md
+                        - Connecting to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-SwiftMQ.md
+                        - Connecting to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-Tibco-EMS.md
+                        - Connecting to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-WebLogic.md
+                        - Connecting to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-WSO2-MB.md
+                        - Connecting to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
+                    - Kafka: install-and-setup/setup/mi-setup/feature_configs/configuring-kafka.md
+                    - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
+                    - Transports: install-and-setup/setup/mi-setup/transport_configurations/configuring-transports.md
+                    - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport_configurations/multi-https-transport.md
+                    - Message Builders and Formatters: install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters.md
+                    - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
+                - Observability:
+                    - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
+                    - Setting up Cloud-Native Observability for a VM Deployment: install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md
+                    - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
+                    - Setting up Classic Observability Deployment: install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md
+                    - Configuring Logs:
+                        - Enabling Logs for a Component: administer-and-observe/logs/enabling_component_logs.md
+                        - Configuring Logs: administer-and-observe/logs/configuring_log4j_properties.md
+                        - Managing Log Growth: administer-and-observe/logs/managing_log_growth.md
+                        - Masking Sensitive Information in Logs : administer-and-observe/logs/masking_sensitive_info_in_logs.md
+                - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
+            - Setting up Streaming Integrator:
                 - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
                 - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
                 - Configuring Data Sources: install-and-setup/setup/si-setup/configuring-data-sources.md
@@ -819,13 +968,6 @@ nav:
                 - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
                 - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
-        - Deployment Best Practices:
-            - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
-            - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-            - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-            - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-            - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-            - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
         - SSO:
             - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
             - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
@@ -869,20 +1011,27 @@ nav:
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
             - Getting Started with WSO2 API Controller: install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
-            - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/importing-apis-via-dev-first-approach.md
-            - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/migrating-apis-to-different-environments.md
-            - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/migrating-api-products-to-different-environments.md
-            - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/migrating-applications-to-different-environments.md
+            - Managing APIs and API Products:
+                - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
+                - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
+                - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+            - Managing Applications:
+                - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
+                - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
-            - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations-with-ctl.md
+            - Managing Integrations:
+                - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
+            - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
             - Advanced Topics:
                 - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                 - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Administer:
-        - Admister Overview: administer/admin-overview.md
+        - Administer Overview: administer/admin-overview.md
         - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
@@ -912,6 +1061,7 @@ nav:
             - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
             - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
+            - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
         - Product REST APIs:
@@ -1364,7 +1514,7 @@ plugins:
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'
               'learn/consume-api/customizations/customizing-login-pages-for-dev-portal-and-publisher.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-login-pages-for-dev-portal-and-publisher/'
-              'publish/api-gateway/handlers/writing-custom-handlers.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/extending-api-manager/extending-gateway/writing-custom-handlers/'
+              'deploy/api-gateway/handlers/writing-custom-handlers.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/extending-api-manager/extending-gateway/writing-custom-handlers/'
               'observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md': 'https://apim.docs.wso2.com/en/3.1.0/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/'
               'install-and-setup/installation-guide/installation-prerequisites.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installation-prerequisites/'
               'install-and-setup/installation-guide/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-via-the-installer/'
@@ -1389,7 +1539,7 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-hostname/'
               'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
               'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/publish/api-gateway/message-mediation/configuring-message-builders-formatters/'
+              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/deploy/api-gateway/message-mediation/configuring-message-builders-formatters/'
               'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
               'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/'
@@ -1455,7 +1605,7 @@ plugins:
               'administer/product-security/enabling-java-security-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/enabling-java-security-manager/'
               'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
               'administer/product-security/configuring-transport-level-security.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-transport-level-security/'
-              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.2.0/publish/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
+              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.2.0/deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
               'administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
               'administer/product-security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/'
               'observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
@@ -1476,7 +1626,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'publish/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/publish/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
 
     # Extra
 extra_css:
@@ -1498,5 +1648,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next

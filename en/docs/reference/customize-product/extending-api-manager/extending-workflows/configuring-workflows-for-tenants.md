@@ -126,16 +126,16 @@ The registry data of API Manager is stored in the above-mentioned `jdbc/SHARED_D
 In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/) workflow.
 
 
-2.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) and create a tenant using the **Configure -&gt; Multitenancy** menu.
+1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) and create a tenant using the **Configure -&gt; Multitenancy** menu.
     [![]({{base_path}}/assets/attachments/103334719/103334732.png)]({{base_path}}/assets/attachments/103334719/103334732.png)
 
-3.  Create a copy of the BPEL located in the `<APIM_HOME>/business-processes/application-creation/BPEL` directory.
+2.  Create a copy of the BPEL located in the `<APIM_HOME>/business-processes/application-creation/BPEL` directory.
 
-4.  Extract the contents of the new BPEL archive.
+3.  Extract the contents of the new BPEL archive.
 
-5.  Copy `ApplicationService.epr` and `ApplicationCallbackService.epr` from the `<APIM_HOME>/business-processes/epr` folder to the folder extracted before. Then, rename the two files as `ApplicationService-Tenant.epr` and `ApplicationCallbackService-Tenant.epr` respectively.
+4.  Copy `ApplicationService.epr` and `ApplicationCallbackService.epr` from the `<APIM_HOME>/business-processes/epr` folder to the folder extracted before. Then, rename the two files as `ApplicationService-Tenant.epr` and `ApplicationCallbackService-Tenant.epr` respectively.
 
-6.  Open `ApplicationService-Tenant.epr` and change the `wsa:Address` to `http://localhost:9765/services/t/<domain>/ApplicationService` and add the tenant admin credentials.
+5.  Open `ApplicationService-Tenant.epr` in a text editor and change the `wsa:Address` to `http://localhost:9765/services/t/<domain>/ApplicationService` and add the tenant admin credentials.
 
     !!! info
         In a distributed setup - 
@@ -144,6 +144,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
         - The ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. 
         - The wsa:Address should point to the gateway nodes. (https:///services/WorkflowCallbackService) and the user credentials which grant access to that service should be used.
 
+6.  Open `ApplicationCallbackService-Tenant.epr` in a text editor and add the tenant admin credentials.
 
 7.  Point the `deploy.xml` file of the extracted folder to the new.epr files provided in the BPEL archive. 
 
