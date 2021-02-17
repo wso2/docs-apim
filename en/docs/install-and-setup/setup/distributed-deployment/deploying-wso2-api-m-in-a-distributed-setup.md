@@ -230,7 +230,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     password = "$ref{super_admin.password}"
     ```
 
-2.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and change as following to configure Gateway Environments.
+2.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and change the following to configure the Gateway Environments.
 
     ``` toml
     [[apim.gateway.environment]]
@@ -368,7 +368,8 @@ This section involves setting up the API Publisher node and enabling it to work 
         ```
 
     2.  Configure the Publisher with the Gateway.
-        This configuration enables the API publishing to the Gateway environments.
+        
+        This configuration enables API publishing to the Gateway environments.
 
         ``` toml
         [[apim.gateway.environment]]
@@ -561,7 +562,6 @@ This section involves setting up the Developer Portal node and enabling it to wo
         traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
         ```
 
-    
     3.  Configure the Developer Portal with the Gateway.  
            
            ``` toml tab="Gateway with HA"
@@ -615,7 +615,6 @@ This section involves setting up the Developer Portal node and enabling it to wo
     cd <API-M_HOME>\bin\
     wso2server.bat --run -Dprofile=api-devportal
     ```
-    
 
     ??? info "Sample configuration for the Developer Portal"
         ``` toml
@@ -728,8 +727,7 @@ This section involves setting up the Gateway node and enabling it to work with t
       
           ``` java tab="Example"
           xxx.xxx.xxx.xx4 gw.wso2.com
-          ```
-              
+          ```   
                                                                 
 2.  Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to configure the connection to the Key Manager component.
 
@@ -776,12 +774,13 @@ This section involves setting up the Gateway node and enabling it to work with t
      service_url = "https://Traffic-Manager-host:${mgt.transport.https.port}/services/"
      throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
      ```
-4.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to setup Environment Name.
+
+4.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to setup the environment name.
     
    
      ``` toml tab="Single Traffic Manager"
-        [apim.sync_runtime_artifacts.gateway]
-        gateway_labels =["Production and Sandbox"]
+    [apim.sync_runtime_artifacts.gateway]
+    gateway_labels =["Production and Sandbox"]
      ```     
      
 5.  The public certificate of the private key that is used to sign the tokens should be added to the trust store under the `"gateway_certificate_alias"` alias. For more information on importing certificates, see [Create and import SSL certificates](#step-4-create-and-import-ssl-certificates).
@@ -799,15 +798,15 @@ This section involves setting up the Gateway node and enabling it to work with t
 
     !!! note
     
-        In order to keep custom runtime artifacts deployed gateway,add the following configuration to the <API-M_HOME>/repository/conf/deployment.toml file in the Gateway node.            
+        In order to keep custom runtime artifacts deployed in the Gateway, add the following configuration in the <API-M_HOME>/repository/conf/deployment.toml file of the Gateway node.  
+
         ```
         [apim.sync_runtime_artifacts.gateway.skip_list]
         apis = ["api1.xml","api2.xml"]
         endpoints = ["endpoint1.xml"]
         sequences = ["post_with_nobody.xml"]
         local-entries = ["file.xml"]
-        ```                  
-
+        ```
 
 7.  Start the Gateway node(s) by running the following command in the command prompt. 
     
