@@ -292,6 +292,6 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
     4. Click **Execute**.
 
-        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.
