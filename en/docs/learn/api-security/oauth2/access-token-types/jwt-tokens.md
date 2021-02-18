@@ -244,4 +244,42 @@ If you can't satisfy the above requirements but still need subscription validati
   ```
   [apim.jwt_authenitcation]
   subscription_validation_via_km = true
-  ```
+   ```
+
+
+#### Remove subscription validation 
+
+The steps below describe how to remove the subscribed APIs from the JWT and validate the subscriptions through the Keymanager.
+
+1. Add the below lines to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+   ```
+   [apim.jwt_authenitcation]
+   subscription_validation_via_km = true
+   ```
+2. Import the public certificate of identity provider of JWT into the `<API-M_HOME>/repository/resources/security/client-truststore.jks` under the alias of the kid in the JWT token. An example is given below.
+      ```
+      If "kid": "ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256"
+      then import the certificate with  -alias ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256
+      ```
+3. Add the below lines to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+   ```
+   [oauth.extensions]
+   token_generator = "org.wso2.carbon.identity.oauth2.token.JWTTokenIssuer"
+   ```
+   Restart the server for the changes to take effect. Note that the subscribed APIs will not be included in newly generated JWT tokens.
+
+You can also manually change the token issuer for selective applications by following the steps below. Note that these changes will not affect the existing tokens. 
+
+1. Log into the Management Console via `https://localhost:9443/carbon`
+
+2. Navigate to **Main** -> **Identity** -> **Service Providers** -> **List**.
+
+3. Click **Inbound Authentication Configuration**. Expand **OAuth/OpenID Connect Configuration** and click **Edit** for the relevant OAuth Client Key.
+      
+      ![edit service providers]({{base_path}}/assets/img/learn/service-providers.png)
+   
+4. Change the token issuer to **JWT**. Click **Update** to save the changes.
+      
+      ![update token]({{base_path}}/assets/img/learn/update-token.png)
+
+Now, the subscribed APIs will not be included in the newly-generated tokens.
