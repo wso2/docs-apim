@@ -80,6 +80,6 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
      Note the successful response for the API invocation. 
 
-     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 You have now successfully invoked a GraphQL API using the GraphQL API Console.
