@@ -50,6 +50,7 @@ nav:
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
+          - Architecture: get-started/architecture.md
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
                 - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
@@ -1647,5 +1648,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next
