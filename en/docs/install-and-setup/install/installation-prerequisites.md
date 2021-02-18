@@ -7,14 +7,28 @@ Before installing WSO2 API Manager, make sure that the appropriate prerequisites
 <html>
 <table>
 <tr>
-<td><p>Physical</p></td>
+<td rowspan="2"><p>Physical</p></td>
 <td>
+<b>WSO2 API Manager</b></br>
 <ul><li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
 <li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
 <li>10 GB free disk space</li>
 <li>  ~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.
 
 Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</li></ul>
+
+</td><td>
+</tr>
+<tr>
+<td>
+<b>WSO2 API Manager Analytics</b></br>
+<ul><li>You require a minimum of one CPU with 2 cores.</li>
+<li> ~ 4 GB minimum RAM is recommended.</li>
+<li>~ 2 GB heap size.
+</br>2 GB is the initial heap (-Xms)  required for the server startup. The maximum heap size is 4 GB (-Xmx)</li>
+<li> ~ 1 GB minimum free disk space (excluding space allocated for log files and databases.)</li>
+
+</ul>
 </td>
 </tr>
 <tr>
