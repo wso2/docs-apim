@@ -137,6 +137,12 @@ Create an optimized distribution for a particular API-M profile.
      ```
 
 5.  Start the server with the specified profile. 
+    Configuration optimization is one step occurred in profile optimization process. This is occurred by replacing the 
+    deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
+    required, we can skip this step from the profile optimization process, via passing additional option 
+    `--skipConfigOptimization`, so that the existing deployment.toml file in the pack will not be overridden. 
+
+    --optimize option is used so that if the pack is in-place updated even after initial optimization,  the product pack would have fetched irrelevant files for this profile. So by this option, the pack will be profile optimized again.
     
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
@@ -149,7 +155,8 @@ Create an optimized distribution for a particular API-M profile.
     ``` tab="Example:Windows"
     <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```    
-      
+
+
     
 #### Method 2 - Optimizing while starting the server
 
@@ -201,10 +208,6 @@ Create an optimized distribution for a particular API-M profile.
         [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Home        : /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
         [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Version     : 1.8.0_152
         ```
-Configuration optimization is one step occurred in profile optimization process. This is occurred by replacing the 
-deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
-required, we can skip this step from the profile optimization process, via passing additional option 
-`--skipConfigOptimization`, so that the existing deployment.toml file in the pack will not be overridden. 
     
     ``` tab="Sample Format"
     sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
@@ -219,9 +222,8 @@ required, we can skip this step from the profile optimization process, via passi
     
     ```  
         
-So, before running this command (with `--skipConfigOptimization` option) you are expected to do the configuration 
-changes in deployment.toml manually in the pack. So passing this option allows you to preserve the already manually
- applied configurations, when doing the profile optimization via the commands.
+Before running this command (with `--skipConfigOptimization` option) you are expected to do the configuration 
+changes in deployment.toml manually in the pack. So passing this option allows you to preserve the already manually applied configurations, when doing the profile optimization via the commands.
 
 !!! note
     Doing the profile optimization using the scripts, is the recommended approach and manually doing 
