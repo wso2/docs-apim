@@ -137,12 +137,12 @@ Create an optimized distribution for a particular API-M profile.
      ```
 
 5.  Start the server with the specified profile.
- 
+
+    The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again.
+    
     Configuration optimization is one of the steps in profile optimization process. This replaces the 
     deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
-    required, you can skip this step from the profile optimization process, via passing the additional `--skipConfigOptimization` option. This prevents the existing deployment.toml file in the pack from being overridden. 
-
-    The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again. 
+    required, you can skip this step from the profile optimization process, via passing the additional `--skipConfigOptimization` option. This prevents the existing deployment.toml file in the pack from being overridden.  
     
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
