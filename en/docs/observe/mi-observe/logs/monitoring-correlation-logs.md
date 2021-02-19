@@ -1,6 +1,6 @@
 # Monitoring Message Round Trip
 
-Product observability enables rapid debugging of product issues. The WSO2 Micro Integrator enables observability
+Product observability enables rapid debugging of product issues. The Micro Integrator enables observability
 using correlation logs. Correlation logs allow you to monitor individual
 HTTP requests from the point that a message is received by the Micro Integrator until
 the corresponding response message is sent back to the original message
