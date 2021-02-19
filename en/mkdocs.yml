@@ -728,10 +728,21 @@ nav:
                   - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
                   - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
           - Monitoring the Streaming Integrator:
-              - Configuring Grafana Dashboards: ''
-              - Managing Grafana Dashboards: ''
-              - Monitoring Streaming Components: ''
-              - Monitoring ETL Flows: ''
+              - Configuring Grafana Dashboards: observe/si-observe/setting-up-grafana-dashboards.md
+              - Managing Grafana Dashboards: observe/si-observe/managing-grafana-dashboards.md
+              - Monitoring Streaming Components:
+                  - Monitoring Streaming Components Overview: observe/si-observe/monitoring-si-performance-via-grafana.md
+                  - Viewing Overall Statistics: observe/si-observe/viewing-overall-statistics.md
+                  - Viewing Server Statistics: observe/si-observe/viewing-overview-statistics.md
+                  - Viewing Stream Statistics: observe/si-observe/viewing-stream-statistics.md
+                  - Viewing Source Statistics: observe/si-observe/viewing-source-statistics.md
+                  - Viewing Query Statistics: observe/si-observe/viewing-query-statistics.md
+                  - Viewing Window Statistics: observe/si-observe/viewing-window-statistics.md
+                  - Viewing Trigger Statistics: observe/si-observe/viewing-trigger-statistics.md
+                  - Viewing Table Statistics: observe/si-observe/viewing-table-statistics.md
+                  - Viewing Aggregation Statistics: observe/si-observe/viewing-aggregation-statistics.md
+                  - Viewing On-demand Query Statistics: observe/si-observe/viewing-on-demand-query-statistics.md
+              - Monitoring ETL Flows: observe/si-observe/viewing-dashboards.md
     - Tutorials:
           - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
           - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md

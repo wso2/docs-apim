@@ -1,6 +1,5 @@
 # Running the Streaming Integrator in Containerized Environments
 
-
 ## Running the Streaming Integrator with Docker
 
 This section shows you how to run Streaming Integrator in Docker. This involves installing Docker, running the Streaming Integrator in Docker and then deploying and running a Siddhi application in the Docker environment.
@@ -237,6 +236,7 @@ You can deploy multiple Siddhi applications in one or more selected containers v
     ```
 
     ???info "To view the complete file, click here."
+        ```
         apiVersion: siddhi.io/v1alpha2
         kind: SiddhiProcess
         metadata:
@@ -294,6 +294,7 @@ You can deploy multiple Siddhi applications in one or more selected containers v
                 exclude:
                   - /simulation/*
                   - /stores/*
+        ```
 
 5. Save the file as `siddhi-process.yaml` in a preferred location
 
