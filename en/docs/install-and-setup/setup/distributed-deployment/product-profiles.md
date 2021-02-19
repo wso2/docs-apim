@@ -138,7 +138,7 @@ Create an optimized distribution for a particular API-M profile.
 
 5.  Start the server with the specified profile.
 
-    The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again.
+    If the product pack is "in-place updated" using the "WSO2 in-place updates tool" after the initial profile optimization, it would have fetched irrelevant files for this profile. With the `--optimize` option, the pack will be profile-optimized again and it will make sure that the pack will be in a correctly optimized state.
     
     Configuration optimization is one of the steps in profile optimization process. This replaces the 
     deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
