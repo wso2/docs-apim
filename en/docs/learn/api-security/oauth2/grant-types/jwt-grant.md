@@ -1,8 +1,8 @@
 # JWT Grant
 
-The JSON Web Token (JWT) Bearer Grant is simply a JSON string containing claim values that will be evaluated and validated by the JWT Grant Handlers at the Authorization Server end, before issuing an access token.
+The JSON Web Token (JWT) Bearer Grant is simply a JSON string containing claim values that will be evaluated and validated by the JWT Grant Handlers at the Authorization Server end before issuing an access token.
 
-WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key manager features, can accept JWT Assertions from OAuth 2.0 clients as means of resource owner authentication and authorization. Additionally, it can exchange the JWT access token with OAuth 2.0 access tokens in order to access protected resources on behalf of the resource owner.
+WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key manager features, can accept JWT Assertions from OAuth 2.0 clients as means of resource owner authentication and authorization. Additionally, it can exchange the JWT access token with the OAuth 2.0 access tokens in order to access protected resources on behalf of the resource owner.
 
 -   [Configuring the JWT grant](#configuring-the-jwt-grant)
 -   [Using the JWT grant](#using-the-jwt-grant)
@@ -18,40 +18,41 @@ You can use any identity provider to obtain a JWT. As an example, this step will
      
      If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
 
-     Start WSO2 IS with a port offset. (`portOffset` is required only if you are running both API-M and IS in the same JVM).
+2. Start WSO2 IS with a port offset.
+   
+     `portOffset` is required only if you are running both API-M and IS in the same JVM.
 
       `sh wso2server.sh -DportOffset=1`
 
-2. Sign in to the WSO2 IS Management Console (`https://<IS_Server_Host>:9444/carbon`) 
+3. Sign in to the WSO2 IS Management Console (`https://<IS_Server_Host>:9444/carbon`).
 
-3. Click **Main** --> **Service Providers** --> **Add**.
+4. Click **Main** --> **Service Providers** --> **Add**.
 
      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" >
      <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" alt="Add Service Provider Menu" title="Add Service Provider Menu" width="30%" />
      </a>
 
-4.  Enter the name of the service provider and click **Register**.
+5.  Enter the name of the service provider and click **Register**.
 
      [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)
              
-5.  Click **Inbound Authentication Configuration** --> **OAuth/OpenId Connect Configuration** --> **Configure** to add a new OAuth2 client.
+6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenId Connect Configuration** --> **Configure** to add a new OAuth2 client.
 
      [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)
 
      <a name="step5"></a>
 
-6.  Provide a **Callback Url** and set the **Token Issuer** as `JWT`, then click **Add**.
+7.  Provide a **Callback URL** and set the **Token Issuer** as `JWT`, then click **Add**.
     
-     If you do not have a **Callback Url**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
+     If you do not have a **Callback URL**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
     
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" alt="Register Oauth app" 
-          title="Register Oauth app"/></a>  
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" alt="Register Oauth app" title="Register Oauth app"/></a>  
     
     Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
    
-    [![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)
+    [![OAuth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)
 
-Now you have configured a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let us register an identity provider and create a service provider in WSO2 API-M.
+Now you have configured a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let's register an identity provider and create a service provider in WSO2 API-M.
 
 ### Step 2 - Configure an Identity Provider and a Service Provider in WSO2 API-M
 
@@ -66,25 +67,26 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
     -   **Identity Provider Public Certificate :** Choose the radio button named **Upload IDP certificate** so that the field named **Identity Provider Public Certificate** will be enabled. This is the certificate which will be used to sign the JWT assertion.
 
         !!! info
-            The **Identity Provider Public Certificate** is the public certificate belonging to the identity provider. Uploading this is necessary to authenticate the response from the identity provider.
+            The **Identity Provider Public Certificate** is the public certificate that belongs to the identity provider. It is necessary to update this certificate to authenticate the response from the identity provider.
 
-            This can be any certificate. Since we have used WSO2 IS as the identity provider here, follow the below steps to create the identity provider certificate from the `wso2carbon.jks file`.
+            This can be any certificate. As you have used WSO2 IS as the identity provider here, follow the instructions below to create the identity provider certificate using the `wso2carbon.jks file`.
 
             - Open your command line interface, navigate to the `<IS_HOME>/repository/resources/security/` directory and run the following command.
+
               ``` java
               keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon
               ```
 
-            - Once you run this command, the certificate will be exported as `wso2.crt` in the same folder. You can upload it by clicking **Choose File** in Identity Provider section in the Management Console.
+            - After you run this command, the certificate will be exported as `wso2.crt` in the same folder. You can upload it by clicking **Choose File** in Identity Provider section in the Management Console.
 
-            See [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/) for more information on how public keys work and how to sign these keys by a certification authority.
+            For more information on how public keys work and how to sign these keys by a certification authority, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/).
 
-    -   **Alias** : Give the audience (`aud` value) of the JWTs issued by the identity provider (WSO2 IS).
+    -   **Alias** : Enter the audience (`aud` value) of the JWTs issued by the identity provider (WSO2 IS).
 
     !!! tip
          When testing, you can find the values such as issuer name (`iss`) and audience (`aud`) by decoding the JWT obtained in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) using a JWT decoder such as [https://jwt.io](https://jwt.io). For more information, see [JWT Bearer Grant](#jwt-bearer-grant).
 
-    [![]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)
+    [![Add Identity Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)
 
 4. Click **Register** to complete the registration of the identity provider.
 
@@ -92,17 +94,21 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
 
 6. Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-a-service-provider/) for more information.
 
-6. Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure.**
+7. Expand the **OAuth/OpenID Connect Configuration** section under **Inbound Authentication Configuration** and click **Configure.**
 
-7. Enter a **Callback URL.** For example, use `http://localhost:8080/playground` and click **Add**. The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
+8. Enter a **Callback URL.** For example, use `http://localhost:8080/playground` and click **Add**. 
+
+     The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
 
     [![]({{base_path}}/assets/img/learn/add-service-provider.png)]({{base_path}}/assets/img/learn/add-service-provider.png)
 
-Now we have a registered identity provider and as well as a service provider with an **OAuth Client Key** and an **OAuth Client Secret**. In the next section we can test the JWT grant with the configured setup.
+Now you have a registered identity provider and as well as a service provider with an **OAuth Client Key** and an **OAuth Client Secret**. In the next section, you can test the JWT grant with the configured setup.
 
 ## Using the JWT grant
 
-1.  Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that we configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/).
+1. Obtain a JWT from the service provider.
+
+     Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that you configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/).
 
     ``` java tab="Format"
     curl -k -d "grant_type=<grant_type_of_your_choice>" -H "Authorization: Basic <Base64-encoded-client_key:client_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_Server_Host>:9444/oauth2/token
@@ -117,7 +123,7 @@ Now we have a registered identity provider and as well as a service provider wit
     {"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwibmJmIjoxNjEzMTMwNTAxLCJhenAiOiJxNVlVSzloY1lMcUZXenZaQVJHb21UNzh6NThhIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjEzMTM0MTAxLCJpYXQiOjE2MTMxMzA1MDEsImp0aSI6IjdmZDc0NGQ5LWJlYTMtNDJiNS1hY2RjLWVmMDU0NGRjMmZhZiJ9.mBh0FB8kPKwkqP8rV78YXaSqmv_j-7kSKlylOfH8i1M3g8JvEQRx5gsxwMNidOr28DIL9hNv7Ebz6j6tqu-HUXtB_QgQGbF1QRALtBcYaV1-O8V_TAs02P7KYx_jfZv2HCVEE-s-jW2vBAMa24ZwgI0uCk4QHsev1chLd85FZdwbzqe0E0lt5hfB0Y5kLnZmzQFdBxkrv9eTppO5Z2WLyKFt9j2oI2a2eqa_NOYr7pwLyuzg-QL4Xz3SdfC3SMHPjAmaksJfcOS-SuswQ_edPN02fXVR0SKGCVIS-86u-9D4xgFvf_jtIg2Xd2LNNHY6BPBj1l9Nk_rfesnllx04ZA","refresh_token":"b6549344-c5ba-3103-8f93-475aa5416759","token_type":"Bearer","expires_in":3600}
     ```
 
-2. Execute the below cURL command to retrieve the access token from WSO2 API-M for the generated JWT in the previous step.
+2. Execute the following cURL command to retrieve the access token from WSO2 API-M for the generated JWT in the previous step.
 
     ``` java tab="Format"
     curl -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/token
@@ -128,13 +134,18 @@ Now we have a registered identity provider and as well as a service provider wit
     ```
 
     !!! note
-        - The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value (You can use the **OAuth Client Key** and an **OAuth Client Secret** that we obtained at the end of [Step 2](#step-2-configure-an-identity-provider-and-a-service-provider-in-wso2-api-m) here). 
-        - The assertion parameter value (`<JWT>`) is the signed base64 encoded JWT. (You can use the JWT that we obtained at the end of [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) here). The value of the assertion parameter **MUST** contain a **single JWT.** You can refer [JWT Bearer Grant](#jwt-bearer-grant) for more information about assertion.
+        - The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value.
+           
+             You can use the **OAuth Client Key** and an **OAuth Client Secret** that you obtained at the end of [Step 2](#step-2-configure-an-identity-provider-and-a-service-provider-in-wso2-api-m) here).
+
+        - The assertion parameter value (`<JWT>`) is the signed base64 encoded JWT.
+           
+             You can use the JWT that you obtained at the end of [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) here). The value of the assertion parameter **MUST** contain a **single JWT.** For more information on assertion, see [JWT Bearer Grant](#jwt-bearer-grant).
 
     !!! info
         If you have configured the service provider and identity provider in a tenant, you have to add the tenant domain as a query parameter to the access token endpoint.
 
-        If the tenant domain is `wso2.com` , the access token endpoint will be as follows.
+        If the tenant domain is `wso2.com`, the access token endpoint will be as follows:
 
         ``` java
         Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
@@ -150,7 +161,7 @@ Now we have a registered identity provider and as well as a service provider wit
 
 ## JWT Bearer Grant
 
-JWT contains three parts that are separated by dots ".": 
+The JWT contains three parts that are separated by dots ".": 
 
 -   header 
 -   payload
@@ -200,7 +211,7 @@ The payload contains the claims mentioned below:
 </tr>
 <tr>
 <td>Other custom claims</td>
-<td>JWT may contain claims other than the above mentioned ones. This is the extension point of the JWT specification.</td>
+<td>The JWT may contain claims other than the above mentioned ones. This is the extension point of the JWT specification.</td>
 </tr>
 </tbody>
 </table>
