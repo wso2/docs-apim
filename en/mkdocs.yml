@@ -172,13 +172,15 @@ nav:
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Deploy:
         - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
+        - Deploy API:
+            - Deploy an API: deploy/deploy-api/deploy-an-api.md
+            - Grouping APIs with Labels: deploy/deploy-api/grouping-apis-with-labels.md
+            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/deploy-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
+            - Publish through Multiple API Gateways: deploy/deploy-api/publish-through-multiple-api-gateways.md
+            - Publish to Multiple External API Developer Portals: deploy/deploy-api/publish-to-multiple-external-api-stores.md
         - API Gateway:
             - Overview of the WSO2 API Gateway: deploy/api-gateway/overview-of-the-api-gateway.md
             - Publish APIs Overview: deploy/publish-api-overview.md
-            - Deploy an API: deploy/deploy-an-api.md
-            - Publish through Multiple API Gateways: deploy/publish-through-multiple-api-gateways.md
-            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
-            - Publish to Multiple External API Developer Portals: deploy/publish-to-multiple-external-api-stores.md
             - Message Mediation:
                 - Changing the Default Mediation Flow of API Requests: deploy/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                 - Creating and Uploading using Integration Studio: deploy/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
@@ -204,7 +206,7 @@ nav:
             - Advanced Topics:
                 - API Gateways with Dedicated Backends: deploy/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-        - WSO2 API Microgateway:
+        - API Microgateway:
             - Getting Started:
                 - Quick start Guide:
                     - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
@@ -248,7 +250,6 @@ nav:
             - Manage Microgateway APIs with WSO2 API Manager: deploy/manage-microgateway-apis-with-wso2-api-manager.md
             - Passing Enduser Attributes to the Backend Using JWT: deploy/passing-enduser-attributes-to-the-backend-using-jwt.md
             - Custom Claims Mapping: deploy/support-custom-claims-mapping.md
-            - Grouping APIs with Labels: deploy/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -749,18 +750,23 @@ nav:
           - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
-              - Sending a Simple Message to a Service': tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
-              - Message Routing: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
-              - Message Transformation: tutorials/integration-tutorials/transforming-message-content.md
-              - Service Orchestration: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
-              - Asynchronous Messaging: tutorials/integration-tutorials/storing-and-forwarding-messages.md
-              - Connecting Web APIs/Cloud Services: tutorials/integration-tutorials/using-the-gmail-connector.md
-              - Data Integration: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+              - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
+              - Message Routing: 
+                    -   Routing Requests based on Message Content: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
+              - Exposing Serveral Services as a Single Service: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
+              - Message Transformation: 
+                    -   Translating Message Formats: tutorials/integration-tutorials/transforming-message-content.md
+              - Asynchronous Messaging: 
+                    -   Store and Forward Messages for Guaranteed Delivery: tutorials/integration-tutorials/storing-and-forwarding-messages.md
+              - Integrating with SaaS Systems: 
+                    -   Sending Emails from an Integration Service: tutorials/integration-tutorials/using-the-gmail-connector.md
+              - Data Integration: 
+                    -   Exposing Datasources as a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
               - File Processing: tutorials/integration-tutorials/file-processing.md
-              - Periodic Execution of Integration Process: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
-              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
@@ -808,7 +814,6 @@ nav:
                 - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-                - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
             - Deploying Micro Integrator:
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
@@ -1315,6 +1320,10 @@ nav:
                 - Setting up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
+            - MongoDB Connector:
+                - 'MongoDB Connector Overview': 'references/connectors/mongodb-connector/mongodb-connector-overview.md'
+                - 'MongoDB Connector Example': 'references/connectors/mongodb-connector/mongodb-connector-example.md'
+                - 'MongoDB Connector Reference': 'references/connectors/mongodb-connector/mongodb-connector-config.md'
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1543,7 +1552,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
@@ -1659,5 +1667,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    base_path: http://localhost:8000
-    #base_path: https://apim.docs.wso2.com/en/next
+    #base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/next
