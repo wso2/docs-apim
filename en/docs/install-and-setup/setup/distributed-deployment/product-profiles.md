@@ -136,7 +136,8 @@ Create an optimized distribution for a particular API-M profile.
      password = "root"
      ```
 
-5.  Start the server with the specified profile. 
+5.  Start the server with the specified profile.
+ 
     Configuration optimization is one of the steps in profile optimization process. This replaces the 
     deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
     required, you can skip this step from the profile optimization process, via passing the additional `--skipConfigOptimization` option. This prevents the existing deployment.toml file in the pack from being overridden. 
