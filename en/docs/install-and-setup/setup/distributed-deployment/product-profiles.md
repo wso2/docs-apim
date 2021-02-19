@@ -140,9 +140,7 @@ Create an optimized distribution for a particular API-M profile.
 
     The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again.
     
-    Configuration optimization is one of the steps in profile optimization process. This replaces the 
-    deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
-    required, you can skip this step from the profile optimization process, via passing the additional `--skipConfigOptimization` option. This prevents the existing deployment.toml file in the pack from being overridden.  
+    Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
     
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
@@ -156,8 +154,6 @@ Create an optimized distribution for a particular API-M profile.
     <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```    
 
-
-    
 #### Method 2 - Optimizing while starting the server
 
 1.  Start the server using the script based on your operating system, using the command given below.
@@ -223,9 +219,7 @@ Create an optimized distribution for a particular API-M profile.
     ```  
         
 Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
-changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations manually applied previously while optimizing the profile.
+changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
 !!! note
     Profile optimization using scripts is the recommended approach. Manually optimizing and including the usage of the `--skipConfigOptimization` option should be done only in the cases where it can't be avoided. 
-
-
