@@ -26,7 +26,7 @@ Set up WSO2 Integration Studio as follows:
     project directory will appear with the artifacts as shown below.
     Note the 'HealthcareAPI' that is already included.
 
-    <img src="{{base_path}}/assets/img/tutorials/inbound-project-explorer.png" width="400">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/inbound-project-explorer.png" width="400">
 
 2.  Right-click on **SampleServicesConfigs** and navigate to **New -> Inbound
     Endpoint**. Select **Create A New Inbound Endpoint** and click
@@ -53,7 +53,7 @@ Set up WSO2 Integration Studio as follows:
         </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/tutorials/using-inbound-endpoint/create-inbound-dialog-box.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/using-inbound-endpoint/create-inbound-dialog-box.png" width="500">
 
 4.  Go to the **Properties** tab in the **Design** view and enter the following:
 
@@ -76,7 +76,7 @@ Set up WSO2 Integration Studio as follows:
         </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/tutorials/using-inbound-endpoint/configure-inbound-endpoint.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/using-inbound-endpoint/configure-inbound-endpoint.png">
 
 The endpoint will now get mapped to any URL that matches the above pattern provided. You will be exposing the health care API on a new port through this inbound endpoint.
 
@@ -129,9 +129,9 @@ Let's send a message to the **healthcare** REST API (through the inbound endpoin
     !!! Tip
         If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
 
-    <img src="{{base_path}}/assets/img/tutorials/common/http4e-client-empty.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
     
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/play-head-icon.png" width="20">).
+2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
     
     <table>
         <tr>
@@ -147,8 +147,6 @@ Let's send a message to the **healthcare** REST API (through the inbound endpoin
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/tutorials/inbound_http_client.png" width="800">
-
 If you want to send the client request from your terminal:
 
 1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
