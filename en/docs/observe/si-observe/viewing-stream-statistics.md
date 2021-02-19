@@ -5,10 +5,12 @@
 
 ![Stream statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/stream_statistics_dashboard.png)
 
-This dashboard displays the following information for your current WSO2 Streaming Integrator deployment:
+This dashboard displays the following information for your Streaming Integrator deployment:
 
 - The throughput of each stream
+
 - The total stream count
+
 - A graphical representation of the throughput of each stream over time.
 
 ## Filtering stream statistics
@@ -21,7 +23,7 @@ This dashboard displays the following information for your current WSO2 Streamin
 
     The stream statistics of all the servers 
 
-- If you want to view statistics relating to streams in one or more selected Siddhi appli
+- If you want to view statistics relating to streams in one or more selected Siddhi application
 
 ## Purpose
 

@@ -5,4 +5,5 @@
 
 ![On-Demand Query statistics dashboard]({{base_path}}/observe/si-observe/streaming-integrator-grafana-dashboard/on_demand_query_statistics_dashboard.png)
 
-This dashboard displays the following information for your current WSO2 Streaming Integrator deployment:
+This dashboard displays the following information for your current Streaming Integrator deployment:
+

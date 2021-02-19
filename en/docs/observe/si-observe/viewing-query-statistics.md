@@ -5,9 +5,27 @@
 
 ![Query statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/query_statistics_dashboard.png)
 
-This dashboard displays the following information for your current WSO2 Streaming Integrator deployment:
+## Query Statistics Summary Table
 
-- The throughput of each query
-- The total query count
-- The memory consumed by the queries over time.
-- The latency of the queries over time
+```IMAGE HERE```
+This lists all the queries from all the Siddhi applications in your Streaming Integrator server. The table displays the following for each query:
+
+- The Siddhi application in which the query is included
+
+- The name of the query
+
+- The amount of memory used by the query
+
+- Latency of events in the query
+   
+## Memory
+
+```IMAGE```
+
+This shows the memory usage of each query in your Streaming Integrator server.
+
+## Latency
+
+```IMAGE```
+
+This shows the latency of each query in your Streaming Integrator server.
