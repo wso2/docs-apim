@@ -1,6 +1,6 @@
-# Product Configurations
+# Micro Integrator Configs
 
-The Micro Integrator of WSO2 Enterprise Integrator 7.0 introduces TOML-based product configurations. All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
 The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup](../../setup/install_and_setup_overview) for details on applying product configurations to your Micro Integrator deployment.
 
@@ -17,7 +17,7 @@ The **default** `deployment.toml` file of the Micro Integrator is as follows:
 [server]
 hostname = "localhost"
 
-[keystore.tls]  # IMPORTANT! Be sure to change this heading to [keystore.primary] when you use the product.
+[keystore.primary]
 file_name = "wso2carbon.jks"
 password = "wso2carbon"
 alias = "wso2carbon"
@@ -687,8 +687,17 @@ alias="symmetric.key.value"</code></pre>
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[management_api.handler.file_user_store]
-enable = true</code></pre>
+<pre><code class="toml">[internal_apis.file_user_store]
+enable = true
+
+[[internal_apis.users]]
+user.name = "user-1"
+user.password = "pwd-1"
+
+[[internal_apis.users]]
+user.name = "user-2"
+user.password = "pwd-2"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -697,7 +706,7 @@ enable = true</code></pre>
                             <code>[internal_apis.file_user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the default file-based user store of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='../../setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -727,7 +736,7 @@ enable = true</code></pre>
                             <code>[[internal_apis.users]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='../../setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -783,7 +792,7 @@ enable = true</code></pre>
 </div>
 
 
-## External user store
+## External User Store
 
 <div class="mb-config-catalog">
     <section>
@@ -835,7 +844,7 @@ connection_retry_delay = "120000"
                             <code>[user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for conencting the Micro Integrator to an <a href='../../setup/user_stores/setting_up_ro_ldap'>LDAP user store</a>.
+                                This configuration header is required for conencting the Micro Integrator to an <a href='../../setup/user_stores/setting_up_a_userstore'>external user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1477,7 +1486,7 @@ connection_retry_delay = "120000"
 </div>
 
 
-## Database connection
+## Database Connection
 
 <div class="mb-config-catalog">
     <section>
@@ -2149,7 +2158,7 @@ pool_options.testOnBorrow = true</code></pre>
 </div>
 
 
-## Management API JWT handler
+## Management API - JWT Handler
 
 <div class="mb-config-catalog">
     <section>
@@ -2160,10 +2169,14 @@ pool_options.testOnBorrow = true</code></pre>
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[management_api.handler.token_store_config]
-max_size = "200"
-clean_up_interval = "600"
-remove_oldest_token_on_overflow = true</code></pre>
+<pre><code class="toml">[management_api.jwt_token_security_handler]
+enable = true
+token_store_config.max_size= "200"
+token_store_config.clean_up_interval= "600"
+token_store_config.remove_oldest_token_on_overflow= "true"
+token_config.expiry= "3600"
+token_config.size= "2048"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2172,7 +2185,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                             <code>[management_api.jwt_token_security_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for changing the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for configuring the default JWT token store configurations of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2194,12 +2207,12 @@ remove_oldest_token_on_overflow = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable user authentication for the management API.</p>
+                                        <p>Set this paramter to &#39;false&#39; if you want to disable JWT authentication for the management API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>max_size</code> </span>
+                                  <span class="param-name-wrap"> <code>token_store_config.max_size</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2220,7 +2233,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>clean_up_interval</code> </span>
+                                  <span class="param-name-wrap"> <code>token_store_config.clean_up_interval</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2241,7 +2254,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>remove_oldest_token_on_overflow</code> </span>
+                                  <span class="param-name-wrap"> <code>token_store_config.remove_oldest_token_on_overflow</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2262,7 +2275,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>expiry</code> </span>
+                                  <span class="param-name-wrap"> <code>token_config.expiry</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2283,7 +2296,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>size</code> </span>
+                                  <span class="param-name-wrap"> <code>token_config.size</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2312,7 +2325,7 @@ remove_oldest_token_on_overflow = true</code></pre>
 </div>
 
 
-## Management API Authorization handler
+## Management API - Authorization Handler
 
 <div class="mb-config-catalog">
     <section>
@@ -2323,7 +2336,15 @@ remove_oldest_token_on_overflow = true</code></pre>
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml"></code></pre>
+<pre><code class="toml">[management_api.authorization_handler]
+enable = false
+
+[[management_api.authorization_handler.resources]]
+path = "/users"
+
+[[management_api.authorization_handler.resources]]
+path = "/apis"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2332,7 +2353,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                             <code>[management_api.authorization_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling authorization for the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for disabling authorization for the Micro Integrator's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2362,7 +2383,7 @@ remove_oldest_token_on_overflow = true</code></pre>
                             <code>[[management_api.authorization_handler.resources]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for enabling authorization for other resources of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
+                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the Micro Integrator's Management API. Read more about <a href='../../setup/security/securing_management_api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2379,7 +2400,9 @@ remove_oldest_token_on_overflow = true</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>/resource_name</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
                                         <p>Use this parameter to specify the resources in the management API for which you want to enable authorization.</p>
