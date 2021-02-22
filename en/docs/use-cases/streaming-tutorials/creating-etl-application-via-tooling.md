@@ -14,42 +14,63 @@ Tutorials such as [Performing Real-time ETL with Files]({{base_path}}/use-cases/
 
 In this tutorial, let's create the same Siddhi application created in [Performing Real-time ETL with MySQL]({{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql) using the Streaming Integrator Tooling.
 
-!!!info "Before you begin:"
-    - You need to have access to a MySQL instance.<br/>
-    - Enable binary logging in the MySQL server. For detailed instructions, see [Debezium documentation - Enabling the binlog](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).<br/>
-        !!! info
-            If you are using MySQL 8.0, use the following query to check the binlog status.<br/>
-            ```
-            SELECT variable_value as "BINARY LOGGING STATUS (log-bin) ::"
-            FROM performance_schema.global_variables WHERE variable_name='log_bin';
-            ```<br/>
-    - Add the MySQL JDBC driver into the `<SI_HOME>/lib` directory as follows:<br/>
-        1. Download the MySQL JDBC driver from [the MySQL site](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).<br/>
-        2. Unzip the archive.<br/>
-        3. Copy the `mysql-connector-java-5.1.45-bin.jar` to the `<SI_HOME>/lib` directory.<br/>
-        4. Start the SI server by issuing the appropriate command based on your operating system.<br/>
-              - For Windows: `streaming-integrator.bat`<br/>
-              - For Linux:  `sh server.sh`<br/>
-            <br/>
-    - Once you install MySQL and start the MySQL server, create the database and the database table you require as follows:
-        1. Let's create a new database in the MySQL server which you are to use throughout this tutorial. To do this, execute the following query.<br/>
-            ```
-            CREATE SCHEMA production;
-            ```<br/>
-        2. Create a new user by executing the following SQL query.<br/>
-            ```
-            GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
-            ```<br/>
-        3. Switch to the `production` database and create a new table, by executing the following queries:<br/>
-            `use production;`<br/>
-            `CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));`<br/> 
-    - Download `productions.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice. (e.g., in `/Users/foo`).<br/>    
-    - Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)<br/>          
-    - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+## Before you begin
 
-## Tutorial steps
+- You need to have access to a MySQL instance.
 
-### Step 1: Design the Siddhi application with ETL functionality
+- Enable binary logging in the MySQL server. For detailed instructions, see [Debezium documentation - Enabling the binlog](https://debezium.io/docs/connectors/mysql/#enabling-the-binlog).
+
+    !!! info
+        If you are using MySQL 8.0, use the following query to check the binlog status.<br/>
+        ```
+        SELECT variable_value as "BINARY LOGGING STATUS (log-bin) ::"
+        FROM performance_schema.global_variables WHERE variable_name='log_bin';
+        ```
+        
+- Add the MySQL JDBC driver into the `<SI_HOME>/lib` directory as follows:
+
+    1. Download the MySQL JDBC driver from [the MySQL site](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).
+    
+    2. Unzip the archive.
+    
+    3. Copy the `mysql-connector-java-5.1.45-bin.jar` to the `<SI_HOME>/lib` directory.
+    
+    4. Start the SI server by issuing the appropriate command based on your operating system.
+    
+          - For Windows: `streaming-integrator.bat`
+          - For Linux:  `sh server.sh`
+
+- Once you install MySQL and start the MySQL server, create the database and the database table you require as follows:
+
+    1. Let's create a new database in the MySQL server which you are to use throughout this tutorial. To do this, execute the following query.
+    
+        ```
+        CREATE SCHEMA production;
+        ```
+       
+    2. Create a new user by executing the following SQL query.
+    
+        ```
+        GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
+        ```
+       
+    3. Switch to the `production` database and create a new table, by executing the following queries
+    
+        ```
+        use production;
+        ```
+       
+       ```
+       CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));
+       ```
+        
+- Download `productions.csv` file from [here](https://github.com/wso2/docs-ei/tree/master/en/streaming-integrator/docs/examples/resources/productions.csv) and save it in a location of your choice. (e.g., in `/Users/foo`).
+
+- Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)
+        
+- Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+
+## Step 1: Design the Siddhi application with ETL functionality
 
 To design the Siddhi application with ETL functionality via the Streaming Integrator Tooling, follow the steps below:
 
@@ -222,7 +243,7 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
         
         `SweetFactoryETLTaskFlow.siddhi was successfully deployed to 0.0.0.0:9444`
         
-### Step 2: Test the Siddhi application
+## Step 2: Test the Siddhi application
 
 To test the Siddhi application, insert a record to the `SweetProductionTable` MySQL table by issuing the following command in your MySQL console.
 
@@ -238,10 +259,7 @@ If you open the `/Users/foo/productions.csv` file, the `Chocalate, 100.0` record
 
 ![Updated File]({{base_path}}/assets/img/streaming/create-etl-application-via-tooling/updated-file.png)
 
-## What's Next?
-
-Once you develop an ETL application, you may need to carry out following tasks:
-
-- **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial]({{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors).
-
-- **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards).
+!!! info "What's Next?"
+    Once you develop an ETL application, you may need to carry out following tasks:<br/><br/>   
+    - **Error Handling**: To understand how to handle errors that may occur when carrying out ETL operations, try the [Managing Streaming Data with Errors tutorial]({{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors).<br/><br/>     
+    - **Monitoring ETL Statistics**: For instructions to set up pre-configured dashboards provided with WSO2 Streaming Integrator and visualize statistics related to your ETL flows, see [Monitoring ETL Statistics with Grafana]({{base_path}}/admin/viewing-dashboards).
