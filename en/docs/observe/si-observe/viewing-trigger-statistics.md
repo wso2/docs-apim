@@ -1,6 +1,3 @@
-!!! note
-    **This page is still a work in progress!**
-    
 # Viewing Trigger Statistics
 
 ![Trigger statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/trigger_statistics_dashboard.png)
@@ -9,7 +6,7 @@ This dashboard displays the following information for your Streaming Integrator 
 
 ## Trigger Statistics Summary Table
 
-```IMAGE HERE```
+![Trigger Statistics Summary Table]({{base_path}}/assets/img/streaming/trigger-statistics/trigger-statistics-summary-table.png)
 
 This lists all the triggers from all the Siddhi applications in your Streaming Integrator server. The table displays the following for each trigger:
 
@@ -21,6 +18,6 @@ This lists all the triggers from all the Siddhi applications in your Streaming I
    
 ## Throughput
 
-```IMAGE```
+![Trigger Throughput]({{base_path}}/assets/img/streaming/trigger-statistics/trigger-throughput.png)
 
 This shows the throughput of each trigger in your Streaming Integrator server.

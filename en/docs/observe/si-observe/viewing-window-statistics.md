@@ -1,6 +1,3 @@
-!!! note
-    **This page is still a work in progress!**
-    
 # Viewing Window Statistics
 
 ![Window statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/window_statistics_dashboard.png)
@@ -9,7 +6,7 @@ This dashboard displays the following information for your Streaming Integrator 
 
 ## Window Statistics Summary Table
 
-```IMAGE HERE```
+![Window Statistics Summary Table]({{base_path}}/assets/img/streaming/window-statistics/window-statistics-summary.png)
 
 This lists all the windows from all the Siddhi applications in your Streaming Integrator server. The table displays the following for each window:
 
@@ -25,18 +22,18 @@ This lists all the windows from all the Siddhi applications in your Streaming In
    
 ## Memory
 
-```IMAGE```
+![Window Memory]({{base_path}}/assets/img/streaming/window-statistics/window-memory.png)
 
 This shows the memory usage of each window in your Streaming Integrator server.
 
 ## Latency
 
-```IMAGE```
+![Window Latency]({{base_path}}/assets/img/streaming/window-statistics/window-latency.png)
 
 This shows the latency of each window in your Streaming Integrator server.
 
 ## Throughput
 
-```IMAGE```
+![Window Throughput]({{base_path}}/assets/img/streaming/window-statistics/window-throughput.png)
 
 This shows the throughput of each window in your Streaming Integrator server.

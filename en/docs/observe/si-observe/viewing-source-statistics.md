@@ -1,6 +1,3 @@
-!!! note
-    **This page is still a work in progress!**
-    
 # Viewing Source Statistics
 
 ![Source statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/source_statistics_dashboard.png)
@@ -9,7 +6,7 @@ This dashboard displays the following information for your Streaming Integrator 
 
 ## Source Mapper Statistics Summary Table
 
-```IMAGE HERE```
+![Source Statistics Summary]({{base_path}}/assets/img/streaming/source-statistics/source-statistics-summary.png)
 
 This lists all the source mappers from all the Siddhi applications in your Streaming Integrator server. The table displays the following for each source mapper:
 
@@ -27,12 +24,12 @@ This lists all the source mappers from all the Siddhi applications in your Strea
    
 ## Source Throughput
 
-```IMAGE```
+![Source Throughput]({{base_path}}/assets/img/streaming/source-statistics/source-throughput.png)
 
 This shows the throughput of each source mapper in your Streaming Integrator server.
 
 ## Source Mapper Latency
 
-```IMAGE```
+![Source Latency]({{base_path}}/assets/img/streaming/source-statistics/source-latency.png)
 
 This shows the latency of each source mapper in your Streaming Integrator server.
