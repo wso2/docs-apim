@@ -133,7 +133,7 @@ WSO2 Micro Integrator uses a registry to store various configurations and resour
 A registry is simply a content store and a metadata repository. 
 Various resources such as XSLT scripts, WSDLs, and configuration files can be stored in a registry and referred 
 to by a key, which is a path similar to a UNIX file path. 
-The WSO2 Micro Integrator uses a [file-based registry](../../setup/deployment/file_based_registry) that is configured by default. 
+The WSO2 Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) that is configured by default. 
 When you develop your integration artifacts, you can also define and 
 use a [local registry]({{base_path}}/integrate/develop/creating-artifacts/registry/creating-local-registry-entries).
 
