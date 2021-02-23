@@ -8,11 +8,11 @@ Service Catalog is one of the main attributes which enables the API-first Integr
 2. Click on the **Hamburger Icon** on the top left corner of the page.
 3. Select the **Service Catalog** Menu as follows.
 
-![Service Catalog Menu]({{base_path}}/assets/img/integration/go-to-service-catalog.png)
+![Service Catalog Menu](../../assets/img/integrate/service-catalog/go-to-service-catalog.png)
 
 If this is the first time you work with the Service Catalog, you will see the following **onboarding page** where you can easily get started with your first integration service.
 
-![Service Catalog Onboarding Page]({{base_path}}/assets/img/integration/service-catalog-onboarding-page.png)
+![Service Catalog Onboarding Page](../../assets/img/integrate/service-catalog/service-catalog-onboarding-page.png)
 
 There are 2 options where you can either
 
@@ -30,7 +30,7 @@ Once you have services deployed, you can view the list of available services by 
 
 Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
 
-![Service Catalog Listing Page]({{base_path}}/assets/img/integration/service-catalog-listing.png)
+![Service Catalog Listing Page](../../assets/img/integrate/service-catalog/service-catalog-listing.png)
 
 #### View information of a specific Service
 
@@ -38,19 +38,19 @@ You can view the detailed information of a specific service by clicking on the *
 
 Click on **Hamburger Icon** -> Select **Service Catalog** -> Click on the **service name**
 
-![Click on service name]({{base_path}}/assets/img/integration/service-name.png)
+![Click on service name](../../assets/img/integrate/service-catalog/service-name.png)
 
 You will be directed to the **service overview** page as follows where you can view service information such as service name, version, description, usages in APIs and other important metadata.
 
-![Service Overview]({{base_path}}/assets/img/integration/service-overview.png)
+![Service Overview](../../assets/img/integrate/service-catalog/service-overview.png)
 
-##### Download a Service as a Zip Archive
+##### Download a Service Definition
 
-Through the service overview page, it is possible to download a service as a zip archive. For this you can click on the **Download** button against the Service Definition as shown below.
+Through the service overview page, it is possible to download the service definition. For this you can click on the **Download** button against the Service Definition as shown below.
 
 Click on the **service name** from the listing -> Go to **Service Definition** -> Click **Download**
 
-![Download Service]({{base_path}}/assets/img/integration/download-service.png)
+![Download Service](../../assets/img/integrate/service-catalog/download-service.png)
 
 ##### View the Service Definition
 
@@ -58,24 +58,24 @@ To view the definition of a service, you can click on the **View Definition** bu
 
 Click on the **service name** from the listing -> Go to **Service Definition** -> Click **View Definition**
 
-![View service definition]({{base_path}}/assets/img/integration/view-service-definition.png)
+![View service definition](../../assets/img/integrate/service-catalog/view-service-definition.png)
 
 #### View APIs that use a specific Service
 
 In order to view the list of APIs that use a specific service, you can click on the **Number of Usages** in the **service listing** page or click on the link depicting the number of usages in the **service overview** page as shown below.
 
-![API usage in Service Listing page]({{base_path}}/assets/img/integration/service-listing-usage.png)
+![API usage in Service Listing page](../../assets/img/integrate/service-catalog/service-listing-usage.png)
 
-![API usage in Service Overview page]({{base_path}}/assets/img/integration/service-overview-usage.png)
+![API usage in Service Overview page](../../assets/img/integrate/service-catalog/service-overview-usage.png)
 
 You can access the relevant API from the API usage list by clicking on the API name as shown below.
 
-![API usage list]({{base_path}}/assets/img/integration/service-usage-view.png)
+![API usage list](../../assets/img/integrate/service-catalog/service-usage-view.png)
 
 ## Create an API from a Service
 
 You can create an API from a service by clicking on the **Create API** button in the service listing page or the service overview page.
 
-![Create API from Service]({{base_path}}/assets/img/integration/create-api-from-service.png)
+![Create API from Service](../../assets/img/integrate/service-catalog/create-api-from-service.png)
 
 Provide the API Name, Context and Version where all fields are mandatory, and click **Create API**. You will then be directed to the overview page of the API created from the service.
