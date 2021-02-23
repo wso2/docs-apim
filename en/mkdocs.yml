@@ -50,6 +50,7 @@ nav:
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
+          - Architecture: get-started/architecture.md
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
                 - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
@@ -300,6 +301,7 @@ nav:
             - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integrate:
         - Integration Overview: integrate/learn-overview.md
+        - Integration Concepts: integrate/integration-key-concepts.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
             - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
@@ -518,6 +520,7 @@ nav:
             - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
+          - Streaming Key Concepts: streaming/streaming-key-concepts.md
           - Streaming Use Cases:
                 - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
                 - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
@@ -534,7 +537,7 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
-          - Quick Start: get-started/quick-start-guide/streaming-qsg.md
+          #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
                 - Streaming Integrator Tooling:
