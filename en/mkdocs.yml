@@ -810,7 +810,7 @@ nav:
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
         - Deploy:
-            - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
+            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - All-In-One Deployment:
                 - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                 - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
