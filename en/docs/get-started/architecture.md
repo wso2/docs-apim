@@ -32,10 +32,6 @@ These services can be created using WSO2 Integration Studio and other platforms.
 
 Monitoring and analytics of APIs deployed on WSO2 API Manager are provided by the WSO2 API Manager Analytics component. This component includes different types of dashboards to provide more detailed different statistical views of your APIs. Furthermore, you can secure your system by configuring alerts and notifications on pre-determined events to identify any unusual behaviors in near real-time.  For more information, see [Working with Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics).
 
-#### API Operator
-
-
-
 ## Data Plane
 
 The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. 
@@ -96,7 +92,7 @@ For more information, see [Working with Throttling]({{base_path}}/learn/rate-lim
 
 ## Tooling
 
-There are multiple developer-friendly tools that can be used to 
+There are multiple developer-friendly tools that can be used to help you work with WSO2 API Manager.
 
 #### Integration Studio
 
@@ -115,8 +111,6 @@ The Streaming Editor is a developer tool that is used to develop Siddhi applicat
 #### apictl
 
 WSO2 API Controller (CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.
-
-
 
 #### kubectl
 

@@ -20,7 +20,7 @@
   
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/build.png'>
-              <img src='{{base_path}}/assets/img/get_started/build.png' alt="Develop, Deploy and Manage APIs/API Products" />
+              <img src='{{base_path}}/assets/img/get_started/overview/build.png' alt="Develop, Deploy and Manage APIs/API Products" />
           </a>
       </div>
 </div>
@@ -35,7 +35,7 @@
   
   <div class="leftImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/find.png'>
-              <img src='{{base_path}}/assets/img/get_started/find.png' alt="Make your APIs Discoverable" />
+              <img src='{{base_path}}/assets/img/get_started/overview/find.png' alt="Make your APIs Discoverable" />
           </a>
       </div>
 </div>
@@ -50,7 +50,7 @@
   
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/portals.png'>
-              <img src='{{base_path}}/assets/img/get_started/portals.png' alt="Expose developer-friendly APIs" />
+              <img src='{{base_path}}/assets/img/get_started/overview/portals.png' alt="Expose developer-friendly APIs" />
           </a>
       </div>
 </div>
@@ -65,7 +65,7 @@
   
   <div class="leftImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/security.png'>
-              <img src='{{base_path}}/assets/img/get_started/security.png' alt="Secure your APIs" />
+              <img src='{{base_path}}/assets/img/get_started/overview/security.png' alt="Secure your APIs" />
           </a>
       </div>
 </div>
@@ -80,7 +80,7 @@
   
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/rate-limiting.png'>
-              <img src='{{base_path}}/assets/img/get_started/rate-limiting.png'  alt="Balance your APIs demand" />
+              <img src='{{base_path}}/assets/img/get_started/overview/rate-limiting.png'  alt="Balance your APIs demand" />
           </a>
       </div>
 </div>
@@ -95,7 +95,7 @@
   
   <div class="leftImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/overview-analytics.png'>
-              <img src='{{base_path}}/assets/img/get_started/overview-analytics.png' alt="Evolve with your customers" />
+              <img src='{{base_path}}/assets/img/get_started/overview/overview-analytics.png' alt="Evolve with your customers" />
           </a>
       </div>
 </div>

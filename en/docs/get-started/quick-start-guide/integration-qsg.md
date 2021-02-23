@@ -20,7 +20,7 @@ This is a simple service orchestration scenario. The scenario is about a basic h
 
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated for a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
-![Scenario]({{base_path}}/assets/img/get_started/mi-quick-start-guide/mi-quick-start-guide.png)
+![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
 
 In the above scenario, the following takes place:
 
@@ -64,7 +64,7 @@ Go to the `<MI_QSG_HOME>` directory. The following project files and executable 
 
 - **HealthcareConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
 
-      <img src="{{base_path}}/assets/img/get_started/mi-quick-start-guide/mi-qsg-api.png">
+      <img src="{{base_path}}/assets/img/integrate/quick-start-guide/qsg-api.png">
 
       <details>
                 <summary>HealthcareAPI.xml</summary>
@@ -164,8 +164,8 @@ micro-integrator.bat
 
 If you want to view the integrations artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-- Running the [MI dashboard using the installer](../../setup/installation/install_in_vm_installer/#running-the-mi-dashboard)
-- Running the [MI dashboard using the binary](../../setup/installation/install_in_vm_binary/#running-the-mi-dashboard)
+- Running the [MI dashboard using the installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#running-the-mi-dashboard)
+- Running the [MI dashboard using the binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary/#running-the-mi-dashboard)
 
 #### Invoke the healthcare service
 
@@ -219,7 +219,7 @@ Once you have services deployed, you can view the list of available services by 
 
 Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
 
-![Service Catalog Listing Page]({{base_path}}/assets/img/integration/service-catalog-listing.png)
+![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-listing.png)
 
 ## What's next?
 
