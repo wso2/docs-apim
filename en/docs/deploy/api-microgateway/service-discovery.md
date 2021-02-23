@@ -1,11 +1,25 @@
 # Service Discovery
 
+In a microservice environment, usually the running service endpoints are not static. A service may have multiple upstream endpoints. Therefore, service discovery mechanism is required for services to locate other services' upstream endpoints.
+
+A service mesh deployed when services want to communicate with each other with zero trust. Consul is a service mesh solution, which has been developed by HashiCorp. It solves the following problems that occur in microservice environments:
+
+1. Service Discovery - through a centralized service registry.
+2. Access control - through Intentions, and ACL
+3. Configuration Management
+
+WSO2 API Microgateway can be used as an ingress gateway in an environment that uses Consul as a service mesh so that the APIs or services can be exposed to developers or API consumers while providing security, rate limiting, and other QoS.
+
+Therefore, WSO2 Microgateway supports service discovery using the Consul so that upstream services can be discovered automatically.
 WSO2 Microgateway supports service discovery by connecting to [Consul service registry](https://www.hashicorp.com/products/consul) and discover upstream services automatically.
+
 Please refer to the [Consul official documentation](https://www.consul.io/docs) to set up Consul securely.
 
-#### Enabling Consul service discovery
+![reference](../../assets/img/deploy/consul-reference-with-mesh.jpeg)
 
-Add the following configuration under the Adapter section to the config.toml file
+#### Step 1 - Enabling Consul service discovery
+
+Add the following configuration under the Adapter section to the configuration file of the Microgateway (config.toml)
 
 ``` java
 [adapter.consul]
@@ -37,7 +51,7 @@ The configurations are described in the table below.
         CA that the Consul agents' certificates are signed.
 
 
-#### Deploy an API that contains services registered with Consul service catalog
+#### Step 2 - Deploy an API that contains services registered with Consul service catalog
 
 You can set the Consul upstreams using the service name as the key and providing a default host.
 
@@ -51,10 +65,25 @@ x-wso2-production-endpoints:
 ```
 
 ```java tab="Example"
-x-wso2-production-endpoints:
-  urls:
-    - consul(pizza,https://10.10.1.5:5000)
-  type: loadbalance
+paths:
+  /pet:
+    x-wso2-production-endpoints:
+      urls:
+        - consul(pet,https://10.10.1.5:5000)
+      type: loadbalance
+    post:
+      consumes:
+        - application/json
+        - application/xml
+      description: ""
+      operationId: addPet
+      parameters:
+        - description: Pet object that needs to be added to the store
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
 ```
 
 Example 2:<br>
@@ -69,23 +98,40 @@ x-wso2-production-endpoints:
 ```
 
 ```java tab="Example"
-x-wso2-production-endpoints:
-  urls:
-    - consul([aws-east,gcp-west].pizza.[prod],https://10.10.1.5:5000)
-  type: loadbalance
+paths:
+  /pet:
+    x-wso2-production-endpoints:
+      urls:
+        - consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
+      type: loadbalance
+    post:
+      consumes:
+        - application/json
+        - application/xml
+      description: ""
+      operationId: addPet
+      parameters:
+        - description: Pet object that needs to be added to the store
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
 ```
 
-<!-- todo rumesh check the keyword for loadbalance once implemented -->
+<!-- todo check the keyword for loadbalance once implemented -->
+<!-- todo add info about cert rotation once implemented -->
+
 
 !!! info
         1. The adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
         During that time requests that arrive at the Microgateway are served from the
         `default_host`. <br>
-        2. Consul upstreams can be set both on `x-wso2-production-endpoints` and `x-wso2-sandbox-endpoints`.<br>
-        3. Microgateway supports Both API level and Resource level endpoints for Consul service discovery.<br>
-        4. Type under the vendor extension should be `loadbalance`.
+        2. Consul upstreams can be discovered both on ***production-endpoints*** and ***sandbox-endpoints***.<br>
+        3. Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
+        4. Upstreams discovered through Consul are configured as loadbalance clusters. Therefore, type under the vendor extension should be `loadbalance`.
         <br>
-        5. Upon successfully [deploying your API](quick-start-guide.md#step-2---create-and-deploy-an-api-project), the Adapter will poll the Consul HTTP API for changes concerning the services.
+        5. Upon successfully [deploying your API](../api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md), the Adapter will poll the Consul HTTP API for changes concerning the services.
         If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
 
        
