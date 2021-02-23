@@ -2,11 +2,11 @@
 
 ## Overview
 
-The new configuration model, which is based on the TOML format, was introduced in WSO2 API Manager 3.0.0 and is available from there onwards. In older versions of WSO2 API Manager, users had to modify different configuration files based on the components corresponding to the specific feature they were configuring.
+The new configuration model, which is based on the TOML format, was introduced in WSO2 API Manager 3.0.0 and is available from there onwards. In older versions of WSO2 API Manager, you had to modify different configuration files based on the components corresponding to the specific feature they were configuring.
 
 However, with the new WSO2 configuration model, all configuration files have been merged to make the configuration process easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in WSO2 API Manager.
 
-For more information on the configuration parameters that can be used in the `deployment.toml` file, see the [Configuration Catalog]({{base_path}}/reference/config-catalog/config-catalog).
+For more information on the configuration parameters that can be used in the `deployment.toml` file, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
 
 The following section explains the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file.
 
@@ -16,7 +16,7 @@ Let's see how you can identify the new configuration parameters that you need to
 
 ### .j2 template files
 
-When you go in to the `<APIM_HOME>/repository/resources/conf/templates/repository/conf` directory you will come across files that are exactly in the same structure as the files in the `<APIM_HOME>/repository/conf` directory.
+In the `<APIM_HOME>/repository/resources/conf/templates/repository/conf` directory there are files that are exactly in the same structure as the files in the `<APIM_HOME>/repository/conf` directory.
 
 Each configuration file that is inside the `<APIM_HOME>/repository/conf` directory has a `.j2` template file. These `.j2` files contain the parameterizations.
 
