@@ -1,10 +1,26 @@
 # Integration Quick Start Guide
 
-Let's get started with WSO2 Micro Integrator by running a simple use case in your local environment. This is a simple service orchestration scenario. The scenario is about a basic healthcare system where the Micro Integrator is used to integrate two back-end hospital services to provide information to the client.
+Let's get started with WSO2 API Manager by running a simple integration use case in your local environment. 
+
+## Before you begin
+
+1. Go to the [website](https://wso2.com/api-management/) to download WSO2 API Manager and WSO2 Integration Studio. 
+
+    When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
+
+    !!! Info
+        For more information, see the [installation instructions]({{base_path}}/install-and-setup//install/installing-the-product/).
+
+2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
+3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
+
+## What you'll build
+
+This is a simple service orchestration scenario. The scenario is about a basic healthcare system where the Micro Integrator is used to integrate two back-end hospital services to provide information to the client.
 
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated for a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
-![Scenario]({{base_path}}/assets/img/get_started/mi-quick-start-guide/mi-quick-start-guide.png)
+![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
 
 In the above scenario, the following takes place:
 
@@ -40,19 +56,7 @@ The expected payload should be in the following JSON format:
 
 Let’s implement a simple integration solution that can be used to query the availability of doctors for a particular category from all the available healthcare centers.
 
-## Before you begin
-
-1. Go to the [website](https://wso2.com/integration/) to download WSO2 Enteprise Integrator. 
-
-    When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
-
-    !!! Info
-        For more information, see the [installation instructions](../../setup/install_and_setup_overview/#install).
-
-2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
-3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
-
-## Set up the workspace
+## Step 1 - Set up the workspace
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
@@ -60,7 +64,7 @@ Go to the `<MI_QSG_HOME>` directory. The following project files and executable 
 
 - **HealthcareConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
 
-      <img src="{{base_path}}/assets/img/get_started/mi-quick-start-guide/mi-qsg-api.png">
+      <img src="{{base_path}}/assets/img/integrate/quick-start-guide/qsg-api.png">
 
       <details>
                 <summary>HealthcareAPI.xml</summary>
@@ -113,7 +117,7 @@ Go to the `<MI_QSG_HOME>` directory. The following project files and executable 
 
 - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
-## Running the integration artifacts
+## Step 2 - Running the integration artifacts
 
 Follow the steps given below to run the integration artifacts we developed on a Micro Integrator instance that is installed on a VM.
 
@@ -132,7 +136,7 @@ java -jar DoctorInfo-JDK11.jar
 Copy the CAR file of the healthcare service (HealthcareCompositeExporter_1.0.0.car) from the `<MI_QSG_HOME>/HealthcareCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
 !!! Note
-    If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location](../../setup/installation/install_in_vm_installer/#accessing-the-home-directory) is specific to your OS.
+    If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#accessing-the-home-directory) is specific to your OS.
 
 #### Start the Micro Integrator
 
@@ -160,8 +164,8 @@ micro-integrator.bat
 
 If you want to view the integrations artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-- Running the [MI dashboard using the installer](../../setup/installation/install_in_vm_installer/#running-the-mi-dashboard)
-- Running the [MI dashboard using the binary](../../setup/installation/install_in_vm_binary/#running-the-mi-dashboard)
+- Running the [MI dashboard using the installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#running-the-mi-dashboard)
+- Running the [MI dashboard using the binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary/#running-the-mi-dashboard)
 
 #### Invoke the healthcare service
 
@@ -201,6 +205,21 @@ Upon invocation, you should be able to observe the following response:
    ]
 ]
 ```
+
+## Step 3 - Discover services
+
+When you deploy your C-App it becomes an integration service and you can view your service in a Service Catalog. 
+
+Integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+
+Once you have services deployed, you can view the list of available services by accessing the Service Catalog menu in WSO2 API Manager. 
+
+1. Click on the **Hamburger Icon** in the top left corner of the web page.
+2. Select the **Service Catalog** Menu.
+
+Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
+
+![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-listing.png)
 
 ## What's next?
 
