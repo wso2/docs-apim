@@ -311,7 +311,7 @@ Therefore, if registry versioning was enabled in WSO2 API-M 2.1.0 setup, it is *
 
 !!! note
     
-    - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
+    - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
     - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.

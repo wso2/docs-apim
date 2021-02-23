@@ -43,7 +43,7 @@ version.
 
     !!! note
      
-        - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
+        - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
         - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
         
 6.  Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
