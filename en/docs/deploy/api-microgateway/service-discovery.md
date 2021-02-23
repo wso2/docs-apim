@@ -72,7 +72,7 @@ Example 1:
 x-wso2-production-endpoints:
   urls:
     - consul(<service_name>,<default_host>)
-  type: loadbalance
+  type: load_balance
 ```
 
 ```java tab="Example"
@@ -81,7 +81,7 @@ paths:
     x-wso2-production-endpoints:
       urls:
         - consul(pet,https://10.10.1.5:5000)
-      type: loadbalance
+      type: load_balance
     post:
       consumes:
         - application/json
@@ -105,7 +105,7 @@ the `datacenters` and `tags`
 x-wso2-production-endpoints:
   urls:
     - consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
-  type: loadbalance
+  type: load_balance
 ```
 
 ```java tab="Example"
@@ -114,7 +114,7 @@ paths:
     x-wso2-production-endpoints:
       urls:
         - consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
-      type: loadbalance
+      type: load_balance
     post:
       consumes:
         - application/json
@@ -130,7 +130,7 @@ paths:
             $ref: '#/definitions/Pet'
 ```
 
-<!-- todo check the keyword for loadbalance once implemented -->
+<!-- todo check the keyword for load_balance once implemented -->
 <!-- todo add info about cert rotation once implemented -->
 
 
@@ -140,7 +140,7 @@ paths:
         `default_host`. <br>
         - Consul upstreams can be discovered both on ***production-endpoints*** and ***sandbox-endpoints***.<br>
         - Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
-        - Upstreams discovered through Consul are configured as loadbalance clusters. Therefore, type under the vendor extension should be `loadbalance`.
+        - Upstreams discovered through Consul are configured as load_balance clusters. Therefore, type under the vendor extension should be `load_balance`.
         <br>
         - Upon successfully [deploying your API](../api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md), the Adapter will poll the Consul HTTP API for changes concerning the services.
         If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
