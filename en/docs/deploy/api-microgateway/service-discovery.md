@@ -1,25 +1,36 @@
 # Service Discovery
 
+The following section provides information on the use of using the Consul service registry for service discovery and also how you can deploy an API with Consul service catalog-based services.
+
+## Overview
+
 In a microservice environment, usually the running service endpoints are not static. A service may have multiple upstream endpoints. Therefore, service discovery mechanism is required for services to locate other services' upstream endpoints.
 
 A service mesh deployed when services want to communicate with each other with zero trust. Consul is a service mesh solution, which has been developed by HashiCorp. It solves the following problems that occur in microservice environments:
 
-1. Service Discovery - through a centralized service registry.
-2. Access control - through Intentions, and ACL
-3. Configuration Management
+- Service Discovery - through a centralized service registry.
+- Access control - through Intentions, and ACL
+- Configuration Management
 
 WSO2 API Microgateway can be used as an ingress gateway in an environment that uses Consul as a service mesh so that the APIs or services can be exposed to developers or API consumers while providing security, rate limiting, and other QoS.
 
 Therefore, WSO2 Microgateway supports service discovery using the Consul so that upstream services can be discovered automatically.
 WSO2 Microgateway supports service discovery by connecting to [Consul service registry](https://www.hashicorp.com/products/consul) and discover upstream services automatically.
-
-Please refer to the [Consul official documentation](https://www.consul.io/docs) to set up Consul securely.
-
 ![reference](../../assets/img/deploy/consul-reference-with-mesh.jpeg)
 
-#### Step 1 - Enabling Consul service discovery
+## Deploying an API with Consul service catalog based services
 
-Add the following configuration under the Adapter section to the configuration file of the Microgateway (config.toml)
+Follow the instructions below to deploy an API that contains services registered with the Consul service catalog.
+
+### Prerequisites
+
+Set up Consul securely.
+
+For more instructions, see the [Consul official documentation](https://www.consul.io/docs).
+
+### Step 1 - Enable Consul service discovery
+
+Add the following configuration under the Adapter section to the configuration file of the Microgateway (`config.toml` file)
 
 ``` java
 [adapter.consul]
@@ -46,12 +57,12 @@ The configurations are described in the table below.
 
 
 !!! note
-        `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br>
-        If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to true, the certificate and private key has to be signed by the same
+        - `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br>
+        - If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to true, the certificate and private key has to be signed by the same
         CA that the Consul agents' certificates are signed.
 
 
-#### Step 2 - Deploy an API that contains services registered with Consul service catalog
+### Step 2 - Deploy the API
 
 You can set the Consul upstreams using the service name as the key and providing a default host.
 
