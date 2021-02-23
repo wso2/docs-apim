@@ -109,7 +109,7 @@ In the following diagram, the five components are set up in a distributed deploy
     <td>Key Manager</td>
     <td>9443</td>
         <td>
-            Token validation, token, revoke, authorize endpoint, block condition, revoke tokens
+            Token validation, authorize endpoint, block condition, and revoke tokens.
         </td>
     </tr>
     <tr class="even">
