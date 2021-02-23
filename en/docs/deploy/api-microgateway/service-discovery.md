@@ -124,14 +124,14 @@ paths:
 
 
 !!! info
-        1. The adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
+        - The adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
         During that time requests that arrive at the Microgateway are served from the
         `default_host`. <br>
-        2. Consul upstreams can be discovered both on ***production-endpoints*** and ***sandbox-endpoints***.<br>
-        3. Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
-        4. Upstreams discovered through Consul are configured as loadbalance clusters. Therefore, type under the vendor extension should be `loadbalance`.
+        - Consul upstreams can be discovered both on ***production-endpoints*** and ***sandbox-endpoints***.<br>
+        - Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
+        - Upstreams discovered through Consul are configured as loadbalance clusters. Therefore, type under the vendor extension should be `loadbalance`.
         <br>
-        5. Upon successfully [deploying your API](../api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md), the Adapter will poll the Consul HTTP API for changes concerning the services.
+        - Upon successfully [deploying your API](../api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md), the Adapter will poll the Consul HTTP API for changes concerning the services.
         If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
 
        
