@@ -1,6 +1,3 @@
-!!! note
-    **This page is still a work in progress!**
-
 # Viewing Overall Statistics
 
 This dashboard displays the overall Siddhi statistics of the Siddhi applications currently deployed in your WSO2 Streaming Integrator instance.
@@ -309,10 +306,11 @@ The **Source and Source Mapper Statistics** widget also provides a link to the *
 
 **Purpose**
 
-To monitor how each source contributes to the overall throughput of your Siddhi application deployment.
+To observe the performance of each source in terms of throughput and latency, and understand its impact on the overall performance of your Siddhi application deployment.
 
 !!! tip "Recommended action"
-    
+    - Identify sources with high latency and take corrective action to reduce the latency (e.g., if it is a Kafka source, check whether the Kafka server is functioning properly).<br/><br/> 
+    - Observe the throughput of each source and allocate resources in an optimum manner. e.g., If an HTTP source receives a high volume of events, make sure that sufficient memory and CPU resources are allocated to the relevant server.
 
 ## Sink Statistics
 
@@ -333,6 +331,8 @@ The **Sink Statistics** widget also provides a link to the **Siddhi Sink Statist
 To monitor the amount of data published by your WSO2 Streaming Integrator deployment to different destinations, brokers, files, databases and cloud storages.
 
 !!! tip "Recommended action"
+    - Optimize the allocation of resources based on the throughput of each sink. e.g., If a high volume of output events saved in files via file sinks, allocate sufficient memory in the CPU where the files are saved.<br/><br/>
+    - If a sink has a high latency at specific time intervals, identify the possible reason (e.g., server unavailability during specific times). If the latency of a sink is consistently low, optimize the resource allocation (e.g., allocate more CPU cores to the relevant server).
 
 ## Table Statistics
 
@@ -353,6 +353,8 @@ The **Table Statistics** widget also provides a link to the **Siddhi Table Stati
 To monitor the tables defined in your WSO2 Streaming Integrator deployment and assessing the extent to which each table is used.
 
 !!! tip "Recommended action"
+    - Ensure that system resources are allocated in an optimum manner. e.g., Allocate more memory to servers in which the databases with tables that have a high throughput are run.<br/><br/>
+    - When tables have a high throughput, take action to secure them better to ensure that the data is protected.
 
 ## Window Statistics
 
@@ -372,7 +374,6 @@ The **Window Statistics** widget also provides a link to the **Siddhi Window Sta
 
 To monitor the windows defined in your WSO2 Streaming Integrator deployment and assessing the extent to which each window is used.
 
-!!! tip "Recommended action"
 
 ## Aggregation Statistics
 
@@ -392,7 +393,6 @@ The **Aggregation Statistics** widget also provides a link to the **Siddhi Aggre
 
 To monitor the aggregations defined in your WSO2 Streaming Integrator deployment and assessing the extent to which each aggregation is used.
 
-!!! tip "Recommended action"
 
 ## Trigger Statistics
 
@@ -412,7 +412,6 @@ The **Trigger Statistics** widget also provides a link to the **Siddhi Trigger S
 
 To monitor the triggers defined in your WSO2 Streaming Integrator deployment and assessing the extent to which each trigger is used.
 
-!!! tip "Recommended action"
 
 ## On Demand Query Statistics
 
@@ -430,4 +429,4 @@ The **On-Demand Query Statistics** widget also provides a link to the **Siddhi O
 
 **Purpose**
 
-!!! tip "Recommended action"
+To monitor the on-demand queries defined in your WSO2 Streaming Integrator deployment and assessing the extent to which each on-demand query is used.
