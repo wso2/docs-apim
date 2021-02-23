@@ -1092,7 +1092,9 @@ nav:
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
-        - Configuration Catalog: reference/config-catalog.md
+        - Configuration Catalogs:
+            - API Manager Configs: reference/config-catalog.md
+            - Micro Integrator Configs: reference/config-catalog-mi.md
         - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
