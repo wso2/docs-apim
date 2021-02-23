@@ -1,0 +1,8 @@
+[management_api.authorization_handler]
+enable = false
+
+[[management_api.authorization_handler.resources]]
+path = "/users"
+
+[[management_api.authorization_handler.resources]]
+path = "/apis"

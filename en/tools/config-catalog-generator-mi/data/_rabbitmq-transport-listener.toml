@@ -1,0 +1,36 @@
+[[transport.rabbitmq.listener]]
+
+name = "rabbitMQListener"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+parameter.connection_factory = ""
+parameter.exchange_name = "amq.direct"
+parameter.queue_name = "MyQueue"
+parameter.queue_auto_ack = false
+parameter.consumer_tag = ""
+parameter.channel_consumer_qos = ""
+parameter.durable = ""
+parameter.queue_exclusive = ""
+parameter.queue_auto_delete = ""
+parameter.queue_routing_key = ""
+parameter.queue_auto_declare = ""
+parameter.exchange_auto_declare = ""
+parameter.exchange_type = ""
+parameter.exchange_durable = ""
+parameter.exchange_auto_delete = ""
+parameter.message_content_type = ""
+
+parameter.retry_interval = "10s"
+parameter.retry_count = 5
+parameter.connection_pool_size = 25
+
+parameter.ssl_enable = true
+parameter.ssl_version = "SSL"
+parameter.keystore_location ="$ref{keystore.tls.file_name}"
+parameter.keystore_type = "$ref{keystore.tls.type}"
+parameter.keystore_password = "$ref{keystore.tls.password}"
+parameter.truststore_file_name ="$ref{truststore.file_name}"
+parameter.truststore_type = "$ref{truststore.type}"
+parameter.truststore_password = "$ref{truststore.password}"

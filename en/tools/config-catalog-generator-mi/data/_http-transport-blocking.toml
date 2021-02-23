@@ -1,0 +1,19 @@
+[transport.blocking.http]
+
+listener.enable = true
+listener.port = 8200
+listener.hostname = ""
+listener.origin_server = ""
+listener.request_timeout = ""
+listener.request_tcp_no_delay = ""
+listener.request_core_thread_pool_size = ""
+listener.request_max_thread_pool_size = ""
+listener.thread_keepalive_time = ""
+listener.thread_keepalive_time_unit = ""
+
+sender.enable = true
+sender.enable_client_caching = true
+sender.transfer_encoding = ""
+sender.default_connections_per_host = 200
+sender.omit_soap12_action = true
+sender.so_timeout = 60000

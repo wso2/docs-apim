@@ -1,4 +1,4 @@
-# Micro Integrator Configs
+# Integration Server Configs
 
 All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
