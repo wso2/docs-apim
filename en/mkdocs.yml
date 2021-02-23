@@ -318,6 +318,8 @@ nav:
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
+            - Service Catalog:
+                - Working with Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
