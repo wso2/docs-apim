@@ -3,124 +3,216 @@ template: templates/single-column.html
 ---
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<div>
-    <div class="md-main md-content leftContent">
-        <p>
-            From creating and publishing an API to securing, rate-limiting & viewing analytics of APIs, the WSO2 API Manager addresses all aspects of API Management.
-        </p>
-        <p>
-            The WSO2 API Manager is a high performant, <b>100% open-source</b> API Management solution designed to help you manage APIs. It is licensed under the Apache Software License Version 2.0 which makes it <b>free to use</b>.
-        </p>
-        <p>
-            Get a head start with our 5-minute quick start or dive straight into our learning material to discover the full potential of the product.
-        </p>
+<div class="homePage">
+    <div class="section01">
+        <div class="leftContent">
+            <h2>Learn to develop, deploy and manage integrations and APIs  </h2>
+            <p>
+                WSO2 API Manager is a fully open-source solution for end to end API Management in the cloud, 
+                on-prem or in hybrid environments. It comes with an Apache Software. 
+            </p>
+            <p>
+                It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
+                managers to create API products from one or more APIs.
+            </p>
+        </div>
+        <div class="rightImage">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JejVjoaAc38?controls=0" 
+            frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
+        </div>
     </div>
-    <div class="md-main md-content rightImage">
-        <a href='assets/attachments/wso2-apim-overview.png'>
-            <img src='assets/attachments/wso2-apim-overview.png' alt="WSO2 API Manager Overview" />
-        </a>
+    <div class="section02">
+        <h3>Quick Start Guide</h3>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+                ![Integration service icon]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Write your first Integration Service</h4>
+                <p>
+                    APIs + Integrations description. Let's get started by running a simple use case. 
+                </p>
+            </div>
+            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+                ![Proxies icon]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>Design and implement  API Proxies</h4>
+                <p>
+                    API proxies description. Let's get started by running a simple use case.
+                </p>
+            </div>
+            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+                ![Streaming icon]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Write a Streaming Integration</h4>
+                <p>
+                    Streaming Integration description. Let's get started by running a simple use case.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-<div>
-    <div class="content">
-        <!-- card -->
-        <div class="card" onclick="location.href='getting-started/quick-start-guide';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
-            </div>
-            <div class="card-content" >
-                <p class="title">5-min Quick Start</p>
-                <p class="hint">Create, publish, and consume an API in 5 minutes</p>
-            </div>
+    <div class="section03">
+        <div class="section03Card">
+            <h3>Concepts</h3>
+            <p>
+                Brief description on understanding the basic Concepts. The integration tutorials will walk you 
+                through the main capabilities and features of WSO2 Micro 
+            </p>
+            <a href='#'><h4>Understand the Concepts</h4></a>
         </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/design-api/create-api/create-a-rest-api';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">create</i>
-            </div>
-            <div class="card-content">
-                <p class="title">Design API</p>
-                <p class="hint">Develop, publish, manage, and monitor APIs</p>
-            </div>
+        <div class="section03Card last">
+            <h3>Architecture</h3>
+            <p>
+                The WSO2 API Manager consists of 6 main components, the API Publisher, the API Developer Portal, API Gateway (now comes as an API Microgateway as well ), Key Manager,
+            </p>
+            <a href='#'><h4>View Architecture</h4></a>
         </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/consume-api/discover-apis/search';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">store</i>
-            </div>
-            <div class="card-content">
-                <p class="title">Consume API</p>
-                <p class="hint">Find, explore, subscribe, consume, and evaluate APIs</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/api-gateway/overview-of-the-api-gateway';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">input</i>
-            </div>
-            <div class="card-content">
-                <p class="title">API Gateway</p>
-                <p class="hint">Intercept API requests, apply policies, and manage API statistics</p>
-            </div>
-        </div>
-        <!-- end card -->
     </div>
-    <div class="content">
-        <!-- card -->
-        <div class="card" onclick="location.href='https://mg.docs.wso2.com/en/3.2.0/';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">input</i>
+    <div class="section04">
+        <h3>APIM Capabilities</h3>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Write your first Integration Service</h4>
+                <p>
+                    APIs + Integrations description. Let's get started by running a simple use case. 
+                </p>
             </div>
-            <div class="card-content">
-                <p class="title">API Microgateway</p>
-                <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices</p>
+            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>Design and implement  API Proxies</h4>
+                <p>
+                    API proxies description. Let's get started by running a simple use case.
+                </p>
             </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/api-security/api-authentication/api-authentication-overview';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">security</i>
-            </div>
-            <div class="card-content">
-                <p class="title">API Security</p>
-                <p class="hint">Authenticate and authorize API requests</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/rate-limiting/introducing-throttling-use-cases';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">traffic</i>
-            </div>
-            <div class="card-content">
-                <p class="title">Rate Limiting</p>
-                <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
+            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Write a Streaming Integration</h4>
+                <p>
+                    Streaming Integration description. Let's get started by running a simple use case.
+                </p>
             </div>
         </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='learn/analytics/overview-of-api-analytics';">
-            <div class="line"></div>
-            <div class="card-icon">
-                <i class="material-icons md-36">show_chart</i>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Write your first Integration Service</h4>
+                <p>
+                    APIs + Integrations description. Let's get started by running a simple use case. 
+                </p>
             </div>
-            <div class="card-content">
-                <p class="title">Analytics</p>
-                <p class="hint">Monitor system behavior, as well as API and application usage</p>
+            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>Design and implement  API Proxies</h4>
+                <p>
+                    API proxies description. Let's get started by running a simple use case.
+                </p>
+            </div>
+            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Write a Streaming Integration</h4>
+                <p>
+                    Streaming Integration description. Let's get started by running a simple use case.
+                </p>
             </div>
         </div>
-        <!-- end card -->
+    </div>
+    <div class="section05">
+        <h3>Deployment</h3>
+        <p>
+            These integration tutorials will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build an integrated system. The integration tutorials will walk you through the main capabilities and features of WSO2 Micro Integrator, and help you understand how to build an integrated system.
+        </p>
+        <div class="DeploymentWrapper">
+            <div class="Deploymentlinks">
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks middle">
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks last">
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section06">
+        <h3>Tutorials</h3>
+        <p>
+            These integration tutorials will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build an integrated system. The integration tutorials will walk you through the main capabilities and features of WSO2 Micro Integrator, and help you understand how to build an integrated system.
+        </p>
+        <div class="DeploymentWrapper">
+            <div class="Deploymentlinks">
+                <h4>APIs + Integrations </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks middle">
+                <h4>API Proxies </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks last">
+                <h4>Streaming Integration </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section07">
+        <h3>User Scenarios</h3>
+        <p>
+            These integration tutorials will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build an integrated system. The integration tutorials will walk you through the main capabilities and features of WSO2 Micro Integrator, and help you understand how to build an integrated system.
+        </p>
+        <div class="DeploymentWrapper">
+            <div class="Deploymentlinks">
+                <h4>APIs + Integrations </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks middle">
+                <h4>API Proxies </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+            <div class="Deploymentlinks last">
+                <h4>Streaming Integration </h4>
+                <ul>
+                    <li><a href='#'>Message Routing and Transformation</a></li>
+                    <li><a href='#'>Service Orchestration</a></li>
+                    <li><a href='#'>Asynchronous Message Processing</a></li>
+                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

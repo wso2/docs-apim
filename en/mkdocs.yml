@@ -1,3 +1,4 @@
+
 # Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 # WSO2 Inc. licenses this file to you under the Apache License,
@@ -46,7 +47,7 @@ theme:
 strict: false
 # Navigation
 nav:
-    - Welcome to WSO2 API Manager Documentation: index.md
+    - Documentation: index.md
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
