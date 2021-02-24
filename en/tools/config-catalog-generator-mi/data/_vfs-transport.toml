@@ -1,0 +1,13 @@
+[transport.vfs]
+
+listener.enable = true
+listener.keystore.file_name = "$ref{keystore.tls.file_name}" 
+listener.keystore.type = "$ref{keystore.tls.type}"
+listener.keystore.password = "$ref{keystore.tls.password}"
+listener.keystore.key_password = "$ref{keystore.tls.key_password}"
+listener.keystore.alias = "$ref{keystore.tls.alias}"
+
+listener.parameter.customParameter = ""
+
+sender.enable = true
+sender.parameter.customParameter = ""

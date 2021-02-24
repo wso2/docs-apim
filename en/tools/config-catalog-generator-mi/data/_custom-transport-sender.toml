@@ -1,0 +1,3 @@
+[[custom_transport.sender]]
+class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportSender"
+protocol = "hl7"

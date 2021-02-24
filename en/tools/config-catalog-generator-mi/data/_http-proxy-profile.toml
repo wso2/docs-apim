@@ -1,0 +1,7 @@
+[[transport.http.proxy_profile]]
+target_hosts = ["example.com", ".*.sample.com"]
+proxy_host = "localhost"
+proxy_port = "3128"
+proxy_username = "squidUser"
+proxy_password = "password"
+bypass_hosts = ["xxx.sample.com"]

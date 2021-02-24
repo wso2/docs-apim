@@ -1,0 +1,14 @@
+[[external_vault]]
+name = "hashicorp"
+address = "http://127.0.0.1:8200"
+# When static authentication is used, apply the rootToken:
+rootToken = "ROOT_TOKEN"
+# When AppRole-pull method is used for authentication, apply the roleId and secretId:
+roleId = "ROLE_ID"
+secretId = "SECRET_ID"
+cachableDuration = 15000
+engineVersion = 2
+namespace = "NAMESPACE"
+trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
+keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
+keyStorePassword = "KEY_STORE_PASSWORD"

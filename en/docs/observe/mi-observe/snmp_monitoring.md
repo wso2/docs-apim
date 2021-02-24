@@ -2,7 +2,7 @@
 
 Simple Network Management Protocol (SNMP) is an Internet-standard
 protocol for managing devices on IP networks. Given below is how to
-configure SNMP in WSO2 Micro Integrator, which exposes
+configure SNMP in the Micro Integrator, which exposes
 various MBeans via SNMP.
 
 ## Enabling SNMP
@@ -19,7 +19,7 @@ various MBeans via SNMP.
     'synapse.snmp.enabled'=true
     ``` 
 
-WSO2 Micro Integrator can now monitor MBeans with SNMP. For example:
+The Micro Integrator can now monitor MBeans with SNMP. For example:
 
 ``` java
 Monitoring Info : OID branch "1.3.6.1.4.1.18060.14" with the following sub-branches:

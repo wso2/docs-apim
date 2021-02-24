@@ -1,0 +1,24 @@
+[transport.mqtt]
+
+listener.enable = false
+listener.hostname = "$ref{server.hostname}"
+listener.connection_factory = "mqttConFactory"
+listener.server_port = 1883
+listener.client_id = "client-id-1234"
+listener.topic_name = "esb.test"
+
+# not reqired parameter list
+listener.subscription_qos = 0
+listener.session_clean = false
+listener.enable_ssl = false
+listener.subscription_username = ""
+listener.subscription_password = ""
+listener.temporary_store_directory = ""
+listener.blocking_sender = false
+listener.connect_type = "text/plain"
+listener.message_retained = false
+
+listener.parameter.customParameter = ""
+
+sender.enable = false
+sender.parameter.customParameter = ""

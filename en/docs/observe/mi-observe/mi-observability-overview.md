@@ -1,14 +1,10 @@
 # Micro Integrator Observability Overview
 
-This section explains how to set up the observability solutions and perform management tasks for WSO2 Enterprise Integrator.
-
-## Observability
-
-Observability can be viewed as a superset of monitoring where monitoring is enriched with capabilities to perform debugging and profiling through rich context, log analysis, correlation, and tracing. Modern day observability resides on three pillars of **logs**, **metrics**, and **tracing**. Modern businesses require observability systems to self-sufficiently emit their current state(overview), generate alerts for any abnormalities detected to proactively identify failures, and to provide information to find the root causes of a system failure.
+This section explains how to set up the observability solutions and perform management tasks for the Enterprise Integrator component of WSO2 API Manager.
 
 ### Observability solutions
 
-WSO2 Enterprise Integrator offers two observability solutions referred to as the cloud-native observability deployment and classic observability deployment.
+WSO2 API Manager offers two observability solutions for the Enterprise Integrator component referred to as the cloud-native observability deployment and classic observability deployment.
 
 <img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
 
@@ -65,7 +61,7 @@ The cloud-native and classic observability solution are suitable for the followi
 
 ### Understanding observability solutions
 
-WSO2 Enterprise Integrator 7.0.0 and older versions offer an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not sufficiently stream-lined.
+The older predecessors of the Enterprise Integrator component (i.e., WSO2 Enterprise Integrator 7.0.0 and older versions) offer an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not sufficiently stream-lined.
 
 To address that limitation, WSO2 Enterprise Integrator 7.1.0 introduced an observability solution that utilizes a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions. 
 

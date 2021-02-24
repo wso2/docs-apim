@@ -14,7 +14,7 @@ See the following topics for information and instructions:
 
 ## Cluster dashboard
 
-In the Cluster dashboard visualizes the overall statistics relating to your WSO2 Micro Integrator cluster. we can view information related to our MI Cluster. 
+In the Cluster dashboard visualizes the overall statistics relating to your Micro Integrator cluster. we can view information related to our MI Cluster. 
 
 ![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.png)
 
@@ -48,7 +48,7 @@ This dashboard serves the following purposes:
 
 - It also provides the basic details of the nodes and services deployed in the cluster. This can indicate how each node/service affects the overall cluster performance. e.g., If the **Error Rate** widget indicates a surge in the error rate at a particular time, you can identify a node/service that started at around the same time (as shown by the **Node List** and **Service List** widgets) as a possible cause of it.
 
-- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your WSO2 Enterprise Integrator set up.
+- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your Enterprise Integrator set up.
 
 ### Recommended action
 
@@ -80,7 +80,7 @@ The following is the list of widgets displayed in this dashboard.
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Up Time**                    | The time duration that has elapsed since the node became active for the current session.|                                                                                                              |
 | **Service Count**              | The number of services (i.e., proxy services and REST API services) that are currently deployed in the node.|
-| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current WSO2 EI setup.|
+| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current Enterprise Integrator setup.|
 | **All Time Error Count**       | The total number of requests handled by the node that have resulted in errors.|
 | **CPU Utilization**            | A visualization of the node's CPU consumption over time.|
 | **JVM Heap Memory**            | A visualization of the amount of JVM heap memory consumed by the node over time.|

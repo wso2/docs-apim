@@ -1,0 +1,6 @@
+[transport.fix]
+
+listener.enable = false
+listener.parameter.customParameter = ""
+sender.enable = false
+sender.parameter.customParameter = ""

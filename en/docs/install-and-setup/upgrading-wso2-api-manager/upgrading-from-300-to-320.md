@@ -309,8 +309,13 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
 
 !!! warning
     Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as some configuration files may have changed. Instead, redo the configuration changes in the new configuration files.
-Follow the instructions below to move all the existing API Manager configurations from the current environment to the
- new one. For more information refer [Configuration Catalog]({{base_path}}/reference/config-catalog)
+
+!!! note
+    
+    - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
+    - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
+
+Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
 1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
 
