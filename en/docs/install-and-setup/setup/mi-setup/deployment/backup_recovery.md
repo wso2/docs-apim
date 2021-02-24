@@ -2,7 +2,7 @@
 
 We recommend that you use a proper artifact management system such as [Puppet](https://puppet.com/) to back up and manage your artifacts before deploying them in the Micro Integrator runtime. Also, use the [**WSO2 Update Manager**](https://docs.wso2.com/display/updates/WSO2+Updates) (WUM) tool, which is a command-line utility that allows you to get the latest updates (bug fixes and security fixes) of a particular product release.
 
-![Backup and recovery flow](../../assets/img/admin-guide-configuration-mgmt.png)
+![Backup and recovery flow]({{base_path}}/assets/img/integrate/admin-guide-configuration-mgmt.png)
 
 ## Recovery recommendations
 Be sure to determine the following depending on your business-continuity requirements:
