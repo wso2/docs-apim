@@ -27,10 +27,7 @@ You can capture following type of changes done to a database table:
 
 - Delete operations (available for Listening mode only)
 
-## Tutorial steps
-
-
-### Listening mode
+## Listening mode
 
 !!!info "Before you begin:"
     - You need to have access to a MySQL instance.<br/>
@@ -60,9 +57,7 @@ You can capture following type of changes done to a database table:
             `CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));`<br/>            
     - Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
 
-
-
-#### Capturing inserts
+### Capturing inserts
 
 Now you can write a simple Siddhi application to monitor the `SweetProductionTable` for insert operations.
 
@@ -111,7 +106,7 @@ Now you can write a simple Siddhi application to monitor the `SweetProductionTab
     INFO {org.wso2.siddhi.core.stream.output.sink.LogSink} - CDCWithListeningMode : logStream : Event{timestamp=1563200225948, data=[chocolate, 100.0], isExpired=false}
     ```
 
-#### Capturing updates
+### Capturing updates
 
 Now you can write a Siddhi application to monitor the `SweetProductionTable` for update operations.
 
@@ -156,7 +151,7 @@ Now you can write a Siddhi application to monitor the `SweetProductionTable` for
     !!!info
         Here, the `before_name1` attribute indicates the value of the `name` attribute before the update was made (`chocolate` in this case), and the `name` attribute has the current name after the update (i.e., `almond cookie`).
 
-#### Capturing deletes
+### Capturing deletes
 
 Now you can write a Siddhi application to monitor the `SweetProductionTable` for delete operations.
 
@@ -200,7 +195,7 @@ Now you can write a Siddhi application to monitor the `SweetProductionTable` for
     !!!info
         Here, the `before_name` attribute indicates the name of the sweet in the deleted record (i.e., `Almond cookie` in this case). Similarly, the `before_amount` indicates the amount in the deleted record.
 
-#### Preserving State of the application through a system failure
+### Preserving State of the application through a system failure
 
 Let's try out a scenario in which you are going to deploy a Siddhi application to count the total number of productions.
 
@@ -324,7 +319,7 @@ Let's try out a scenario in which you are going to deploy a Siddhi application t
 
 Note that the `CDC source` has replayed the last two messages. As a result, the sweet production runs count has being correctly restored.
 
-### Polling mode
+## Polling mode
 
 !!!info "Before you begin:"
     You are required to have access to a MySQL instance. Create the required database and the database table in the MySQL instance as follows:<br/>
@@ -343,7 +338,7 @@ Note that the `CDC source` has replayed the last two messages. As a result, the 
             c. Copy the `mysql-connector-java-5.1.45-bin.jar` to the `<SI_HOME>/lib` directory.
 
 
-#### Capturing inserts
+### Capturing inserts
 
 Now you can write a simple Siddhi application to monitor the `SweetProductionTable` table for insert operations.
 
@@ -397,7 +392,7 @@ Now you can write a simple Siddhi application to monitor the `SweetProductionTab
     INFO {org.wso2.siddhi.core.stream.output.sink.LogSink} - CDCWithPollingMode : LogStream : Event{timestamp=1563378804914, data=[chocolate, 100.0], isExpired=false}
     ```
 
-#### Capturing Updates
+### Capturing updates
 
 For capturing updates, you can use the same `CDCPolling.siddhi` Siddhi application that you deployed in the [Capturing inserts](#capturing-inserts_1) section.
 
@@ -413,7 +408,7 @@ The following log appears in the SI console:
 INFO {org.wso2.siddhi.core.stream.output.sink.LogSink} - CDCWithPollingMode : logStream : Event{timestamp=1563436388530, data=[Almond cookie, 100.0], isExpired=false}
 ```
 
-#### Preserving State of the application through a system failure
+### Preserving State of the application through a system failure
 
 Let's try out a scenario in which you deploy a Siddhi application to count the total number of production runs.
 

@@ -15,27 +15,36 @@ For a comprehensive reference on the Siddhi query API, see [Streaming Integratio
 
 This tutorial demonstrates how you can use the Siddhi query API to perform essential operations in WSO2 Streaming Integrator using simple examples.
 
-## Preparing the server
+## Before you begin
 
-!!!tip "Before you begin:"
-    - You need to have access to a MySQL instance.<br/>
-    - Save the MySQL JDBC driver in the `<SI_HOME>/lib` directory as follows:<br/>
-      1. Download the MySQL JDBC driver from [the MySQL site](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).<br/>
-      2. Unzip the archive.<br/>
-      3. Copy the `mysql-connector-java-5.1.45-bin.jar` to the `<SI_HOME>/lib` directory.<br/>
-      4. Start the SI server.<br/>
+- You need to have access to a MySQL instance.
 
-1. Let's create a new database in the MySQL server which you are to use throughout this tutorial. To do this, execute the following query.
+- Save the MySQL JDBC driver in the `<SI_HOME>/lib` directory as follows:
+
+  1. Download the MySQL JDBC driver from [the MySQL site](https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz).
+  
+  2. Unzip the archive.
+  
+  3. Copy the `mysql-connector-java-5.1.45-bin.jar` to the `<SI_HOME>/lib` directory.
+  
+  4. Start the SI server.
+
+## Step 1: Prepare the server
+
+1. Let's create a new database in the MySQL server that you will be using throughout this tutorial. To do this, execute the following query.
+
     ```
     CREATE SCHEMA production;
     ```
 
 2. Create a new user by executing the following SQL query.
+
     ```
     GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'wso2si' IDENTIFIED BY 'wso2';
     ```
 
 3. Switch to the `production` database and create a new table, by executing the following queries:
+
     ```
     use production;
     ```
@@ -44,7 +53,7 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
     CREATE TABLE SweetProductionTable (name VARCHAR(20),amount double(10,2));
     ```
 
-## Creating a Siddhi application
+## Step 2: Create a Siddhi application
 
 1. Open a text file and copy-paste following application to it.
 
@@ -74,37 +83,39 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
 2. Save this file as `SweetProduction-Store.siddhi` in a location of your choice in the local file system.
 
 3. Now you need to execute a `CURL` command and deploy this Siddhi application. In the command line, navigate to the location where you saved the Siddhi application in the previous step, and execute following command:
+
     ```
     curl -X POST "https://localhost:9443/siddhi-apps" -H "accept: application/json" -H "Content-Type: text/plain" -d @SweetProduction-Store.siddhi -u admin:admin -k
     ```
 
   Upon successful deployment, the following response is logged for the `CURL` command you just executed.
+  
     ```
     {"type":"success","message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"}
     ```
 
   In addition to that, the following is logged in the SI console.
+  
     ```
     INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App SweetProduction-Store deployed successfully
     ```
 
-    !!!info
-        Next, you are going to send a few events to `insertSweetProductionStream` stream via a `CURL` command.
+6. To trigger an insert/update event, execute following `CURL` command in the console.
 
-6. Execute following `CURL` command in the console:
     ```
     curl -X POST -d "{\"event\": {\"name\":\"Almond cookie\",\"amount\": 100.0}}"  http://localhost:8006/productionStream --header "Content-Type:application/json"
     ```
 
-    !!!info
-        You have written the Siddhi application to insert a new record from the `insertSweetProductionStream` stream into the `SweetProductionTable` table, or to update the record if it already exists in the table. As a result, above event is now inserted into the `SweetProductionTable`.
+    You have written the Siddhi application to insert a new record from the `insertSweetProductionStream` stream into the `SweetProductionTable` table, or to update the record if it already exists in the table. As a result, above event is now inserted into the `SweetProductionTable`.
 
-7. To verify whether above event is inserted into `SweetProductionTable`, execute following `SQL` query in the SQL console:
+7. To verify whether above event is inserted into `SweetProductionTable`, execute following `SQL` query in the SQL console.
+
     ```
     SELECT * FROM SweetProductionTable;
     ```
 
     The following table appears to indicate that the record has been inserted into the table.
+    
     ```
     +---------------+--------+
     | name          | amount |
@@ -113,7 +124,7 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
     +---------------+--------+
     ```
 
-## Running a Siddhi Store API query
+## Step 3: Run a Siddhi Store API query
 
 You can use `Siddhi Store Query API` to execute queries on Siddhi Store tables.
 
@@ -129,7 +140,7 @@ The following output is logged in the console:
 {"records":[["Almond cookie",100.0]]}
 ```
 
-## Fetching the status of a Siddhi Application
+## Step 4: Fetch the status of a Siddhi Application
 
 Now let's fetch the status of the Siddhi application you just deployed.
 
@@ -143,7 +154,11 @@ The following output appears in the command line:
 {"status":"active"}
 ```
 
-## Taking a snapshot of a Siddhi Application
+## Preserving the state with snapshots
+
+This section of the tutorial shows you how to preserve the state by taking snapshots of Siddhi applications.
+
+### Step 1: Take a snapshot of a Siddhi Application
 
 In this section, deploy a stateful Siddhi application and use the REST API to take a snapshot of it. To do this, follow the procedure below:
 
@@ -228,7 +243,7 @@ In this section, deploy a stateful Siddhi application and use the REST API to ta
     !!!info
         `1566293390654__CountProductions` is the revision number of the Siddhi application snapshot that you requested via the REST API. You can store this revision number and later use it in order to restore the Siddhi application to the state at which you took the snapshot.
 
-## Restoring a Siddhi Application via a snapshot
+### Step 2: Restore the Siddhi application via the snapshot
 
 In the previous section, you took a snapshot of the `CountProductions` Siddhi application when the productions count was `120`. In this section, you can increase the count further by sending a few more production events, and then restore the Siddhi application to the state you backed up. To do this, follow the procedure below
 

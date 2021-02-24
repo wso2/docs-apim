@@ -6,6 +6,13 @@ Let’s try a simple scenario where a patient makes an inquiry specifying the do
 
 To implement this use case, you will create a REST API resource and other artifacts using WSO2 Integration Studio, and then deploy them in the embedded WSO2 Micro Integrator instance. The default API resource will be configured to receive the client request in place of the back-end service, thereby decoupling the client and the back-end service. The response message with the requested doctor details will be routed back to the client through the same API resource.
 
+### Concepts and artifacts used
+
+-   REST API
+-   HTTP Endpoint
+-   Call Mediator
+-   Respond Mediator
+
 ## Let's get started!
 
 ### Step 1: Set up the workspace
@@ -23,29 +30,25 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/create_project/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
-    -   **Create Registry Resources**
     -   **Create Composite Exporter**
-    -   **Create Connector Exporter**
-
-    <img src="{{base_path}}/assets/img/tutorials/119132413/create-simple-message-project.png" width="500">
 
 4.  Click **Finish**. 
 
-    You can see the projects listed in the **Project Explorer** as shown below:
-
-    <img src="{{base_path}}/assets/img/tutorials/119132413/project-explorer-simple-service.png" width="300">
+You will now see the projects listed in the **Project Explorer**.
 
 #### Create an Endpoint
 
 An Endpoint artifact is required for the purpose of exposing the URL that connects to the back-end service.
 
-1. Right-click **SampleServicesConfigs** in the Project Explorer and navigate to **New -> Endpoint**.
+1. Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**.
 2. Ensure that **Create a New Endpoint** is selected and click **Next**.
 3. Enter the information given below to create the new endpoint.  
     <table>
@@ -59,7 +62,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
     <tbody>
       <tr class="odd">
          <td>Endpoint Name</td>
-         <td><code>               QueryDoctorEP              </code></td>
+         <td><code>QueryDoctorEP</code></td>
          <td>The name of the endpoint.</td>
       </tr>
       <tr class="even">
@@ -79,12 +82,6 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
          <td><code>GET</code></td>
          <td>Indicates that we are creating this endpoint for GET requests that are sent to the back-end service.</td>
       </tr>
-      <tr class="odd">
-         <td>Static Endpoint</td>
-         <td><br/>
-         </td>
-         <td>Select this option because we are going to use this endpoint only in this <code>SampleServicesConfigs</code> module and will not reuse it in other projects.</br/></br/> <b>Note</b>: If you need to create a reusable endpoint, save it as a Dynamic Endpoint in either the Configuration or Governance Registry.</td>
-      </tr>
       <tr class="even">
          <td>Save Endpoint in</td>
          <td><code>SampleServicesConfigs</code></td>
@@ -93,18 +90,16 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
      </tbody>
     </table>
 
-    ![]({{base_path}}/assets/img/tutorials/119132413/create-endpoint-artifact.png)
+    ![]({{base_path}}/assets/img/integrate/tutorials/119132413/create-endpoint-artifact.png)
 
 4.  Click **Finish**.  
     The **QueryDoctorEP** endpoint is saved in the `endpoints` folder within the **ESB Config** module of the integration project.  
     
-    <img src="{{base_path}}/assets/img/tutorials/119132413/endpoint-project-explorer.png" width="300">
-
 #### Create a REST API
 
 A REST API is required for receving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
-1.  In the Project Explorer, right-click **SampleServicesConfigs** and navigate to **New -> REST API**.
+1.  In the Project Explorer, right-click **SampleServicesConfigs** and click **New -> REST API**.
 2.  Ensure **Create A New API Artifact** is selected and click **Next**.
 3.  Enter the details given below to create a new REST API.
     <table>
@@ -137,8 +132,8 @@ A REST API is required for receving the client response and the REST resource wi
         </td>
       </tr>
     </table>
-                                                                                                                                                                                                                       |
-    <img src="{{base_path}}/assets/img/tutorials/119132413/create-rest-api.png" width="500">
+                                                                                                                                                                                   |
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/create-rest-api.png" width="500">
 
 4.  Click **Finish**.
 
@@ -151,7 +146,7 @@ Once the API resource is created, the design view of the `           HealthcareA
     - The middle part of the canvas is the **Out sequence**, which controls how responses are handled. In this case, a **Send** mediator is already in place to send responses back to the requesting client.
     - The bottom part of the canvas is the **Fault sequence**, which allows you to configure how to handle messages when an error occurs (for more information, see [Error Handling](../../../references/error_handling)).
 
-<img src="{{base_path}}/assets/img/tutorials/119132413/119132425.png">
+<img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132425.png">
 
 You can now start configuring the API resource.
 
@@ -184,7 +179,7 @@ You can now start configuring the API resource.
       </tr>
     </table>
 
-    <img src="{{base_path}}/assets/img/tutorials/119132413/119132424.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132424.png">
 
 3.  You can now configure the In sequence to handle requests from the client:
 
@@ -223,7 +218,7 @@ You can now start configuring the API resource.
          </td>
          <td>
             <div class="content-wrapper">
-               To extract the stock symbol from the request and print a welcome message in the log, click the plus icon (<img src="{{base_path}}/assets/img/tutorials/common/plus-icon.png" width="30">) in the <strong>Properties</strong> section, and then add the following values:<br />
+               To extract the stock symbol from the request and print a welcome message in the log, click the plus icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="30">) in the <strong>Properties</strong> section, and then add the following values:<br />
                <ul>
                   <li><strong>Name</strong>: <code>Log Property message</code></li>
                   <li><strong>Type</strong>: <code>LITERAL</code><br />
@@ -231,7 +226,7 @@ You can now start configuring the API resource.
                   </li>
                   <li><strong>Value/Expression</strong> : <code>"Welcome to HealthcareService"</code></li>
                </ul>
-               <p><img src="{{base_path}}/assets/img/tutorials/119132413/119132423.png"/></p>
+               <p><img src="{{base_path}}/assets/img/integrate/tutorials/119132413/119132423.png"/></p>
             </div>
          </td>
       </tr>
@@ -243,20 +238,18 @@ You can now start configuring the API resource.
         </tbody>
         </table>
 
-        ![]({{base_path}}/assets/img/tutorials/119132413/119132422.png)
+        ![]({{base_path}}/assets/img/integrate/tutorials/119132413/119132422.png)
 
     3.  Click **OK** to save the Log mediator configuration.
-    4.  Configure the **Send** mediator to send the request message to the `HealthcareService` endpoint.
-        1. From the **Mediators** palette, click and drag a **Send** mediator to the In sequence adjoining the Log mediator you added above.
-        2. From the **Defined EndPoints** palette, click and drag the **QueryDoctorEP** endpoint, which we created, right next to the empty space of the **Send** mediator.
+    4.  Configure a **Call** mediator to send the request message to the `HealthcareService` endpoint and receive the response message.
+        1. From the **Mediators** palette, click and drag a **Call** mediator to the In sequence adjoining the Log mediator you added above.
+        2. From the **Defined EndPoints** palette, click and drag the **QueryDoctorEP** endpoint, which we created, right next to the empty space of the **Call** mediator.
 
-        ![]({{base_path}}/assets/img/tutorials/119132413/119132421.png)
+        ![]({{base_path}}/assets/img/integrate/tutorials/sending-simple-message/add-call-mediator.png)
 
-4.  Configure the Out sequence to send the response from the Healthcare service back to the client. 
+    5.  Add a **Respond** mediator at the end of the in sequence to send the response message from the healthcare service back to the client.
 
-    For this, we use a **Send** mediator with no output endpoint defined, which defaults to sending the response back to the requesting client. From the **Mediators** palette, click and drag a **Send** mediator to the Out Sequence (the bottom part of the canvas).  
-
-    ![]({{base_path}}/assets/img/tutorials/119132413/119132420.png)
+        ![]({{base_path}}/assets/img/integrate/tutorials/sending-simple-message/add-respond-mediator.png)
 
 You have successfully created all the artifacts that are required for sending a request through the Micro Integrator to the back-end service. 
 
@@ -308,9 +301,9 @@ Let's send the request to the API. You can use the embedded <b>HTTP Client</b> o
     !!! Tip
         If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
 
-    <img src="{{base_path}}/assets/img/tutorials/common/http4e-client-empty.png" width="800">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/http4e-client-empty.png" width="800">
     
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/play-head-icon.png" width="20">).
+2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
     
     <table>
         <tr>
@@ -327,8 +320,6 @@ Let's send the request to the API. You can use the embedded <b>HTTP Client</b> o
         </tr>
      </table>
      
-     <img src="{{base_path}}/assets/img/tutorials/119132413/http4e-config.png" width="800">
-
 If you want to send the client request from your terminal:
 
 1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.

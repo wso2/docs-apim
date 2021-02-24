@@ -1,0 +1,14 @@
+[transport.sap]
+
+listener.idoc.enable = true
+listener.bapi.enable = true
+listener.idoc.class = "org.wso2.carbon.transports.sap.SAPTransportListener"
+listener.idoc.parameter.customParameter = ""
+listener.bapi.class = "org.wso2.carbon.transports.sap.SAPTransportListener"
+listener.bapi.parameter.customParameter = ""
+sender.idoc.enable = true
+sender.bapi.enable = true
+sender.idoc.class = "org.wso2.carbon.transports.sap.SAPTransportSender"
+sender.idoc.parameter.customParameter = ""
+sender.bapi.class = "org.wso2.carbon.transports.sap.SAPTransportSender"
+sender.bapi.parameter.customParameter = ""

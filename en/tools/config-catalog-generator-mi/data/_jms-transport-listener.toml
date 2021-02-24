@@ -1,0 +1,42 @@
+[[transport.jms.listener]]
+
+name = "myTopicListener"
+parameter.initial_naming_factory = "org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"
+parameter.broker_name = "artemis"
+parameter.provider_url = "tcp://localhost:61616"
+parameter.connection_factory_name = "TopicConnectionFactory"
+parameter.connection_factory_type = "topic"
+parameter.cache_level = "consumer"
+
+parameter.naming_security_principal = ""
+parameter.naming_security_credential = ""
+parameter.transactionality = ""
+parameter.transaction_jndi_name = ""
+parameter.cache_user_transaction = true
+parameter.session_transaction = true
+parameter.session_acknowledgement = "AUTO_ACKNOWLEDGE"
+parameter.jms_spec_version = "1.1"
+parameter.username = ""
+parameter.password = ""
+parameter.destination = ""
+parameter.destination_type = "queue"
+parameter.default_reply_destination = ""
+parameter.default_destination_type = "queue"
+parameter.message_selector = ""
+parameter.subscription_durable = false
+parameter.durable_subscriber_client_id = ""
+parameter.durable_subscriber_name = ""
+parameter.pub_sub_local = false
+parameter.receive_timeout = "1000"
+parameter.concurrent_consumer = 1
+parameter.max_concurrent_consumer = 1
+parameter.idle_task_limit = 10
+parameter.max_message_per_task = -1
+parameter.initial_reconnection_duration = "10000"
+parameter.reconnect_progress_factor = 2
+parameter.max_reconnect_duration = "3600000"
+parameter.reconnect_interval = "3600000"
+parameter.max_jsm_connection = 10
+parameter.max_consumer_error_retrieve_before_delay = 20
+parameter.consume_error_delay = "100"         
+parameter.consume_error_progression = "2.0"

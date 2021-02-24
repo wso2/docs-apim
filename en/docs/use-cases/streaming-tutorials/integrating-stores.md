@@ -28,31 +28,46 @@ Recording purchases and dispatches involve inserting new records into data store
 
 To understand how the WSO2 Streaming Integrator performs these operations, follow the steps below.
 
-## Tutorial steps
+## Before you begin
 
-!!! tip  "Before you begin:"
-    You need to complete the following prerequisites before you begin:<br/><br/>
-    - You need to have access to a MySQL instance.<br/><br/>
-    - Install `rdbms-mysql` extension in WSO2 Streaming Integrator as follows:<br/><br/>
-        1. Start WSO2 Streaming Integrator by navigating to the `<SI_HOME>/bin` directory and issuing the appropriate command based on your operating system.<br/><br/>
-            - **For Linux**  : `./server.sh`
-            - **For Windows**: `server.bat --run`<br/><br/>
-        2. To install the `rdbms-mysql` extension, navigate to the to the `<SI_HOME>/bin` directory and issue the appropriate command based on your operating system:<br/><br/>
-            - **For Linux**  : `./extension-installer.sh`
-            - **For Windows**: `extension-installer.bat --run`<br/><br/>
-        3. Restart the WSO2 Streaming Integrator server.<br/><br/>
-    - Install the `rdbms-mysql` extension in WSO2 Streaming Integrator as follows.<br/><br/>
-        1. Start WSO2 Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing the appropriate command based on your operating system.<br/><br/>
-            - **For Linux**  : `./tooling.sh`
-            - **For Windows**: `tooling.bat --run`<br/><br/>
-        2. Access Streaming Integrator Tooling. Then click **Tools** -> **Extension Installer** to open the **Extension Installer** dialog box.<br/><br/>
-        3. In the **Extension Installer** dialog box, click **Install** for the **RDBMS-MYSQL** extension. Then click **Install** in the message that appears to confirm whether you want to proceed.<br/><br/>
-        4. Restart WSO2 Streaming Integrator Tooling.<br/><br/>
-    - Start the MySQL server.<br/><br/>
-    - Create three MySQL databases by issuing the following commands.<br/><br/>
-        `CREATE SCHEMA purchases;`<br/><br/>`CREATE SCHEMA dispatches;`<br/><br/>`CREATE SCHEMA closingstock;`<br/><br/>
+You need to complete the following prerequisites before you begin:
+
+- You need to have access to a MySQL instance.
+
+- Install `rdbms-mysql` extension in WSO2 Streaming Integrator as follows:
+
+    1. Start WSO2 Streaming Integrator by navigating to the `<SI_HOME>/bin` directory and issuing the appropriate command based on your operating system.
+    
+        - **For Linux**  : `./server.sh`
+        - **For Windows**: `server.bat --run`
         
-### Connect a Siddhi application to data stores
+    2. To install the `rdbms-mysql` extension, navigate to the to the `<SI_HOME>/bin` directory and issue the appropriate command based on your operating system:
+    
+        - **For Linux**  : `./extension-installer.sh`
+        - **For Windows**: `extension-installer.bat --run`
+        
+    3. Restart the WSO2 Streaming Integrator server.
+    
+- Install the `rdbms-mysql` extension in WSO2 Streaming Integrator as follows:
+
+    1. Start WSO2 Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing the appropriate command based on your operating system.
+    
+        - **For Linux**  : `./tooling.sh`
+        - **For Windows**: `tooling.bat --run`
+        
+    2. Access Streaming Integrator Tooling. Then click **Tools** -> **Extension Installer** to open the **Extension Installer** dialog box.
+    
+    3. In the **Extension Installer** dialog box, click **Install** for the **RDBMS-MYSQL** extension. Then click **Install** in the message that appears to confirm whether you want to proceed.
+    
+    4. Restart WSO2 Streaming Integrator Tooling.
+    
+- Start the MySQL server.
+
+- Create three MySQL databases by issuing the following commands.
+
+    `CREATE SCHEMA purchases;`<br/><br/>`CREATE SCHEMA dispatches;`<br/><br/>`CREATE SCHEMA closingstock;`
+        
+## Step 1: Connect a Siddhi application to data stores
 
 In this section, let's learn the different ways in which you can connect a Siddhi application to a data store.
 
@@ -65,7 +80,7 @@ In Streaming Integrator Tooling, open a new file and start creating a new  Siddh
     
 Now let's connect to the data stores (i.e., databases) you previously created to the Siddhi application. There are three methods in which this can be done. To learn them, let's connect each of the three databases in a different method.
       
-#### Connect to a store via a data source
+### Connect to a store via a data source
 
 To connect to the `closingstock` database via a data source, follow the steps below:
 
@@ -108,7 +123,7 @@ To connect to the `closingstock` database via a data source, follow the steps be
     
     - The `@primaryKey` annotation specifies `name` as the primary key of the table, requiring each record in the table to have a unique value for `name`.
 
-#### Refer to an externally defined store
+### Refer to an externally defined store
 
 To connect to the `purchases` database via a reference, follow the steps below:
 
@@ -136,7 +151,7 @@ To connect to the `purchases` database via a reference, follow the steps below:
     define table PurchasesTable (timestamp long, name string, amount double);
     ```
 
-#### Configure the data store inline
+### Configure the data store inline
 
 You can define the data store configuration for the `dispatches` database by adding a table definition in the `StockManagementApp` Siddhi application as follows:
 
@@ -145,6 +160,8 @@ You can define the data store configuration for the `dispatches` database by add
 define table DispatchesTable (timestamp long, name string, amount double);
 ```
 Here, you are configuring the data store configuration in the Siddhi application itself. The Siddhi application connects to the `dispatches` database via the specified JDBC URL.
+
+## Step 2: Perform CRUD operations
 
 ### Perform CRUD operations via Siddhi queries
 
