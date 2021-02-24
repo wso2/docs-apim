@@ -127,6 +127,12 @@ WSO2 Micro Integrator supports all the widely used transports including HTTP/S, 
 transports like FIX. 
 Each transport provides a receiver implementation for receiving messages, and a sender implementation for sending messages.
 
+### Service Catalog
+
+Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
+
+These integration services can be created using WSO2 Integration Studio and a variety of other platforms. For an Integration Studio user, the service registration happens automatically when exporting the project as a composite application (CApp).
+
 ### Registry
 
 WSO2 Micro Integrator uses a registry to store various configurations and resources such as [endpoints](#endpoints). 
