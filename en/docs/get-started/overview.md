@@ -160,3 +160,11 @@
           </a>
       </div>
 </div>
+
+## What's Next
+
+- Try out the WSO2 API Manager by following the Quick Start Guides on the following.
+    - [Managing an API proxy]({{base_path}}/get-started/quick-start-guide/quick-start-guide.md)
+    - [Creating an integration service]({{base_path}}/get-started/quick-start-guide/integration-qsg.md)
+    - [Streaming integration]({{base_path}}/get-started/quick-start-guide/streaming-qsg.md)
+- Understand the [basic architecture of the product]({{base_path}}/get-started/architecture.md).
