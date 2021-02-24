@@ -1267,13 +1267,13 @@ html .md-footer-meta.md-typeset a,
         margin-bottom: 2rem;
     }
     .section03Card {
-        padding-right: 10rem;
+        padding-right: 8rem;
         flex-basis: 0;
         flex-grow: 1;
     }
     .section03Card.last {
         padding-right: 0;
-        padding-left: 2rem;
+        padding-left: 8rem;
         margin-top: 0;
     }
     .DeploymentWrapper {
