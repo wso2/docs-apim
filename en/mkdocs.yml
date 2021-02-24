@@ -300,7 +300,7 @@ nav:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integrate:
-        - Integration Overview: integrate/learn-overview.md
+        - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
@@ -1675,5 +1675,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next
