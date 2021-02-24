@@ -62,7 +62,7 @@ nav:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                    - Create a Streaming API: ''
+                    - Create a Streaming API: design/create-api/create-a-streaming-api.md
                     - Create a WebSocket API: design/create-api/create-a-websocket-api.md
                     - Build APIs in Integration Studio: design/create-api/api-integration-studio.md
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
