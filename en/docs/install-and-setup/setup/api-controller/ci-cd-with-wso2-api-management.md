@@ -109,7 +109,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 
     !!! example
         ``` bash
-        apictl login dev -u admin -p admin -k
+        apictl login dev -u admin -p admin 
         ```
 
      For more information, see [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
@@ -368,21 +368,21 @@ Run any of the following CTL commands to get keys for the API/API Product.
 - **Command**
 
     ```bash
-    apictl get keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> -k
+    apictl get keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> 
     ```  
 
     ```bash
-    apictl get keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> -k
+    apictl get keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> 
     ```
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -e dev -k
+        apictl get keys -n PizzaShackAPI -e dev 
         ```
 
     !!! example
         ```bash
-        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev -k -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev  -r admin -t https://localhost:8243/token
         ```
     !!! info
         **Flags:**  

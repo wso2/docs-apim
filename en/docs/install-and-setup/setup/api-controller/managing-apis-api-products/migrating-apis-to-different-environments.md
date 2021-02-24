@@ -28,14 +28,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> -k 
+        apictl export api -n <API-name> -v <version> -r <provider> -e <environment>  
         ``` 
         ```go
-        apictl export api --name <API-name> --version <version> --provider <provider> --environment <environment> -k 
+        apictl export api --name <API-name> --version <version> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format> -k 
+        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -52,10 +52,10 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             
         !!! example
             ```go
-            apictl export api -n PhoneVerification -v 1.0.0 -e dev -k
+            apictl export api -n PhoneVerification -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api -n PizzaShackAPI -v 1.0.0 -r Alice -e dev --preserveStatus=true --format JSON -k
+            apictl export api -n PizzaShackAPI -v 1.0.0 -r Alice -e dev --preserveStatus=true --format JSON 
             ```            
 
         !!!note
@@ -251,13 +251,13 @@ You can use the below command to export all the APIs belong to the currently log
 - **Command**
 
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> 
     ```
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --force 
     ```
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force 
     ```
 
     !!! info
@@ -272,10 +272,10 @@ You can use the below command to export all the APIs belong to the currently log
 
     !!! example
         ```go
-        apictl export apis -e production -k
+        apictl export apis -e production 
         ```
         ```go
-        apictl export apis --environment production --format json  --preserveStatus --force -k
+        apictl export apis --environment production --format json  --preserveStatus --force 
         ```
 
     !!!note
@@ -321,13 +321,13 @@ You can use the API archive exported from the previous section (or you can extra
 
     -   **Command**
         ``` bash
-        apictl import api -f <path-to-API-archive> -e <environment> -k
+        apictl import api -f <path-to-API-archive> -e <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> -k
+        apictl import api --file <path-to-API-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  -k
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  
         ```
 
         !!! info
@@ -344,13 +344,13 @@ You can use the API archive exported from the previous section (or you can extra
 
         !!! example
             ```bash
-            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production -k
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production 
             ```
             ```bash
-            apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production -k
+            apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production 
             ```    
             ``` go
-            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml -k 
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml  
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.

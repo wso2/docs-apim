@@ -570,13 +570,13 @@ After editing the mandatory fields in the API Project, you can import the API to
 
 -   **Command**
     ``` bash
-    apictl import api -f <path to API Project> -e <environment> -k
+    apictl import api -f <path to API Project> -e <environment> 
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> -k
+    apictl import api --file <path to API Project> --environment <environment> 
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> -k
+    apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> 
     ```
 
     !!! info
@@ -594,13 +594,13 @@ After editing the mandatory fields in the API Project, you can import the API to
 
     !!! example
         ```bash
-        apictl import api -f ~/myapi -e production -k
+        apictl import api -f ~/myapi -e production 
         ```
         ```bash
-        apictl import api --file ~/myapi --environment production -k
+        apictl import api --file ~/myapi --environment production 
         ```    
         ``` go
-        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
+        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml  
         ```
         
     !!! tip

@@ -25,14 +25,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export api-product -n <API Product-name> -r <provider> -e <environment> -k 
+        apictl export api-product -n <API Product-name> -r <provider> -e <environment>  
         ``` 
         ```go
-        apictl export api-product --name <API Product-name> --provider <provider> --environment <environment> -k 
+        apictl export api-product --name <API Product-name> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> -r <provider> -e <environment> --format <export-format> -k 
+        apictl export api-product -n <API Product-name> -r <provider> -e <environment> --format <export-format>  
         ``` 
 
         !!! info
@@ -47,10 +47,10 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             
         !!! example
             ```go
-            apictl export api-product -n LeasingAPIProduct -e dev -k
+            apictl export api-product -n LeasingAPIProduct -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct -r admin -e production --format JSON -k
+            apictl export api-product -n CreditAPIProduct -r admin -e production --format JSON 
             ```            
 
     -   **Response**
@@ -201,19 +201,19 @@ You can use the API Product archive exported from the previous section (or you c
 
     -   **Command**
         ``` bash
-        apictl import api-product -f <path-to-API-Product-archive> -e <environment> -k --import-apis
+        apictl import api-product -f <path-to-API-Product-archive> -e <environment>  --import-apis
         ```
         ``` bash
-        apictl import api-product -f <path-to-API-Product-archive> -e <environment> -k
+        apictl import api-product -f <path-to-API-Product-archive> -e <environment> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> -k
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> -k
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skipCleanup=<skip-cleanup> -k
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skipCleanup=<skip-cleanup> 
         ```
 
         !!! info
@@ -231,22 +231,22 @@ You can use the API Product archive exported from the previous section (or you c
 
         !!! example
             ```bash
-            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production -k --import-apis=true
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production  --import-apis=true
             ```
             ```bash
-            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production -k
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production 
             ```
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production -k
+            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production 
             ``` 
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true -k
+            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true 
             ``` 
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-api-product=true -k
+            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-api-product=true 
             ```    
             ``` go
-            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true -k 
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true  
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip.`, then you need to enter `dev/LeasingAPIProduct_1.0.0.zip` as the value for `--file` or `-f` flag.

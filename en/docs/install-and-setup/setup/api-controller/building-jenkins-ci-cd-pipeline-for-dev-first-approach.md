@@ -69,7 +69,7 @@ Run the following sample command to initialize an API Project using the CTL by p
 
 !!! example
     ``` bash
-    apictl init SampleStore --oas store.yaml --definition api_template.yaml -k
+    apictl init SampleStore --oas store.yaml --definition api_template.yaml 
     ```
     [![init samplestore api project]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)  
 

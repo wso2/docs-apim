@@ -38,15 +38,15 @@ You can export an application in the Developer Portal and download it as a zippe
 
     -   Command 
         ``` java
-        apictl export app -n <application-name> -o <owner> -e <environment> -k
+        apictl export app -n <application-name> -o <owner> -e <environment> 
         ```
 
         ``` java
-        apictl export app --name <application-name> --owner <owner> --environment <environment> --insecure
+        apictl export app --name <application-name> --owner <owner> --environment <environment> 
         ```
 
         ``` java
-        apictl export app --name <application-name> --owner <owner> --environment <environment> --withKeys=<with-keys> --insecure
+        apictl export app --name <application-name> --owner <owner> --environment <environment> --withKeys=<with-keys> 
         ```
 
         !!! info
@@ -62,13 +62,13 @@ You can export an application in the Developer Portal and download it as a zippe
 
         !!! example
             ```go
-            apictl export app -n SampleApp -o admin -e dev -k
+            apictl export app -n SampleApp -o admin -e dev 
             ```
             ```go
-            apictl export app --name SampleApp --owner SampleUser --environment dev  -k
+            apictl export app --name SampleApp --owner SampleUser --environment dev  
             ```       
             ```go
-            apictl export app --name SampleApp --owner SampleUser --environment dev --withKeys=true  -k
+            apictl export app --name SampleApp --owner SampleUser --environment dev --withKeys=true  
             ```     
 
         !!!note
@@ -108,18 +108,18 @@ You can import an application to your environment as a zipped application. When 
 
     -   **Command**
         ```go
-        apictl import app -f <file> -e <environment> -k         
+        apictl import app -f <file> -e <environment>          
         ```
         ```go
-        apictl import app --file <file> --environment <environment> -k         
-        ```
-
-        ```go
-        apictl import app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skipKeys=<skip-keys> -k      
+        apictl import app --file <file> --environment <environment>          
         ```
 
         ```go
-        apictl import app --file <file> --environment <environment> --skipSubscriptions=<skip-subscriptions> --skipKeys=<skip-keys> --preserveOwner=<preserve-owner> --update=<update> --insecure
+        apictl import app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skipKeys=<skip-keys>       
+        ```
+
+        ```go
+        apictl import app --file <file> --environment <environment> --skipSubscriptions=<skip-subscriptions> --skipKeys=<skip-keys> --preserveOwner=<preserve-owner> --update=<update> 
         ```
 
         !!! info

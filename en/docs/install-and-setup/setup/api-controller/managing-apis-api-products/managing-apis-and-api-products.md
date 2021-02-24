@@ -7,7 +7,7 @@ However, **apictl** allows you to create and deploy APIs without using the Publi
 
 ## Get APIs or API Products in an environment
 
-Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
+Follow the instructions below to display a list of APIs or API Products in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
      For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
@@ -18,13 +18,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
         -   **Command**
             ``` bash
-            apictl get apis -e <environment> -k
+            apictl get apis -e <environment>
             ```
             ``` bash
-            apictl get apis --environment <environment> --insecure
+            apictl get apis --environment <environment>
             ```
             ``` bash
-            apictl get apis --environment <environment> --query <API search query> --insecure
+            apictl get apis --environment <environment> --query <API search query> 
             ```
 
             !!! info
@@ -39,13 +39,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get apis -e dev -k
+                apictl get apis -e dev 
                 ```
                 ```bash
-                apictl get apis --environment production --limit 15 --insecure
+                apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
+                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI 
                 ```  
 
         -   **Response**
@@ -83,13 +83,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
     
         -   **Command**
             ``` bash
-            apictl get api-products -e <environment> -k
+            apictl get api-products -e <environment>
             ```
             ``` bash
-            apictl get api-products --environment <environment> --insecure
+            apictl get api-products --environment <environment>
             ```
             ``` bash
-            apictl get api-products --environment <environment> --query <API search query> --insecure
+            apictl get api-products --environment <environment> --query <API search query>
             ```
 
             !!! info
@@ -103,13 +103,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get api-products -e dev -k
+                apictl get api-products -e dev 
                 ```
                 ```bash
-                apictl get api-products --environment production --insecure
+                apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
+                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 
                 ```  
 
         -   **Response**
@@ -136,13 +136,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         -   **Command**
             ``` bash
-            apictl delete api -n <API name> -v <API version> -e <environment> -k
+            apictl delete api -n <API name> -v <API version> -e <environment>
             ```
             ``` bash
-            apictl delete api --name <API name> --version <API version> --environment <environment> --insecure
+            apictl delete api --name <API name> --version <API version> --environment <environment> 
             ```
             ``` bash
-            apictl delete api --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+            apictl delete api --name <API name> --version <API version> --environment <environment> --provider <API provider> 
             ```
 
             !!! info
@@ -157,13 +157,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
             !!! example
                 ```bash
-                apictl delete api -n PizzaShackAPI -v 1.0.0 -e dev -k
+                apictl delete api -n PizzaShackAPI -v 1.0.0 -e dev
                 ```
                 ```bash
-                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production 
                 ```    
                 ```go
-                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -176,13 +176,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         -   **Command**
             ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> -k
+            apictl delete api-product -n <API Product name> -e <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --insecure
+            apictl delete api-product --name <API Product name> --environment <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> --insecure
+            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> 
             ```
 
             !!! info
@@ -196,13 +196,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
             !!! example
                 ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev -k
+                apictl delete api-product -n LeasingAPIProduct -e dev 
                 ```
                 ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production --insecure
+                apictl delete api-product --name LeasingAPIProduct -environment production 
                 ```    
                 ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice --insecure
+                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -222,13 +222,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
     -   **Command**
         ``` bash
-        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> -k
+        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
         ```
         ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --insecure
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
         ```
         ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
         ```
 
         !!! info
@@ -244,13 +244,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         !!! example
             ```bash
-            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev -k
+            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
             ```
             ```bash
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production 
             ```    
             ```go
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
             ```  
 
     -   **Response**
