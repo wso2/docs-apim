@@ -20,7 +20,7 @@ The Developer Portal is a state-of-the-art web interface that allows API publish
 
 #### Service Catalog
 
-[![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog-onboarding.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
+[![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog-onboarding.png)]({{base_path}}/assets/img/get_started/architecture/service-catalog-onboarding.png)
 
 WSO2 API Manager includes a service catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
 
