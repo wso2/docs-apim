@@ -117,7 +117,7 @@ for more information.
             x-wso2-production-endpoints:
               urls:
                 - consul(pet,https://10.10.1.5:5000)
-              type: loadbalance
+              type: load_balance
             post:
               consumes:
                 - application/json
