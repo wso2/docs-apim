@@ -1167,6 +1167,8 @@ html .md-footer-meta.md-typeset a,
 .linkSet2 {
     margin: 1rem;
     cursor: pointer;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .linkSet2:hover img {
@@ -1265,11 +1267,13 @@ html .md-footer-meta.md-typeset a,
         margin-bottom: 2rem;
     }
     .section03Card {
-        padding-right: 200px;
+        padding-right: 8rem;
+        flex-basis: 0;
+        flex-grow: 1;
     }
     .section03Card.last {
         padding-right: 0;
-        padding-left: 200px;
+        padding-left: 8rem;
         margin-top: 0;
     }
     .DeploymentWrapper {
@@ -1278,6 +1282,7 @@ html .md-footer-meta.md-typeset a,
     }
     .Deploymentlinks {
         flex-grow: 1;
+        flex-basis: 0;
         padding-right: 2rem;
     }
     .Deploymentlinks.middle {
@@ -1327,4 +1332,8 @@ html .md-footer-meta.md-typeset a,
             margin-top:20px !important;
 
      }
+ }
+
+ .floatRight {
+     float: right;
  }
