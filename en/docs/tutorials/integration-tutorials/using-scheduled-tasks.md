@@ -16,32 +16,34 @@ Follow the instructions given in this section to create and configure the requir
 
 #### Create an Integration Project
 
-Create an integration project with the following modules: **ESB Configs** and **Composite Exporter** module:
+An Integration project is a maven multi module project, which will contain all the required modules for the integration solution.
 
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/create_project/create-integration-project.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-3.  Enter `ScheduleDefaultTask` as the project name and select the following check boxes to create the required modules.
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+
+3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
     -   **Create Composite Exporter**
 
-4.  Click **Finish**.  
+4.  Click **Finish**. 
 
-The created projects are saved in the **Project Explorer**.
+You will now see the projects listed in the **Project Explorer**.
 
 #### Creating the Sequence
 
 1.  In the **Project Explorer**, right click **ScheduleDefaultTaskConfigs** project, and click **New** → **Sequence**.  
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/1-select-sequence.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/1-select-sequence.png" width="500">
 2.  Click **Create New Sequence** and click **Next**.
 3.  Enter **InjectXMLSequence** as the sequence name and click **Finish**.  
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/2-enter-sequence-artifact.png" width="500">  
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/2-enter-sequence-artifact.png" width="500">  
 4.  Drag and drop a **Log** mediator and a **Drop** mediator from the **Mediators** Palette.  
-    ![]({{base_path}}/assets/img/tutorials/scheduled-tasks/3-inject-xml.png) 
+    ![]({{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/3-inject-xml.png) 
 5.  Click the **Log** mediator and enter the following details in the **Properties** section.  
     -  **Log Category**: `INFO`
     -  **Log Level**: `CUSTOM`
@@ -79,21 +81,21 @@ Shown below is the complete source configuration of the Sequence (i.e., the `Inj
 #### Creating the Scheduled Task
 
 1. In the **Project Explorer**, right click **ScheduleDefaultTask**, and click **New → Scheduled Task**.
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/4-create-task.png"> 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/4-create-task.png"> 
 
 2. Select **Create a New Scheduled Task Artifact** and click **Next**.
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/5-task-artifact-creation-options.png" width="500"> 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/5-task-artifact-creation-options.png" width="500"> 
 
 3.  Enter the following details and click **Next**:
     -   **Task Name:** `InjectXMLTask`
     -   **Count:** `-1`
     -   **Interval (in seconds):** 5
 
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/6-task-artifact-creation-dialog.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/6-task-artifact-creation-dialog.png" width="500">
 
 4.  In the **Form View** of the `InjectXMLTask` task, click **Task Implementation Properties**. 
 
-    <img src="{{base_path}}/assets/img/tutorials/scheduled-tasks/7-select-task-implementation-prop.png"> 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/7-select-task-implementation-prop.png"> 
 
     1.  Enter the following parameters:
         -   **injectTo:** `sequence`
@@ -104,7 +106,7 @@ Shown below is the complete source configuration of the Sequence (i.e., the `Inj
         <request xmlns="">   <location>   <city>London</city>    <country>UK</country>   </location>    </request>
         ``` 
 
-        ![]({{base_path}}/assets/img/tutorials/scheduled-tasks/8-task-properties.png)
+        ![]({{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/8-task-properties.png)
 
 Shown below is the complete source configuration of the scheduled task.
 

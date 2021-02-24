@@ -11,7 +11,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 <li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
 </p>
 
-### Objectives
+### What you'll build
 
 1. Creating and publishing an API via the API Publisher.
 2. Subscribing to the API via the Developer Portal and generating keys.

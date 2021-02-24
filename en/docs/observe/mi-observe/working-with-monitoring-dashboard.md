@@ -1,6 +1,6 @@
 # Micro Integrator Dashboard
 
-The Micro Integrator dashboard provides a graphical view of the synapse artifacts that are deployed in a specified Micro Integrator server instance. You can also perform various management and administration tasks using the dashboard. The dashboard communicates with the management API of WSO2 Micro Integrator to function.
+The Micro Integrator dashboard provides a graphical view of the synapse artifacts that are deployed in a specified Micro Integrator server instance. You can also perform various management and administration tasks using the dashboard. The dashboard communicates with the management API of the Micro Integrator to function.
 
 You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
 

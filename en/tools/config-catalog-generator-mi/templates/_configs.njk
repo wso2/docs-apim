@@ -1,0 +1,57 @@
+{% set tabid = 1 %}
+{% for config in configs %}
+
+## {{ config.title | safe }}
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            {% set tabid = tabid + 1 %}
+            <input name="{{tabid}}" type="checkbox" id="_tab_{{tabid}}">
+                <label class="tab-selector" for="_tab_{{tabid}}"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">{% include "../data/" + config.exampleFile %}</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        {% for option in config.options %}<div class="config-wrap">
+                            <code>[{{ option.name }}]</code>
+                            {% if option.required %}<span class="badge-required">Required</span>{% endif %}
+                            <p>
+                                {{ option.description | safe }}
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            {% for param in option.params %}<div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>{{ param.name }}</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> {{ param.type }} </span>
+                                            {% if param.required %}<span class="badge-required">Required</span>{% endif %}
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>{{ param.default }}</code></span>
+                                        </div>
+                                        {%if param.possible %}<div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>{{ param.possible }}</code></span>
+                                        </div>{% endif %}
+                                    </div>
+                                    <div class="param-description">
+                                        <p>{{ param.description }}</p>
+                                    </div>
+                                </div>
+                            </div>{% endfor %}
+                        </div>{% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endfor %}
