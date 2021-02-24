@@ -58,7 +58,7 @@ nav:
                 - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design:
-            - Create APIs Overview: design/design-api-overview.md
+            - Design APIs Overview: design/design-api-overview.md
             - Create a New API:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
@@ -301,7 +301,7 @@ nav:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integrate:
-        - Integration Overview: integrate/learn-overview.md
+        - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md

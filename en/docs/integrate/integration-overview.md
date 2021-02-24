@@ -1,36 +1,120 @@
 # Integration Overview
 
-## API-led Integration
+WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator), which enables comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs. This allows you to enable API-led connectivity across your business using a single platform.
 
-API Manager enables you to build integration services from the ground up using [Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the Service Catalog at the time of deployment.
+## Get Started with Integration
 
-<img src="{{base_path}}/assets/img/integrate/intro/api-led-integration.png" width="700">
+<table>
+    <tr>
+        <td>
+            <a href="{{base_path}}/get-started/quick-start-guide/integration-qsg">Quick Start with Integration</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/develop/integration-development-kickstart">Develop your First Integration Service</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-key-concepts">Key Concepts of Integration</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/tutorials/tutorials-overview">Integration Tutorials</a>
+        </td>
+    </tr>
+</table>
 
-As indicated in the diagram above, integrations are a building block that enables connectivity with SaaS applications, services and microservices, databases, files, message brokers, and also propriety and legacy systems.
+## Integration Strategy
 
-## Integration Use Cases
+### API-led Integration
+
+API Manager enables you to build integration services from the ground up using [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the Service Catalog at the time of deployment.
+
+<img src="{{base_path}}/assets/img/integrate/intro/api-led-integration-2.png" width="500">
+
+Integrations are building blocks that enables connectivity with SaaS applications, services and microservices, databases, files, message brokers, and also propriety and legacy systems.
+
+### Microservices Integration
+
+The Micro Integrator is lightweight and container friendly. This allows you to leverage the comprehensive enterprise messaging capabilities of the Micro Integrator in your decentralized, cloud-native integrations.
+
+<img src="{{base_path}}/assets/img/integrate/intro/mi-microservices-architecture.png" width="700">
+
+If your organization is running on a decentralized, cloud-native, integration architecture where microservices are used for integrating the various APIs, events, and systems, WSO2 Micro Integrator can easily function as your Integration (micro) services and API (micro) services.
+
+### Centralized Integration (Enterprise Service Bus)
+
+At the heart of the Micro Integrator server is an event-driven, standards-based messaging engine (the Bus). This ESB supports message routing, message transformations, and other types of messaging use cases. If your organization uses an API-driven, centralized, integration architecture, the Micro Integrator can be used as the central integration layer that implements the message mediation logic connecting all the systems, data, events, APIs, etc. in your integration ecosystem.
+
+<img src="{{base_path}}/assets/img/integrate/intro/mi-esb-architecture.png" width="700">
+
+## Learn Integration
+
+### Integration Capabilities
 
 The following are the main use cases of WSO2 Micro Integrator. These help you understand what you can do with the product.
 
 <table>
     <tr>
         <td>
-            <ul>
-                <li><a href="{{base_path}}/integrate/integration-use-case/message-routing-overview">Message Routing and Transformation</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/service-orchestration-overview">Service Orchestration</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/asynchronous-message-overview">Asynchronous Message Processing</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/connectors">SaaS and B2B Connectivity</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/data-integration-overview">Data Integration</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/protocol-switching-overview">Protocol Switching</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/gateway-overview">Gateway</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/file-processing-overview">File Processing</a></li>
-                <li><a href="{{base_path}}/integrate/integration-use-case/scheduled-task-overview">Periodic Execution of Integration Processes</a></li>
-            </ul>
+            <a href="{{base_path}}/integrate/integration-use-case/message-routing-overview">Message Routing and Transformation</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/service-orchestration-overview">Restful Service and Orchestration</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/asynchronous-message-overview">Enterprise Messaging</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/connectors">SaaS and B2B Connectivity</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/data-integration-overview">Data Integration</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/protocol-switching-overview">Protocol Switching</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/file-processing-overview">File Processing</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/integrate/integration-use-case/scheduled-task-overview">Periodic Execution of Integration Processes</a>
         </td>
     </tr>
 </table>
 
-## Tutorials
+### Management and Observability
+
+<table>
+    <tr>
+        <td>
+            <a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
+        </td>
+        <td>
+            <a href="{{base_bath}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller">APICTL (Command Line for Integration)</a>
+        </td>
+        <td>
+            <a href="{{base_path}}/observe/mi-observe/mi-observability-overview">Observability Solution for Integration</a>
+        </td>
+    </tr>
+</table>
+
+### DevOps and Administration
+
+<table>
+    <tr>
+        <td>
+            <a href="">Micro Integrator Installation</a>
+        </td>
+        <td>
+            <a href="">Micro Integrator Deployment</a>
+        </td>
+        <td>
+            <a href="">Continuous Integration and Continous Deployment</a>
+        </td>
+    </tr>
+</table>
+
+### Integration Tutorials
 
 The integration tutorials will walk you through the main capabilities and features of WSO2 Micro Integrator, and help you understand how to build an integrated system.
 
@@ -39,22 +123,26 @@ The integration tutorials will walk you through the main capabilities and featur
         <td>
             <ul>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service">Sending a Simple Message to a Service</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">Message Routing</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">Message Transformation</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service">Service Orchestration</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">Asynchronous Messaging</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">Data Integration</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">Routing Requests based on Message Headers</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">Translating Message Formats</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service">Exposing Several Services as a Single Service</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">Store and Forward Messages for Guaranteed Delivery</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">Exposing Datasources as a Service</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/file-processing">File Processing</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-scheduled-tasks">Periodic Execution of Integration Process</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Integrating with SAP</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Sending Emails from an Integration Service</a></li>
             </ul>
         </td>
     </tr>
 </table>
 
-## Examples
+### Integration Examples
 
 <table>
     <tr>
