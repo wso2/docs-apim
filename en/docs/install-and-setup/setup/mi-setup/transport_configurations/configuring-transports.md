@@ -6,7 +6,10 @@ A transport protocol is responsible for carrying messages that are in a specific
 
 The HTTP and HTTPS passthrough transports are enabled by default in the Micro Integrator.
 
-See the [complete list of HTTP/HTTPS parameters](../../../references/config-catalog/#http-transport).
+See the following sections for a complete list of HTTP/HTTPS parameter.
+
+- [HTTP/S Transport (non-blocking mode)]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode)
+- [HTTP/S Transport (blocking mode)]({{base_path}}/reference/config-catalog-mi/#https-transport-blocking-mode)
 
 ### Number of HTTP Listeners
 

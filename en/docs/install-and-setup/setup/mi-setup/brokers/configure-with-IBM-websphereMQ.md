@@ -31,7 +31,7 @@ following topics cover the configuration steps.
     | **Listen on port number** field | Enter the number of the port where you want to set the listener. In this example, the port number will be 1414.|
 
 6.  Click **Next** and then click **Finish** to save the configuration. The queue manager will be created as shown below.  
-    ![](../../assets/img/broker-configs/IBM-websphere-mq/119130334.png)
+    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130334.png)
 7.  Expand the navigation tree of the ESBQManager queue manager in the navigation tree. Right-click **Queues**, move the cursor to **New**, and then click **Local Queue** to open the **Create a Local Queue** wizard. Enter the local queue name as `LocalQueue1` and complete running the wizard. Leave the default values of all other fields unchanged, and click **Finish** to save the local queue.  
 8.  Right-click **Channels** , move the cursor to **New** , and then click **Server-connection Channel** to open the **Create a Server-connection Channel** wizard. Enter **myChannel** as the channel name and click **Next**. Make sure that the value for the **Transmission Protocol** is **TCP** . Leave the default values unchanged for the rest of the fields, and click **Finish** to save the channel.
 
@@ -43,14 +43,14 @@ following topics cover the configuration steps.
     in the `          G         ` folder.
 2.  Go to IBM Websphere MQ, and right-click on **JMS Administered
     Objects** , and then click **Add Initial Context** .  
-    ![](../../assets/img/broker-configs/IBM-websphere-mq/119130339.png)
+    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130339.png)
 3.  Select the **File system** option in the **Connection Details**
     wizard. Enter `          file:G/jndidirectory         ` in the
     **Context nickname** field. Leave the default values unchanged for
     other fields and complete running the wizard. The new file initial
     context will be displayed in the left navigator under **JMS
     Administered Objects** as shown below.  
-    ![](../../assets/img/broker-configs/IBM-websphere-mq/119130338.png)
+    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130338.png)
 4.  Click the file initial context (named
     `          file:G/jndidirectory         ` in this example) in the
     navigator to expand it. Right-click on **Connection Factories**,
@@ -108,7 +108,7 @@ REFRESH SECURITY TYPE(CONNAUTH)
   
 The following will be displayed in the command prompt.
 
-![](../../assets/img/broker-configs/IBM-websphere-mq/119130336.png)
+![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130336.png)
 
 ### Configuring the Micro Integrator
 
@@ -322,4 +322,5 @@ In this section, the following simple proxy service is deployed to listen to the
 
 Open IBM Websphere MQ and publish a message to `LocalQueue1`.
 
-![](../../assets/img/broker-configs/IBM-websphere-mq/119130337.png)
+![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130337.png)
+

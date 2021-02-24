@@ -229,7 +229,7 @@ resolving_frequency = "3"
 
 When you have a cluster of nodes, the integration artifacts deployed in each server node needs to be identical. This can be achieved by synchronizing the deployment directories of each server.
 
-See [deployment synchronization](../../setup/deployment/deployment_synchronization.md) for instructions.
+See [deployment synchronization]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_synchronization) for instructions.
 
 ## Registry synchronization (sharing)
 
@@ -238,18 +238,18 @@ See [deployment synchronization](../../setup/deployment/deployment_synchronizati
 
 The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor artifact. This ensures that the same state is maintained for Message Processor in all the Micro Integrator nodes of the cluster.
 
-1.  Follow the instructions on [configuring the file-based registry](../../setup/deployment/file_based_registry.md) for a two-node deployment of the Micro Integrator.
-2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization](../../setup/deployment/deployment_synchronization.md).
+1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) for a two-node deployment of the Micro Integrator.
+2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_synchronization).
 
 ## Load balancing
 
 If you need the HTTP/HTTPS traffic to be distributed among the nodes, you need to front them via a load balancer of your choice and balance the loads among the node URLs.
 
-Follow the instructions on [setting up a load balancer](../../setup/deployment/setting_up_lb.md) for a two-node deployment of the Micro Integrator.
+Follow the instructions on [setting up a load balancer]({{base_path}}/install-and-setup/setup/mi-setup/deployment/setting_up_lb) for a two-node deployment of the Micro Integrator.
 
 ## Deployment hardening
 
-Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines](../../setup/deployment/deployment_checklist.md).
+Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying the Micro Integrator. For more information, see the [production deployment guidelines]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist).
 
 ## Testing the cluster
 
