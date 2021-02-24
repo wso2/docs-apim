@@ -15,7 +15,7 @@ Follow the instructions given in this section to create and configure the requir
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 
-    <img src="{{base_path}}/assets/img/create_project/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_project/create-integration-project.png" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
@@ -130,10 +130,7 @@ now time to start both servers and test the publishing to Service Catalog featur
 !!! Note
     When we enable the Service Catalog and start the Micro Integrator server, first it will look for metadata files, then it will read them and replace the placeholders with environment variable values, create a ZIP file and finally, upload it to the APIM Service Catalog endpoint.
 
-Download and start the version 4.0.0 of WSO2 API Manager[link]
-
-
-
+Download and start the [API Manager 4.0.0](https://wso2.com/api-management/)
 
 To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
 
@@ -141,14 +138,31 @@ To test the artifacts, deploy the [packaged artifacts](#step-3-package-the-artif
 2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.
 4.  Click **Finish**.
 
-The artifacts will be deployed in the embedded Micro Integrator and the server will start.
+The artifacts will be deployed in the embedded Micro Integrator and the server will start. The integration servies will be deployed to the Service Catalog during server start up.
 
-- See the startup log in the **Console** tab.
-- See the URLs of the deployed services and APIs in the **Runtime Services** tab.
+### Step 7: Deploy the service as API in API Manager
 
-### Step 5: Test the use case
+Let's expose the integration service that we developed as an API in API Manager. 
 
-Let's test the use case by sending a simple client request that invokes the service.
+Login to the Publisher portal by browsing `https://{ip-address}:{port}/publisher`. If you navigate to the **Service Catalog** tab from left menu, it will list the services that are deployed in Service Catalog as shown in the screenshot given below:
+
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/services-listing-page-publisher.png">
+
+#### Create and Deploy the API
+
+1. Select the `Create API` option in the Service Listing page.
+
+2. Provide the mandatory attributes name, context and version and create the API
+
+   <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-api-from-service.png">
+
+   As you can see in the image, the name, context and version values will be auto populated based on the integration service that you selected.
+
+3. The created API will have the service endpoint as the backend URL:
+
+   <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png">
+
+4. Publish the API.
 
 #### Start the back-end service
 
@@ -160,69 +174,39 @@ Let's test the use case by sending a simple client request that invokes the serv
     java -jar Hospital-Service-JDK11-2.0.0.jar
     ```
 
-#### Send the client request
+#### Subscribe and Invoke the API
 
-Let's send the request to the API. You can use the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+You can subscribe and invoke the API by following the instructions given in the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) and [Invoke an API using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) documentation.
 
-1. Open the <b>HTTP Client</b> of WSO2 Integration Studio.
-
-   !!! Tip
-   If you don't see the <b>HTTP Client</b> pane, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client pane.
-
-    <img src="{{base_path}}/assets/img/tutorials/common/http4e-client-empty.png" width="800">
-
-2. Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/tutorials/common/play-head-icon.png" width="20">).
-
-    <table>
-        <tr>
-            <th>Method</th>
-            <td>
-               <code>GET</code> 
-            </td>
-        </tr>
-        <tr>
-            <th>URL</th>
-            <td>
-                <code>http://localhost:8290/healthcare/querydoctor/surgery</code></br></br>
-            </td>
-        </tr>
-     </table>
-
-     <img src="{{base_path}}/assets/img/tutorials/119132413/http4e-config.png" width="800">
-
-If you want to send the client request from your terminal:
-
-1. Install and set up [cURL](https://curl.haxx.se/) as your REST client.
-2. Execute the following command.
-    ```bash
-    curl -v http://localhost:8290/healthcare/querydoctor/surgery
-    ```
-
-#### Analyze the response
-
-You will see the response message from the HealthcareService with a list of available doctors and the relevant details.
+You will get the response message from the HealthcareService, if you send the category as `surgery`:
 
 ```json
 [
-  {"name":"thomas collins",
-  "hospital":"grand oak community hospital",
-  "category":"surgery",
-  "availability":"9.00 a.m - 11.00 a.m",
-  "fee":7000.0},
-  {"name":"anne clement",
-   "hospital":"clemency medical center",
-   "category":"surgery",
-   "availability":"8.00 a.m - 10.00 a.m",
-   "fee":12000.0},
-  {"name":"seth mears",
-   "hospital":"pine valley community hospital",
-   "category":"surgery",
-   "availability":"3.00 p.m - 5.00 p.m",
-   "fee":8000.0}
+    {
+        "name":"thomas collins",
+        "hospital":"grand oak community hospital",
+        "category":"surgery",
+        "availability":"9.00 a.m - 11.00 a.m",
+        "fee":7000.0
+    },
+    {
+        "name":"anne clement",
+        "hospital":"clemency medical center",
+        "category":"surgery",
+        "availability":"8.00 a.m - 10.00 a.m",
+        "fee":12000.0
+    },
+    {
+        "name":"seth mears",
+        "hospital":"pine valley community hospital",
+        "category":"surgery",
+        "availability":"3.00 p.m - 5.00 p.m",
+        "fee":8000.0
+    }
 ]
 ```
 
 Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
 `INFO - LogMediator message = "Welcome to HealthcareService"`
 
-You have now created and deployed an API resource in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
+You have now created and deployed an API in API Manager which exposes the integration service created in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
