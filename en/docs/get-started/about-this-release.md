@@ -160,7 +160,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### Integration Studio
+### WSO2 Integration Studio
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
