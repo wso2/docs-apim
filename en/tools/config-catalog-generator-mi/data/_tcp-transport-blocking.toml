@@ -1,0 +1,11 @@
+[transport.blocking.tcp]
+
+listener.enable = false
+listener.port = 8000
+listener.hostname = "$ref{server.hostname}"
+listener.content_type = ["application/xml"]
+listener.response_client = true
+listener.parameter.customParameter = ""
+
+sender.enable = false
+sender.parameter.customParameter = ""

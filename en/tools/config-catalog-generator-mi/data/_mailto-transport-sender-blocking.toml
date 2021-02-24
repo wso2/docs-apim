@@ -1,0 +1,10 @@
+[[transport.blocking.mail.sender]]
+
+name = "mailto"
+parameter.hostname = "smtp.gmail.com"
+parameter.port = "587"
+parameter.enable_tls = true
+parameter.auth = true
+parameter.username = "demo_user"
+parameter.password = "mailpassword"
+parameter.from = "demo_user@wso2.com"
