@@ -108,7 +108,7 @@ for more information.
         x-wso2-production-endpoints:
           urls:
             - consul(<service_name>,<default_host>)
-          type: loadbalance
+          type: load_balance
 ```
 
 ```java tab="Example"
