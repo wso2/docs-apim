@@ -1,7 +1,7 @@
 
 # Introduction
 
-The Streaming Integrator(SI) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime
+The Streaming Integrator(SI) component of WSO2 API Manager is a streaming data processing server that integrates streaming data and takes action based on streaming data. The streaming integration capabilities of WSO2 API Manager are delivered via this runtime.
 
 WSO2 SI can be effectively used for:
 

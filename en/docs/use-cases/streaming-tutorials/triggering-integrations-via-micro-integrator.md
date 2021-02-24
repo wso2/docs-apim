@@ -5,17 +5,24 @@
 In this tutorial, lets look at how the Streaming Integrator generates an alert based on the events received, and how that particular alert can trigger an integration flow in the Micro Integrator, and get a response back to the Streaming Integrator for further processing.
 
 To understand this, consider a scenario where the Streaming Integrator receives production data from a factory, and triggers an integration flow if it detects a per minute production average that exceeds 100.
-!!! tip "Before you begin:"
-    - [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si-in-vm#starting-the-si-server).<br/><br/>
-    - [Start Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integrator-tooling).
-    - Install the `grpc` Siddhi extension in Streaming Integrator Tooling. To do this, access Streaming Integrator Tooling, click **Tools** -> **Extension Installer** to open the **Extension Installer** dialog box, and then click **Install** for the **gRPC** extension. Restart Streaming Integrator Tooling for the installation to be effective. For detailed instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions/).
-    - To install the `grpc` Siddhi extension in WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory and issue the appropriate command based on your operating system.<br/><br/>
-        - **For Windows**     : `extension-installer.bat install grpc`<br/>
-        - **For Linux/MacOS** : `./extension-installer.sh install grpc`<br/><br/>
-       Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+
+## Before you begin
+
+- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si-in-vm#starting-the-si-server).
+
+- [Start Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integrator-tooling).
+
+- Install the `grpc` Siddhi extension in Streaming Integrator Tooling. To do this, access Streaming Integrator Tooling, click **Tools** -> **Extension Installer** to open the **Extension Installer** dialog box, and then click **Install** for the **gRPC** extension. Restart Streaming Integrator Tooling for the installation to be effective. For detailed instructions, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions/).
+
+- To install the `grpc` Siddhi extension in WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory and issue the appropriate command based on your operating system.
+
+    - **For Windows**     : `extension-installer.bat install grpc`
+    - **For Linux/MacOS** : `./extension-installer.sh install grpc`
+    
+   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
 
 
-## Configuring the Streaming Integrator
+## Step 1: Configure the Streaming Integrator
 
 Let's design a Siddhi application that triggers an integration flow and deploy it by following the procedure below:
 
@@ -189,7 +196,7 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
 
 
 
-## Configuring Micro integrator
+## Step 2: Configure Micro Integrator
 
 After doing the required configurations in the Streaming Integrator, let's configure the Micro Integrator to receive the excess production alert from the Streaming Integrator as a gRPC event and send back a response.
 
@@ -233,7 +240,7 @@ After doing the required configurations in the Streaming Integrator, let's confi
    - Sends the response back to the gRPC client.
 
 
-## Executing and getting results
+## Step 3: Send events and generate results
 
 To send an event to the defines `http` source hosted in `http://localhost:8006/InputStream`, issue the following sample CURL command.
 

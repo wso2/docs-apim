@@ -41,7 +41,7 @@ version.
 
 5.  Identify the configuration migrations required for the new setup. 
 
-     For more information on the new config model introduced, see the [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
+     For more information on the new config model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
         
 6.  Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
 test your functional and non-functional requirements.

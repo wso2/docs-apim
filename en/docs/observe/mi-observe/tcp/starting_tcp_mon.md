@@ -1,7 +1,7 @@
 # Starting TCPMon
 
 TCPMon is available in the `         MI_HOME/bin        `
-directory of the WSO2 Micro Integrator distribution. Alternatively,
+directory of the the Micro Integrator distribution. Alternatively,
 you can download TCPMon from Apache and run the tool.
 
 ## Running TCPMon (from the product distribution)
@@ -10,7 +10,7 @@ Be sure that the following prerequisites are fulfilled:
 
 -   Install JDK 1.4 or later version.
 -   Set the `           JAVA_HOME          ` variable. This setting is
-    required only if you are using the TCPMon available in the WSO2
+    required only if you are using the TCPMon available in the
     Micro Integrator distribution.
     
 To run TCPMon:

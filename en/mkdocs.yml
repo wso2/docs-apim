@@ -50,6 +50,7 @@ nav:
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
+          - Architecture: get-started/architecture.md
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
                 - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
@@ -173,13 +174,15 @@ nav:
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Deploy:
         - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
+        - Deploy API:
+            - Deploy an API: deploy/deploy-api/deploy-an-api.md
+            - Grouping APIs with Labels: deploy/deploy-api/grouping-apis-with-labels.md
+            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/deploy-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
+            - Publish through Multiple API Gateways: deploy/deploy-api/publish-through-multiple-api-gateways.md
+            - Publish to Multiple External API Developer Portals: deploy/deploy-api/publish-to-multiple-external-api-stores.md
         - API Gateway:
             - Overview of the WSO2 API Gateway: deploy/api-gateway/overview-of-the-api-gateway.md
             - Publish APIs Overview: deploy/publish-api-overview.md
-            - Deploy an API: deploy/deploy-an-api.md
-            - Publish through Multiple API Gateways: deploy/publish-through-multiple-api-gateways.md
-            - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
-            - Publish to Multiple External API Developer Portals: deploy/publish-to-multiple-external-api-stores.md
             - Message Mediation:
                 - Changing the Default Mediation Flow of API Requests: deploy/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                 - Creating and Uploading using Integration Studio: deploy/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
@@ -205,7 +208,7 @@ nav:
             - Advanced Topics:
                 - API Gateways with Dedicated Backends: deploy/api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-        - WSO2 API Microgateway:
+        - API Microgateway:
             - Getting Started:
                 - Quick start Guide:
                     - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
@@ -227,16 +230,16 @@ nav:
             - Service Discovery: deploy/api-microgateway/service-discovery.md
             - Security:
                 - Authentication:
-                    - API Authentication: deploy/security/api-authentication/api-authentication.md
+                    - API Authentication: deploy/api-microgateway/security/api-authentication/api-authentication.md
                     - Secure APIs Using OAuth2.0 Access Tokens:
-                        - Secure APIs using JWT - Self Contained JWT: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                        - Secure APIs using JWT - Self Contained JWT: deploy/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                         - Secure APIs Using Opaque Tokens: deploy/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
                     - Mutual SSL Authentication: deploy/security/api-authentication/mutual-ssl-authentication.md
                     - Configuring an External Key Manager: deploy/security/api-authentication/configuring-an-external-key-manager.md
                     - Making Application Security Optional: deploy/security/api-authentication/making-application-security-optional.md
                     - Disabling Security: deploy/security/api-authentication/disabling-security.md
                 - Authorization:
-                    - Scope Validation: deploy/security/api-authorization/scope-validation.md
+                    - Scope Validation: deploy/api-microgateway/security/api-authorization/scope-validation.md
                     - Subscription Validation: deploy/security/api-authorization/subscription-validation.md
                 - Transport Security: deploy/security/transport-security.md
                 - Enabling CORS: deploy/security/enabling-cors.md
@@ -249,7 +252,6 @@ nav:
             - Manage Microgateway APIs with WSO2 API Manager: deploy/manage-microgateway-apis-with-wso2-api-manager.md
             - Passing Enduser Attributes to the Backend Using JWT: deploy/passing-enduser-attributes-to-the-backend-using-jwt.md
             - Custom Claims Mapping: deploy/support-custom-claims-mapping.md
-            - Grouping APIs with Labels: deploy/api-microgateway/grouping-apis-with-labels.md
     - Consume:
         - Consume APIs Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -300,6 +302,7 @@ nav:
             - Change Password: consume/user-account-management/change-dev-portal-password.md
     - Integrate:
         - Integration Overview: integrate/learn-overview.md
+        - Integration Concepts: integrate/integration-key-concepts.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
             - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
@@ -318,6 +321,8 @@ nav:
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
+            - Service Catalog:
+                - Working with Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
@@ -516,6 +521,7 @@ nav:
             - Integrating Mi with SI: integrate/examples/integrating-mi-with-si.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
+          - Streaming Key Concepts: streaming/streaming-key-concepts.md
           - Streaming Use Cases:
                 - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
                 - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
@@ -532,7 +538,7 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
-          - Quick Start: get-started/quick-start-guide/streaming-qsg.md
+          #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
                 - Streaming Integrator Tooling:
@@ -728,10 +734,21 @@ nav:
                   - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
                   - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
           - Monitoring the Streaming Integrator:
-              - Configuring Grafana Dashboards: ''
-              - Managing Grafana Dashboards: ''
-              - Monitoring Streaming Components: ''
-              - Monitoring ETL Flows: ''
+              - Configuring Grafana Dashboards: observe/si-observe/setting-up-grafana-dashboards.md
+              - Managing Grafana Dashboards: observe/si-observe/managing-grafana-dashboards.md
+              - Monitoring Streaming Components:
+                  - Monitoring Streaming Components Overview: observe/si-observe/monitoring-si-performance-via-grafana.md
+                  - Viewing Overall Statistics: observe/si-observe/viewing-overall-statistics.md
+                  - Viewing Server Statistics: observe/si-observe/viewing-overview-statistics.md
+                  - Viewing Stream Statistics: observe/si-observe/viewing-stream-statistics.md
+                  - Viewing Source Statistics: observe/si-observe/viewing-source-statistics.md
+                  - Viewing Query Statistics: observe/si-observe/viewing-query-statistics.md
+                  - Viewing Window Statistics: observe/si-observe/viewing-window-statistics.md
+                  - Viewing Trigger Statistics: observe/si-observe/viewing-trigger-statistics.md
+                  - Viewing Table Statistics: observe/si-observe/viewing-table-statistics.md
+                  - Viewing Aggregation Statistics: observe/si-observe/viewing-aggregation-statistics.md
+                  - Viewing On-demand Query Statistics: observe/si-observe/viewing-on-demand-query-statistics.md
+              - Monitoring ETL Flows: observe/si-observe/viewing-dashboards.md
     - Tutorials:
           - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
           - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
@@ -739,18 +756,23 @@ nav:
           - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
-              - Sending a Simple Message to a Service': tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
-              - Message Routing: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
-              - Message Transformation: tutorials/integration-tutorials/transforming-message-content.md
-              - Service Orchestration: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
-              - Asynchronous Messaging: tutorials/integration-tutorials/storing-and-forwarding-messages.md
-              - Connecting Web APIs/Cloud Services: tutorials/integration-tutorials/using-the-gmail-connector.md
-              - Data Integration: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
+              - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
+              - Message Routing: 
+                    -   Routing Requests based on Message Content: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
+              - Exposing Serveral Services as a Single Service: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
+              - Message Transformation: 
+                    -   Translating Message Formats: tutorials/integration-tutorials/transforming-message-content.md
+              - Asynchronous Messaging: 
+                    -   Store and Forward Messages for Guaranteed Delivery: tutorials/integration-tutorials/storing-and-forwarding-messages.md
+              - Integrating with SaaS Systems: 
+                    -   Sending Emails from an Integration Service: tutorials/integration-tutorials/using-the-gmail-connector.md
+              - Data Integration: 
+                    -   Exposing Datasources as a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
               - File Processing: tutorials/integration-tutorials/file-processing.md
-              - Periodic Execution of Integration Process: tutorials/integration-tutorials/using-scheduled-tasks.md
+              - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
-              - Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
@@ -789,7 +811,7 @@ nav:
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
         - Deploy:
-            - Deployment Patterns Overview: install-and-setup/setup/deployment-patterns.md
+            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - All-In-One Deployment:
                 - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                 - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
@@ -798,7 +820,6 @@ nav:
                 - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                 - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                 - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-                - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
             - Deploying Micro Integrator:
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
@@ -1077,7 +1098,10 @@ nav:
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
-        - Configuration Catalog: reference/config-catalog.md
+        - Configuration Catalogs:
+            - API Management Configs: reference/config-catalog.md
+            - Integration Server Configs: reference/config-catalog-mi.md
+        - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
         - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
@@ -1305,6 +1329,10 @@ nav:
                 - Setting up Microsoft Azure Storage: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-configuration.md
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
+            - MongoDB Connector:
+                - 'MongoDB Connector Overview': 'references/connectors/mongodb-connector/mongodb-connector-overview.md'
+                - 'MongoDB Connector Example': 'references/connectors/mongodb-connector/mongodb-connector-example.md'
+                - 'MongoDB Connector Reference': 'references/connectors/mongodb-connector/mongodb-connector-config.md'
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1533,7 +1561,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
@@ -1649,5 +1676,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    base_path: http://localhost:8000
-    #base_path: https://apim.docs.wso2.com/en/next
+    #base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/next

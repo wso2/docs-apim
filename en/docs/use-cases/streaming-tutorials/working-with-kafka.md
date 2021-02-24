@@ -6,42 +6,40 @@ The Streaming Integrator can consume from a Kafka topic as well as to publish to
 
 This tutorial takes you through consuming from a Kafka topic, processing the messages, and finally, publishing output to a Kafka topic.
 
-!!!tip "Before you begin:"
-    Prepare the server to consume from or to publish to Kafka, follow the steps below:<br/>
-    <br/>
-        1. Download the Kafka broker from [the Apache site](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz) and extract it.
-        From here onwards, this directory is referred to as `<KAFKA_HOME>`. <br/>
-        <br/>
-        2. Create a directory named `Source` in a preferred location in your machine and copy the following JARs to it from the `<KAFKA_HOME>/libs` directory.<br/>
-        <br/>
-            - `kafka_2.12-2.3.0.jar`<br/>
-            <br/>
-            - `kafka-clients-2.3.0.jar`<br/>
-            <br/>
-            - `metrics-core-2.2.0.jar`<br/>
-            <br/>
-            - `scala-library-2.12.8.jar`<br/>
-            <br/>
-            - `zkclient-0.11.jar`<br/>
-            <br/>
-            - `zookeeper-3.4.14.jar`<br/>
-            <br/>
-        3. Create another directory named `Destination` in a preferred location in your machine.<br/>
-        <br/>
-        4. To convert the Kafka JARS you copied to the `Source` directory, issue the following command:<br/>
-           ```
-           sh <SI_HOME>/bin/jartobundle.sh <{Source}_Directory_Path> <{Destination}_Directory_Path>
-           ```<br/>
-           <br/>
-        5. Copy all the jars from the `Destination` directory to the `<SI_HOME>/lib` directory.
+## Before you begin
+
+Prepare the server to consume from or to publish to Kafka, follow the steps below:
+
+1. Download the Kafka broker from [the Apache site](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz) and extract it. From here onwards, this directory is referred to as `<KAFKA_HOME>`.
+
+2. Create a directory named `source` in a preferred location in your machine and copy the following JARs to it from the `<KAFKA_HOME>/libs` directory.
+
+    - `kafka_2.12-2.3.0.jar`
+   
+    - `kafka-clients-2.3.0.jar`
+    
+    - `metrics-core-2.2.0.jar`
+    
+    - `scala-library-2.12.8.jar`
+    
+    - `zkclient-0.11.jar`
+   
+    - `zookeeper-3.4.14.jar`
+  
+3. Create another directory named `destination` in a preferred location in your machine.
+
+4. To convert the Kafka JARS you copied to the `source` directory, issue the following command:
+
+   ```
+   sh <SI_HOME>/bin/jartobundle.sh <{source}_Directory_Path> <{destination}_Directory_Path>
+   ```
+ 
+5. Copy all the JARs from the `destination` directory to the `<SI_HOME>/lib` directory.
 
 
+## Consuming data from Kafka
 
-## Tutorial steps
-
-### Consuming data from Kafka
-
-### Start Kafka
+### Step 1: Start Kafka
 
 1. Navigate to the `<KAFKA_HOME>` directory and start a zookeeper node by issuing the following command.
 
@@ -52,7 +50,7 @@ This tutorial takes you through consuming from a Kafka topic, processing the mes
     `sh bin/kafka-server-start.sh config/server.properties`
 
 
-### Start the Streaming Integrator
+### Step 2: Start the Streaming Integrator
 
 Navigate to the `<SI_HOME>/bin` directory and issue the following command. 
 `sh server.sh`
@@ -63,7 +61,7 @@ The following log appears on the SI console when the server is started successfu
 INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Integrator started in 4.240 sec
 ```
 
-### Consume from a Kafka topic
+### Step 3: Consume from a Kafka topic
 
 Let's create a basic Siddhi application to consume messages from a Kafka topic.
 
@@ -100,40 +98,38 @@ Let's create a basic Siddhi application to consume messages from a Kafka topic.
     ```
 
 !!! info
-    You just created a Siddhi application that listens to a Kafka topic named `productions` and logs any incoming messages. When logging, the name attribute of the message is converted to upper case. However, you have still not created this Kafka topic or published any messages to it. To do this, proceed to the next section.
+    You just created a Siddhi application that listens to a Kafka topic named `productions` and logs any incoming messages. When logging, the name attribute of the message is converted to upper case. However, you have still not created this Kafka topic or published any messages to it. To do this, proceed to the next substep.
 
 
-#### Generate Kafka messages
+3. Generate some Kafka messages that the Streaming Integrator can receive by following the procedure below:
 
-Now let's generate some Kafka messages that the Streaming Integrator can receive. 
+    1. Create a topic named `productions` in the Kafka server. To do this, navigate to `<KAFKA_HOME>` and run following command:
+    
+        ```
+        bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic productions
+        ```
+    
+    2. Run the Kafka command line client to push a few messages to the Kafka server.
+    
+        ```
+        bin/kafka-console-producer.sh --broker-list localhost:9092 --topic productions
+        ```
+    
+    3. You are prompted to type messages in the console. Type the following in the command prompt:
+    
+        ```
+        {"event":{ "name":"Almond cookie", "amount":100.0}}
+        ```
+    
+       This pushes a message to the Kafka Server. Then, the Siddhi application you deployed in the Streaming Integrator consumes this message. As a result, the Streaming Integrator log displays the following:
+    
+        ```
+        INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562069868006, data=[ALMOND COOKIE, 100.0], isExpired=false}
+        ```
+    
+    You may notice that the output message has an uppercase name: `ALMOND COOKIE`. This is because of the simple message transformation done in the Siddhi application.   
 
-1. First, let's create a topic named `productions` in the Kafka server. To do this, navigate to `<KAFKA_HOME>` and run following command:
-
-    ```
-    bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic productions
-    ```
-
-2. Now let's run the Kafka command line client to push a few messages to the Kafka server.
-
-    ```
-    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic productions
-    ```
-
-3. Now you are prompted to type messages in the console. Type the following in the command prompt:
-
-    ```
-    {"event":{ "name":"Almond cookie", "amount":100.0}}
-    ```
-
-   This pushes a message to the Kafka Server. Then, the Siddhi application you deployed in the Streaming Integrator consumes this message. As a result, the Streaming Integrator log displays the following:
-
-    ```
-    INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562069868006, data=[ALMOND COOKIE, 100.0], isExpired=false}
-    ```
-
-You may notice that the output message has an uppercase name: `ALMOND COOKIE`. This is because of the simple message transformation done in the Siddhi application.   
-
-### Consuming with an offset
+### Step 4: Consume Kafka messages with an offset
 
 Previously, you consumed messages from the `productions` topic *without specifying an offset*. In other words, the Kafka offset was zero. In this section, instead of consuming with a zero offset, you specify an offset value and consume messages from that offset onwards.
 
@@ -145,7 +141,7 @@ For this purpose, you can configure the `topic.offsets.map` parameter. Let's mod
     topic.offsets.map='productions=2'
     ```
 
-    Now the complete Siddhi application is as follows.
+    The complete Siddhi application is as follows.
 
     ```
     @App:name("HelloKafka")
@@ -185,7 +181,7 @@ For this purpose, you can configure the `topic.offsets.map` parameter. Let's mod
     {"event":{ "name":"Cup cake", "amount":300.0}}
     ```
 
-   Now you can see the following log in the Streaming Integrator Studio console.
+   The following log appears in the Streaming Integrator Studio console.
 
     ```
     INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562676477785, data=[CUP CAKE, 300.0], isExpired=false}
@@ -193,7 +189,7 @@ For this purpose, you can configure the `topic.offsets.map` parameter. Let's mod
 
 As you configured your Siddhi application to consume messages with offset `2`, all messages bearing index `2` or above are consumed.
 
-### Adding more consumers to the consumer group
+### Step 5: Add more consumers to the consumer group
 
 In our `HelloKafka` Siddhi application, note the `group.id` parameter. This parameter defines the Kafka consumer group. 
 
@@ -254,7 +250,7 @@ Let's add another Siddhi application `HelloKafka_2`, to add another Kafka consum
     {"event":{ "name":"Eclair toffee", "amount":100.0}} 
     ```
 
-   Now observe the logs on the SI console.
+   Observe the following logs on the SI console.
     ```
     INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka_2 : OutputStream : Event{timestamp=1562759480019, data=[DOUGHNUT, 500.0], isExpired=false}
     INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562759494710, data=[DANISH PASTRY, 200.0], isExpired=false}
@@ -264,9 +260,9 @@ Let's add another Siddhi application `HelloKafka_2`, to add another Kafka consum
 
    You can see that the events are being received by the two consumers in a Round Robin manner. Events received by the first consumer are logged by Siddhi application `HelloKafka`, whilst events received by the second consumer are logged by the `HelloKafka_2` Siddhi application.
 
-### Assigning consumers to partitions
+### Step 6: Assign consumers to partitions
 
-In the previous scenario, you had two partitions for the Kafka topic and two consumers. Instead of assigning the consumers to the partitions, you allowed Kafka do the assignments. Optionally, you can assign consumers to partitions.
+In the previous step, you had two partitions for the Kafka topic and two consumers. Instead of assigning the consumers to the partitions, you allowed Kafka do the assignments. Optionally, you can assign consumers to partitions.
 
 This option is useful if you have multiple consumers with different performance speeds, and you need to balance the load among the consumers.
 
@@ -278,7 +274,7 @@ Let's alter your topic to have three partitions. After that, you can assign two 
     bin/kafka-topics.sh --alter --bootstrap-server localhost:9092 --partitions 3 --topic productions
     ```
 
-   This adds another partition to the `productions` Kafka topic. Now there are three partitions in total. 
+   This adds another partition to the `productions` Kafka topic. As a result, there are three partitions in total. 
 
 2. To assign partitions to the consumers, add the `partition.no.list` parameter as shown below.
 
@@ -321,7 +317,7 @@ Let's alter your topic to have three partitions. After that, you can assign two 
 
     Note that `consumer-1` is assigned partitions `0` and `1`, while `consumer-2` is assigned partition `2`. 
 
-3. Now let's publish some messages as follows, and see how the load is distributed among the consumers with the new partition assignments.
+3. Publish some messages as follows, and see how the load is distributed among the consumers with the new partition assignments.
 
     ```
     {"event":{ "name":"Fortune cookie", "amount":100.0}} 
@@ -347,7 +343,7 @@ Let's alter your topic to have three partitions. After that, you can assign two 
     {"event":{ "name":"Ice cream cake", "amount":250.0}} 
     ```
 
-4. Now observe the Streaming Integrator logs. The following is displayed.
+4. Observe the following Streaming Integrator logs. The following is displayed.
 
     ```
     INFO {io.siddhi.core.stream.output.sink.LogSink} - HelloKafka : OutputStream : Event{timestamp=1562851086792, data=[FORTUNE COOKIE, 100.0, consumer-1], isExpired=false}
@@ -360,11 +356,11 @@ Let's alter your topic to have three partitions. After that, you can assign two 
 
    You can observe a pattern where the load is distributed among `consumer-1` and `consumer-2` in the 2:1 ratio. This is because you assigned two partitions to `consumer-1` and assigned only one partition to `consumer-2`.
 
-### Publish to a Kafka topic
+### Step 7: Publish to a Kafka topic
  
-Now let's create a new Siddhi application to consume from the `productions` topic, filter the incoming messages based on a condition, and then publish those filtered messages to another Kafka topic.
+Let's create a new Siddhi application to consume from the `productions` topic, filter the incoming messages based on a condition, and then publish those filtered messages to another Kafka topic.
 
-1. First, let's create a new topic named `bulk-orders` in the Kafka server.
+1. Create a new topic named `bulk-orders` in the Kafka server.
 
 2. To publish the filtered messages to the `bulk-orders` Kafka topic you created, issue the following command.
 
@@ -420,7 +416,7 @@ Now let's create a new Siddhi application to consume from the `productions` topi
     {"event":{ "name":"Almond cookie", "amount":100.0}}
     ``` 
     
-### Preserving the state of the application through a system failure
+### Step 8: Preserve the state of the application through a system failure
 
 Let's try out a scenario in which you deploy a Siddhi application to count the total number of productions.
 
@@ -496,13 +492,13 @@ Let's try out a scenario in which you deploy a Siddhi application to count the t
     INFO {org.wso2.carbon.stream.processor.core.internal.StreamProcessorService} - Siddhi App CountProductions deployed successfully
     ```
 
-7. Now let's run the Kafka command line client to push a few messages to the Kafka server. Navigate to `<KAFKA_HOME>` and run following command:
+7. Run the Kafka command line client to push a few messages to the Kafka server. Navigate to `<KAFKA_HOME>` and run following command:
 
     ```
     bin/kafka-console-producer.sh --broker-list localhost:9092 --topic sandwich_productions
     ```
 
-8. Now you are prompted to type the messages in the console. Type following in the command prompt:
+8. You are prompted to type the messages in the console. Type following in the command prompt:
 
     ```
     {"event":{ "name":"Bagel", "amount":100.0}}
@@ -512,7 +508,7 @@ Let's try out a scenario in which you deploy a Siddhi application to count the t
     {"event":{ "name":"Buterbrod", "amount":100.0}} 
     ```
 
-    Now the following logs appear on the SI console.
+    The following logs appear on the SI console.
 
     ```
     INFO {io.siddhi.core.stream.output.sink.LogSink} - CountProductions : OutputStream : Event{timestamp=1563903034768, data=[100.0], isExpired=false}
@@ -521,7 +517,7 @@ Let's try out a scenario in which you deploy a Siddhi application to count the t
 
     These logs print the sandwich production count. Note that the current count of sandwich productions is being printed as `200` in the second log. This is because the production count up to now is `200` sandwiches: `100` bagels and `100` buterbrods.
 
-9. Now wait for following log to appear on the SI console
+9. Wait for following log to appear on the SI console
     ```
     DEBUG {org.wso2.carbon.streaming.integrator.core.persistence.FileSystemPersistenceStore} - Periodic persistence of CountProductions persisted successfully
     ```
@@ -533,7 +529,7 @@ Let's try out a scenario in which you deploy a Siddhi application to count the t
     !!!Tip
         It is better to start pushing messages immediately after the state persistence log appears, so that you have plenty of time to push messages and shutdown the server, until next log appears.
         
-10. Now push following messages to the Kafka server using the Kafka Console Producer:
+10. Push following messages to the Kafka server using the Kafka Console Producer:
 
     ```
     {"event":{ "name":"Croissant", "amount":100.0}}
