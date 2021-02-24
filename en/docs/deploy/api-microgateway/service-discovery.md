@@ -64,73 +64,76 @@ The configurations are described in the table below.
 
 ### Step 2 - Deploy the API
 
-You can set the Consul upstreams using the service name as the key and providing a default host.
+You can define the Consul upstream endpoints by using the following syntax:
 
 Example 1:
 
 ```java tab="Format"
-x-wso2-production-endpoints:
-  urls:
-    - consul(<service_name>,<default_host>)
-  type: load_balance
+consul(<service_name>,<default_host>)
 ```
 
 ```java tab="Example"
-paths:
-  /pet:
-    x-wso2-production-endpoints:
-      urls:
-        - consul(pet,https://10.10.1.5:5000)
-      type: load_balance
-    post:
-      consumes:
-        - application/json
-        - application/xml
-      description: ""
-      operationId: addPet
-      parameters:
-        - description: Pet object that needs to be added to the store
-          in: body
-          name: body
-          required: true
-          schema:
-            $ref: '#/definitions/Pet'
+consul(pet,https://10.10.1.5:5000)'
 ```
 
 Example 2:<br>
 If you want more fine-grained access to your Consul services, you can limit the access to the upstream services by providing
 the `datacenters` and `tags`
 
+
 ```java tab="Format"
-x-wso2-production-endpoints:
-  urls:
-    - consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
-  type: load_balance
+consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
 ```
 
 ```java tab="Example"
-paths:
-  /pet:
-    x-wso2-production-endpoints:
-      urls:
-        - consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
-      type: load_balance
-    post:
-      consumes:
-        - application/json
-        - application/xml
-      description: ""
-      operationId: addPet
-      parameters:
-        - description: Pet object that needs to be added to the store
-          in: body
-          name: body
-          required: true
-          schema:
-            $ref: '#/definitions/Pet'
+consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
 ```
 
-<!-- todo check the keyword for load_balance once implemented -->
+You can use either WSO2 API Manager to define upstream endpoints, or you can directly edit the Open API definition file.
+
+#### Define Consul service catalog based services in WSO2 API Manager
+
+Using the above syntax you can define the endpoints to the Consul service catalog based services in WSO2 API Manager.
+
+![reference](../../assets/img/deploy/consul-apim.png)
+
+#### Define Consul service catalog based services using the Open API definition
+
+Refer to section [defining endpoints in an openapi definition](endpoints/defining-endpoints-in-an-openapi-definition.md) 
+for more information.
+
+
+
+```java tab="Format"
+        x-wso2-production-endpoints:
+          urls:
+            - consul(<service_name>,<default_host>)
+          type: loadbalance
+```
+
+```java tab="Example"
+        paths:
+          /pet:
+            x-wso2-production-endpoints:
+              urls:
+                - consul(pet,https://10.10.1.5:5000)
+              type: loadbalance
+            post:
+              consumes:
+                - application/json
+                - application/xml
+              description: ""
+              operationId: addPet
+              parameters:
+                - description: Pet object that needs to be added to the store
+                  in: body
+                  name: body
+                  required: true
+                  schema:
+                    $ref: '#/definitions/Pet'
+```
+
+
 <!-- todo add info about cert rotation once implemented -->
 
 
@@ -138,9 +141,9 @@ paths:
         - The adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
         During that time requests that arrive at the Microgateway are served from the
         `default_host`. <br>
-        - Consul upstreams can be discovered both on ***production-endpoints*** and ***sandbox-endpoints***.<br>
+        - Consul upstreams are supported both on ***Production Endpoint*** and ***Sandbox Endpoint***.<br>
         - Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
-        - Upstreams discovered through Consul are configured as load_balance clusters. Therefore, type under the vendor extension should be `load_balance`.
+        - Upstreams discovered through Consul are configured as ***Load Balanced*** clusters.
         <br>
         - Upon successfully [deploying your API](../api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md), the Adapter will poll the Consul HTTP API for changes concerning the services.
         If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
