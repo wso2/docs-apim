@@ -224,4 +224,4 @@ Here you will not see an onboarding page but a listing of the deployed services 
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/integrate/develop/integration-development-kickstart).
-- Try out the **tutorials** and **examples** available in the [Learn section of our documentation]({{base_path}}/integrate/integration-overview/#integration-use-cases).
+- Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/learn-overview/#integration-use-cases).

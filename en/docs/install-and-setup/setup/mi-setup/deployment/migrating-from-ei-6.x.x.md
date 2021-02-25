@@ -127,7 +127,7 @@ The Micro Integrator uses a [file-based registry](../file_based_registry) instea
 
 	!!! Note
 	    Once you have imported the Registry Resources into WSO2 Integration Studio, open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
-	    ![Registry Resource Editor](../../assets/img/migration/registry-resource-editor.png)
+	    ![Registry Resource Editor]({{base_path}}/assets/img/integrate/migration/registry-resource-editor.png)
 
 ### Migrating integration artifacts
 

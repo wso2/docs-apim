@@ -50,7 +50,7 @@ Follow the instructions below to set up and configure.
         parameter.cache_level = "consumer"
         ```        
     !!! Note
-        When configuring the jms listener, be sure to add the connection factory [service-level jms parameter](../../references/synapse-properties/transport-parameters/jms-transport-parameters.md) to the synapse configuration with the name of the already defined connection factory.
+        When configuring the jms listener, be sure to add the connection factory [service-level jms parameter]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters) to the synapse configuration with the name of the already defined connection factory.
         ```xml
         <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
         ```

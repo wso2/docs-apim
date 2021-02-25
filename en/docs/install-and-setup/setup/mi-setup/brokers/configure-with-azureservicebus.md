@@ -38,7 +38,7 @@ Now the WSO2 enterprise integrator should be configured to work with Azure Servi
 
 The messaging flow is as shown below.
 
-![](../../assets/img/broker-configs/azure-service-bus.png)
+![]({{base_path}}/assets/img/integrate/broker-configs/azure-service-bus.png)
 
 To set up the messaging flow in WSO2 Integration Studio, create synapse artifacts to create a consumer and a producer. 
 
