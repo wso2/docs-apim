@@ -1243,7 +1243,7 @@ nav:
                     - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
                     - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
                     - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md   
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
                 - Deployment Best Practices:
                     - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
                     - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
@@ -1264,7 +1264,7 @@ nav:
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
                 - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md 
+                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
         - Setup:
             - Setting up API Manager:
                 - Configure a Key Manager:
@@ -1317,7 +1317,7 @@ nav:
                         - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-Oracle.md
                         - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL.md
                         - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2.md
-                    - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md       
+                    - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
                 - Security:
                     - Setting up Keystores:
                         - Creating New Keystores: install-and-setup/setup/mi-setup/security/creating_keystores.md
@@ -1341,7 +1341,7 @@ nav:
                     - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
                     - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
                     - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
-                    - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md       
+                    - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
                 - Message Brokers:
                     - AMQP (RabbitMQ):
                         - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ.md
@@ -1461,22 +1461,23 @@ nav:
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
               - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
-              - Message Routing: 
+              - Message Routing:
                     -   Routing Requests based on Message Content: tutorials/integration-tutorials/routing-requests-based-on-message-content.md
               - Exposing Serveral Services as a Single Service: tutorials/integration-tutorials/exposing-several-services-as-a-single-service.md
-              - Message Transformation: 
+              - Message Transformation:
                     -   Translating Message Formats: tutorials/integration-tutorials/transforming-message-content.md
-              - Asynchronous Messaging: 
+              - Asynchronous Messaging:
                     -   Store and Forward Messages for Guaranteed Delivery: tutorials/integration-tutorials/storing-and-forwarding-messages.md
-              - Integrating with SaaS Systems: 
+              - Integrating with SaaS Systems:
                     -   Sending Emails from an Integration Service: tutorials/integration-tutorials/using-the-gmail-connector.md
-              - Data Integration: 
+              - Data Integration:
                     -   Exposing Datasources as a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource.md
               - File Processing: tutorials/integration-tutorials/file-processing.md
               - Periodically Executing Integration Processes: tutorials/integration-tutorials/using-scheduled-tasks.md
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
@@ -1489,7 +1490,7 @@ nav:
               - Managing Streaming Data with Errors: use-cases/streaming-tutorials/handling-requests-with-errors.md
               - Triggering Integrations via MI: use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator.md
               - Running SI with Docker and Kubernetes: use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes.md
-            
+
 # Extensions
 markdown_extensions:
     - markdown.extensions.admonition
