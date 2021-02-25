@@ -1,30 +1,47 @@
 # Micro Integrator Dashboard
 
-The Micro Integrator dashboard provides a graphical view of the synapse artifacts that are deployed in a specified Micro Integrator server instance. You can also perform various management and administration tasks using the dashboard. The dashboard communicates with the management API of the Micro Integrator to function.
+The Micro Integrator dashboard provides the capability to monitor multiple MI instances grouped together. It provides a
+graphical view of the synapse artifacts that are deployed in a specified cluster/group of Micro Integrator server 
+instances. You can also perform various management and administration tasks using the dashboard. The 
+dashboard communicates with the management API of the specified Micro Integrator instances to function. 
 
 You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
 
--   <b>View deployed artifacts</b>
+-   <b>View set of nodes deployed in a cluster/group</b>
 
-    View details of the artifacts deployed in a Micro Integrator instance.
+    View each node's basic runtime information.
+
+-   <b>View deployed artifacts in a particular cluster/group</b>
+
+    View details of the artifacts deployed in a cluster or group of Micro Integrator instances.
+
+-   <b>Identify the set of nodes where a specified artifact is deployed</b>
+
+    View set of nodes where each artifact is deployed.
 
 -   <b>Update deployed artifacts</b>
 
     You can activate/deactivate the following artifacts from the dashboard: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
 
-    You can enable/disable tracing and statistics for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
+    You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
 
--   <b>View and update logs</b>
+    NOTE : Cluster-wide updates are not available with the dashboard. When you update an artifact, only the specified instance will be updated.
 
-    You can view the log files generated for the Micro Integrator, download the log files, and also update loggers and log levels.
+-   <b>View logs</b>
+
+    You can view the log files generated for each Micro Integrator instance of the cluster/group.
+
+-   <b>View, update and add loggers</b>
+
+    This page can be accessed by users with admin rights only. You can view log config information of each instance and update the log level. You can update the log levels on a single node or apply the change on entire cluster/group as well. Furthermore you can add new loggers, which will be applied to entire cluster/group.
 
 -   <b>Manage users</b>
 
-    You can view details of users stored in the [external user store](../../setup/user_stores/managing_users). If you are logged in to the dashboard with administrator credentials, you can also add new users, and remove users from the user store.
+    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store](../../setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
 
-You can refer to the following video to get a quick understanding of how this is done.
+[comment]: <> (You can refer to the following video to get a quick understanding of how this is done.)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WxcHkJVOgOU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[comment]: <> (<iframe width="560" height="315" src="https://www.youtube.com/embed/WxcHkJVOgOU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
 
 ## Setting up the Dashboard
 
@@ -49,6 +66,52 @@ You can refer to the following video to get a quick understanding of how this is
 	    </tr>
 	</table>
 
+Before starting the micro integrator add following configurations to `deployment.toml` file stored in the `<MI_HOME>/conf/` directory.
+
+```toml
+[dashboard_config]
+dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+heartbeat_interval = 15
+group_id = "mi_dev"
+node_id = "dev_node_2"
+```
+
+<table>
+    <tr>
+        <th>
+            dashboard_url
+        </th>
+        <td>
+            This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            heartbeat_interval
+        </th>
+        <td>
+            The time interval between two heartbeats from Micro Integrator to Dashboard Server.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            group_id
+        </th>
+        <td>
+            This is not a mandatory field. In a clustered set up the group id should be same in all Micro Integrator Instances. 
+            The dashboard will only view information of one group at a time. By default the group_id is set to `default`. 
+        </td>
+    </tr>
+    <tr>
+        <th>
+            node_id
+        </th>
+        <td>
+            This is not a mandatory field. By default, in a clustered set up the relevant node_id will be set. For non-clustered setup, a random uuid will be used if node_id is not set in configurations.
+        </td>
+    </tr>
+</table> 
+
 -	Set up the [Micro Integrator user store](../../setup/user_stores/setting_up_a_userstore).
 
 	!!! Tip
@@ -68,7 +131,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
 1.  Copy the following dashboard URL to your browser:
 
     ```bash
-    https://localhost:9743/dashboard/login
+    https://localhost:9743/login
     ```
 
 2.  Enter the following details to sign in.
@@ -78,27 +141,11 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
     <table>
         <tr>
             <th>
-                Host
-            </th>
-            <td>
-                The host name for the running Micro Integrator instance. The default hostname is <b>localhost</b>.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Port
-            </th>
-            <td>
-                The port exposing the management API of your running Micro Integrator instance. The default HTTPS port is <b>9164</b>.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                User
+                Username
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid user name that is saved in the Micro Integrator server's user store. See <a href="../../setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="../../setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>
@@ -106,32 +153,38 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
                 Password
             </th>
             <td>
-                The password of the user name.
+                The password of the username.
             </td>
         </tr>
     </table> 
 
-    !!! Warning
+3.  Click <b>Sign In</b>.
 
-        - In a non-production environment (with the self-signed certificate), you have to add the certificate of the micro integrator instance to the browser as a trusted source. For example, direct the browser to `https://localhost:9164/management` and add the site as trusted. This step will not be required with a custom production certificate.
-        - We have identified issues with the Microsoft Edge browser, which prompts trusting the management URL (with the self-signed certificate) in a loop. Please try trusting the management URL in the same tab if you face this issue. If the issue still persists, consider switching the browser.
-
-3.  Click <b>SIGN IN</b>.
-
-You are redirected to the home page of the Micro Integrator dashboard.
+You are redirected to the home page of the Micro Integrator dashboard. 
      
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="700">
 
 ## Using the Dashboard
 
-Once you sign in to the dashboard, you can view details of artifacts, update artifact, and perform various other administration tasks. Select the required option from the left-hand navigator.
+On top you can select the group id you want to view.  
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png">
+
+You can get the set of nodes in each group as displayed in above diagram.
+
+Click on a node id, a side navigational panel will be opened with server information.
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png">
+
+Select the set of nodes you want to monitor as shown in the below figure.
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png">
+
+Now you can view details of artifacts, update artifact, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png">
 
 <!--
 ### Proxy Services
 
-Select this option to manage proxy services deployed in the Micro Integrator instance.
+Select this option to manage proxy services deployed in the environment.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-proxy-service-1.png">
 
