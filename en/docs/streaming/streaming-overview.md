@@ -1,6 +1,6 @@
 # Streaming Overview
 
-WSO2 API Manager 4.0.0 is shipped with a streaming runtime (Streaming Integrator) that enables the API manager to consume and publish API requests in an asynchronous manner as well as perform a range of streaming activities. 
+Streaming Integrator component integrates streaming data sources such as Kafka, IBM MQ and exposes the streams as Websocket, Webhooks, and SSE APIs in API Manager. The applications can connect to the streaming endpoints deployed in the streaming integrator via the API Manager to consume and publish data to the underlying streaming platforms.
 
 ## Get Started with Streaming
 
