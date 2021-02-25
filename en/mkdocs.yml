@@ -1477,6 +1477,7 @@ nav:
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
+              - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md

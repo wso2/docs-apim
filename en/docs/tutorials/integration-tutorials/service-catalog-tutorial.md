@@ -1,8 +1,8 @@
-# Publishing a sample API to Service Catalog
+# Exposing an Integration Service as a Managed API
 
 ## What you'll build
 
-In this tutorial we are re-creating the healthcare API we created in the [Sending a Simple Message to a Service](../sending-a-simple-message-to-a-service) tutorial, and publish that to the Service Catalog.
+In this tutorial we are re-creating the healthcare API we created in the [Sending a Simple Message to a Service]({{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service) tutorial, and publish that to the Service Catalog.
 
 ## Let's get started!
 
@@ -52,8 +52,8 @@ Once the **HealthcareAPI** is created, two new files with following names will b
 
 Open the HealthcareAPI_metadata.yaml and do the following changes.
 
-1.  Change the **description** to explain what the API does. ( Ex API to fetch doctors of a given category )
-2.  Change serviceUrl from https to http. ( since HealthcareAPI is not secured )
+1.  Change the **description** to explain what the API does. (e.g., API to fetch doctors of a given category).
+2.  Change `serviceUrl` from HTTPS to HTTP (since HealthcareAPI is not secured).
 
 <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/edit-metadata-service-catalog.PNG">
 
@@ -63,13 +63,13 @@ variables.
 
 We can configure the serviceUrl in following ways.
 
-1.  Add the complete URL without parameters. Ex: http://localhost:8290/healthcare
-2.  Parameterize using the host and port combination. Ex: http://{host}:{port}/healthcare
-3.  Parameterize using a pre-configured URL. Ex: http://{url}/healthcare
+1.  Add the complete URL without parameters. e.g.: http://localhost:8290/healthcare
+2.  Parameterize using the host and port combination. e.g.: http://{host}:{port}/healthcare
+3.  Parameterize using a pre-configured URL. e.g.: http://{url}/healthcare
 
 We will configure the environment variables to resolve {host} and {port} configurations in an upcoming step. 
 
-Please [refer](link) to get more information on the other fields in the metadata YAML file.
+Please refer this [documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/) to get more information on the other fields in the metadata YAML file.
 
 ### Step 3: Package artifacts and testing
 
@@ -209,4 +209,4 @@ You will get the response message from the HealthcareService, if you send the c
 Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
 `INFO - LogMediator message = "Welcome to HealthcareService"`
 
-You have now created and deployed an API in API Manager which exposes the integration service created in the Micro Integrator, which receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
+You have now created and deployed an API in API Manager that exposes the integration service created in the Micro Integrator. This receives requests, logs a message using the Log mediator, sends the request to a back-end service using the Send mediator, and returns a response to the requesting client.
