@@ -1,6 +1,6 @@
 # Managing Microgateways
 
-WSO2 API Controller, **apictl** can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager.
+WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager (WSO2 API-M).
 
 - Deploy an API
 - View the list of deployed APIs
@@ -11,7 +11,7 @@ WSO2 API Controller, **apictl** can be used as a developer CLI tool for Microgat
 
     -  Download the Microgateway distribution from the [github release page's](https://github.com/wso2/product-microgateway/releases) and follow the Quick Start Guide attached with the release.
 
-    -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). Following the guide upto [Check the version of the CTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-ctl) will be suffecient to continue. 
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). Following the guide upto [Check the version of the CTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-ctl) will be sufficient to continue. 
 
 
 ## Add a Microgateway Environment
@@ -41,23 +41,25 @@ Once you have added a microgateway environment, and logged in, other commands su
 Log in will get an access token from the microgateway adapter and store it for further commands.
 
 -   **Command**
-    ```go
+    ```bash
     apictl mg login <environment-name> -k
     ```
-    ```go
+    ```bash
     apictl mg login <environment-name> -u <username> -k
     ```
-    ```go
+    ```bash
     apictl mg login <environment-name> -u <username> -p <password> -k
-    ```
-    ```go
-    cat <file-with-the-password> | apictl mg login <environment-name> -u <username> --password-stdin -k
     ``` 
 
     !!! tip
         If you run `apictl mg login <environment-name>` you are prompted to provide both the username and the password.
         If you run `apictl mg login <environment-name> --username <username>`, you are prompted to provide the password.
-        If you include the flag `--password-stdin`, you can provide the password in a file as shown above.
+        If you include the flag `--password-stdin`, you can provide the password in a file as well. For an example,
+
+        ```bash
+        cat <file-with-the-password> | apictl mg login <environment-name> -u <username> --password-stdin -k
+        ```
+
 
     !!! info
         **Flags:**
@@ -95,7 +97,7 @@ Log in will get an access token from the microgateway adapter and store it for f
 
 ## Deploy an API
 
-In order to deploy, let's first create an API project. Follow the steps in [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project) to create an API project using **apictl**.
+In order to deploy, let us first create an API project. Follow the steps in [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project) to create an API project using **apictl**.
 
 An API project can be deployed to a microgateway using the following commands.
 
@@ -108,12 +110,12 @@ An API project can be deployed to a microgateway using the following commands.
     ```
 
     !!! tip
-        In an API project the API name and the API version given in the api.yaml will be taken as the name and version of the API once deployed.
+        In an API project the API name and the API version given in the `api.yaml` will be taken as the name and version of the API once deployed.
 
     !!! tip
         When trying to deploy, if an API with the same name, version, virtual host combination already exists in the microgateway adapter, an error response will be given saying that the API already exists.
 
-        In order to override the existing API or deploy an API without considering whether it already exists or not, include the flag --override or its shorthand -o to the same command above. For an example,
+        In order to override the existing API or deploy an API without considering whether it already exists or not, include the flag `--override` or its shorthand `-o` to the same command above. For an example,
         ```bash
         apictl mg deploy api -e dev -f petstore -o -k
         ```  
@@ -141,6 +143,7 @@ An API project can be deployed to a microgateway using the following commands.
         ```
         ```bash
         apictl mg deploy api -e dev -f petstore -o --skip-cleanup -k
+        ```
 
 -   **Response**
 
@@ -163,13 +166,13 @@ An API project can be deployed to a microgateway using the following commands.
     apictl mg get apis -e <environment-name> -k
     ```
     !!! tip
-        By default, the number of APIs listed will be limited to 25. To increase or decrease the limit set the flag --limit. For an example,
+        By default, the number of APIs listed will be limited to 25. To increase or decrease the limit set the flag `--limit` or its shorthand flag `-l`. For an example,
         ```bash
         apictl mg get apis -e dev --limit 100 -k
         ```
 
     !!! tip
-        Currently, these APIs can be filtered by API type. The supported types are http and ws (web socket). Use the flag --query to filter APIs.
+        Currently, these APIs can be filtered by API type. The supported types are http and ws (web socket). Use the flag `--query` or its shorthand flag `-q` to filter APIs.
         ```bash
         apictl mg get apis -e dev --query type:http -k
         ```
@@ -247,7 +250,7 @@ This lets you remove an API from the microgateway.
 
 ## Log out from a Microgateway Environment
 
-This will erase the access token of the microgateway adapter from the API Controller (apictl).
+This will erase the access token of the microgateway adapter from apictl.
 
 -   **Command**
     ```bash
@@ -270,7 +273,7 @@ This will erase the access token of the microgateway adapter from the API Contro
 
 ## Remove a Microgateway Environment
 
-This will delete the adapter url and its access token first, and then remove the microgateway environment from the API Controller (apictl).
+This will delete the adapter url and its access token first, and then remove the microgateway environment from apictl.
 
 -   **Command**
     ```bash
