@@ -607,7 +607,7 @@ After editing the mandatory fields in the API Project, you can import the API to
         When using the `--update` flag with the `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
        
 -   **Response**
     ``` bash

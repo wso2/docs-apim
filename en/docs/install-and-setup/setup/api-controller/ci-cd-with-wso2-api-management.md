@@ -69,7 +69,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
     For more information, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
     
     !!!note
-        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
+        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
 
 <a name="B"></a>
 ### (B.) - Create and Publish an API in a lower environment
@@ -127,7 +127,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
      For more information, see [Export an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#export-an-api).
 
     !!!note
-        `apictl export-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
+        `apictl export-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
 
 3.  Extract the content (API will be exported as an archive to the 
 `<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
@@ -335,7 +335,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 
         - For more information on importing an API to an environment, see [Import an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#import-an-api).
         
-        - `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        - `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
     The above command will detect the target environment and provision the API to it.
 
@@ -400,7 +400,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
         - You can override the given token endpoint or the default token endpoint using the `--token` (`-t`) optional flag together with the new token endpoint.
 
-        - `apictl get-keys` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
+        - `apictl get-keys` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
@@ -501,7 +501,7 @@ Let's assume that the **PetsApp** application is in the development environment 
     ```
 
     !!!note
-        `apictl export-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
+        `apictl export-app` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
 2.  Extract the exported Application Project.
 3.  Commit the project to the same git repository.

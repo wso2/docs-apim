@@ -72,7 +72,7 @@ You can export an application in the Developer Portal and download it as a zippe
             ```     
 
         !!!note
-            `apictl export-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
+            `apictl export-app` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
     -   **Response**
 
@@ -157,7 +157,7 @@ You can import an application to your environment as a zipped application. When 
             If your file path is `/Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip.`, then you need to enter `dev/admin_SampleApp.zip` as the value for `--file` flag.
 
         !!!note
-            `apictl import-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import app` as shown above.
+            `apictl import-app` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import app` as shown above.
 
     -   **Response**
         ``` bash
