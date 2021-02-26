@@ -345,7 +345,6 @@ nav:
                 - Creating a Reusable Sequence: integrate/develop/creating-artifacts/creating-reusable-sequences.md
                 - Creating a Registry Resource: integrate/develop/creating-artifacts/creating-registry-resources.md
                 - Creating Local Registry Entries: integrate/develop/creating-artifacts/registry/creating-local-registry-entries.md
-                - Creating a Smooks Configuration: integrate/develop/creating-artifacts/creating-smooks-artifacts.md
                 - Creating a Data Service: integrate/develop/creating-artifacts/data-services/creating-data-services.md
                 - Creating a Datasource: integrate/develop/creating-artifacts/data-services/creating-datasources.md
                 - Creating a Data Service Input Validator: integrate/develop/creating-artifacts/data-services/creating-input-validators.md
