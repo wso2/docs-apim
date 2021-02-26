@@ -33,7 +33,7 @@ Let's get started...
 3.  Let's create a namespace and install K8s API Operator by executing the following command.
     ```bash
     kubectl create ns wso2-system;
-    kubectl apply -n wso2-system -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-m3/api-operator-configs.yaml
+    kubectl apply -n wso2-system -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-alpha/api-operator-configs.yaml
     ```
 
 ### Step 2 - Create and deploy an API project
@@ -41,34 +41,25 @@ Let's get started...
 Let's create our first project with the name "petstore" by adding the
 [open API definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  First we need to create a Kubernetes ConfigMap with the swagger definition.
-
+1.  Download the api controller (apictl) and the microgateway distribution from the 
+    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-m3) assets and 
+    extract them to a folder of your choice.
     ```bash
-    kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
+    export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
     ```
 
-    !!! note
-        You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
+    ```bash
+    apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+    ```
 
-        Download the api controller (apictl) and the microgateway distribution from the 
-        [github release page's](https://github.com/wso2/product-microgateway/releases) assets and 
-        extract them to a folder of your choice.
-        ```bash
-        export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
-        ```
+    The project is now initialized. You should notice a directory with the name "petstore" being created in the location 
+    where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
+    You can also use this Kubernetes configmap to deploy APIs.
 
-        ```bash
-        apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
-        ```
-
-        The project is now initialized. You should notice a directory with the name "petstore" being created in the location 
-        where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
-        You can also use this Kubernetes configmap to deploy APIs.
-
-        ```bash
-        zip -r petstore.zip petstore/
-        kubectl create cm petstore-cm --from-file petstore.zip
-        ```
+    ```bash
+    zip -r petstore.zip petstore/
+    kubectl create cm petstore-cm --from-file petstore.zip
+    ```
 
 2.  Now let's deploy our first API by creating an API resource in Kubernetes.
 
@@ -86,7 +77,7 @@ Let's create our first project with the name "petstore" by adding the
     Or else execute the following command
 
     ```bash
-    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-m3/scenarios/scenario-2/petstore-api.yaml
+    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-alpha/scenarios/scenario-2/petstore-api.yaml
     ```
 
 ### Step 3 - Invoke the API
