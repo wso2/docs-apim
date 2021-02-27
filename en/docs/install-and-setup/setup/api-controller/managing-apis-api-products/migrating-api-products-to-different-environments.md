@@ -25,14 +25,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export api-product -n <API Product-name> -r <provider> -e <environment>  
+        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment>  
         ``` 
         ```go
         apictl export api-product --name <API Product-name> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> -r <provider> -e <environment> --format <export-format>  
+        apictl export api-product -n <API Product-name> --rev <revision-number> -r <provider> -e <environment> --format <export-format>  
         ``` 
 
         !!! info
@@ -41,8 +41,10 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported      
                 `--environment` or `-e` : Environment from which the API Product should be exported  
-            -    Optional :      
-                `--provider` or `-r` : Provider of the API Product    
+            -    Optional :   
+                `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
+                `--provider` or `-r` : Provider of the API Product.    
+                `--latest` : Export the latest revision of the API Product.   
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
@@ -50,7 +52,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             apictl export api-product -n LeasingAPIProduct -e dev 
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct -r admin -e production --format JSON 
+            apictl export api-product -n CreditAPIProduct --rev 2 -r admin -e production --format JSON 
             ```            
 
     -   **Response**
@@ -70,6 +72,7 @@ The exported ZIP file has the following structure:
 ``` java
 <APIProductName>-version
 ├── api.yaml
+├── deployment_environments.yaml
 ├── Client-certificates
 │   ├── Alias1.crt
 │   ├── Alias2.crt
@@ -110,6 +113,26 @@ The structure of an exported API Product ZIP file is explained below:
         <tr class="odd">
             <td><code>api.yaml</code></td>
             <td>Contains all the basic information required for an API Product to be imported to another environment.</td>
+        </tr>
+        <tr class="even">
+            <td><code>deployment_environments.yaml</code></td>
+            <td>If the exported revision is published in one or more gateway environments, this file will contain the 
+                deployed gateways.
+            <pre><code>
+type: deployment_environments
+version: v4
+data:
+ -
+   displayOnDevportal: true
+   deploymentEnvironment: Production and Sandbox
+ -
+   displayOnDevportal: true  
+   deploymentEnvironment: Label1  
+ -
+   displayOnDevportal: false  
+   deploymentEnvironment: Label2  
+            </code></pre>
+            </td>
         </tr>
         <tr class="even">
             <td>APIs</td>
@@ -187,7 +210,10 @@ data:
 
 ### Import an API Product
 
-You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API Product, you can either **deploy the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.
+You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API Product, you can either **create the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.
+If the API Product archive contains information about deployment environments in the deployment_environments.yaml file, 
+once the API Product is successfully created or updated, a **new revision will be created** and that revision will be deployed in the
+mentioned gateway environments. If the **deployment environments are not provided, only the working copy will be updated**.  
 
 1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
@@ -213,7 +239,7 @@ You can use the API Product archive exported from the previous section (or you c
         apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skipCleanup=<skip-cleanup> 
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skipCleanup=<skip-cleanup> --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -224,6 +250,8 @@ You can use the API Product archive exported from the previous section (or you c
                 `--environment` or `-e` : Environment to which the API Product should be exported.  
             -   Optional :  
                 `--preserve-provider` : Preserve existing provider of API Product after importing. Default value is `true`.  
+                `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
+                `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API Product.  
                 `--import-apis` : Import depedent APIs to the environment along with the API Product. Default value is `false`.  
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
@@ -234,13 +262,13 @@ You can use the API Product archive exported from the previous section (or you c
             apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production  --import-apis=true
             ```
             ```bash
-            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production 
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --rotate-revision
             ```
             ```bash
             apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production 
             ``` 
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true 
+            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true --rotate-revision
             ``` 
             ```bash
             apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-api-product=true 
@@ -252,7 +280,7 @@ You can use the API Product archive exported from the previous section (or you c
             If your file path is `/Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip.`, then you need to enter `dev/LeasingAPIProduct_1.0.0.zip` as the value for `--file` or `-f` flag.
 
         !!! tip
-            You do not need to set `--import-apis` flag to true if the depedent APIs are already inside the environment. So that, the tool will try only to import the API Product.
+            You do not need to set `--import-apis` flag to true if the dependent APIs are already inside the environment. So that, the tool will try only to import the API Product.
 
         !!! tip
             If you set `--update-apis` flag to true, it will make `--update-api-product` flag true as well.
@@ -266,6 +294,25 @@ You can use the API Product archive exported from the previous section (or you c
         ``` bash
         Successfully imported API Product!
         ```
+
+    
+    !!! note
+        **Changes to the import command with the revision support for API Products**  
+        
+        - Since APIM v4.0.0, you have to create a new revision in order to deploy both APIs and API Products in an 
+            gateway environment and **only a revision can be deployed in a gateway environment**.
+        - With the import command of the CTL, if the API Product project has specified the deployment environments, import 
+            will first **update the working copy of the API Product and dependent APIs**.
+        - If the number of revisions created for that API Product **does not exceed the max revision limit of 5**, a new revision
+            of that API Product will be created and that revision will be deployed in the specified gateway environments.
+        - If the max revision numbers is reached, imported API Product will **only update the working copy** and not be deployed 
+            in the specified gateway environments.
+        - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
+            operation will **delete the earliest revision for that API Product and create a new revision**. This new revision will be
+            deployed in the specified gateway environments.  
+        - If dependent APIs also imported with the Product, a revision for the APIs will be created as well and 
+            they will be deployed in the parent API Product's deployment environments.
+            
 
     !!! note
         **Preserving Provider while Importing API Product**  
