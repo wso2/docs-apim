@@ -548,6 +548,15 @@ nav:
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
                 - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
                 - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Develop Your First Streaming Solution:
+                    - Overview: streaming/getting-started/getting-started-guide-overview.md
+                    - Step 1 Download Streaming Integrator and Dependencies: streaming/getting-started/download-install-and-start-si.md
+                    - Step 2 Create the Siddhi Application: streaming/getting-started/create-the-siddhi-application.md
+                    - Step 3 Deploy the Siddhi Application: streaming/getting-started/deploy-siddhi-application.md
+                    - Step 4 Run the Siddhi Application: streaming/getting-started/test-siddhi-application.md
+                    - Step 5 Update the Siddhi Application: streaming/getting-started/update-the-siddhi-application.md
+                    - Step 6 Handle Errors: streaming/getting-started/handle-errors.md
+                    - Step 7 Monitor Statistics: streaming/getting-started/monitor-statistics.md
                 - Streaming Integration REST API Guide:
                       - REST API Guide Overview: develop/streaming-apps/rest-api-guide-overview.md
                       - Siddhi Application Management APIs: develop/streaming-apps/siddhi-application-management-apis.md
