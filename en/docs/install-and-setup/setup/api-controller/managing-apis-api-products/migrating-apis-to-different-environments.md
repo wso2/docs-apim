@@ -47,8 +47,8 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
                 `--environment` or `-e` : Environment from which the API should be exported  
             -    Optional :  
                 `--rev` : Revision Number of the API. If not provided, working copy of the API will be exported.  
-                `--provider` or `-r` : Provider of the API   
-                `--latest` : Export the latest revision of the API.
+                `--provider` or `-r` : Provider of the API.   
+                `--latest` : Export the latest revision of the API.  
                 `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
@@ -341,7 +341,7 @@ You can use the below command to export all the APIs belong to the currently log
 ### Import an API
 
 You can use the API archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API, you can either **create the API as a new API** or **seamlessly update an existing API** in the environment with it. 
-If the API artifact contains information about deployment environments in the deployment_environments.yaml file, 
+If the API archive contains information about deployment environments in the deployment_environments.yaml file, 
 once the API is successfully created or updated, a **new revision will be created** and that revision will be deployed in the
 mentioned gateway environments. If the **deployment environments are not provided, only the working copy will be updated**.  
 
@@ -363,7 +363,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api --file <path-to-API-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -414,7 +414,7 @@ mentioned gateway environments. If the **deployment environments are not provide
             will first **update the working copy of the API**.
         - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
             of that API will be created and that revision will be deployed in the specified gateway environments.
-        - If the max revision numbers is reached, imported api will **only update the working copy** and not be deployed 
+        - If the max revision numbers is reached, imported API will **only update the working copy** and not be deployed 
             in the specified gateway environments.
         - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
             operation will **delete the earliest revision for that API and create a new revision**. This new revision will be
