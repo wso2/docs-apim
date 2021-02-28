@@ -1,37 +1,40 @@
 # Micro Integrator Dashboard
 
-The Micro Integrator dashboard provides the capability to monitor multiple MI instances grouped together. It provides a
-graphical view of the synapse artifacts that are deployed in a specified cluster/group of Micro Integrator server 
-instances. You can also perform various management and administration tasks using the dashboard. The 
-dashboard communicates with the management API of the specified Micro Integrator instances to function. 
+The Micro Integrator (MI) dashboard monitors the MI instances in a deployment. This can be a single MI instance or multiple MI instances in a group (cluster). It provides a graphical view of the integration artifacts that are deployed in the MI instances. You can also perform various management 
+and administration tasks using the dashboard. 
+
+The dashboard communicates with the management APIs of each Micro Integrator instance in the group (cluster) to get and manipulate data.
+
+## Capabilities of the MI dashboard
 
 You can use the dashboard to perform the following administration tasks related to your Micro Integrator deployment:
 
--   <b>View set of nodes deployed in a cluster/group</b>
+-   <b>View the MI servers in the deployment</b>
 
-    View each node's basic runtime information.
+    View basic information of each server node.
 
--   <b>View deployed artifacts in a particular cluster/group</b>
+-   <b>View integration artifacts deployed in a group</b>
 
     View details of the artifacts deployed in a cluster or group of Micro Integrator instances.
 
--   <b>Identify the set of nodes where a specified artifact is deployed</b>
+-   <b>Identify the MI servers where a specified artifact is deployed</b>
 
-    View set of nodes where each artifact is deployed.
+    View the MI server instances where each artifact is deployed.
 
 -   <b>Update deployed artifacts</b>
+
+    !!! Note
+        When you update an artifact, only the specified MI instance will be updated. Cluster-wide updates are not available with the dashboard.
 
     You can activate/deactivate the following artifacts from the dashboard: <i>Proxy Services</i>, <i>Endpoints</i>, and <i>Message Processors</i>.
 
     You can enable/disable tracing for the following artifacts: <i>Proxy Services</i>, <i>Endpoints</i>, <i>APIs</i> <i>Sequences</i> and <i>Inbound Endpoints</i>.
 
-    NOTE : Cluster-wide updates are not available with the dashboard. When you update an artifact, only the specified instance will be updated.
-
 -   <b>View logs</b>
 
     You can view the log files generated for each Micro Integrator instance of the cluster/group.
 
--   <b>View, update and add loggers</b>
+-   <b>View, update, and add loggers</b>
 
     This page can be accessed by users with admin rights only. You can view log config information of each instance and update the log level. You can update the log levels on a single node or apply the change on entire cluster/group as well. Furthermore you can add new loggers, which will be applied to entire cluster/group.
 
@@ -43,85 +46,97 @@ You can use the dashboard to perform the following administration tasks related 
 
 [comment]: <> (<iframe width="560" height="315" src="https://www.youtube.com/embed/WxcHkJVOgOU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
 
-## Setting up the Dashboard
+## Before you begin
 
--	See the following topics in the installation guide for instructions on how to install and set up the Micro Integrator and the Dashboard:
-
-	<table>
-	    <tr>
-	        <td>
-	            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
-	        </td>
-	        <td>
-	            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
-	        </td>
-	    </tr>
-	    <tr>
-	        <td>
-	            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
-	        </td>
-	        <td>
-	            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashabord.
-	        </td>
-	    </tr>
-	</table>
-
-Before starting the micro integrator add following configurations to `deployment.toml` file stored in the `<MI_HOME>/conf/` directory.
-
-```toml
-[dashboard_config]
-dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-heartbeat_interval = 15
-group_id = "mi_dev"
-node_id = "dev_node_2"
-```
+See the following topics to install the MI server and dashboard.
 
 <table>
     <tr>
-        <th>
-            dashboard_url
-        </th>
         <td>
-            This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
         </td>
+<!--
+        <td>
+            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
+        </td>
+-->
     </tr>
     <tr>
-        <th>
-            heartbeat_interval
-        </th>
         <td>
-            The time interval between two heartbeats from Micro Integrator to Dashboard Server.
+            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
         </td>
-    </tr>
-    <tr>
-        <th>
-            group_id
-        </th>
+<!--
         <td>
-            This is not a mandatory field. In a clustered set up the group id should be same in all Micro Integrator Instances. 
-            The dashboard will only view information of one group at a time. By default the group_id is set to `default`. 
+            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashabord.
         </td>
+-->
     </tr>
-    <tr>
-        <th>
-            node_id
-        </th>
-        <td>
-            This is not a mandatory field. By default, in a clustered set up the relevant node_id will be set. For non-clustered setup, a random uuid will be used if node_id is not set in configurations.
-        </td>
-    </tr>
-</table> 
+</table>
+
+##  Configure the MI servers
+
+-   To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
+
+    ```toml
+    [dashboard_config]
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    heartbeat_interval = 15
+    group_id = "mi_dev"
+    node_id = "dev_node_2"
+    ```
+
+    <table>
+        <tr>
+            <th>
+                dashboard_url
+            </th>
+            <td>
+                This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                heartbeat_interval
+            </th>
+            <td>
+                The time interval between two heartbeats from Micro Integrator to Dashboard Server.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                group_id
+            </th>
+            <td>
+                This is not a mandatory field. In a clustered set up the group id should be same in all Micro Integrator Instances. 
+                The dashboard will only view information of one group at a time. By default the group_id is set to `default`. 
+            </td>
+        </tr>
+        <tr>
+            <th>
+                node_id
+            </th>
+            <td>
+                This is not a mandatory field. By default, in a clustered set up the relevant node_id will be set. For non-clustered setup, a random uuid will be used if node_id is not set in configurations.
+            </td>
+        </tr>
+    </table> 
 
 -	Set up the [Micro Integrator user store](../../setup/user_stores/setting_up_a_userstore).
 
-	!!! Tip
-		Note the following about your user store configurations.
+    !!! Tip
+        Note the following about your user store configurations.
 
-		-	The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-		-	[User management](../../setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-		-	If you have an [external RDBMS user store](../../setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
+        -	The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
+        -	[User management](../../setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -	If you have an [external RDBMS user store](../../setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-## Signing in to the Dashboard
+##  Start the Micro Integrator servers
+
+[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
+
+##  Start the MI dashboard
+
+##  Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
 
