@@ -95,6 +95,7 @@ The streaming tutorials walk you through the main capabilities and features of W
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling">Creating an ETL Application via SI Tooling</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/working-with-kafka">Working with Kafka</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates">Working with Business Rules</a></li>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/async-api-spec-generation-and-publishing-to-service-catalogue">Async API Specification generation and publishing to service catalogue</a></li>
             </ul>
         </td>
         <td>
