@@ -137,7 +137,7 @@ The integration tutorials will walk you through the main capabilities and featur
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
                 <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Sending Emails from an Integration Service</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Publishing API to Service Catalog</a></li>
+                <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a></li>
             </ul>
         </td>
     </tr>
