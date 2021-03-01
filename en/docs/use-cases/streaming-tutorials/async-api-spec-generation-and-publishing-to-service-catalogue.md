@@ -15,11 +15,11 @@ This tutorial demonstrates how to use the WSO2 SI Tooling to Generate an Async A
 
 In this example, you are generating an Async API for the websocket-server source.
 
-    `
+    ```
     @source(type='websocket-server',host = "localhost",port = "8025",keystore.path = "/user/ramindu/wso2carbon.jks",
         @map(type='xml'))
     define stream SweetProductionStream (name string,amount double);
-    `
+    ```
 
 Navigate to http://localhost:9390/editor and create a new Siddhi application and copy-paste following application to it and save.    
 
