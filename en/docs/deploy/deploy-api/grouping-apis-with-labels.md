@@ -1,15 +1,6 @@
-# Grouping APIs with Microgateway Labels
+# Grouping APIs with Virtual Hosts
 
-If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/) distribution for a group of APIs. Therefore, if you need to group APIs in order to import it later into the WSO2 Microgateway, you need to create a Microgateway label and add the label to the respective APIs that belong to the group.
-
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on WSO2 API Microgateway, see <a href="https://mg.docs.wso2.com/en/3.2.0/">API Microgateway Documentation</a>.</p>
-</div> 
-</html>
-
-## Step 1 - Create a Microgateway label
+## Step 1 - Create an Environmetn and a Virtual Host
 
 1.  Sign in to the Admin Portal.
      
@@ -19,37 +10,38 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
      Let's use `admin` as your username and password to sign in.
 
-2.  Add a new Microgateway label.
+2.  Add a new Gateway Environment.
 
-     1. Click **Gateways**, and then click **Add Gateway Label**.
+     1. Click **Gateways**, and then click **Add Gateway Environment**.
+         [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)
 
-         [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)
+         Environments configured in `<APIM-HOME>/repository/conf/deployment.toml` also can be viewed in this page and they are on read only mode
+         while the server is running. Virtual hosts can be configured for these environments with adding the configuration
+         `apim.gateway.environment.virtual_host` for the environment configured with `apim.gateway.environment` in the 
+         `<APIM-HOME>/repository/conf/deployment.toml` as follows.
 
-     2. Enter a name, which will be used as the Microgateway label and a host.
+         ```toml
+          [[apim.gateway.environment]]
+          name = "Production and Sandbox"
+          ...
+          [[apim.gateway.environment.virtual_host]]
+          ws_endpoint = "ws://mg.wso2.com:9099"
+          wss_endpoint = "wss://mg.wso2.com:8099"
+          http_endpoint = "http://mg.wso2.com/gateway"
+          https_endpoint = "https://mg.wso2.com/gateway"
+         ```
 
-        <table>
-        <tr>
-        <td>Label
-        </td>
-        <td>
-        MARKETING_STORE
-        </td>
-        </tr>
-        <tr>
-        <td>Host
-        </td>
-        <td><code>https://localhost:9095</code>
-        </td>
-        </tr>
-        </table>
-     
-     3. Optionally, to add multiple hosts click **Add Host** and add another host.
+     2. Enter a name, display name, descriptin and a virtual host.
 
-     4. Click **Save**.
+          | Environment | Display Name | Description                               | Virtual Host |
+          |-------------|--------------|-------------------------------------------|--------------|
+          | us-region   | US Region    | Gateway environment deployed in US region | us.wso2.com  |
 
-         [![Add a Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label.png)]({{base_path}}/assets/img/learn/add-microgateway-label.png)
+          <a href="{{base_path}}/assets/img/learn/add-gateway-environment.png"><img src="{{base_path}}/assets/img/learn/add-gateway-environment.png" alt="Add a Gateway Environment" title="Add a Gateway Environment" width="500px" /></a>
 
-## Step 2 - Assign the Microgateway label to an API
+          Add another virtual host `foods.com` by clicking **New VHost** and save the environment by clicking **Save** button.
+
+## Step 2 - Assign the Virtual Host to an API
 
 <html>
 <div class="admonition note">
@@ -72,17 +64,17 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
      [![Edit the API]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
 
-4.  Click **Environments**.
+4.  Click **Deployments**.
 
-5.  Select the newly created Microgateway label.
+5.  Select the newly created Gateway environment, Virtual Host and a Revision (create a new revision if there are no revisions).
 
-     [![Microgateway label in the Publisher]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)
+     [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/learn/deploy-api-with-vhost.png)]({{base_path}}/assets/img/learn/deploy-api-with-vhost.png)
 
-6. Click **Save** to attach it to the Pizzashack API.
+6. Click **Deploy** to attach Virtual Host to the Pizzashack API.
    
-     Similarly, you can assign the `MARKETING_STORE` Microgateway label for other APIs as well.
+     Similarly, you can assign the same Virtual Host for other APIs as well.
 
-## Step 3 - View the Microgateway labels
+## Step 3 - View the Virtual Host
 
 1. Sign in to the Developer Portal using `admin` as the username and password.
 
@@ -94,6 +86,6 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 3. Click **Overview**.
 
-     The Microgateways, which are attached to the API, appear.
+     The Virtual Hosts, which are attached to the API, appear.
 
-     [![Microgateway label in the Developer Portal]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)
+     [![Virtual host in the Developer Portal]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)
