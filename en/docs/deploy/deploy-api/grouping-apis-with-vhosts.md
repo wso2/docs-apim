@@ -1,6 +1,10 @@
 # Grouping APIs with Virtual Hosts
 
-## Step 1 - Create an Environmetn and a Virtual Host
+Virtual hosts enables you to expose APIs using different host names while serving a gateway on a single server
+(or pool of servers). This enables publishers to group your APIs by selecting a virtual host. Application developers
+can access APIs by using the defined access URLs of the virtual host.
+
+## Step 1 - Create an Environment and a Virtual Host
 
 1.  Sign in to the Admin Portal.
      
@@ -15,10 +19,10 @@
      1. Click **Gateways**, and then click **Add Gateway Environment**.
          [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)
 
-         Environments configured in `<APIM-HOME>/repository/conf/deployment.toml` also can be viewed in this page and they are on read only mode
-         while the server is running. Virtual hosts can be configured for these environments with adding the configuration
-         `apim.gateway.environment.virtual_host` for the environment configured with `apim.gateway.environment` in the 
-         `<APIM-HOME>/repository/conf/deployment.toml` as follows.
+         Environments configured in `<APIM-HOME>/repository/conf/deployment.toml` are also displayed in this page with
+         read only mode while the server is running. Virtual hosts can be configured for these environments with adding
+         the configuration `apim.gateway.environment.virtual_host` for the environment configured with
+         `apim.gateway.environment` in the `<APIM-HOME>/repository/conf/deployment.toml` as follows.
 
          ```toml
           [[apim.gateway.environment]]
@@ -31,13 +35,16 @@
           https_endpoint = "https://mg.wso2.com/gateway"
          ```
 
-     2. Enter a name, display name, descriptin and a virtual host.
+     2. Enter a name, display name, description and a virtual host.
 
           | Environment | Display Name | Description                               | Virtual Host |
           |-------------|--------------|-------------------------------------------|--------------|
           | us-region   | US Region    | Gateway environment deployed in US region | us.wso2.com  |
 
-          <a href="{{base_path}}/assets/img/learn/add-gateway-environment.png"><img src="{{base_path}}/assets/img/learn/add-gateway-environment.png" alt="Add a Gateway Environment" title="Add a Gateway Environment" width="500px" /></a>
+          <a href="{{base_path}}/assets/img/learn/add-gateway-environment.png">
+              <img src="{{base_path}}/assets/img/learn/add-gateway-environment.png" alt="Add a Gateway Environment"
+              title="Add a Gateway Environment" width="500px" />
+          </a>
 
           Add another virtual host `foods.com` by clicking **New VHost** and save the environment by clicking **Save** button.
 
