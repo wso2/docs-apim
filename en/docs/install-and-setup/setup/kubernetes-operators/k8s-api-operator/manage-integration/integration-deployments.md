@@ -2,7 +2,9 @@
 
 The Kubernetes API operator (**k8s-api-operator**) provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the **Integration custom resource** (`integration_cr.yaml` file) that is available in the Kubernetes exporter module (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
 
-The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to disable the default Ingress controller and apply other configuration changes. 
+The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP/HTTPS protocols. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to update ingress controller configurations. Also, you can use the same file to disable ingress controller creation when applying the operator if you plan to use a custom ingress controller.
+                                                                                                                                                                                                                                                    
+
 
 ##  Prerequisites (system requirements)
 
@@ -26,7 +28,7 @@ Listed below are the system requirements for deploying integration solutions in 
 
 Given below are the main steps your will follow when you deploy integration solutions in a Kubernetes cluster.
 
-1.  Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [EI K8s operator](#install-the-ei-k8s-operator) is installed in your Kuberenetes environment.
+1.  Be sure that the [system requirements](#prerequisites-system-requirements) are fulfilled, and that the [K8s API operator](https://operatorhub.io/operator/api-operator) is installed in your Kubernetes environment.
 2.  Your integration solution should be prepared using **WSO2 Integration Studio** as follows:
 
     1. Create the integration solution.
@@ -40,11 +42,42 @@ Given below are the main steps your will follow when you deploy integration solu
     apiVersion: "wso2.com/v1alpha2"
     kind: "Integration"
     metadata:
-      name: "hello-world"
+      name: "sample-integration"
     spec:
       image: "<Docker image for the Hello World Scenario>" 
       deploySpec:
         minReplicas: 1
+        requestCPU: "500m"
+        reqMemory: "512Mi"
+        cpuLimit: "2000m"
+        memoryLimit: "2048Mi"
+      autoScale:
+        enabled: "true"
+        maxReplicas: 3
+      expose:
+        passthroPort: 8290
+        inboundPorts:
+          - 8000
+          - 9000
+          .....  
+      env:
+        - name: DEV_ENV_USER_EP
+          value: "https://reqres.in/api"
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: backend-user
+              key: backend-username
+        - name: CONFIGMAP_USERNAME
+          valueFrom:
+            configMapRef:
+              name: backend-map
+              key: backend-username
+      envFrom:
+        - configMapRef:
+            name: CONFIG_MAP_NAME
+        - secretKeyRef:
+            name: SECRET_NAME   
     ```
 
     <table>
@@ -77,7 +110,7 @@ Given below are the main steps your will follow when you deploy integration solu
             minReplicas
           </td>
           <td>
-              The number of pods that should be created in the Kubernetes cluster.
+              The minimim number of pods that should be created in the Kubernetes cluster. If not defined, the operator will get pick up what is defined at integration_controller_conf.yaml file as the default.
           </td>
       </tr>
       <tr>
@@ -86,6 +119,86 @@ Given below are the main steps your will follow when you deploy integration solu
         </td>
         <td>
           Specify the Docker image of your integration solution. If you are using a Docker image from a private registry, you need to push the deployment as a Kuberntes secret. Follow the instructions in <a href="#use-docker-images-from-private-registries">using a private registry image</a>.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          cpuLimit
+        </td>
+        <td>
+          Describes the maximum amount of compute resources allowed.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          requestCPU
+        </td>
+        <td>
+          Describes the minimum amount of compute resources required.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          memoryLimit
+        </td>
+        <td>
+          Describes the maximum amount of memory resources allowed.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          reqMemory
+        </td>
+        <td>
+          Describes the minimum amount of memory resources required.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          autoScale.enabled
+        </td>
+        <td>
+          Enable auto scale with hpa.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          maxReplicas
+        </td>
+        <td>
+          The maximum number of pods that should be created in the Kubernetes cluster. If not defined, the operator will get pick up what is defined at integration_controller_conf.yaml file as the default.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          passthroPort
+        </td>
+        <td>
+          Passthro port of the runtime server to be exposed.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          inboundPorts
+        </td>
+        <td>
+          Inbound endpoint ports of the runtime server to be exposed.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          env
+        </td>
+        <td>
+          Key-value pairs or value from references as environment variables.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          envFrom
+        </td>
+        <td>
+          Environment variables from ConfigMap or Secret references.
         </td>
       </tr>
     </table>
@@ -214,7 +327,7 @@ Once you have [deployed your integrations](#deploy-integration-solutions-in-k8s)
 
     NAME                               READY   STATUS    RESTARTS   AGE
     hello-deployment-c68cbd55d-j4vcr   1/1     Running   0          3m
-    k8s-ei-operator-6698d8f69d-6rfb6   1/1     Running   0          2d
+    k8s-api-operator-6698d8f69d-6rfb6   1/1     Running   0          2d
     ```
 
 2.  To view the logs of the associated pod, run the `kubectl logs <pod name>` command. This will print the output of the given pod ID.
@@ -242,20 +355,20 @@ Once you have [deployed your integrations](#deploy-integration-solutions-in-k8s)
 
     ```bash
     kubectl get ingress
-    NAME                  HOSTS                      ADDRESS     PORTS     AGE
+    NAME                   HOSTS                      ADDRESS     PORTS     AGE
     api-operator-ingress   wso2ei.ingress.wso2.com    10.0.2.15   80, 443   2m
     ```
     For **Minikube**, you have to use the Minikube IP as the external IP. Hence, run `minikube ip` command to get the IP of the Minikube cluster.
 
-2.  Add the **HOST** (`wso2ei`) and related **ADDRESS** (external IP) to the `/etc/hosts` file in your machine.
+2.  Add the **HOST** (`wso2ei.ingress.wso2.com`) and related **ADDRESS** (external IP) to the `/etc/hosts` file in your machine.
 
     !!! Tip
-        Note that the HOST of the Ingress controller is configured in the `deploy/config_map.yaml` file. The default host is `wso2ei`.
+        Note that the HOST of the Ingress controller is configured in the [integration_controller_conf.yaml](https://github.com/wso2/k8s-api-operator/blob/master/api-operator/deploy/controller-configs/integration_controller_conf.yaml) file. The default host is `wso2ei.ingress.wso2.com`.
 
 3.  Execute the following CURL command to run the `hello-world` service in Kubernetes:
 
     ```bash
-    curl http://wso2ei/hello-world-service/services/HelloWorld
+    curl http://wso2ei.ingress.wso2.com/hello-world-service/services/HelloWorld
     ```
 
     You will receive the following response:
@@ -290,7 +403,7 @@ Follow the steps given below:
 
 ## Update existing integration deployments
 
-The EI K8s operator allows you to update the Docker images used in Kubernetes pods(replicas) with the latest update of the tag. To pull the latest tag, we need to delete the associated pod with its pod ID as follows:
+The K8s API operator allows you to update the Docker images used in Kubernetes pods(replicas) with the latest update of the tag. To pull the latest tag, we need to delete the associated pod with its pod ID as follows:
 
 ```bash 
 kubectl delete pod <POD-NAME>
