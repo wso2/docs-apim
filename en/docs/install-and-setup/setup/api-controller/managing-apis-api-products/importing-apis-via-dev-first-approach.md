@@ -573,7 +573,7 @@ After editing the mandatory fields in the API Project, you can import the API to
     apictl import api -f <path to API Project> -e <environment> 
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> 
+    apictl import api --file <path to API Project> --environment <environment> --rotate-revision=<rotate-revision>
     ```
     ``` bash
     apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> 
@@ -586,6 +586,8 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--file` or `-f` : The file path of the API project to import.  
             `--environment` or `-e` : Environment to which the API should be imported.   
         -   Optional :  
+            `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.
+            `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API. 
             `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`. 
             `--update` : Update an existing API or create a new API in the importing environment.  
             `--params` : Provide a API Manager environment params file (The default file is `api_params.yaml`.).   
@@ -597,7 +599,7 @@ After editing the mandatory fields in the API Project, you can import the API to
         apictl import api -f ~/myapi -e production 
         ```
         ```bash
-        apictl import api --file ~/myapi --environment production 
+        apictl import api --file ~/myapi --environment production --rotate-revision
         ```    
         ``` go
         apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml  
@@ -605,6 +607,21 @@ After editing the mandatory fields in the API Project, you can import the API to
         
     !!! tip
         When using the `--update` flag with the `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
+        
+    !!! note
+        **Changes to the import command with the revision support for APIs**  
+        
+        - Since APIM v4.0.0, you have to create a new revision in order to deploy an API in an gateway environment and 
+            **only a revision can be deployed in a gateway environment**. 
+        - With the import command of the CTL, if the API project has specified the deployment environments, import 
+            will first **update the working copy of the API**.
+        - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
+            of that API will be created and that revision will be deployed in the specified gateway environments.
+        - If the max revision numbers is reached, imported API will **only update the working copy** and not be deployed 
+            in the specified gateway environments.
+        - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
+            operation will **delete the earliest revision for that API and create a new revision**. This new revision will be
+            deployed in the specified gateway environments.
 
     !!!note
         `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
