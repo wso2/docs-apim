@@ -91,7 +91,7 @@ See the following topics to install the MI server and dashboard.
                 dashboard_url
             </th>
             <td>
-                This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
+                <b>Required</b>. This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
             </td>
         </tr>
         <tr>
@@ -99,7 +99,7 @@ See the following topics to install the MI server and dashboard.
                 heartbeat_interval
             </th>
             <td>
-                The time interval between two heartbeats from Micro Integrator to Dashboard Server.
+                <b>Required</b>. The time interval between two heartbeats from Micro Integrator to Dashboard Server.
             </td>
         </tr>
         <tr>
@@ -107,8 +107,8 @@ See the following topics to install the MI server and dashboard.
                 group_id
             </th>
             <td>
-                This is not a mandatory field. In a clustered set up the group id should be same in all Micro Integrator Instances. 
-                The dashboard will only view information of one group at a time. By default the group_id is set to `default`. 
+                <b>Optional</b>. In a clustered deployment, the group ID should be same in all Micro Integrator Instances. 
+                The dashboard will only view information of one group at a time. By default, the group_id is set to `default`. 
             </td>
         </tr>
         <tr>
@@ -116,7 +116,7 @@ See the following topics to install the MI server and dashboard.
                 node_id
             </th>
             <td>
-                This is not a mandatory field. By default, in a clustered set up the relevant node_id will be set. For non-clustered setup, a random uuid will be used if node_id is not set in configurations.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant node_id will be set. In a non-clustered deployment, a random uuid will be used if node_id is not set for this configuration.
             </td>
         </tr>
     </table> 
@@ -130,11 +130,13 @@ See the following topics to install the MI server and dashboard.
         -	[User management](../../setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
         -	If you have an [external RDBMS user store](../../setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-##  Start the Micro Integrator servers
+##  Start the Micro Integrator
 
 [Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
 
-##  Start the MI dashboard
+##  Start the MI Dashboard
+
+[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer)
 
 ##  Sign in to the Dashboard
 
@@ -177,24 +179,29 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
 
 You are redirected to the home page of the Micro Integrator dashboard. 
      
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="700">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000">
 
 ## Using the Dashboard
 
-On top you can select the group id you want to view.  
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png">
+Follow the steps given below.
 
-You can get the set of nodes in each group as displayed in above diagram.
+1.  Select the group ID that you want to view from the upper left menu.  
+    
+    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" width="1000">
 
-Click on a node id, a side navigational panel will be opened with server information.
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png">
+    You can see the list of server nodes in each group as shown in the above diagram.
 
-Select the set of nodes you want to monitor as shown in the below figure.
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png">
+2.  Click a node ID, a side navigational panel open to display the server information.
+    
+    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000">
+
+3.  Select the set of nodes you want to monitor as shown in the below figure.
+    
+    <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000">
 
 Now you can view details of artifacts, update artifact, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png">
+<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300">
 
 <!--
 ### Proxy Services
