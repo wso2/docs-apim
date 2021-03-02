@@ -49,7 +49,19 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
             To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
 
-            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/enable-tenant-domain-in-local-sub-identifier.png)]({{base_path}}/assets/img/setup-and-install/enable-tenant-domain-in-local-sub-identifier.png)
+            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
+
+        !!! Note "Options available for **Local & Outbound Authentication Configuration** "
+            
+            -   **Assert identity using mapped local subject identifier** :
+                Select this to use the local subject identifier when asserting the identity.
+                Note that it is **mandatory** to enable the above option to authorize scopes for provisioned federated users. 
+            -   **Always send back the authenticated list of identity providers** : Select this to send back the list of  identity providers that the current user is authenticated by.
+            -   **Use tenant domain in local subject identifier** : Select this to append the tenant domain to the local subject identifier.
+            -   **Use user store domain in local subject identifier** : Select this to append the user store domain that the user resides to the local subject identifier.
+            -   **Use user store domain in roles** : This is selected by default, and appends the userstore domain name to user roles. If you do not want to append the userstore domain name to user roles, clear the check box.
+
+                If a user role is not mapped to a service provider role, and you clear the **Use user store domain in roles** check box, the userstore domain name will be removed from the role claim value unless the userstore domain name is APPLICATION, INTERNAL, or WORKFLOW.
 
     3. Update the Service Provider configurations.
 
