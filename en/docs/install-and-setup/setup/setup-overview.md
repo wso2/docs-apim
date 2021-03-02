@@ -9,7 +9,7 @@ Setting up the product involves doing the required configurations for the API Ma
 - Configuring transport
 - Performance Tuning
 
-The above activities need to be carried out separately for each runtime. The procedures to execute them are similar, but there can be slight differences between one component to another.
+The above activities need to be carried out separately for each runtime. The procedures to execute them are similar, but there can be slight differences between one component and another.
 
 In addition, the component-specific setup tasks are as follows:
 
@@ -37,4 +37,3 @@ In addition, the component-specific setup tasks are as follows:
     - Configuring cluster coordination
     - Adding third party non-OSGi libraries
     - Enabling logs for received event count
-
