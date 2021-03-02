@@ -705,7 +705,7 @@ nav:
                     #- Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
                     #- General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
                 #- Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
-          - Monitoring:
+          - Monitoring the API Manager:
               - Monitoring Logs:
                   - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                   - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -717,7 +717,7 @@ nav:
               - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-          - Micro Integrator Observability:
+          - Monitoring the Micro Integrator:
               - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
@@ -1332,9 +1332,9 @@ nav:
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - MongoDB Connector:
-                - 'MongoDB Connector Overview': 'references/connectors/mongodb-connector/mongodb-connector-overview.md'
-                - 'MongoDB Connector Example': 'references/connectors/mongodb-connector/mongodb-connector-example.md'
-                - 'MongoDB Connector Reference': 'references/connectors/mongodb-connector/mongodb-connector-config.md'
+                - MongoDB Connector Overview: references/connectors/mongodb-connector/mongodb-connector-overview.md
+                - MongoDB Connector Example: references/connectors/mongodb-connector/mongodb-connector-example.md
+                - MongoDB Connector Reference: references/connectors/mongodb-connector/mongodb-connector-config.md
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1678,5 +1678,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/next
