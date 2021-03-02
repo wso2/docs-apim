@@ -1,6 +1,6 @@
 # Setup Overview
 
-Setting up involves doing the required configurations for the API Manager and its components before running them in the production environment. The following are some common set up tasks that you are required to do separately for each component.
+Setting up the product involves doing the required configurations for the API Manager and its components before running them in the production environment. The following are some common set up tasks that you are required to do separately for each component.
 
 - Configuring databases
 - Configuring user stores
@@ -37,5 +37,4 @@ In addition, the component-specific setup tasks are as follows:
     - Configuring cluster coordination
     - Adding third party non-OSGi libraries
     - Enabling logs for received event count
-
 
