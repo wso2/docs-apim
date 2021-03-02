@@ -18,7 +18,7 @@ WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgatewa
 
 A microgateway here refers to the entire cluster which includes all three components: adapter, router and enforcer. By adding a microgateway environment, the url to the adapter will be stored in a config file, and therefore enables login. 
 
-Once you have added a microgateway environment, and logged in, other commands such as `apictl mg deploy api` can be used by only specifying an environment. This allows you use such commands without entering the microgateway adapter url, username and password everytime.
+Once you have added a microgateway environment, and logged in, other commands such as `apictl mg deploy api` can be used by only specifying an environment. This allows you to use such commands without entering the microgateway adapter url, username, and password every time.
 
 -   **Command**
     ```bash
@@ -110,7 +110,7 @@ An API project can be deployed to a microgateway using the following commands.
     ```
 
     !!! tip
-        In an API project the API name and the API version given in the `api.yaml` will be taken as the name and version of the API once deployed.
+        In an API project, the API name and the API version given in the `api.yaml` will be taken as the name and version of the API once deployed.
 
     !!! tip
         When trying to deploy, if an API with the same name, version, virtual host combination already exists in the microgateway adapter, an error response will be given saying that the API already exists.
@@ -128,7 +128,7 @@ An API project can be deployed to a microgateway using the following commands.
             `-f`, `--file`        : Filepath of the apictl project to be deployed
 
         - Optional :     
-            `-o`, `--override` : Whether to deploy an API irrespective of its existance. Overrides when exists.    
+            `-o`, `--override` : Whether to deploy an API irrespective of its existence. Overrides when exists.    
             `--skip-cleanup` : Whether to keep all temporary files created during the deploy process
 
     !!! example
@@ -160,6 +160,8 @@ An API project can be deployed to a microgateway using the following commands.
     ```
 
 ## List Deployed APIs
+
+This command can be used to list the deployed APIs on a given microgateway adapter environment.
 
 -   **Command**
     ```bash
@@ -211,7 +213,7 @@ An API project can be deployed to a microgateway using the following commands.
 
 ## Undeploy an API
 
-This lets you remove an API from the microgateway. 
+This command can be used to remove an API from the microgateway. 
 
 -   **Command**
     ```bash
@@ -250,7 +252,7 @@ This lets you remove an API from the microgateway.
 
 ## Log out from a Microgateway Environment
 
-This will erase the access token of the microgateway adapter from apictl.
+This command can be used to logout from a microgateway adapter environment. Once this command is executed, the access token of the microgateway adapter will be erased from apictl.
 
 -   **Command**
     ```bash
@@ -273,7 +275,7 @@ This will erase the access token of the microgateway adapter from apictl.
 
 ## Remove a Microgateway Environment
 
-This will delete the adapter url and its access token first, and then remove the microgateway environment from apictl.
+This command can be used to remove a microgateway environment from apictl. Once this command is executed, it will delete the adapter url and its access token first, and then remove the microgateway environment from apictl.
 
 -   **Command**
     ```bash
