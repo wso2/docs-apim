@@ -1031,7 +1031,7 @@ paths:
         - Comments
       summary: Get Details of an API Comment
       description: |
-        Get the individual comment given by a username for a certain API.
+        Get the individual comment given by a user for a certain API.
       operationId: getCommentOfAPI
       parameters:
         - $ref: '#/components/parameters/commentId'
@@ -1066,8 +1066,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
           content: {}
-        401:
-          $ref: '#/components/responses/Unauthorized'
         404:
           $ref: '#/components/responses/NotFound'
         406:
