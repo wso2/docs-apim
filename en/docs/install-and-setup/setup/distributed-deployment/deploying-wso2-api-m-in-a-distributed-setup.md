@@ -2,6 +2,7 @@
 
 Follow the instructions below to deploy WSO2 API Manager's five main components (Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager) in a distributed environment.
 
+
 ## Step 1 - Install and configure WSO2 API-M
 
 1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) into the designated servers for the distributed deployment.
@@ -55,6 +56,9 @@ Let's configure the inter-component relationships of the distributed setup by mo
     Similarly, when a throttling policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in the Traffic Manager. Therefore, Sticky Sessions need to be enabled for the servlet transport ports (i.e., 9443 if no port offset is configured) in the load balancer that is fronting the Traffic Manager nodes.
 
     Key validation requests sent from the Gateway node to the Key Manager nodes also require Sticky Sessions to be enabled for the servlet transport ports (i.e., 9443 if no port offset is configured) in the load balancer that is fronting the Key Manager nodes.
+
+!!! info
+    In a multi-tenanted deployment, the `<API-M_HOME>/repository/tenants` directory should be mounted in all the API-M nodes
     
 -   [Step 6.1 - Configure and start the Key Manager](#step-61-configure-and-start-the-key-manager)
 -   [Step 6.2 - Configure and start the Traffic Manager](#step-62-configure-and-start-the-traffic-manager)
@@ -778,7 +782,7 @@ This section involves setting up the Gateway node and enabling it to work with t
           xxx.xxx.xxx.xx4 gw.wso2.com
           ```
 
-      4.  Mount the `<API-M_HOME>/repository/deployment/server` directory of all the Gateway nodes to the shared file system to share all APIs between the Gateway nodes.
+      4.  Mount the `<API-M_HOME>/repository/deployment/server/synapse-configs` directory and the `<API-M_HOME>/repository/resources/security/client-truststore.jks` file of all the Gateway nodes to the shared file system to share all APIs between the Gateway nodes.
  
         !!! note
               WSO2 recommends using a shared file system as the content synchronization mechanism to synchronize the artifacts among the WSO2 API-M Gateway nodes, because a shared file system does not require a specific node to act as a Gateway Manager, instead all the nodes have the worker manager capabilities.
