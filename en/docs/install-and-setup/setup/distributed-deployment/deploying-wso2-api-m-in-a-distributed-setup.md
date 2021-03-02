@@ -782,7 +782,7 @@ This section involves setting up the Gateway node and enabling it to work with t
           xxx.xxx.xxx.xx4 gw.wso2.com
           ```
 
-      4.  Mount the `<API-M_HOME>/repository/deployment/server/synapse-configs` directory and the `<API-M_HOME>/repository/resources/security/client-truststore.jks` file of all the Gateway nodes to the shared file system to share all APIs between the Gateway nodes.
+      4.  Mount the `<API-M_HOME>/repository/deployment/server/synapse-configs` directory and the `<API-M_HOME>/repository/resources/security/client-truststore.jks` file of all the Gateway nodes to the shared file system to share all APIs and API-endpoint certificates between the Gateway nodes.
  
         !!! note
               WSO2 recommends using a shared file system as the content synchronization mechanism to synchronize the artifacts among the WSO2 API-M Gateway nodes, because a shared file system does not require a specific node to act as a Gateway Manager, instead all the nodes have the worker manager capabilities.
