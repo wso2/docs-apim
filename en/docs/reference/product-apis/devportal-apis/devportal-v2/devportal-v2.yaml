@@ -3443,9 +3443,9 @@ components:
               apiOwner: null
             businessInformation:
               businessOwner: Jane Roe
-              businessOwnerEmail: janeroe@gmail.com
+              businessOwnerEmail: businessowner@wso2.com
               technicalOwner: John Doe
-              technicalOwnerEmail: johndoe@gmail.com
+              technicalOwnerEmail: technicalowner@wso2.com
             isSubscriptionAvailable: true
             monetizationLabel: null
           - id: 01123567-1233-5453-0212-12353678901
@@ -3465,9 +3465,9 @@ components:
               apiOwner: null
             businessInformation:
               businessOwner: Jane Roe
-              businessOwnerEmail: janeroe@gmail.com
+              businessOwnerEmail: businessowner@wso2.com
               technicalOwner: John Doe
-              technicalOwnerEmail: johndoe@gmail.com
+              technicalOwnerEmail: technicalowner@wso2.com
             isSubscriptionAvailable: true
             monetizationLabel: null
         pagination:
@@ -3602,7 +3602,7 @@ components:
         type:
           type: string
           description: This describes the transport type of the API
-          example: WS
+          example: HTTP
         transport:
           type: array
           example:
@@ -3718,11 +3718,9 @@ components:
                   ws:
                     type: string
                     description: WS environment URL
-                    example: ws://localhost:9099/phoneverify/1.0.0
                   wss:
                     type: string
                     description: WSS environment URL
-                    example: wss://localhost:9099/phoneverify/1.0.0
               defaultVersionURLs:
                 type: object
                 properties:
@@ -3737,11 +3735,9 @@ components:
                   ws:
                     type: string
                     description: WS environment default URL
-                    example: ws://localhost:9099/phoneverify/
                   wss:
                     type: string
                     description: WSS environment default URL
-                    example: ws://localhost:9099/phoneverify/
         businessInformation:
           $ref: '#/components/schemas/APIBusinessInformation'
         labels:
@@ -3778,12 +3774,13 @@ components:
             API categories
           items:
             type: string
-            example: ""
+            example: "Marketing"
         keyManagers:
           type: object
           properties: {}
           description: |
             API Key Managers
+          example: ["all"]
         createdTime:
           type: string
           example: 2020-10-31T13:57:16.229
@@ -3801,6 +3798,7 @@ components:
           example: Public
         description:
           type: string
+          example: Public APIs
         accessUrls:
           type: array
           items:
