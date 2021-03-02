@@ -125,7 +125,7 @@ paths:
         This operation supports retrieving APIs of other tenants. The required tenant domain need to be specified as a header `X-WSO2-Tenant`. If not specified super tenant's APIs will be retrieved. If you used an Authorization header, the user's tenant associated with the access token will be used.
 
         **NOTE:**
-        * By default, this operation retrieves Published APIs. In order to retrieve Prototyped APIs, you need to use **query** parameter and specify **status:PROTOTYPED**.
+        * By default, this operation retrieves Published and Prototyped APIs.
         * This operation does not require an Authorization header by default. But if it is provided, it will be validated and checked for permissions of the user, hence you may be able to see APIs which are restricted for special permissions/roles.
       parameters:
         - $ref: '#/components/parameters/limit'
@@ -147,7 +147,14 @@ paths:
             "provider:wso2*" will match an API if the provider of the API starts with "wso2".
 
             Supported attribute modifiers are [**version, context, status,
-            description, subcontext, doc, provider, tag**]
+            description, subcontext, doc, provider, tag, label, api-category**]
+
+            To search by API Properties provide the query in below format.
+
+            **property_name:property_value**
+
+            Eg.
+            "environment:test" where environment is the property name and test is the propert value.
 
             If no advanced attribute modifier has been specified, search will match the
             given query string against API Name.
