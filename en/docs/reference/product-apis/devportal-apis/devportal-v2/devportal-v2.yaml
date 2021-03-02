@@ -3431,17 +3431,45 @@ components:
             description: A calculator API that supports basic operations
             context: /CalculatorAPI
             version: 1.0.0
+            type: HTTP
             provider: admin
             lifeCycleStatus: PUBLISHED
             thumbnailUri: /apis/01234567-0123-0123-0123-012345678901/thumbnail
+            avgRating: 4.3
+            throttlingPolicies: [Unlimited]
+            advertiseInfo:
+              advertised: false,
+              originalDevPortalUrl: null,
+              apiOwner: null
+            businessInformation:
+              businessOwner: Jane Roe
+              businessOwnerEmail: janeroe@gmail.com
+              technicalOwner: John Doe
+              technicalOwnerEmail: johndoe@gmail.com
+            isSubscriptionAvailable: true
+            monetizationLabel: null
           - id: 01123567-1233-5453-0212-12353678901
             name: PizzaShackAPI
             description: A Pizza ordering API
             context: /PizzaShackAPI
             version: 1.0.0
+            type: HTTP
             provider: admin
             lifeCycleStatus: PUBLISHED
             thumbnailUri: /apis/01123567-1233-5453-0212-12353678901/thumbnail
+            avgRating: 4.3
+            throttlingPolicies: [ Unlimited ]
+            advertiseInfo:
+              advertised: false,
+              originalDevPortalUrl: null,
+              apiOwner: null
+            businessInformation:
+              businessOwner: Jane Roe
+              businessOwnerEmail: janeroe@gmail.com
+              technicalOwner: John Doe
+              technicalOwnerEmail: johndoe@gmail.com
+            isSubscriptionAvailable: true
+            monetizationLabel: null
         pagination:
           offset: 2
           limit: 2
