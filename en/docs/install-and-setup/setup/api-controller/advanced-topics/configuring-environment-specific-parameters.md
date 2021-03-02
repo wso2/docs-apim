@@ -81,8 +81,7 @@ When there are multiple artifacts which needs to be added as deployment-related 
 After generating the deployment directory, API controller is packed with a bundle command which provides the support
 to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
 file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
-the project, the created archive file name will be the combination of the project name, version and the revision
-number(if there is any).  
+the project, the created archive file name will be the combination of the project name and version.  
 
 -   **Command**
         ``` bash
