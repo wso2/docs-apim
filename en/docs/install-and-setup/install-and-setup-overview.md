@@ -23,7 +23,7 @@ To get started with deployment, see [Deployment Overview]({{base_path}}/install-
 
 Setting up involves doing the required configurations for the API Manager and its components before running them in the production environment. The following are some common set up tasks that you are required to do separately for each component.
 
-In addition, there are component-specific setup tasks. For more information, see [Setup Overview].
+In addition, there are component-specific setup tasks. For more information, see [Setup Overview]({{base_path}}/install-and-setup/setup/setup-overview).
 
 ## SSO
 
