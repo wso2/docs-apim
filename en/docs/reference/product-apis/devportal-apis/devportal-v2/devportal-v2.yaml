@@ -464,6 +464,8 @@ paths:
           in: path
           description: |
             Programming language of the SDK that is required.
+
+            Languages supported by default are **Java**, **Javascript**, **Android** and **JMeter**.
           required: true
           schema:
             type: string
