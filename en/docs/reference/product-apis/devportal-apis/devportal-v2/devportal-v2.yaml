@@ -310,7 +310,7 @@ paths:
       summary: |
         Get GraphQL Definition
       description: |
-        You can use this operation to retrieve the swagger definition of an API.
+        You can use this operation to retrieve the GraphQL schema definition of a GraphQL API.
 
          `X-WSO2-Tenant` header can be used to retrieve the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
@@ -337,7 +337,104 @@ paths:
                 Used by caches, or in conditional requests.
               schema:
                 type: string
-          content: {}
+          content: 
+            application/json:
+              schema:
+                type: string
+                example: 'directive @cacheControl(
+                    maxAge: Int
+                    scope: CacheControlScope
+                  ) on FIELD_DEFINITION | OBJECT | INTERFACE
+                  enum CacheControlScope {
+                    PUBLIC
+                    PRIVATE
+                  }
+
+                  # A `Lift` is a chairlift, gondola, tram, funicular, pulley, rope tow, or other means of ascending a mountain.
+                  type Lift {
+                    # The unique identifier for a `Lift` (id: "panorama")
+                    id: ID!
+                    # The name of a `Lift`
+                    name: String!
+                    # The current status for a `Lift`: `OPEN`, `CLOSED`, `HOLD`
+                    status: LiftStatus
+                    # The number of people that a `Lift` can hold
+                    capacity: Int!
+                    # A boolean describing whether a `Lift` is open for night skiing
+                    night: Boolean!
+                    # The number of feet in elevation that a `Lift` ascends
+                    elevationGain: Int!
+                    # A list of trails that this `Lift` serves
+                    trailAccess: [Trail!]!
+                  }
+
+                  # An enum describing the options for `LiftStatus`: `OPEN`, `CLOSED`, `HOLD`
+                  enum LiftStatus {
+                    OPEN
+                    CLOSED
+                    HOLD
+                  }
+
+                  type Mutation {
+                    # Sets a `Lift` status by sending `id` and `status`
+                    setLiftStatus(id: ID!, status: LiftStatus!): Lift!
+                    # Sets a `Trail` status by sending `id` and `status`
+                    setTrailStatus(id: ID!, status: TrailStatus!): Trail!
+                  }
+
+                  type Query {
+                    # A list of all `Lift` objects
+                    allLifts(status: LiftStatus): [Lift!]!
+                    # A list of all `Trail` objects
+                    allTrails(status: TrailStatus): [Trail!]!
+                    # Returns a `Lift` by `id` (id: "panorama")
+                    Lift(id: ID!): Lift!
+                    # Returns a `Trail` by `id` (id: "old-witch")
+                    Trail(id: ID!): Trail!
+                    # Returns an `Int` of `Lift` objects with optional `LiftStatus` filter
+                    liftCount(status: LiftStatus): Int!
+                    # Returns an `Int` of `Trail` objects with optional `TrailStatus` filter
+                    trailCount(status: TrailStatus): Int!
+                    # Returns a list of `SearchResult` objects based on `term` or `status`
+                    search(term: String, status: LiftStatus): [SearchResult!]!
+                  }
+
+                  union SearchResult = Lift | Trail
+                  type Subscription {
+                    # Listens for changes in lift status
+                             liftStatusChange: Lift
+                    # Listens for changes in trail status
+                             trailStatusChange: Trail
+                  }
+
+                  # A `Trail` is a run at a ski resort
+                  type Trail {
+                    id: ID!
+                    # The name of a `Trail`
+                    name: String!
+                    # The current status for a `Trail`: OPEN, CLOSED
+                    status: TrailStatus
+                    # The difficulty rating for a `Trail`
+                    difficulty: String!
+                    # A boolean describing whether or not a `Trail` is groomed
+                    groomed: Boolean!
+                    # A boolean describing whether or not a `Trail` has trees
+                    trees: Boolean!
+                    # A boolean describing whether or not a `Trail` is open for night skiing
+                    night: Boolean!
+                    # A list of Lifts that provide access to this `Trail`
+                    accessedByLifts: [ Lift! ]!
+                  }
+
+                  # An enum describing the options for `TrailStatus`: `OPEN`, `CLOSED`
+                  enum TrailStatus {
+                  OPEN
+                  CLOSED
+                  }
+
+                  # The `Upload` scalar type
+                  represents a file upload.
+                  scalar Upload'
         304:
           description: |
             Not Modified.
