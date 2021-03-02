@@ -4330,12 +4330,28 @@ components:
         createdTime:
           type: string
           readOnly: true
+          example: 2021-02-11-09:57:25
         createdBy:
           type: string
           readOnly: true
           example: admin
+        updatedTime:
+          type: string
+          readOnly: true
+          example: 2021-02-12-19:57:25
+        category:
+          type: string
+          default: general
+        parentCommentId:
+          type: string
+          example: 6f38aea2-f41e-4ac9-b3f2-a9493d00ba97
+        entryPoint:
+          type: string
+          enum: [ devPortal, publisher ]
         commenterInfo:
           $ref: '#/components/schemas/CommenterInfo'
+        replies:
+          $ref: '#/components/schemas/CommentList'
     CommentList:
       title: Comments List
       type: object
@@ -4922,10 +4938,10 @@ components:
           example: 0
         limit:
           type: integer
-          example: 1
+          example: 10
         total:
           type: integer
-          example: 10
+          example: 1
         next:
           type: string
           description: |
