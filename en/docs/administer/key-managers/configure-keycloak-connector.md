@@ -29,22 +29,24 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
      </table>
 
     [![Keycloak add client]({{base_path}}/assets/img/administer/keycloak-add-client.png)]({{base_path}}/assets/img/administer/keycloak-add-client.png)
+    
+4. Enable **Service Accounts Enabled** in above created client's settings.
 
-4. Define a longer value as the **Access Token Lifespan** under the **Advanced Settings** settings section.
+5. Define a longer value as the **Access Token Lifespan** under the **Advanced Settings** settings section.
 
      [![Set expiry time]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)
 
-5. Click **Client Scopes** and select the scope named `default` as the **Default Client scope**.
+6. Click **Client Scopes** and select the scope named `default` as the **Default Client scope**.
 
      [![Add scope to client scopes]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)
 
-6. Click **Service Account Roles** and assign the `admin` role an assigned role.
+7. Click **Service Account Roles** and assign the `admin` role an assigned role.
 
      [![Assign service account roles]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)
 
     <a name="confidentialclient"></a>
 
-7. Copy the client credentials.
+8. Copy the client credentials.
 
      [![Keycloak client secret]({{base_path}}/assets/img/administer/keycloak-client-secret.png)]({{base_path}}/assets/img/administer/keycloak-client-secret.png)
 
@@ -323,9 +325,14 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
      [![Keycloak Developer Portal generate keys]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)
 
-5. Select the **Response Type**.
+5. Select the **Code** grant type.
+   Specify the **Callback URL** 
+   
+   e.g., https://localhost:9443/
 
-6. Click **Generate Keys**.
+6. Select the **Response Type**.
+
+7. Click **Generate Keys**.
 
 !!! tip
      If you want to generate the tokens with scopes, those scopes should have been defined in Keycloak as mentioned in the <a href="#step12">Step 1 - (2)</a>.
