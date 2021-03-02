@@ -111,7 +111,7 @@ In order to demonstrate this functionality, let's take a scenario with the imple
 
 1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario we are naming this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
 
-2. Build the maven project and add the jar file to the dropins directory. (APIM_HOME/repository/components/dropins)
+2. Build the maven project and add the jar file to the dropins directory. (API-M_HOME/repository/components/dropins)
 
 3. Add the following configuration into the `deployment.toml` file.
 
