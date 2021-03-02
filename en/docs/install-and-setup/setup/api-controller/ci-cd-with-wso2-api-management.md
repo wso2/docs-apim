@@ -506,10 +506,10 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
 
 Let's assume that the **PetsApp** application is in the development environment which is already subscribed to the **SwaggerPetstore** API.
 
-1.  Export the Application using the `export app` command from the development environment (dev). Note that `--withKeys` option is used to export the subscriptions and keys (if any) of the application.
+1.  Export the Application using the `export app` command from the development environment (dev). Note that `--with-keys` option is used to export the subscriptions and keys (if any) of the application.
 
     ```bash
-    $ apictl export app --name PetsApp --owner david -e dev --withKeys
+    $ apictl export app --name PetsApp --owner david -e dev --with-keys
 
     Successfully exported Application!
     Find the exported Application at /home/wso2user/.wso2apictl/exported/apps/dev/david_PetsApp.zip

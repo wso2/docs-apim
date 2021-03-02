@@ -46,7 +46,7 @@ You can export an application in the Developer Portal and download it as a zippe
         ```
 
         ``` java
-        apictl export app --name <application-name> --owner <owner> --environment <environment> --withKeys=<with-keys> 
+        apictl export app --name <application-name> --owner <owner> --environment <environment> --with-keys=<with-keys> 
         ```
 
         !!! info
@@ -57,7 +57,7 @@ You can export an application in the Developer Portal and download it as a zippe
                 `--owner` or `-o` : Owner of the application to be exported          
                 `--environment` or `-e` : Environment to which the application should be exported  
             -   Optional :  
-                `--withKeys` : Export keys for the application    
+                `--with-keys` : Export keys for the application    
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.     
 
         !!! example
@@ -68,7 +68,7 @@ You can export an application in the Developer Portal and download it as a zippe
             apictl export app --name SampleApp --owner SampleUser --environment dev  
             ```       
             ```go
-            apictl export app --name SampleApp --owner SampleUser --environment dev --withKeys=true  
+            apictl export app --name SampleApp --owner SampleUser --environment dev --with-keys=true  
             ```     
 
         !!!note
@@ -115,11 +115,11 @@ You can import an application to your environment as a zipped application. When 
         ```
 
         ```go
-        apictl import app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skipKeys=<skip-keys>       
+        apictl import app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skip-keys=<skip-keys>       
         ```
 
         ```go
-        apictl import app --file <file> --environment <environment> --skipSubscriptions=<skip-subscriptions> --skipKeys=<skip-keys> --preserveOwner=<preserve-owner> --update=<update> 
+        apictl import app --file <file> --environment <environment> --skip-subscriptions=<skip-subscriptions> --skip-keys=<skip-keys> --preserve-owner=<preserve-owner> --update=<update> 
         ```
 
         !!! info
@@ -130,9 +130,9 @@ You can import an application to your environment as a zipped application. When 
                 `--environment` or `-e` : Environment to which the application should be imported.  
             -   Optional :  
                 `--owner` or `-o` : Name of the target owner of the application as desired by the importer  
-                `--preserveOwner` : Preserves application owner. Default `false`.    
-                `--skipSubscriptions` or `-s` : Skip subscriptions of the application. Default `false`.  
-                `--skipKeys` : Skip importing keys of application Default `false`.  
+                `--preserve-owner` : Preserves application owner. Default `false`.    
+                `--skip-subscriptions` or `-s` : Skip subscriptions of the application. Default `false`.  
+                `--skip-keys` : Skip importing keys of application Default `false`.  
                 `--update` : Update application or create new. Default `false`. 
 
 
@@ -144,10 +144,10 @@ You can import an application to your environment as a zipped application. When 
             apictl import app --file dev/admin_SampleApp.zip --environment production
             ```  
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production -o admin --skipSubscriptions=true --skipKeys=true
+            apictl import app -f dev/admin_SampleApp.zip -e production -o admin --skip-subscriptions=true --skip-keys=true
             ```
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production --preserveOwner=true 
+            apictl import app -f dev/admin_SampleApp.zip -e production --preserve-owner=true 
             ```     
             ```go
             apictl import app -f dev/admin_SampleApp.zip -e production --update=true
@@ -166,17 +166,17 @@ You can import an application to your environment as a zipped application. When 
 
     !!! note
         **Skipping subscriptions/keys while importing application**  
-            You can opt to skip importing the subscriptions of the application by defining `--skipSubscriptions` or `-s` flag. This parameter is set to `false` by default.  
+            You can opt to skip importing the subscriptions of the application by defining `--skip-subscriptions` or `-s` flag. This parameter is set to `false` by default.  
             &nbsp;   
-            You can opt to skip importing the keys (client credentials of the OAuth App) of the application by defining `--skipKeys`.  This parameter is set to `false` by default.  
+            You can opt to skip importing the keys (client credentials of the OAuth App) of the application by defining `--skip-keys`.  This parameter is set to `false` by default.  
             &nbsp;   
         **Changing/Preserving Owner while Importing Application**       
             The owner of the imported application can be specified by providing a username of a valid user based on your preference. The application importer can set the preferred owner’s username as the value of the `--owner` or `-o` flag.    
             &nbsp;     
-            You can also import the application by preserving the application owner’s information, from the previous environment. The application importer can add the `--preserveOwner` flag in order to define that this flag is set to true. This parameter is set to false by default. Therefore, the default value is used when you do not define this flag. If you import the application without specifying any of the optional flags, you will be added as the owner of the application in the imported environment.
+            You can also import the application by preserving the application owner’s information, from the previous environment. The application importer can add the `--preserve-owner` flag in order to define that this flag is set to true. This parameter is set to false by default. Therefore, the default value is used when you do not define this flag. If you import the application without specifying any of the optional flags, you will be added as the owner of the application in the imported environment.
             &nbsp;   
             &nbsp;       
-            If both the `--owner` and the `--preserveOwner` flags are set, then the `--owner` flag gets higher priority over the `--preserveOwner` flag. 
+            If both the `--owner` and the `--preserve-owner` flags are set, then the `--owner` flag gets higher priority over the `--preserve-owner` flag. 
 
 
 ### Import applications in a single-tenant environment
@@ -188,7 +188,7 @@ There are three options to import applications in a single-tenant environment.
 
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
     [![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)
--   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserveOwner` flag.
+-   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserve-owner` flag.
     [![Importing Applications across Two environments with Preserve Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)
 
 ### Import applications in a multi-tenant environment

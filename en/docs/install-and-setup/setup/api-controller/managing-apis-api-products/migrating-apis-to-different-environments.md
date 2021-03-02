@@ -35,7 +35,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
         ```
 
         ```go
-        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format>  
+        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -49,7 +49,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
                 `--rev` : Revision Number of the API. If not provided, working copy of the API will be exported.  
                 `--provider` or `-r` : Provider of the API.   
                 `--latest` : Export the latest revision of the API.  
-                `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
+                `--preserve-status` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
@@ -57,7 +57,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             apictl export api -n PhoneVerification -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api -n PizzaShackAPI -v 1.0.0 --rev 2 -r Alice -e dev --preserveStatus=true --format JSON 
+            apictl export api -n PizzaShackAPI -v 1.0.0 --rev 2 -r Alice -e dev --preserve-status=true --format JSON 
             ```            
 
         !!!note
@@ -283,7 +283,7 @@ You can use the below command to export all the APIs belong to the currently log
     apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --all --force 
     ```
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force 
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserve-status --force 
     ```
 
     !!! info
@@ -294,7 +294,7 @@ You can use the below command to export all the APIs belong to the currently log
         -    Optional :  
             `--all` : Export the working copy and all the revisions of APIs irrespective of the deployment status.  
             `--force` : Clean all the previously exported APIs of the given target tenant, in the given environment if any, and to export APIs from beginning  
-            `--preserveStatus` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
+            `--preserve-status` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
             `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
 
     !!! example
@@ -302,7 +302,7 @@ You can use the below command to export all the APIs belong to the currently log
         apictl export apis -e production 
         ```
         ```go
-        apictl export apis --environment production --format json  --preserveStatus --force 
+        apictl export apis --environment production --format json  --preserve-status --force 
         ```
         
     !!! info
@@ -363,7 +363,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api --file <path-to-API-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision=<rotate-revision>
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skip-cleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -378,7 +378,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
                 `--update` : Update an existing API or create a new API in the importing environment.  
                 `--params` : Define the API Manager environment params file (default "api_params.yaml").   
-                `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
             ```bash
@@ -453,7 +453,7 @@ mentioned gateway environments. If the **deployment environments are not provide
 
         3.  Restart API Manager 4.0.0 server.  
     
-    - If you want to verify the final import artifact just before it is sent to the APIM server, use `--skipCleanup` 
+    - If you want to verify the final import artifact just before it is sent to the APIM server, use `--skip-cleanup` 
     with `--verbose` logs. In the verbose logs, you can find the temporary directory location.
     
 

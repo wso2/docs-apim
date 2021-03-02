@@ -239,7 +239,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skipCleanup=<skip-cleanup> --rotate-revision=<rotate-revision>
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skip-cleanup=<skip-cleanup> --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -255,7 +255,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--import-apis` : Import depedent APIs to the environment along with the API Product. Default value is `false`.  
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
-                `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
             ```bash

@@ -592,7 +592,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--update` : Update an existing API or create a new API in the importing environment.  
             `--params` : Provide a API Manager environment params file (The default file is `api_params.yaml`.).   
             For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).  
-            `--skipCleanup` : Leave all temporary files created in the CTL during import process. The default value is `false`.  
+            `--skip-cleanup` : Leave all temporary files created in the CTL during import process. The default value is `false`.  
 
     !!! example
         ```bash
