@@ -2623,11 +2623,6 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/devportal/v2/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"'
-      x-wso2-curl: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-        -X DELETE "https://localhost:9443/api/am/devportal/v2/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"'
-      x-wso2-request: |
-        DELETE https://localhost:9443/api/am/devportal/v2/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9
-      x-wso2-response: HTTP/1.1 200 OK
 
   /subscriptions/{subscriptionId}/usage:
     get:
@@ -2998,7 +2993,7 @@ paths:
       summary: |
         Get Tenants by State
       description: |
-        This operation is to get tenants by state
+        This operation is used to get tenants by state
       parameters:
         - name: state
           in: query
@@ -3356,7 +3351,7 @@ paths:
   /api-categories:
     get:
       tags:
-        - API Category (Collection)
+        - API Categories
       summary: Get All API Categories
       description: |
         Get all API categories
@@ -3393,7 +3388,7 @@ paths:
         200:
           description: |
             OK.
-            Categories returned
+            Key Manager list returned
           content:
             application/json:
               schema:
@@ -5154,11 +5149,18 @@ components:
         count:
           type: integer
           description: The number of alerts
-          example: 3
+          example: 2
         alerts:
           type: array
           items:
             $ref: '#/components/schemas/AlertType'
+          example:
+            - id: 3
+              name: AbnormalRequestsPerMin
+              requireConfiguration: true
+            - id: 4
+              name: AbnormalRequestPattern
+              requireConfiguration: false
     AlertType:
       title: Alert Type
       type: object
@@ -5242,6 +5244,7 @@ components:
           type: string
           description: The alert config subscription id.
           example: UGl6emFTaGFja0FQSSsxLjAuMCtEZWZhdWx0QXBwbGljYXRpb24K
+          readOnly: true
         configuration:
           type: object
           additionalProperties:
