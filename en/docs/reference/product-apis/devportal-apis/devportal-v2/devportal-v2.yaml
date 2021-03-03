@@ -2273,7 +2273,7 @@ paths:
       description: |
         This operation can be used to retrieve a list of subscriptions of the user associated with the provided access token. This operation is capable of
 
-        1. Retrieving applications which are subscibed to a specific API.
+        1. Retrieving applications which are subscribed to a specific API.
         `GET https://localhost:9443/api/am/devportal/v2/subscriptions?apiId=c43a325c-260b-4302-81cb-768eafaa3aed`
 
         2. Retrieving APIs which are subscribed by a specific application.
@@ -2337,6 +2337,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Subscription'
+            example:
+              applicationId: bbcc3be9-e29c-4ba2-a756-d922a5bd6c4d
+              apiId: abcff4cf-24c5-4298-a7b4-39a1fbd34693
+              throttlingPolicy: Unlimited
         required: true
       responses:
         201:
@@ -2405,6 +2409,13 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/Subscription'
+            example:
+              - applicationId: bbcc3be9-e29c-4ba2-a756-d922a5bd6c4d
+                apiId: abcff4cf-24c5-4298-a7b4-39a1fbd34693
+                throttlingPolicy: Unlimited
+              - applicationId: 67543be9-e29c-4ba2-7856-d922a5bd6c4d
+                apiId: abcff4cf-24c5-4298-a7b4-39a1f7896693
+                throttlingPolicy: Bronze
         required: true
       responses:
         200:
@@ -4195,6 +4206,7 @@ components:
     Subscription:
       title: Subscription
       required:
+        - apiId
         - applicationId
         - throttlingPolicy
       type: object
