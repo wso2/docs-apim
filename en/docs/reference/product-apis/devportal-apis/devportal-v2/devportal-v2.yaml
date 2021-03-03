@@ -2688,7 +2688,7 @@ paths:
         - Throttling Policies
       summary: Get All Available Throttling Policies
       description: |
-        Get available Throttling Policies
+        This operation can be used to get all available application or subscription level throttling policies
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
