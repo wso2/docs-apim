@@ -4810,6 +4810,23 @@ components:
           type: array
           items:
             type: object
+          example:
+            - id: abcff4cf-24c5-4298-a7b4-39a1fbd34693
+              name: PizzaShackAPI
+              type: API
+              transportType:
+              description:
+              context: "/pizzashack"
+              version: 1.0.0
+              provider: admin
+              status: PUBLISHED
+              thumbnailUri:
+              businessInformation:
+                businessOwner: Jane Roe
+                businessOwnerEmail: businessowner@wso2.com
+                technicalOwner: John Doe
+                technicalOwnerEmail: technicalowner@wso2.com
+              avgRating: '4.0'
         pagination:
           $ref: '#/components/schemas/Pagination'
     SearchResult:
