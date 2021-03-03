@@ -107,7 +107,7 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 ## Use Custom Tracer Implementation
 
-In order to demonstrate this functionality, let's take a scenario with the implementation of elastic APM.
+In order to demonstrate this functionality, let's take a scenario with the implementation of Elastic APM (Application Performance Monitoring).
 
 1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario we are naming this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
 
