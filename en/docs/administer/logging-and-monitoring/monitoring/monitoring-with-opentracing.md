@@ -127,10 +127,10 @@ In order to demonstrate this functionality, let's take a scenario with the imple
     remote_tracer.name = "elastic"
     ```
 
-4. Add the elastic opentracer jar file to the lib directory. It can be downloaded from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
+4. Add the elastic opentracer jar file to the lib directory (API-M_HOME/repository/components/lib). It can be downloaded from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
 
     !!! tip
-        Elastic opentracing also requires the addition of a javaagent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
+        Elastic opentracing also requires the addition of a java agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
 
 5. Start the server.
 
