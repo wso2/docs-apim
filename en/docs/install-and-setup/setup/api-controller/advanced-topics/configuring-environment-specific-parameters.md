@@ -81,7 +81,7 @@ When there are multiple artifacts which needs to be added as deployment-related 
 After generating the deployment directory, API controller is packed with a bundle command which provides the support
 to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
 file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
-the project, the created archive file name will be the combination of the project name and version.  
+the project, the created archive file name will be the combination of the project name and the version.  
 
 -   **Command**
         ``` bash
@@ -228,7 +228,7 @@ Instead of the default `api_params.yaml`, you can provide a custom parameter fil
     apictl import api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
     ```
 !!! info
-    You can deploy an API or an API Product Project which does not include deployment_environments.yaml (working copy of the API 
+    You can deploy an API or an API Product project which does not include deployment_environments.yaml (working copy of the API 
     or a revision without deployment environments) by specifying the deployment environments in the api_param.yaml file.  
     
 !!!note

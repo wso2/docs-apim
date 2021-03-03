@@ -346,7 +346,7 @@ You can use the following alternative approach to promote a single API via CI/CD
         - The import command prepares an API Project for WSO2 API Manager by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it.
         - If the API project as specified the deployment environment information, when the working copy is updated during the update process, a new 
         revision will be created. If the maximum number of revisions (5) reached for the API and `--rotate-revision` 
-        flag is present, earliest revision for that API will be deleted and a new revision will be created.
+        flag is present, the earliest revision for that API will be deleted and a new revision will be created.
 
         - For more information on importing an API to an environment, see [Import an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#import-an-api).
         
