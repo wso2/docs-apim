@@ -73,7 +73,10 @@ Subscription availability can be one of the following options:
 - **Available to Specific Tenants:** users of the organizations/tenant domains that you specify, as well as the current tenant domain, can subscribe to the API.
 
 The diagram below depicts the relationship between the API's visibility and subscription availability:
-[![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)](/{{base_path}}/assets/img/learn/api-visibility-relationship.png)
+[![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)]({{base_path}}/assets/img/learn/api-visibility-relationship.png)
+
+!!! note
+     The experience of cross tenant subscriptions is different to what it was in previous versions. For example, if a tenant named "A" visits the Developer Portal of a tenant named "B", the tenant "A" user will need to generate keys again with the key manager of tenant "B". Therefore, a given application created in the Developer Portal by tenant "A" can have different consumer keys for a given key manager type as they generate keys in different tenants.
 
 
 ### Control subscription availability using the API Publisher
@@ -89,7 +92,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 3.  Click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option.
      
-     [ ![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png) ](/{{base_path}}/assets/img/learn/api-subscription-availability.png)
+     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
 4.  Save the API.
 
@@ -124,6 +127,3 @@ When using the REST API directly, the subscription availability options are avai
     </tbody>
     </table>
     
-    
-
-
