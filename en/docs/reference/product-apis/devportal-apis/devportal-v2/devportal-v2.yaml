@@ -2172,7 +2172,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/devportal/v2/applications/import?appName=sampleApp&appOwner=admin&withKeys=true"
+          "https://localhost:9443/api/am/devportal/v2/applications/export?appName=sampleApp&appOwner=admin&withKeys=true"
           > exportedApplication.zip'
 
   /applications/import:
