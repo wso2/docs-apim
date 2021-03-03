@@ -4989,10 +4989,28 @@ components:
           type: array
           items:
             type: string
+          example:
+            - refresh_token
+            - urn:ietf:params:oauth:grant-type:saml2-bearer
+            - implicit
+            - password
+            - client_credentials
+            - iwa:ntlm
+            - authorization_code
+            - urn:ietf:params:oauth:grant-type:jwt-bearer
         scopes:
           type: array
           items:
             type: string
+          example:
+            - apim:api_key
+            - apim:app_import_export
+            - apim:app_manage
+            - apim:store_settings
+            - apim:sub_alert_manage
+            - apim:sub_manage
+            - apim:subscribe
+            - openid
         applicationSharingEnabled:
           type: boolean
           default: false
@@ -5025,11 +5043,11 @@ components:
         userStorePasswordPattern:
           type: string
           description: The 'PasswordJavaRegEx' cofigured in the UserStoreManager
-          example: ""
+          example: "^[\\S]{5,30}$"
         passwordPolicyPattern:
           type: string
           description: The regex configured in the Password Policy property 'passwordPolicy.pattern'
-          example: ""
+          example: "^[\\S]{5,30}$"
         passwordPolicyMinLength:
           type: integer
           description: If Password Policy Feature is enabled, the property 'passwordPolicy.min.length'
