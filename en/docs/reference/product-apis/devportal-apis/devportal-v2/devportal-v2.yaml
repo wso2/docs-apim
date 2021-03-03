@@ -2905,7 +2905,9 @@ paths:
           description: |
             OK.
             List of supported languages for generating SDKs.
-          content: {}
+          content:
+            application/json:
+              example : ["android","java","javascript","jmeter"]
         404:
           $ref: '#/components/responses/NotFound'
         500:
