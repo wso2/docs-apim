@@ -104,3 +104,36 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
     n20:19:47,019 [-] [PassThroughMessageProcessor-15] TRACE {"Latency":83,"Operation":"API:Response_Latency","Tags":{"span.resource":"/menu","span.kind":"server","span.api.name":"PizzaShackAPI","span.consumerkey":"Fn9RGuFeefEe7W07jOq_mvQvLJwa","span.request.method":"GET","span.request.path":"pizzashack/1.0.0/menu","span.api.version":"1.0.0","span.activity.id":"urn:uuid:339f337a-8848-41ec-adba-73da367fa66e"}}
     n
     ```
+
+## Use Custom Tracer Implementation
+
+In order to demonstrate this functionality, let's take a scenario with the implementation of Elastic APM (Application Performance Monitoring).
+
+1. Implement the `org.wso2.carbon.apimgt.tracing.OpenTracer` interface and add your implementation. The getTracer method should contain the generation of the `Tracer` instance. Also, the getName method should return the tracer name to be configured in the `deployment.toml` file. In this specific scenario we are naming this tracer `elastic`. This tracer needs to be loaded as an osgi service using a module activator. The sample project for the elastic APM tracer can be downloaded from [here]({{base_path}}/assets/attachments/administer/custom.tracing.client.zip).
+
+2. Build the maven project and add the jar file to the dropins directory. (API-M_HOME/repository/components/dropins)
+
+3. Add the following configuration into the `deployment.toml` file.
+
+    ```toml tab="Format"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = <custom_tracer_name>
+    ```
+
+    ```toml tab="Example"
+    [apim.open_tracer]
+    remote_tracer.enable = true
+    remote_tracer.name = "elastic"
+    ```
+
+4. Add the elastic opentracer jar file to the lib directory (API-M_HOME/repository/components/lib). It can be downloaded from [here](https://mvnrepository.com/artifact/co.elastic.apm/apm-opentracing). 
+
+    !!! tip
+        Elastic opentracing also requires the addition of a java agent. This can be added by altering the startup script. Make sure to check the documentation for the tracer you are using so that such requirements can be satisfied. 
+
+5. Start the server.
+
+     After you invoke the APIs tracing data will be published to elastic APM
+
+    [![Distributed tracing elastic]({{base_path}}/assets/img/administer/elastic-tracer.png)]({{base_path}}/assets/img/administer/elastic-tracer.png)
