@@ -67,22 +67,18 @@ Each Gateway environment definition contains details related to a specific Gatew
     service_url = "https://localhost:${mgt.transport.https.port}/services/"
     username= "${admin.username}"
     password= "${admin.password}"
-    ws_endpoint = "ws://localhost:9099"
-    wss_endpoint = "wss://localhost:8099"
-    http_endpoint = "http://localhost:${http.nio.port}/gateway"
-    https_endpoint = "https://localhost:${https.nio.port}/gateway"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
     wss_endpoint = "wss://us.wso2.com:8099"
-    http_endpoint = "http://us.wso2.com/gateway"
-    https_endpoint = "https://us.wso2.com/gateway"
+    http_endpoint = "http://us.wso2.com"
+    https_endpoint = "https://us.wso2.com"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
     wss_endpoint = "wss://foods.com:8099"
-    http_endpoint = "http://foods.com/gateway"
-    https_endpoint = "https://foods.com/gateway"
+    http_endpoint = "http://foods.com"
+    https_endpoint = "https://foods.com"
     ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
@@ -120,8 +116,8 @@ Each Gateway environment definition contains details related to a specific Gatew
 
 6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
    
-     !!! info
-         Similarly, you can assign the same Virtual Host to other APIs as well.
+    !!! info
+        Similarly, you can assign the same Virtual Host to other APIs as well.
 
 ## Step 3 - View the custom hostnames
 
@@ -140,3 +136,7 @@ Follow the instructions below to view the custom endpoint URLs of the API, which
      The custom endpoint URLs of the API, which are based on the custom hostnames that are attached to the API, appear.
 
      [![Virtual host in the Developer Portal]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)
+
+## Additional Information
+
+- If you wish to learn how to work with multiple Gateways, see [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/).
