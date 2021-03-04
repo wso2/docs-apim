@@ -22,18 +22,18 @@ Once you have added a microgateway environment, and logged in, other commands su
 
 -   **Command**
     ```bash
-    apictl mg add env <environment-name> --host <adapter-url> -k
+    apictl mg add env <environment-name> --adapter <adapter-url> -k
     ```
 
     !!! info
         **Flags:**
         
         -    Mandatory :     
-            `--host` or `-c` : The microgateway adapter host url with port  
+            `--adapter` or `-a` : The microgateway adapter host url with port  
 
     !!! example
         ```bash
-        apictl mg add env prod --host  https://localhost:9443 
+        apictl mg add env prod --adapter  https://localhost:9443 
         ```
 
 ## Log in to a Microgateway Environment
