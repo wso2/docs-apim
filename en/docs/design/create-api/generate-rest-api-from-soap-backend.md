@@ -12,10 +12,9 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
       </div>
     </html>
 
-1.  Sign in to the API Publisher and click **CREATE API**
-   <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
-     </html>
+1.  Sign in to the API Publisher and click **CREATE API**.
+
+    [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
  
     <html><div class="admonition info">
       <p class="admonition-title">Info</p>
@@ -36,9 +35,8 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
     |---------|--------------------|
     | Name    | PhoneVerification  |
     | Context | /phoneverify       |
-    | Version | 1.0                |
+    | Version | 1.0.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
-    | Business Plans| Unlimited|
 
     [![]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
 
