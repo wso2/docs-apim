@@ -1372,12 +1372,13 @@ nav:
                 - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
                 - Configuring Business Rules Deployment: install-and-setup/setup/si-setup/configuring-business-rules-deployment.md
                 - Configuring Data Sources: install-and-setup/setup/si-setup/configuring-data-sources.md
-                - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
-                - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
+                - Securing the Streaming Integrator:
+                    - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
+                    - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
+                    - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
                 - Supporting Different Transports: install-and-setup/setup/si-setup/supporting-different-transports.md
                 - Configuring State Persistence: install-and-setup/setup/si-setup/configuring-database-and-file-system-state-persistence.md
                 - Configuring Cluster Coordination: install-and-setup/setup/si-setup/configuring-cluster-coordination.md
-                - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
                 - Adding Third Party Non OSGi Libraries: install-and-setup/setup/si-setup/adding-third-party-non-osgi-libraries.md
                 - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
                 - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
