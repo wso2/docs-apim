@@ -1300,9 +1300,7 @@ nav:
             - Setting up Micro Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
-                    - User Stores:
-                        - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
-                        - Managing Users: install-and-setup/setup/mi-setup/user_stores/managing_users.md
+                    - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
                     - Databases:
                         - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MySQL.md
                         - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MSSQL.md
