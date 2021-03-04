@@ -680,40 +680,7 @@ nav:
                        - Calculating Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Observe:
           - Observability Overview: observe/observe-overview.md
-          - API Manager Analytics:
-                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
-                #- Viewing API Statistics:
-                    #- Monitoring dashboard: observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard.md
-                    #- Business analytics: observe/api-manager-analytics/viewing-api-statistics/business-analytics-dashboard.md
-                    #- API analytics: observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard.md
-                    #- Application analytics: observe/api-manager-analytics/viewing-api-statistics/application-analytics-dashboard.md
-                #- Monthly API Usage Report: observe/api-manager-analytics/monthly-api-usage-report.md
-                #- Using Geolocation Based Statistics:
-                    #- Creating the Geo Location Data Set: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
-                    #- Configuring Geo Location Based Statistics: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
-                    #- Writing a Custom Geo Location Provider: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
-                #- Alert Types: observe/api-manager-analytics/alert-types.md
-                #- Setup & Configuration:
-                    #- Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
-                    #- Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
-                    #- Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
-                    #- Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
-                    #- Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
-                    #- Subscribing for Alerts: observe/api-manager-analytics/subscribing-for-alerts.md
-                    #- Integrating with Google Analytics: observe/api-manager-analytics/integrating-with-google-analytics.md
-                    #- Purging Analytics Data: observe/api-manager-analytics/purging-analytics-data.md
-                    #- Default Ports of WSO2 API-M Analytics: observe/api-manager-analytics/default-ports-of-wso2-api-m-analytics.md
-                #- Development:
-                    #- Creating Custom Widgets: observe/api-manager-analytics/creating-custom-widgets-in-analytics-dashboards.md
-                    #- Customizing Analytics Dashboards: observe/api-manager-analytics/customizing-analytics-dashboards.md
-                    #- White Labeling for Tenants: observe/api-manager-analytics/white-labeling-tenants.md
-                    #- Adding Third Party Non OSGi Libraries: observe/api-manager-analytics/adding-third-party-non-osgi-libraries.md
-                    #- Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
-                    #- General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
-                #- Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
-          - Monitoring the API Manager:
+            - API Manager Observability:
               - Monitoring Logs:
                   - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                   - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -725,7 +692,11 @@ nav:
               - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-          - Monitoring the Micro Integrator:
+              - API Manager Analytics:
+                  - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
+                  - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                  - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+          - Micro Integrator Observability:
               - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
@@ -1169,25 +1140,21 @@ nav:
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
     - Administer:
         - Administer Overview: administer/admin-overview.md
-        - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
-            - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
-            - Managing Users: administer/managing-users-and-roles/managing-users.md
-            - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
-            - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
+            - Managing Users for API Manager:
+              - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
+              - Managing Users: administer/managing-users-and-roles/managing-users.md
+              - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
+              - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
+            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/managing-users.md
+            - Managing Users for the Streaming Integrator: install-and-setup/setup/si-setup/user-management.md
         - Managing User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-            - Configuring Primary User Stores:
-                - Configuring Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-                - Configuring a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-                - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-                - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-                - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
             - Configuring Secondary User Store: administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md
             - Writing a custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
             - Configuring the Authorization Manager: administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager.md
-        - Multitenancy:
+        - API Manager Multitenancy:
             - Introduction to Multitenancy: administer/multitenancy/introduction-to-multitenancy.md
             - Managing Tenants: administer/multitenancy/managing-tenants.md
             - Configuring the Tenant Loading Policy: administer/multitenancy/configuring-the-tenant-loading-policy.md
@@ -1285,6 +1252,7 @@ nav:
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
         - Setup:
             - Setting up API Manager:
+                - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
                 - Configuring a Key Manager:
                     - Configuring a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Configuring WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -1330,6 +1298,7 @@ nav:
                             - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
                             - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
             - Setting up Micro Integrator:
+                - Applying WSO2 Updates: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
                     - User Stores:
                         - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
@@ -1400,6 +1369,7 @@ nav:
                         - Masking Sensitive Information in Logs : administer-and-observe/logs/masking_sensitive_info_in_logs.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
+                - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
                 - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
                 - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
                 - Configuring Business Rules Deployment: install-and-setup/setup/si-setup/configuring-business-rules-deployment.md
@@ -1407,7 +1377,6 @@ nav:
                 - General Data Protection Regulations: install-and-setup/setup/si-setup/general-data-protection-regulations.md
                 - Working with Keystores: install-and-setup/setup/si-setup/working-with-keystores.md
                 - Supporting Different Transports: install-and-setup/setup/si-setup/supporting-different-transports.md
-                - User Management: install-and-setup/setup/si-setup/user-management.md
                 - Configuring State Persistence: install-and-setup/setup/si-setup/configuring-database-and-file-system-state-persistence.md
                 - Configuring Cluster Coordination: install-and-setup/setup/si-setup/configuring-cluster-coordination.md
                 - Protecting Sensitive Data via the Secure Vault: install-and-setup/setup/si-setup/protecting-sensitive-data-via-the-secure-vault.md
