@@ -13,6 +13,8 @@ WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgatewa
 
     -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). Following the guide upto [Check the version of the CTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-ctl) will be sufficient to continue. 
 
+    -  Remember to add the cert of Microgateway into `/home/<your-pc-username>/.wso2apictl/certs to communicate via https (to avoid having to use insecure mode with -k or --insecure).
+
 
 ## Add a Microgateway Environment
 
@@ -22,7 +24,7 @@ Once you have added a microgateway environment, and logged in, other commands su
 
 -   **Command**
     ```bash
-    apictl mg add env <environment-name> --adapter <adapter-url> -k
+    apictl mg add env <environment-name> --adapter <adapter-url>
     ```
 
     !!! info
@@ -42,13 +44,13 @@ Log in will get an access token from the microgateway adapter and store it for f
 
 -   **Command**
     ```bash
-    apictl mg login <environment-name> -k
+    apictl mg login <environment-name>
     ```
     ```bash
-    apictl mg login <environment-name> -u <username> -k
+    apictl mg login <environment-name> -u <username>
     ```
     ```bash
-    apictl mg login <environment-name> -u <username> -p <password> -k
+    apictl mg login <environment-name> -u <username> -p <password>
     ``` 
 
     !!! tip
@@ -57,7 +59,7 @@ Log in will get an access token from the microgateway adapter and store it for f
         If you include the flag `--password-stdin`, you can provide the password in a file as well. For an example,
 
         ```bash
-        cat <file-with-the-password> | apictl mg login <environment-name> -u <username> --password-stdin -k
+        cat <file-with-the-password> | apictl mg login <environment-name> -u <username> --password-stdin
         ```
 
 
@@ -71,13 +73,13 @@ Log in will get an access token from the microgateway adapter and store it for f
 
     !!! example
         ```bash
-        apictl mg login dev -k
+        apictl mg login dev
         ```
         ```bash
-        apictl mg login dev -u admin -k
+        apictl mg login dev -u admin
         ```
         ```bash
-        apictl mg login dev -u admin -p admin -k
+        apictl mg login dev -u admin -p admin
         ```
         ```bash
         cat ~/.mypassword | apictl mg login dev -u admin --password-stdin
@@ -103,10 +105,10 @@ An API project can be deployed to a microgateway using the following commands.
 
 -   **Command**
     ```go
-    apictl mg deploy api -e <environment-name> -f <api-project-file-path> -k
+    apictl mg deploy api -e <environment-name> -f <api-project-file-path>
     ```
     ```go
-    apictl mg deploy api ---environment <environment-name> --file <api-project-file-path> -k
+    apictl mg deploy api ---environment <environment-name> --file <api-project-file-path>
     ```
 
     !!! tip
@@ -117,7 +119,7 @@ An API project can be deployed to a microgateway using the following commands.
 
         In order to override the existing API or deploy an API without considering whether it already exists or not, include the flag `--override` or its shorthand `-o` to the same command above. For an example,
         ```bash
-        apictl mg deploy api -e dev -f petstore -o -k
+        apictl mg deploy api -e dev -f petstore -o
         ```  
 
     !!! info
@@ -133,16 +135,16 @@ An API project can be deployed to a microgateway using the following commands.
 
     !!! example
         ```bash
-        apictl mg deploy api -e dev -f petstore -k
+        apictl mg deploy api -e dev -f petstore
         ```
         ```bash
-        apictl mg deploy api --environment dev --file petstore -k
+        apictl mg deploy api --environment dev --file petstore
         ```
         ```bash
-        apictl mg deploy api -e dev -f petstore --override -k
+        apictl mg deploy api -e dev -f petstore --override
         ```
         ```bash
-        apictl mg deploy api -e dev -f petstore -o --skip-cleanup -k
+        apictl mg deploy api -e dev -f petstore -o --skip-cleanup
         ```
 
 -   **Response**
@@ -165,18 +167,18 @@ This command can be used to list the deployed APIs on a given microgateway adapt
 
 -   **Command**
     ```bash
-    apictl mg get apis -e <environment-name> -k
+    apictl mg get apis -e <environment-name>
     ```
     !!! tip
         By default, the number of APIs listed will be limited to 25. To increase or decrease the limit set the flag `--limit` or its shorthand flag `-l`. For an example,
         ```bash
-        apictl mg get apis -e dev --limit 100 -k
+        apictl mg get apis -e dev --limit 100
         ```
 
     !!! tip
         Currently, these APIs can be filtered by API type. The supported types are http and ws (web socket). Use the flag `--query` or its shorthand flag `-q` to filter APIs.
         ```bash
-        apictl mg get apis -e dev --query type:http -k
+        apictl mg get apis -e dev --query type:http
         ```
 
     !!! info
@@ -191,13 +193,13 @@ This command can be used to list the deployed APIs on a given microgateway adapt
 
     !!! example
         ```bash
-        apictl mg get apis -e dev -k
+        apictl mg get apis -e dev
         ```
         ```bash
-        apictl mg get apis -q type:http --environment dev --limit 100 -k
+        apictl mg get apis -q type:http --environment dev --limit 100
         ```
         ```bash
-        apictl mg get apis -q type:ws -e dev -l 10 -k
+        apictl mg get apis -q type:ws -e dev -l 10
         ```
 
 -   **Response**
@@ -217,10 +219,10 @@ This command can be used to remove an API from the microgateway.
 
 -   **Command**
     ```bash
-    apictl mg undeploy api -e <environment-name> -n <api-name> -v <api-version> -k
+    apictl mg undeploy api -e <environment-name> -n <api-name> -v <api-version>
     ```
     ```bash
-    apictl mg undeploy api -e <environment-name> -n <api-name> -v <api-version> --vhost <vhost> -k
+    apictl mg undeploy api -e <environment-name> -n <api-name> -v <api-version> --vhost <vhost>
     ```
 
     !!! info
@@ -236,10 +238,10 @@ This command can be used to remove an API from the microgateway.
 
     !!! example
         ```bash
-        apictl mg undeploy api -e dev -n petstore -v 0.0.1 -k
+        apictl mg undeploy api -e dev -n petstore -v 0.0.1
         ```
         ```bash
-        apictl mg undeploy api --name SwaggerPetstore --version 0.0.1 -e dev -k
+        apictl mg undeploy api --name SwaggerPetstore --version 0.0.1 -e dev
         ```
         ```bash
         apictl mg undeploy api -n petstore -v 0.0.1 -e dev --vhost www.pets.com
