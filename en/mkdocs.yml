@@ -682,36 +682,38 @@ nav:
           - Observability Overview: observe/observe-overview.md
           - API Manager Analytics:
                 - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Viewing API Statistics:
-                    - Monitoring dashboard: observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard.md
-                    - Business analytics: observe/api-manager-analytics/viewing-api-statistics/business-analytics-dashboard.md
-                    - API analytics: observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard.md
-                    - Application analytics: observe/api-manager-analytics/viewing-api-statistics/application-analytics-dashboard.md
-                - Monthly API Usage Report: observe/api-manager-analytics/monthly-api-usage-report.md
-                - Using Geolocation Based Statistics:
-                    - Creating the Geo Location Data Set: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
-                    - Configuring Geo Location Based Statistics: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
-                    - Writing a Custom Geo Location Provider: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
-                - Alert Types: observe/api-manager-analytics/alert-types.md
-                - Setup & Configuration:
-                    - Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
-                    - Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
-                    - Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
-                    - Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
-                    - Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
-                    - Subscribing for Alerts: observe/api-manager-analytics/subscribing-for-alerts.md
-                    - Integrating with Google Analytics: observe/api-manager-analytics/integrating-with-google-analytics.md
-                    - Purging Analytics Data: observe/api-manager-analytics/purging-analytics-data.md
-                    - Default Ports of WSO2 API-M Analytics: observe/api-manager-analytics/default-ports-of-wso2-api-m-analytics.md
-                - Development:
-                    - Creating Custom Widgets: observe/api-manager-analytics/creating-custom-widgets-in-analytics-dashboards.md
-                    - Customizing Analytics Dashboards: observe/api-manager-analytics/customizing-analytics-dashboards.md
-                    - White Labeling for Tenants: observe/api-manager-analytics/white-labeling-tenants.md
-                    - Adding Third Party Non OSGi Libraries: observe/api-manager-analytics/adding-third-party-non-osgi-libraries.md
-                    - Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
-                    - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
-                - Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
-          - Monitoring:
+                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                #- Viewing API Statistics:
+                    #- Monitoring dashboard: observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard.md
+                    #- Business analytics: observe/api-manager-analytics/viewing-api-statistics/business-analytics-dashboard.md
+                    #- API analytics: observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard.md
+                    #- Application analytics: observe/api-manager-analytics/viewing-api-statistics/application-analytics-dashboard.md
+                #- Monthly API Usage Report: observe/api-manager-analytics/monthly-api-usage-report.md
+                #- Using Geolocation Based Statistics:
+                    #- Creating the Geo Location Data Set: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
+                    #- Configuring Geo Location Based Statistics: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
+                    #- Writing a Custom Geo Location Provider: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
+                #- Alert Types: observe/api-manager-analytics/alert-types.md
+                #- Setup & Configuration:
+                    #- Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
+                    #- Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
+                    #- Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
+                    #- Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
+                    #- Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
+                    #- Subscribing for Alerts: observe/api-manager-analytics/subscribing-for-alerts.md
+                    #- Integrating with Google Analytics: observe/api-manager-analytics/integrating-with-google-analytics.md
+                    #- Purging Analytics Data: observe/api-manager-analytics/purging-analytics-data.md
+                    #- Default Ports of WSO2 API-M Analytics: observe/api-manager-analytics/default-ports-of-wso2-api-m-analytics.md
+                #- Development:
+                    #- Creating Custom Widgets: observe/api-manager-analytics/creating-custom-widgets-in-analytics-dashboards.md
+                    #- Customizing Analytics Dashboards: observe/api-manager-analytics/customizing-analytics-dashboards.md
+                    #- White Labeling for Tenants: observe/api-manager-analytics/white-labeling-tenants.md
+                    #- Adding Third Party Non OSGi Libraries: observe/api-manager-analytics/adding-third-party-non-osgi-libraries.md
+                    #- Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
+                    #- General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
+                #- Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
+          - Monitoring the API Manager:
               - Monitoring Logs:
                   - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                   - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -723,7 +725,7 @@ nav:
               - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-          - Micro Integrator Observability:
+          - Monitoring the Micro Integrator:
               - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
@@ -1006,9 +1008,9 @@ nav:
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - MongoDB Connector:
-                - 'MongoDB Connector Overview': 'references/connectors/mongodb-connector/mongodb-connector-overview.md'
-                - 'MongoDB Connector Example': 'references/connectors/mongodb-connector/mongodb-connector-example.md'
-                - 'MongoDB Connector Reference': 'references/connectors/mongodb-connector/mongodb-connector-config.md'
+                - MongoDB Connector Overview: references/connectors/mongodb-connector/mongodb-connector-overview.md
+                - MongoDB Connector Example: references/connectors/mongodb-connector/mongodb-connector-example.md
+                - MongoDB Connector Reference: references/connectors/mongodb-connector/mongodb-connector-config.md
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1530,6 +1532,8 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.snippets:
+          base_path: docs
 plugins:
     - search
     - markdownextradata: {}
