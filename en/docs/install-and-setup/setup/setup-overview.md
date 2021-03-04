@@ -2,6 +2,10 @@
 
 Setting up involves doing the required configurations for the API Manager and its components before running them in the production environment. The following are some common set up tasks that you are required to do separately for each component.
 
+- **Updating the component**
+
+    This involves applying the latest [WSO2 updates](https://wso2.com/updates) to each component so that each componety is updated with the latest bug fixes and software improvement.
+
 - **Configuring databases**
 
     This involves setting up databases for each component to store data.

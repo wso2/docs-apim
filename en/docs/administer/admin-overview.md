@@ -1,7 +1,8 @@
-# WSO2 API Manager Administration Overview
+# Administration Overview
 
-This section explains how to carry out the following administration activities for WSO2 API Manager.
+This section covers administration tasks you need to perform in WSO2 API Manager to support the core functions of the API Manager, Micro Integrator, and the Streaming Integrator. These include managing users and roles, configuring and managing a multi-tenant environment, registering key managers, etc. 
 
-- [Applying WUM Updates]({{base_path}}/administer/admin-overview)
+- [Managing Users and Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores)
+- [Secondary User Stores]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores)
 - [Multitenancy]({{base_path}}/administer/multitenancy/introduction-to-multitenancy)
-- [Logging]({{base_path}}/administer/logging-and-monitoring/logging/setting-up-logging)
+- [Key Managers]({{base_path}}/administer/key-managers/overview)
