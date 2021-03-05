@@ -227,7 +227,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     notification_endpoint = "https://<traffic-manager-host>:<traffic-manager-https-port>/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2IS"
+    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
     ``` tab="Example"
@@ -236,7 +236,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
     notification_endpoint = "https://<tm.wso2.com>:9443/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2IS"
+    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
 6.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
