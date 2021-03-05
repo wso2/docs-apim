@@ -1,6 +1,6 @@
 # Tutorials Overview
 
-The tutorials of API Manager 4.0.0 will guide you to get hands-on experience with product capabilities.
+The tutorials of API Manager 4.0.0 guides you to get hands-on experience with product capabilities.
 
 ## API Management Tutorials
 
