@@ -7,7 +7,7 @@ However, **apictl** allows you to create and deploy APIs without using the Publi
 
 ## Get APIs or API Products in an environment
 
-Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
+Follow the instructions below to display a list of APIs or API Products in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
      For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
@@ -18,13 +18,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
         -   **Command**
             ``` bash
-            apictl get apis -e <environment> -k
+            apictl get apis -e <environment>
             ```
             ``` bash
-            apictl get apis --environment <environment> --insecure
+            apictl get apis --environment <environment>
             ```
             ``` bash
-            apictl get apis --environment <environment> --query <API search query> --insecure
+            apictl get apis --environment <environment> --query <API search query> 
             ```
 
             !!! info
@@ -39,13 +39,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get apis -e dev -k
+                apictl get apis -e dev 
                 ```
                 ```bash
-                apictl get apis --environment production --limit 15 --insecure
+                apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
+                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI 
                 ```  
 
         -   **Response**
@@ -83,13 +83,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
     
         -   **Command**
             ``` bash
-            apictl get api-products -e <environment> -k
+            apictl get api-products -e <environment>
             ```
             ``` bash
-            apictl get api-products --environment <environment> --insecure
+            apictl get api-products --environment <environment>
             ```
             ``` bash
-            apictl get api-products --environment <environment> --query <API search query> --insecure
+            apictl get api-products --environment <environment> --query <API search query>
             ```
 
             !!! info
@@ -103,13 +103,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get api-products -e dev -k
+                apictl get api-products -e dev 
                 ```
                 ```bash
-                apictl get api-products --environment production --insecure
+                apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
+                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 
                 ```  
 
         -   **Response**
@@ -122,6 +122,117 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!!note
                 `apictl list api-products` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
+
+## Get all revisions created for an API or API Product in an environment
+
+Follow the instructions below to display a list of revisions created for an API or API Product in an environment using CTL:
+
+1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
+     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding CTL command below to get (list) revisions for the required API or API Product in an
+ environment.
+
+    1. Get revisions for an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl get api-revisions -n <API-name> -v <version> -e <environment> 
+            ```
+            ``` bash
+            apictl get api-revisions --name <API-name> --version <version> --environment <environment>
+            ```
+            ``` bash
+            apictl get api-revisions --name <API-name> --version <version> --provider <provider> --environment <environment> --query <deployment-search-query>
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--name` or `-n` : Name of the API to get the revisions  
+                    `--version` or `-v` : Version of the API to get the revisions  
+                    `--environment` or `-e` : Environment to be searched  
+                -   Optional :  
+                    `--provider` or `-r` : Provider of the API  
+                    `--query` or `-q` : Search query pattern  
+                    `--format` : pretty-print environments using templates
+
+            !!! example
+                ```bash
+                apictl get api-revisions -n PizzaShackAPI -v 1.0.0 -e dev 
+                ```
+                ```bash
+                apictl get api-revisions --name PizzaShackAPI --version 1.0.0 --environment production
+                ```    
+                ```go
+                apictl get api-revisions -n PizzaShackAPI -v 1.0.0 -q deployed:true -e dev 
+                ```  
+
+        -   **Response**
+
+            ```go
+            ID                                     REVISION            DESCRIPTION                                GATEWAY_ENVS
+            8ee17243-e3c6-4517-b126-ec9745220004   1                  Initial Revision                           [Production and Sandbox Label3 Label4]
+            660852cb-f23e-4d51-a622-0c4604f8598f   2                  Revision created after importing the API   [Label2]
+            2812a8e8-c3b0-49c2-8023-435e27a888e4   3                  Revision created after importing the API   []
+            f90fc252-5758-49ef-ab20-3d681f4b3238   4                  Revision created after importing the API   [Label1]
+            4e4b87a8-209e-4193-9b7c-615678c04080   5                  Revision created after importing the API   []
+            ```
+            
+    2. Get revisions for an API Product in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl get api-product-revisions -n <API-Product-name> -e <environment> 
+            ```
+            ``` bash
+            apictl get api-product-revisions --name <API-Product-name> --environment <environment>
+            ```
+            ``` bash
+            apictl get api-product-revisions --name <API-Product-name> --provider <provider> --environment <environment> --query <deployment-search-query>
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--name` or `-n` : Name of the API Product to get the revisions   
+                    `--environment` or `-e` : Environment to be searched  
+                -   Optional :  
+                    `--provider` or `-r` : Provider of the API Product
+                    `--query` or `-q` : Search query pattern  
+                    `--format` : pretty-print environments using templates
+
+            !!! example
+                ```bash
+                apictl get api-product-revisions -n ShopProduct -e dev 
+                ```
+                ```bash
+                apictl get api-product-revisions --name MediaProduct --environment production
+                ```    
+                ```go
+                apictl get api-product-revisions -n PizzaProduct -q deployed:true -e dev 
+                ```  
+
+        -   **Response**
+
+            ```go
+            ID                                     REVISION            DESCRIPTION         GATEWAY_ENVS
+            86ae2e4f-59b4-45a8-8693-0edb64a7fd6a   1                   Initial Revision    [Production and Sandbox Label1]
+            cbabfcca-7e53-4d9a-b07b-e5fc67768e0e   2                   Updated endpoints   [Label2 Label3]
+            ```
+
+            !!! tip 
+                When using the `get api-revisions` and  `get api-product-revisions` command, `-q` or `--query` optional 
+                flag can be used to filter out the revisions based on whether they are deployed in a gateway environment or not.
+                ```--query deployed:true``` can be used to filter out the revisions that are already deployed in atleast one
+                gateway environment. Without the ```query``` flag, revisions will be displayed irrespective of the deployment.
+            
+            !!!note
+                Output of the `get api-revisions` and `get api-product-revisions` commands can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).  
+                `apictl list api-products` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
+                
 
 ## Delete an API or API Product in an environment
 
@@ -136,13 +247,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         -   **Command**
             ``` bash
-            apictl delete api -n <API name> -v <API version> -e <environment> -k
+            apictl delete api -n <API name> -v <API version> -e <environment>
             ```
             ``` bash
-            apictl delete api --name <API name> --version <API version> --environment <environment> --insecure
+            apictl delete api --name <API name> --version <API version> --environment <environment> 
             ```
             ``` bash
-            apictl delete api --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+            apictl delete api --name <API name> --version <API version> --environment <environment> --provider <API provider> 
             ```
 
             !!! info
@@ -157,13 +268,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
             !!! example
                 ```bash
-                apictl delete api -n PizzaShackAPI -v 1.0.0 -e dev -k
+                apictl delete api -n PizzaShackAPI -v 1.0.0 -e dev
                 ```
                 ```bash
-                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production 
                 ```    
                 ```go
-                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -176,13 +287,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         -   **Command**
             ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> -k
+            apictl delete api-product -n <API Product name> -e <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --insecure
+            apictl delete api-product --name <API Product name> --environment <environment> 
             ```
             ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> --insecure
+            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> 
             ```
 
             !!! info
@@ -196,13 +307,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
             !!! example
                 ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev -k
+                apictl delete api-product -n LeasingAPIProduct -e dev 
                 ```
                 ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production --insecure
+                apictl delete api-product --name LeasingAPIProduct -environment production 
                 ```    
                 ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice --insecure
+                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice 
                 ```  
 
         -   **Response**
@@ -222,13 +333,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
     -   **Command**
         ``` bash
-        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> -k
+        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> 
         ```
         ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --insecure
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> 
         ```
         ``` bash
-        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> 
         ```
 
         !!! info
@@ -244,13 +355,13 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
 
         !!! example
             ```bash
-            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev -k
+            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
             ```
             ```bash
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production 
             ```    
             ```go
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice 
             ```  
 
     -   **Response**
@@ -262,3 +373,100 @@ For more information, see [Download and Initialize the CTL Tool]({{base_path}}/i
     !!! Info
         Supported action values : Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire.
         Note that the Re-publish action is available only after calling Block action.
+
+## Undeploy a revision of an API or API Product from all or specific deployment environments
+
+Follow the instructions below to undeploy a revision of an API from a selected gateway environment using CTL:
+
+1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
+For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding CTL command below to undeploy the revision from a gateway environment.
+
+    1. Undeploy a revision of an API from gateway environments.
+    
+        -   **Command**
+            ``` bash
+            apictl undeploy api -n <API name> -v <API version> --rev <Revision number> -e <environment>
+            ```
+            ``` bash
+            apictl undeploy api --n <API name> --v <API version> --rev <Revision number> --g <gateway environment> --e <environment> 
+            ```
+            ``` bash
+            apictl undeploy api --name <API name> --version <API version> --rev <Revision number> --environment <environment> --provider <API provider> 
+            ```
+    
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on   
+                    `--name` or `-n` : The name of the respective API  
+                    `--version` or `-v` : The version of the respective API  
+                    `--rev`  : Revision number of the respective API   
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API    
+                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed.  
+    
+            !!! example
+                ```bash
+                apictl undeploy api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+                ```
+                ```bash
+                apictl undeploy api --n PizzaShackAPI --v 1.0.0 --rev 2 -g Label1 Label2 Label3 --e production 
+                ```    
+                ```go
+                apictl undeploy api --name PizzaShackAPI --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 "Production and Sandbox"  --environment production 
+                ```  
+    
+        -   **Response**
+    
+            ```go
+            Revision 2 of API PizzaShackAPI_1.0.0 successfully undeployed from the specified gateway environments
+            ```
+            
+    2. Undeploy a revision of an API product from gateway environments.
+    
+        -   **Command**
+                ``` bash
+                apictl undeploy api-product -n <API Product name> --rev <Revision number> -e <environment>
+                ```
+                ``` bash
+                apictl undeploy api-product --n <API Product name> --rev <Revision number> --g <gateway environment> --e <environment> 
+                ```
+                ``` bash
+                apictl undeploy api-product --name <API Product name> --rev <Revision number> --environment <environment> --provider <API Product provider>   
+                ```
+    
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : The environment that the command is executed on   
+                    `--name` or `-n` : The name of the respective API Product    
+                    `--rev`  : Revision number of the respective API Product   
+                -   Optional :  
+                    `--provider` or `-r` : The provider of the respective API Product    
+                    `--gateway-env` or `-g` : The gateway environment which the revisions needs to be undeployed    
+           
+            !!! example
+                ```bash
+                apictl undeploy api-product -n LeasingAPIProduct -e dev 
+                ```
+                ```bash
+                apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 Label2 Label3 --e production 
+                ```    
+                ```go
+                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 "Production and Sandbox"  --environment production 
+                ```  
+         
+            -   **Response**
+        
+                ```go
+                Revision 2 of API Product PizzaProduct successfully undeployed from the specified gateway environments
+                ```
+
+    !!! Info
+        - If ```--gateway-env``` or ```-g``` flag not provided, revision will be undeployed from all the gateway environments it is already deployed.
+        - If there are multiple gateway environments, provide them one by one separated with a space. If a label has more than one words,
+        wrap the entire label name with quotes.

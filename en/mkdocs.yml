@@ -1205,12 +1205,7 @@ nav:
             - Deploying Micro Integrator:
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - EI Kubernetes Operator: install-and-setup/setup/mi-setup/deployment/ei_kubernetes_operator.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                    - K8s Deployment Samples:
-                        - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/k8s-samples/hello-world.md
-                        - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/k8s-samples/content-based-routing.md
-                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/k8s-samples/jms-sender-receiver.md
                     - K8s Pipeline:
                         - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
                         - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
@@ -1422,6 +1417,12 @@ nav:
         - Kubernetes Operators:
           - K8s API Operator:
               - K8s API Operator Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
+              - Manage Integration:
+                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
+                - Integration Deployment Samples:
+                  - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.md
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
@@ -1434,6 +1435,7 @@ nav:
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+            - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
@@ -1510,6 +1512,8 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.snippets:
+          base_path: docs
 plugins:
     - search
     - markdownextradata: {}
