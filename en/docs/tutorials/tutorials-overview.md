@@ -1,6 +1,6 @@
 # Tutorials Overview
 
-The tutorials of API Manager 4.0.0 guides you to get hands-on experience with product capabilities.
+The tutorials of WSO2 API Manager 4.0.0 guides you to get hands-on experience with product capabilities.
 
 ## API Management Tutorials
 
@@ -26,7 +26,7 @@ The following list of tutorials guide you to use the API-first approach when cre
 
 ## Integration Tutorials
 
-The integration tutorials will walk you through the main capabilities and features of the Micro Integrator, and help you understand how to build an integrated system.
+The integration tutorials walk you through the main capabilities and features of the Micro Integrator, and help you understand how to build an integrated system.
 
 <table>
     <tr>
