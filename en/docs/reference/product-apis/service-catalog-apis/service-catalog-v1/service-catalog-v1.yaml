@@ -371,13 +371,14 @@ paths:
           description: |
             Successful response with the definition file as entity in the body.
           content:
-            application/json:
-              schema:
-                type: string
             application/yaml:
               schema:
                 type: string
                 format: binary
+              examples: 
+                oasDefinition:
+                  externalValue:  https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/yaml/uber.yaml
+                  
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -396,7 +397,7 @@ paths:
   #-------------------------------------------------------------------
   /services/{serviceId}/usage:
     get:
-      summary: Retrieve the API Info that use the given service
+      summary: Retrieve the usage of service
       description: |
         Retrieve the id, name, context and version of the APIs that used by the service
       security:
@@ -435,7 +436,7 @@ paths:
     post:
       summary: Import a service
       description: |
-        Import  a service by providing an archived service
+        Import one or more services by providing an archived consisting of metadata and definition of the services
       security:
         - OAuth2Security:
             - service_catalog:service_write
@@ -462,10 +463,36 @@ paths:
                 file:
                   type: string
                   description: |
-                    Zip archive consisting of exported Application Configuration.
+                    An an archive consisting of metadata and definition of the service. You can upload archive file with either single service
+                    or multiple services. Folder structure of the zip file should be in the format given below.
+                    ``` bash
+                    <zip_file>.
+                    ├── service1
+                    │   ├── definition.yaml
+                    │   └── metadata.yaml
+                    └── service2
+                        ├── definition.yaml
+                        └── metadata.yaml
+                    ```
                   format: binary
                 verifier:
                   type: string
+                  description: |
+                    `verifier` is an optional parameter which is used in validating the request when this resource used to update existing services.
+                    If verifier validation fails, the service import will be failed.
+                    `verifier` is a JSON, contains the key and MD5 of the service and should be in followimg format.
+                    ``` json
+                      [
+                        {
+                          "key":"service1-1.0.0",
+                          "md5":"6d6ac8a03c2cd5b95fbdda7c66ef285ebcbe4da2198807c5c9aa3be7e401f6a1"
+                        },
+                        {
+                          "key":"service2-1.0.0",
+                          "md5":"7f5850d98866b5ce34fa1812d0e6d080ad8b7082cd9387eb80311ba75bfe776"
+                        }
+                      ]
+                    ```
       responses:
         200:
           description: |
@@ -474,9 +501,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceInfoList'
-          headers:
-            ETag:
-              $ref: '#/components/headers/ETag'
         400:
           $ref: '#/components/responses/BadRequest'
         401:
@@ -530,9 +554,6 @@ paths:
               schema:
                 type: string
                 format: binary
-          headers:
-            ETag:
-              $ref: '#/components/headers/ETag'
         401:
           $ref: '#/components/responses/Unauthorized'
         404:
@@ -552,7 +573,7 @@ paths:
     # Retrieve Service Catalog settings
     #-----------------------------------------------------
     get:
-      summary: Retrieve service catalog API settings
+      summary: Retrieve Service Catalog API settings
       description: |
         Retrieve Service Catalog API settings
       operationId: getSettings
@@ -777,7 +798,7 @@ components:
           example: 36583a6a249b410e7fc4f892029709cac09763ddb230e1a829d5f9134d1abd07
         definitionUrl:
           type: string
-          example: https://petstore.swagger.io/v2/swagger.json
+          example: https://petstore.swagger.io/v2/swagger.yaml
     
     ServiceInfo:
       type: object
@@ -818,7 +839,7 @@ components:
           format: binary
         inlineContent:
           type: string
-          description: Inline content of the document
+          description: Service definition as inline content (in YAML format)
 
     #-----------------------------------------------------
     # The settings resource
@@ -913,7 +934,7 @@ components:
 
   responses:
     BadRequest:
-      description: Bad Request. Invalid request or validation error.
+      description: Bad Request. Validation Error.
       content:
         application/json:
           schema:
@@ -921,7 +942,7 @@ components:
           example:
             code: 400
             message: Bad Request
-            description: Invalid request or validation error
+            description: Validation Error
             moreInfo: ""
             error: []
 
@@ -940,7 +961,7 @@ components:
             error: []
 
     NotFound:
-      description: Not Found. The specified resource does not exist.
+      description: Bad Request. Requested resource with Id '506bd512-f38-4cca-8f4e-d25341b7c3c7' not found
       content:
         application/json:
           schema:
@@ -948,12 +969,12 @@ components:
           example:
             code: 404
             message: Not Found
-            description: The specified resource does not exist
+            description: Requested resource with Id '506bd512-f38-4cca-8f4e-d25341b7c3c7' not found
             moreInfo: ""
             error: []
 
     Conflict:
-      description: Conflict. Specified resource already exists.
+      description: Conflitc. Cannot remove the resource as it is used by one or more APIs
       content:
         application/json:
           schema:
@@ -961,20 +982,20 @@ components:
           example:
             code: 409
             message: Conflict
-            description: Specified resource already exists
+            description: Cannot remove the Service as it is used by one or more APIs
             moreInfo: ""
             error: []
 
     Unauthorized:
-      description: Unauthorized. The user is not authorized.
+      description: Unauthenticated request.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             code: 401
-            message: Unauthorized
-            description: The user is not authorized
+            message: Unauthenticated
+            description: Unauthenticated request
             moreInfo: ""
             error: []
 
@@ -1078,12 +1099,3 @@ components:
         enum:
           - asc
           - desc
-
-  headers:
-    #-------------------------------------------------------
-    # ETag header representing the current state of the resource
-    #-------------------------------------------------------
-    ETag:
-      schema:
-        type: string
-      description: A hash-like string value which represents the current state of a resource
