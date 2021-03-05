@@ -679,42 +679,42 @@ nav:
                        - Converting Units: use-cases/examples/streaming-examples/unit-conversion-extension-sample.md
                        - Calculating Aggregations Over Time': use-cases/examples/streaming-examples/aggregate-over-time.md
     - Observe:
-          - Observability Overview: observe/observe-overview.md
-            - API Manager Observability:
-              - Monitoring Logs:
-                  - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
-                  - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
-                  - Monitoring audit Logs: observe/logging-and-monitoring/logging/monitoring-audit-logs.md
-                  - Managing log growth: observe/logging-and-monitoring/logging/managing-log-growth.md
-                  - Masking sensitive information in logs: observe/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-              - Working with Observability: observe/logging-and-monitoring/monitoring/working-with-observability.md
-              - Enabling Tracing with OpenTracing: observe/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
-              - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
-              - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
-              - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-              - API Manager Analytics:
-                  - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                  - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                  - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
-          - Micro Integrator Observability:
-              - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
-              - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
-              - Using the Management API: observe/mi-observe/working-with-management-api.md
-              - Observability:
-                  - Cloud Native Observability Solution:
-                    - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
-                  - Classic Observability Solution:
-                    - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
-                  - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
-                  - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
-              - Metrics:
-                  - JMX Monitoring: observe/mi-observe/jmx_monitoring.md
-                  - SNMP Monitoring: observe/mi-observe/snmp_monitoring.md
-              - TCP Messages:
-                  - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
-                  - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
-                  - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
-          - Monitoring the Streaming Integrator:
+        - Observability Overview: observe/observe-overview.md
+        - API Manager Observability:
+            - Monitoring Logs:
+                - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
+                - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
+                - Monitoring audit Logs: observe/logging-and-monitoring/logging/monitoring-audit-logs.md
+                - Managing log growth: observe/logging-and-monitoring/logging/managing-log-growth.md
+                - Masking sensitive information in logs: observe/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+            - Working with Observability: observe/logging-and-monitoring/monitoring/working-with-observability.md
+            - Enabling Tracing with OpenTracing: observe/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
+            - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+            - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+            - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
+            - API Manager Analytics:
+                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
+                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+        - Micro Integrator Observability:
+            - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
+            - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
+            - Using the Management API: observe/mi-observe/working-with-management-api.md
+            - Observability:
+                - Cloud Native Observability Solution:
+                  - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
+                - Classic Observability Solution:
+                  - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
+                - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
+                - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
+            - Metrics:
+                - JMX Monitoring: observe/mi-observe/jmx_monitoring.md
+                - SNMP Monitoring: observe/mi-observe/snmp_monitoring.md
+            - TCP Messages:
+                - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
+                - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
+                - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
+        - Monitoring the Streaming Integrator:
               - Configuring Grafana Dashboards: observe/si-observe/setting-up-grafana-dashboards.md
               - Managing Grafana Dashboards: observe/si-observe/managing-grafana-dashboards.md
               - Monitoring Streaming Components:
