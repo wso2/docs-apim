@@ -261,6 +261,20 @@ The steps below describe how to remove the subscribed APIs from the JWT and vali
       If "kid": "ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256"
       then import the certificate with  -alias ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256
       ```
+      The kid value can be extracted only after changing the token issuer to "JWT" globally/per App. This certificate is already available in the truststore under the `gateway_certificate_alias` alias. This should be kept as it is to use previously generated tokens and tokens with issuer other than "JWT".
+
+      If you have changed the token type to the JWT and have not imported the public certificate into the client-truststore.jks, then the API invocation request will get failed with the following error message.
+            
+         ```   
+         <ams:fault xmlns:ams="http://wso2.org/apimanager/security">
+         <ams:code>900900</ams:code>
+         <ams:message>Unclassified Authentication Failure</ams:message>
+         <ams:description>Unclassified Authentication Failure</ams:description>
+         </ams:fault>
+         ```
+
+      Therefore, import the public certificate of identity provider of JWT into the `<API-M-HOME>/repository/resources/security/client-truststore.jks` under the alias of the kid in the JWT token.
+
 3. Add the below lines to the `<API-M_HOME>/repository/conf/deployment.toml` file.
    ```
    [oauth.extensions]
