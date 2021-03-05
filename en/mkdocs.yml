@@ -1253,9 +1253,9 @@ nav:
         - Setup:
             - Setting up API Manager:
                 - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
-                - Configuring a Key Manager:
-                    - Configuring a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                    - Configuring WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
+                - Setting up a Key Manager:
+                    - Setting up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
+                    - Setting up WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
                 - Setting up Databases:
                     - Overview: install-and-setup/setup/setting-up-databases/overview.md
                     - Changing Default Databases:
