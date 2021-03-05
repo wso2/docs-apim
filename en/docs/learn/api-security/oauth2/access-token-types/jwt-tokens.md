@@ -261,9 +261,9 @@ The steps below describe how to remove the subscribed APIs from the JWT and vali
       If "kid": "ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256"
       then import the certificate with  -alias ZjRmYTMwNTJjOWU5MmIzMjgzNDI3Y2IyMmIyY2EzMjdhZjViMjc0Zg_RS256
       ```
-      The kid value can be extracted only after changing the token issuer to "JWT" globally/per App. This certificate is already available in the truststore under the `gateway_certificate_alias` alias. This should be kept as it is to use previously generated tokens and tokens with issuer other than "JWT".
+      The kid value can be extracted only after changing the token issuer to `JWT` globally or per application. This certificate is already available in the truststore under the `gateway_certificate_alias` alias. This should be kept as it is to use previously generated tokens and tokens that have issuers other than "JWT".
 
-      If you have changed the token type to the JWT and have not imported the public certificate into the client-truststore.jks, then the API invocation request will get failed with the following error message.
+      If you have changed the token type to `JWT` and have not imported the public certificate into the `client-truststore.jks`, then the API invocation request will fail with the following error message.
             
          ```   
          <ams:fault xmlns:ams="http://wso2.org/apimanager/security">
@@ -284,7 +284,7 @@ The steps below describe how to remove the subscribed APIs from the JWT and vali
 
 You can also manually change the token issuer for selective applications by following the steps below. Note that these changes will not affect the existing tokens. 
 
-1. Log into the Management Console via `https://localhost:9443/carbon`
+1. Sign in to the Management Console via `https://localhost:9443/carbon`
 
 2. Navigate to **Main** -> **Identity** -> **Service Providers** -> **List**.
 
