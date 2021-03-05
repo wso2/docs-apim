@@ -268,7 +268,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
             `--devportal` : DevPortal endpoint for the environment
    
     !!!note
-        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. For further information please refer [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).  
+        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. For further information please refer [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).  
 
      On successfully executing this command, you should see the following message.
      
@@ -337,7 +337,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      ```
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above. For further information please refer [Import an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).  
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above. For further information please refer [Import an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).  
 
      You should now see your API deployed successfully on WSO2 API Manager.
 
