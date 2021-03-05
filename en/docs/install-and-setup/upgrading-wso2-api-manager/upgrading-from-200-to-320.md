@@ -854,7 +854,7 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;  
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
 
         CREATE TABLE IF NOT EXISTS AM_SCOPE (
             SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
