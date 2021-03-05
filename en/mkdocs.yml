@@ -103,6 +103,9 @@ nav:
                     - Add API Documentation: design/api-documentation/add-api-documentation.md
                     - Search Documentation:
                             - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
+            - API Collaborations: 
+                    - Comment on API: design/api-collaborations/comment-on-api.md
+                    - Community Links: design/api-collaborations/community-links.md
             - API Security:
                     - Authentication:
                             - Overview: design/api-security/api-authentication/api-authentication-overview.md
