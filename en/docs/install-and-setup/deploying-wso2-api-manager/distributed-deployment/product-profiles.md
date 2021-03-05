@@ -74,11 +74,11 @@ The following are the different profiles available in WSO2 API Manager.
 
 You can start an API Manager profile in the following methods, based on your requirement
 
--   [Method 1 - Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
--   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
+-   [Method 1 - Optimizing before starting the server](#method-1-optimizing-before-starting-the-server)
+-   [Method 2 - Optimizing while starting the server](#method-2-optimizing-while-starting-the-server)
 
 !!! note
-    It is recommended to start the components in the following order: 
+    It is recommended to start the components in the following order: 
 
     1. Traffic Manager
     2. Key Manager
@@ -90,7 +90,7 @@ You can start an API Manager profile in the following methods, based on your req
 
 Create an optimized distribution for a particular API-M profile.
 
-1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
+1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
 
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=<preferred-profile>
@@ -104,21 +104,56 @@ Create an optimized distribution for a particular API-M profile.
     <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=api-publisher
     ```
     
-2.  Start the server with the specified profile. 
+2. Copy the respective databasee connector JAR to `/lib` directory.
+   
+     For example, if you are using a MySQL database,
+
+     1. Download the MySQL connector JAR file and extract it.
+     
+     2. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
+
+3. Create the required databases, namely the API-M database (`apimgtdb` also known as `WSO2_AM_DB`) and the shared database (`WSO2_SHARED_DB` also known as `shareddb`).
+
+4. Update the default DB configurations to match your environment.
+
+     Change the following DB configurations, which is in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+     ```
+     [database.apim_db]
+     type = "mysql"
+     hostname = "localhost"
+     name = "apimgt_db"
+     port = "3306"
+     username = "root"
+     password = "root"
+
+     [database.shared_db]
+     type = "mysql"
+     hostname = "localhost"
+     name = "shared_db"
+     port = "3306"
+     username = "root"
+     password = "root"
+     ```
+
+5.  Start the server with the specified profile.
+
+    The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again.
+    
+    Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
     
     ``` tab="Sample Format"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile>
+    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
     ```
     
     ``` tab="Example:Linux/Solaris/MacOS"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher
+    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher
+    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```    
-      
-    
+
 #### Method 2 - Optimizing while starting the server
 
 1.  Start the server using the script based on your operating system, using the command given below.
@@ -169,38 +204,22 @@ Create an optimized distribution for a particular API-M profile.
         [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Home        : /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
         [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Version     : 1.8.0_152
         ```
-Configuration optimization is one step occurred in profile optimization process. This is occurred by replacing the 
-deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
-required, we can skip this step from the profile optimization process, via passing additional option 
-'--skipConfigOptimization', so that the existing deployment.toml file in the pack will not be overridden. 
-
-!!! warning
-    This option '--skipConfigOptimization' is supported by default only from WSO2 API Manager 3.1.0 onwards. It is 
-    available for WSO2 APIM 3.0.0 only as a **WUM** update and is effective from 29th March 2020 (2020-03-29). For more 
-    information on how to update using WUM, see 
-    [Getting WSO2 Updates](https://docs.wso2.com/display/ADMIN44x/Getting+WSO2+Updates) documentation.
-
     
-``` tab="Sample Format"
-sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
-```
-
-``` tab="Example:Linux/Solaris/MacOS"
-sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
-```
-
-``` tab="Example:Windows"
-<PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
-
-```  
+    ``` tab="Sample Format"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+    ```
+    
+    ``` tab="Example:Linux/Solaris/MacOS"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
+    ```
+    
+    ``` tab="Example:Windows"
+    <PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
+    
+    ```  
         
-So, before running this command (with --skipConfigOptimization option) you are expected to do the configuration 
-changes in deployment.toml manually in the pack. So passing this option allows you to preserve the already manually
- applied configurations, when doing the profile optimization via the commands.
+Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
+changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
 !!! note
-    Doing the profile optimization using the scripts, is the recommended approach and manually doing 
-    the optimization including the usage of option --skipConfigOptimization, should be done only in the cases 
-    where it can't be avoided. 
-
-
+    Profile optimization using scripts is the recommended approach. Manually optimizing and including the usage of the `--skipConfigOptimization` option should be done only in the cases where it can't be avoided. 
