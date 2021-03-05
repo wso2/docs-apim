@@ -103,7 +103,7 @@ nav:
                     - Add API Documentation: design/api-documentation/add-api-documentation.md
                     - Search Documentation:
                             - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
-            - API Collaborations: 
+            - API Collaboration: 
                     - Comment on API: design/api-collaborations/comment-on-api.md
                     - Community Links: design/api-collaborations/community-links.md
             - API Security:
@@ -1696,5 +1696,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
+    # base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/next
