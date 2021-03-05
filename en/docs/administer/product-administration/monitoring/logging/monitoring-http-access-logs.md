@@ -74,7 +74,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
         <tbody>
           <tr class="odd">
              <td>access_log_directory</td>
-             <td>Add this property ONLY if you want to change the default location of the log file. By default, the product is configured to store access logs in the <code><APIM_HOME>/repository/logs</code> directory.</td>
+             <td>Add this property ONLY if you want to change the default location of the log file. By default, the product is configured to store access logs in the <code>&lt;APIM_HOME&gt;/repository/logs</code> directory.</td>
           </tr>
           <tr class="even">
              <td>access_log_prefix</td>
@@ -170,7 +170,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
         </tbody>
     </table>                                                                                                                
     
-4.  Add the following configuration in the <APIM_HOME>/repository/conf/nhttp.properties file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
+4.  Add the following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
     ```properties
     [n_http]
@@ -293,4 +293,3 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 </tr>
 </tbody>
 </table>
-                                                                          
