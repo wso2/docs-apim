@@ -1457,6 +1457,7 @@ nav:
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+            - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
