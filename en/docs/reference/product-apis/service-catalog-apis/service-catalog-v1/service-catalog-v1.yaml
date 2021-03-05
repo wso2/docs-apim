@@ -816,6 +816,9 @@ components:
         definitionFile:
           type: string
           format: binary
+        inlineContent:
+          type: string
+          description: Inline content of the document
 
     #-----------------------------------------------------
     # The settings resource
