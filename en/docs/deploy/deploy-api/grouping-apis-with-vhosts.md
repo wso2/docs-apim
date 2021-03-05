@@ -1,16 +1,19 @@
 # Exposing APIs via Custom Hostnames
 
-Virtual hosts (VHosts) enable you to expose APIs using different hostnames while serving a Gateway on a single server (or pool of servers). Each Gateway environment will have a minimum of one VHost. Admin users can manage Gateways by creating, updating, and deleting Gateway environments via the Admin Portal. Each Gateway environment will contain the details of each of the VHosts, which are the custom hostnames, that are applicable to that Gateway. As a result, API publishers can use the VHosts to group their APIs by selecting a virtual host when deploying an API to Gateway environment(s). In addition, application developers can access APIs by using the defined access URLs of the virtual host.
+Virtual hosts (VHosts) enable you to expose APIs using specific hostnames that correspond to a Gateway environment. Each Gateway environment will have a minimum of one VHost. Admin users can manage Gateways by creating, updating, and deleting Gateway environments via the Admin Portal. Each Gateway environment will contain the details of each of the VHosts, which are the custom hostnames, that are applicable to that Gateway environment. As a result, API publishers can use the VHosts to group their APIs by selecting a virtual host when deploying an API to Gateway environment(s). In addition, application developers can access APIs by using the defined access URLs of the virtual host.
 
-## Prerequistes
+## Prerequisites
 
 [Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
 
-## Step 1 - Create an environment
+## Step 1 - Create a Gateway environment
 
-Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that contains VHosts using either one of the following methods:
+Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that includes VHosts using either one of the following methods. 
 
-### Create an environment via the Admin Portal
+!!! info
+    The VHost does not have to be unique. Therefore, you can have multiple Gateway environments that have the same VHost.
+
+### Create a Gateway environment via the Admin Portal
 
 1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
 
@@ -30,7 +33,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
      2. Enter a name, display name, description, and a virtual host.
 
-         The virtual hosts will define each of the custom hostnames.
+         The virtual hosts will define each of the custom hostnames. It is mandatory to specify a VHost when you create a Gateway environment.
 
           | **Environment** | **Display Name** | **Description**                               | **Virtual Host** |
           |-------------|--------------|-------------------------------------------|--------------|
@@ -41,20 +44,28 @@ Each Gateway environment definition contains details related to a specific Gatew
               title="Add a Gateway Environment" width="500px" />
           </a>
 
+     3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
+
+         Let's add `food` as the HTTP(S) context for the `us-region` Gateway environment.
+
           Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
 
-### Create an environment using the configuration file
+### Create a Gateway environment using the configuration file
+
+Follow the instructions below to use the `deployment.toml` file, which is the central configuration file, to configure a Gateway environment that consists of virtual hosts:
 
 1. Open to the `<APIM-HOME>/repository/conf/deployment.toml` file.
 
 2. Create a Gateway environment.
 
-     Create a Gateway environment with the following Gateway configurations, which include `us.wso2.com` and `foods.com` as the VHosts.
+     Create a Gateway environment with the following Gateway configurations, which include `us.wso2.com` and `foods.com` as the custom VHosts and `food` as the custom context.
 
     !!! note
 
-        - When the WSO2 API Manager server is running, the Gateway environments that you added via the `deployment.toml` configuration file are displayed in the Gateway Environments list page in the Admin Portal in read-only mode. 
+        - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode. 
         - Therefore, ensure to add the VHosts that correspond to the Gateway at the time of adding the Gateway environment itself.
+        - If a VHost is not defined, the default VHost details are assigned to the Gateway environment.
+        - It is not mandatory to specify a context for the VHost.
 
     ```toml
     [[apim.gateway.environment]]
@@ -67,12 +78,16 @@ Each Gateway environment definition contains details related to a specific Gatew
     service_url = "https://localhost:${mgt.transport.https.port}/services/"
     username= "${admin.username}"
     password= "${admin.password}"
+    ws_endpoint = "ws://localhost:9099"
+    wss_endpoint = "wss://localhost:8099"
+    http_endpoint = "http://localhost:${http.nio.port}/gateway"
+    https_endpoint = "https://localhost:${https.nio.port}/gateway"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
     wss_endpoint = "wss://us.wso2.com:8099"
-    http_endpoint = "http://us.wso2.com"
-    https_endpoint = "https://us.wso2.com"
+    http_endpoint = "http://us.wso2.com/food"
+    https_endpoint = "https://us.wso2.com/food"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
@@ -133,10 +148,10 @@ Follow the instructions below to view the custom endpoint URLs of the API, which
 
 3. Click **Overview**.
 
-     The custom endpoint URLs of the API, which are based on the custom hostnames that are attached to the API, appear.
+     The custom endpoint URLs of the API, which include the custom hostnames, appear.
 
      [![Virtual host in the Developer Portal]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)
 
-## Additional Information
+## See Also
 
-- If you wish to learn how to work with multiple Gateways, see [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/).
+- [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/) to understand how to work with multiple Gateway environments that use custom hostnames. 
