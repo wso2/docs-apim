@@ -102,12 +102,12 @@ paths:
   /services:
   
     #-----------------------------------------------------
-    # Retrieve/search services in the service catalog
+    # Retrieve/search services in the Service Catalog
     #-----------------------------------------------------
     get:
       summary: Retrieve/search services
       description: |
-        Retrieve or search services in the service catalog of the user's organization or tenant. Search is supported
+        Retrieve or search services in the Service Catalog of the user's organization or tenant. Search is supported
         using the name, version, definitionType and key of the service.
         Search based on the definition type and key of the service will always be an exact search. If you want to
         execute an exact search for either name or version the parameter should be given inside double quotation.
@@ -196,12 +196,12 @@ paths:
                     "https://127.0.0.1:9443/api/am/service-catalog/v0/services?name=%22Pet%20Service%22"'
 
     #-----------------------------------------------------
-    # Adds new service to the service catalog
+    # Adds new service to the Service Catalog
     #-----------------------------------------------------
     post:
       summary: Add a new service to Service Catalog
       description: |
-        Add a new service to the service catalog of the user's organization (or tenant)
+        Add a new service to the Service Catalog of the user's organization (or tenant)
         by specifying the details of the service along with its definition. 
       security:
         - OAuth2Security:
@@ -238,7 +238,7 @@ paths:
 
   /services/{serviceId}:
     #-----------------------------------------------------
-    # Retrieve a specific service in the service catalog
+    # Retrieve a specific service in the Service Catalog
     #-----------------------------------------------------
     get:
       summary: Get details of a service
@@ -255,7 +255,7 @@ paths:
       responses:
         200:
           description: |
-            Requested service in the service catalog is returned.
+            Requested service in the Service Catalog is returned.
           content:
             application/json:
               schema:
@@ -274,7 +274,7 @@ paths:
                 "https://127.0.0.1:9443/api/am/service-catalog/v0/services"'
 
     #-----------------------------------------------------
-    # Update a service in the service catalog
+    # Update a service in the Service Catalog
     #-----------------------------------------------------
     put:
       summary: Update a service
@@ -317,7 +317,7 @@ paths:
            "https://127.0.0.1:9443/api/am/service-catalog/v0/services/7b3d976a-620a-4435-9649-e806f30dc7cf"'
 
     #-----------------------------------------------------
-    # Delete a service in the service catalog
+    # Delete a service in the Service Catalog
     #-----------------------------------------------------
     delete:
       summary: Delete a service
@@ -351,7 +351,7 @@ paths:
                 "https://127.0.0.1:9443/api/am/service-catalog/v0/services/32b4541f-ce7e-47a6-9c0c-c3db18128c50"'
 
   #-----------------------------------------------------
-  # Retrieve definition of a service in the service catalog
+  # Retrieve definition of a service in the Service Catalog
   #-----------------------------------------------------
   /services/{serviceId}/definition:
     get:
@@ -411,7 +411,7 @@ paths:
       responses:
         200:
           description: |
-            List of APIs that uses the service in the service catalog is returned.
+            List of APIs that uses the service in the Service Catalog is returned.
           content:
             application/json:
               schema:
@@ -430,7 +430,7 @@ paths:
                 "https://127.0.0.1:9443/api/am/service-catalog/v0/services/3784c2da-2f2a-4af9-8a43-ef207fb4d739/usage"'
 
   #-------------------------------------------------------------------
-  # Import a service into the service catalog from a zipped archive
+  # Import a service into the Service Catalog from a zipped archive
   #-------------------------------------------------------------------
   /services/import:
     post:
@@ -610,8 +610,8 @@ components:
         password:
           tokenUrl: https://localhost:9443/oauth2/token
           scopes:
-            service_catalog:service_view: view access to services in service catalog
-            service_catalog:service_write: write access to services in service catalog
+            service_catalog:service_view: view access to services in Service Catalog
+            service_catalog:service_write: write access to services in Service Catalog
 
   #-------------------------------------------------------
   # The definitions of resources used by some of the APIs
@@ -851,7 +851,7 @@ components:
           type: array
           items:
             type: string
-            example: service_catalog:service_view
+          example: [service_catalog:service_view, service_catalog:service_write]
 
     #-----------------------------------------------------
     # The Error resource
@@ -1019,7 +1019,7 @@ components:
   parameters:
 
     #-------------------------------------------------------
-    # serviceId - An id which represents a service in the service catalog
+    # serviceId - An id which represents a service in the Service Satalog
     #-------------------------------------------------------
     serviceId:
       name: serviceId
@@ -1030,24 +1030,13 @@ components:
         type: string
         
     #-------------------------------------------------------
-    # serviceKey - A key which represents a service in the service catalog
+    # serviceKey - A key which represents a service in the Service Catalog
     #-------------------------------------------------------
     serviceKey:
       name: serviceKey
       in: path
       description: service key of the service
       required: true
-      schema:
-        type: string
-
-    #-------------------------------------------------------
-    # ifMatch - If-Match header value to be used for concurrency control
-    #-------------------------------------------------------
-    ifMatch:
-      name: If-Match
-      in: header
-      description: ETag of the service resource to update
-      required: false
       schema:
         type: string
 
