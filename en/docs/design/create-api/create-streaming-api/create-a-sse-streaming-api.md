@@ -1,27 +1,15 @@
-# Create a Streaming API
+# Create a Server Sent Events API
 
-**Streaming APIs** are used in event driven architecture. Creating a streaming api is the process of linking an 
-existing streaming backend API implementation to the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher) itself.
+Follow the instructions below to create a Server Sent Events API using the basic flow.
 
-Streaming API support is provided via three main protocol in APIM.
 
-1. Server Sent Events (SSE)
-2. WebSub (WebHooks)
-3. Websocket
+### Design a Server Sent Events API
 
-## Server Sent Event API
-
-Follow the instructions below to create a Server Sent Event API using the basic flow.
-
-1. Sign in to the WSO2 API Publisher.
-
-    `https://<hostname>:9443/publisher` 
-   
-    Example: `https://localhost:9443/publisher`
+1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
 2.  Go to **CREATE API** and Click **Design New Streaming API**.
 
-    [![]({{base_path}}/assets/img/learn/create-a-server-sent-event-api.jpg)]({{base_path}}/assets/img/learn/create-a-server-sent-event-api.jpg)
+    [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -46,10 +34,6 @@ Follow the instructions below to create a Server Sent Event API using the basic 
              <tr>
                  <td colspan="2" class="confluenceTd">Name</td>
                  <td class="confluenceTd">ServerSentEvent</td>
-             </tr>
-             <tr>
-                 <td colspan="2" class="confluenceTd">Version</td>
-                 <td colspan="1" class="confluenceTd">1.0.0</td>
              </tr>
              <tr>
                  <td colspan="2" class="confluenceTd">Context</td>
@@ -79,6 +63,10 @@ Follow the instructions below to create a Server Sent Event API using the basic 
                  </td>
              </tr>
              <tr>
+                 <td colspan="2" class="confluenceTd">Version</td>
+                 <td colspan="1" class="confluenceTd">1.0.0</td>
+             </tr>
+             <tr>
                  <td colspan="2" class="confluenceTd">Protocol</td>
                  <td colspan="1" class="confluenceTd">
                      <p>SSE</p>
@@ -87,18 +75,14 @@ Follow the instructions below to create a Server Sent Event API using the basic 
              <tr>
                  <td colspan="2" class="confluenceTd">Endpoint</td>
                  <td colspan="1" class="confluenceTd">
-                     <p>
-                         https://localhost:8080/sse
-                     </p>
-                     <p>The endpoint that you add is 
-          automatically added as the production and sandbox endpoints.</p>
-                     <p>You need to have a server sent event server running for this purpose locally</p>
+                     <code>https://localhost:8080</code>
+                     <p>You need to have a Server Sent Events server running for this purpose locally</p>
                  </td>
              </tr>
          </tbody>
      </table>
              
-      [![Create an API page]({{base_path}}/assets/img/learn/create-server-sent-api-form.jpg)]({{base_path}}/assets/img/learn/create-server-sent-api-form.jpg)
+      [![SSE Create API Page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/create-sse-api-form.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/create-sse-api-form.png)
 
 4.  Click **CREATE** or **CREATE & PUBLISH** to create the API.
 
@@ -111,56 +95,56 @@ Follow the instructions below to create a Server Sent Event API using the basic 
 
     The overview page of the newly created API appears. 
     
-    [![API overview page]({{base_path}}/assets/img/learn/overviewpage-server-sent-api.jpg)]({{base_path}}/assets/img/learn/overviewpage-server-sent-api.jpg)
+    [![SSE API overview page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-overview-page.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-overview-page.png)
 
-5. Configure the runtime configurations.
 
-     1. Click **Runtime Configuration**. 
+### Configure the Topics
 
-         Transport Level Security  defines the transport protocol on which the API is exposed.  
+Topics of a SSE API are always **Subscribe only**, where flow of events will be from the server (backend) to the client. By default, a SSE API will have a topic with name `/*`.
 
-         [![Transport-level security]({{base_path}}/assets/img/learn/transport-level-security-sse.jpg)]({{base_path}}/assets/img/learn/transport-level-security-sse.jpg)
+1. Click **Show More** to navigate to the **Topics** page.
 
-       2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
-           
-           Both HTTP and HTTPS transports are selected by default.
+    [![SSE API Topics]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-topics-show-more.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-topics-show-more.png)
 
-6. Configure the topics.
+2. Modify the topics as follows and click **SAVE** to update them.
 
-     Topics are used in async world to represent different channels. By default, the API will have a topic with name 
-     `/*`.
+    1. Optionally click delete as shown below, to delete an existing topic.
 
-     1. Click **Show More** to navigate **Topics** page.
+        [![SSE API Delete Existing Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-delete-default-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-delete-default-topic.png)
 
-         [![Overview page topics section]({{base_path}}/assets/img/learn/overview-page-topics-section.jpg)]
-         ({{base_path}}/assets/img/learn/overview-page-topics-section.jpg)
+    2. Click **Add Topic** to add a new topic.
+            
+       [![SSE API Add Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-create-new-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-create-new-topic.png)
+        
+       The newly added topic is displayed as follows.
+            
+       [![SSE API Newly Added Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-newly-added-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-newly-added-topic.png)
 
-      2. Modify the topics as follows and click **SAVE** to update them.
 
-          1. Click delete, as shown below, to an existing topic.
+### View the AsyncAPI Definition
 
-              [![Delete topic]({{base_path}}/assets/img/learn/delete-topic-sse.jpg)]
-              ({{base_path}}/assets/img/learn/delete-topic-sse.jpg)
+Click **API Definition**. The Async Specification of API appears.
 
-          2. Click **Add Topic** to add a new topic.
-         
-             [![Add new topics]({{base_path}}/assets/img/learn/add-new-topic.jpg)]
-             ({{base_path}}/assets/img/learn/add-new-topic.jpg)
-      
-             The newly added topic is displayed as follows.
-         
-             [![Newly added topic]({{base_path}}/assets/img/learn/newly-added-topic.jpg)]
-             ({{base_path}}/assets/img/learn/newly-added-topic.jpg)
 
-8. Optionally view the API definition.
+### Configure the Runtime Configurations
 
-     Click **API Definition**. The Async Specification of API appears.
+1. Click **Runtime Configuration**. 
 
-     [![Async API definition]({{base_path}}/assets/img/learn/api-definiton-sse.jpg)]
-     ({{base_path}}/assets/img/learn/api-definiton-sse.jpg)
+    Transport Level Security  defines the transport protocol on which the API is exposed.  
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]
-({{base_path}}/learn/design-api/publish-api/publish-an-api/).
+    [![SSE API Runtime Configurations Page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-runtime-configurations-page.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-runtime-configurations-page.png)
+
+2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
+
+    Both HTTP and HTTPS transports are selected by default.
+
+
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+
+<div class="admonition note">
+<p class="admonition-title">What's Next?</p>
+<p>Learn more by trying out the tutorial on <a href="{{base_path}}/tutorials/streaming-api/create-and-publish-sse-api">Creating and Publishing a SSE API</a>.</p>
+</div>
 
 !!! More
 
@@ -174,6 +158,3 @@ Now, you have successfully created and configured a Streaming API. Next, let's [
        -   [Life Cycle Management]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/)
        -   [API Documentation]({{base_path}}/learn/design-api/api-documentation/add-api-documentation/)
        -   [API Monetization]({{base_path}}/learn/api-monetization/monetizing-an-api/)
-
-
-
