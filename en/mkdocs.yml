@@ -771,6 +771,8 @@ nav:
                 - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+            - Service Catalog APIs:
+                - Service Catalog v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Configuration Catalogs:
             - API Management Configs: reference/config-catalog.md
