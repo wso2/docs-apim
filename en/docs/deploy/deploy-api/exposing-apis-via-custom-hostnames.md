@@ -40,12 +40,17 @@ Each Gateway environment definition contains details related to a specific Gatew
               <img src="{{base_path}}/assets/img/learn/add-gateway-environment.png" alt="Add a Gateway Environment"
               title="Add a Gateway Environment" width="500px" />
           </a>
+          
+        !!! note
+            We are not going to try out the API in devportal console in this sample. If you need to try it out in devportal,
+            before adding a gateway environment from here, first you have to start a server with the gateway name `us-region`.
+            Follow [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/) to understand how to work with multiple Gateway environments.
 
      3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
 
-         Let's add `food` as the HTTP(S) context for the `us-region` Gateway environment.
+        Let's add `gateway` as the HTTP(S) context for the `us-region` Gateway environment.
 
-          Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
+        Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
 
 ### Create a Gateway environment using the configuration file
 
@@ -77,14 +82,14 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     password= "${admin.password}"
     ws_endpoint = "ws://localhost:9099"
     wss_endpoint = "wss://localhost:8099"
-    http_endpoint = "http://localhost:${http.nio.port}/gateway"
-    https_endpoint = "https://localhost:${https.nio.port}/gateway"
+    http_endpoint = "http://localhost:${http.nio.port}"
+    https_endpoint = "https://localhost:${https.nio.port}"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
     wss_endpoint = "wss://us.wso2.com:8099"
-    http_endpoint = "http://us.wso2.com/food"
-    https_endpoint = "https://us.wso2.com/food"
+    http_endpoint = "http://us.wso2.com/gateway"
+    https_endpoint = "https://us.wso2.com/gateway"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"

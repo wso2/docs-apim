@@ -176,7 +176,7 @@ nav:
         - Deploying APIs in API Gateway vs API Microgateway: deploy/deploying-apis-in-api-gateway-vs-api-microgateway.md
         - Deploy API:
             - Deploy an API: deploy/deploy-api/deploy-an-api.md
-            - Grouping APIs with Virtual Hosts: deploy/deploy-api/grouping-apis-with-vhosts.md
+            - Exposing APIs via Custom Hostnames: deploy/deploy-api/exposing-apis-via-custom-hostnames.md
             - Publish an API to a Cloud Cluster in PrivateJet Mode: deploy/deploy-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
             - Publish through Multiple API Gateways: deploy/deploy-api/publish-through-multiple-api-gateways.md
             - Publish to Multiple External API Developer Portals: deploy/deploy-api/publish-to-multiple-external-api-stores.md
