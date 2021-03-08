@@ -5,7 +5,7 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
 
 ### Design a Server Sent Events API
 
-1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
+1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
 2.  Go to **CREATE API** and Click **Design New Streaming API**.
 
