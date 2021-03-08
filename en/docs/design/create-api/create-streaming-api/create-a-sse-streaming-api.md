@@ -1,6 +1,6 @@
 # Create a Server Sent Events API
 
-Follow the instructions below to create a Server Sent Events API using the basic flow.
+Follow the instructions below to create a Server Sent Events (SSE) API using the basic flow.
 
 
 ### Design a Server Sent Events API
