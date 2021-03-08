@@ -48,7 +48,7 @@ Follow the instructions below to create a Streaming API in this manner.
  
      [![]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/websocket/websocket-streaming-api-from-asyncapi-configure-values.png)]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/websocket/websocket-streaming-api-from-asyncapi-configure-values.png)
 
-     The **StreetlightsAPI API** overview page appears.
+     Now, the **StreetlightsAPI API** overview page will appear.
 
      [![]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/websocket/websocket-streaming-api-from-asyncapi-overview.png)]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/websocket/websocket-streaming-api-from-asyncapi-overview.png)
 
