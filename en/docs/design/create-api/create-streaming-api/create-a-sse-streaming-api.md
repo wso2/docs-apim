@@ -100,7 +100,7 @@ Follow the instructions below to create a Server Sent Events API using the basic
 
 ### Configure the Topics
 
-Topics of a SSE API are always **Subscribe only**, where flow of events will be from the server (backend) to the client. By default, a SSE API will have a topic with name `/*`.
+Topics of an SSE API are always **Subscribe only**, where the flow of events will be from the server (backend) to the client. By default, an SSE API will have a topic with the name `/*`.
 
 1. Click **Show More** to navigate to the **Topics** page.
 
