@@ -974,7 +974,7 @@ components:
             error: []
 
     Conflict:
-      description: Conflitc. Cannot remove the resource as it is used by one or more APIs
+      description: Conflict. Cannot remove the resource as it is used by one or more APIs
       content:
         application/json:
           schema:
