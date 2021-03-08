@@ -11,7 +11,7 @@ The following types of Streaming APIs can be created using an existing AsyncAPI 
 Follow the instructions below to create a Streaming API in this manner.
 
 
-1. Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
+1. Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
