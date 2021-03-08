@@ -15,7 +15,7 @@ The tutorial demonstrates a simple WebSub API that monitors your GitHub reposito
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
+2.  Go to **CREATE API** and click **Design New Streaming API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
