@@ -8,10 +8,7 @@ Virtual hosts (VHosts) enable you to expose APIs using specific hostnames that c
 
 ## Step 1 - Create a Gateway environment
 
-Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that includes VHosts using either one of the following methods. 
-
-!!! info
-    The VHost does not have to be unique. Therefore, you can have multiple Gateway environments that have the same VHost.
+Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that includes VHosts using either one of the following methods.
 
 ### Create a Gateway environment via the Admin Portal
 
