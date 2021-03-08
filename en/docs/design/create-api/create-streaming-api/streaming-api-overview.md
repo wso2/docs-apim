@@ -3,7 +3,7 @@
 **Streaming APIs** are used in event driven architecture. Creating a Streaming API is the process of linking an 
 existing streaming backend API implementation to the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher) itself.
 
-Streaming API support is provided via three main protocols in APIM.
+Streaming API support is provided via three main protocols in the WSO2 API Manager (WSO2 API-M).
 
 1. [WebSocket]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api)
 2. [WebSub (WebHooks)]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api)
