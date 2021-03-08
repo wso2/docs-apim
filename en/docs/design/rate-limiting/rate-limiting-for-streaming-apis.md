@@ -8,7 +8,7 @@ Once the initial handshake is done, the communication in a WebSocket connection 
 
 ### Server Sent Events
 
-In Server Sent Events every event is counted. An event is usually delimited with `\n\n`. The connection will be throttled out when the number of events from the server to the client reach the amount defined in the throttling policy.
+In Server Sent Events, every event is counted. An event is usually delimited with `\n\n`. The connection will be throttled out when the number of events from the server to the client reach the amount defined in the throttling policy.
 
 
 ### WebSub
