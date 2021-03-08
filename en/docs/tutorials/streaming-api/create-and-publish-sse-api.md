@@ -2,7 +2,7 @@
 
 Follow the instructions in this tutorial to design and publish API with an SSE backend, and thereafter invoke it using a cURL command.
 
-This tutorial demonstrates a SSE API which is connected to a backend that observes your system's memory, and gives you the values in a continuous manner.
+This tutorial demonstrates an SSE API which is connected to a backend that observes your system's memory, and gives you the values in a continuous manner.
 
 <html>
 <div class="admonition note">
