@@ -51,7 +51,7 @@ Follow the instructions below to create a WebSocket API using the basic flow.
                                  <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
                                  <div class="confluence-information-macro-body">
                                      <p>You can define the API's version as a parameter of its context by 
-          adding the <code>{version}</code> into the context. For example, <code>{version}/websocket</code>. The API Manager 
+          adding the <code>{version}</code> into the context. For example, <code>{version}/websocket</code>. The WSO2 API-M
           assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, 
                                          <code>ws://localhost:9099/1.0.0/websocket</code>. Note that the version appears before the context, allowing you to 
           group your APIs based on the versions.</p>
