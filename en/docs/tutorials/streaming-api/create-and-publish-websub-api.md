@@ -105,7 +105,7 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
      ./ngrok http 9021
      ```
 
-2. Copy the HTTP URL which is forwaded to `http://localhost:9021`, as shown in ngrock's terminal. In the following example, it is `http://3b1*******c9.ngrok.io`.
+2. Copy the HTTP URL that is forwarded to `http://localhost:9021`, as shown in ngrock's terminal. In the following example, it is `http://3b1*******c9.ngrok.io`.
 
      ``` string
      Forwarding                    http://3b1*******c9.ngrok.io -> http://localhost:9021
