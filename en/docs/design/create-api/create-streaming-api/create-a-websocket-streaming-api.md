@@ -103,7 +103,7 @@ Follow the instructions below to create a WebSocket API using the basic flow.
 
 ### Configure the Topics
 
-Topics of a SSE API are always **Subscribe and Publish**, where flow of events can be either from the server (backend) to the client, or from the client to the server. By default, the WebSocket API will have a topic with name `/*`.
+Topics of an SSE API are always **Subscribe and Publish**, where the flow of events can be either from the server (backend) to the client, or from the client to the server. By default, the WebSocket API will have a topic with the name `/*`.
 
 1. Click **Show More** to navigate to the **Topics** page.
 
