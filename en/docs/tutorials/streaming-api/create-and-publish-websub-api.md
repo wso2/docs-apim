@@ -208,7 +208,7 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
 
 ### Step 6 - Invoke the WebSub API
 
-1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (eg., `https://localhost:9443/devportal`).
+1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (e.g., `https://localhost:9443/devportal`).
 
 2. Click on the WebSub API. The API overview appears.
 
