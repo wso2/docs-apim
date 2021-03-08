@@ -1486,7 +1486,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from  migration-config.yaml which is included under version: "5.10.0".
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 3 steps from  migration-config.yaml which is included under version: "5.10.0".
                 ```
                 -
                     name: "MigrationValidator"
@@ -1497,6 +1497,9 @@ Follow the instructions below to move all the existing API Manager configuration
                     parameters:
                     location: "step2"
                     schema: "identity"
+                -
+                    name: "TenantPortalMigrator"
+                    order: 11
                 ```
     4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
