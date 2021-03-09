@@ -444,6 +444,10 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
                 <td><code>api.yaml</code></td>
                 <td>The specification of the created API.</td>
             </tr>
+            <tr class="even">
+                <td><code>api_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the API).</td>
+            </tr>
             <tr class="odd">
                 <td><code>deployment_environments.yaml</code></td>
                 <td>Specify the gateways to which the API should be deployed.</td>
