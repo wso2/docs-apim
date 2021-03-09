@@ -450,7 +450,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             </tr>
             <tr class="odd">
                 <td><code>deployment_environments.yaml</code></td>
-                <td>Specify the gateways to which the API should be deployed.</td>
+                <td>Specify the gateway environments to which the API should be deployed.</td>
             </tr>
             <tr class="even">
                 <td><code>swagger.yaml</code></td>
