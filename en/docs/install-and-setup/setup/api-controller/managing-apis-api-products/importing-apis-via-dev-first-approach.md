@@ -39,7 +39,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             !!! example
                 ```yaml
                 type: api
-                version: v4
+                version: v4.0.0
                 data:
                   id: 9045413f-109a-4d95-86ab-44a9af028351
                   name: PizzaShackAPI
@@ -481,7 +481,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
         ```bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : null
             version: 1.0.0
@@ -528,7 +528,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
     ``` bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : SampleAPI
             version: 1.0.0
