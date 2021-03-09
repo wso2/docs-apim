@@ -116,8 +116,7 @@ The structure of an exported API Product ZIP file is explained below:
         </tr>
         <tr class="even">
             <td><code>deployment_environments.yaml</code></td>
-            <td>If the exported revision is published in one or more gateway environments, this file will contain the 
-                deployed gateways.
+            <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
             <pre><code>
 type: deployment_environments
 version: v4.0.0
