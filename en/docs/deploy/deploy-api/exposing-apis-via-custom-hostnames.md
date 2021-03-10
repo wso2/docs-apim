@@ -26,7 +26,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
      1. Click **Gateways**, and then click **Add Gateway Environment**.
 
-         [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)]({{base_path}}/assets/img/learn/add-gateway-environment-menu.png)
+         [![Menu to add Microgateway label]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment-menu.png)
 
      2. Enter a name, display name, description, and a virtual host.
 
@@ -36,9 +36,9 @@ Each Gateway environment definition contains details related to a specific Gatew
           |-------------|--------------|-------------------------------------------|--------------|
           | us-region   | US Region    | Gateway environment deployed in the US region. | us.wso2.com  |
 
-          <a href="{{base_path}}/assets/img/learn/add-gateway-environment.png">
-              <img src="{{base_path}}/assets/img/learn/add-gateway-environment.png" alt="Add a Gateway Environment"
-              title="Add a Gateway Environment" width="500px" />
+          <a href="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment.png">
+              <img src="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment.png" alt="Add a Gateway Environment"
+              title="Add a Gateway Environment" width="600px" />
           </a>
           
         !!! note
@@ -51,6 +51,11 @@ Each Gateway environment definition contains details related to a specific Gatew
         Let's add `gateway` as the HTTP(S) context for the `us-region` Gateway environment.
 
         Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
+        
+          <a href="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/vhost-advanced-settings.png">
+              <img src="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/vhost-advanced-settings.png" alt="Advanced settings in a vhost"
+              title="Advnaced Vhost Settings" width="600px" />
+          </a>
 
 ### Create a Gateway environment using the configuration file
 
@@ -121,7 +126,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
 3.  Click on the API to edit its configurations.
 
-     [![Edit the API]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
+     [![Edit the API]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/select-api.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/select-api.png)
 
 4.  Click **Deployments**.
 
@@ -129,7 +134,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
      [Create a new revision]({{base_path}}/design/create-api/create-api-revisions/) if no revisions exist.
 
-     [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/learn/deploy-api-with-vhost.png)]({{base_path}}/assets/img/learn/deploy-api-with-vhost.png)
+     [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/deploy-api-with-vhost.png)
 
 6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
    
@@ -152,7 +157,7 @@ Follow the instructions below to view the custom endpoint URLs of the API, which
 
      The custom endpoint URLs of the API, which include the custom hostnames, appear.
 
-     [![Virtual host in the Developer Portal]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)]({{base_path}}/assets/img/learn/virtual-host-in-devportal.png)
+     [![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/virtual-host-in-devportal.png)
 
 ## See Also
 

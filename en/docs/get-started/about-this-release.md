@@ -56,6 +56,15 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Defaulting code and configs to do with event based
 -->
 
+#### What has changed in this release
+
+##### Removed features and functionalities
+
+- Microgateway Labels
+
+      [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/latest/learn/api-microgateway/grouping-apis-with-labels/)
+      is removed from this release.
+
 #### Fixed Issues
 
 See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
