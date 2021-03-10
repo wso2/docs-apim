@@ -12,7 +12,7 @@ Follow the instructions below to initialize an API Project with environment vari
 
     ```bash
     type: api
-    version: v4
+    version: v4.0.0
     data:
         name: $APINAME
         context: /petstore/$APIVERSION
@@ -43,7 +43,7 @@ Follow the instructions below to initialize an API Project with environment vari
 
         ```
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name: Petstore
             description: 'This is a sample server Petstore server.  You can find out more about
@@ -162,7 +162,7 @@ For example, consider we need to send a special header to the backend when calli
 
     ```yaml
     type: api
-    version: v4
+    version: v4.0.0
     data:
         name: Petstore
         description: 'This is a sample server Petstore server.  You can find out more about

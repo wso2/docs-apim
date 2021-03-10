@@ -39,7 +39,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             !!! example
                 ```yaml
                 type: api
-                version: v4
+                version: v4.0.0
                 data:
                   id: 9045413f-109a-4d95-86ab-44a9af028351
                   name: PizzaShackAPI
@@ -419,6 +419,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
     ``` java
     ├── api.yaml
+    ├── deployment_environments.yaml
     ├── Client-certificates
     ├── Definitions
     │   └── swagger.yaml
@@ -442,6 +443,14 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             <tr class="odd">
                 <td><code>api.yaml</code></td>
                 <td>The specification of the created API.</td>
+            </tr>
+            <tr class="even">
+                <td><code>api_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the API).</td>
+            </tr>
+            <tr class="odd">
+                <td><code>deployment_environments.yaml</code></td>
+                <td>Specify the gateway environments to which the API should be deployed.</td>
             </tr>
             <tr class="even">
                 <td><code>swagger.yaml</code></td>
@@ -481,7 +490,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
         ```bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : null
             version: 1.0.0
@@ -528,7 +537,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
     ``` bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : SampleAPI
             version: 1.0.0
