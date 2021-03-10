@@ -66,7 +66,7 @@ When there are multiple artifacts which needs to be added as deployment-related 
             </tr>
             <tr class="odd">
                 <td><code>api_meta.yaml</code></td>
-                <td>The meta-information file of the source artifact (This includes the name, version, and revision of the source).</td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the source).</td>
             </tr>
             <tr class="odd">
                 <td>certificates</td>

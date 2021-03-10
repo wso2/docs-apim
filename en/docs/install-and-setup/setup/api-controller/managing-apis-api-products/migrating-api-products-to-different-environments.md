@@ -116,11 +116,10 @@ The structure of an exported API Product ZIP file is explained below:
         </tr>
         <tr class="even">
             <td><code>deployment_environments.yaml</code></td>
-            <td>If the exported revision is published in one or more gateway environments, this file will contain the 
-                deployed gateways.
+            <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
             <pre><code>
 type: deployment_environments
-version: v4
+version: v4.0.0
 data:
  -
    displayOnDevportal: true
@@ -149,7 +148,7 @@ data:
             Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). These file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
-version: v4
+version: v4.0.0
 data:
 -
 alias: Alias1
@@ -185,7 +184,7 @@ apiIdentifier:
             <td> This folder will contain documentation attached to a particular API Product. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
-version: v4
+version: v4.0.0
 data:
   documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
   name: Doc1
