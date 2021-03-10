@@ -1,6 +1,6 @@
 # Create a Streaming API from an AsyncAPI Definition
 
-An AsyncAPI definition is a format that describes asynchronous APIs. 
+An [AsyncAPI](https://www.asyncapi.com/) definition is a format that describes asynchronous APIs. 
 
 The following types of Streaming APIs can be created using an existing AsyncAPI definition:
 
@@ -19,7 +19,7 @@ Follow the instructions below to create a Streaming API in this manner.
       </div>
     </html>
 
-2. Click **CREATE API** and then click **Import AsynAPI Definition**.
+2. Click **CREATE API** and then click **Import AsyncAPI Definition**.
 
     [![]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/import-asyncapi-definition.png)]({{base_path}}/assets/img/learn/design-api/streaming-api-from-asyncapi/import-asyncapi-definition.png)
 
