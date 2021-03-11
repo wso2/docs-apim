@@ -1472,11 +1472,13 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Tutorials:
-          - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
-          - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
-          - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Tutorils Overview: tutorials/tutorials-overview.md
+          - API Management Tutorials:
+            - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
+            - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
+            - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
+            - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
+            - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
               - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
               - Message Routing:
