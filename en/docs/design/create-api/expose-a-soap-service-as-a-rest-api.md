@@ -6,9 +6,8 @@ The organizations that have SOAP/WSDL based services can easily bridge their exi
 Follow the instructions below to create a SOAP service as a RESTful API using **Pass Through**
 
 1.  Sign in to the API Publisher and click **CREATE API**.
-      <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
-     </html>
+
+     [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
 
 2.  Select the **Pass Through** option and thereafter, select one of the following options:
 
@@ -33,7 +32,6 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
     | Context | /phoneverify       |
     | Version | 1.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
-    | Business Plans| Unlimited|
 
     [![Create SOAP API form]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
     

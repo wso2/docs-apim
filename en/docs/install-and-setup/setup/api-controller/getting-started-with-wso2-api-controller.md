@@ -365,15 +365,15 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Command**
 
         ```go
-        apictl login <environment-name> -k
+        apictl login <environment-name> 
         ```
 
         ```go
-        apictl login <environment-name> -u <username> -k
+        apictl login <environment-name> -u <username> 
         ```
 
         ```go
-        apictl login <environment-name> -u <username> -p <password> -k
+        apictl login <environment-name> -u <username> -p <password> 
         ``` 
 
         !!! tip
@@ -390,14 +390,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         !!! example
             ```bash
-            apictl login dev -k
+            apictl login dev 
             ```
             ```bash
-            apictl login dev -u admin -p admin -k
+            apictl login dev -u admin -p admin 
             ```
             
             ```bash
-            apictl login dev --username admin --password admin -k
+            apictl login dev --username admin --password admin 
             ```
                  
     -   **Response**
@@ -413,7 +413,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     !!! warning
         Using -`-password` in CTL is not secure. You can use `--password-stdin` instead. For example,
         ```bash
-        cat ~/.mypassword | ./apictl login dev --username admin --password-stdin -k
+        cat ~/.mypassword | ./apictl login dev --username admin --password-stdin 
         ```          
 
 ## Logout from an environment

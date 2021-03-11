@@ -1,6 +1,10 @@
 # Overview of API Analytics
 
-APIs are widely used in Business Integrations and are becoming a key part of driving an Organization's Business strategy. Ensuring the proper functioning of the APIs, getting feedback on the performance and deriving business insights from APIs are becoming equally important. WSO2 API Manager Analytics does this by integrating with WSO2 API Manager to provide statistics, reports, and graphs on the APIs deployed in WSO2 API Manager. It further allows configuring Alerts to notify about unusual behaviors and error conditions in near real-time.
+APIs are widely used in Business Integrations and are becoming a key part of driving an organization's business strategy. Ensuring the proper functioning of the APIs, getting feedback on the performance and deriving business insights from APIs are becoming equally important. 
+
+WSO2 API Manager analytics provide monitoring and business analytics of the API ecosystem. This is done via a cloud-based analytics solutions. 
+
+<!-- WSO2 API Manager Analytics does this by integrating with WSO2 API Manager to provide statistics, reports, and graphs on the APIs deployed in WSO2 API Manager. It further allows configuring Alerts to notify about unusual behaviors and error conditions in near real-time.
 
 In order to make the data easily available, WSO2 API Manager Analytics offers different Dashboards that show different views of the APIs to different user groups. Application Developers, API Publishers, DevOps, and Program Managers can use these Dashboards to learn about different perspectives of the underlying API ecosystem.
 

@@ -1,140 +1,154 @@
 # Service Discovery
 
-When you create an API Microgateway, the API Microgateway is capable of routing traffic to the URL of the API that you provide at the time of creating an API. The micro services have dynamic URLs. As the API Microgateway is immutable, the dynamic URL changes will not get reflected on the Microgateway. Therefore, in such a scenario you need to stop the Microgateway and restart it by providing the new URL. However, as the latter mentioned scenario is not practical in a real-world scenario, the API Microgateway is integrated with [etcd](https://github.com/etcd-io/etcd) for the purpose of discovering the target endpoints in order to route API traffic.
+The following section provides information on the use of using the Consul service registry for service discovery and also how you can deploy an API with Consul service catalog-based services.
+
+## Overview
+
+In a microservice environment, usually the running service endpoints are not static. A service may have multiple upstream endpoints. Therefore, a service discovery mechanism is required for services to locate other services' upstream endpoints.
+
+A service mesh is deployed when services want to communicate with each other with zero trust. Consul is a service mesh solution, which has been developed by HashiCorp. It solves the following problems that occur in microservice environments:
+
+- Service Discovery - through a centralized service registry.
+- Access control - through Intentions, and ACL
+- Configuration Management
+
+WSO2 API Microgateway can be used as an ingress gateway in an environment that uses Consul as a service mesh so that the APIs or services can be exposed to developers or API consumers while providing security, rate limiting, and other QoS.
+
+Therefore, WSO2 Microgateway supports service discovery using the Consul so that upstream services can be discovered automatically. WSO2 Microgateway supports service discovery by connecting to [Consul service registry](https://www.hashicorp.com/products/consul) and discover upstream services automatically.
+
+[![Consul reference with mesh]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.jpeg)]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.jpeg)
+
+## Deploying an API with Consul service catalog based services
+
+Follow the instructions below to deploy an API that contains services registered with the Consul service catalog.
+
+### Prerequisites
+
+Set up Consul securely.
+
+For more instructions, see the [Consul official documentation](https://www.consul.io/docs).
+
+### Step 1 - Enable Consul service discovery
+
+Add the following configuration under the Adapter section to the configuration file of the Microgateway (`config.toml` file).
+
+``` java
+[adapter.consul]
+enable = true
+url = "https://169.254.1.1:8501"
+pollInterval = 5
+aclToken = "4f295904-1b7f-8abd-3058-cecb06ee3338"
+caFile = "/home/wso2/security/truststore/consul/ca.pem"
+certFile = "/home/wso2/security/truststore/consul/cert.pem"
+keyFile = "/home/wso2/security/truststore/consul/key.pem"
+```
+
+The above configurations are described in the following table.
+
+|<div style="width:100px">Property</div>| Description                                                                    |
+|---------------------------------------|--------------------------------------------------------------------------------|
+| `enable`                              | Set this to `true` to enable Consul service discovery. |
+| `url`                                 | The `URL` of the [Consul HTTP API](https://www.consul.io/api-docs#http-api-structure).|
+| `pollInterval`                        | The time interval (in seconds) in which the Microgateway should fetch updates from the Consul service catalog.|
+| `aclToken`                            | [ACL Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul.|
+| `caFile`                              | CaFile is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.|
+| `certFile`                            | CertFile is the optional path to the certificate for Consul communication. If this is set, then you need to also set `keyFile`.|
+| `keyFile`                             | KeyFile is the optional path to the private key for Consul communication. If this is set, then you need to also set `certFile`.|
+
+
+!!! note
+        - `caFile`, `certFile`, and `keyFile` are optional and needed when you need to override the Adapter's default CA, certificate, and private key.<br>
+        
+        - If Consul agent's [verify_incoming](https://www.consul.io/docs/agent/options#verify_incoming) configuration is set to `true`, the certificate and private key have to be signed by the same CA that the Consul agents' certificates are signed.
+
+
+### Step 2 - Define the endpoints
+
+Define the upstream endpoints to the Consul service catalog based services using one of the following methods.
+
+- [Define Consul service catalog based services in WSO2 API Manager]({{base_path}}/deploy/api-microgateway/service-discovery/#define-consul-service-catalog-based-services-in-wso2-api-manager)
+- [Define Consul service catalog based services using an Open API definition]({{base_path}}/deploy/api-microgateway/service-discovery/#define-consul-service-catalog-based-services-using-an-open-api-definition)
+
+#### Define Consul service catalog based services in WSO2 API Manager
+
+Define the upstream endpoints to the Consul service catalog based services in WSO2 API Manager using the proper syntax as explained in [Defining the Consul upstream endpoints]({{base_path}}/deploy/api-microgateway/service-discovery/#defining-the-consul-upstream-endpoints) via the Publisher console.
+
+[![reference]({{base_path}}/assets/img/deploy/consul-apim.png)]({{base_path}}/assets/img/deploy/consul-apim.png)
+
+#### Define Consul service catalog based services using an Open API definition
+
+Define the upstream endpoints to the Consul service catalog based services directly in the OpenAPI definition file using the proper syntax as explained in [Defining the Consul upstream endpoints]({{base_path}}/deploy/api-microgateway/service-discovery/#defining-the-consul-upstream-endpoints). 
+
+For more information, see [Defining endpoints in an OpenAPI definition]({{base_path}}/deploy/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition).
+
+```java tab="Format"
+x-wso2-production-endpoints:
+  urls:
+    - consul(<service_name>,<default_host>)
+  type: load_balance
+```
+
+```java tab="Example"
+paths:
+  /pet:
+    x-wso2-production-endpoints:
+      urls:
+        - consul(pet,https://10.10.1.5:5000)
+      type: load_balance
+    post:
+      consumes:
+        - application/json
+        - application/xml
+      description: ""
+      operationId: addPet
+      parameters:
+        - description: Pet object that needs to be added to the store
+          in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
+```
+### Step 3 - Deploy the API
+
+Upon successfully [deploying your API]({{base_path}}/deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview), the Adapter will poll the Consul HTTP API for changes concerning the services.
+
+If a change occurs, or a health check fails, the Adapter will update the relevant cluster accordingly.
+
+<!-- todo add info about cert rotation once implemented -->
+
+### Defining the Consul upstream endpoints
+
+You can define the Consul upstream endpoints by using the following syntax:
+
+Example 1:
+
+```java tab="Format"
+consul(<service_name>,<default_host>)
+```
+
+```java tab="Example"
+consul(pet,https://10.10.1.5:5000)'
+```
+
+Example 2:<br>
+If you want more fine-grained access to your Consul services, you can limit the access to the upstream services by providing
+the `datacenters` and `tags`
+
+
+```java tab="Format"
+consul([<datacenter_1>,<datacenter_2>].<service_name>.[tag_1,tag_2],<default_host>)
+```
+
+```java tab="Example"
+consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
+```
 
 !!! info
-    What is etcd?
-    -   [etcd](https://github.com/etcd-io/etcd) is a distributed key-value store that provides a reliable way to store data across a cluster of machines.
-    -   Each entry in the etcd is a key-value pair.
-    Example:
-    ``` java
-    key - worldbank-key
-    value - http://api.worldbank.org
-    key - phoneverify  
-    value - http://ws.cdyne.com/phoneverify/phoneverify.asmx
-    ```
-
-API Microgateway uses [etcd](https://github.com/etcd-io/etcd) to store a static key together with the corresponding dynamic value that represents the URL of the target endpoint. If the URL of the endpoint changes due to some reason, you need to update the etcd server by providing the new URL for the relevant key. Therefore, WSO2 API Microgateway should know the etcd key, which WSO2 API Microgateway uses to perform an etcd lookup, in order to obtain the correct URL that is needed to route the traffic.
-
-### Enabling service discovery
-
-Enable service discovery using etcd on WSO2 API Microgateway as follows:
-
-1.  Make sure to install and set up all the [installation prerequisites]({{base_path}}/install-and-setup/install-on-vm/) .
-2.  Configure and start the etcd server.
-    
-    1.  Download the [etcd distribution](https://github.com/etcd-io/etcd/releases) based on your OS and install it.
-        
-    2.  Start the etcd server.
-
-        ``` java
-        cd <etcd_HOME>
-        etcd
-        ```
-
-        The following is a sample message that appears.
-
-        ``` java
-        2019-05-23 19:09:18.921356 I | embed: ready to serve client requests
-        ```
-        
-    3.  Navigate to the `<etcd_HOME>` and put the endpoint URL to the etcd server using etcdctl tool, by executing the following command.
-        
-        ``` java tab="Format"
-        etcdctl put <Key> <Value>        
-        ``` 
-          
-        ``` java tab="Example"
-        etcdctl put petstore http://petstore.swagger.io/v2/
-        ```             
-
-3.  Create an API Microgateway project (e.g., petstore-project).
-    Navigate to a preferred folder where you want to create the Microgateway project, and then run the following command.
-
-
-    ``` java tab="Format"
-    micro-gw init <project-name>
-    ```
-
-    ``` java tab="Example"
-    micro-gw init petstore-project
-    ```
-
-4.  Add the API definition with the etcd configurations in the `/petstore-project/api_definitions` directory.
-    Let's copy the [sample open API definition](https://github.com/wso2/product-microgateway/blob/master/samples/petstore_basic.yaml) , define the etcd configurations, and add the API definition ( `petstore_basic.yaml` ) to the `api_definitions` folder.
-
-    ``` java tab="Format"
-    x-wso2-production-endpoints:
-      urls:
-        - etcd (<etcd_key>,<default_URL>)
-    ```
-    
-    - `<etcd_key>` - The value of the key that you store in the etcd server for the purpose of mapping the endpoint URL.
-    - `<default_URL>` - This is the URL that WSO2 API Microgateway redirects the requests to in the event it is unable to resolve the etcd key or/and is unable to find the etcd server.
-    
-    ``` java tab="Example"
-    x-wso2-production-endpoints:
-      urls:
-        - etcd (petstore,https://www.example.com)
-    ```
-
-5.  Build the WSO2 API Microgateway project (e.g., petstore-project).
-
-    ``` java tab="Format"
-    micro-gw build <project-name>
-    ```
-
-    ``` java tab="Example"
-    micro-gw build petstore-project
-    ```
-
-    This creates an executable file ( `/petstore-project/target/petstore-project.jar` ) that you can use to expose the API via WSO2 API Microgateway.
-
-6.  Start WSO2 API Microgateway.
-    
-
-    ``` bash tab="Format"
-    gateway <path-to-MGW-executable-jar-file> --etcdurl=<http-or-https-etcdurl> --etcdtimer=<etcd-timer> 
-    ```
-    
-    ``` bash tab="Example - binary"
-    gateway /Users/kim/Downloads/TestProj/petstore-project/target/petstore-project.jar --etcdurl=http://127.0.0.1:2379 --etcdtimer=10000
-    ```
-    
-    ``` bash tab="Example - docker"
-        docker run -d -p 9090:9090 -p 9095:9095 -e etcdurl=http://127.0.0.1:2379 -e etcdtimer=10000 docker.wso2.com/petstore:v1
-    ```
-    
-    - `<etcd-url>` - Provide the etcd URL. If the etcd URL is secured (https), you need to add the etcd server certificate to the [Ballerina](https://ballerina.io/) truststore.
-
-    - `<etcd-timer>` - This is the time period for the periodic timer task (in milliseconds). The default time period is 10 seconds. This parameter specifies the time interval for each periodic query to etcd; therefore, this value should be lower than the TTL of the token. etcd supports the following types of tokens.
-
-        - **Simple tokens**  
-            These tokens have a default time-to-live (TTL) of 5 minutes, but the TTL is configurable. In addition, the TTL refreshes each time a request goes to etcd.
-
-            Example:
-        If etcd is configured to use simple tokens with a TTL of 5 minutes, the `etcdTimer` parameter value should contain a value less than 5 minutes. If the etcdTimer value is 24000 (24000 ms = 4 minutes). Every 4 minutes the timer task is triggered, the etcd is queried, and it refreshes the TTL of the token.
-
-        -   **JWT tokens**  
-        This token does not have a TTL.
-    
-
-### Changing the API endpoint URL via etcd
-
-For example, If the production endpoint URL changes and the corresponding etcd key is `etcddemoprod` , update the value related to the `etcddemoprod` key on the etcd server.
-If the periodic timer task value is 10 seconds, within 10 seconds the periodic task gets executed and updates WSO2 API Microgateway with the new value. Thereby, in this scenario, if you are in the process of querying an API, WSO2 API Microgateway redirects your request to the new URL of the endpoint within 10 seconds.
-
-Follow the instructions below to update the etcd with your new API endpoint URL:
-
-   1.  Put the new endpoint URL for the corresponding key in the etcd server using the following command.
-   
-       ``` java tab="Format"
-       etcdctl put <Key> <Value>
-       ```
-       
-       ``` java tab="Example"
-       etcdctl put petstore http://petstore.swagger.io/v2/
-       ```
-
-   2.  Invoke the API and requests will be directed to the new endpoint URL.
-       
+        - The Adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
+        The requests that come to the Microgateway during that time are served via the
+        `default_host`. <br>
+        - Consul upstreams are supported both on ***Production Endpoint*** and ***Sandbox Endpoint***.<br>
+        - Microgateway supports both API level and Resource level endpoints for Consul service discovery.<br>
+        - Upstreams discovered through Consul are configured as ***Load Balanced*** clusters.
+        <br>

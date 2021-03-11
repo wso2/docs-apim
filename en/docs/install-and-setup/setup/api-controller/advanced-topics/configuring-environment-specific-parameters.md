@@ -66,7 +66,7 @@ When there are multiple artifacts which needs to be added as deployment-related 
             </tr>
             <tr class="odd">
                 <td><code>api_meta.yaml</code></td>
-                <td>The meta-information file of the source artifact (This includes the name, version, and revision of the source).</td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the source).</td>
             </tr>
             <tr class="odd">
                 <td>certificates</td>
@@ -81,8 +81,7 @@ When there are multiple artifacts which needs to be added as deployment-related 
 After generating the deployment directory, API controller is packed with a bundle command which provides the support
 to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
 file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
-the project, the created archive file name will be the combination of the project name, version and the revision
-number(if there is any).  
+the project, the created archive file name will be the combination of the project name and the version.  
 
 -   **Command**
         ``` bash
@@ -153,8 +152,9 @@ environments:
             type: <endpoint_authentication_type_basic_or_digest>
             username: <endpoint_username>
             password: <endpoint_password>
-        gatewayEnvironments:
-            - <gateway_environment_name>           
+        deploymentEnvironments:
+                  - displayOnDevportal: <boolean>
+                    deploymentEnvironment: <environment_name>        
         certs:
             - hostName: <endpoint_url>
               alias: <certificate_alias>
@@ -186,8 +186,11 @@ The following code snippet contains sample configuration of the parameter file.
                 - hostName: 'https://dev.wso2.com'
                   alias: Dev
                   path: dev.crt 
-            gatewayEnvironments:
-                - Production and Sandbox   
+            deploymentEnvironments:
+                - displayOnDevportal: true
+                  deploymentEnvironment: Label1
+                - displayOnDevportal: true
+                  deploymentEnvironment: Label2  
             policies:
                 - Gold
                 - Silver 
@@ -224,7 +227,10 @@ Instead of the default `api_params.yaml`, you can provide a custom parameter fil
     ```go
     apictl import api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
     ```
-
+!!! info
+    You can deploy an API or an API Product project which does not include deployment_environments.yaml (working copy of the API 
+    or a revision without deployment environments) by specifying the deployment environments in the api_param.yaml file.  
+    
 !!!note
     `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead, use `apictl import api` as shown above.
 

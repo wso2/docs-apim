@@ -39,7 +39,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             !!! example
                 ```yaml
                 type: api
-                version: v4
+                version: v4.0.0
                 data:
                   id: 9045413f-109a-4d95-86ab-44a9af028351
                   name: PizzaShackAPI
@@ -419,6 +419,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
     ``` java
     ├── api.yaml
+    ├── deployment_environments.yaml
     ├── Client-certificates
     ├── Definitions
     │   └── swagger.yaml
@@ -442,6 +443,14 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
             <tr class="odd">
                 <td><code>api.yaml</code></td>
                 <td>The specification of the created API.</td>
+            </tr>
+            <tr class="even">
+                <td><code>api_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the API).</td>
+            </tr>
+            <tr class="odd">
+                <td><code>deployment_environments.yaml</code></td>
+                <td>Specify the gateway environments to which the API should be deployed.</td>
             </tr>
             <tr class="even">
                 <td><code>swagger.yaml</code></td>
@@ -481,7 +490,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
         ```bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : null
             version: 1.0.0
@@ -528,7 +537,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
 
     ``` bash
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name : SampleAPI
             version: 1.0.0
@@ -570,13 +579,13 @@ After editing the mandatory fields in the API Project, you can import the API to
 
 -   **Command**
     ``` bash
-    apictl import api -f <path to API Project> -e <environment> -k
+    apictl import api -f <path to API Project> -e <environment> 
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> -k
+    apictl import api --file <path to API Project> --environment <environment> --rotate-revision=<rotate-revision>
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> -k
+    apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> 
     ```
 
     !!! info
@@ -586,28 +595,45 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--file` or `-f` : The file path of the API project to import.  
             `--environment` or `-e` : Environment to which the API should be imported.   
         -   Optional :  
+            `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.
+            `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API. 
             `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`. 
             `--update` : Update an existing API or create a new API in the importing environment.  
             `--params` : Provide a API Manager environment params file (The default file is `api_params.yaml`.).   
             For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).  
-            `--skipCleanup` : Leave all temporary files created in the CTL during import process. The default value is `false`.  
+            `--skip-cleanup` : Leave all temporary files created in the CTL during import process. The default value is `false`.  
 
     !!! example
         ```bash
-        apictl import api -f ~/myapi -e production -k
+        apictl import api -f ~/myapi -e production 
         ```
         ```bash
-        apictl import api --file ~/myapi --environment production -k
+        apictl import api --file ~/myapi --environment production --rotate-revision
         ```    
         ``` go
-        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
+        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml  
         ```
         
     !!! tip
         When using the `--update` flag with the `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
+        
+    !!! note
+        **Changes to the import command with the revision support for APIs**  
+        
+        - Since APIM v4.0.0, you have to create a new revision in order to deploy an API in an gateway environment and 
+            **only a revision can be deployed in a gateway environment**. 
+        - With the import command of the CTL, if the API project has specified the deployment environments, import 
+            will first **update the working copy of the API**.
+        - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
+            of that API will be created and that revision will be deployed in the specified gateway environments.
+        - If the max revision numbers is reached, imported API will **only update the working copy** and not be deployed 
+            in the specified gateway environments.
+        - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
+            operation will **delete the earliest revision for that API and create a new revision**. This new revision will be
+            deployed in the specified gateway environments.
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
        
 -   **Response**
     ``` bash

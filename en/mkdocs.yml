@@ -63,7 +63,7 @@ nav:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                    - Create a Streaming API: 
+                    - Create a Streaming API:
                         - Streaming APIs Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
                         - Create a WebSub API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
@@ -688,36 +688,38 @@ nav:
           - Observability Overview: observe/observe-overview.md
           - API Manager Analytics:
                 - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Viewing API Statistics:
-                    - Monitoring dashboard: observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard.md
-                    - Business analytics: observe/api-manager-analytics/viewing-api-statistics/business-analytics-dashboard.md
-                    - API analytics: observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard.md
-                    - Application analytics: observe/api-manager-analytics/viewing-api-statistics/application-analytics-dashboard.md
-                - Monthly API Usage Report: observe/api-manager-analytics/monthly-api-usage-report.md
-                - Using Geolocation Based Statistics:
-                    - Creating the Geo Location Data Set: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
-                    - Configuring Geo Location Based Statistics: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
-                    - Writing a Custom Geo Location Provider: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
-                - Alert Types: observe/api-manager-analytics/alert-types.md
-                - Setup & Configuration:
-                    - Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
-                    - Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
-                    - Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
-                    - Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
-                    - Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
-                    - Subscribing for Alerts: observe/api-manager-analytics/subscribing-for-alerts.md
-                    - Integrating with Google Analytics: observe/api-manager-analytics/integrating-with-google-analytics.md
-                    - Purging Analytics Data: observe/api-manager-analytics/purging-analytics-data.md
-                    - Default Ports of WSO2 API-M Analytics: observe/api-manager-analytics/default-ports-of-wso2-api-m-analytics.md
-                - Development:
-                    - Creating Custom Widgets: observe/api-manager-analytics/creating-custom-widgets-in-analytics-dashboards.md
-                    - Customizing Analytics Dashboards: observe/api-manager-analytics/customizing-analytics-dashboards.md
-                    - White Labeling for Tenants: observe/api-manager-analytics/white-labeling-tenants.md
-                    - Adding Third Party Non OSGi Libraries: observe/api-manager-analytics/adding-third-party-non-osgi-libraries.md
-                    - Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
-                    - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
-                - Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
-          - Monitoring:
+                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                #- Viewing API Statistics:
+                    #- Monitoring dashboard: observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard.md
+                    #- Business analytics: observe/api-manager-analytics/viewing-api-statistics/business-analytics-dashboard.md
+                    #- API analytics: observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard.md
+                    #- Application analytics: observe/api-manager-analytics/viewing-api-statistics/application-analytics-dashboard.md
+                #- Monthly API Usage Report: observe/api-manager-analytics/monthly-api-usage-report.md
+                #- Using Geolocation Based Statistics:
+                    #- Creating the Geo Location Data Set: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
+                    #- Configuring Geo Location Based Statistics: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
+                    #- Writing a Custom Geo Location Provider: observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
+                #- Alert Types: observe/api-manager-analytics/alert-types.md
+                #- Setup & Configuration:
+                    #- Configuring APIM Analytics: observe/api-manager-analytics/configuring-apim-analytics.md
+                    #- Configuring Analytics on Micorgateway: observe/api-manager-analytics/configuring-analytics-for-microgateway.md
+                    #- Configuring Keystores in APIM Analytics: observe/api-manager-analytics/configuring-keystores-in-apim-analytics.md
+                    #- Managing Analytics Dashboard Permissions: observe/api-manager-analytics/managing-dashboard-permissions.md
+                    #- Configuring Alerts: observe/api-manager-analytics/configuring-alerts.md
+                    #- Subscribing for Alerts: observe/api-manager-analytics/subscribing-for-alerts.md
+                    #- Integrating with Google Analytics: observe/api-manager-analytics/integrating-with-google-analytics.md
+                    #- Purging Analytics Data: observe/api-manager-analytics/purging-analytics-data.md
+                    #- Default Ports of WSO2 API-M Analytics: observe/api-manager-analytics/default-ports-of-wso2-api-m-analytics.md
+                #- Development:
+                    #- Creating Custom Widgets: observe/api-manager-analytics/creating-custom-widgets-in-analytics-dashboards.md
+                    #- Customizing Analytics Dashboards: observe/api-manager-analytics/customizing-analytics-dashboards.md
+                    #- White Labeling for Tenants: observe/api-manager-analytics/white-labeling-tenants.md
+                    #- Adding Third Party Non OSGi Libraries: observe/api-manager-analytics/adding-third-party-non-osgi-libraries.md
+                    #- Publishing Custom Attributes: observe/api-manager-analytics/publishing-custom-data.md
+                    #- General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
+                #- Analytics Event Streams and Aggregations: observe/api-manager-analytics/analytics-event-streams-and-aggregations.md
+          - Monitoring the API Manager:
               - Monitoring Logs:
                   - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                   - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -729,7 +731,7 @@ nav:
               - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
               - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
               - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-          - Micro Integrator Observability:
+          - Monitoring the Micro Integrator:
               - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
               - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
               - Using the Management API: observe/mi-observe/working-with-management-api.md
@@ -775,6 +777,8 @@ nav:
                 - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+            - Service Catalog APIs:
+                - Service Catalog v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Configuration Catalogs:
             - API Management Configs: reference/config-catalog.md
@@ -1012,9 +1016,9 @@ nav:
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - MongoDB Connector:
-                - 'MongoDB Connector Overview': 'references/connectors/mongodb-connector/mongodb-connector-overview.md'
-                - 'MongoDB Connector Example': 'references/connectors/mongodb-connector/mongodb-connector-example.md'
-                - 'MongoDB Connector Reference': 'references/connectors/mongodb-connector/mongodb-connector-config.md'
+                - MongoDB Connector Overview: references/connectors/mongodb-connector/mongodb-connector-overview.md
+                - MongoDB Connector Example: references/connectors/mongodb-connector/mongodb-connector-example.md
+                - MongoDB Connector Reference: references/connectors/mongodb-connector/mongodb-connector-config.md
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1242,12 +1246,7 @@ nav:
             - Deploying Micro Integrator:
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - EI Kubernetes Operator: install-and-setup/setup/mi-setup/deployment/ei_kubernetes_operator.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                    - K8s Deployment Samples:
-                        - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/k8s-samples/hello-world.md
-                        - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/k8s-samples/content-based-routing.md
-                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/k8s-samples/jms-sender-receiver.md
                     - K8s Pipeline:
                         - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
                         - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
@@ -1448,6 +1447,12 @@ nav:
         - Kubernetes Operators:
           - K8s API Operator:
               - K8s API Operator Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
+              - Manage Integration:
+                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
+                - Integration Deployment Samples:
+                  - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.md
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
@@ -1460,6 +1465,7 @@ nav:
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+            - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
@@ -1472,14 +1478,16 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Tutorials:
-          - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
-          - Create and Publish a Streaming API:
-              - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
-              - Create and Publish a WebSub API: tutorials/streaming-api/create-and-publish-websub-api.md
-              - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
-          - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
-          - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Tutorials Overview: tutorials/tutorials-overview.md
+          - API Management Tutorials:
+            - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
+            - Create and Publish a Streaming API:
+                - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
+                - Create and Publish a WebSub API: tutorials/streaming-api/create-and-publish-websub-api.md
+                - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
+            - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
+            - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
+            - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
               - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
               - Message Routing:
@@ -1539,6 +1547,8 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.snippets:
+          base_path: docs
 plugins:
     - search
     - markdownextradata: {}
