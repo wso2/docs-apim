@@ -69,7 +69,7 @@ Run the following sample command to initialize an API Project using the CTL by p
 
 !!! example
     ``` bash
-    apictl init SampleStore --oas store.yaml --definition api_template.yaml -k
+    apictl init SampleStore --oas store.yaml --definition api_template.yaml 
     ```
     [![init samplestore api project]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)  
 
@@ -164,7 +164,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
      For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
     !!!note
-        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
+        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
     
      You can also add an environment manually beforehand or provide the details as a shell script in the same pipeline.
 

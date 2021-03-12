@@ -4,8 +4,10 @@ Scopes are used to validating the rights to access the requested API resource. W
 
 WSO2 Microgateway provide scope validation for below API security types,
 
--   OAuth2 tokens (JWT and Opaque)
--   Basic authentication
+-   OAuth2 tokens (JWT only) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
+    Basic authentication
+-->
+
 
 ### Define supported scopes in API definition
 
@@ -47,7 +49,7 @@ paths:
 !!! note
     When an oauth2 type security scheme is given under operation or API, it will secure the operation or API with OAuth2 security (JWT and opaque security tokens).
 
-### Validating scopes through self-contained JWT authentication
+### Validating scopes through JWT authentication
 
 If the operation or API is secured with an OAuth2 security scheme with scopes, you can authenticate the API request with a valid JWT token. However, the JWT token should have at least one required scope under the "scopes" claim to authorize the request.
 
@@ -55,6 +57,7 @@ If the operation or API is secured with an OAuth2 security scheme with scopes, y
 "scope": "read write" # payload of the JWT should contain required scopes separated by space
 ```
 
+<!-- TODO: Enable once the feature is completed for MGW 4.0.0
 ### Validating scopes through opaque token authentication
 
 If the operation or API is secured with an OAuth2 security scheme with scopes and configured the key manager properly, then you can authenticate the API request with a valid opaque token. However, then the key manager should provide the required scopes after validating the token to authorize the request.
@@ -107,5 +110,5 @@ Then, the required scopes should be added to the "micro-gw.conf" file (comma sep
 ```
 
  The users with the scopes in the configuration can access the endpoints with certain scopes included in the oauth2 scheme using basic authentication.
-
+-->
 

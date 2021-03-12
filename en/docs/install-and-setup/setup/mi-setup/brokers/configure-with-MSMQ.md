@@ -30,4 +30,4 @@ Follow the steps below to set up and configure WSO2 Micro Integrator with MSMQ.
     ERROR - NativeWorkerPool Uncaught exception
     java.lang.UnsatisfiedLinkError: no msmq_native_support in java.library.path
     ```
-You now have instances of MSMQ and WSO2 MI configured, up and running. Next, refer [JMS Consumer](../../use-cases/examples/jms_examples/consuming-jms.md) and [JMS Producer](../../use-cases/examples/jms_examples/producing-jms.md) section for implementation details of JMS consumer and producer.
+You now have instances of MSMQ and WSO2 MI configured, up and running. Next, refer [JMS Consumer]({{base_path}}/integrate/examples/jms_examples/consuming-jms) and [JMS Producer]({{base_path}}/integrate/examples/jms_examples/producing-jms) section for implementation details of JMS consumer and producer.
