@@ -82,7 +82,7 @@ The diagram below depicts the relationship between the API's visibility and subs
     The subscription availability option will only be displayed if there are tenants in your environment.
 
 !!! Important
-     Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file
+     Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
      ```
      [apim.devportal]
      enable_cross_tenant_subscriptions = true
@@ -132,5 +132,4 @@ When using the REST API directly, the subscription availability options are avai
     </table>
     
     
-
 
