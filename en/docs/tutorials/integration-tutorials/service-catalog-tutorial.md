@@ -135,7 +135,7 @@ Follow the instructions given in this section to create and configure the requir
             </td>
         </tr>
         </table>
-                                                                                                                                                    
+                                                                      
     4.  Click **Finish**.
 
 7.  Open the Source view of the HealthcareAPI that you created and apply the following.
@@ -157,8 +157,7 @@ Follow the instructions given in this section to create and configure the requir
             </outSequence>
             <faultSequence/>
         </resource>
-    </api>
-    ```
+    </api>   ```
 
 When the **HealthcareAPI** is created, the following two new files are created in the metadata folder. 
 
@@ -190,60 +189,56 @@ When the **HealthcareAPI** is created, the following two new files are created i
 
 Let's update the metadata of the integration service.
 
-1.  Open the `HealthcareAPI_metadata.yaml` file from the project exporer. 
-2.  Update the **description** parameter. For example, add 'API to fetch doctors for a given category' as shown below.
-3.  leave the default values for the remaining parameters.
+1.  Open the `HealthcareAPI_metadata.yaml` file from the project exporer.
+2.  Update the following values in the file.
+
+    <table>
+        <tr>
+            <th>
+                Parameter
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                description
+            </td>
+            <td>
+                Explain the purpose of the API. For example, 'API to fetch doctors for a given category'.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                serviceUrl
+            </td>
+            <td>
+                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+                You can configure the serviceUrl in the following ways:
+                <ul>
+                    <li>
+                        Add the complete URL without parameters. For example: http://localhost:8290/healthcare.
+                    </li>
+                    <li>
+                        Parameterize using the host and port combination. For example: http://{host}:{port}/healthcare.</br></br>
+                        Let's use this option for this tutorial.
+                    </li>
+                    <li>
+                        Parameterize using a preconfigured URL. For example: http://{url}/healthcare.
+                    </li>
+                </ul>
+                <b>Note</b>: Be sure to change the serviceUrl from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
+            </td>
+        </tr>
+    </table>
 
     !!! Tip
-        Note that the `{host}` and `{port}` values are parameterized with placeholders. The actual values will be injected using environment variables later in this tutorial. 
+        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/) for more information on the metadata in the YAML file.
 
-See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/) for more information on the metadata in the YAML file.
+3.  Leave the default values for the remaining parameters. 
 
 <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/edit-metadata-service-catalog.PNG">
-
-<!--
-<table>
-    <tr>
-        <th>
-            Parameter
-        </th>
-        <th>
-            Description
-        </th>
-    </tr>
-    <tr>
-        <td>
-            description
-        </td>
-        <td>
-            Explain the purpose of the API. For example, 'Get doctors for a given specialization'.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            serviceUrl
-        </td>
-        <td>
-            This is the URL of the API when it gets deployed in the Micro Integrator. The API developer may not know this information during development. Therefore, the URL can be parameterized to be resolved later using environment variables.</br></br>
-            You can configure the serviceUrl in the following ways:
-
-            <ul>
-                <li>
-                    Add the complete URL without parameters. For example: http://localhost:8290/healthcare.
-                </li>
-                <li>
-                    Parameterize using the host and port combination. For example: http://{host}:{port}/healthcare.
-                </li>
-                <li>
-                    Parameterize using a preconfigured URL. For example: http://{url}/healthcare.
-                </li>
-            </ul>
-
-            <b>Note</b>: Be sure to change the serviceUrl from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
-        </td>
-    </tr>
-</table>
--->
 
 ### Step 4: Configure the Micro Integrator 
 
@@ -312,22 +307,23 @@ Package the artifacts in your composite exporter module to be able to deploy the
 
 3.  Save the changes.
 
-### Step 6: Build and run the service
+### Step 6: Start the WSO2 API Management runtime
 
-<!--
-!!! Note
-    When we enable the Service Catalog and start the Micro Integrator server, first it will look for metadata files, then it will read them and replace the placeholders with environment variable values, create a ZIP file and finally, upload it to the APIM Service Catalog endpoint.
--->
+Start the API Manager runtime before starting the Micro Integrator.
 
-!!! note 'Before you begin'
+1.  Download [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
+2.  Start the server.
 
-    Start the API Manager runtime before starting the Micro Integrator.
-
-    1.  Download [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
-    2.  Start the server.
-
+### Step 7: Build and run the service
 
 Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
+
+!!! Info
+    When you do this step: 
+
+    1.  The Micro Integrator first reads the metadata files. 
+    2.  Then, it replaces the placeholders with environment variable values and creates a ZIP file.
+    3.  Finally, it uploads the metadata to the API management runtime.
 
 1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
 2.  In the dialog box that opens, confirm that the required artifacts from the composite exporter module are selected.
@@ -335,7 +331,7 @@ Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embe
 
 The artifacts will be deployed in the embedded Micro Integrator and the server will start. The integration servies will be deployed to the Service Catalog during server start up.
 
-### Step 7: Create a Managed API
+### Step 8: Create a Managed API
 
 Let's expose the integration service that we developed as an API in API Manager. 
 
@@ -359,11 +355,11 @@ Let's expose the integration service that we developed as an API in API Manager.
 
 7. Publish the API.
 
-### Step 8: Subscribe to the Managed API
+### Step 9: Subscribe to the Managed API
 
 You can subscribe by following the instructions given in the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
 
-### Step 9: Test the use case
+### Step 10: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
