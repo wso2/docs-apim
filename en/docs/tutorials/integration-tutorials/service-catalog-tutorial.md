@@ -335,7 +335,7 @@ Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embe
 
 The artifacts will be deployed in the embedded Micro Integrator and the server will start. The integration servies will be deployed to the Service Catalog during server start up.
 
-### Step 8: Create a Managed API
+### Step 7: Create a Managed API
 
 Let's expose the integration service that we developed as an API in API Manager. 
 
@@ -359,11 +359,11 @@ Let's expose the integration service that we developed as an API in API Manager.
 
 7. Publish the API.
 
-### Step 9: Subscribe to the Managed API
+### Step 8: Subscribe to the Managed API
 
 You can subscribe by following the instructions given in the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
 
-### Step 10: Test the use case
+### Step 9: Test the use case
 
 Let's test the use case by sending a simple client request that invokes the service.
 
