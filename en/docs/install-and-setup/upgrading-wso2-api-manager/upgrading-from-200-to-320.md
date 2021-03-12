@@ -2889,7 +2889,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from the `migration-config.yaml` file in version: "5.10.0".
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 3 steps from the `migration-config.yaml` file in version: "5.10.0".
                 ```
                 -
                     name: "MigrationValidator"
@@ -2900,6 +2900,9 @@ Follow the instructions below to move all the existing API Manager configuration
                     parameters:
                     location: "step2"
                     schema: "identity"
+                -
+                    name: "TenantPortalMigrator"
+                    order: 11
                 ```
 
     4. Remove the following entries from the `migration-config.yaml` file, which is in the `migration-resources` directory.
