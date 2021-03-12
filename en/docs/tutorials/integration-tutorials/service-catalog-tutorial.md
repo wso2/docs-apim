@@ -135,7 +135,7 @@ Follow the instructions given in this section to create and configure the requir
             </td>
         </tr>
         </table>
-                                                                                                                                                    
+                                                                      
     4.  Click **Finish**.
 
 7.  Open the Source view of the HealthcareAPI that you created and apply the following.
