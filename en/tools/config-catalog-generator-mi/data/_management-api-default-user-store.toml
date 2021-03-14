@@ -1,0 +1,10 @@
+[internal_apis.file_user_store]
+enable = true
+
+[[internal_apis.users]]
+user.name = "user-1"
+user.password = "pwd-1"
+
+[[internal_apis.users]]
+user.name = "user-2"
+user.password = "pwd-2"

@@ -1,8 +1,5 @@
 # Upgrading API Manager from 1.10.0 to 3.2.0
 
-!!! Important
-    This migration guide is in the process of being restructured and is NOT yet ready for use.
-
 The following information describes how to upgrade your API Manager server **from APIM 1.10.0 to 3.2.0**.
 
 !!! note
@@ -252,6 +249,8 @@ versioning in the migrated 3.2.0 setup. Follow the instructions below to disable
         /
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
         /
+        COMMIT;
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -308,7 +307,12 @@ versioning in the migrated 3.2.0 setup. Follow the instructions below to disable
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy the entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration model has been changed and now all the configurations are done via a single file (`deployment.toml`). Instead, redo the configuration changes in the new configuration file. For more information, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
+    Do not copy the entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration model has been changed and now all the configurations are done via a single file (`deployment.toml`). Instead, redo the configuration changes in the new configuration file.
+
+!!! note
+    
+    - For more information on the configurations in the new configuration model, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
+    - For more information on the mapping between WSO2 API Manager's old configuration files and the new `deployment.toml` file, see [Understanding the New Configuration Model]({{base_path}}/reference/understanding-the-new-configuration-model).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
@@ -1073,7 +1077,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );
-              
         ```
 
         ```tab="DB2"
@@ -1646,7 +1649,34 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
-        
+
+        CREATE TABLE AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID))
+        /
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE
+        REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+
+        BEGIN ATOMIC
+
+            SET (NEW.SCOPE_ID)
+            = (NEXTVAL FOR AM_SCOPE_SEQUENCE);
+
+        END
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
         ```
 
         ```tab="MSSQL"
@@ -2115,7 +2145,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
             API_ID INTEGER NOT NULL,
             AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARYśKEY (API_ID),
+            PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
         
@@ -2261,7 +2291,6 @@ Follow the instructions below to move all the existing API Manager configuration
           BINDING_TYPE VARCHAR(255) NOT NULL,
           FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );        
-        
         ```
 
         ```tab="MySQL"
@@ -2780,7 +2809,23 @@ Follow the instructions below to move all the existing API Manager configuration
         )ENGINE INNODB;
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
-        
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
         ```
 
         ```tab="Oracle"
@@ -3583,7 +3628,6 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY
         /
-        
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR2(255) DEFAULT 'Resident Key Manager' NOT NULL
         /
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
@@ -3615,6 +3659,8 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR2(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /
+        COMMIT;
+        /       
         ```
 
         ```tab="PostgreSQL"
@@ -4252,7 +4298,6 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
-        
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
@@ -4463,7 +4508,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
          Copy the extracted `migration-resources` and `migration-scripts` folders to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3. Migrate API Manager artifacts from 1.10 to 2.0
      
@@ -4512,7 +4557,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` and `migration-scripts` directories, which are in the `<API-M_3.2.0_HOME>` directory.
 

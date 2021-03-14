@@ -29,7 +29,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
 
     ``` bash
-    wrapper.java.classpath.3 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
+    wrapper.java.classpath.4 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
 
 
@@ -149,7 +149,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 ### Setting up CARBON\_HOME
 
-Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location which is for example wso2am-2.1.0 here.
+Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location.
 
 ### Running the product in console mode
 

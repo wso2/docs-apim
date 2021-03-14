@@ -1,0 +1,3 @@
+[multi_tenancy.throttling_manager_tasks.parameters]
+interval = "10"
+delay = "60"

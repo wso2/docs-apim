@@ -1,0 +1,5 @@
+[health_checker]
+name = "CustomHealthChecker"
+order = "90"
+[health_checker.properties]
+first_property = "value"

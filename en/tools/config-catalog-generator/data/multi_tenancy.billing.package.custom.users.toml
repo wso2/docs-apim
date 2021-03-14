@@ -1,0 +1,3 @@
+[multi_tenancy.billing.package.custom.users]
+limit= "unlimited"
+charge= "0"

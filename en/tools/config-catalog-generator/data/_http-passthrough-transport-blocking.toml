@@ -1,0 +1,19 @@
+[transport.passthru_https]
+listener.enable = true
+listener.parameters.port = 8200
+listener.hostname = ""
+listener.origin_server = ""
+listener.request_timeout = ""
+listener.request_tcp_no_delay = ""
+listener.request_core_thread_pool_size = ""
+listener.request_max_thread_pool_size = ""
+listener.thread_keepalive_time = ""
+listener.thread_keepalive_time_unit = ""
+
+[transport.blocking_https]
+sender.enable = true
+sender.parameters.cacheHttpClient = true
+sender.parameters.Transfer-Encoding = ""
+sender.parameters.defaultMaxConnectionsPerHost = 200
+sender.parameters.OmitSOAP12Action = true
+sender.parameters.SO_TIMEOUT = 60000

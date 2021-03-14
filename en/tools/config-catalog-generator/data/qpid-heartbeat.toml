@@ -1,0 +1,3 @@
+[qpid.heartbeat]
+delay = 1
+timeout_factor = 3.0

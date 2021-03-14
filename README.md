@@ -34,6 +34,7 @@ Check the issue tracker for open issues that interest you. We look forward to re
 
 ### Step 1 - Install Python
 
+#### MacOS
 If you are using MacOS, you probably already have a version of Python installed on your machine. You can verify this by running the following command.
 
 ```shell
@@ -44,6 +45,10 @@ Python 2.7.2
 If your version of Python is Python 2.x.x, you also need to install Python3. This is because the PDF plugin only supports Python3. Follow the instructions in [this guide](https://docs.python-guide.org/starting/install3/osx/) to install Python3 properly.
 
 Once you are done, you will have two versions of Python on your machine; a version of python2 and a version of python3.
+
+#### Ubuntu and other versions of Debian Linux
+
+Python 3 is pre-installed in these versions, which you can verify with `python3 -V`. Use `sudo apt install -y python3-pip` to install `pip` and verify with `pip3 -V`.
 
 ### Step 2 - Install Pip
 >
@@ -62,30 +67,6 @@ $ pip install --upgrade pip
 ```
 
 ### Step 3 - Install the pip packages
-
-1. Navigate to the `<language-folder>/` folder.
-
-    ```shell
-    $ cd docs-apim/en
-    ```
-
-2. Install the required pip packages.
-
-    This will install MkDocs and the required theme, extensions, and plugins.
-
-    - If you are using Python2, use the following command:
-
-      ```shell
-      $ pip install -r requirements.txt
-      ```
-
-    - If you are using Python3, use the following command:
-
-      ```shell
-      $ pip3 install -r requirements.txt
-      ```
-
-### Step 4 - Run MkDocs
 
 Follow the steps below to clone the API-M documentation GitHub repository and to run the site on your local server.
 
@@ -110,7 +91,24 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
     $ cd docs-apim/en/
     ```
 
-4. Run the following command to start the server and view the site on your local server.
+4. Install the required pip packages.
+
+    This will install MkDocs and the required theme, extensions, and plugins.
+
+    - If you are using Python2, use the following command:
+
+      ```shell
+      $ pip install -r requirements.txt
+      ```
+
+    - If you are using Python3, use the following command:
+
+      ```shell
+      $ pip3 install -r requirements.txt
+      ```
+
+### Step 4 - Run MkDocs
+1. Run the following command to start the server and view the site on your local server.
 
     ```shell
     $ mkdocs serve
@@ -129,7 +127,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
     >
     >    `mkdocs serve --dirtyreload`
   
-5. Open the following URL on a new browser window to view the API-M documentation site locally.
+2. Open the following URL on a new browser window to view the API-M documentation site locally.
 
     [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
 

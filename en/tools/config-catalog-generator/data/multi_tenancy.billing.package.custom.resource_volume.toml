@@ -1,0 +1,3 @@
+[multi_tenancy.billing.package.custom.resource_volume]
+limit = "1536"
+overuse_charge = "0.03"

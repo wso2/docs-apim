@@ -38,7 +38,34 @@ Following is the default configuration for carbon logs and the default values ca
      ```
    
    The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
-   
+
+###Enable Logs for a Tenant
+
+In order to write logs of tenants to a different log file the following configurations can be added to the log4j2.properties file.
+
+    ```
+    appenders=CARBON_CONSOLE, CARBON_LOGFILE, ...., TENANT_LOGFILE
+
+    rootLogger.appenderRef.TENANT_LOGFILE.ref = TENANT_LOGFILE
+
+    # Creates tenant-wise log files
+    appender.TENANT_LOGFILE.type = Routing
+    appender.TENANT_LOGFILE.name = TENANT_LOGFILE
+    appender.TENANT_LOGFILE.routes.type = Routes
+    appender.TENANT_LOGFILE.routes.pattern = $${TenantLookup:tenantId}
+    appender.TENANT_LOGFILE.routes.route1.type = Route
+    appender.TENANT_LOGFILE.routes.route1.rolling.type = RollingFile
+    appender.TENANT_LOGFILE.routes.route1.rolling.name = Routing-${TenantLookup:tenantId}
+    appender.TENANT_LOGFILE.routes.route1.rolling.fileName = ${sys:carbon.home}/repository/logs/wso2-tenant-${TenantLookup:tenantId}.log
+    appender.TENANT_LOGFILE.routes.route1.rolling.filePattern = ${sys:carbon.home}/repository/logs/wso2-tenant-${TenantLookup:tenantId}-%d{MM-dd-yyyy}.log
+    appender.TENANT_LOGFILE.routes.route1.rolling.layout.type = PatternLayout
+    appender.TENANT_LOGFILE.routes.route1.rolling.layout.pattern = %d %p %C{1.} [%t] %m%n
+    appender.TENANT_LOGFILE.routes.route1.rolling.policy.type = SizeBasedTriggeringPolicy
+    appender.TENANT_LOGFILE.routes.route1.rolling.policy.size = 500MB
+    ```
+
+Log files will be created in `<APIM_HOME>/repository/logs directory with the name wso2-tenant-<tenantDomain>.log` .
+
 ###Enable Logs for a Component
 
 Please follow below steps to enable logs for a given service component available in WSO2 API Manager.

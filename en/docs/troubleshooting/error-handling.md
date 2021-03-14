@@ -9,7 +9,7 @@ type of errors that occur. You must select the correct file.
 
 For example, to change the message type of authorization errors, open
 the
-`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler.xml                 `
+`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml                 `
 file and change `application/xml` to something like
 **`application/json`** .
 
@@ -122,7 +122,7 @@ Given below are some error codes and their meanings.
 
 </div>
 </div></td>
-<td>When the access token is invalid or inactive.</td>
+<td>When the access token is invalid, inactive or expired.</td>
 </tr>
 <tr class="odd">
 <td><code>900902</code> </td>
@@ -131,48 +131,42 @@ Given below are some error codes and their meanings.
 <td>Accessing an API without <strong>Authorization: Bearer</strong> header</td>
 </tr>
 <tr class="even">
-<td><code>900903</code> </td>
-<td><p>Access Token Expired</p></td>
-<td>Access token is expired</td>
-<td>Accessing an API with an expired token</td>
-</tr>
-<tr class="odd">
 <td><code>900905</code></td>
 <td><p>Incorrect access token type is provided</p></td>
 <td><p>The access token type used is not supported when invoking the API. The supported access token types are application and user accesses tokens. See <a href="https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Accesstokens">Access Tokens</a> .</p></td>
 <td>Invoke an API with application token, where the resource only allows application user tokens</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>900906</code> </td>
 <td><p>No matching resource found in the API for the given request</p></td>
 <td>A resource with the name in the request can not be found in the API.</td>
 <td>Invoke an API resource that is not available</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td> <code>900907</code> </td>
 <td><p>The requested API is temporarily blocked</p></td>
 <td>Happens when the API user is blocked.</td>
 <td>Invoke API resource with a subscription that has been blocked by the API publisher</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>900908</code> </td>
 <td><p>Resource forbidden</p></td>
 <td>The user invoking the API has not been granted access to the required resource.</td>
 <td>Invoke an unsubscribed API</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>900909</code></td>
 <td><p>The subscription to the API is inactive</p></td>
 <td>The status of the API has changed to an inaccessible/unavailable state.</td>
 <td>Invoke an API resource with a subscription that has not yet been approved by the administrator.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>900910</code></td>
 <td><p>The access token does not allow you to access the requested resource</p></td>
 <td><p>Can not access the required resource with the provided access token. Check the valid resources that can be accessed with this token.</p></td>
 <td>Invoke API resource with an access token that is not generated to be used with the resource's scope.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>102511</code></td>
 <td>Incomplete payload</td>
 <td>The payload sent with the request is too large and the client is unable to keep the connection alive until the payload is completely transferred to the API Gateway</td>
@@ -455,12 +449,12 @@ directory.
 |-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `fault.xml`| This is the primary fault sequence that gets invoked when an error occurs during the execution of an API resources                                                                                                                                            |
 | `main.xml`| This sequence is called when the endpoint being called does not exist                                                                                                                                                                                         |
-| `_auth_failure_handler.xml`| This sequence is called when an API authentication error is encountered                                                                                                                                                                                       |
-| `_production_key_error.xml`| This sequence is called when a Production key is used to invoke an API that does not have a Production endpoint defined                                                                                                                                       |
-| `_sandbox_key_error.xml`| This sequence is called when a Sandbox key is used to invoke an API that does not have a Sandbox endpoint defined                                                                                                                                             |
-| `_throttle_out_handler.xml`| This sequence is called when a given request to an API gets throttled out                                                                                                                                                                                     |
-| `_token_fault.xml`| This sequence is called when there is an error in invoking the token API                                                                                                                                                                                      |
-| `_resource_mismatch_handler.xml` | This sequence is called when a matching resource cannot be found by the gateway to the corresponding resource being invoked                                                                                                                                   |
+| `_auth_failure_handler_.xml`| This sequence is called when an API authentication error is encountered                                                                                                                                                                                       |
+| `_production_key_error_.xml`| This sequence is called when a Production key is used to invoke an API that does not have a Production endpoint defined                                                                                                                                       |
+| `_sandbox_key_error_.xml`| This sequence is called when a Sandbox key is used to invoke an API that does not have a Sandbox endpoint defined                                                                                                                                             |
+| `_throttle_out_handler_.xml`| This sequence is called when a given request to an API gets throttled out                                                                                                                                                                                     |
+| `_token_fault_.xml`| This sequence is called when there is an error in invoking the token API                                                                                                                                                                                      |
+| `_resource_mismatch_handler_.xml` | This sequence is called when a matching resource cannot be found by the gateway to the corresponding resource being invoked                                                                                                                                   |
 | `_cors_request_handler_.xml`| This sequence enables sending CORS specific headers when the CORS specific configuration ( `CORSConfiguration` ) is enabled in WSO2 API Manager in the `<API-M_HOME>/repository/conf/deployment.toml` file. |
 | `_threat_fault_.xml`| This sequence is called to send error messages with regard to threat detection.                                                                                                                                                                               |
 | `dispatchSeq.xml`| This sequence is defined as a default handler for any inbound WebSocket calls.                                                                                                                                                                                |

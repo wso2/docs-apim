@@ -1,0 +1,7 @@
+[[server.get_request_processor]]
+item = "swagger.yaml"
+class = "org.wso2.micro.integrator.transport.handlers.requestprocessors.swagger.format.SwaggerYamlProcessor"
+
+[[server.get_request_processor]]
+item = "swagger.json"
+class = "org.wso2.micro.integrator.transport.handlers.requestprocessors.swagger.format.SwaggerJsonProcessor"

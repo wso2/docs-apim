@@ -1,5 +1,9 @@
 # Installing as a Linux Service
 
+!!! warning
+    - The following instructions are **not applicable to Red Hat Linux distributions** such as Fedora because those distributions contain the chkconfig package instead of the `update-rc.d` package for service management. 
+    - **To support the Red Hat based Linux OS you need to** use `chkconfig` for the register services and you need to also include the service definition in the chkconfig's run level information. For more information, see [chkconfig](https://linux.die.net/man/8/chkconfig).
+
 !!! note
 
     **Before you begin:**

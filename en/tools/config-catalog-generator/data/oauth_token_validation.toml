@@ -1,0 +1,5 @@
+[oauth.token_validation]
+user_access_token_validity = "3000"
+app_access_token_validity = "2000"
+refresh_token_validity = "86400"
+ 

@@ -18,7 +18,7 @@ By default, WSO2 products identify the hostname of the current machine through t
         hostname = "am.dev.wso2.com"
         ```
     
-        `{hostname}` - Hostname or IP address of the machine hosting this server. This is will become part of the End Point Reference of the services deployed on this server instance.
+        `{hostname}` - Hostname or IP address of the machine hosting this server. This will become part of the End Point Reference of the services deployed on this server instance.
     
     3. Configure the Developer Portal URL, which is used to access the Developer Portal via the Publisher. 
 

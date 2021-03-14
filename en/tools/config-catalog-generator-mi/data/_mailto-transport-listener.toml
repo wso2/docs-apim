@@ -1,0 +1,4 @@
+[transport.mail.listener]
+enable = true   
+name = "mailto"
+parameter.customParameter = ""

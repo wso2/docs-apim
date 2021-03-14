@@ -59,6 +59,13 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     http_method = "PUT"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
     scopes = "internal_application_mgt_update"
+    
+    [[resource.access_control]]
+    context = "(.)/keymanager-operations/dcr/register(.)"
+    secure = true
+    http_method = "POST"
+    permissions = "/permission/admin/manage/identity/applicationmgt/update"
+    scopes = "internal_application_mgt_update"
 
     [[resource.access_control]]
     context = "(.*)/keymanager-operations/dcr/register(.*)"
@@ -71,20 +78,20 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.17.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.0.15`
+     - `wso2is.key.manager.core-1.0.17`
 
-     - `wso2is.notification.event.handlers_1.0.15`
+     - `wso2is.notification.event.handlers_1.0.17
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 6. Start WSO2 Identity Server with a port offset.
    portOffset is required only if you are running both API-m and ID in the same JVM.
 
-      `sh wso2server.sh --DportOffset=1`
+      `sh wso2server.sh -DportOffset=1`
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -193,7 +200,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
       e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</td>
-      <td>Optional</td>
+      <td>Mandatory</td>
       </tr>
       <tr class="odd">
       <td><b>Connector Configurations</b></td>

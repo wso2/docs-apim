@@ -1,0 +1,4 @@
+[multi_tenancy.usage_agent.data_persistence_task]
+startup_delay_in_ms = "60000"
+records_per_execution = "100"
+execution_interval_in_ms = "-1"

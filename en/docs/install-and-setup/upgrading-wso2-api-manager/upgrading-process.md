@@ -1,8 +1,5 @@
 # Upgrading Process
 
-!!! Important
-    This migration guide is in the process of restructuring, and is NOT yet ready for use.
-
 This section contains the complete upgrading process related to the WSO2 API Manager.
 Go through the guidelines given below before attempting to upgrade the production environment.
 
@@ -44,7 +41,7 @@ version.
 
 5.  Identify the configuration migrations required for the new setup. 
 
-     For more information on the new config model introduced, see the [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
+     For more information on the new config model introduced, see the [Configuration Catalog]({{base_path}}/reference/config-catalog).
         
 6.  Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
 test your functional and non-functional requirements.

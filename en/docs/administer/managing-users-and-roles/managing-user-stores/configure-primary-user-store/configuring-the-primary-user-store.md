@@ -51,13 +51,13 @@ This can be defined in the `[user_store]` section of the `<APIM_HOME>/repository
 
 ```toml
     [user_store]
-    type = "database"
+    type = "database_unique_id"
 ```
 
 Follow the links given below to setup the required type of primary user store.
 
--   [Configuring a JDBC User Store](../configuring-a-jdbc-user-store)
--   [Configuring a Read-Only LDAP User Store](../configuring-a-read-only-ldap-user-store)
--   [Configuring a Read-Write Active Directory User Store](../configuring-a-read-write-active-directory-user-store)
--   [Configuring a Read-Write LDAP User Store](../configuring-a-read-write-ldap-user-store)
+-   [Configuring a JDBC User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-primary-user-store/configuring-a-jdbc-user-store)
+-   [Configuring a Read-Only LDAP User Store]({{base_path}}/administer/managing-users-and-roles/configuring-a-read-only-ldap-user-store)
+-   [Configuring a Read-Write Active Directory User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-primary-user-store/configuring-a-read-write-active-directory-user-store)
+-   [Configuring a Read-Write LDAP User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-primary-user-store/configuring-a-read-write-ldap-user-store)
 

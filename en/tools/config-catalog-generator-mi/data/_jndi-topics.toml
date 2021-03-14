@@ -1,0 +1,2 @@
+[transport.jndi.topic]
+MyTopic = "example.MyTopic"
