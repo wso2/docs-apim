@@ -1349,7 +1349,6 @@ nav:
                         - Using Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
                         - Using Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
                     - Securing the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
-                    - Customizing Error Messages: install-and-setup/setup/mi-setup/customizing_error_pages.md
                 - Performance:
                     - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
                     - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
