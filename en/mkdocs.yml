@@ -1346,10 +1346,10 @@ nav:
                         - Connecting to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
                     - Kafka: install-and-setup/setup/mi-setup/feature_configs/configuring-kafka.md
                     - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
-                    - Transports: install-and-setup/setup/mi-setup/transport_configurations/configuring-transports.md
-                    - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport_configurations/multi-https-transport.md
-                    - Message Builders and Formatters: install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters.md
-                    - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
+                - Transports: install-and-setup/setup/mi-setup/transport_configurations/configuring-transports.md
+                - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport_configurations/multi-https-transport.md
+                - Message Builders and Formatters: install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters.md
+                - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
                 - Observability:
                     - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
                     - Setting up Cloud-Native Observability for a VM Deployment: install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md
