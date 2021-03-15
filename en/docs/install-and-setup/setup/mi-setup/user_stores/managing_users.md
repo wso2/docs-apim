@@ -51,6 +51,6 @@ Select <b>Users</b> in the left-hand navigator to view the list of existing user
 
 <img src="../../../assets/img/monitoring-dashboard/dashboard-users-1.png" width="700">
 
-Click on <b>Add User</b> button on right to create new users. Note that you can assign admin privileges during the creation.
+Click <b>Add User</b> to create new users. Note that you can assign admin privileges during user creation.
 
 <img src="../../../assets/img/monitoring-dashboard/dashboard-users-2.png" width="700">
