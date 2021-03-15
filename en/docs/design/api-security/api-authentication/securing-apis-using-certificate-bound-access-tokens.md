@@ -30,12 +30,12 @@ Open the `<API-M_HOME>/repository/conf/deployment.toml` File and Configure the `
 
     ``` tab="Format"
      [apim.oauth_config]
-     enable_outbound_auth_header = true
+     enable_certificate_bound_access_token = true
     ```
 
     ``` tab="Example"
      [apim.oauth_config]
-     enable_outbound_auth_header = true
+     enable_certificate_bound_access_token = true
      
      
  Restart the server if it is already running.    
