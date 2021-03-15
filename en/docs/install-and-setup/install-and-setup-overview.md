@@ -314,7 +314,7 @@ To understand how to upgrade to the current API Manager component from a previou
  		</td>
  	</tr>
  </table>
-
+ 
 ## The Micro Integrator 
 
 This component develops complex integration services that can be exposed as managed APIs
@@ -877,59 +877,138 @@ This covers all topics related to the Kubernetes API Operator.
  	</tr>
  </table>
 
+ 
+## Kubernetes operator
+
+This section explains how the Kubernetes operator can deploy micro services in Kubernetes as managed APIs, and how it can deploy the API Manager component of WSO2 API Manager in Kubernetes. The topics covered are as follows:
+
+<table>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator">K8s API Operator</a>
+    </td>
+    <td>
+        Explains how the Kubernetes operator deploys micro services in Kubernetes as managed APIs
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator">Installing via the Binary</a>
+    </td>
+    <td>
+        Explains how the Kubernetes operator deploys the API Manager component of WSO2 API Manager in Kubernetes
+    </td>
+</tr>
+</table>
+
 ## API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc. and managing WSO2 Micro Integrator.
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc. and managing WSO2 Micro Integrator. This section covers the following topics.
 
-This section covers how to download, install and set up the API Controller.
-
- <table>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-via-the-installer">Installing via the Installer</a>
- 		</td>
- 		<td>
- 			Explains how to install the API Manager component via the Installer.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">Installing on Linux or OS X</a>
- 		</td>
- 		<td>
- 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Linux operating system.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing on Solaris</a>
- 		</td>
- 		<td>
- 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Solaris operating system.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing on Windows</a>
- 		</td>
- 		<td>
- 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Windows operating system.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing as a Linux Service</a>
- 		</td>
- 		<td>
- 			Explains how to install the API Manager as a Linux service.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service">Installing as a Windows Service</a>
- 		</td>
- 		<td>
- 			Explains how to install the API Manager as a Windows service.
- 		</td>
- 	</tr>
- </table>
+<table>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller">Getting Started with WSO2 API Controller</a>
+    </td>
+    <td>
+        Explains how to set up the API Controller.
+    </td>
+</tr>
+<tr>
+    <td>
+        <a>Managing APIs and API Products</a>
+    </td>
+    <td>
+        This section covers the following topics.
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products">Managing APIs and API Products</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach">Importing APIs Via Dev First Approach</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments">Migrating APIs to Different Environments</a>
+        </li> 
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments">Migrating API Products (with or without dependent APIs) to Different Environments</a>
+        </li>       
+    </td>
+</tr>
+<tr>
+    <td>
+        <a>Managing Applications</a>
+    </td>
+    <td>
+        This section covers the following topics.
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-applications/managing-applications">Managing Applications</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments">Migrating Apps to Different Environments</a>
+        </li>                
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl">Managing Microgateways</a>
+    </td>
+    <td>
+        Explains how to interract with multiple microgateways via the API Controller
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management">CI/CD with WSO2 API Manager</a>
+    </td>
+    <td>
+        Explains how to achieve CI/CD (Continuous Integration and Continuous Deployment) for APIs with WSO2 API Manager
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management">Building a Jenkins CI/CD Pipeline for Dev First Approach</a>
+    </td>
+    <td>
+        Explains how to build a Jenkins CI/CD pipeline with the developer-first approach.     
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl">Managing Integrations</a>
+    </td>
+    <td>
+        Explains how to manage integrations with the API Controller.
+    </td>
+</tr>
+<tr>
+    <td>
+        <a href="{{base-path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl">Encrypting Secrets with CTL</a>
+    </td>
+    <td>
+        Explains how to encrypt secrets with the API Controller.
+    </td>
+</tr>
+<tr>
+    <td>
+        <a>Advanced Topics</a>
+    </td>
+    <td>
+        This section covers the following topics.
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations">Creating Custom Users to Perform API Controller Operations</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters">Configuring Environment Specific Parameters</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects">Using Dynamic Data in API Controller Projects</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types">Configuring Different Endpoint Types</a>
+        </li>
+        <li>
+            <a href="{{base-path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command">Formatting the outputs of get commands</a>
+        </li>                        
+    </td>
+</tr>
+</table>
