@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-WSO2 API Microgateway 3.2.0 (WSO2 MGW) is a lightweight gateway distribution that can be used to deploy a single API or multiple APIs. In summary, WSO2 API Microgateway is a specialized form of WSO2 API Gateway.
+WSO2 API Microgateway 4.0.0-beta (WSO2 MGW) is a lightweight gateway distribution that can be used to deploy a single API or multiple APIs. In summary, WSO2 API Microgateway is a specialized form of WSO2 API Gateway.
 
 In this Quick Start Guide let's see how a service can be securely proxied via the microgateway. Let's expose the publicly available petstore services (https://petstore.swagger.io/v2/ ) using the microgateway.
 
