@@ -10,7 +10,7 @@ This component manages APIs. To install and set up this component, see the follo
 
 ### Installing
 
- To install and run the API Manager, see the following topics.
+To install and run the API Manager, see the following topics.
  
  <table>
  	<tr>
@@ -235,14 +235,85 @@ Setting up the API Manager component involves performing the following tasks:
             </ul>                                                                		
  		</td>
  	</tr>
+  	<tr>
+  		<td>
+  			<a>SSO</a>
+  		</td>
+  		<td>
+  			Explains how to configure SSO (Single Sign On) for the API Manager component with an external identity provider. The topics covered are as follows.
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc">Configuring Identity Server As External IDP with OIDC</a>
+  			</li>
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml">Configuring Identity Server As External IDP with SAML</a>
+  			</li>
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc">Using OKTA As An External IDP With OIDC</a>
+  			</li>
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml">Using OKTA As An External IDP With SAML</a>
+  			</li>   			 					
+  		</td>
+  	</tr> 	
+  	<tr>
+  		<td>
+  			<a>Advanced Configurations</a>
+  		</td>
+  		<td>
+  			Covers some advance configurations including how to change the transport used by the API Manager component from the default PassThrough transport to a different transport, how to configure caching, and how to change the user interfaces of the API Manager component.
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/advance-configurations/changing-the-default-transport">Changing the Default Transport</a>
+  			</li>
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/advance-configurations/configuring-caching">Configuring Caching</a>
+  			</li>
+  			<li>
+  			    <a href="{{base-path}}/install-and-setup/setup/advance-configurations/customizing-the-management-console">Customizing the Management Console</a>
+  			</li>  					
+  		</td>
+  	</tr>
  </table>
-
-
-### Migrating
 
 ### Upgrading
 
+To understand how to upgrade to the current API Manager component from a previous version, see [Upgrading WSO2 API Manager]().
 
+### Reference
+
+ <table>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/setup/reference/common-runtime-and-configuration-artifacts">Common Runtime and Configuration Artifacts</a>
+ 		</td>
+ 		<td>
+ 			Describes some artifacts that are commonly used with the API Manager component.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/setup/reference/default-product-ports">Default Product Ports</a>
+ 		</td>
+ 		<td>
+ 			Explains the defauly ports used by the API Manager component.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/setup/reference/product-compatibility">Product Compatibility</a>
+ 		</td>
+ 		<td>
+ 			Provides details relating to the compatibility of the API Manager component with different operating systems and JDKs, databases, key managers, web browsers, and other WSO2 products.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/setup/reference/supported-cipher-suites">Supported Cipher Suites</a>
+ 		</td>
+ 		<td>
+ 			Provides details of the supported cipher suites.
+ 		</td>
+ 	</tr>
+ </table>
 
 ## The Micro Integrator 
 
@@ -253,7 +324,7 @@ This component develops complex integration services that can be exposed as mana
  <table>
  	<tr>
  		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-via-the-installer">Installing via the Installer</a>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Installing via the Installer</a>
  		</td>
  		<td>
  			Explains how to install the Micro Integrator component via the Installer.
@@ -261,39 +332,15 @@ This component develops complex integration services that can be exposed as mana
  	</tr>
  	<tr>
  		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">Installing on Linux or OS X</a>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Installing via the Binary</a>
  		</td>
  		<td>
- 			Explains how to download the Micro Integrator component as a binary and install it on a virtual machine with a Linux operating system.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing on Solaris</a>
- 		</td>
- 		<td>
- 			Explains how to download the Micro Integrator component as a binary and install it on a virtual machine with a Solaris operating system.
+ 			Explains how to download the Micro Integrator component as a binary and install it on a virtual machine.
  		</td>
  	</tr>
  	<tr>
  		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing on Windows</a>
- 		</td>
- 		<td>
- 			Explains how to download the Micro Integrator component as a binary and install it on a virtual machine with a Windows operating system.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing as a Linux Service</a>
- 		</td>
- 		<td>
- 			Explains how to install the Micro Integrator as a Linux service.
- 		</td>
- 	</tr>
- 	<tr>
- 		<td>
- 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service">Installing as a Windows Service</a>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/install-mi-as-windows-service">Installing as a Windows Service</a>
  		</td>
  		<td>
  			Explains how to install the Micro Integrator as a Windows service.
@@ -302,6 +349,10 @@ This component develops complex integration services that can be exposed as mana
  </table>
 
 ### Deploying
+
+For instructions to set up Micro Integrator nodes to work together with other WSO2 API Manager components, see the following deployment methods.
+
+If you are using the Micro Integrator component on its own for your integration requirements, see the following deployment methods.
 
 ### Setting up
 
@@ -567,9 +618,9 @@ Setting up the Micro Integrator component involves performing the following task
  	</tr>	 	
  </table>
 
-### Migrating
-
 ### Upgrading
+
+The predecessor of the Micro Integrator component of API Manager was the Micro integrator of WSO2 Enterprise Integrator. To upgrade from a WSO2 Enterprise Integrator version, see [Upgrade From a Previous Version - Micro Integrator]().
 
 ## The Streaming Integrator
 
@@ -577,7 +628,70 @@ This component develops streaming solutions that can be exposed as managed APIs 
 
 ### Installing
 
+To install and run the Streaming Integrator, see the following topics.
+
+ <table>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-si-in-vm">Installing via the Installer</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the Streaming Integrator component via the Installer.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary">Installing via the Binary</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the Streaming Integrator component as a binary and install it on a virtual machine.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing as a Linux Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the Streaming Integrator component as a Linux service.
+ 		</td>
+ 	</tr> 	
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-si-as-windows-service">Installing as a Windows Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the Streaming Integrator component as a Windows service.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-si-as-linux-service">Installing as a Linux Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the Streaming Integrator component as a Linux service.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing in Containers</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the Streaming Integrator component in different containerized environments. The topics covered are as follows:
+ 			<li>
+ 			    <a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker">Installing in Docker</a>
+ 			</li>
+ 			<li>
+ 			    <a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes">Installing in kubernetes</a>
+ 			</li> 			
+ 		</td>
+ 	</tr>
+ </table>
+
 ### Deploying
+
+For instructions to set up Streaming Integrator nodes to work together with other WSO2 API Manager components, see the following deployment methods.
+
+If you are using the Streaming Integrator component on its own for your streaming integration requirements, see the following deployment methods.
 
 ### Set up
 
@@ -699,54 +813,123 @@ Setting up the Streaming Integrator component involves performing the following 
  	</tr> 			 		 	 	 	
  </table>
 
-### Migrating
-
 ### Upgrading
 
-## Install
-
-The installation guide of WSO2 API Manager explains how to set the API Manager and its components on a single node or in a container. For installation prerequisites for a single API Manager node, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites).
-
-For instructions to install each component, see the topics below:
-
-- [Installing API Manager]({{base_path}}/install-and-setup/install/installing-the-product)
-- [Installing Micro Integrator]({{base_path}}/install-and-setup/install/installing-mi)
-- [Installing Streaming Integrator]({{base_path}}/install-and-setup/install/installing-si)
-
-
-## Deploy
-
-You can deploy WSO2 API Manager and its components in a virtual machine or in a containerized environment. 
-
-To get started with deployment, see [Deployment Overview]({{base_path}}/install-and-setup/setup/deployment-overview)
-
-## Setup
+The predecessor of the Streaming Integrator component of API Manager was the Streaming Integrator of WSO2 Enterprise Integrator. To upgrade from a WSO2 Enterprise Integrator version, see [Upgrade From a Previous Version - Streaming Integrator]().
 
 
 
 
 
-## SSO
-
-This section explains how to configure Single Sign On (SSO) for the WSO2 API Manager.
-
-WSO2 API Manager uses the OIDC Single Sign-On feature by default. Alternatively, you can configure WSO2 Identity Server or OKTA as the external identity provider.
-## Advanced confuguration
-
-## References
-
-This subsection contains some reference information related to installing and setting up WSO2 API Manager
-
-## Upgrade
-
-This covers several scenarios that involve upgrading from an older version of WSO2 API Manager to a newer version.
 
 ## Kubernetes operators
 
 This covers all topics related to the Kubernetes API Operator.
+
+ <table>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-via-the-installer">Installing via the Installer</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager component via the Installer.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">Installing on Linux or OS X</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Linux operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing on Solaris</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Solaris operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing on Windows</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Windows operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing as a Linux Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager as a Linux service.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service">Installing as a Windows Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager as a Windows service.
+ 		</td>
+ 	</tr>
+ </table>
 
 ## API Controller
 
 WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc. and managing WSO2 Micro Integrator.
 
 This section covers how to download, install and set up the API Controller.
+
+ <table>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-via-the-installer">Installing via the Installer</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager component via the Installer.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">Installing on Linux or OS X</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Linux operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris">Installing on Solaris</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Solaris operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing on Windows</a>
+ 		</td>
+ 		<td>
+ 			Explains how to download the API Manager component as a binary and install it on a virtual machine with a Windows operating system.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Installing as a Linux Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager as a Linux service.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<a href="{{base-path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service">Installing as a Windows Service</a>
+ 		</td>
+ 		<td>
+ 			Explains how to install the API Manager as a Windows service.
+ 		</td>
+ 	</tr>
+ </table>

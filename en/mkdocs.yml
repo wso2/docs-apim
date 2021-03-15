@@ -1188,6 +1188,7 @@ nav:
                 - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
                 - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
+                - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-linux-service.md
                 - Running the Streaming Integrator in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
@@ -1292,6 +1293,15 @@ nav:
                             - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
                             - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
                             - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+                    - SSO:
+                        - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                        - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
+                        - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
+                        - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
+                    - Advanced Configuration:
+                        - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
+                        - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
+                        - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
             - Setting up Micro Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
@@ -1378,15 +1388,6 @@ nav:
                 - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
                 - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
-        - SSO:
-            - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
-            - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
-            - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
-            - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-        - Advanced Configuration:
-            - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
-            - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
-            - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
