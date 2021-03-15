@@ -537,6 +537,7 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
+                - Exposing Stream as Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md
           #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
@@ -548,6 +549,7 @@ nav:
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
                 - Deploying Siddhi Applications: develop/streaming-apps/deploying-streaming-applications.md
                 - Exporting Siddhi Applications: develop/streaming-apps/exporting-siddhi-applications.md
+                - Working with Async API view: develop/streaming-apps/working-with-the-async-api-view.md
                 - Develop Your First Streaming Solution:
                     - Overview: streaming/getting-started/getting-started-guide-overview.md
                     - Step 1 Download Streaming Integrator and Dependencies: streaming/getting-started/download-install-and-start-si.md

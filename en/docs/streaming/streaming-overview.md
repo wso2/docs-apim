@@ -59,6 +59,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
     </tr>
 </table>
 
+-- add SSE and Websockets functionality
 ### Management and Observability
 
 <table>
