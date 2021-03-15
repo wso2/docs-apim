@@ -216,6 +216,7 @@ nav:
                 - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - API Microgateway:
             - Getting Started:
+                - Microgateway Overview: deploy/api-microgateway/getting-started/api-microgateway-overview.md
                 - Quick start Guide:
                     - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
                     - Quick Start Guide-Docker: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
