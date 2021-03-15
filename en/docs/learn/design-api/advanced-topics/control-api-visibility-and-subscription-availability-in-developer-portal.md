@@ -82,7 +82,7 @@ The diagram below depicts the relationship between the API's visibility and subs
     The subscription availability option will only be displayed if there are tenants in your environment.
 
 !!! Important
-     Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+     By default, the **Subscription Availability** dropdown list is not displayed in the publisher portal. Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file in order to display the **Subscription Availability** dropdown list.
      ```
      [apim.devportal]
      enable_cross_tenant_subscriptions = true
