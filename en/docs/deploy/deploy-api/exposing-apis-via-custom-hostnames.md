@@ -2,17 +2,89 @@
 
 Virtual hosts (VHosts) enable you to expose APIs using specific hostnames that correspond to a Gateway environment. Each Gateway environment will have a minimum of one VHost. Admin users can manage Gateways by creating, updating, and deleting Gateway environments via the Admin Portal. Each Gateway environment will contain the details of each of the VHosts, which are the custom hostnames, that are applicable to that Gateway environment. As a result, API publishers can use the VHosts to group their APIs by selecting a virtual host when deploying an API to Gateway environment(s). In addition, application developers can access APIs by using the defined access URLs of the virtual host.
 
-## Prerequisites
+{!./includes/prerequisites-apim.md!}
 
-[Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
+## Using an existing Gateway environment to expose APIs via custom hostnames
 
-## Step 1 - Create a Gateway environment
+Follow the instructions below to use the default Gateway environment to expose APIs via custom hostnames:
+
+### Step 1 - Define the custom hostnames
+
+Each Gateway environment definition contains details related to a specific Gateway. Define the VHosts, which contain the custom hostnames in the `deployment.toml` file, which is the central configuration file.
+
+1. Open to the `<APIM-HOME>/repository/conf/deployment.toml` file.
+
+2. Define the VHosts.
+
+     Let's add `us.wso2.com` and `foods.com` as the custom VHosts and `food` as the custom context.
+
+    !!! note
+
+        - When the WSO2 API Manager server is running, the default Gateway environment and also the Gateway environments that you added via the `deployment.toml` file are displayed in the Gateway environments list page in the Admin Portal in read-only mode.
+        - If a VHost is not defined, the default VHost details are assigned to the Gateway environment.
+        - It is not mandatory to specify a context for the VHost.
+
+    ```toml
+    [[apim.gateway.environment]]
+    name = "Production and Sandbox"
+    ...
+    display_name = "US Region"
+    type = "hybrid"
+    display_in_api_console = true
+    description = "Gateway environment deployed in the US region."
+    show_as_token_endpoint_url = true
+    service_url = "https://localhost:${mgt.transport.https.port}/services/"
+    username= "${admin.username}"
+    password= "${admin.password}"
+    ws_endpoint = "ws://localhost:9099"
+    wss_endpoint = "wss://localhost:8099"
+    http_endpoint = "http://localhost:${http.nio.port}"
+    https_endpoint = "https://localhost:${https.nio.port}"
+
+    [[apim.gateway.environment.virtual_host]]
+    ws_endpoint = "ws://us.wso2.com:9099"
+    wss_endpoint = "wss://us.wso2.com:8099"
+    http_endpoint = "http://us.wso2.com/gateway"
+    https_endpoint = "https://us.wso2.com/gateway"
+
+    [[apim.gateway.environment.virtual_host]]
+    ws_endpoint = "ws://foods.com:9099"
+    wss_endpoint = "wss://foods.com:8099"
+    http_endpoint = "http://foods.com"
+    https_endpoint = "https://foods.com"
+    ```
+
+3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+
+      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
+
+### Step 2 - Assign the custom hostname to an API
+
+{!./includes/assign-custom-hostname.md!}
+
+[![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
+
+
+### Step 3 - View the custom hostnames
+
+{!./includes/view-custom-hostname.md!}
+
+[![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
+
+
+## Using a new Gateway environment to expose APIs via custom hostnames
+
+Follow the instructions below to use a new custom Gateway environment to expose APIs via custom hostnames:
+
+### Step 1 - Create a Gateway environment
 
 Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that includes VHosts using either one of the following methods.
 
-### Create a Gateway environment via the Admin Portal
+#### Create a Gateway environment via the Admin Portal
 
 1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+
+      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
 2.  Sign in to the Admin Portal.
      
@@ -26,7 +98,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
      1. Click **Gateways**, and then click **Add Gateway Environment**.
 
-         [![Menu to add Microgateway label]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment-menu.png)
+         [![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
 
      2. Enter a name, display name, description, and a virtual host.
 
@@ -36,9 +108,9 @@ Each Gateway environment definition contains details related to a specific Gatew
           |-------------|--------------|-------------------------------------------|--------------|
           | us-region   | US Region    | Gateway environment deployed in the US region. | us.wso2.com  |
 
-          <a href="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment.png">
-              <img src="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/add-gateway-environment.png" alt="Add a Gateway Environment"
-              title="Add a Gateway Environment" width="600px" />
+          <a href="{{base_path}}/assets/img/deploy/add-gateway-environment.png">
+              <img src="{{base_path}}/assets/img/deploy/add-gateway-environment.png" alt="Add a Gateway Environment"
+              title="Add a Gateway Environment" width="500px" />
           </a>
           
         !!! note
@@ -51,13 +123,8 @@ Each Gateway environment definition contains details related to a specific Gatew
         Let's add `gateway` as the HTTP(S) context for the `us-region` Gateway environment.
 
         Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
-        
-          <a href="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/vhost-advanced-settings.png">
-              <img src="{{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/vhost-advanced-settings.png" alt="Advanced settings in a vhost"
-              title="Advnaced Vhost Settings" width="600px" />
-          </a>
 
-### Create a Gateway environment using the configuration file
+#### Create a Gateway environment using the configuration file
 
 Follow the instructions below to use the `deployment.toml` file, which is the central configuration file, to configure a Gateway environment that consists of virtual hosts:
 
@@ -105,60 +172,20 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
 
-## Step 2 - Assign the custom hostname to an API
+      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Repeat this step if you wish to add multiple APIs to the API group.</p>
-</div> 
-</html>
+### Step 2 - Start the second Gateway
 
-1.  Sign in to the API Publisher using `admin` as the username and password.
+[Add Content]
 
-     `https://<hostname>:9443/publisher` 
-   
-     Example: `https://localhost:9443/publisher`
+### Step 3 - Assign the custom hostname to an API
 
-2.  Create a new API or skip this step if you wish to use an existing API.
-     
-     Let's deploy the sample Pizzashack API by clicking **Deploy Sample API** (If you have not done so already).
+{!./includes/assign-custom-hostname.md!}
 
-3.  Click on the API to edit its configurations.
+[![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
 
-     [![Edit the API]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/select-api.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/select-api.png)
+### Step 4 - View the custom hostnames
 
-4.  Click **Deployments**.
+{!./includes/view-custom-hostname.md!}
 
-5.  Select the newly created Gateway environment, Virtual Host, and a Revision.
-
-     [Create a new revision]({{base_path}}/design/create-api/create-api-revisions/) if no revisions exist.
-
-     [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/deploy-api-with-vhost.png)
-
-6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
-   
-    !!! info
-        Similarly, you can assign the same Virtual Host to other APIs as well.
-
-## Step 3 - View the custom hostnames
-
-Follow the instructions below to view the custom endpoint URLs of the API, which consists of the custom hostnames:
-
-1. Sign in to the Developer Portal using `admin` as the username and password.
-
-     `https://<hostname>:9443/devportal` 
-   
-     Example: `https://localhost:9443/devportal`
-
-2. Click on the specific API.
-
-3. Click **Overview**.
-
-     The custom endpoint URLs of the API, which include the custom hostnames, appear.
-
-     [![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/deploy-api/exposing-apis-via-custom-hostnames/virtual-host-in-devportal.png)
-
-## See Also
-
-- [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/) to understand how to work with multiple Gateway environments that use custom hostnames. 
+[![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
