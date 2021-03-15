@@ -63,12 +63,17 @@ nav:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                    - Create a Streaming API: design/create-api/create-a-streaming-api.md
-                    - Create a WebSocket API: design/create-api/create-a-websocket-api.md
+                    - Create a Streaming API:
+                        - Streaming APIs Overview: design/create-api/create-streaming-api/streaming-api-overview.md
+                        - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+                        - Create a WebSub API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                        - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+                    - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md
                     - Build APIs in Integration Studio: design/create-api/api-integration-studio.md
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
+                    - Test a WebSub Streaming API: design/create-api/test-a-websub-api.md
             - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -158,6 +163,7 @@ nav:
                     - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                     - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
                     - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
+                    - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
                     - Query Limits for GraphQL:
                             - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
                             - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
@@ -210,6 +216,7 @@ nav:
                 - Mutual SSL Between API Gateway and Backend: deploy/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
         - API Microgateway:
             - Getting Started:
+                - Microgateway Overview: deploy/api-microgateway/getting-started/api-microgateway-overview.md
                 - Quick start Guide:
                     - Quick Start Guide Overview: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
                     - Quick Start Guide-Docker: deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
@@ -742,6 +749,8 @@ nav:
                 - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+            - Service Catalog APIs:
+                - Service Catalog v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Configuration Catalogs:
             - API Management Configs: reference/config-catalog.md
@@ -1327,7 +1336,6 @@ nav:
                         - Using Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
                         - Using Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
                     - Securing the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
-                    - Customizing Error Messages: install-and-setup/setup/mi-setup/customizing_error_pages.md
                 - Performance:
                     - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
                     - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
@@ -1449,11 +1457,16 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
     - Tutorials:
-          - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
-          - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
-          - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Create and Publish WebSocket API: tutorials/create-and-publish-websocket-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Tutorials Overview: tutorials/tutorials-overview.md
+          - API Management Tutorials:
+            - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
+            - Create and Publish a Streaming API:
+                - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
+                - Create and Publish a WebSub API: tutorials/streaming-api/create-and-publish-websub-api.md
+                - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
+            - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
+            - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
+            - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Integration Tutorials:
               - Sending a Simple Message to a Service: tutorials/integration-tutorials/sending-a-simple-message-to-a-service.md
               - Message Routing:

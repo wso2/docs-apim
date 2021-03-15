@@ -23,21 +23,21 @@ template: templates/single-column.html
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/quick-start-guide';">
                 ![Integration service icon]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Write your first Integration Service</h4>
                 <p>
                     Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
                 ![Proxies icon]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Design and implement  API Proxies</h4>
                 <p>
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
                 ![Streaming icon]({{base_path}}/assets/img/home/streaming.svg)
                 <h4>Write a Streaming Integration</h4>
                 <p>
@@ -52,14 +52,14 @@ template: templates/single-column.html
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
             </p>
-            <a href='#'><h4>Understand the Concepts</h4></a>
+            <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
         <div class="section03Card last">
             <h3>Architecture</h3>
             <p>
                 The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
             </p>
-            <a href='#'><h4>View Architecture</h4></a>
+            <a href='{{base_path}}/get-started/architecture'><h4>View Architecture</h4></a>
         </div>
     </div>
     <div class="section04">
