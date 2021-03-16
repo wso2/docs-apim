@@ -341,9 +341,9 @@ mentioned gateway environments. If the **deployment environments are not provide
 
     When the importing and exporting environments are different, before importing the API Product, you may need to update the exported API Product with details relevant to the importing environment. For example, the subscription policies, MutualSSL certificates and deployment environments of an API Product might differ between the dev and production environments. Furthermore, when considering the dependent APIs of an API product, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between environments as well. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for API Products, see [Defining the params file for an API Product]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product).
 
-    **Add Dynamic Data to Environment Configs**
+    **Add dynamic data to environment configs**
 
-    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
+    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add dynamic data to environment configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment.

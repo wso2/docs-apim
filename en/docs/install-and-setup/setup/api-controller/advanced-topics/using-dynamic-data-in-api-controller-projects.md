@@ -1,10 +1,10 @@
 #  Using Dynamic Data in API Controller Projects
 
-The API Controller (CTL) can inject dynamic values based on environment variables to various project files. The use of environment variables is a very convenient way of controlling inputs in almost every CI/CD platform.
+The **WSO2 API Controller (apictl)** can inject dynamic values based on environment variables to various project files. The use of environment variables is a very convenient way of controlling inputs in almost every CI/CD platform.
 
 ## Initialize API Projects with Dynamic Data
 
-When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. Then it will create the primary API configuration file `api.yaml` with the dynamic data based on the environment variables. When executing the `apictl init` command, the CTL automatically injects the values to the API definition. You can use the notations `$ENV_VAR` or `${ENV_VAR}` to specify environment variables to any attribute in this file.
+When initializing an API Project, the apictl is capable of detecting environment variables in the default definition file or in the provided custom definition file. Then it will create the primary API configuration file `api.yaml` with the dynamic data based on the environment variables. When executing the `apictl init` command, the CTL automatically injects the values to the API definition. You can use the notations `$ENV_VAR` or `${ENV_VAR}` to specify environment variables to any attribute in this file.
 
 Follow the instructions below to initialize an API Project with environment variables.
 
@@ -31,7 +31,7 @@ Follow the instructions below to initialize an API Project with environment vari
     SET APIVERSION=1.0.0
     ```
 
-3.  Initialize the API Project with the api-env-config.yaml
+3.  Initialize the API Project with the `api-env-config.yaml`.
 
     ```
     apictl init PetstoreProject -d api-env-config.yaml --oas https://petstore.swagger.io/v2/swagger.json
@@ -39,7 +39,7 @@ Follow the instructions below to initialize an API Project with environment vari
 
     !!! tip
 
-        Upon successful completion of the above command, the CTL will automatically inject the environment variable values to the API artifact in the API project. Open `PetstoreProject/api.yaml` and check the above values are correctly injected.
+        Upon successful completion of the above command, the apictl will automatically inject the environment variable values to the API artifact in the API project. Open `PetstoreProject/api.yaml` and check the above values are correctly injected.
 
         ```
         type: api
@@ -66,13 +66,13 @@ Follow the instructions below to initialize an API Project with environment vari
         If an environment variable is not set, the command will fail and request a set of required environment variables on the system.
 
     !!!note
-        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
-Once the project is successfully imported, sign-in to the WSO2 API Publisher and check the newly imported API with the same details specified above.
+Once the project is successfully imported, sign-in to the WSO2 API Manager (WSO2 API-M) Publisher Portal and check the newly imported API with the same details specified above.
 
 [![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-api-config-api-import.png)]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-api-config-api-import.png) 
 
-## Add Dynamic Data to Environment Configs
+## Add dynamic data to environment configs
 
 To allow easily configuring environment-specific details, by default, the CTL supports an additional parameter file named `api_params.yaml`. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
@@ -125,14 +125,14 @@ Once the project is successfully imported, sign-in to the WSO2 API Publisher and
 
 [![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png)]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png) 
 
-## Add Dynamic Data to other files in an API Project
+## Add dynamic data to other files in an API project
 
-Other than the default API Definition (`api.yaml`) and API's Environment Configuration (`api_params.yaml`), the CTL supports environment variable substitution in other project files including documents, custom mediation policies and SOAP-to-REST conversion policies.
+Other than the default API Definition (`api.yaml`) and API's Environment Configuration (`params.yaml`), the apictl supports environment variable substitution in other project files including documents, custom mediation policies and SOAP-to-REST conversion policies.
 
 !!! note
     Only `${ENV_VAR}` notation is supported to specify environment variables in these types of files.
 
-For example, consider we need to send a special header to the backend when calling the Petstore API we created above. The value of the header should be a dynamic value which the CTL should have control over.
+For example, consider we need to send a special header to the backend when calling the Petstore API we created above. The value of the header should be a dynamic value which the apictl should have control over.
 
 1. Create the below custom mediation policy `custom-header-in.xml` in `PetstoreProject/Sequences/in-sequence/Custom` folder.
 
@@ -195,7 +195,7 @@ For example, consider we need to send a special header to the backend when calli
     ```
 
     !!!note
-        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl import api` as shown above.
         
 5. Generate a token and invoke the API
 

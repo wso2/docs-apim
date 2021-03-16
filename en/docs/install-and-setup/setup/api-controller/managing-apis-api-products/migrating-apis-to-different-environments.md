@@ -439,9 +439,9 @@ mentioned gateway environments. If the **deployment environments are not provide
 
     When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for APIs, see [Defining the params file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api).
     
-    **Add Dynamic Data to Environment Configs**
+    **Add dynamic data to environment configs**
 
-    The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
+    The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add dynamic data to environment configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
