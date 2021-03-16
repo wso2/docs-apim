@@ -2,7 +2,7 @@
 
 Virtual hosts (VHosts) enable you to expose APIs using specific hostnames that correspond to a Gateway environment. Each Gateway environment will have a minimum of one VHost. Admin users can manage Gateways by creating, updating, and deleting Gateway environments via the Admin Portal. Each Gateway environment will contain the details of each of the VHosts, which are the custom hostnames, that are applicable to that Gateway environment. As a result, API publishers can use the VHosts to group their APIs by selecting a virtual host when deploying an API to Gateway environment(s). In addition, application developers can access APIs by using the defined access URLs of the virtual host.
 
-{!./includes/prerequisites-apim.md!}
+{!includes/deploy/prerequisites-apim.md!}
 
 ## Using an existing Gateway environment to expose APIs via custom hostnames
 
@@ -50,8 +50,8 @@ Each Gateway environment definition contains details related to a specific Gatew
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
     wss_endpoint = "wss://foods.com:8099"
-    http_endpoint = "http://foods.com:8280"
-    https_endpoint = "https://foods.com:8243"
+    http_endpoint = "http://foods.com"
+    https_endpoint = "https://foods.com"
     ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
@@ -60,14 +60,14 @@ Each Gateway environment definition contains details related to a specific Gatew
 
 ### Step 2 - Assign the custom hostname to an API
 
-{!./includes/deploy/assign-custom-hostname.md!}
+{!includes/deploy/assign-custom-hostname.md!}
 
 [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
 
 
 ### Step 3 - View the custom hostnames
 
-{!./includes/deploy/view-custom-hostname.md!}
+{!includes/deploy/view-custom-hostname.md!}
 
 [![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
 
@@ -119,15 +119,8 @@ Each Gateway environment definition contains details related to a specific Gatew
             Follow [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/) to understand how to work with multiple Gateway environments.
 
      3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
-     
-          <a href="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png">
-              <img src="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png" alt="Advanced VHost settings"
-              title="Advanced VHost settings" width="500px" />
-          </a>
-          
-        We can change ports of each protocol of the Virtual Host and add an optional HTTP(s) context.
 
-        Let's add `gateway` as the HTTP(S) context for the Virtual Host `us.wso2.com`.
+        Let's add `gateway` as the HTTP(S) context for the `us-region` Gateway environment.
 
         Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
 
@@ -173,8 +166,8 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
     wss_endpoint = "wss://foods.com:8099"
-    http_endpoint = "http://foods.com:8280"
-    https_endpoint = "https://foods.com:8243"
+    http_endpoint = "http://foods.com"
+    https_endpoint = "https://foods.com"
     ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
@@ -183,45 +176,11 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
 ### Step 2 - Start the second Gateway
 
-Extract WSO2 API Manager to a new directory `APIM-HOME-2`.
-
-1. Open the `<APIM-HOME-2>/repository/conf/deployment.toml` file.
-
-2. Set port offset in `server` section.
-
-    ```toml
-    [server]
-    hostname = "localhost"
-    node_ip = "127.0.0.1"
-    offset = 3
-    ```
-
-2. Assign gateway environment label `us-region` which is the name of the gateway environment we previously created.
-
-    ```toml
-    [apim.sync_runtime_artifacts.gateway]
-    gateway_labels = ["us-region"]
-    ```
-
-3. Update Traffic Manager configurations of second server to connect to the Traffic Manager deployed with first server. 
-
-    ```toml
-    [apim.throttling]
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"
-    service_url = "https://localhost:9443/services/"
-    throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]
-    
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://localhost:9611"]
-    traffic_manager_auth_urls = ["ssl://localhost:9711"]
-    ```
-
-4. Save and close the `<APIM-HOME-2>/repository/conf/deployment.toml` file. Start the second WSO2 API Manager server.
+[Add Content]
 
 ### Step 3 - Assign the custom hostname to an API
 
-{!./includes/deploy/assign-custom-hostname.md!}
+{!includes/deploy/assign-custom-hostname.md!}
 
 [![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
 
