@@ -1514,6 +1514,8 @@ markdown_extensions:
     - markdown.extensions.meta
     - markdown.extensions.toc:
           permalink: true
+    - markdown_include.include:
+          base_path: docs
     - pymdownx.arithmatex
     - pymdownx.betterem:
           smart_enable: all
@@ -1530,6 +1532,8 @@ markdown_extensions:
     - pymdownx.tasklist:
           custom_checkbox: true
     - pymdownx.tilde
+    - pymdownx.snippets:
+          base_path: docs
 plugins:
     - search
     - markdownextradata: {}
