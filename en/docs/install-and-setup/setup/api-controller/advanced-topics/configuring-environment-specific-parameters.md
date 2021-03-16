@@ -221,13 +221,13 @@ The following code snippet contains sample configuration of the params file of a
             endpoints:
                 production:
                     url: 'https://prod.wso2.com'
-                mutualSslCerts:
-                    - tierName: Unlimited
-                      alias: Prod1
-                      path: prod1.crt
-                    - tierName: Gold
-                      alias: Prod2
-                      path: prod2.crt
+            mutualSslCerts:
+                - tierName: Unlimited
+                  alias: Prod1
+                  path: prod1.crt
+                - tierName: Gold
+                  alias: Prod2
+                  path: prod2.crt
     ```
     
 You can provide the params file using `--params` flag when importing an API. A sample command will be as follows.
