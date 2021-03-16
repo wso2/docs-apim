@@ -2,7 +2,7 @@
 
 ## Add APIs or API Products in an environment
 
-You can add APIs and API Products via the Publisher Portal and Developer Portal.
+You can add APIs and API Products via the Publisher Portal.
 However, **WSO2 API Controller (apictl)** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
 
 ## Get APIs or API Products in an environment
