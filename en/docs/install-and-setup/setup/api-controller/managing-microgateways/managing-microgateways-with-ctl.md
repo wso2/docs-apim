@@ -1,6 +1,6 @@
 # Managing Microgateways
 
-WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager (WSO2 API-M).
+**WSO2 API Controller (apictl)** can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager (WSO2 API-M).
 
 - Deploy an API
 - View the list of deployed APIs
