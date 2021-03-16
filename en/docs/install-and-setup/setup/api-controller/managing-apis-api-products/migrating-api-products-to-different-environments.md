@@ -71,7 +71,7 @@ The exported ZIP file has the following structure:
 
 ``` java
 <APIProductName>-version
-├── api.yaml
+├── api_product.yaml
 ├── deployment_environments.yaml
 ├── Client-certificates
 │   ├── Alias1.crt
@@ -111,7 +111,7 @@ The structure of an exported API Product ZIP file is explained below:
     </thead>
     <tbody>
         <tr class="odd">
-            <td><code>api.yaml</code></td>
+            <td><code>api_product.yaml</code></td>
             <td>Contains all the basic information required for an API Product to be imported to another environment.</td>
         </tr>
         <tr class="even">
@@ -238,7 +238,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skip-cleanup=<skip-cleanup> --rotate-revision=<rotate-revision>
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skip-cleanup=<skip-cleanup> --params <environment-params-file> --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -254,6 +254,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--import-apis` : Import depedent APIs to the environment along with the API Product. Default value is `false`.  
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
+                `--params` : Define the API Manager environment params file.  
                 `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
@@ -275,6 +276,10 @@ mentioned gateway environments. If the **deployment environments are not provide
             ``` go
             apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true  
             ```
+            ``` go
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true --params dev/api_product_params.yaml  
+            ```
+
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip.`, then you need to enter `dev/LeasingAPIProduct_1.0.0.zip` as the value for `--file` or `-f` flag.
 
@@ -326,9 +331,7 @@ mentioned gateway environments. If the **deployment environments are not provide
 !!! note
     **Configuring Environment Specific Parameters**
 
-    When the importing and exporting environments are different, before importing the API Product, you may need to update the dependent APIs with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. For each dependent API, you can specify those inside the corresponding folder of that particular API. As an example, if you have an exported API Product named LeasingAPIProduct_1.0.0.zip, you can find the dependent APIs inside APIs folder in the .zip. Assume it has a subfolder named LeasingAPI-1.0.0 (which is a dependent API), add/change the `api_params.yaml` file inside it to match with the environment.
-    
-    For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
+    When the importing and exporting environments are different, before importing the API Product, you may need to update the exported API Product with details relevant to the importing environment. For example, the subscription policies, MutualSSL certificates and deployment environments of an API Product might differ between the dev and production environments. Furthermore, when considering the dependent APIs of an API product, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between environments as well. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for API Products, see [Defining the params file for an API Product]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product).
 
     **Add Dynamic Data to Environment Configs**
 

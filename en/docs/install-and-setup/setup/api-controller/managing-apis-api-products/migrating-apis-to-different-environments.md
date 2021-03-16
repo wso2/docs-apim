@@ -371,12 +371,12 @@ mentioned gateway environments. If the **deployment environments are not provide
             -   Required :  
                 `--file` or `-f` : The file path of the API to import.  
                 `--environment` or `-e` : Environment to which the API should be exported.  
-            -   Optional : 
-                `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.
-                `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API. 
+            -   Optional :  
+                `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
+                `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API.   
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
                 `--update` : Update an existing API or create a new API in the importing environment.  
-                `--params` : Define the API Manager environment params file (default "api_params.yaml").   
+                `--params` : Define the API Manager environment params file.   
                 `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
@@ -432,8 +432,8 @@ mentioned gateway environments. If the **deployment environments are not provide
 !!! note
     **Configuring Environment Specific Parameters**
 
-    When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
-
+    When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for APIs, see [Defining the params file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api).
+    
     **Add Dynamic Data to Environment Configs**
 
     The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
