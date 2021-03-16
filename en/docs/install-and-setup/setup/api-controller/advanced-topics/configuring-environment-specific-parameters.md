@@ -1,23 +1,23 @@
 #  Configuring Environment Specific Parameters
 
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml` or an additional directory to store these deployment-related artifacts. It is recommended to store the parameter file inside the deployment directory if there are certificates and other details are included; however, it can be stored somewhere else when certificates are not specified via this additional `api_params.yaml` file. 
+To allow easily configuring environment-specific details when there are multiple environments, **WSO2 API Controller (apictl)** supports an additional parameter file (will be referred to as the "params file" in this document) or an additional directory to store these deployment-related artifacts. It is recommended to store the params file inside the deployment directory if there are certificates and other details included. However, it can be stored somewhere else when certificates are not specified via this params file. 
 
 ## Generating the Deployment Directory 
 
-When there are multiple artifacts which needs to be added as deployment-related configurations, it is recommended to use a separate directory to store all these configurations. API Controller provides the support to generate this deployment-specific directory using the following commands.
+When there are multiple artifacts which needs to be added as deployment-related configurations, it is recommended to use a separate directory to store all these configurations. apictl provides the support to generate this deployment-specific directory using the following commands.
 
 -   **Command**
         ``` bash
-        apictl gen deployment-dir -s <path-to-API-Source-archive> 
+        apictl gen deployment-dir -s <path-to-source-directory-or-archive>
         ```
         ``` bash
-        apictl gen deployment-dir -s <path-to-API-Source-archive> -d <path-to-the-Deployment-archive>
+        apictl gen deployment-dir -s <path-to-source-directory-or-archive> -d <path-to-create-the-deployment-directory>
         ```
         ``` bash
-        apictl gen deployment-dir --source <path-to-API-Source-archive> 
+        apictl gen deployment-dir --source <path-to-source-directory-or-archive>
         ```
         ``` bash
-        apictl gen deployment-dir --source <path-to-API-Source-archive> --destination <path-to-the-Deployment-archive>
+        apictl gen deployment-dir --source <path-to-source-directory-or-archive> --destination <path-to-create-the-deployment-directory>
         ```
 
     !!! info
@@ -30,16 +30,22 @@ When there are multiple artifacts which needs to be added as deployment-related 
 
     !!! example
             ```bash
-            apictl gen deployment-dir  -s  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            apictl gen deployment-dir  -s /desktop/source/Dev/PizzaShackAPI_1.0.0   
             ```
             ```bash
-            apictl gen deployment-dir  -s /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  -d /desktop/deployment/Dev
+            apictl gen deployment-dir  -s /desktop/source/dev/PizzaShackAPI_1.0.0.zip  -d /desktop/deployment/dev
             ```
             ```bash
-            apictl gen deployment-dir  --source  /desktop/source/Dev/PizzaShackAPI_1.0.0_r1   
+            apictl gen deployment-dir  -s /desktop/source/dev/LeasingAPIProduct_1.0.0  -d /desktop/deployment/dev
             ```
             ```bash
-            apictl gen deployment-dir  --source /desktop/source/Dev/PizzaShackAPI_1.0.0_r1  --destination /desktop/deployment/Dev
+            apictl gen deployment-dir  --source  /desktop/source/dev/PizzaShackAPI_1.0.0   
+            ```
+            ```bash
+            apictl gen deployment-dir  --source /desktop/source/Dev/PizzaShackAPI_1.0.0.zip  --destination /desktop/deployment/dev
+            ```
+            ```bash
+            apictl gen deployment-dir  --source /desktop/source/dev/LeasingAPIProduct_1.0.0  --destination /desktop/deployment/dev
             ```
 
     !!!note
@@ -48,10 +54,12 @@ When there are multiple artifacts which needs to be added as deployment-related 
     A project folder with the following default structure will be created in the given directory.
 
     ``` java
-    ├── api_params.yaml
-    ├── api_meta.yaml
-    └── certificates    
+    DeploymentArtifacts_<API_Name>-<API_Version>
+    ├── api_meta.yaml (api_product_meta.yaml for API Products)
+    ├── certificates
+    └── params.yaml   
     ```
+    
     <table>
         <thead>
             <tr class="header">
@@ -61,26 +69,25 @@ When there are multiple artifacts which needs to be added as deployment-related 
         </thead>
         <tbody>
             <tr class="odd">
-                <td><code>api_params.yaml</code></td>
+                <td><code>params.yaml</code></td>
                 <td>The specification of the environment specific configurations.</td>
             </tr>
-            <tr class="odd">
-                <td><code>api_meta.yaml</code></td>
+            <tr class="even">
+                <td><code>api_meta.yaml</code>/<code>api_product_meta.yaml</code></td>
                 <td>The meta-information file of the source artifact (This includes the name and the version of the source).</td>
             </tr>
             <tr class="odd">
                 <td>certificates</td>
-                <td>Contains the client certificates for Mutual SSL enabled APIs and endpoint certificates for endpoint security enabled APIs.</td>
+                <td>Contains the client certificates for Mutual SSL enabled APIs/API Products and endpoint certificates for endpoint security enabled APIs.</td>
             </tr>
         </tbody>
     </table>
 
 
-## Bundling the Generated Directory before Import
+## Bundling the generated directory before Import
 
-After generating the deployment directory, API controller is packed with a bundle command which provides the support
-to archive the directory without the need of external dependencies. This command will generate a `.zip` archive
-file of a given directory. If api_meta.yaml file (or api_product_meta.yaml or application_meta.yaml) is included in
+After generating the deployment directory, you can use the bundle command to archive it without the need of external dependencies. This command will generate a `.zip` archive
+file of a given directory. If `api_meta.yaml` file (or `api_product_meta.yaml` or `application_meta.yaml`) is included in
 the project, the created archive file name will be the combination of the project name and the version.  
 
 -   **Command**
@@ -103,26 +110,26 @@ the project, the created archive file name will be the combination of the projec
             -   Required :  
                 `--source` or `-s` : File path of the source directory to archive  
             -   Optional :  
-                `--destination` or `-d` : Path of the directory where the archive file should be generated     
+                `--destination` or `-d` : Path of the directory where the archive should be generated     
 
     !!! example
             ```bash
             apictl bundle -s /Source/apis/dev/API1-1  
             ```
             ```bash
-            apictl bundle -s /Source/apis/dev/API1-1  -d /Deployment/apis/Dev
+            apictl bundle -s /Source/apis/dev/API1-1  -d /Deployment/apis/dev
             ```
             ```bash
             apictl bundle --source /Source/apis/dev/API1-1   
             ```
             ```bash
-            apictl bundle --source /Source/apis/dev/API1-1  --destination /Deployment/apis/Dev
+            apictl bundle --source /Source/apis/dev/API1-1  --destination /Deployment/apis/dev
             ```
 
     !!!note
             - If the `--destination` flag is not provided, the archive will be created in the working directory by
              default.
-            - If the api_meta.yaml (or api_product_meta.yaml or application_meta.yaml) is not included in the
+            - If the `api_meta.yaml` (or `api_product_meta.yaml` or `application_meta.yaml`) is not included in the
               project, source directory name would be used as the archived file name.
 
 
