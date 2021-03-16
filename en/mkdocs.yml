@@ -1177,6 +1177,7 @@ nav:
             - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Install and Setup:
+        - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
             - Installing API Manager:
@@ -1197,7 +1198,7 @@ nav:
                 - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
                 - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
-                - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-linux-service.md
+                - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
                 - Running the Streaming Integrator in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
