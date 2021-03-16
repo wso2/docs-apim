@@ -248,10 +248,155 @@ You can provide the params file using `--params` flag when importing an API. A s
 -   You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
 
 !!! note
-
     Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the params file. When configuring these certificates the following steps should be followed:
        
       -   Create a directory named `certificates` at the location where the parameter file is stored. (Both the `certificates` directory and the params file should exist at the same directory level.)
       -   Move all the certificates (Endpoint certificates and MutualSSL certificates) to that directory.
       -   You need to provide the name of the certificate at the `path` field of the parameters file and also a valid name for the certificate file.
 
+## Defining the params file for an API Product
+
+The following is the structure of the params file of an API Product.
+
+```yaml
+environments:
+    - name: <environment_name>
+      configs: <multiple_configurations_relevant_to_the_specific_environment>
+          dependentAPIs:
+              <api_1_name>-<api_1_version>:
+                  endpoints:
+                      production:
+                      sandbox:
+                  security:
+                      enabled:
+                      type:
+                      username:
+                      password: 
+                  certs:
+                      - hostName:
+                        alias:
+                        path:
+                  mutualSslCerts:
+                      - tierName:
+                        alias:
+                        path:
+                  policies:
+                      - <subscription_policy_1_name>
+                      - <subscription_policy_2_name>
+              <api_2_name>-<api_2_version>:
+                  endpoints:
+                      production:
+                      sandbox:
+                  security:
+                      enabled:
+                      type:
+                      username:
+                      password:
+                  certs:
+                      - hostName:
+                        alias:
+                        path:
+                  mutualSslCerts:
+                      - tierName:
+                        alias:
+                        path:
+                  policies:
+                      - <subscription_policy_1_name>
+                      - <subscription_policy_2_name>
+          deploymentEnvironments:
+              - displayOnDevportal: <boolean>
+	            deploymentEnvironment: <environment_name>
+	      mutualSslCerts:
+              - tierName: <subscription_tier_name>
+                alias: <certificate_alias>
+                path: <certificate_name>
+          policies: 
+              - <subscription_policy_1_name>
+              - <subscription_policy_2_name>
+```
+
+The following code snippet contains sample configuration of the params file of an API Product.
+
+!!! example
+    ```go
+    environments:
+        - name: dev
+          configs:
+              dependentAPIs:
+                  PizzaShackAPI-1.0.0:
+                      endpoints:
+                          production:
+                              url: https://prod1.wso2.com
+                              config:
+                                  retryTimeOut: $RETRY
+                          sandbox:
+                              url: https://sand2.wso2.com
+                      security:
+                          enabled: true
+                          type: basic
+                          username: admin
+                          password: admin
+                      certs:
+                          - hostName: https://prod1.wso2.com
+                            alias: alice
+                            path: alice.crt
+                      policies:
+                          - Gold
+                          - Silver
+                  PetstoreAPI-1.0.5:
+                      endpoints:
+                          production:
+                              url: https://prod1.wso2.com
+                          sandbox:
+                              url: https://sand2.wso2.com
+                      security:
+                          enabled: true
+                          type: digest
+                          username: admin
+                          password: admin
+                      certs:
+                          - hostName: https://prod1.wso2.com
+                            alias: bob
+                            path: bob.crt
+                      policies:
+                          - Gold
+                          - Silver
+              deploymentEnvironments:
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Label1
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Label2  
+              policies:
+                  - Gold
+                  - Silver 
+              mutualSslCerts:
+                  - tierName: Unlimited
+                    alias: Prod1
+                    path: prod1.crt
+                  - tierName: Gold
+                    alias: Prod2
+                    path: prod2.crt
+        - name: production
+          configs:
+              deploymentEnvironments:
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Production and Sandbox
+              mutualSslCerts:
+                  - tierName: Unlimited
+                    alias: Prod1
+                    path: prod1.crt
+                  - tierName: Gold
+                    alias: Prod2
+                    path: prod2.crt
+    ```
+    
+You can provide the params file using `--params` flag when importing an API Product. A sample command will be as follows.
+
+!!! example
+    ```go
+    apictl import api product -f dev/LeasingAPIProduct.zip -e production --params /home/user/custom_params.yaml 
+    ```
+-   The params file of an API Product does not support the fields `endpoints`, `security` and `certs` like in the params file of an API. It only supports the fields `deploymentEnvironments`, `policies`, `mutualSslCerts` and another special field named `dependentAPIs`.
+-   The field `dependentAPIs` can be used to specify the params of dependent APIs. The params of a particular dependent API of an API Product is similar to the params of an API, but there is no use of specifying the `deploymentEnvironments` field under a dependent API. The reason for that is, the deployment environments of the API Product will be considered for dependent APIs as well.
+-   You can deploy an API Product which does not include `deployment_environments.yaml` (working copy of the API Product or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the params file.
+-   The params file supports detecting environment variables during the API Product import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
