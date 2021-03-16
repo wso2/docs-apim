@@ -246,13 +246,7 @@ You can provide the params file using `--params` flag when importing an API. A s
 -   The params file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
 -   To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
 -   You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
-
-!!! note
-    Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the params file. When configuring these certificates the following steps should be followed:
-       
-      -   Create a directory named `certificates` at the location where the parameter file is stored. (Both the `certificates` directory and the params file should exist at the same directory level.)
-      -   Move all the certificates (Endpoint certificates and MutualSSL certificates) to that directory.
-      -   You need to provide the name of the certificate at the `path` field of the parameters file and also a valid name for the certificate file.
+-   Refer the section [Handling the certificates using the params file](#handling-the-certificates-using-the-params-file) to learn how to configure certificates using the params file.
 
 ## Defining the params file for an API Product
 
@@ -400,3 +394,22 @@ You can provide the params file using `--params` flag when importing an API Prod
 -   The field `dependentAPIs` can be used to specify the params of dependent APIs. The params of a particular dependent API of an API Product is similar to the params of an API, but there is no use of specifying the `deploymentEnvironments` field under a dependent API. The reason for that is, the deployment environments of the API Product will be considered for dependent APIs as well.
 -   You can deploy an API Product which does not include `deployment_environments.yaml` (working copy of the API Product or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the params file.
 -   The params file supports detecting environment variables during the API Product import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
+-   Refer the section [Handling the certificates using the params file](#handling-the-certificates-using-the-params-file) to learn how to configure certificates using the params file.
+
+## Handling the certificates using the params file
+
+Follow the below steps to override the certificates using the params file.
+
+1. Generate the deployment directory for the particular API or API Product as explained in [Generating the Deployment Directory](#generating-the-deployment-directory).
+2. Move all the certificates (Endpoint certificates and MutualSSL certificates) to the **certificates** directory that is inside the generated deployment directory.
+3. Open the `params.yaml` file inside the generated deployment directory and add your params content inside it.
+3. Provide the name of the certificate file at the `path` field under the field `certs` (to override endpoint certificates) and `mutualSslCerts` (to override client/MutualSSL certificates) in the params file as shown in the earlier topics.
+
+Now, after you import the API or API Product with the ``--params`` flag pointed to the deployment directory that you generated, the configurations will be applied to the imported API or API Product.
+
+!!! note
+    **Special note about the certificates of API Products**
+    
+    -   You can follow the same steps mentioned above to configure **MutualSSL (Client) certificates** for an API Product (That is, by copying the certificates to the **certificates** directory and by specifying the certificate file names in the `path` field under the `mutualSslCerts` in the params file)
+    -   **You cannot configure Endpoint certificates for API Products**, since API Products do not have endpoints itself. Instead, an API Product will be using the endpoints of its dependent APIs. 
+    -   **To configure the Endpoint certificates of dependent APIs**, you can add those to the **certificates** directory as we did before. Then, specify the certificate file name in the `path` fields under the `certs` field of the corresponding dependent API listed in the field `dependentAPIs` of the params file of the API Product. 
