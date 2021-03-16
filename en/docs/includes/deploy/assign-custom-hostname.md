@@ -22,7 +22,7 @@
 
 4.  Click **Deployments**.
 
-5.  Select the newly created Gateway environment, Virtual Host, and a Revision.
+5.  Select the newly created Gateway environment, Virtual Host (foods.com), and a Revision.
 
      [Create a new revision](../../../../../design/create-api/create-api-revisions) if no revisions exist.
 

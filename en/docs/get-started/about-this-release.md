@@ -63,8 +63,8 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Microgateway Labels
 
       [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/latest/learn/api-microgateway/grouping-apis-with-labels/)
-      is removed from this release. [Virtual Hosts (VHosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames)
-      and dynamically manageable gateway environmemnts can be group and expose APIs with custom hostnames.
+      is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames)
+      and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
 #### Fixed Issues
 

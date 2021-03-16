@@ -113,19 +113,15 @@ Each Gateway environment definition contains details related to a specific Gatew
               title="Add a Gateway Environment" width="500px" />
           </a>
           
-        !!! note
-            We are not going to try out the API in devportal console in this sample. If you need to try it out in devportal,
-            before adding a gateway environment from here, first you have to start a server with the gateway name `us-region`.
-            Follow [Publish through Multiple API Gateways]({{base_path}}/deploy/deploy-api/publish-through-multiple-api-gateways/) to understand how to work with multiple Gateway environments.
-
      3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
 
-             <a href="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png">
+          <a href="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png">
               <img src="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png" alt="Advanced VHost settings"
               title="Advanced VHost settings" width="500px" />
-             </a>
+          </a>
 
-             You can change the ports of each protocol of the Virtual Host and add an optional HTTP(s) context.
+        !!! note
+            You can change the ports of each protocol of the Virtual Host and add an optional HTTP(s) context.
 
         Let's add `gateway` as the HTTP(S) context for the Virtual Host `us.wso2.com`.
 
