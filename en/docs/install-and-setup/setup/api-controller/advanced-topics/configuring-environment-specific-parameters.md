@@ -133,48 +133,49 @@ the project, the created archive file name will be the combination of the projec
               project, source directory name would be used as the archived file name.
 
 
-## Defining the api_params.yaml file.
+## Defining the params file for an API
 
-The following is the structure of the parameter file.
+The following is the structure of the params file of an API.
 
-```go
+```yaml
 environments:
     - name: <environment_name>
       configs: <multiple_configurations_relevant_to_the_specific_environment>
-        endpoints:
-            production:
-                url: <production_endpoint_url>
-                config:
-                    retryTimeOut: <no_of_retries_before_suspension>
-                    retryDelay: <retry_delay_in_ms>
-                    factor: <suspension_factor>
-            sandbox:
-                url: <sandbox_endpoint_url>
-                config:
-                    retryTimeOut: <no_of_retries_before_suspension>
-                    retryDelay: <retry_delay_in_ms>
-                    factor: <suspension_factor>
-        security:
-            enabled: <whether_security_is_enabled>
-            type: <endpoint_authentication_type_basic_or_digest>
-            username: <endpoint_username>
-            password: <endpoint_password>
-        deploymentEnvironments:
-                  - displayOnDevportal: <boolean>
-                    deploymentEnvironment: <environment_name>        
-        certs:
-            - hostName: <endpoint_url>
-              alias: <certificate_alias>
-              path: <certificate_name>
-        mutualSslCerts:
-            - tierName: <subscription_tier_name>
-              alias: <certificate_alias>
-              path: <certificate_name>
-        policies:
-            - <subscription_policy_1_name>
-            - <subscription_policy_2_name>
+	      endpoints:
+              production:
+                  url: <production_endpoint_url>
+                  config:
+                      retryTimeOut: <no_of_retries_before_suspension>
+                      retryDelay: <retry_delay_in_ms>
+                      factor: <suspension_factor>
+              sandbox:
+                  url: <sandbox_endpoint_url>
+                  config:
+                      retryTimeOut: <no_of_retries_before_suspension>
+                      retryDelay: <retry_delay_in_ms>
+                      factor: <suspension_factor>
+          security:
+              enabled: <whether_security_is_enabled>
+              type: <endpoint_authentication_type_basic_or_digest>
+              username: <endpoint_username>
+              password: <endpoint_password>
+          deploymentEnvironments:
+              - displayOnDevportal: <boolean>
+	            deploymentEnvironment: <environment_name>        
+          certs:
+              - hostName: <endpoint_url>
+                alias: <certificate_alias>
+                path: <certificate_name>
+	      mutualSslCerts:
+              - tierName: <subscription_tier_name>
+                alias: <certificate_alias>
+                path: <certificate_name>
+          policies: 
+              - <subscription_policy_1_name>
+              - <subscription_policy_2_name>
 ```
-The following code snippet contains sample configuration of the parameter file.
+
+The following code snippet contains sample configuration of the params file of an API.
 
 !!! example
     ```go
@@ -228,30 +229,30 @@ The following code snippet contains sample configuration of the parameter file.
                       alias: Prod2
                       path: prod2.crt
     ```
-Instead of the default `api_params.yaml`, you can provide a custom parameter file using `--params` flag. A sample command will be as follows.
+    
+You can provide the params file using `--params` flag when importing an API. A sample command will be as follows.
 
 !!! example
     ```go
     apictl import api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
     ```
-!!! info
-    You can deploy an API or an API Product project which does not include deployment_environments.yaml (working copy of the API 
-    or a revision without deployment environments) by specifying the deployment environments in the api_param.yaml file.  
     
-!!!note
+!!! note
     `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead, use `apictl import api` as shown above.
 
 !!! info
-    -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
+    -   You can deploy an API project which does not include `deployment_environments.yaml` (working copy of the API or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the params file.
+    -   Production/Sandbox backends for each environment can be specified in the params file with additional configurations, such as timeouts.
     -   Under the `security` field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
-    -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
-    - To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
-    - You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
+    -   The params file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
+    -   To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
+    -   You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
 
 !!! note
 
-    Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the parameter file. When configuring these certificates the following steps should be followed:
+    Certificates (Endpoint certificates and MutualSSL certificates) for each URL can be configured in the params file. When configuring these certificates the following steps should be followed:
        
-      -   Create a directory named `certificates` at the location where the parameter file is stored. (Both the `certificates` directory and the parameter file should exist at the same directory level.)
+      -   Create a directory named `certificates` at the location where the parameter file is stored. (Both the `certificates` directory and the params file should exist at the same directory level.)
       -   Move all the certificates (Endpoint certificates and MutualSSL certificates) to that directory.
       -   You need to provide the name of the certificate at the `path` field of the parameters file and also a valid name for the certificate file.
+
