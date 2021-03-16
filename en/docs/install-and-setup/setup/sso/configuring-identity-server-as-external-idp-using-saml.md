@@ -250,6 +250,8 @@ WSO2 Identity Server acts as an identity service provider of systems enabled wit
 
         [![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
 
+        Check **Assert identity using mapped local subject identifier** option. Note that it is **mandatory** to enable this option to authorize scopes for provisioned federated users.
+
     3.  Repeat the same step for the apim_devportal Service Provider as well.
 
     Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.

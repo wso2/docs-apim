@@ -107,6 +107,8 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 3.  Select **Add** under the **Identity Providers** menu.
 
      <img src="{{base_path}}/assets/img/learn/extensions/saml2-sso/add-idp.png" width="350px">
+
+     Check **Assert identity using mapped local subject identifier** option. Note that it is **mandatory** to enable this option to authorize scopes for provisioned federated users.
     
 4. Upload the public certificate of Identity Server under **Identity Provider Public Certificate**.
 
