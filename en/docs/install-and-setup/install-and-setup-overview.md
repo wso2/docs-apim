@@ -486,7 +486,7 @@ Setting up the Micro Integrator component involves performing the following task
  	</tr>
  	<tr>
  		<th>
- 			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows">Message Brokers</a>
+ 			<a>Message Brokers</a>
  		</th>
  		<td>
  			Explains how to set up the Micro Integrator component to integrate with message brokers such as RabbitMQ, Kafka, and JMS. The topics covered are as follows:
