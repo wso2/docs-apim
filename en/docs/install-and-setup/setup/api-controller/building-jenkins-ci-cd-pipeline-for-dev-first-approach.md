@@ -34,7 +34,7 @@ developer machines.
     these two environments running at `http://dev.wso2.com:9090/samplestore` and `http://prod.wso2.com:9090/samplestore`.
 
 
-## Building the Pipeline
+## Building the pipeline
 
 [![]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)
 
@@ -54,7 +54,7 @@ As the API Developer, initially write the OpenAPI Specification for the backend 
     Collection Runner, 
     [Newman](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/). 
 
-### Step 2 - Initialize an API Project
+### Step 2 - Initialize an API project
 
 Initialize an API Project using the OpenAPI definition, API definition template, and the environment variables.
 
@@ -88,7 +88,7 @@ When running the above command, you can inject data into the definition template
     -   The API Status value is given as an environment variable, `STATE`. Before initializing the API Project, the developer needs to set up the environment variable `STATE` in the OS using the following command:   
         `export STATE=PUBLISHED`
 
-### Step 3 - Update API data in the API Project
+### Step 3 - Update API data in the API project
 
 Add a thumbnail image of any image file type with the name `icon.<img-extension>` into the `SampleStore/Image` directory of the SampleStore API Project.   
 
@@ -117,7 +117,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
     single variable based on the environment type. 
 
-### Step 5 - Commit the API Project 
+### Step 5 - Commit the API project 
 
 Commit the API project with the required test scripts to the GitHub repository.
 

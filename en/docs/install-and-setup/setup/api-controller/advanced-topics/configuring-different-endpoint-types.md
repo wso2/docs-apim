@@ -14,7 +14,7 @@ API Manager supports four (4) main types of endpoints as follows.
     
     -   **endpointType**
         
-        To specify the type of the endpoint. Values can be `rest`, `soap`, `dynamic` or `aws`. (For HTTP/REST Endpoints, you can specify the type as `rest`. But even if you do not specify the field `endpointType` at all in the `api_params.yaml` file, by default it takes the type as `rest`)
+        To specify the type of the endpoint. Values can be `rest`, `soap`, `dynamic` or `aws`. (For HTTP/REST Endpoints, you can specify the type as `rest`. But even if you do not specify the field `endpointType` at all in the params file, by default it takes the type as `rest`)
     
     -   **endpointRoutingPolicy**
     

@@ -1,8 +1,8 @@
-#  Using Dynamic Data in API Controller Projects
+#  Using Dynamic Data in apictl Projects
 
 The **WSO2 API Controller (apictl)** can inject dynamic values based on environment variables to various project files. The use of environment variables is a very convenient way of controlling inputs in almost every CI/CD platform.
 
-## Initialize API Projects with Dynamic Data
+## Initialize API projects with dynamic data
 
 When initializing an API Project, the apictl is capable of detecting environment variables in the default definition file or in the provided custom definition file. Then it will create the primary API configuration file `api.yaml` with the dynamic data based on the environment variables. When executing the `apictl init` command, the CTL automatically injects the values to the API definition. You can use the notations `$ENV_VAR` or `${ENV_VAR}` to specify environment variables to any attribute in this file.
 
@@ -74,11 +74,11 @@ Once the project is successfully imported, sign-in to the WSO2 API Manager (WSO2
 
 ## Add dynamic data to environment configs
 
-To allow easily configuring environment-specific details, by default, the CTL supports an additional parameter file named `api_params.yaml`. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
+To allow easily configuring environment-specific details, by default, the CTL supports an additional parameter file. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
 The file supports detecting environment variables during the API import process. You can use the notations `url: $DEV_URL` or `url: ${DEV_URL}` to specify environment variables to any attribute in this file. 
 
-1.  Create a file `api_params.yaml` with the below content.
+1.  Create a file named `params.yaml` with the below content.
 
     ```
     environments:
@@ -112,7 +112,7 @@ The file supports detecting environment variables during the API import process.
 3.  Import the API Project
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
+    apictl import api -f PetstoreProject --environment development --params params.yaml --update
     ```
 
     !!! warning
@@ -191,7 +191,7 @@ For example, consider we need to send a special header to the backend when calli
 4. Import the API Project
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
+    apictl import api -f PetstoreProject --environment development --update
     ```
 
     !!!note

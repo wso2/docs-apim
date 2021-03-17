@@ -1,4 +1,4 @@
-# Getting Started with WSO2 API Controller
+# Getting Started with WSO2 API Controller (apictl)
 
 **WSO2 API Controller (apictl)** is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Microgateway. Furthermore, it can perform WSO2 Micro Integrator (WSO2 MI) server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
@@ -511,7 +511,7 @@ Run the following apictl command to change the default location of the export di
             Default : `/home/.wso2apictl/exported`
             
             
-## Import SSL certificates for Secure HTTP Communication with WSO2 API-M
+## Import SSL certificates for Secure HTTP communication with WSO2 API-M
 
 Different environments of WSO2 API-M can have different SSL certificates for secure HTTP communications. The default
 certificate of WSO2 API-M is a self-signed certificate and in production environments, it is advised to use a

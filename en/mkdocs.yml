@@ -1450,12 +1450,12 @@ nav:
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
-            - Getting Started with WSO2 API Controller: install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
+            - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
             - Managing APIs and API Products:
                 - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
                 - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
                 - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
-                - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
@@ -1463,14 +1463,15 @@ nav:
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
-                - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
-            - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
+                - Managing Integrations with apictl: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
+            - Encrypting Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
             - Advanced Topics:
-                - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                - Creating Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                - Using Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
     - Tutorials:
           - Tutorils Overview: tutorials/tutorials-overview.md
           - API Management Tutorials:

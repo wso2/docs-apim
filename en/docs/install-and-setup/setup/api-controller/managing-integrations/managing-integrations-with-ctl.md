@@ -1,4 +1,4 @@
-# Managing Integrations with CTL
+# Managing Integrations with apictl
 
 WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
 

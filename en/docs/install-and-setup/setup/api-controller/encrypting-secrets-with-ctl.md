@@ -1,9 +1,9 @@
-# Encrypting Secrets with CTL
+# Encrypting Secrets with apictl
 
 **WSO2 API Controller (apictl)** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/#dynamic-secrets).
 
 
-## Initialize apictl with a Key Store
+## Initialize apictl with a key store
 
 !!! Note    
     Secret encryption supports only JKS Key Stores.
@@ -53,7 +53,7 @@ Run the following command to initialize the apictl with the Key Store used to en
     Key Store initialization completed
     ```
 
-## Encrypt Secrets
+## Encrypt secrets
 
 !!! Note    
     Secret encryption supports only **RSA/ECB/OAEPWithSHA1AndMGF1Padding** (default) or **RSA/ECB/PKCS1Padding** as encryption algorithm.

@@ -392,7 +392,7 @@ mentioned gateway environments. If the **deployment environments are not provide
             apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production --rotate-revision
             ```    
             ``` go
-            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml  
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/params.yaml  
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.
@@ -461,7 +461,7 @@ mentioned gateway environments. If the **deployment environments are not provide
     with `--verbose` logs. In the verbose logs, you can find the temporary directory location.
     
 
-### Import/Export APIs in Tenanted Environments 
+### Import/Export APIs in tenanted environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.
 
 !!! warning

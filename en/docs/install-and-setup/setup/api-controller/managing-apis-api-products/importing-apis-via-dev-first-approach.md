@@ -11,7 +11,7 @@
 
         If not, follow the steps in [Add an Environment]({{base_path}}/install-and-setup/setup//api-controller/getting-started-with-wso2-api-controller#add-an-environment).
 
-## Initialize an API Project
+## Initialize an API project
 
 1. Open a terminal window and navigate to the path you need to create the project.
 
@@ -562,7 +562,7 @@
             visibility: PUBLIC
     ```
 
-## Import an API Project
+## Import an API project
 
 !!! info
     **Before you begin...** 
@@ -611,7 +611,7 @@ After editing the mandatory fields in the API Project, you can import the API to
         apictl import api --file ~/myapi --environment production --rotate-revision
         ```    
         ``` go
-        apictl import api --file ~/myapi --environment production --params prod/custom_api_params.yaml  
+        apictl import api --file ~/myapi --environment production --params prod/params.yaml  
         ```
         
     !!! tip

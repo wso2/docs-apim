@@ -30,7 +30,7 @@ After the project deletion is enabled, any deleted API/Application or API Produc
     Switched to branch 'master'
     ```
 
-## Externalizing the VCS Configuration
+## Externalizing the VCS configuration
 
 apictl's Git integration feature uses a dedicated configuration file which is located in `/home/<user>/.wso2apictl/vcs_config.yaml`. 
 

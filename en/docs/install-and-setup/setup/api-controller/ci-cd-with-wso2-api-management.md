@@ -164,7 +164,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
     - If you are using the Dev First approach - Copy the initialized project directory.
     - If you are using the Publisher based approach - Copy the extracted project directory.
 
-2. Define the environment-specific details in the `api_params.yaml` parameter file.
+2. Define the environment-specific details in the parameter file.
 
      Define the *prod.wso2.com* and *prod.sandbox.wso2.com* as the backend URLs in this file.
      
@@ -199,7 +199,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 
     !!! info
         - The tool reduces the pipeline’s complexity and provides a simple and powerful mechanism to handle environment-specific configurations.
-        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments, etc. in the `api_params.yaml` file.  
+        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments, etc. in the params file.  
         - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is required. These paths can be stored in the Automation Server.
         - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
@@ -256,7 +256,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
         [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
-        - A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-api-controller-operations).
+        - A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-apictl-operations).
 
     !!! example
         ```bash

@@ -1,4 +1,4 @@
-## Formatting get command outputs
+## Formatting get Command Outputs
 
 Output of `get envs`, `get apis`, `get api-products` and `get apps` can be formatted with Go Templates. 
 
