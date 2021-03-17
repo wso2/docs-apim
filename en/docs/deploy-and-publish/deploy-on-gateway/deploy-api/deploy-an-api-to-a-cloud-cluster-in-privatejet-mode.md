@@ -1,4 +1,4 @@
-# Publish an API to a Cloud Cluster in PrivateJet Mode
+# Deploy an API to a Cloud Cluster in PrivateJet Mode
 
 In an age where more and more applications are adopting the microservice architecture, it is obvious that container-orchestration systems such as Kubernetes have gained popularity due to the attractive functionalities they offer to simplify a number of complex management tasks.
 Automating computer application deployment, scaling, and management are a few of such functionalities to name. WSO2 API Manager provides cloud-native API management, where a user is able to expose microservices as managed APIs in cloud environment such as Kubernetes. 
