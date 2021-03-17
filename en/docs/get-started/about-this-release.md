@@ -38,6 +38,10 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - **Support for Server-Sent Event Messaging Protocol in API Gateway**
     Server Sent Event is one of the protocols that support the asynchronous message flow. Server Sent Event API enables you to expose and manage the Server Sent Event (SSE) backend via a Streaming API in API Manager.
+
+- **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames/)**
+    **Virtual Host** enables you to deploy an API or API Product Revision to a gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via Admin Portal and API Publisher can choose a host when deploying an API Revision or API Product Revision. 
+
 <!--
 - WebSocket Support with Async APIs
 
@@ -48,8 +52,6 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Changes to Dev Portal REST API/UI to support Streaming APIs
 
 - Generating AsyncAPI spec for existing services
-
-- VHost feature
 
 - Improved Commenting Feature (Nested commenting, publisher view)
 
