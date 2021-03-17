@@ -1049,11 +1049,15 @@ This example shows how to use arguments in a freemarker template to pass values 
 
 In this example, the value for the “argument one” key is replaced by the first argument value. The argument for the "argument two" key is replaced by the second argument value.
 
-### Handling Missing Values
+### Handling Optional Values
 
-This example shows how to handle missing values in FreeMarker templates. FreeMarker [documentation](https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing)
-describes how to handle missing values in FreeMarker templates. This example uses the **Default value operator** 
-described in the FreeMarker documentation to handle missing values.
+Input parameters to the PayloadFactory mediator (payload, properties, and arguments) can be optional. Which 
+means 
+they can be null or empty in the runtime. It is important to handle optional parameters in the FreeMarker template to
+avoid runtime issues due to null or empty values. FreeMarker
+[documentation](https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing)
+describes methods to handle optional parameters properly. This example shows how to handle optional values in 
+FreeMarker templates using the **Default value operator** described in the FreeMarker documentation.
 
 -   Input Payload
     ```json
