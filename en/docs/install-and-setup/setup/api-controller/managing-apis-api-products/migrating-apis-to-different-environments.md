@@ -28,14 +28,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> -k 
+        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment>  
         ``` 
         ```go
-        apictl export api --name <API-name> --version <version> --provider <provider> --environment <environment> -k 
+        apictl export api --name <API-name> --version <version> --provider <provider> --environment <environment>  
         ```
 
         ```go
-        apictl export api -n <API-name> -v <version> -r <provider> -e <environment> --preserveStatus=<preserve-status> --format <export-format> -k 
+        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
         ``` 
 
         !!! info
@@ -46,20 +46,22 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
                 `--version` or `-v` : Version of the API to be exported      
                 `--environment` or `-e` : Environment from which the API should be exported  
             -    Optional :  
-                `--provider` or `-r` : Provider of the API   
-                `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
+                `--rev` : Revision Number of the API. If not provided, working copy of the API will be exported.  
+                `--provider` or `-r` : Provider of the API.   
+                `--latest` : Export the latest revision of the API.  
+                `--preserve-status` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
             ```go
-            apictl export api -n PhoneVerification -v 1.0.0 -e dev -k
+            apictl export api -n PhoneVerification -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api -n PizzaShackAPI -v 1.0.0 -r Alice -e dev --preserveStatus=true --format JSON -k
+            apictl export api -n PizzaShackAPI -v 1.0.0 --rev 2 -r Alice -e dev --preserve-status=true --format JSON 
             ```            
 
         !!!note
-            `apictl export-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
+            `apictl export-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
 
     -   **Response**
 
@@ -78,13 +80,15 @@ The exported ZIP file has the following structure:
 ``` java
 <APIName>-version
 ├── api.yaml
+├── deployment_environments.yaml
 ├── Client-certificates
 │   ├── Alias1.crt
 │   ├── Alias2.crt
 │   └── client_certificates.yaml
 ├── Definitions
 │    |── swagger.yaml
-|    └── schema.graphql 
+|    |── schema.graphql
+|    └── graphql-complexity.yaml
 ├── Docs
 │   ├── Doc1
 │   │   ├── document-file.pdf
@@ -136,6 +140,25 @@ The structure of an exported API ZIP file is explained below:
             <td>It contains all the basic information required for an API to be imported to another environment.</td>
         </tr>
         <tr class="even">
+            <td><code>deployment_environments.yaml</code></td>
+            <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
+            <pre><code>
+type: deployment_environments
+version: v4.0.0
+data:
+ -
+  displayOnDevportal: true  
+  deploymentEnvironment: Production and Sandbox  
+ -
+  displayOnDevportal: true  
+  deploymentEnvironment: Label1  
+ -
+  displayOnDevportal: false  
+  deploymentEnvironment: Label2  
+            </code></pre>
+            </td>
+        </tr>
+        <tr class="even">
             <td>Client-certificates</td>
             <td>If the API is secured using MutualSSL, this folder contains the information related to those.
                 <ul>
@@ -146,22 +169,22 @@ The structure of an exported API ZIP file is explained below:
             Apart from the above <code>client_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>client_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>client_certificates.yaml</code> file which has mapped the certificates Alias1.crt and Alias2.crt to the corresponding aliases Alias1 and Alias2 accordingly. 
             <pre><code>
 type: client_certificates
-version: v4
+version: v4.0.0
 data:
--
-alias: Alias1
-certificate: Alias1.crt
-tierName: Bronze
-apiIdentifier:
+ -
+  alias: Alias1
+  certificate: Alias1.crt
+  tierName: Bronze
+  apiIdentifier:
     providerName: admin
     apiName: PizzaShackAPI
     version: 1.0.0
     id: 0
--
-alias: Alias2
-certificate: Alias2.crt
-tierName: Gold
-apiIdentifier:
+ -
+  alias: Alias2
+  certificate: Alias2.crt
+  tierName: Gold
+  apiIdentifier:
     providerName: admin
     apiName: PizzaShackAPI
     version: 1.0.0
@@ -175,6 +198,8 @@ apiIdentifier:
                 <ul>
                     <li><code>swagger.yaml</code>: It contains the API Swagger definition.</li>
                     <li><code>schema.graphql</code>: If API is a GraphQL API, this contains the GraphQL schema definition.</li>
+                    <li><code>graphql-complexity.yaml</code>: If API is a GraphQL API, and configured query complexity 
+                    for different types, this file will contain that complexity information.</li>
                 </ul>
             </td>
         </tr>
@@ -183,7 +208,7 @@ apiIdentifier:
             <td> This folder contains documentation attached to a particular API. Each document will have a seperate folder by its name. Each folder contains a file named <code>document.yaml</code> which contains the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
-version: v4
+version: v4.0.0
 data:
   documentId: 7be89b14-6b7c-4e1f-8bee-f72295dd65cb
   name: Doc1
@@ -210,7 +235,7 @@ data:
             Apart from the above <code>endpoint_certificates.yaml</code> file, this folder contains the certificate files (.crt). Those file names should be included in the  <code>endpoint_certificates.yaml</code> by mapping to the corresponding alias name. Below is an example file for a  <code>endpoint_certificates.yaml</code> file which has mapped the certificates Alias3.crt and Alias4.crt to the corresponding aliases Alias3 and Alias4 accordingly. 
             <pre><code>
 type: endpoint_certificates
-version: v4
+version: v4.0.0
 data:
  -
   alias: Alias4
@@ -251,13 +276,13 @@ You can use the below command to export all the APIs belong to the currently log
 - **Command**
 
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> 
     ```
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --all --force 
     ```
     ``` go
-    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force -k
+    apictl export apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserve-status --force 
     ```
 
     !!! info
@@ -266,20 +291,27 @@ You can use the below command to export all the APIs belong to the currently log
         -    Required :      
             `--environment` or `-e` : Environment from which the APIs should be exported  
         -    Optional :  
+            `--all` : Export the working copy and all the revisions of APIs irrespective of the deployment status.  
             `--force` : Clean all the previously exported APIs of the given target tenant, in the given environment if any, and to export APIs from beginning  
-            `--preserveStatus` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
+            `--preserve-status` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
             `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
 
     !!! example
         ```go
-        apictl export apis -e production -k
+        apictl export apis -e production 
         ```
         ```go
-        apictl export apis --environment production --format json  --preserveStatus --force -k
+        apictl export apis --environment production --format json  --preserve-status --force 
         ```
-
+        
+    !!! info
+        - By default, this will only export the revisions which are deployed at least in one gateway environment.
+        To export all the revisions and the working copy without considering the deployment status, use `--all` flag.
+        - Exported Artifacts will be named `<API-Name>_<API-Version>_<Revision-Number>.zip`. The exported working copy 
+        does not have a revision number.
+    
     !!!note
-        `apictl export-apis` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export apis` as shown above.
+        `apictl export-apis` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export apis` as shown above.
 
 - **Response**
 
@@ -307,7 +339,10 @@ You can use the below command to export all the APIs belong to the currently log
 
 ### Import an API
 
-You can use the API archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API, you can either **deploy the API as a new API** or **seamlessly update an existing API** in the environment with it.   
+You can use the API archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API, you can either **create the API as a new API** or **seamlessly update an existing API** in the environment with it. 
+If the API archive contains information about deployment environments in the deployment_environments.yaml file, 
+once the API is successfully created or updated, a **new revision will be created** and that revision will be deployed in the
+mentioned gateway environments. If the **deployment environments are not provided, only the working copy will be updated**.  
 
 1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
@@ -321,13 +356,13 @@ You can use the API archive exported from the previous section (or you can extra
 
     -   **Command**
         ``` bash
-        apictl import api -f <path-to-API-archive> -e <environment> -k
+        apictl import api -f <path-to-API-archive> -e <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> -k
+        apictl import api --file <path-to-API-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skipCleanup=<skip-cleanup> --params <environment-params-file>  -k
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skip-cleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -336,21 +371,23 @@ You can use the API archive exported from the previous section (or you can extra
             -   Required :  
                 `--file` or `-f` : The file path of the API to import.  
                 `--environment` or `-e` : Environment to which the API should be exported.  
-            -   Optional :  
+            -   Optional : 
+                `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.
+                `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API. 
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
                 `--update` : Update an existing API or create a new API in the importing environment.  
                 `--params` : Define the API Manager environment params file (default "api_params.yaml").   
-                `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
             ```bash
-            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production -k
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production 
             ```
             ```bash
-            apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production -k
+            apictl import api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production --rotate-revision
             ```    
             ``` go
-            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml -k 
+            apictl import api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml  
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.
@@ -359,13 +396,28 @@ You can use the API archive exported from the previous section (or you can extra
             When using `--update` flag with `import api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment.
 
         !!!note
-            `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+            `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
        
      -   **Response**
         
         ``` bash
         Successfully imported API!
         ```
+        
+    !!! note
+        **Changes to the import command with the revision support for APIs**  
+        
+        - Since APIM v4.0.0, you have to create a new revision in order to deploy an API in an gateway environment and 
+            **only a revision can be deployed in a gateway environment**. 
+        - With the import command of the CTL, if the API project has specified the deployment environments, import 
+            will first **update the working copy of the API**.
+        - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
+            of that API will be created and that revision will be deployed in the specified gateway environments.
+        - If the max revision numbers is reached, imported API will **only update the working copy** and not be deployed 
+            in the specified gateway environments.
+        - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
+            operation will **delete the earliest revision for that API and create a new revision**. This new revision will be
+            deployed in the specified gateway environments.
 
     !!! note
         **Preserving Provider while Importing API**  
@@ -391,14 +443,18 @@ You can use the API archive exported from the previous section (or you can extra
 
 !!! tip
     **Troubleshooting**  
-        
-    After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
+    
+    - After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the API Manager 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
+        1.  Shut down the API Manager 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart API Manager 4.0.0 server.
+        3.  Restart API Manager 4.0.0 server.  
+    
+    - If you want to verify the final import artifact just before it is sent to the APIM server, use `--skip-cleanup` 
+    with `--verbose` logs. In the verbose logs, you can find the temporary directory location.
+    
 
 ### Import/Export APIs in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.

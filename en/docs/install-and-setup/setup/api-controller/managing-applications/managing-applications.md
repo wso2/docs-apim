@@ -15,13 +15,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
     -   **Command**
         ``` bash
-        apictl get apps -e <environment> -k
+        apictl get apps -e <environment> 
         ```
         ``` bash
-        apictl get apps --environment <environment> --insecure
+        apictl get apps --environment <environment> 
         ```
         ``` bash
-        apictl get apps --environment <environment> --owner <application owner> --insecure
+        apictl get apps --environment <environment> --owner <application owner> 
         ```
 
         !!! info
@@ -35,13 +35,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
         !!! example
             ```bash
-            apictl get apps -e dev -k
+            apictl get apps -e dev 
             ```
             ```bash
-            apictl get apps --environment production --insecure
+            apictl get apps --environment production 
             ```    
             ```go
-            apictl get apps --environment production --owner sampleUser --limit 15 --insecure
+            apictl get apps --environment production --owner sampleUser --limit 15 
             ```  
 
     -   **Response**
@@ -73,13 +73,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
     -   **Command**
         ``` bash
-         apictl delete app -n <application name> -e <environment> -k
+         apictl delete app -n <application name> -e <environment> 
         ```
         ``` bash
-        apictl delete app -name <application name> --environment <environment> --insecure
+        apictl delete app -name <application name> --environment <environment> 
         ```
         ``` bash
-        apictl delete app --name <application name> --environment <environment> --owner <application owner> --insecure
+        apictl delete app --name <application name> --environment <environment> --owner <application owner> 
         ```
 
         !!! info
@@ -93,13 +93,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
         !!! example
             ```bash
-            apictl delete app -n DefaultApplication -e dev -k
+            apictl delete app -n DefaultApplication -e dev 
             ```
             ```bash
-            apictl delete app --name DefaultApplication --environment production --insecure
+            apictl delete app --name DefaultApplication --environment production 
             ```    
             ```go
-            apictl delete app --name DefaultApplication --environment production --owner sampleUser --insecure
+            apictl delete app --name DefaultApplication --environment production --owner sampleUser 
             ```  
 
     -   **Response**

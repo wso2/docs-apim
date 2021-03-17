@@ -158,3 +158,7 @@ material/assets/javascripts/modernizr.*.js
 material/assets/stylesheets/application*
 material/base.html
 ```
+# Customizations done to the top navigation tabs-item.html for navigation seperation
+
+Top navigation seperation is achieved through matching the titles of pages which are on the right.
+If titles needs to be changed in right floted nav links, tabs-item.html has to be changed as well.

@@ -12,7 +12,7 @@ Follow the instructions below to initialize an API Project with environment vari
 
     ```bash
     type: api
-    version: v4
+    version: v4.0.0
     data:
         name: $APINAME
         context: /petstore/$APIVERSION
@@ -43,7 +43,7 @@ Follow the instructions below to initialize an API Project with environment vari
 
         ```
         type: api
-        version: v4
+        version: v4.0.0
         data:
             name: Petstore
             description: 'This is a sample server Petstore server.  You can find out more about
@@ -66,7 +66,7 @@ Follow the instructions below to initialize an API Project with environment vari
         If an environment variable is not set, the command will fail and request a set of required environment variables on the system.
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
 Once the project is successfully imported, sign-in to the WSO2 API Publisher and check the newly imported API with the same details specified above.
 
@@ -119,7 +119,7 @@ The file supports detecting environment variables during the API import process.
         If an environment variable is not set, the command will fail and request a set of required environment variables on the system. 
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
 Once the project is successfully imported, sign-in to the WSO2 API Publisher and check the Endpoints section of the imported API. The URLs specified as environment variables will appear there.
 
@@ -162,7 +162,7 @@ For example, consider we need to send a special header to the backend when calli
 
     ```yaml
     type: api
-    version: v4
+    version: v4.0.0
     data:
         name: Petstore
         description: 'This is a sample server Petstore server.  You can find out more about
@@ -195,7 +195,7 @@ For example, consider we need to send a special header to the backend when calli
     ```
 
     !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
         
 5. Generate a token and invoke the API
 
@@ -208,7 +208,7 @@ For example, consider we need to send a special header to the backend when calli
     ```
 
     !!!note
-        `apictl get-keys` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
+        `apictl get-keys` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
 
 Upon successful invocation, the header `X-ENV-KEY: dev_101` will be sent to the backend of the API. The below log will be printed in the API gateway's terminal.
 
