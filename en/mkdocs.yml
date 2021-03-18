@@ -216,11 +216,15 @@ nav:
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
             - API Microgateway:
                 - Getting Started:
+                    - Microgateway Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview.md
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
                         - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
-                    - Microgateway Key Concepts: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-key-concepts.md
+                - Concepts:
+                    - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
+                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway.md
+                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
                 - Import API:
                     - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
                 - Endpoints:
