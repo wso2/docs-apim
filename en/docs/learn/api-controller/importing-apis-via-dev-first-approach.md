@@ -442,7 +442,7 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
     | `productionUrl` | Production endpoint for API.                            |
     | `sandboxUrl`| Sandbox endpoint for API.                               |
 
-    For more information about the configurations, see the [Sample_Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/box/resources/init/sample_api.yaml).
+    For more information about the configurations, see the [Sample_Api.yaml](https://github.com/wso2/product-apim-tooling/blob/3.2.x/import-export-cli/box/resources/init/sample_api.yaml).
 
     **api.yaml**
 
