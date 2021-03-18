@@ -1,12 +1,15 @@
-# Upgrading API Manager from 3.0.0 to 3.2.0
-  
-The following information describes how to upgrade your API Manager server **from APIM 3.0.0 to 3.2.0**.
+# Upgrading API Manager from 3.1.0 to 4.0.0
+
+The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 4.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100) instead of below steps.
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100).    
+
+!!! Attention
+    If you are using WSO2 API Manager Analytics. Please contact WSO2 Team for migration purposes.
   
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -16,17 +19,17 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note "If you are using Oracle"
     Please commit the changes after running the scripts given below
     
-Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.0.0 to 3.2.0**.
+Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.1.0 to 4.0.0**.
 
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration if it was enabled
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default from API Manager 3.0.0 onwards.
 
-But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is **required** run the below scripts against **the database that is used by the registry**. Follow the below steps to achieve this.
+But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is **required** run the below scripts against **the database that is used by the registry**. Follow the below steps to achieve this.
 
 !!! note "NOTE"
-    Alternatively, it is possible to turn on registry versioning in API Manager 3.2.0 and continue. But this is
+    Alternatively, it is possible to turn on registry versioning in API Manager 4.0.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Verifying registry versioning turned on in your current API-M and running the scripts"
@@ -301,9 +304,8 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 3.2.0](#step-2-upgrade-api-manager-to-320)
--   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4-restart-the-wso2-api-m-320-server)
+-   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
+-   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -317,24 +319,16 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
-1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
+1.  Download [WSO2 API Manager 4.0.0](http://wso2.com/api-management/).
 
-    -   The Synapse configurations of the super tenant are in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory.
-
-    -   The Synapse configurations of tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
-
-    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
-
-2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
-
-3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
+2.  Open the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
     -   User Store
     -   Registry database/s
     -   API Manager databases
 
     !!! note
-        If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.2.0 to avoid any issues.
+        If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 4.0.0 to avoid any issues.
 
     SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
 
@@ -363,7 +357,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ```
 
     !!! note
-        If you have configured WSO2CONFIG_DB in the previous API-M version, add a new entry to the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` as below.
+        If you have configured WSO2CONFIG_DB in the previous API-M version, add a new entry to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` as below.
 
         ```
         [database.config]
@@ -416,219 +410,29 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.   If you have used separate DB for user management, you need to update `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+3.   If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
     data_source = "WSO2USER_DB"
     ```
 
-5.  Copy the relevant JDBC driver to the `<API-M_3.2.0_HOME>/repository/components/lib` folder.
+4.  Copy the relevant JDBC driver to the `<API-M_4.0.0_HOME>/repository/components/lib` folder.
 
+5.  If you manually added any custom OSGI bundles to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory. 
 
-6.  Move all your Synapse configurations to API-M 3.2.0 pack.
-    -   Move your Synapse super tenant configurations.
-        Copy the contents in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/deployment/server/synapse-configs/default` directory with the copied contents.
-    -   Move all your tenant Synapse configurations.
-        Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/tenants` directory with the copied contents.
+6.  If you manually added any JAR files to the `<API-M_3.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_4.0.0_HOME>/repository/components/lib` directory.
 
-    !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.2.0 version.
-
-        -   /proxy-services/WorkflowCallbackService.xml
-        
-    !!! attention 
-        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
-
-7.  Move all your Execution plans from `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.2.0_HOME>/repository/deployment/server/executionplans` directory.
-
-    !!! note
-        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
-
-8.  If you manually added any custom OSGI bundles to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory. 
-
-9.  If you manually added any JAR files to the `<API-M_3.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.2.0_HOME>/repository/components/lib` directory.
-
-### Step 2 - Upgrade API Manager to 3.2.0
+### Step 2 - Upgrade API Manager to 4.0.0
 
 1.  Stop all WSO2 API Manager server instances that are running.
 
-2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-1-migrate-the-api-manager-configurations) of the previous section.
+2.  Make sure you backed up all the databases.
 
-3.  Upgrade the WSO2 API Manager database from version 3.0.0 to version 3.2.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
+3.  Upgrade the WSO2 API Manager database from version 3.1.0 to version 4.0.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
     ??? info "DB Scripts"
-        ```tab="H2"
-        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
-            UUID VARCHAR(50),
-            NAME VARCHAR(255),
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        );
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
-
-        CREATE TABLE IF NOT EXISTS AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        );
-
-        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        );   
-        
-         CREATE TABLE IF NOT EXISTS AM_KEY_MANAGER (
-          UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NOT NULL,
-          DISPLAY_NAME VARCHAR(100) NULL,
-          DESCRIPTION VARCHAR(256) NULL,
-          TYPE VARCHAR(45) NULL,
-          CONFIGURATION BLOB NULL,
-          ENABLED BOOLEAN DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
-          PRIMARY KEY (UUID),
-          UNIQUE (NAME,TENANT_DOMAIN)
-          );
-        
-         CREATE TABLE IF NOT EXISTS AM_GW_PUBLISHED_API_DETAILS (
-          API_ID varchar(255) NOT NULL,
-          TENANT_DOMAIN varchar(255),
-          API_PROVIDER varchar(255),
-          API_NAME varchar(255),
-          API_VERSION varchar(255),
-          PRIMARY KEY (API_ID)
-          );
-        
-         CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
-          API_ID varchar(255) NOT NULL,
-          ARTIFACT blob,
-          GATEWAY_INSTRUCTION varchar(20),
-          GATEWAY_LABEL varchar(255),
-          TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-          PRIMARY KEY (GATEWAY_LABEL, API_ID),
-          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
-         );
-        
-        CREATE ALIAS IF NOT EXISTS DROP_FK AS $$ void executeSql(Connection conn, String sql)
-        throws SQLException { conn.createStatement().executeUpdate(sql); } $$;
-        
-        call drop_fk('ALTER TABLE AM_APPLICATION_REGISTRATION DROP CONSTRAINT ' ||
-        (SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINTS
-        WHERE TABLE_NAME = 'AM_APPLICATION_REGISTRATION' AND COLUMN_LIST  = 'SUBSCRIBER_ID,APP_ID,TOKEN_TYPE'));
-        
-        call drop_fk('ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP CONSTRAINT ' ||
-        (SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINTS
-        WHERE TABLE_NAME = 'AM_APPLICATION_KEY_MAPPING' AND COLUMN_LIST  = 'APPLICATION_ID,KEY_TYPE'));
-        DROP ALIAS IF EXISTS DROP_FK;
-        
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
-        
-        
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(512) NULL;
-        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = random_uuid() WHERE UUID IS NULL;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(512) NOT NULL DEFAULT 'Resident Key Manager';
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD PRIMARY KEY(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
-        
-        ALTER TABLE AM_WORKFLOWS ADD WF_METADATA BLOB NULL;
-        ALTER TABLE AM_WORKFLOWS ADD WF_PROPERTIES BLOB NULL;
-        
-        ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_COMPLEXITY INT(11) NOT NULL DEFAULT 0;
-        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MAX_DEPTH INT(11) NOT NULL DEFAULT 0;
-        
-        CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
-            SCOPE_NAME VARCHAR(255) NOT NULL,
-            URL_MAPPING_ID INTEGER NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            FOREIGN KEY (URL_MAPPING_ID) REFERENCES   AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-            PRIMARY KEY(SCOPE_NAME, URL_MAPPING_ID)
-        );
-        
-        
-        CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
-             NAME VARCHAR(255),
-             UUID VARCHAR (256),
-             TENANT_ID INTEGER,
-             PRIMARY KEY (UUID)
-        );
-        
-        ALTER TABLE IDN_OAUTH2_RESOURCE_SCOPE DROP PRIMARY KEY;
-        
-        DROP TABLE IF EXISTS AM_TENANT_THEMES;
-        CREATE TABLE IF NOT EXISTS AM_TENANT_THEMES (
-          TENANT_ID INTEGER NOT NULL,
-          THEME BYTEA NOT NULL,
-          PRIMARY KEY (TENANT_ID)
-        );
-        
-        CREATE TABLE IF NOT EXISTS AM_GRAPHQL_COMPLEXITY (
-            UUID VARCHAR(256),
-            API_ID INTEGER NOT NULL,
-            TYPE VARCHAR(256),
-            FIELD VARCHAR(256),
-            COMPLEXITY_VALUE INTEGER,
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON UPDATE CASCADE ON DELETE CASCADE,
-            PRIMARY KEY(UUID),
-            UNIQUE (API_ID,TYPE,FIELD)
-        );
-        
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
-
-        CREATE TABLE IF NOT EXISTS AM_SCOPE (
-                    SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
-                    NAME VARCHAR(255) NOT NULL,
-                    DISPLAY_NAME VARCHAR(255) NOT NULL,
-                    DESCRIPTION VARCHAR(512),
-                    TENANT_ID INTEGER NOT NULL DEFAULT -1,
-                    SCOPE_TYPE VARCHAR(255) NOT NULL,
-                    PRIMARY KEY (SCOPE_ID)
-        );
-        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
-                    SCOPE_ID INTEGER NOT NULL,
-                    SCOPE_BINDING VARCHAR(255) NOT NULL,
-                    BINDING_TYPE VARCHAR(255) NOT NULL,
-                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
-        );  
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';      
-        ```
-    
         ```tab="DB2"
-        CREATE TABLE AM_API_CATEGORIES (
-            UUID VARCHAR(50) NOT NULL,
-            NAME VARCHAR(255) NOT NULL,
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER NOT NULL DEFAULT -1,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        ) /
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super'
-        /
-
-        CREATE TABLE AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        ) /
-
-        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        ) /
-        
         ALTER TABLE AM_WORKFLOWS
           ADD WF_METADATA BLOB DEFAULT NULL
           ADD WF_PROPERTIES BLOB DEFAULT NULL
@@ -740,10 +544,9 @@ Follow the instructions below to move all the existing API Manager configuration
             SCOPE_TYPE VARCHAR(255) NOT NULL,
             PRIMARY KEY (SCOPE_ID)
         )/
-        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE 
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
         /
-        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE
-        REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
 
         BEGIN ATOMIC
 
@@ -759,43 +562,213 @@ Follow the instructions below to move all the existing API Manager configuration
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = ''  / 
+        ALTER TABLE AM_API ADD API_UUID VARCHAR(255) /
+        ALTER TABLE AM_API ADD STATUS VARCHAR(30) /
+        ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL /
+        
+        CREATE TABLE AM_REVISION (
+                    ID INTEGER NOT NULL,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(255),
+                    CREATED_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    CREATED_BY VARCHAR(255),
+                    PRIMARY KEY (ID, API_UUID),
+                    UNIQUE(REVISION_UUID))
+        /
+        
+        CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
+                    NAME VARCHAR(255) NOT NULL,
+                    VHOST VARCHAR(255) NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DISPLAY_ON_DEVPORTAL BOOLEAN DEFAULT 0,
+                    DEPLOYED_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (NAME, REVISION_UUID),
+                    FOREIGN KEY (REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON UPDATE CASCADE ON DELETE CASCADE)
+        /
+        
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD REVISION_UUID VARCHAR(255) NOT NULL DEFAULT 'Current API' /
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE DROP PRIMARY KEY /
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD PRIMARY KEY(ALIAS,TENANT_ID, REMOVED, REVISION_UUID) /
+        
+        ALTER TABLE AM_API_URL_MAPPING ADD REVISION_UUID VARCHAR(256) /
+        
+        ALTER TABLE AM_GRAPHQL_COMPLEXITY ADD REVISION_UUID VARCHAR(256) /
+        
+        ALTER TABLE AM_API_PRODUCT_MAPPING ADD REVISION_UUID VARCHAR(256) /
+        
+        DROP TABLE IF EXISTS AM_GW_API_DEPLOYMENTS /
+        DROP TABLE IF EXISTS AM_GW_API_ARTIFACTS /
+        DROP TABLE IF EXISTS AM_GW_PUBLISHED_API_DETAILS /
+        
+        CREATE TABLE AM_GW_PUBLISHED_API_DETAILS (
+          API_ID varchar(255) NOT NULL,
+          TENANT_DOMAIN varchar(255),
+          API_PROVIDER varchar(255),
+          API_NAME varchar(255),
+          API_VERSION varchar(255),
+          API_TYPE varchar(50),
+          PRIMARY KEY (API_ID)
+        ) /
+        
+        CREATE TABLE AM_GW_API_ARTIFACTS (
+          API_ID varchar(255) NOT NULL,
+          REVISION_ID varchar(255) NOT NULL,
+          ARTIFACT blob,
+          TIME_STAMP TIMESTAMP NOT NULL GENERATED ALWAYS FOR EACH ROW ON UPDATE AS ROW CHANGE TIMESTAMP,
+          PRIMARY KEY (REVISION_ID, API_ID),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS (API_ID) ON DELETE NO ACTION ON UPDATE RESTRICT)
+           /
+        
+        CREATE TABLE IF NOT EXISTS AM_GW_API_DEPLOYMENTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          LABEL VARCHAR(255) NOT NULL,
+          PRIMARY KEY (REVISION_ID, API_ID,LABEL),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        )
+        /
+        
+        -- Service Catalog --
+        CREATE TABLE AM_SERVICE_CATALOG (
+                    UUID VARCHAR(36) NOT NULL,
+                    SERVICE_KEY VARCHAR(100) NOT NULL,
+                    MD5 VARCHAR(100) NOT NULL,
+                    SERVICE_NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    SERVICE_VERSION VARCHAR(30) NOT NULL,
+                    SERVICE_URL VARCHAR(2048) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    DEFINITION_TYPE VARCHAR(20),
+                    DEFINITION_URL VARCHAR(2048),
+                    DESCRIPTION VARCHAR(1024),
+                    SECURITY_TYPE VARCHAR(50),
+                    MUTUAL_SSL_ENABLED SMALLINT DEFAULT 0,
+                    CREATED_TIME TIMESTAMP NULL,
+                    LAST_UPDATED_TIME TIMESTAMP NULL,
+                    CREATED_BY VARCHAR(255),
+                    UPDATED_BY VARCHAR(255),
+                    SERVICE_DEFINITION BLOB NOT NULL,
+                    METADATA BLOB NOT NULL,
+                    PRIMARY KEY (UUID),
+                    CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
+                    CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
+        /
+        
+        -- Webhooks --
+        CREATE TABLE AM_WEBHOOKS_SUBSCRIPTION (
+                    WH_SUBSCRIPTION_ID INTEGER,
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    UPDATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    EXPIRY_AT BIGINT,
+                    DELIVERED_AT TIMESTAMP NULL,
+                    DELIVERY_STATE SMALLINT,
+                    PRIMARY KEY (WH_SUBSCRIPTION_ID))
+        /
+        CREATE SEQUENCE AM_WEBHOOKS_SUBSCRIPTION_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE TRIGGER AM_WEBHOOKS_SUBSCRIPTION_TRIGGER NO CASCADE BEFORE INSERT ON AM_WEBHOOKS_SUBSCRIPTION
+        REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+        
+        BEGIN ATOMIC
+        
+            SET (NEW.WH_SUBSCRIPTION_ID)
+               = (NEXTVAL FOR AM_WEBHOOKS_SUBSCRIPTION_SEQUENCE);
+        
+        END
+        /
+        
+        CREATE TABLE AM_WEBHOOKS_UNSUBSCRIPTION (
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    ADDED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        /
+        
+        CREATE TABLE AM_API_SERVICE_MAPPING (
+            API_ID INTEGER NOT NULL,
+            SERVICE_KEY VARCHAR(256) NOT NULL,
+            MD5 VARCHAR(100) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (API_ID, SERVICE_KEY),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
+        )
+        /
+        
+        -- Gateway Environments Table --
+        CREATE TABLE AM_GATEWAY_ENVIRONMENT (
+                    ID INTEGER NOT NULL,
+                    UUID VARCHAR(45) NOT NULL,
+                    NAME VARCHAR(255) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255),
+                    DISPLAY_NAME VARCHAR(255) NULL,
+                    DESCRIPTION VARCHAR(1023) NULL,
+                    UNIQUE (NAME, TENANT_DOMAIN),
+                    UNIQUE (UUID),
+                    PRIMARY KEY (ID))
+        /
+        CREATE SEQUENCE AM_GATEWAY_ENV_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE OR REPLACE TRIGGER AM_GATEWAY_ENVIRONMENT_TRIGGER
+        		    BEFORE INSERT
+                    ON AM_GATEWAY_ENVIRONMENT
+                    REFERENCING NEW AS NEW
+                    FOR EACH ROW
+                    BEGIN
+                        SELECT AM_GATEWAY_ENV_SEQ.nextval INTO :NEW.ID FROM dual;
+                    END;
+        /
+        
+        -- Virtual Hosts Table --
+        CREATE TABLE AM_GW_VHOST (
+                    GATEWAY_ENV_ID INTEGER,
+                    HOST VARCHAR(255) NOT NULL,
+                    HTTP_CONTEXT VARCHAR(255) NULL,
+                    HTTP_PORT VARCHAR(5) NOT NULL,
+                    HTTPS_PORT VARCHAR(5) NOT NULL,
+                    WS_PORT VARCHAR(5) NOT NULL,
+                    WSS_PORT VARCHAR(5) NOT NULL,
+                    FOREIGN KEY (GATEWAY_ENV_ID) REFERENCES AM_GATEWAY_ENVIRONMENT(ID) ON DELETE CASCADE,
+                    PRIMARY KEY (GATEWAY_ENV_ID, HOST))
+        /
+        
+        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
+        /
+        
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN COMMENTED_USER TO CREATED_BY
+        /
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN DATE_COMMENTED TO CREATED_TIME
+        /
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME DATE
+        /
+        ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
+        /
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        /
+        ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
+        /
+        ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID)
+        /
         ```
 
         ```tab="MSSQL"
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_CATEGORIES]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_API_CATEGORIES (
-            UUID VARCHAR(50),
-            NAME VARCHAR(255),
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER DEFAULT -1,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        );
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_USER]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        );
-
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SECURITY_AUDIT_UUID_MAPPING]') AND TYPE IN (N'U'))
-        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        );
-
         ALTER TABLE AM_WORKFLOWS ADD
         WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
         WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
         ;
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_PUBLISHED_API_DETAILS (
         API_ID varchar(255) NOT NULL,
         TENANT_DOMAIN varchar(255),
@@ -805,7 +778,7 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY (API_ID)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_API_ARTIFACTS (
         API_ID varchar(255) NOT NULL,
         ARTIFACT VARBINARY(MAX),
@@ -852,7 +825,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (UUID)
         );
 
-
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
 
@@ -860,7 +832,7 @@ Follow the instructions below to move all the existing API Manager configuration
         SET @SQL = REPLACE(@SQL,'|TABLE_NAME|','IDN_OAUTH2_RESOURCE_SCOPE');
         EXEC (@SQL);
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
         CREATE TABLE AM_KEY_MANAGER (
         UUID VARCHAR(50) NOT NULL,
         NAME VARCHAR(100) NULL,
@@ -881,7 +853,7 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY (TENANT_ID)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
         CREATE TABLE AM_GRAPHQL_COMPLEXITY (
             UUID VARCHAR(256),
             API_ID INTEGER NOT NULL,
@@ -935,37 +907,187 @@ Follow the instructions below to move all the existing API Manager configuration
         );        
 
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
+        
+        ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
+        ALTER TABLE AM_API ADD STATUS VARCHAR(30);
+        ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE VARBINARY(MAX) DEFAULT NULL;
+        
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVISION]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_REVISION (
+          ID INTEGER NOT NULL,
+          API_UUID VARCHAR(256) NOT NULL,
+          REVISION_UUID VARCHAR(255) NOT NULL,
+          DESCRIPTION VARCHAR(255),
+          CREATED_TIME DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          CREATED_BY VARCHAR(255),
+          PRIMARY KEY (ID, API_UUID),
+          UNIQUE(REVISION_UUID)
+        );
+        
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_DEPLOYMENT_REVISION_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
+          NAME VARCHAR(255) NOT NULL,
+          VHOST VARCHAR(255) NULL,
+          REVISION_UUID VARCHAR(255) NOT NULL,
+          DISPLAY_ON_DEVPORTAL BIT DEFAULT 0,
+          DEPLOYED_TIME DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (NAME, REVISION_UUID),
+          FOREIGN KEY (REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON UPDATE CASCADE ON DELETE CASCADE
+        );
+        
+        DECLARE @con_com as VARCHAR(8000);
+        SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_CLIENT_CERTIFICATE') AND type='PK');
+        EXEC('ALTER TABLE AM_API_CLIENT_CERTIFICATE
+        drop CONSTRAINT ' + @con_com);
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD REVISION_UUID VARCHAR(255) NOT NULL DEFAULT 'Current API';
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD PRIMARY KEY(ALIAS,TENANT_ID, REMOVED, REVISION_UUID);
+        
+        ALTER TABLE AM_API_URL_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_GRAPHQL_COMPLEXITY ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_API_PRODUCT_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        DROP TABLE IF EXISTS AM_GW_API_DEPLOYMENTS;
+        DROP TABLE IF EXISTS AM_GW_API_ARTIFACTS;
+        DROP TABLE IF EXISTS AM_GW_PUBLISHED_API_DETAILS;
+        
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_GW_PUBLISHED_API_DETAILS (
+          API_ID varchar(255) NOT NULL,
+          TENANT_DOMAIN varchar(255),
+          API_PROVIDER varchar(255),
+          API_NAME varchar(255),
+          API_VERSION varchar(255),
+          API_TYPE varchar(50),
+          PRIMARY KEY (API_ID)
+        );
+        
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
+        CREATE TABLE  AM_GW_API_ARTIFACTS (
+          API_ID varchar(255) NOT NULL,
+          REVISION_ID varchar(255) NOT NULL,
+          ARTIFACT VARBINARY(MAX),
+          TIME_STAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (REVISION_ID, API_ID),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        );
+        
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_DEPLOYMENTS]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_GW_API_DEPLOYMENTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          LABEL VARCHAR(255) NOT NULL,
+          PRIMARY KEY (REVISION_ID, API_ID,LABEL),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        ) ;
+        
+        -- Service Catalog Tables --
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SERVICE_CATALOG]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SERVICE_CATALOG (
+          UUID VARCHAR(36) NOT NULL,
+          SERVICE_KEY VARCHAR(100) NOT NULL,
+          MD5 VARCHAR(100) NOT NULL,
+          SERVICE_NAME VARCHAR(255) NOT NULL,
+          DISPLAY_NAME VARCHAR(255) NOT NULL,
+          SERVICE_VERSION VARCHAR(30) NOT NULL,
+          SERVICE_URL VARCHAR(2048) NOT NULL,
+          TENANT_ID INTEGER NOT NULL,
+          DEFINITION_TYPE VARCHAR(20),
+          DEFINITION_URL VARCHAR(2048),
+          DESCRIPTION VARCHAR(1024),
+          SECURITY_TYPE VARCHAR(50),
+          MUTUAL_SSL_ENABLED BIT DEFAULT 0,
+          CREATED_TIME DATETIME NULL,
+          LAST_UPDATED_TIME DATETIME NULL,
+          CREATED_BY VARCHAR(255),
+          UPDATED_BY VARCHAR(255),
+          SERVICE_DEFINITION VARBINARY(MAX) NOT NULL,
+          METADATA VARBINARY(MAX) NOT NULL,
+          PRIMARY KEY (UUID),
+          CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
+          CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID)
+        );
+        
+        -- Webhooks --
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_WEBHOOKS_SUBSCRIPTION]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_WEBHOOKS_SUBSCRIPTION (
+            WH_SUBSCRIPTION_ID INTEGER IDENTITY,
+            API_UUID VARCHAR(255) NOT NULL,
+            APPLICATION_ID VARCHAR(20) NOT NULL,
+            TENANT_DOMAIN VARCHAR(255) NOT NULL,
+            HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+            HUB_TOPIC VARCHAR(255) NOT NULL,
+            HUB_SECRET VARCHAR(2048),
+            HUB_LEASE_SECONDS INTEGER,
+            UPDATED_AT DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_AT BIGINT,
+            DELIVERED_AT DATETIME NULL,
+            DELIVERY_STATE INTEGER,
+            PRIMARY KEY (WH_SUBSCRIPTION_ID)
+        );
+        
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_WEBHOOKS_UNSUBSCRIPTION]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_WEBHOOKS_UNSUBSCRIPTION (
+            API_UUID VARCHAR(255) NOT NULL,
+            APPLICATION_ID VARCHAR(20) NOT NULL,
+            TENANT_DOMAIN VARCHAR(255) NOT NULL,
+            HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+            HUB_TOPIC VARCHAR(255) NOT NULL,
+            HUB_SECRET VARCHAR(2048),
+            HUB_LEASE_SECONDS INTEGER,
+            ADDED_AT DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_SERVICE_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_SERVICE_MAPPING (
+            API_ID INTEGER NOT NULL,
+            SERVICE_KEY VARCHAR(256) NOT NULL,
+            MD5 VARCHAR(100) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (API_ID, SERVICE_KEY),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
+        );
+        
+        -- Gateway Environments Table --
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GATEWAY_ENVIRONMENT]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_GATEWAY_ENVIRONMENT (
+          ID INTEGER IDENTITY,
+          UUID VARCHAR(45) NOT NULL,
+          NAME VARCHAR(255) NOT NULL,
+          TENANT_DOMAIN VARCHAR(255),
+          DISPLAY_NAME VARCHAR(255) NULL,
+          DESCRIPTION VARCHAR(1023) NULL,
+          UNIQUE (NAME, TENANT_DOMAIN),
+          UNIQUE (UUID),
+          PRIMARY KEY (ID)
+        );
+        
+        -- Virtual Hosts Table --
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_VHOST]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_GW_VHOST (
+          GATEWAY_ENV_ID INTEGER,
+          HOST VARCHAR(255) NOT NULL,
+          HTTP_CONTEXT VARCHAR(255) NULL,
+          HTTP_PORT VARCHAR(5) NOT NULL,
+          HTTPS_PORT VARCHAR(5) NOT NULL,
+          WS_PORT VARCHAR(5) NOT NULL,
+          WSS_PORT VARCHAR(5) NOT NULL,
+          FOREIGN KEY (GATEWAY_ENV_ID) REFERENCES AM_GATEWAY_ENVIRONMENT(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+          PRIMARY KEY (GATEWAY_ENV_ID, HOST)
+        );
+        
+        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0;
+        
+        EXEC sp_rename 'AM_API_COMMENTS.COMMENTED_USER', 'CREATED_BY', 'COLUMN';
+        EXEC sp_rename 'AM_API_COMMENTS.DATE_COMMENTED', 'CREATED_TIME', 'COLUMN';
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME DATETIME;
+        ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
+        ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
 
         ```tab="MySQL"
-        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
-            UUID VARCHAR(50),
-            NAME VARCHAR(255),
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER DEFAULT -1,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        ) ENGINE=InnoDB;
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
-
-        ALTER TABLE AM_SYSTEM_APPS
-        DROP INDEX NAME;
-
-        CREATE TABLE IF NOT EXISTS AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        ) ENGINE=InnoDB;
-
-        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        ) ENGINE INNODB;
-        
          CREATE TABLE IF NOT EXISTS AM_KEY_MANAGER (
           UUID VARCHAR(50) NOT NULL,
           NAME VARCHAR(100) NOT NULL,
@@ -1081,43 +1203,177 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
         )ENGINE INNODB;
 
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';        
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
+        
+        ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
+        ALTER TABLE AM_API ADD STATUS VARCHAR(30);
+        ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL;
+        
+        CREATE TABLE IF NOT EXISTS AM_REVISION (
+          ID INTEGER NOT NULL,
+          API_UUID VARCHAR(256) NOT NULL,
+          REVISION_UUID VARCHAR(255) NOT NULL,
+          DESCRIPTION VARCHAR(255),
+          CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          CREATED_BY VARCHAR(255),
+          PRIMARY KEY (ID, API_UUID),
+          UNIQUE(REVISION_UUID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS AM_DEPLOYMENT_REVISION_MAPPING (
+          NAME VARCHAR(255) NOT NULL,
+          VHOST VARCHAR(255) NULL,
+          REVISION_UUID VARCHAR(255) NOT NULL,
+          DISPLAY_ON_DEVPORTAL BOOLEAN DEFAULT 0,
+          DEPLOYED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (NAME, REVISION_UUID),
+          FOREIGN KEY (REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON UPDATE CASCADE ON DELETE CASCADE
+        )ENGINE INNODB;
+        
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD REVISION_UUID VARCHAR(255) NOT NULL DEFAULT 'Current API';
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE DROP PRIMARY KEY;
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD PRIMARY KEY(ALIAS,TENANT_ID, REMOVED, REVISION_UUID);
+        
+        ALTER TABLE AM_API_URL_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_GRAPHQL_COMPLEXITY ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_API_PRODUCT_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        
+        
+        DROP TABLE IF EXISTS AM_GW_API_DEPLOYMENTS;
+        DROP TABLE IF EXISTS AM_GW_API_ARTIFACTS;
+        DROP TABLE IF EXISTS AM_GW_PUBLISHED_API_DETAILS;
+        
+        CREATE TABLE IF NOT EXISTS AM_GW_PUBLISHED_API_DETAILS (
+          API_ID varchar(255) NOT NULL,
+          TENANT_DOMAIN varchar(255),
+          API_PROVIDER varchar(255),
+          API_NAME varchar(255),
+          API_VERSION varchar(255),
+          API_TYPE varchar(50),
+          PRIMARY KEY (API_ID)
+        )ENGINE=InnoDB;
+        CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          ARTIFACT blob,
+          TIME_STAMP TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          PRIMARY KEY (REVISION_ID, API_ID),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        )ENGINE=InnoDB;
+        
+        CREATE TABLE IF NOT EXISTS AM_GW_API_DEPLOYMENTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          LABEL VARCHAR(255) NOT NULL,
+          PRIMARY KEY (REVISION_ID, API_ID,LABEL),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        ) ENGINE=InnoDB;
+        
+        -- Service Catalog --
+        CREATE TABLE IF NOT EXISTS AM_SERVICE_CATALOG (
+                    UUID VARCHAR(36) NOT NULL,
+                    SERVICE_KEY VARCHAR(100) NOT NULL,
+                    MD5 VARCHAR(100) NOT NULL,
+                    SERVICE_NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    SERVICE_VERSION VARCHAR(30) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    SERVICE_URL VARCHAR(2048) NOT NULL,
+                    DEFINITION_TYPE VARCHAR(20),
+                    DEFINITION_URL VARCHAR(2048),
+                    DESCRIPTION VARCHAR(1024),
+                    SECURITY_TYPE VARCHAR(50),
+                    MUTUAL_SSL_ENABLED BOOLEAN DEFAULT 0,
+                    CREATED_TIME TIMESTAMP NULL,
+                    LAST_UPDATED_TIME TIMESTAMP NULL,
+                    CREATED_BY VARCHAR(255),
+                    UPDATED_BY VARCHAR(255),
+                    SERVICE_DEFINITION BLOB NOT NULL,
+                    METADATA BLOB NOT NULL,
+                    PRIMARY KEY (UUID),
+                    UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
+                    UNIQUE (SERVICE_KEY, TENANT_ID)
+        )ENGINE=InnoDB;
+        
+        CREATE TABLE IF NOT EXISTS AM_API_SERVICE_MAPPING (
+            API_ID INTEGER NOT NULL,
+            SERVICE_KEY VARCHAR(256) NOT NULL,
+            MD5 VARCHAR(100) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (API_ID, SERVICE_KEY),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
+        )ENGINE=InnoDB;
+        
+        -- Webhooks --
+        CREATE TABLE IF NOT EXISTS AM_WEBHOOKS_SUBSCRIPTION (
+                    WH_SUBSCRIPTION_ID INTEGER NOT NULL AUTO_INCREMENT,
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    UPDATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    EXPIRY_AT BIGINT,
+                    DELIVERED_AT TIMESTAMP NULL,
+                    DELIVERY_STATE TINYINT(1),
+                    PRIMARY KEY (WH_SUBSCRIPTION_ID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS AM_WEBHOOKS_UNSUBSCRIPTION (
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    ADDED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )ENGINE INNODB;
+        
+        -- Gateway Environments Table --
+        CREATE TABLE IF NOT EXISTS AM_GATEWAY_ENVIRONMENT (
+          ID INTEGER NOT NULL AUTO_INCREMENT,
+          UUID VARCHAR(45) NOT NULL,
+          NAME VARCHAR(255) NOT NULL,
+          TENANT_DOMAIN VARCHAR(255),
+          DISPLAY_NAME VARCHAR(255) NULL,
+          DESCRIPTION VARCHAR(1023) NULL,
+          UNIQUE (NAME, TENANT_DOMAIN),
+          UNIQUE (UUID),
+          PRIMARY KEY (ID)
+        )ENGINE INNODB;
+        
+        -- Virtual Hosts Table --
+        CREATE TABLE IF NOT EXISTS AM_GW_VHOST (
+          GATEWAY_ENV_ID INTEGER,
+          HOST VARCHAR(255) NOT NULL,
+          HTTP_CONTEXT VARCHAR(255) NULL,
+          HTTP_PORT VARCHAR(5) NOT NULL,
+          HTTPS_PORT VARCHAR(5) NOT NULL,
+          WS_PORT VARCHAR(5) NOT NULL,
+          WSS_PORT VARCHAR(5) NOT NULL,
+          FOREIGN KEY (GATEWAY_ENV_ID) REFERENCES AM_GATEWAY_ENVIRONMENT(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+          PRIMARY KEY (GATEWAY_ENV_ID, HOST)
+        )ENGINE INNODB;
+        
+        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD CONNECTIONS_COUNT INT(11) NOT NULL DEFAULT 0;
+        
+        ALTER TABLE AM_API_COMMENTS CHANGE COMMENT_ID COMMENT_ID VARCHAR(64);
+        ALTER TABLE AM_API_COMMENTS CHANGE COMMENTED_USER CREATED_BY VARCHAR(512);
+        ALTER TABLE AM_API_COMMENTS CHANGE DATE_COMMENTED CREATED_TIME TIMESTAMP NOT NULL;
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP;
+        ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(64) DEFAULT NULL;
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
+        ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);        
         ```
     
         ```tab="Oracle"
-        CREATE TABLE AM_API_CATEGORIES (
-            UUID VARCHAR2(50),
-            NAME VARCHAR2(255) NOT NULL,
-            DESCRIPTION VARCHAR2(1024),
-            TENANT_ID INTEGER DEFAULT -1,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        )
-        /
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR2(255) DEFAULT 'carbon.super'
-        /
-
-        ALTER TABLE AM_SYSTEM_APPS
-        DROP UNIQUE (NAME)
-        /
-
-        CREATE TABLE AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        )
-        /
-
-        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        )
-        /
-        
         ALTER TABLE AM_WORKFLOWS ADD (
           WF_METADATA BLOB DEFAULT NULL NULL,
           WF_PROPERTIES BLOB DEFAULT NULL NULL
@@ -1234,7 +1490,6 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
         /
-
         CREATE TABLE AM_SCOPE (
             SCOPE_ID INTEGER NOT NULL,
             NAME VARCHAR2(255) NOT NULL,
@@ -1247,58 +1502,233 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
         /
         CREATE OR REPLACE TRIGGER AM_SCOPE_TRIGGER
-                    BEFORE INSERT
-                    ON AM_SCOPE
+            BEFORE INSERT
+            ON AM_SCOPE
+            REFERENCING NEW AS NEW
+            FOR EACH ROW
+            BEGIN
+                SELECT AM_SCOPE_SEQUENCE.nextval INTO :NEW.SCOPE_ID FROM dual;
+            END;
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+            SCOPE_ID INTEGER NOT NULL,
+            SCOPE_BINDING VARCHAR2(255) NOT NULL,
+            BINDING_TYPE VARCHAR2(255) NOT NULL,
+            FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
+        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
+        / 
+        
+        ALTER TABLE AM_API ADD API_UUID VARCHAR(255)
+        /
+        ALTER TABLE AM_API ADD STATUS VARCHAR(30)
+        /
+        ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL
+        /
+        
+        CREATE TABLE AM_REVISION (
+                    ID INTEGER NOT NULL,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(255),
+                    CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    CREATED_BY VARCHAR(255),
+                    PRIMARY KEY (ID, API_UUID),
+                    UNIQUE(REVISION_UUID))
+        /
+        
+        CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
+                    NAME VARCHAR(255) NOT NULL,
+                    VHOST VARCHAR(255) NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DISPLAY_ON_DEVPORTAL INTEGER DEFAULT 0,
+                    DEPLOYED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (NAME, REVISION_UUID),
+                    FOREIGN KEY (REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON DELETE CASCADE)
+        /
+        
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD REVISION_UUID VARCHAR(255) DEFAULT 'Current API' NOT NULL
+        /
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE DROP PRIMARY KEY
+        /
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD PRIMARY KEY(ALIAS,TENANT_ID, REMOVED, REVISION_UUID)
+        /
+        
+        ALTER TABLE AM_API_URL_MAPPING ADD REVISION_UUID VARCHAR(256)
+        /
+        ALTER TABLE AM_GRAPHQL_COMPLEXITY ADD REVISION_UUID VARCHAR(256)
+        /
+        ALTER TABLE AM_API_PRODUCT_MAPPING ADD REVISION_UUID VARCHAR(256)
+        /
+        
+        DROP TABLE AM_GW_API_ARTIFACTS
+        /
+        DROP TABLE AM_GW_PUBLISHED_API_DETAILS
+        /
+        
+        CREATE TABLE AM_GW_PUBLISHED_API_DETAILS (
+          API_ID varchar(255) NOT NULL,
+          TENANT_DOMAIN varchar(255),
+          API_PROVIDER varchar(255),
+          API_NAME varchar(255),
+          API_VERSION varchar(255),
+          API_TYPE varchar(50),
+          PRIMARY KEY (API_ID)
+        )
+        /
+        CREATE TABLE AM_GW_API_ARTIFACTS (
+          API_ID varchar(255) NOT NULL,
+          REVISION_ID varchar(255) NOT NULL,
+          ARTIFACT blob,
+          TIME_STAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (REVISION_ID, API_ID),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID)
+        )
+        /
+        CREATE TABLE AM_GW_API_DEPLOYMENTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          LABEL VARCHAR(255) NOT NULL,
+          PRIMARY KEY (REVISION_ID, API_ID,LABEL),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID)
+        )
+        /
+        
+        -- Service Catalog --
+        CREATE TABLE AM_SERVICE_CATALOG (
+                    UUID VARCHAR(36) NOT NULL,
+                    SERVICE_KEY VARCHAR(100) NOT NULL,
+                    MD5 VARCHAR(100) NOT NULL,
+                    SERVICE_NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    SERVICE_VERSION VARCHAR(30) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    SERVICE_URL VARCHAR(2048) NOT NULL,
+                    DEFINITION_TYPE VARCHAR(20),
+                    DEFINITION_URL VARCHAR(2048),
+                    DESCRIPTION VARCHAR(1024),
+                    SECURITY_TYPE VARCHAR(50),
+                    MUTUAL_SSL_ENABLED NUMBER(1,0) DEFAULT 0,
+                    CREATED_TIME TIMESTAMP NULL,
+                    LAST_UPDATED_TIME TIMESTAMP NULL,
+                    CREATED_BY VARCHAR(255),
+                    UPDATED_BY VARCHAR(255),
+                    SERVICE_DEFINITION BLOB NOT NULL,
+                    METADATA BLOB NOT NULL,
+                    PRIMARY KEY (UUID),
+                    CONSTRAINT SERVICE_KEY_TENANT UNIQUE(SERVICE_KEY, TENANT_ID),
+                    CONSTRAINT SERVICE_NAME_VERSION_TENANT UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID))
+        /
+        
+        -- Webhooks --
+        CREATE TABLE AM_WEBHOOKS_SUBSCRIPTION (
+                    WH_SUBSCRIPTION_ID INTEGER NOT NULL,
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(255) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    UPDATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    EXPIRY_AT NUMBER(19),
+                    DELIVERED_AT TIMESTAMP NULL,
+                    DELIVERY_STATE INTEGER,
+                    PRIMARY KEY (WH_SUBSCRIPTION_ID))
+        /
+        
+        CREATE SEQUENCE AM_WEBHOOKS_SUBSCRIPTION_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        
+        CREATE OR REPLACE TRIGGER AM_WEBHOOKS_SUB_TRIGGER
+        		    BEFORE INSERT
+                    ON AM_WEBHOOKS_SUBSCRIPTION
                     REFERENCING NEW AS NEW
                     FOR EACH ROW
                     BEGIN
-                        SELECT AM_SCOPE_SEQUENCE.nextval INTO :NEW.SCOPE_ID FROM dual;
+                        SELECT AM_WEBHOOKS_SUBSCRIPTION_SEQ.nextval INTO :NEW.WH_SUBSCRIPTION_ID FROM dual;
                     END;
         /
-        CREATE TABLE AM_SCOPE_BINDING (
-                    SCOPE_ID INTEGER NOT NULL,
-                    SCOPE_BINDING VARCHAR2(255) NOT NULL,
-                    BINDING_TYPE VARCHAR2(255) NOT NULL,
-                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        
+        CREATE TABLE AM_WEBHOOKS_UNSUBSCRIPTION (
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    ADDED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
         /
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
-        /  
+        
+        CREATE TABLE AM_API_SERVICE_MAPPING (
+            API_ID INTEGER NOT NULL,
+            SERVICE_KEY VARCHAR(256) NOT NULL,
+            MD5 VARCHAR(100) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (API_ID, SERVICE_KEY),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
+        )
+        /
+        -- Gateway Environments Table --
+        CREATE TABLE AM_GATEWAY_ENVIRONMENT (
+                    ID INTEGER NOT NULL,
+                    UUID VARCHAR(45) NOT NULL,
+                    NAME VARCHAR(255) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255),
+                    DISPLAY_NAME VARCHAR(255) NULL,
+                    DESCRIPTION VARCHAR(1023) NULL,
+                    UNIQUE (NAME, TENANT_DOMAIN),
+                    UNIQUE (UUID),
+                    PRIMARY KEY (ID))
+        /
+        CREATE SEQUENCE AM_GATEWAY_ENV_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE OR REPLACE TRIGGER AM_GATEWAY_ENVIRONMENT_TRIGGER
+        		    BEFORE INSERT
+                    ON AM_GATEWAY_ENVIRONMENT
+                    REFERENCING NEW AS NEW
+                    FOR EACH ROW
+                    BEGIN
+                        SELECT AM_GATEWAY_ENV_SEQ.nextval INTO :NEW.ID FROM dual;
+                    END;
+        /
+        
+        -- Virtual Hosts Table --
+        CREATE TABLE AM_GW_VHOST (
+                    GATEWAY_ENV_ID INTEGER,
+                    HOST VARCHAR(255) NOT NULL,
+                    HTTP_CONTEXT VARCHAR(255) NULL,
+                    HTTP_PORT VARCHAR(5) NOT NULL,
+                    HTTPS_PORT VARCHAR(5) NOT NULL,
+                    WS_PORT VARCHAR(5) NOT NULL,
+                    WSS_PORT VARCHAR(5) NOT NULL,
+                    FOREIGN KEY (GATEWAY_ENV_ID) REFERENCES AM_GATEWAY_ENVIRONMENT(ID) ON DELETE CASCADE,
+                    PRIMARY KEY (GATEWAY_ENV_ID, HOST))
+        /
+        
+        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD CONNECTIONS_COUNT INTEGER DEFAULT 0 NOT NULL
+        /
+        
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN COMMENTED_USER TO CREATED_BY
+        /
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN DATE_COMMENTED TO CREATED_TIME
+        /
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME DATE
+        /
+        ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
+        /
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        /
+        ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
+        /
+        ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID)
+        /
         COMMIT;
-        /      
+        /               
         ```
         
         ```tab="PostgreSQL"
-        DROP TABLE IF EXISTS AM_API_CATEGORIES;
-        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
-            UUID VARCHAR(50),
-            NAME VARCHAR(255),
-            DESCRIPTION VARCHAR(1024),
-            TENANT_ID INTEGER DEFAULT -1,
-            UNIQUE (NAME,TENANT_ID),
-            PRIMARY KEY (UUID)
-        );
-
-        ALTER TABLE AM_SYSTEM_APPS
-        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
-
-        ALTER TABLE AM_SYSTEM_APPS
-        DROP CONSTRAINT AM_SYSTEM_APPS_NAME_KEY;
-
-        DROP TABLE IF EXISTS AM_USER;
-        CREATE TABLE IF NOT EXISTS AM_USER (
-            USER_ID VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(255) NOT NULL,
-            PRIMARY KEY(USER_ID)
-        );
-
-        DROP TABLE IF EXISTS AM_SECURITY_AUDIT_UUID_MAPPING;
-        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
-            API_ID INTEGER NOT NULL,
-            AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARY KEY (API_ID),
-            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
-        );
-        
         DROP TABLE IF EXISTS AM_KEY_MANAGER;
         CREATE TABLE  IF NOT EXISTS AM_KEY_MANAGER (
           UUID VARCHAR(50) NOT NULL,
@@ -1447,12 +1877,197 @@ Follow the instructions below to move all the existing API Manager configuration
                     SCOPE_BINDING VARCHAR(255) NOT NULL,
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
-        );
+        );   
 
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
+        
+        ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
+        ALTER TABLE AM_API ADD STATUS VARCHAR(30);
+        ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BYTEA DEFAULT NULL;
+        
+        DROP TABLE IF EXISTS AM_REVISION;
+        CREATE TABLE IF NOT EXISTS AM_REVISION (
+                    ID INTEGER NOT NULL,
+                    API_UUID VARCHAR(256) NOT NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(255),
+                    CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    CREATED_BY VARCHAR(255),
+                    PRIMARY KEY (ID, API_UUID),
+                    UNIQUE(REVISION_UUID)
+        );
+        
+        DROP TABLE IF EXISTS AM_DEPLOYMENT_REVISION_MAPPING;
+        CREATE TABLE IF NOT EXISTS AM_DEPLOYMENT_REVISION_MAPPING (
+                    NAME VARCHAR(255) NOT NULL,
+                    VHOST VARCHAR(255) NULL,
+                    REVISION_UUID VARCHAR(255) NOT NULL,
+                    DISPLAY_ON_DEVPORTAL BOOLEAN DEFAULT '0',
+                    DEPLOYED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (NAME, REVISION_UUID),
+                    FOREIGN KEY (REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON UPDATE CASCADE ON DELETE CASCADE
+        );
+        
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD REVISION_UUID VARCHAR(255) NOT NULL DEFAULT 'Current API';
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE DROP CONSTRAINT AM_API_CLIENT_CERTIFICATE_PKEY;
+        ALTER TABLE AM_API_CLIENT_CERTIFICATE ADD PRIMARY KEY(ALIAS,TENANT_ID, REMOVED, REVISION_UUID);
+        
+        ALTER TABLE AM_API_URL_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_GRAPHQL_COMPLEXITY ADD REVISION_UUID VARCHAR(256);
+        
+        ALTER TABLE AM_API_PRODUCT_MAPPING ADD REVISION_UUID VARCHAR(256);
+        
+        DROP TABLE IF EXISTS AM_GW_API_DEPLOYMENTS;
+        DROP TABLE IF EXISTS AM_GW_API_ARTIFACTS;
+        DROP TABLE IF EXISTS AM_GW_PUBLISHED_API_DETAILS;
+        
+        CREATE TABLE IF NOT EXISTS AM_GW_PUBLISHED_API_DETAILS (
+          API_ID varchar(255) NOT NULL,
+          TENANT_DOMAIN varchar(255),
+          API_PROVIDER varchar(255),
+          API_NAME varchar(255),
+          API_VERSION varchar(255),
+          API_TYPE varchar(50),
+          PRIMARY KEY (API_ID)
+        );
+        
+        CREATE TABLE IF NOT EXISTS AM_GW_API_ARTIFACTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          ARTIFACT bytea,
+          TIME_STAMP TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (REVISION_ID, API_ID),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        );
+        CREATE TABLE IF NOT EXISTS AM_GW_API_DEPLOYMENTS (
+          API_ID VARCHAR(255) NOT NULL,
+          REVISION_ID VARCHAR(255) NOT NULL,
+          LABEL VARCHAR(255) NOT NULL,
+          PRIMARY KEY (REVISION_ID, API_ID,LABEL),
+          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        );
+        
+        CREATE OR REPLACE FUNCTION update_modified_column()
+        RETURNS TRIGGER AS $$
+        BEGIN
+            NEW.TIME_STAMP= now();
+            RETURN NEW;
+        END;
+        $$ language 'plpgsql';
+        
+        CREATE TRIGGER TIME_STAMP AFTER UPDATE ON AM_GW_API_ARTIFACTS FOR EACH ROW EXECUTE PROCEDURE  update_modified_column();
+        
+        -- Service Catalog --
+        DROP TABLE IF EXISTS AM_SERVICE_CATALOG;
+        CREATE TABLE IF NOT EXISTS AM_SERVICE_CATALOG (
+                    UUID VARCHAR(36) NOT NULL,
+                    SERVICE_KEY VARCHAR(100) NOT NULL,
+                    MD5 VARCHAR(100) NOT NULL,
+                    SERVICE_NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    SERVICE_VERSION VARCHAR(30) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    SERVICE_URL VARCHAR(2048) NOT NULL,
+                    DEFINITION_TYPE VARCHAR(20),
+                    DEFINITION_URL VARCHAR(2048),
+                    DESCRIPTION VARCHAR(1024),
+                    SECURITY_TYPE VARCHAR(50),
+                    MUTUAL_SSL_ENABLED BOOLEAN DEFAULT '0',
+                    CREATED_TIME TIMESTAMP NULL,
+                    LAST_UPDATED_TIME TIMESTAMP NULL,
+                    CREATED_BY VARCHAR(255),
+                    UPDATED_BY VARCHAR(255),
+                    SERVICE_DEFINITION BYTEA NOT NULL,
+                    METADATA BYTEA NOT NULL,
+                    PRIMARY KEY (UUID),
+                    UNIQUE (SERVICE_NAME, SERVICE_VERSION, TENANT_ID),
+                    UNIQUE (SERVICE_KEY, TENANT_ID)
+        );
+        
+        -- Webhooks --
+        DROP SEQUENCE IF EXISTS AM_WEBHOOKS_PK_SEQ;
+        CREATE SEQUENCE AM_WEBHOOKS_PK_SEQ;
+        DROP TABLE IF EXISTS AM_WEBHOOKS_SUBSCRIPTION;
+        CREATE TABLE IF NOT EXISTS AM_WEBHOOKS_SUBSCRIPTION (
+                    WH_SUBSCRIPTION_ID INTEGER DEFAULT NEXTVAL('AM_WEBHOOKS_PK_SEQ'),
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    UPDATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    EXPIRY_AT BIGINT,
+                    DELIVERED_AT TIMESTAMP NULL,
+                    DELIVERY_STATE INTEGER,
+                    PRIMARY KEY (WH_SUBSCRIPTION_ID)
+        );
+        
+        DROP TABLE IF EXISTS AM_WEBHOOKS_UNSUBSCRIPTION;
+        CREATE TABLE IF NOT EXISTS AM_WEBHOOKS_UNSUBSCRIPTION (
+                  API_UUID VARCHAR(255) NOT NULL,
+                  APPLICATION_ID VARCHAR(20) NOT NULL,
+                  TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                  HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                  HUB_TOPIC VARCHAR(255) NOT NULL,
+                  HUB_SECRET VARCHAR(2048),
+                  HUB_LEASE_SECONDS INTEGER,
+                  ADDED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        
+        DROP TABLE IF EXISTS AM_API_SERVICE_MAPPING;
+        CREATE TABLE AM_API_SERVICE_MAPPING (
+            API_ID INTEGER NOT NULL,
+            SERVICE_KEY VARCHAR(256) NOT NULL,
+            MD5 VARCHAR(100) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (API_ID, SERVICE_KEY),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE
+        );
+        
+        
+        -- Gateway Environments Table --
+        DROP SEQUENCE IF EXISTS AM_GATEWAY_ENVIRONMENT_PK_SEQ;
+        CREATE SEQUENCE AM_GATEWAY_ENVIRONMENT_PK_SEQ;
+        CREATE TABLE IF NOT EXISTS AM_GATEWAY_ENVIRONMENT (
+          ID INTEGER NOT NULL DEFAULT NEXTVAL('AM_GATEWAY_ENVIRONMENT_PK_SEQ'),
+          UUID VARCHAR(45) NOT NULL,
+          NAME VARCHAR(255) NOT NULL,
+          TENANT_DOMAIN VARCHAR(255),
+          DISPLAY_NAME VARCHAR(255) NULL,
+          DESCRIPTION VARCHAR(1023) NULL,
+          UNIQUE (NAME, TENANT_DOMAIN),
+          UNIQUE (UUID),
+          PRIMARY KEY (ID)
+        );
+        
+        -- Virtual Hosts Table --
+        CREATE TABLE IF NOT EXISTS AM_GW_VHOST (
+          GATEWAY_ENV_ID INTEGER,
+          HOST VARCHAR(255) NOT NULL,
+          HTTP_CONTEXT VARCHAR(255) NULL,
+          HTTP_PORT VARCHAR(5) NOT NULL,
+          HTTPS_PORT VARCHAR(5) NOT NULL,
+          WS_PORT VARCHAR(5) NOT NULL,
+          WSS_PORT VARCHAR(5) NOT NULL,
+          FOREIGN KEY (GATEWAY_ENV_ID) REFERENCES AM_GATEWAY_ENVIRONMENT(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+          PRIMARY KEY (GATEWAY_ENV_ID, HOST)
+        );
+        
+        ALTER TABLE AM_POLICY_SUBSCRIPTION ADD CONNECTIONS_COUNT INTEGER NOT NULL DEFAULT 0;
+        
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN COMMENTED_USER TO CREATED_BY;
+        ALTER TABLE AM_API_COMMENTS RENAME COLUMN DATE_COMMENTED TO CREATED_TIME;
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP;
+        ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
+        ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
 
-4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
+4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
         If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
@@ -1464,52 +2079,58 @@ Follow the instructions below to move all the existing API Manager configuration
         ```tab="Windows"
         ./ciphertool.bat -Dconfigure
         ```
-
     - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
 
-5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
          
-         Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
+        Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
-    2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
+    2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
 
-    3.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.9.0, as shown below.
+    3.  Open the `migration-config.yaml` file in the migration-resources directory and make sure that the `currentVersion` element is set to 5.10.0, as shown below.
 
         ``` java
         migrationEnable: "true"
-        currentVersion: "5.9.0"
-        migrateVersion: "5.10.0"
+        currentVersion: "5.10.0"
+        migrateVersion: "5.11.0"
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from  migration-config.yaml which is included under version: "5.10.0".
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following step from  migration-config.yaml which is included under version: "5.10.0"
                 ```
-                -
-                    name: "MigrationValidator"
-                    order: 2
-                -
-                    name: "SchemaMigrator"
-                    order: 5
-                    parameters:
-                    location: "step2"
-                    schema: "identity"
+                    -
+                        name: "MigrationValidator"
+                        order: 2
+                    -
+                        name: "SchemaMigrator"
+                        order: 5
+                        parameters:
+                        location: "step2"
+                        schema: "identity"            
+                    -
+                        name: "TenantPortalMigrator"
+                        order: 11
                 ```
-    4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
-    5. Update <API-M_3.2.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+    4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
+
+    5. Update <API-M_4.0.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
     
-        ```
+        !!! note
+                This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
+        
+       ```
         [user_store]
         type = "database"
         ```
     
-    6.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
+    6.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
-        !!! note        
+        !!! note
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
                     
         ```tab="Linux / Mac OS"
@@ -1522,14 +2143,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
         !!! note
             Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
-
+        
         !!! note
-            Please note that if you want to use the latest user store, please update the <API-M_3.2.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+            Please note that if you want to use the latest user store, please update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
 
             ```
             [user_store]
             type = "database_unique_id"
-            ```
+            ``` 
 
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
@@ -1542,7 +2163,7 @@ Follow the instructions below to move all the existing API Manager configuration
             1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
                 ```
                 [indexing]
-                frequency = 10
+                frequency= 10
                 ```
 
             2.  Re-run the command above.
@@ -1551,50 +2172,39 @@ Follow the instructions below to move all the existing API Manager configuration
 
     7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
-        -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+        -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
-        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
+        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
         -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
 
             ```
             -Dmigrate -Dcomponent=identity
             ```
-
+            
 6.  Migrate the API Manager artifacts.
 
     You have to run the following migration client to update the registry artifacts.
 
-    1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
+    1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-4.0.0.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=3.0.0
+        sh wso2server.sh -DmigrateFromVersion=3.1.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=3.0.0
-        ```
-        
-        Note:  If cross tenant API subscriptions exist, the migration will be aborted. 
-        To ignore this, Please set the flag ``ignoreCrossTenantSubscriptions`` to true as below.
-    
-        ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.0.0
-        ```
-    
-        ``` tab="Windows"
-        wso2server.bat -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.0.0
+        wso2server.bat -DmigrateFromVersion=3.1.0
         ```
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
-       -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
+       -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
 7.  Re-index the artifacts in the registry.
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
@@ -1602,7 +2212,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -1610,7 +2220,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Add the following configuration in to `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in to `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]
@@ -1620,192 +2230,13 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! info 
              If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
              
-    4.  If the `<API-M_3.2.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
+    4.  If the `<API-M_4.0.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 
     5.  Start the WSO2 API-M server.
 
-    6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+    6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
-### Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics
-
-!!! warning
-    This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
-
-Follow the steps below to migrate APIM Analytics 3.0.0 to APIM Analytics 3.2.0
-
-#### Step 3.1 - Migrating the Analytics Database
-
-Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.2.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
-
-??? info "DB Scripts"
-    ```tab="H2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
-    ```
-    
-    ```tab="DB2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MSSQL"
-    DECLARE @con_com as VARCHAR(8000);
-    SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('APILASTACCESSSUMMARY') AND type='PK');
-    EXEC('ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT ' + @con_com);
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARYADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MySQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-    
-    ```tab="Oracle"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    COMMIT;
-    ```
-        
-    ```tab="PostgreSQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-
-#### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
-
-!!! info
-    Sometimes due to case insensitivity of primary keys in aggregation tables, primary key violation errors are thrown when you try to insert a new record with the same value as an existing record. To overcome this, you need to add encoding and collation to database when the Analytics DB is created (i.e., before the tables are created). For more information on collation, see [MySQL](https://dev.mysql.com/doc/refman/5.7/en/charset-collation-names.html) or [MS SQL](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15) based on the database that you are using. Sample commands are provided below.
-
-    !!! example
-
-        ```sql tab="MySQL"
-        ALTER DATABASE <DB-NAME> COLLATE latin1_general_cs ;
-        ```
-
-        ```sql tab="MS SQL"
-        ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
-        ```
-
-Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
-
-1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
-
-2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
-
-    ``` java
-    #Data source for APIM Analytics
-    - name: APIM_ANALYTICS_DB
-        description: Datasource used for APIM Analytics
-        jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-        definition:
-        type: RDBMS
-        configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
-            username: root
-            password: root
-            driverClassName: com.mysql.jdbc.Driver
-            minIdle: 5
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
-
-    #Main datasource used in API Manager
-    - name: AM_DB
-        description: Main datasource used by API Manager
-        jndiConfig:
-        name: jdbc/AM_DB
-        definition:
-        type: RDBMS
-        configuration:
-            jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
-            username: root
-            password: root
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 10
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
-    ```
-
-3.  Configure the following datasource in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
-
-    ``` java
-    #Data source for APIM Analytics
-    - name: APIM_ANALYTICS_DB
-      description: "The datasource used for APIM statistics aggregated data."
-      jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-      definition:
-        type: RDBMS
-        configuration:
-          jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
-          username: root
-          password: root
-          driverClassName: com.mysql.jdbc.Driver
-          minIdle: 5
-          maxPoolSize: 50
-          idleTimeout: 60000
-          connectionTestQuery: SELECT 1
-          validationTimeout: 30000
-          isAutoCommit: false
-    ```
-
-4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.2.0_HOME>/lib` folder.
-
-    !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
-        1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
-        2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
-
-        ```
-        ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
-        ```
-
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.2.0_HOME>/bin` location.
-    
-    ```tab="Worker"
-    sh worker.sh
-    ```
-
-    ```tab="Dashboard"
-    sh dashboard.sh
-    ```
-
-!!! note
-    If you have developed any custom dashboards in API-M 3.0.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.2.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
-
-#### Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics
-
-Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
-
-1.  Configure the following datasources in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
-
-    The following is an example of how the configurations should be defined when using MySQL.
-
-    This datasource points to the **previous API-M version's WSO2AM_DB datasource.**
-
-    ``` java
-    [database.apim_db]
-    type = "mysql"
-    url = "jdbc:mysql://localhost:3306/am_db"
-    username = "username"
-    password = "password"
-    ```
-
-2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
-
-    ``` java
-    [apim.analytics]
-    enable = true
-    ```
-
-### Step 4 - Restart the WSO2 API-M 3.2.0 server
+### Step 3 - Restart the WSO2 API-M 4.0.0 server
 
 1.  Restart the WSO2 API-M server.
 
@@ -1813,18 +2244,10 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     sh wso2server.sh
     ```
 
-    ```tab="Windows"
     wso2server.bat
     ```
-
-    !!! note "If you have enabled Analytics"
-        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.2.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
-
-        !!! warning
-            Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
 This concludes the upgrade process.
 
 !!! tip
-    The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
- 
+    The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse configurations, execution plans and etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
