@@ -532,7 +532,7 @@
     | `production_endpoints` | Production endpoints for API.                            |
     | `sandbox_endpoints`| Sandbox endpoint for API.                               |
 
-    For more information about the configurations, see the [Sample_Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/box/resources/init/sample_api.yaml).
+    For more information about the configurations, see the [Sample-Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/integration/testdata/sample-api.yaml).
 
     **api.yaml**
 
