@@ -1,6 +1,6 @@
-# Deploy an API
+# Publish an API on the Developer Portal
 
-**API Deploying** is the process of making the API available for subscription. An API in the lifecycle state CREATED will have the  API metadata added to the Developer Portal, but not deployed to the API Gateway. Therefore, it is not visible to subscribers in the Developer Portal. When the API is published, it gets deployed on the API Gateway, and the API lifecycle state will be changed to **PUBLISHED**. 
+**API Publishing** is the process of making the API available for subscription. An API in the lifecycle state CREATED will have the  API metadata added to the Developer Portal, but not deployed to the API Gateway. Therefore, it is not visible to subscribers in the Developer Portal. When the API is published the API lifecycle state will be changed to **PUBLISHED**. 
 
 Follow the steps below to publish an API using WSO2 API Manager.
 
