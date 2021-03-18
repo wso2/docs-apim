@@ -27,7 +27,8 @@
                             "name": "enable_mtom",
                             "type": "boolean",
                             "required": "false",
-                            "default": "\"true\" or \"false\"",
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
                             "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
                         },
                         {
@@ -65,6 +66,94 @@
                 }
             ],
             "exampleFile": "_deployment.toml"
+        },
+        {
+            "title": "Service Catalog Client",
+            "options": [
+                {
+                    "name": "[service_catalog]",
+                    "required": true,
+                    "description": "This cofiguration header is required if you want the Micro Integrator to publish integation services to the Service Catalog in the API Publisher. This allows you to generate an API proxy for the integrations deployed in the Micro Integrator.",
+                    "params": [
+                        {
+                            "name": "apimhost",
+                            "type": "string",
+                            "required": true,
+                            "default": "\"https://127.0.0.1:9443\"",
+                            "possible": "\"https://{hostname/ip}:{port}\"",
+                            "description": "The hostname of the API Manager runtime. Be sure to replace {hostname/ip} and {port} with the relevant values."
+                        },
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": false,
+                            "description": "The service catalog client in the Micro Integrator is enabled when this parameter is set to 'true'."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": "true",
+                            "default": "admin",
+                            "possible": "-",
+                            "description": "The user name for signing in to the API Manager runtime."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": "true",
+                            "default": "admin",
+                            "possible": "-",
+                            "description": "The user password for signing in to the API Manager runtime."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_service-catalog.toml"
+        },
+        {
+            "title": "Micro Integrator Dashboard",
+            "options": [
+                {
+                    "name": "dashboard_config",
+                    "required": true,
+                    "description": "This configuration header is required for the Micro Integrator server to connect with the dashboard server.",
+                    "params": [
+                        {
+                            "name": "dashboard_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "\"https://localhost:9743/dashboard/api/\"",
+                            "possible": "https://{hostname/ip}:{port}/dashboard/api/",
+                            "description": "The URL to access the dashboard server. Be sure to replace {hostname/ip} and {port} with the relevant values from your environment."
+                        },
+                        {
+                            "name": "heartbeat_interval",
+                            "type": "integer",
+                            "required": false,
+                            "default": 5,
+                            "description": "The time interval (in seconds) between two consecutive heartbeats that are sent from the Micro Integrator to the dashboard server."
+                        },
+                        {
+                            "name": "group_id",
+                            "type": "string",
+                            "required": "false",
+                            "default": "default",
+                            "possible": "-",
+                            "description": "The server group to which the Micro Integrator instance belongs. Specify the same group ID in all the Micro Integrator servers that should belong to a single group. By default, a 'group_id' named 'default' is assinged to every Micro Integrator server that connects to the dashboard. When you sign in to the dashboard, you can view data per server group."
+                        },
+                        {
+                            "name": "node_id",
+                            "type": "string",
+                            "required": "true",
+                            "default": "A random UUID or the node ID used for cluster coordination.",
+                            "possible": "-",
+                            "description": "The dashboard identifies the Micro Integrator node by this ID. If you have already specified a node ID when you set up the Micro Integrator cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_mi-dashboard.toml"
         },
         {
             "title": "Primary keystore",
