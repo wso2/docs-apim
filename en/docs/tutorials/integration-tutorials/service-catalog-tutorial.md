@@ -28,9 +28,15 @@ This tutorial demonstrates how the integration components and API management com
 ### Step 1: Set up the workspace
 
 Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+<<<<<<< HEAD
 
 ### Step 2: Develop the integration service
 
+=======
+
+### Step 2: Develop the integration service
+
+>>>>>>> 0e959f0be40d5a03391f870bfa55b1dff42df72c
 Follow the instructions given in this section to create and configure the required artifacts.
 
 1.  Open **WSO2 Integration Studio**.
@@ -157,8 +163,35 @@ Follow the instructions given in this section to create and configure the requir
             </outSequence>
             <faultSequence/>
         </resource>
+<<<<<<< HEAD
     </api>
     ```
+
+When the **HealthcareAPI** is created, the following two new files are created in the metadata folder. 
+
+!!! Tip
+    This data is used later by the API management runtime to generate the managed API proxy later in this tutorial.
+
+<table>
+    <tr>
+        <th>
+            HealthcareAPI_metadata.yaml
+        </th>
+        <td>
+            This file contains the metadata of the integration service you created in the previous step.
+        </td>
+    </tr>
+    <tr>
+        <th>
+            HealthcareAPI_swagger.yaml
+        </th>
+        <td>
+            This swagger file contains the OpenAPI definition of integration service.
+        </td>
+    </tr>
+</table>
+=======
+    </api>   ```
 
 When the **HealthcareAPI** is created, the following two new files are created in the metadata folder. 
 
@@ -242,6 +275,79 @@ Let's update the metadata of the integration service.
 <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/edit-metadata-service-catalog.PNG">
 
 ### Step 4: Configure the Micro Integrator 
+>>>>>>> 0e959f0be40d5a03391f870bfa55b1dff42df72c
+
+#### Service Catalog client
+
+<<<<<<< HEAD
+### Step 3: Configure service metadata
+
+Let's update the metadata of the integration service.
+
+1.  Open the `HealthcareAPI_metadata.yaml` file from the project exporer.
+2.  Update the following values in the file.
+
+    <table>
+        <tr>
+            <th>
+                Parameter
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                description
+            </td>
+            <td>
+                Explain the purpose of the API. For example, 'API to fetch doctors for a given category'.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                serviceUrl
+            </td>
+            <td>
+                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+                You can configure the serviceUrl in the following ways:
+                <ul>
+                    <li>
+                        Add the complete URL without parameters. For example: http://localhost:8290/healthcare.
+                    </li>
+                    <li>
+                        Parameterize using the host and port combination. For example: http://{host}:{port}/healthcare.</br></br>
+                        Let's use this option for this tutorial.
+                    </li>
+                    <li>
+                        Parameterize using a preconfigured URL. For example: http://{url}/healthcare.
+                    </li>
+                </ul>
+                <b>Note</b>: Be sure to change the serviceUrl from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
+            </td>
+        </tr>
+    </table>
+
+    !!! Tip
+        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/) for more information on the metadata in the YAML file.
+
+3.  Leave the default values for the remaining parameters. 
+=======
+The Micro Integrator contains a client application, which automatically publishes artifacts to the Service Catalog. 
+
+Let's enable this client for the embedded Micro Integrator of WSO2 Integration Studio.
+
+1.  Open the [Embedded Micro Integrator Configuration](#update-embedded-server-configs-and-libraries) dialog box.
+2.  Uncomment the `[[service_catalog]]` section as shown below and change the APIM server configurations accordingly. 
+
+    !!! Tip
+        The default username and password for connecting to the API gateway is `admin`.
+>>>>>>> 0e959f0be40d5a03391f870bfa55b1dff42df72c
+
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/configure-toml-service-catalog.PNG">
+
+<<<<<<< HEAD
+### Step 4: Configure the Micro Integrator 
 
 #### Service Catalog client
 
@@ -257,6 +363,40 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/configure-toml-service-catalog.PNG">
 
+3.  Optionaly, you can encrypt the username and password for better security. 
+
+    1.  Update the configuration as shown below. 
+
+        ```yaml
+        [secrets]
+        userName = "[admin]"
+        password = "[admin]"
+
+        [[service_catalog]]
+        apimHost = "https://127.0.0.1:9443"
+        enable = true
+        userName = "$secret{userName}"
+        password = "$secret{password}"
+        ```
+
+    2.  Click **Encrypt Secrets**. 
+    
+    See [Encrypt static (embedded) server secrets]({{base_path}}/integrate/develop/using-embedded-micro-integrator/#encrypt-static-embedded-server-secrets) for details.
+
+4.  Save the configurations.
+
+#### Environment variables
+
+When configuring the metadata YAML file, we used a parameterized serviceUrl (http://{host}:{port}/healthcare). Now, let's inject the
+host and port values to the service url by using environment variables. 
+
+The following mapping shows placeholder values and their relevant environment variables. 
+
+```bash
+{host}  :  localhost
+{port}  :  8290
+```
+=======
 3.  Optionaly, you can encrypt the username and password for better security. 
 
     1.  Update the configuration as shown below. 
@@ -307,6 +447,24 @@ Package the artifacts in your composite exporter module to be able to deploy the
     -   `QueryDoctorEP`
 
 3.  Save the changes.
+>>>>>>> 0e959f0be40d5a03391f870bfa55b1dff42df72c
+
+### Step 6: Start the WSO2 API Management runtime
+
+Start the API Manager runtime before starting the Micro Integrator.
+
+<<<<<<< HEAD
+### Step 5: Package the artifacts
+
+Package the artifacts in your composite exporter module to be able to deploy the artifacts in the server.
+
+1.  Open the `pom.xml` file of the **SampleServicesCompositeExporter** module.
+2.  Ensure that the following artifacts are selected in the POM file.
+
+    -   `HealthcareAPI`
+    -   `QueryDoctorEP`
+
+3.  Save the changes.
 
 ### Step 6: Start the WSO2 API Management runtime
 
@@ -322,6 +480,18 @@ Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embe
 !!! Info
     When you do this step: 
 
+=======
+1.  Download [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
+2.  Start the server.
+
+### Step 7: Build and run the service
+
+Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embedded Micro Integrator:
+
+!!! Info
+    When you do this step: 
+
+>>>>>>> 0e959f0be40d5a03391f870bfa55b1dff42df72c
     1.  The Micro Integrator first reads the metadata files. 
     2.  Then, it replaces the placeholders with environment variable values and creates a ZIP file.
     3.  Finally, it uploads the metadata to the API management runtime.
