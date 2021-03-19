@@ -1462,6 +1462,7 @@ nav:
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
+          - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
@@ -1489,7 +1490,6 @@ nav:
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
-              - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md

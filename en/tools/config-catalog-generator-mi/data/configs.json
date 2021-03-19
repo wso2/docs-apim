@@ -76,7 +76,7 @@
                     "description": "This cofiguration header is required if you want the Micro Integrator to publish integation services to the Service Catalog in the API Publisher. This allows you to generate an API proxy for the integrations deployed in the Micro Integrator.",
                     "params": [
                         {
-                            "name": "apimhost",
+                            "name": "apim_host",
                             "type": "string",
                             "required": true,
                             "default": "\"https://127.0.0.1:9443\"",
