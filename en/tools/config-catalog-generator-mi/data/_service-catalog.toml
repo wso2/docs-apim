@@ -1,5 +1,5 @@
 [[service_catalog]]
-apimHost = "https://127.0.0.1:9443"
+apim_host = "https://localhost:9443"
 enable = true
-userName = "$secret{userName}"
+username = "$secret{username}"
 password = "$secret{password}"
