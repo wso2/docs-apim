@@ -24,10 +24,11 @@ This demonstrates how the integration components and API management components o
 The following concepts and artifacts are used in this tutorial:
 
 -   REST API / Integration Service
--   HTTP Endpoint
--   Call Mediator
--   Respond Mediator
+-   Endpoints
+-   Mediators
 -   Service Catalog
+-   API Publisher
+-   API Developer Portal
 
 ## Let's get started!
 
@@ -145,25 +146,25 @@ Follow the instructions given in this section to create and configure the requir
 
 8.  Open the **Source** view of the HealthcareAPI that you created and apply the following.
 
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
-            <resource methods="GET" uri-template="/querydoctor/{category}">
-                <inSequence>
-                    <log description="Request Log" level="custom">
-                        <property name="Log Property message" value="&quot;Welcome to HealthcareService&quot;"/>
-                    </log>
-                    <send>
-                        <endpoint key="QueryDoctorEP"/>
-                    </send>
-                </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
-                <faultSequence/>
-            </resource>
-        </api>
-        ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+        <resource methods="GET" uri-template="/querydoctor/{category}">
+            <inSequence>
+                <log description="Request Log" level="custom">
+                    <property name="Log Property message" value="&quot;Welcome to HealthcareService&quot;"/>
+                </log>
+                <send>
+                    <endpoint key="QueryDoctorEP"/>
+                </send>
+            </inSequence>
+            <outSequence>
+                <send/>
+            </outSequence>
+            <faultSequence/>
+        </resource>
+    </api>
+    ```
 
 When the **HealthcareAPI** is created, the following two new files are created in the metadata folder. 
 
@@ -485,9 +486,9 @@ Now, let's assume you are an API consumer who wants to use the API. As a consume
 
 ### Step 10: Use the API
 
-!!! Info
+!!! Info "Before you begin"
 
-    To test this use case, let's start the back-end hospital service.
+    Let's start the back-end hospital service.
 
     1.  Download the JAR file of the back-end service from [here](https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/Hospital-Service-JDK11-2.0.0.jar).
     2.  Open a terminal, navigate to the location where your saved the back-end service.
