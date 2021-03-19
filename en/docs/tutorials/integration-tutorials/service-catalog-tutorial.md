@@ -248,7 +248,7 @@ Let's update the metadata of the integration service.
     </table>
 
     !!! Tip
-        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/) for more information on the metadata in the YAML file.
+        See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
 3.  <b>Important</b>: Be sure to change the `serviceUrl` from HTTPS to HTTP. This is required because the HealthcareAPI is not secured.
 
