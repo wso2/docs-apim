@@ -10,10 +10,6 @@ To access the Async API View, open a Siddhi application that meets criterion men
 
 ![Open Async API View](({{base_path}}/assets/img/streaming/working-with-async-api/open-async-api-view-button.png)
 
-
-({{base_path}}/assets/img/streaming/working-with-async-api/open-async-api-view-button.png)
-
-
 ## Generating a new API definition
 
 When you open the Async API view for a Siddhi application for which the asynchronous API is not yet generated, the **Generating Async API for Sinks and Sources** dialog box opens as shown below.
