@@ -485,7 +485,7 @@
     </table>
 
     !!! note 
-        **Changing the Default API Template**
+        **Overriding an API with organization-specific details and further finetuning**
 
         When you create an API Project, APIs are generated using a default template. To further finetune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
         For more information, see [Initialize an API project](#initialize-an-api-project).
