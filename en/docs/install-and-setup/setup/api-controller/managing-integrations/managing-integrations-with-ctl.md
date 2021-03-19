@@ -7,7 +7,7 @@ WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (dep
 
     -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
-    -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
@@ -98,7 +98,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ## Manage Users
 
-You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the CTL with administrator credentials, you can also add new users, and remove users from the user store.
+You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the apictl with administrator credentials, you can also add new users, and remove users from the user store.
 
 ### Get information about users
 

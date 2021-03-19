@@ -5,7 +5,7 @@
 !!! info
     **Before you begin** 
 
-    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -  Make sure to add an environment before you start working with the following apictl commands, because all API Products need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
@@ -263,7 +263,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
                 `--params` : Define the API Manager environment params file.  
-                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--skip-cleanup` : Leave all temporary files created in the apictl during import process. Default value is `false`.  
 
         !!! example
             ```bash
@@ -298,7 +298,7 @@ mentioned gateway environments. If the **deployment environments are not provide
             If you set `--update-apis` flag to true, it will make `--update-api-product` flag true as well.
 
         !!! tip
-            When using `--update-api-product` or `--update-apis` flags with `import api-product` command, the CTL tool will check if the given API Product exists in the targeted environment. If the API Product exists, it will update the existing API Product. If not, it will create a new API Product in the imported environment. 
+            When using `--update-api-product` or `--update-apis` flags with `import api-product` command, the apictl tool will check if the given API Product exists in the targeted environment. If the API Product exists, it will update the existing API Product. If not, it will create a new API Product in the imported environment. 
 
        
      -   **Response**

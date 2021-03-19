@@ -5,7 +5,7 @@
 !!! info
     **Before you begin** 
 
-    -   Make sure that the apictl is downloaded and initialized, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure that the apictl is downloaded and initialized, if not, follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -   Make sure you already have added an environment using the apictl for the WSO2 API-M environment you plan to import the API to. 
 

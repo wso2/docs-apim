@@ -5,7 +5,7 @@
 !!! info
     **Before you begin**
 
-    -   Make sure apictl is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure apictl is initialized and running, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -  Add an environment before you start working with the following apictl commands, because all APIs need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
@@ -382,7 +382,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
                 `--update` : Update an existing API or create a new API in the importing environment.  
                 `--params` : Define the API Manager environment params file.   
-                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--skip-cleanup` : Leave all temporary files created in the apictl during import process. Default value is `false`.  
 
         !!! example
             ```bash
@@ -414,7 +414,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         
         - From WSO2 API-M 4.0.0 onwards, you have to create a new revision in order to deploy an API in an gateway environment and 
             **only a revision can be deployed in a gateway environment**. 
-        - With the import command of the CTL, if the API project has specified the deployment environments, import 
+        - With the import command of the apictl, if the API project has specified the deployment environments, import 
             will first **update the working copy of the API**.
         - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
             of that API will be created and that revision will be deployed in the specified gateway environments.
@@ -432,7 +432,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         As an example, If `--preserve-provider` is set to `true`, when importing an API created by user-1 in environment-1 will be preserved with user-1 as the provider when and after importing that API to environment-2 by user-2. If `--preserve-provider` is set to `false`, when importing that API created by user-1 to the environment-2, the provider will be changed (not preserved) to user-2 who is importing the API.    
 
         !!! tip
-            You must add the flag `--preserve-provider` to the apictl command and set its value to `false` if the API is imported to a different domain than its exported one. So it sets the provider of the imported API to the user who is issuing the CTL command. 
+            You must add the flag `--preserve-provider` to the apictl command and set its value to `false` if the API is imported to a different domain than its exported one. So it sets the provider of the imported API to the user who is issuing the apictl command. 
 
 !!! note
     **Configuring Environment Specific Parameters**

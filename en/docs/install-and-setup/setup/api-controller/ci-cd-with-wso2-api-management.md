@@ -47,7 +47,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
 2.  Download and setup apictl 4.0.0 version. 
 
-     For more information, see [Download and initialize the ctl tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).  
 
 3.  Add WSO2 API-M environments using the `add env` command.
 
@@ -375,7 +375,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
 
 !!! tip
-    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
+    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
     - You should log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
 Run any of the following apictl commands to get keys for the API/API Product.

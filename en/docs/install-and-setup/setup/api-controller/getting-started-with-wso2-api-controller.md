@@ -72,7 +72,7 @@ Run the following apictl command to check the version.
 !!!note
     **Set mode of apictl**
 
-    From the apictl 4.0.0 onwards the flag (--mode) which was used to set the mode of the CTL has been deprecated. Now, you do not need to set the mode of apictl, because if you want to execute Kubernetes based commads, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default apictl will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
+    From the apictl 4.0.0 onwards the flag (--mode) which was used to set the mode of apictl has been deprecated. Now, you do not need to set the mode of apictl, because if you want to execute Kubernetes based commads, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default apictl will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
 
     You can still use the `mode` flag as explained below if you need it, but it will be removed in the future.
         
@@ -150,7 +150,7 @@ apictl add env <environment-name>
 ```
 
 1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.     
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
     -   **Command**
@@ -289,7 +289,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Remove an environment
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.  
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
     -   **Command**
@@ -318,7 +318,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Get environments
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.    
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
     -   **Command**
@@ -359,7 +359,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
     -   **Command**
@@ -419,7 +419,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Logout from an environment
 
 1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.
 

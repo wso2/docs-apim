@@ -23,7 +23,7 @@ in your Jenkins server.
 4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).  
 
      [![Setup apictl in Jenkins]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)
   
@@ -62,7 +62,7 @@ Initialize an API Project using the OpenAPI definition, API definition template,
     **Before you begin...**   
 
     -   As the API Developer, make sure apictl is initialized and running in your local machine, 
-    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
     
     
 Run the following sample command to initialize an API Project using the apictl by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
@@ -144,7 +144,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
 2. Add the two environments using the following sample `apictl` commands.
 
     !!! warning
-        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     !!! example
         ```bash
