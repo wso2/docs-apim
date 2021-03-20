@@ -51,6 +51,17 @@ Given below are the main steps your will follow when you deploy integration solu
         reqMemory: "512Mi"
         cpuLimit: "2000m"
         memoryLimit: "2048Mi"
+        livenessProbe:
+          tcpSocket:
+            port: 8290
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 9201
+          initialDelaySeconds: 30
+          periodSeconds: 10
       autoScale:
         enabled: "true"
         maxReplicas: 3
@@ -155,6 +166,22 @@ Given below are the main steps your will follow when you deploy integration solu
       </tr>
       <tr>
         <td>
+          livenessProbe
+        </td>
+        <td>
+          Describes liveness probe to let K8s to know when to restart the containers.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          readinessProbe
+        </td>
+        <td>
+          Describes readiness probe to let K8s to know when container is ready to start accepting traffic.
+        </td>
+      </tr>
+      <tr>
+        <td>
           autoScale.enabled
         </td>
         <td>
@@ -211,7 +238,7 @@ Given below are the main steps your will follow when you deploy integration solu
 When the integration is successfully deployed, it should create the `hello-world` integration, `hello-world-deployment`, `hello-world-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller](#disable-ingress-controller).
+    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller](#Disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration
@@ -401,6 +428,10 @@ Follow the steps given below:
     {"Hello":"World"}%
     ```
 
+!!! Tip
+    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller](#Disable-ingress-controller-creation).
+
+
 ## Update existing integration deployments
 
 The K8s API operator allows you to update the Docker images used in Kubernetes pods(replicas) with the latest update of the tag. To pull the latest tag, we need to delete the associated pod with its pod ID as follows:
@@ -451,3 +482,176 @@ Use the following methods to invoke the inbound endpoints in HTTP and HTTPS tran
     ```bash
     curl --cacert <CERT_FILE> https://<HOST-NAME>/<INTEGRATION-NAME>-inbound/<PORT>/<CONTEXT>
     ```    
+
+
+## Manage resources of pods in integration deployment
+
+The K8s operator allows you to define the resources that are required for running the pods in a deployment. You can also define resource limits when you define these resources. The following example shows how CPU and memory resources are configured in the `integration_cr.yaml` file.
+
+```yaml
+apiVersion: wso2.com/v1alpha2
+kind: Integration
+metadata:
+  name: test-integration
+spec:
+  image: <MI based Docker image for integration>
+  deploySpec:
+    minReplicas: 1
+    requestCPU: "500m"
+    reqMemory: "512Mi"
+    cpuLimit: "2000m"
+    memoryLimit: "2048Mi"
+```
+
+If you don't have any resources defined in the `integration_cr.yaml` file, the K8s operator refers the default resource configurations in the `integration_controller_conf.yaml` file. Therefore, be sure to update the `integration-config` section in the `integration_controller_conf.yaml` file with default resource configurations. See the example given below.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: integration-config
+data:
+  requestCPU: "500m"
+  reqMemory: "512Mi"
+  cpuLimit: "2000m"
+  memoryLimit: "2048Mi"
+```
+
+See [Managing Resources for Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) in the Kubernetes documentation for more details. 
+
+
+## Enable Auto Scaling for deployment
+
+When the traffic to your pods increase, the deployment may need to scale horizontally. 
+Kubernetes allows you to define the resource limits and policy in a way that the deployment can auto scale based on resource usage. 
+See [Horizontal Pod Scaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) in the Kubernetes documentation for details.
+
+You can enable auto scaling and define the maximum number of replicas to scale by updating the `autoScale` section in the `integration_cr.yaml` file as shown below. 
+
+  ```yaml
+apiVersion: wso2.com/v1alpha2
+kind: Integration
+metadata:
+  name: test-integration
+spec:
+  autoScale:
+    enabled: "true"
+    maxReplicas: 3
+  ```
+
+If you don't have auto scaling defined in the `integration_cr.yaml` file, the K8s operator refers the default configurations in the `integration_controller_conf.yaml` file. Therefore, be sure to update the `integration_controller_conf.yaml` file with auto scaling configurations as shown below.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: integration-config
+data:
+  enableAutoScale: "true"
+  maxReplicas: "5"
+```
+
+Note how you can set required resources and resource limits for the pods in the deployment referring to the above section [Managing resources for pods in EI deployment](#Managing-resources-for-pods-in-EI-deployment). HPA configs are injected through the integration configmap. See how you can define it at [integration_controller_conf.yaml]([integration_controller_conf.yaml](https://github.com/wso2/k8s-api-operator/blob/master/api-operator/deploy/controller-configs/integration_controller_conf.yaml)) file. 
+
+```yaml
+  hpaMetrics: |
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+```
+
+## Liveness and readiness probes 
+
+The operator gives you the flexibility of defining liveness and readiness probes. These probes are used by Kubernetes to know whether the pods are live and whether they are ready to accept traffic.
+
+You can configure the default probe definition in the `integration_controller_conf.yaml` file as shown below. 
+
+Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on passthrough port(default 8290). Liveness of the MI pod is checked by a ping to that port.
+
+WSO2  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with path `/healthz` which is exposed through HTTP inbound port(default 9201) is used to check that.
+
+Note that these ports can change as per the configurations used at the MI based image. 
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: integration-config
+data:
+  livenessProbe: |
+    tcpSocket:
+      port: 8290
+    initialDelaySeconds: 10
+    periodSeconds: 5
+  readinessProbe: |
+    httpGet:
+      path: /healthz
+      port: 9201
+    initialDelaySeconds: 10
+    periodSeconds: 5
+```
+
+Use the `integration_cr.yaml` file to define the probes specific to a particular deployment. See the example given below.
+
+```yaml
+apiVersion: wso2.com/v1alpha2
+kind: Integration
+metadata:
+  name: test-integration
+spec:
+  image: <MI based Docker image for integration>
+  deploySpec:
+    livenessProbe:
+      tcpSocket:
+        port: 8290
+      initialDelaySeconds: 30
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /healthz
+        port: 9201
+      initialDelaySeconds: 30
+      periodSeconds: 10
+```
+
+Note that any you can configure any configuration supported under these probes as defined at [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+
+
+## Update the existing deployment 
+
+You can update the configurations in the `integration_cr.yaml` file and reapply it to your existing deployment when you use the K8s operator. The Docker image, exposed ports, resource definitions, environment variables, etc. can be updated.  
+
+## Additional operator configurations 
+
+### Disable ingress controller creation
+
+By default, an ingress controller named `ei-operator-ingress` is created to expose all the deployments created by the operator. Per deployment, new rules are added to the same ingress controller to route the traffic. Sometimes you may use an external ingress or define an ingress yourself. In such cases, you can disable ingress controller creation from the `integration_controller_conf.yaml` file as shown below.
+
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: integration-config
+data:
+  reconcileInterval: "10"
+  autoIngressCreation: "false"
+```
+
+### Change reconcile interval
+
+The K8s operator continuously runs a task that listens for changes applied to the deployment. When you change the `integration_cr.yaml` file and reapply, this is the task that updates the deployment. You can configure this task at the operator level (in seconds) by using the `integration_controller_conf.yaml` file as shown below. You can specify how often the task should run.
+
+defined at `integration_controller_conf.yaml` file
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: integration-config
+data:
+  reconcileInterval: "10"
+```
