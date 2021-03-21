@@ -165,6 +165,9 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
                 parameters:
                 location: "step2"
                 schema: "identity"
+            -
+                name: "TenantPortalMigrator"
+                order: 11
         ```
 
     !!! warning
