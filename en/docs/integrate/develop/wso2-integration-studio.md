@@ -104,7 +104,7 @@ An embedded RESTful HTTP client is shipped with WSO2 Integration Studio to suppo
 
 WSO2 Integration Studio is shipped with an embedded Micro Integrator server, which allows developers to deploy and run integration artifacts during the development phase. To deploy the artifacts and to run the embedded Micro Intgrator, right-click the composite application project (which includes your artifacts) and click **Export Project Artifacts and Run**.
 
-Find out more about [using the embedded Micro Integrator]({{base_path}}/integrate/develop/using-embedded-micro-integrator)
+Find out more about [using the embedded Micro Integrator]({{base_path}}/integrate/develop/using-embedded-micro-integrator).
 
 <img src="{{base_path}}/assets/img/integrate/create_project/testing_export_run.png" width="500">
 
@@ -132,4 +132,4 @@ of the toolbar are also editor specific.
 
 -   See [Installing WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) for installation instructions.
 -   See [Working with WSO2 Integration Studio]({{base_path}}/integrate/develop/working-with-wso2-integration-studio) for more information on how to setup and use tooling.
--   See [Troubleshooting WSO2 Integration Studio]({{base_path}}/integrate/develop/troubleshooting-wso2-integration-studio) for information on troubleshooting errors you may run into while using EI Tooling.
+-   See [Troubleshooting WSO2 Integration Studio]({{base_path}}/integrate/develop/troubleshooting-wso2-integration-studio) for information on troubleshooting errors you may run into while using WSO2 Integration Studio.
