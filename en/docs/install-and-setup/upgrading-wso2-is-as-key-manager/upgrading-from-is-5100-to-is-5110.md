@@ -100,6 +100,12 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         When following the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
         follow the below guidelines as well.
 
+        - Change the following property to **false** in the <IS_HOME>/repository/conf/deployment.toml file of IS 5.11.0.
+            ```
+            [super_admin]
+            create_admin_account = false
+            ```
+
         -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.
             ```
             [database.identity_db]
@@ -200,3 +206,11 @@ Follow the steps mentioned in [Upgrading API-M from 3.2.0 to 4.0.0]({{base_path}
         -   **Step 5** to upgrade identity component in API-M from 5.10.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-5110/#step-a-setup-is-5110-as-a-key-manager).
 
     - After configuring WSO2 IS 5.11.0 as the **Resident Key Manager** and before starting the API-M 4.0.0 server for the first time in **Step 5** under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400/#step-2-upgrade-api-manager-to-400), make sure you have already started WSO2 IS 5.11.0.
+
+!!! info
+
+    If you want to use the latest user store, please update both the `<IS_HOME>/repository/conf/deployment.toml` and `<API-M_HOME>/repository/conf/deployment.toml` as follows after the migration.
+    ```
+    [user_store]
+    type = "database_unique_id"
+    ```
