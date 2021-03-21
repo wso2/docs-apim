@@ -12,7 +12,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ## Step 1 - Upgrade IS as Key Manager 5.7.0 to IS 5.11.0
 
-- [Step A - Setup IS 5.10.0 as a Key Manager](#step-a-setup-is-5110-as-a-key-manager)
+- [Step A - Setup IS 5.11.0 as a Key Manager](#step-a-setup-is-5110-as-a-key-manager)
 - [Step B - Migrate IS from 5.7.0 to 5.11.0](#step-b-migrate-is-from-570-to-5110)
 
 ### Step A - Setup IS 5.11.0 as a Key Manager
@@ -91,7 +91,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step B - Migrate IS from 5.7.0 to 5.11.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.0.0. This will be used as the `identity_db` in IS 5.10.0.
+1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400/#step-2-upgrade-api-manager-to-400) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.6.0 to 4.0.0. This will be used as the `identity_db` in IS 5.11.0.
 
 2. Folllow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.7.0 distribution to IS 5.11.0.
 
@@ -117,7 +117,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
             #connection_password = "admin"
             #base_dn = "dc=wso2,dc=org"      
             ```
-            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0
+            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0
             ```
             [user_store]
             type = "database"
@@ -187,7 +187,7 @@ Follow the steps mentioned in [Upgrading API-M from 2.6.0 to 4.0.0]({{base_path}
     the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.11.0 as the **Resident Key Manager** of your API-M 4.0.0 deployment.
         ```
         [apim.key_manager]
-        service_url = "https://<IS_5.10.0_HOST_NAME>:<PORT>/services/"
+        service_url = "https://<IS_5.11.0_HOST_NAME>:<PORT>/services/"
         type = "WSO2-IS"
         ```
 

@@ -96,7 +96,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 2. Folllow the guidelines in [WSO2 IS 5.11.0 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) to migrate your current IS as KM 5.5.0 distribution to IS 5.11.0.
 
     !!! Important
-        When following the instructions in [Migration the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
+        When following the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
         follow the below guidelines as well.
 
         -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.

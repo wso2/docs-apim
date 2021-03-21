@@ -117,7 +117,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
             #connection_password = "admin"
             #base_dn = "dc=wso2,dc=org"      
             ```
-            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.10.0
+            Instead, add the following to the `<IS_HOME>/repository/conf/deployment.toml` in IS 5.11.0
             ```
             [user_store]
             type = "database"
@@ -197,7 +197,7 @@ Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 4.0.0]({{base_path}
     steps.
 
         -   **Step 3** to upgrade the `WSO2AM_DB` from 3.0.0 to 4.0.0. You have already done this in Step 1 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5110/#step-a-setup-is-5110-as-a-key-manager).
-        -   **Step 5** to upgrade identity component in API-M from 5.9.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.10.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5110/#step-a-setup-is-5110-as-a-key-manager).
+        -   **Step 5** to upgrade identity component in API-M from 5.9.0 to 5.11.0. You have already done this in Step 2 of [Step A - Setup IS 5.11.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5110/#step-a-setup-is-5110-as-a-key-manager).
 
     - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 4.0.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 4.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400/#step-2-upgrade-api-manager-to-400), make sure you have already started WSO2 IS 5.11.0.
 
