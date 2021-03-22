@@ -255,7 +255,7 @@ nav:
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
                 - Manage Microgateway APIs with WSO2 API Manager: deploy-and-publish/deploy-on-gateway/manage-microgateway-apis-with-wso2-api-manager.md
-                - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md  
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
