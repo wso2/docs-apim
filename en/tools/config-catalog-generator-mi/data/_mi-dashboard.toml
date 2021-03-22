@@ -1,0 +1,5 @@
+[dashboard_config]
+dashboard_url = "https://localhost:9743/dashboard/api/"
+heartbeat_interval = 5
+group_id = "mi_dev"
+node_id = "dev_node_2"

@@ -14,12 +14,12 @@ Create a Maven Project using the following information.
 
 !!! Tip
     You can skip step 5 since you do not need to add external JAR files in this example.
-    -   **Group Id:** `             org.wso2.task            `
-    -   **Artifact Id** :`             StockQuoteTaskMavenProject            `
+    -   **Group Id** : `org.wso2.task`
+    -   **Artifact Id** : `StockQuoteTaskMavenProject`
 
 ### Creating the Java Package
 
-Create a Java Package inside the Maven Project using the following name: `             org.wso2.task.stockquote.v1            `
+Create a Java Package inside the Maven Project using the following name: `org.wso2.task.stockquote.v1`
 
 ![]({{base_path}}/assets/img/integrate/custom-task-scheduling/119130458/119130467.png)
 
@@ -384,7 +384,7 @@ Follow the steps below to create the task and schedule it.
     </table>
 
     !!! Note
-        Currently, you cannot set properties of a custom task using the **Design View** due to a [known issue](https://github.com/wso2/product-ei/issues/2551), which will be fixed in the future WSO2 EI versions.
+        Currently, you cannot set properties of a custom task using the **Design View** due to a [known issue](https://github.com/wso2/product-ei/issues/2551), which will be fixed in future versions.
 
 The below is the complete source configuration of the Task (i.e., the `PrintStockQuoteScheduledTask.xml` file).
 

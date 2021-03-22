@@ -1,6 +1,6 @@
 #Deploying APIs in API Gateway vs API Microgateway
 
-**API Deploying** is the process of making the API available for subscription. WSO2 API Manager comes with two gateway choices, the traditional API Gateway and the lightweight API Microgateway.
+**API Deploying** is the process of making the API available for invocation. WSO2 API Manager comes with two gateway choices, the traditional API Gateway and the lightweight API Microgateway.
 
 WSO2 API Microgateway is focused on providing a convenient experience for developers through developer-centric API management. This is where APIs can be managed by the use of OpenAPI definitions and it is the most common way of creating/defining APIs in a Microgateway environment. This method allows developers to define Microgateway API endpoints using standard OpenAPI definitions. They only have to copy an already defined OpenAPI definition of a valid REST endpoint to the Microgateway project. Microgateway will parse the resources and different attributes defined in the OpenAPIs definition and generate the required gateway services. These services can then be built and deployed into different gateway environments.
 

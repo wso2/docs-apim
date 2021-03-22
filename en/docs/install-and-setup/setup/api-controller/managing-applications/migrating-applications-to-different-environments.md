@@ -1,19 +1,16 @@
 # Migrating Apps to Different Environments
-WSO2 API Controller, **apictl** allows you to maintain multiple environments running on the same WSO2 API-M version. This feature allows you to import and export applications between your environments. For example, if you have an application running in the development environment, you can import it and export it to the production environment. Thereby, applications do not have to be created from scratch in different environments.
+**WSO2 API Controller (apictl)** allows you to maintain multiple environments running on the same WSO2 API Manager (WSO2 API-M) version. This feature allows you to import and export applications between your environments. For example, if you have an application running in the development environment, you can import it and export it to the production environment. Thereby, applications do not have to be created from scratch in different environments.
 
 !!! info
     **Before you begin** 
 
-    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the instructions in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure apictl is initialized and running, if not follow the instructions in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -  Make sure to add an environment before you start working with the following CTL commands, because all applications need to be imported or exported to/from a specific environment.    
        For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! tip
-    -  Only the following types of users are allowed to export and import applications.  
-        -   A user with the `admin` role.
-        -   A user with a role having `apim:app_import_export` Admin REST API scope with `API Subscribe` permission.
-    - Refer [Creating Custom Users to Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations) for more information.
+    A user with `Internal/devops` role or `admin` role are allowed to import/export Applications. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ## Manage the application lifecycle
 
@@ -26,7 +23,7 @@ The lifecycle of an application could be defined as the stages of an application
 
 You can export an application in the Developer Portal and download it as a zipped file.
 
-1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the WSO2 API-M in the exporting environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and the keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -34,7 +31,7 @@ You can export an application in the Developer Portal and download it as a zippe
     !!! info
         If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
-2.  Run any of the following CTL commands to export an existing application as a `.zip` archive.
+2.  Run any of the following apictl commands to export an existing application as a `.zip` archive.
 
     -   Command 
         ``` java
@@ -72,7 +69,7 @@ You can export an application in the Developer Portal and download it as a zippe
             ```     
 
         !!!note
-            `apictl export-app` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
+            `apictl export-app` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
     -   **Response**
 
@@ -89,14 +86,36 @@ You can export an application in the Developer Portal and download it as a zippe
 The exported application zipped file will be as follows:
 ```bash
 <Application-owner>_<Application-name>.zip         
- └── application.yaml        
+ ├── application.yaml  
+ └── application_meta.yaml       
 ```
+
+The structure of an exported Application ZIP file is explained below:
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>File</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>application.yaml</code></td>
+            <td>Contains all the basic information required for an Application to be imported to another environment.</td>
+        </tr>
+        <tr class="even">
+            <td><code>application_meta.yaml</code></td>
+            <td>The meta-information file of the source artifact (This includes the name and the owner of the Application).</td>
+        </tr>
+     </tbody>
+</table>
 
 ## Import an application
 
 You can import an application to your environment as a zipped application. When you import an application as a zipped file, a new application is created within the target environment.
 
-1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the WSO2 API-M in the importing environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and the keys already are available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -104,7 +123,7 @@ You can import an application to your environment as a zipped application. When 
     !!! info
         If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
-2.  Run any of the following CTL commands to import an existing application as a `.zip` archive.
+2.  Run any of the following apictl commands to import an existing application as a `.zip` archive.
 
     -   **Command**
         ```go
@@ -185,7 +204,6 @@ There are three options to import applications in a single-tenant environment.
 
 -   Application A in environment 1 is migrated to environment 2. Some APIs may not be available in environment 2 (API B in this case) and the relevant subscriptions are not added in such cases (skipped).
     [![Importing Applications across Two Environments with the Same Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)
-
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
     [![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)
 -   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserve-owner` flag.

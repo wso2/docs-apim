@@ -156,7 +156,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     - Resolve parameters at server side while importing an API project
     - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
     - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the api_params.yaml
+    - Support to override subscription policies of an API using the params file
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
 
