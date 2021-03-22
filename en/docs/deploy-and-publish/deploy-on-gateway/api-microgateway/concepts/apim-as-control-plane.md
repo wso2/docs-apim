@@ -1,7 +1,7 @@
 # Micorgateway with API Manager as Control Plane.
 
 Microgateway can connect to API Manager running on cloud or on-premise as its control plane. Microgateway can be configured to connect with
-APIM control plane, so the user actions like API deploying, application creation, key generation, subscription creation and etc are received by the
+APIM control plane, therefore the user actions like API deploying, application creation, key generation, subscription creation and etc are received by the
 microgateway seamlessly.
 
 [![]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)

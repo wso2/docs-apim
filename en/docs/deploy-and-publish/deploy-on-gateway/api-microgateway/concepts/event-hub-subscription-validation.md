@@ -23,9 +23,8 @@ The following are the data stores that are being used.
 4. If an entry is not found for the consumer key, the subscription validation is considered failed.
 5. Get the API information from the API data store. (API id)
 6. Get subscription information for API id and application id from the subscription data store.
-7. If the subscription data is not found, invoke the internal data api and fetch any subscription data available.
-8. If subscription data is not found (in data stores and api manager) then, the subscription is considered failed.
-9. If a valid subscription is found, then the relevant data is populated into the internal context for other functions (analytics data, throttling, etc)
+7. If subscription data is not found (in data stores and api manager) then, the subscription is considered failed.
+8. If a valid subscription is found, then the relevant data is populated into the internal context for other functions (analytics data, throttling, etc)
 
 ## The Event Hub
 
