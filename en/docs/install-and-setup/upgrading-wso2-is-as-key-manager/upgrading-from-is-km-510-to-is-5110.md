@@ -19,7 +19,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ## Step 2 - Upgrade WSO2 IS as Key Manager 5.7.0 to WSO2 IS 5.11.0
 
-After you have successfully migrated your current IS as KM version to 5.7.0 and WSO2 API-M version to 2.6.0, upgrade IS as KM 5.7.0 to IS 5.11.0 and API-M 2.6.0 to API-M 4.0.0. For more information, see [Upgrading WSO2 IS as Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5110/).
+After you have successfully migrated your current IS as KM version to 5.7.0 and WSO2 API-M version to 2.6.0, upgrade IS as KM 5.7.0 to IS 5.11.0 and API-M 2.6.0 to API-M 4.0.0. For more information, see [Upgrading WSO2 IS as Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110/).
 
 This concludes the upgrade process.
 
