@@ -8,9 +8,8 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 ### Step 1 - Design a SOAP service as a REST API
 
 1.  Sign in to the API Publisher and click **CREATE API**.
-      <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
-     </html>
+    
+    [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
 
 2.  Select **Pass Through** option and thereafter, select one of the following options:
 
@@ -66,7 +65,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 ### Step 2 - Invoke a SOAP service as a REST API.
 
-1.  Log in to the developer portal, navigate to **Credentials** tab and subscribe to  the api using (e.g.,DefaultApplication)
+1.  Log in to the developer portal, navigate to **Subscriptions** tab and subscribe to  the api using (e.g.,DefaultApplication)
       ![]({{base_path}}/assets/img/learn/subscribed-to-api.jpg)
 
 2.  Click the **MANAGE APP** button when prompted **View Credentials**.
@@ -95,8 +94,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
       <td>SOAP Request</td>
        <td>
        <pre>
-         <?xml version="1.0" encoding="utf-8"?>
-                &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+            &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
                 &lt;soap:Body&gt;
                     &lt;CheckPhoneNumber xmlns="http://ws.cdyne.com/PhoneVerify/query"&gt;
                     &lt;PhoneNumber&gt;18006785432&lt;/PhoneNumber&gt;

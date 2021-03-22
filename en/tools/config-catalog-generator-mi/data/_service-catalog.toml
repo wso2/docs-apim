@@ -1,0 +1,5 @@
+[[service_catalog]]
+apim_host = "https://localhost:9443"
+enable = true
+username = "$secret{username}"
+password = "$secret{password}"

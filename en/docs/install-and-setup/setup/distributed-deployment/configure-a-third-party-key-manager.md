@@ -1,4 +1,4 @@
-# Configure a Third-party Key Manager
+# Set up a Third-party Key Manager
 
 The **Key Manager** handles all clients, security, and access token-related operations. In a typical API Manager production deployment, different components talk to the Key Manager component to achieve different tasks. The API Gateway connects with the Key Manager to check the validity of OAuth tokens, subscriptions, and API invocations. When a subscriber generates an access token to the application using the Developer Portal, the Developer Portal makes a call to the Key Manager to create an OAuth application and obtains an access token. 
 

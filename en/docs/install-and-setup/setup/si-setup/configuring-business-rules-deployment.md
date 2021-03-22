@@ -40,7 +40,8 @@ To configure a Streaming Integrator node to use specific rules templates, follow
             - stock-exchange-input
             - stock-exchange-output
     ```
-   !!! tip
+   
+    !!! tip
        If required, you can enter a specific rule template under multiple nodes as shown below. Before doing so, ensure the you have selected **Many** for the **Instance Count** field of the template. For more information, see [Creating a Business Rules Template]({{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates/creating-business-rules-templates/#creating-a-business-rules-template).<br/><br/>
        ```yaml
         deployment_configs:

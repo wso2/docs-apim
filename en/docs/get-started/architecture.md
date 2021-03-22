@@ -20,9 +20,9 @@ The Developer Portal is a state-of-the-art web interface that allows API publish
 
 #### Service Catalog
 
-[![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog-onboarding.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
+[![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog.png)]({{base_path}}/assets/img/get_started/architecture/service-catalog.png)
 
-WSO2 API Manager includes a service catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
+WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
 
 These integration services can be created using WSO2 Integration Studio and a variety of other platforms. For an Integration Studio user, the service registration happens automatically when exporting the project as a composite application (CApp).
 
@@ -98,7 +98,7 @@ There are multiple developer-friendly tools that can be used to help you work wi
 
 The WSO2 API Manager and the Micro Integrator are coupled with [WSO2 Integration Studio]({{base_path}}/integrate/develop/WSO2-Integration-Studio); a comprehensive graphical integration flow designer for building integrations using a simple drag-and-drop functionality.
 
-<img src="{{base_path}}/assets/img/integrate/intro/integration-studio.png" alt="Integration Studio" name="Integration Studio" width="700">
+<img src="{{base_path}}/assets/img/integrate/intro/integration-studio.png" alt="Integration Studio" name="Integration Studio">
 
 WSO2 Integration Studio is your development environment for designing, developing, debugging, and testing integration solutions. As an integration developer, you can execute all the phases of the development lifecycle using this tool. When your integration solutions are production-ready, you can easily push the artifacts to your continuous integration/continuous deployment pipeline and also register them as services in the service catalog.
 

@@ -1,10 +1,10 @@
 #  Configuring Git Integration
 
-API Controller natively supports identifying APIs or any other types of projects in a Git repository and seamlessly deploying the changes of the projects to a given API Manager environment. This topic is regarding some of the configurations that you can use to optimize the Git integration functionality.
+**WSO2 API Controller (apictl)** natively supports identifying APIs or any other types of projects in a Git repository and seamlessly deploying the changes of the projects to a given WSO2 API Manager (WSO2 API-M) environment. This topic is regarding some of the configurations that you can use to optimize the Git integration functionality.
 
-## Enabling Project Deletion via Git Integration
+## Enabling project deletion via Git integration
 
-By default, API/Application/API Product deletion is disabled in API Controller. In order to enable it, use the below `apictl set` command.
+By default, API/Application/API Product deletion is disabled in apictl. In order to enable it, use the below `apictl set` command.
 
 ```bash
 apictl set --vcs-deletion-enabled=true
@@ -30,9 +30,9 @@ After the project deletion is enabled, any deleted API/Application or API Produc
     Switched to branch 'master'
     ```
 
-## Externalizing the VCS Configuration
+## Externalizing the VCS configuration
 
-API Controller's Git integration feature uses a dedicated configuration file which is located in `/home/<user>/.wso2apictl/vcs_config.yaml`. 
+apictl's Git integration feature uses a dedicated configuration file which is located in `/home/<user>/.wso2apictl/vcs_config.yaml`. 
 
 The structure of the file is as per below:
 
@@ -93,4 +93,4 @@ apictl set --vcs-config-path <full-path-to-store-vcs_config.yaml>
 By setting the above, `apictl vcs deploy` command will create the `vcs_config.yaml` if it is not available in the specified path and reuse it for the succeeding commands.
 
 !!! info
-    - To learn about using API Controller to deploy API Projects using a Git repository to different environments, refer the section [CI/CD with WSO2 API Manager]({{base_path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/).
+    - To learn about using apictl to deploy API Projects using a Git repository to different environments, refer the section [CI/CD with WSO2 API Manager]({{base_path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/).

@@ -219,7 +219,7 @@ connect to the database to insert data.
 
 #### Create the Smooks configuration
 
-Create a smooks configuration as shown below. See the instructions on [creating a smooks configuration]({{base_path}}/integrate/develop/creating-artifacts/creating-smooks-artifacts). 
+Create a smooks configuration file (for example `smooks-config.xml`) as shown below and save it to a location on your computer. 
 
 ```xml
 <smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.0.xsd">
