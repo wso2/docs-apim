@@ -1398,9 +1398,9 @@ You can use the command below to generate the transaction count summary report b
     Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
     ```
 
-## Update HashiCorp configurations
+## Update HashiCorp AppRole Pull secret ID
 
-You can use the command below to update the HashiCorp secret ID that is used by the Micro Integrator to connect with HashiCorp.
+You can use the command below to update the HashiCorp AppRole Pull secret ID that is used by the Micro Integrator to connect with HashiCorp.
 
 !!! note
     - The HashiCorp secret ID is only applicable when **AppRole Pull** authentication is used between the Micro Integrator and HashiCorp.
