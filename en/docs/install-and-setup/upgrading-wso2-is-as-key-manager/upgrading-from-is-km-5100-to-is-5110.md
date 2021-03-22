@@ -146,6 +146,9 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You **DO NOT NEED** to copy the API-M Key Manager specific configurations from `<OLD_IS_KM_HOME>/repository/conf/api-manager.xml` of previous IS as KM version to IS 5.11.0.
 
     !!! Important
+        Follow [Step 10 Part (d) of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/) only if you have **enabled Symmetric Key Encryption** in the previous IS as KM setup. If not, that step can be skipped.
+
+    !!! Important
         Before executing the IS migration client according to [Step 11 of IS 5.11 migration guide](https://is.docs.wso2.com/en/5.11.0/setup/migrating-to-5110/), keep in mind to remove the following entries from `migration-config.yaml` in the migration-resources directory.
         ```
         - version: "5.10.0"
