@@ -8,12 +8,7 @@ To allow easily configuring environment-specific details, by default, the apictl
 
 The file supports detecting environment variables during the API (or API Product) import process. You can use the notation `${DEV_URL}` to specify environment variables to any attribute in this file. 
 
-
-## Initialize API projects with dynamic data
-
-When initializing an API Project, the apictl is capable of detecting environment variables in the default definition file or in the provided custom definition file. Then it will create the primary API configuration file `api.yaml` with the dynamic data based on the environment variables. When executing the `apictl init` command, the CTL automatically injects the values to the API definition. You can use the notations `$ENV_VAR` or `${ENV_VAR}` to specify environment variables to any attribute in this file.
-
-Follow the instructions below to initialize an API Project with environment variables.
+Follow the instructions below to add dynamic data to environment configs of an API.
 
 1. Initialize an API Project using the below command.
 
