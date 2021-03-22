@@ -485,39 +485,10 @@
     </table>
 
     !!! note 
-        **Changing the Default API Template**
+        **Overriding an API with organization-specific details and further finetuning**
 
-        When you create an API Project, APIs are generated using the default template specified in `<USER_HOME>/.wso2apictl/default_api.yaml` file. Following is the default template used to generate API Projects.  
-
-        ```bash
-        type: api
-        version: v4.0.0
-        data:
-            name : null
-            version: 1.0.0
-            context: null
-            enableStore: true
-            endpointConfig:
-                endpoint_type: http
-                production_endpoints:
-                    url: http://localhost:8080
-                sandbox_endpoints:
-                    url: http://localhost:8081
-            endpointImplementationType: ENDPOINT
-            lifeCycleStatus: CREATED
-            policies:
-            - Unlimited
-            provider: admin
-            transport:
-            - http
-            - https
-            type: HTTP
-            visibility: PUBLIC
-        ```
-
-        This file contains the same notation as the `<API-Project>/api.yaml`. Organization-specific common API related details can be put into this template file and shared across developers.
-
-        To further finetune API creation, a custom API Definition file can be used. If you need to use a specific definition file when generating a certain API project, use the `--definition` or `-d` flag along with `apictl init` command. The custom definition file should be in YAML format only.
+        When you create an API Project, APIs are generated using a default template. To further finetune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
+        For more information, see [Initialize an API project](#initialize-an-api-project).
 
         **Generate APIs with Dynamic Data**
 
