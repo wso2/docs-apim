@@ -18,7 +18,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step A - Setup IS 5.11.0 as a Key Manager
 
-1. Download and install WSO2 IS 5.11.0 distribution from [here](https://wso2.com/identity-and-access-management/).   
+1. Download and install WSO2 IS 5.11.0 distribution from [here](https://wso2.com/identity-and-access-management/).
    If you have downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
 2. Add following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -99,12 +99,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
     !!! Important
         When following the instructions in [Migrating the configurations](https://is.docs.wso2.com/en/5.11.0/setup/migrating-preparing-for-migration/#migrating-the-configurations) section of IS 5.11.0 migration guide, make sure to
         follow the below guidelines as well.
-
-        - Change the following property to **false** in the <IS_HOME>/repository/conf/deployment.toml file of IS 5.11.0.
-            ```
-            [super_admin]
-            create_admin_account = false
-            ```
 
         -   Configure the `identity_db` datasource in `<IS_HOME>/repository/conf/deployment.toml` of IS 5.11.0  by pointing to the **old** `WSO2AM_DB`.
             ```
