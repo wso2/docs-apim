@@ -183,7 +183,7 @@ nav:
             - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                - Grouping APIs with Labels: deploy-and-publish/deploy-on-gateway/deploy-api/grouping-apis-with-labels.md
+                - Exposing APIs via Custom Hostnames: deploy/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy an API to a Cloud Cluster in PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
@@ -1514,6 +1514,8 @@ markdown_extensions:
     - markdown.extensions.meta
     - markdown.extensions.toc:
           permalink: true
+    - markdown_include.include:
+          base_path: docs
     - pymdownx.arithmatex
     - pymdownx.betterem:
           smart_enable: all
