@@ -4,125 +4,140 @@ Let's host your first API on WSO2 API Microgateway using Docker.
 
 ### Before you begin..
 
-Make sure to install and set up [Docker](https://www.docker.com) and the [installation prerequisites for the Microgateway Toolkit]({{base_path}}/install-and-setup/install-on-vm/#microgateway-toolkit).
+Make sure to install and set up [Docker](https://www.docker.com).
 
-### Step 1 - Generate an executable using WSO2 API Microgateway Toolkit
+### Step 1 - Download and setup Microgateway distribution zip and APICTL(Command Line Tool)
 
-##### Step 1.1 - Initialize a project
+##### Step 1.1 - Download and Install APICTL
+APICTL is a CLI tool which can be used to deploy undeploy APIs into Microgateway clusters.
+Refer [Download and initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool)
+to setup the APICTL in your development environment.
 
-1.  Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Microgateway project.
-2.  Run the following command to create a project named "petstore".  This will create the folder structure for the artifacts to be included. Use the -a option to include the API definition to the project as follows.
+##### Step 1.2 - Download and Extract Microgateway distribution zip
+Latest Microgateway distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/).
+Extract the Microgateway distribution zip. Extracted folder will be called as `MG_HOME` hereafter.
 
-    ``` java
-    micro-gw init petstore -a <api definition path>
-    ```
+### Step 2 - Initialize an API project
 
-    Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
+Navigate to a preferred workspace folder using the command line. This is the location that is used to store the Microgateway project.
+Run the following command to create a project named "petstore".  This will create the folder structure for the artifacts to be included. Use the -oas option to include the API definition to the project as follows.
 
-    ``` java
-    micro-gw init petstore -a https://raw.githubusercontent.com/wso2/product-microgateway/master/samples/petstore_v3.yaml
-    ```
+``` java
+apictl init petstore --oas <api definition path>
+```
 
-    The project is now initialized. A directory with the name "petstore" has been created.
+Let's use the [Petstore sample open API definition](https://petstore.swagger.io/)
 
-    !!! note
+``` java
+apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+```
+
+The project is now initialized. A directory with the name "petstore" has been created.
+
+!!! note
         The folder structure is similar to the following.
     ``` java
     petstore
-    ├── api_definitions
-    └── swagger.json
-    ├── conf
-    │   └── deployment-config.toml
-    ├── extensions
-    │   ├── extension_filter.bal
-    │   ├── startup_extension.bal
-    │   └── token_revocation_extension.bal
-    ├── grpc_definitions
-    ├── interceptors
-    ├── lib
-    ├── policies.yaml
+    ├── Client-certificates
+    ├── Definitions
+    │   └── swagger.yaml
+    ├── Docs
+    ├── Endpoint-certificates
+    ├── Image
+    ├── Interceptors
+    ├── README.md
+    ├── Sequences
+    │   ├── fault-sequence
+    │   ├── in-sequence
+    │   └── out-sequence
+    ├── api.yaml
+    ├── api_meta.yaml
+    └── libs
     ```
 
 !!! info
-    -   For more information on the MGW project directory that gets created, see [Project Directory]({{base_path}}/reference/project-directory/).
-    -   Check out the [troubleshooting]({{base_path}}/troubleshooting/troubleshooting/) guide if you run into an issue.
+    -   For more information on the API project directory that gets created, see [APICTL Getting Sterted]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
-##### Step 1.2 - Build the project and the docker image
+### Step 3 - Start Microgateway 
 
-1.  Use the command-line tool to navigate to where the project directory ("petstore") was created. Execute the following command to build the project and to create the docker image.
-    An executable jar file (`petstore/target/petstore.jar`) is created to expose the API via WSO2 API Microgateway.
+Start the Microgateway on docker by executing the docker compose script inside the `MG_HOME`. 
+    Navigate to `MG_HOME` and execute the following command
+    
+``` java
+docker-compose up -d
+```
 
+Once containers are up and running, we can monitor the status of the containers using the following command
     ``` java
-    micro-gw build petstore --docker --docker-image petstore:v1 --docker-base-image wso2/wso2micro-gw:3.2.0
+    docker ps | grep mg-
     ```
 
-    !!! info
-        More information
-        Here are [FAQs]({{base_path}}/faqs/).
+### Step 4 - Deploy the API Project
 
-### Step 2 - Expose the sample API via WSO2 API Microgateway Docker image
+##### Step 4.1 - Add Microgateway Cluster as Environment to APICTL
 
-Run the docker image in order to expose the API via WSO2 API Microgateway. The following command exposes the API https endpoint on port 9095. The context of the API is "/petstore/v1".
-
-  `<project_target_path>` -  The path of the target directory created inside the project directory.
+To use APICTL with Microgateway, we need to add the Microgateway cluster as an environment in the APICTL.
+Basically the adapter url will be added as the gateway environment, and the added environment can be used in the subsequent commands.
 
 ``` java tab="Format"
-docker run -d -p <host-HTTPS-port>:<container-HTTPS-port> -p <host-HTTP-port>:<container-HTTP-port> <MGW-Docker-image-name>
+apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
 ```
 
 ``` java tab="Example"
-docker run -d -p 9095:9095 -p 9090:9090 petstore:v1
+apictl mg add env dev --adapter https://localhost:9843
 ```
 
-### Step 3 - Invoke the sample API
-##### Step 3.1 - Obtain a token
+##### Step 4.2 - Login to Microgateway Cluster
+Next we need to login to the microgateway environment(login to the adpater) in order
+deploy the API in Microgateway.
 
-Once the APIs are exposed via WSO2 API Microgateway, you can invoke an API with a valid token(JWT or opaque access token) or an API key.  Let's use WSO2 API Microgateway's API key endpoint to get an API key. The following command will retrieve a token and set it to the shell variable TOKEN.
+``` java tab="Format"
+apictl mg login dev -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k
+```
+
+``` java tab="Example"
+apictl mg login dev -u admin -p admin -k
+```
+   
+!!! info
+    Following apictl commands are being executed with -k flag to avoid SSL verification with the microgateway.
+    To communicate via https without skipping SSL verification (without -k flag), add the cert of Microgateway into `/home/<your-pc-username>/.wso2apictl/certs`.
+
+##### Step 4.3 - Deploy the API in Microgateway
+
+Now let's deploy our first API to Microgateway using the project created in the step 3. 
+   Navigate to the location where the petstore project was initialized. Execute the following command to deploy the API in the microgateway.
+   
+``` java tab="Format"
+apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
+```
+
+``` java tab="Example"
+apictl mg deploy api -f petstore -e dev -k
+    ```
+
+### Step 5 - Invoke the sample API
+##### Step 5.1 - Obtain a token
+
+After the APIs are exposed via WSO2 API Microgateway, you can invoke an API with a valid token(JWT) or using a test key.  
+Let's use WSO2 API Microgateway's test key endpoint to obtain an test key in order to access the API.
 
 ``` java tab="Sample Token"
-TOKEN=$(curl -X get "https://localhost:9095/apikey" -H "Authorization:Basic YWRtaW46YWRtaW4=" -k)
+TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 ```
 
 !!! info
     More information
     -   You can obtain a JWT token from any third-party secure token service or via the WSO2 API Manager.
-    -   You can obtain an API Key easily from WSO2 API Microgateway. Follow the documentation to [Obtain an API Key]({{base_path}}/publish/security/api-key-security-token-service/) .
-    -   Alternatively, you can also use an opaque token to invoke the API.
-    For more information, see the FAQs on [Working with Tokens]({{base_path}}/references/faqs/#WorkingwithTokens) .
 
-##### Step 3.2 - Invoke the API
+##### Step 5.2 - Invoke the API
 
-Execute the following command to Invoke the API using the API key: You can now invoke the API running on the WSO2 API Microgateway using the following cURL command.
+Execute the following command to Invoke the API using the test key: You can now invoke the API running on the WSO2 API Microgateway using the following cURL command.
 
 ``` java tab="Format"
-curl -X GET "<Docker-hostname>:<Docker-port>/<API-context>/<API-resource>" -H "accept: application/xml" -H "api_key:$TOKEN" -k
+curl -X GET "<Docker-hostname>:<Docker-port>/<API-context>/<API-resource>" -H "Authorization: Bearer $TOKEN" -k
 ```
 
 ``` java tab="Example"
-curl -X GET "https://localhost:9095/api/v3/pet/findByStatus?status=available" -H "accept: application/json" -H "api_key:$TOKEN" -k
+curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/json" -H "Authorization:Bearer $TOKEN" -k
 ```
-
-!!! note
-    You were able to invoke the API resource `pet/findByStatus` using an API Key in `api_key` header because the resource is secured with API Key in API definition as follows. For more information, please refer to the documentation on [API Key Authentication]({{base_path}}/deploy/api-security/api-authentication/api-key-authentication/).
-    ```yml
-    "paths": {
-      "/pet/findByStatus": {
-        "get": {
-          "security": [
-            {
-              "api_key": []
-            }
-          ]
-        }
-      }
-    },
-    "securityDefinitions": {
-      "api_key": {
-        "type": "apiKey",
-        "name": "api_key",
-        "in": "header"
-      }
-    }
-    ```
-
-
