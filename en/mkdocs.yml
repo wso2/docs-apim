@@ -207,8 +207,7 @@ nav:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                     - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
                     - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Passing Enduser Attributes to the Backend:
-                    - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scaling the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
@@ -256,9 +255,9 @@ nav:
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
                 - Manage Microgateway APIs with WSO2 API Manager: deploy-and-publish/deploy-on-gateway/manage-microgateway-apis-with-wso2-api-manager.md
-                - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
-        - Publish on Developer Portal:
+                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
+                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md  
+        - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
     - Consume:
@@ -1673,6 +1672,7 @@ plugins:
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
               'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
 
     # Extra
 extra_css:

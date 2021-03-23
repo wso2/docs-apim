@@ -1,38 +1,36 @@
-# Passing Enduser Attributes to the Backend Using JWT
+# Passing End-user Attributes to the Backend
 
-JSON Web Token (JWT) is used to represent claims that are transferred between two parties, such as the end-user and the backend.
+{!./includes/deploy/backend-jwt-intro.md!}
 
-A claim is an attribute of the user that is mapped to the underlying user store. Claims are encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure or as the plain text of a JSON Web Encryption (JWE) structure. Therefore, this enables claims to be digitally signed.
+## Enabling the default backend JWT generator
 
-A set of claims is referred to as a dialect (e.g., http://wso2.org/claims). The general format of a JWT is as follows:
-
-`{token infor}.{claims list}.{signature}`
-
-The API implementation uses information, such as logging, content filtering, and authentication/authorization, that is stored in this token. The token is Base64-encoded and sent to the API implementation in an HTTP header variable. A JWT is self-contained and is divided into three parts: header, payload, and signature.
-
-If you enable JWT generation in WSO2 API Microgateway, each API request will carry a JWT to the backend service. When the request goes through the API Microgateway, the JWT is appended as a transport header to the outgoing message. The backend service fetches the JWT and retrieves the required information about the user, application, or token. Therefore, if you need to send end-user details to the backend, you need to enable JWT generation in WSO2 API Microgateway.
-
-WSO2 API Microgateway uses the [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support JWT generation within the Microgateway.
-
-## Enabling the default JWT generator
-
-Before passing end-user attributes, you need to enable and configure the JWT implementation, as mentioned below:
+Before passing end-user attributes, you need to enable and configure the JWT implementation, as mentioned below in WSO2 Microgateway.
 
 1. Navigate to the `<MG_HOME>/resources/conf/config.toml` file.
 
-2. Enable and configure the JWT implementation.
+2. Enable and configure the backend JWT implementation.
 
-     For more information, see [JWT generation configuration details](#jwt-generation-configuration-details).
+     The following is the basic configuration that you need to have in place to enable backend JWT. For more information, on the other backend JWT configurations, see [JWT generation configuration details](#jwt-generation-configuration-details).
+
+    ```toml
+    [enforcer.jwtGenerator]
+        enable = true
+    ```
 
 3. Start the server.
  
      For more information, see the [Quick Start Guide]({{base_path}}/deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview/).
 
-## Enabling a customized JWT generator
+## Enabling a customized backend JWT generator
+
+{!./includes/deploy/backend-jwt-note.md!}
 
 When generating the backend JWT, it retrieves the claims from the invoked JWT. If you need to change the way that JWT is generated in WSO2 API Microgateway, such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the customized Gateway JWT generation:
 
 1. Write your own JWTGenerator class extending the `org.wso2.carbon.apimgt.common.gateway.jwtgenerator.AbstractAPIMgtGatewayJWTGenerator` class.
+
+    !!! info
+        WSO2 API Microgateway uses the [AbstractAPIMgtGatewayJWTGenerator](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.common.gateway/src/main/java/org/wso2/carbon/apimgt/common/gateway/jwtgenerator/AbstractAPIMgtGatewayJWTGenerator.java) class to support JWT generation within the Microgateway.
 
     ```java
         package org.wso2.carbon.test;
@@ -87,7 +85,9 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
      For more information, see the [Quick Start Guide]({{base_path}}/deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview/).
     
-## JWT generation configuration details
+## Backend JWT generator configuration details
+
+{!./includes/deploy/backend-jwt-gw-note.md!}
 
 The following is a sample configuration.
 
@@ -131,13 +131,13 @@ The relevant elements in the JWT generation configuration are described below. I
 <td>http://wso2.org/claims</td>
 <tr class="even">
 <td><pre><code>enforcer.jwtGenerator.signingAlgorithm</code></pre></td>
-<td><p>The signing algorithm is used to sign the JWT. The general format of the JWT is <code>{token infor}.{claims list}.{signature}</code>. When `NONE` is specified as the algorithm, signing is turned off and the JWT looks as <code>{token infor}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
+<td><p>The signing algorithm is used to sign the JWT. The general format of the JWT is <code>              {token header}.{claims list}.{signature}</code>. When `NONE` is specified as the algorithm, signing is turned off and the JWT looks as <code>{token header}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default values are <code>SHA256withRSA</code> or <code>NONE</code>.</p></td>
 <td>SHA256withRSA</td>
 </tr>
 <tr class="odd">
 <td><pre><code>enforcer.jwtGenerator.gatewayGeneratorImpl</code></pre></td>
-<td><p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens</p></td>
+<td><p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p></td>
 <td><code>org.wso2.carbon.apimgt.common.gateway.jwtgenerator.APIMgtGatewayJWTGeneratorImpl</code></td>
 </tr>
 <tr class="even">
@@ -152,3 +152,7 @@ The relevant elements in the JWT generation configuration are described below. I
 </tr>
 </tbody>
 </table>
+
+## See Also
+
+If you want to learn how you can pass end-user attributes to the backend when working with the default API Gateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway), which is under the API Gateway documentation section.
