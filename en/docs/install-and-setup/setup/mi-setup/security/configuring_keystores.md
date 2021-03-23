@@ -1,6 +1,6 @@
 # Configuring Keystores for the Micro Integrator
 
-Follow the instructions given below to configure [keystores for the Micro Integrator](../../references/security/using_keystores.md).
+Follow the instructions given below to configure [keystores for the Micro Integrator]({{base_path}}/reference/mi-security-reference/using_keystores).
 
 ## The default keystore configuration
 WSO2 Micro Integrator is shipped with a default keystore (wso2carbon.jks) and default trust store client-truststore.jks, which are stored in the MI_HOME/repository/resources/security/ directory. 
@@ -21,7 +21,7 @@ The **default trust store** contains the certificates of reputed CAs that can va
 
 If you want to change the [default primary keystore](#the-default-keystore-configuration) that is shipped with the product, follow the steps given below.
 
-1. [Create a new keystore](../../../setup/security/creating_keystores). 
+1. [Create a new keystore]({{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores). 
 
     !!! Note
         CA-signed certificates are recommended for this keystore because it is used for communicating with external parties.
@@ -36,7 +36,7 @@ If you want to change the [default primary keystore](#the-default-keystore-confi
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [keystore.primary]
@@ -61,9 +61,9 @@ If you want to change the [default primary keystore](#the-default-keystore-confi
         key_password="wso2carbon"
         ```
 
-    Find more details about [keystore parameters](../../../references/config-catalog/#primary-keystore).
+    Find more details about [keystore parameters]({{base_path}}/reference/config-catalog-mi).
     
-3. [Import the required CA-signed certificates](../../setup/security/importing_ssl_certificate.md) to the key store.
+3. [Import the required CA-signed certificates]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificate) to the key store.
 
 ## Separating the internal keystore
 By default, the [primary keystore](#the-default-keystore-configuration) is used for internal **data encryption** (encrypting data in internal data stores and configuration files) as well as for **signing messages** that are communicated with external parties.
@@ -75,7 +75,7 @@ By default, the [primary keystore](#the-default-keystore-configuration) is used 
 
 Follow the steps given below to separate the keystore that is used for encrypting data in internal data stores.
 
-1. [Create a new keystore](../../../setup/security/creating_keystores). 
+1. [Create a new keystore]({{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores). 
 
     !!! Note
         CA-signed certificates are recommended for this keystore because it is used for communicating with external parties.
@@ -90,7 +90,7 @@ Follow the steps given below to separate the keystore that is used for encryptin
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [keystore.internal]
@@ -114,12 +114,12 @@ Follow the steps given below to separate the keystore that is used for encryptin
         alias="wso2carbon"
         key_password="wso2carbon"
         ```
-    Find more details about [internal keystore parameters](../../../references/config-catalog/#internal-keystore).
+    Find more details about [internal keystore parameters]({{base_path}}/reference/config-catalog-mi/#internal-keystore).
             
 ## Optional: Changing the default truststore
 If you want to change the [default truststore](#the-default-keystore-configuration) that is shipped with the product, follow the steps given below.
 
-1. [Create a new keystore](../../../setup/security/creating_keystores). 
+1. [Create a new keystore]({{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores). 
 
     !!! Note
         CA-signed certificates are recommended for this keystore because it is used for communicating with external parties.
@@ -134,7 +134,7 @@ If you want to change the [default truststore](#the-default-keystore-configurati
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your truststore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your truststore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [truststore]
@@ -159,4 +159,4 @@ If you want to change the [default truststore](#the-default-keystore-configurati
         algorithm="AES"
         ```
             
-3. [Import the required certificates](../../setup/security/importing_ssl_certificate.md#importing-ssl-certificates-to-a-truststore) to the truststore.
+3. [Import the required certificates]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificate#importing-ssl-certificates-to-a-truststore) to the truststore.

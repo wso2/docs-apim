@@ -1,15 +1,15 @@
 # Creating New keystores
 
-There are two ways to create new [keystores for the Micro Integrator](../../../references/security/using_keystores): 
+There are two ways to create new [keystores for the Micro Integrator]({{base_path}}/reference/mi-security-reference/using_keystores): 
 
 * Create  the keystore with a new (self-signed) public key certificate.
-* Generate a keystore using an already existing [CA-signed](../../../references/security/using_keystores) public key certificate.
+* Generate a keystore using an already existing [CA-signed]({{base_path}}/reference/mi-security-reference/using_keystores) public key certificate.
 
 ## Creating a new keystore using a new certificate
 You can follow the steps in this section to create a new keystore with a private key and a new public key certificate. We will be using the keytool that is available with your JDK installation. 
 
 !!! Note
-    The pubic key certificate we generate for the new keystore is self-signed. If you need a public key certificate that is CA-signed, you can [generate a CA-signed certificate and import it to the keystore](../../setup/security/importing_ssl_certificate.md) later. Alternatively, you can follow the instructions to [create a new keystore using a CA-signed public certificate](#creating-a-keystore-using-an-existing-certificate).
+    The pubic key certificate we generate for the new keystore is self-signed. If you need a public key certificate that is CA-signed, you can [generate a CA-signed certificate and import it to the keystore]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificat) later. Alternatively, you can follow the instructions to [create a new keystore using a CA-signed public certificate](#creating-a-keystore-using-an-existing-certificate).
 
 1. Open a command prompt and go to the MI_HOME/repository/resources/security/ directory. All keystores should be stored here.
 2. Create the keystore that includes the private key by executing the following command:
@@ -49,6 +49,6 @@ You can use an already existing CA-signed certificate to generate your keystore 
     ```
 
 ## What's next?
-- [Configure the Micro Integrator](../../setup/security/configuring_keystores.md) to use new keystores.
-- If required, [add SSL certificates](../../setup/security/importing_ssl_certificate.md) to your keystore.
-- If required, [renew the CA-signed certificate](../../setup/security/renewing_ca_signed_certificate_in_keystore.md) in your keystore.
+- [Configure the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores) to use new keystores.
+- If required, [add SSL certificates]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificat) to your keystore.
+- If required, [renew the CA-signed certificate]({{base_path}}/install-and-setup/setup/mi-setup/security/renewing_ca_signed_certificate_in_keystore) in your keystore.
