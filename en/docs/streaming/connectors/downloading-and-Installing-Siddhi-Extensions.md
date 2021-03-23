@@ -151,7 +151,7 @@ To download the Siddhi extensions, follow the steps below
 
     !!! tip 
         Each extension has a separate **Version Support** navigator item for the Streaming Integrator, SP, CEP and DAS.
-    ![Version Support](../images/downloading-and-installing-siddhi-extensions/extension-left-navigator.png)
+    ![Version Support]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/extension-left-navigator.png)
 
 4. If you need to download an older version of an extension, follow the substeps below.
    1. Once you have clicked on the required extension, click on the **Older Versions** tab. Then click on the link 

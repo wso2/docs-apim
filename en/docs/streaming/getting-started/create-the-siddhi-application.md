@@ -6,7 +6,7 @@ For this purpose, you can consider an example where production information is pu
 
 The following image depicts the procedure to be followed by the Siddhi application you create.
 
-![Siddhi Application Flow](../../images/quick-start-guide-101/scenario.png)
+![Siddhi Application Flow]({{base_path}}/assets/img/streaming/quick-start-guide-101/scenario.png)
 
 1. Extract the Streaming Integrator Tooling pack to a preferred location. Hereafter, the extracted location is referred to as `<SI_TOOLING_HOME>`.
 
@@ -23,13 +23,13 @@ The following image depicts the procedure to be followed by the Siddhi applicati
         
    The Streaming Integration Tooling opens as shown below.
 
-   ![Welcome Page](../../images/Creating-Siddhi-Applications/Welcome-Page.png)
+   ![Welcome Page]({{base_path}}/assets/img/streaming/creating-siddhi-applications/welcome-page.png)
         
 4. Open a new Siddhi file by clicking **New**.
 
     The new file opens as follows.
     
-    ![New Siddhi File](../../images/Creating-Siddhi-Applications/New_Siddhi_File.png)
+    ![New Siddhi File]({{base_path}}/assets/img/streaming/creating-siddhi-applications/new-siddhi-file.png)
     
 5. Specify a name for the new Siddhi application via the `@App:name` annotation.
 
@@ -104,7 +104,7 @@ The Streaming Integrator is by default shipped with most of the available Siddhi
 
 1. In Streaming Integrator Tooling, click **Tools**, and then click **Extension Installer**. The **Extension Installer** dialog box opens.
 
-    ![Extension Installer Dialog Box](../../images/quick-start-guide-101/extension-installer-dialog.png)
+    ![Extension Installer Dialog Box]({{base_path}}/assets/img/streaming/quick-start-guide-101/extension-installer-dialog.png)
     
     Click **Install** for **Change Data Capture - MySQL**.
     
@@ -119,15 +119,15 @@ Before deploying the `SweetFactoryApp` Siddhi application to the Streaming Integ
 
 1. In Streaming Integrator Tooling, click the **Event Simulator** icon in the left pane of the editor to open the **Single Simulation** panel.
 
-    ![Event Simulation icon](../../images/Testing-Siddhi-Applications/Event_Simulation_Icon.png)
+    ![Event Simulation icon]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-icon.png)
 
     It opens the left panel for event simulation as follows.
 
-    ![Event Simulation Panel](../../images/Testing-Siddhi-Applications/Event_Simulation_Panel.png)
+    ![Event Simulation Panel]({{base_path}}/assets/img/streaming/testing-siddhi-applications/event-simulation-panel.png)
 
 2.  Enter Information in the **Single Simulation** panel as described below.
 
-    ![Simulate Single Event](../../images/quick-start-guide-101/simulate-single-event.png)
+    ![Simulate Single Event]({{base_path}}/assets/img/streaming/quick-start-guide-101/simulate-single-event.png)
 
     1. In the **Siddhi App Name** field, select **SweetFactoryApp**.
     
