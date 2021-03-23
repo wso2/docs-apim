@@ -63,7 +63,7 @@ If you want to change the [default primary keystore](#the-default-keystore-confi
 
     Find more details about [keystore parameters]({{base_path}}/reference/config-catalog-mi).
     
-3. [Import the required CA-signed certificates]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificate) to the key store.
+3. [Import the required CA-signed certificates]({{base_path}}/install-and-setup/setup/mi-setup/security/importing_ssl_certificate) to the key store.
 
 ## Separating the internal keystore
 By default, the [primary keystore](#the-default-keystore-configuration) is used for internal **data encryption** (encrypting data in internal data stores and configuration files) as well as for **signing messages** that are communicated with external parties.
@@ -159,4 +159,4 @@ If you want to change the [default truststore](#the-default-keystore-configurati
         algorithm="AES"
         ```
             
-3. [Import the required certificates]({{base_path/install-and-setup/setup/mi-setup/security/importing_ssl_certificate#importing-ssl-certificates-to-a-truststore) to the truststore.
+3. [Import the required certificates]({{base_path}}/install-and-setup/setup/mi-setup/security/importing_ssl_certificate#importing-ssl-certificates-to-a-truststore) to the truststore.
