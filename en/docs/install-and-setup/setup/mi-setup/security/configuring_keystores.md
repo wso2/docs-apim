@@ -36,7 +36,7 @@ If you want to change the [default primary keystore](#the-default-keystore-confi
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [keystore.primary]
@@ -90,7 +90,7 @@ Follow the steps given below to separate the keystore that is used for encryptin
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your keystore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [keystore.internal]
@@ -134,7 +134,7 @@ If you want to change the [default truststore](#the-default-keystore-configurati
     -   If you are using an [updated](https://updates.docs.wso2.com/en/latest/updates/overview/) Micro Integrator, use the following configuration and change the values. 
 
         !!! Info
-            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your truststore file in your configuration as shown below. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
+            WSO2 released a product update on <b>17/09/2020</b>, which requires that you provide the full path to your truststore file in your configuration as shown below. If you do not already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
         ```toml
         [truststore]
