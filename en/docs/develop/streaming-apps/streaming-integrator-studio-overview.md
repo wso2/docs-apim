@@ -1,7 +1,7 @@
 # Streaming Integrator Tooling Overview
 
 The Streaming Integrator Tooling is a developer tool that is shipped with
-the Streaming Integrator to develop Siddhi applications. It allows provides three
+the Streaming Integrator to develop Siddhi applications. It allows provides four
 interfaces to develop Siddhi applications
 
 -   **Source View** : This allows you to write Siddhi applications
@@ -13,6 +13,8 @@ interfaces to develop Siddhi applications
     dragging and dropping Siddhi components to a graph.
     
 -   **Wizard View**: This is a wizard with a page for each component of a Siddhi application that displays the relevant configuration parameters as fields. This wizard can be directly accessed from the [Welcome Page](#welcome-page). Only ETL (Extract, Transform, Load) applications can be created/viewed in this interface. For a Siddhi application to be considered an ETL application, it must include all of the following components:<br/><br/> - A source configuration<br/><br/> - A sink configuration (the sink type can be any of the [supported sink types](https://siddhi.io/en/v5.1/docs/query-guide/#sink) other than `log`)<br/><br/> - A Siddhi query that performs a transformation. <br/><br/> For more information, see [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling).
+
+-   **Async API View**: This interface allows you to generate an asynchronous API definition from a Siddhi application that includes a source/sink of the `websocket-server`, `webhooks` or `sse` type. Once an API definition is generated, you can also edit it in this interface. It displays the API definition in code format in the left panel, and as a form in the right panel. For more information about accessing this view and creating/editing an asynchronous API definition in this view, see [Generating and Viewing Asynchronous API Definitions]({{base_path}}/develop/streaming-apps/working-with-the-async-api-view)
 
 Once a Siddhi application is created, you can simulate events via the
 Streaming Integrator Tooling to test whether it works as expected.

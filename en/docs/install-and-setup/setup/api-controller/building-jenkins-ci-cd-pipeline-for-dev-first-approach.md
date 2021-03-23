@@ -76,8 +76,8 @@ Run the following sample command to initialize an API Project using the apictl b
 When running the above command, you can inject data into the definition template using environment variables. 
     
 !!! info
-    -   When you create an API Project, APIs are generated using the default template specified in the
-        `<USER_HOME>/.wso2apictl/default_api.yaml` the file. Organization-specific common API related details can be put into this template file and shared across developers. Use a custom API Definition file to further finetune the process of creating the API if required.
+    When you create an API Project, APIs are generated using a default template. To further finetune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
+    For more information, see [Initialize an API project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! tip
     The custom API template used in this tutorial is available [here](https://gist.github.com/dushaniw/fdbb460f971730a661e75b29eb4e7999#file-api_template-yaml).
