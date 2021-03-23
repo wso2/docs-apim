@@ -1351,20 +1351,20 @@ nav:
                     - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
                 - Message Brokers:
                     - AMQP (RabbitMQ):
-                        - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ.md
-                        - Connecting to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ.md
+                        - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
+                        - Connecting to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md
                     - JMS:
-                        - Connecting to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-ActiveMQ.md
-                        - Connecting to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-Apache-Artemis.md
-                        - Connecting to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-HornetQ.md
-                        - Connecting to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphere-app-server.md
-                        - Connecting to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphereMQ.md
-                        - Connecting to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-JBossMQ.md
-                        - Connecting to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-MSMQ.md
-                        - Connecting to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-SwiftMQ.md
-                        - Connecting to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-Tibco-EMS.md
-                        - Connecting to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-WebLogic.md
-                        - Connecting to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-WSO2-MB.md
+                        - Connecting to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-activemq.md
+                        - Connecting to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis.md
+                        - Connecting to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-hornetq.md
+                        - Connecting to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server.md
+                        - Connecting to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq.md
+                        - Connecting to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq.md
+                        - Connecting to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-msmq.md
+                        - Connecting to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq.md
+                        - Connecting to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems.md
+                        - Connecting to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-weblogic.md
+                        - Connecting to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb.md
                         - Connecting to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
                     - Kafka: install-and-setup/setup/mi-setup/feature_configs/configuring-kafka.md
                     - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
