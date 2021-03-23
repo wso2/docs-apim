@@ -142,5 +142,5 @@ For the complete list of pre-written Siddhi extensions that are currently availa
 
 ## Further References
 
-- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions](downloading-and-Installing-Siddhi-Extensions.md).
-- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions](../develop/installing-siddhi-extensions.md).
+- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).
