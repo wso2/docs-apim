@@ -1,6 +1,6 @@
 # Configuring Keystores in WSO2 API Manager
 
-WSO2 products use asymmetric cryptography by default for the purposes of authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography](keystore-basics/about-asymetric-cryptography.md) .
+WSO2 products use asymmetric cryptography by default for the purposes of authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography) .
 
 In WSO2 API Manager, there are three different keystores in use.
 
@@ -14,7 +14,7 @@ Secondary Keystore is used for authenticating communication over SSL/TLS. This i
 
 Internal Keystore is used for encrypting internal critical data including passwords and other confidential information in configuration files. 
 
-The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores](keystore-basics/creating-new-keystores.md) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
+The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
 
 !!! info
     If you want to change the default truststore details, you can do it by adding the configurations under `[truststore]` field in the `<API-M_HOME>/repository/conf/deployment.toml`. Refer the below example which defines the `type` of the truststore as "JKS" (Java KeyStore), the `file_name` of the trustore as "modified-client-truststore.jks" and the `password` as "modified_password".
