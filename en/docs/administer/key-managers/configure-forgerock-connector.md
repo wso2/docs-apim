@@ -93,7 +93,7 @@ Follow the instructions given below to configure the Fogerock Authorization Serv
      </tr>
 
      <tr>
-     <td>OAuth2 Token Signing Algorithm</td> <td>RS258</td>
+     <td>OAuth2 Token Signing Algorithm</td> <td>RS256</td>
      </tr>
      </table>
    
