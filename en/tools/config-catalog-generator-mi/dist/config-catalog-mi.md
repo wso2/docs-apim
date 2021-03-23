@@ -240,9 +240,9 @@ enable_swa=false
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[service_catalog]]
-apimHost = "https://127.0.0.1:9443"
+apim_host = "https://localhost:9443"
 enable = true
-userName = "$secret{userName}"
+username = "$secret{username}"
 password = "$secret{password}"</code></pre>
                     </div>
                 </div>
@@ -258,7 +258,7 @@ password = "$secret{password}"</code></pre>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>apimhost</code> </span>
+                                  <span class="param-name-wrap"> <code>apim_host</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>

@@ -3,9 +3,9 @@
 By using a developer-first approach, an organization can adopt to have minimal interaction between the API developer 
 and API Publisher Portal. First, an API developer develops his/her own backend microservice and creates an OpenAPI 
 Specification for it. Thereafter, he/she can create an API using that OpenAPI specification and deploy it to the desired 
-WSO2 API Management environment without accessing the Publisher Portal directly.
+WSO2 API Manager (WSO2 API-M) environment without accessing the Publisher Portal directly.
 
-Let's create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let's use Postman to write the test scripts in order to test the API that is deployed in WSO2 API Manager.
+Let us create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let us use Postman to write the test scripts in order to test the API that is deployed in WSO2 API-M.
 
 ## Prerequisites
 
@@ -23,18 +23,18 @@ in your Jenkins server.
 4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).  
 
      [![Setup apictl in Jenkins]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)
   
 !!! info
-    For this tutorial, let's use a sample backend Ballerina [service](https://github.com/dushaniw/wso2-apim-cicd-apis/blob/master/SampleStoreService/samplestore.bal) for the SampleStore Application. 
+    For this tutorial, let us use a sample backend Ballerina [service](https://github.com/dushaniw/wso2-apim-cicd-apis/blob/master/SampleStoreService/samplestore.bal) for the SampleStore Application. 
 
     There are two environments, namely development and production, and there are dedicated backend services for 
     these two environments running at `http://dev.wso2.com:9090/samplestore` and `http://prod.wso2.com:9090/samplestore`.
 
 
-## Building the Pipeline
+## Building the pipeline
 
 [![]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)
 
@@ -54,18 +54,18 @@ As the API Developer, initially write the OpenAPI Specification for the backend 
     Collection Runner, 
     [Newman](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/). 
 
-### Step 2 - Initialize an API Project
+### Step 2 - Initialize an API project
 
 Initialize an API Project using the OpenAPI definition, API definition template, and the environment variables.
 
 !!! warning
     **Before you begin...**   
 
-    -   As the API Developer, make sure WSO2 API Manager CTL Tool is initialized and running in your local machine, 
-    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   As the API Developer, make sure apictl is initialized and running in your local machine, 
+    if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
     
     
-Run the following sample command to initialize an API Project using the CTL by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+Run the following sample command to initialize an API Project using the apictl by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! example
     ``` bash
@@ -76,8 +76,8 @@ Run the following sample command to initialize an API Project using the CTL by p
 When running the above command, you can inject data into the definition template using environment variables. 
     
 !!! info
-    -   When you create an API Project, APIs are generated using the default template specified in the
-        `<USER_HOME>/.wso2apictl/default_api.yaml` the file. Organization-specific common API related details can be put into this template file and shared across developers. Use a custom API Definition file to further finetune the process of creating the API if required.
+    When you create an API Project, APIs are generated using a default template. To further finetune the process of creating the API and to include organization-specific common API related details, you can use a custom API Definition file. 
+    For more information, see [Initialize an API project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! tip
     The custom API template used in this tutorial is available [here](https://gist.github.com/dushaniw/fdbb460f971730a661e75b29eb4e7999#file-api_template-yaml).
@@ -88,12 +88,12 @@ When running the above command, you can inject data into the definition template
     -   The API Status value is given as an environment variable, `STATE`. Before initializing the API Project, the developer needs to set up the environment variable `STATE` in the OS using the following command:   
         `export STATE=PUBLISHED`
 
-### Step 3 - Update API data in the API Project
+### Step 3 - Update API data in the API project
 
 Add a thumbnail image of any image file type with the name `icon.<img-extension>` into the `SampleStore/Image` directory of the SampleStore API Project.   
 
 !!! info
-    -   After initializing an API project, the developer can update the created API project files to add an API thumbnail, API documentation, Custom meditations, etc. In this tutorial, let's add a thumbnail for the API.
+    -   After initializing an API project, the developer can update the created API project files to add an API thumbnail, API documentation, Custom meditations, etc. In this tutorial, let us add a thumbnail for the API.
 
     -   Similarly, developers can add any additional meta information to the `api.yaml` file and also add the required API documentation and the required custom mediations to the respective folders of the same API project.
 
@@ -117,7 +117,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
     single variable based on the environment type. 
 
-### Step 5 - Commit the API Project 
+### Step 5 - Commit the API project 
 
 Commit the API project with the required test scripts to the GitHub repository.
 
@@ -144,7 +144,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
 2. Add the two environments using the following sample `apictl` commands.
 
     !!! warning
-        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     !!! example
         ```bash
@@ -164,7 +164,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
      For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
     !!!note
-        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
+        `apictl add-env` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl add env` as shown above. 
     
      You can also add an environment manually beforehand or provide the details as a shell script in the same pipeline.
 
@@ -226,4 +226,4 @@ Further, if you go and check the advanced endpoint configurations of the same AP
 [![]({{base_path}}/assets/img/learn/api-controller/prod-advanced-config.png)]({{base_path}}/assets/img/learn/api-controller/prod-advanced-config.png) 
 
 You have successfully created a basic CI/CD pipeline using **Jenkins** as the CI tool and **GitHub** as the SCM tool, to 
-create and deploy an API using the **API/Dev first approach** with WSO2 API Management.
+create and deploy an API using the **API/Dev first approach** with WSO2 API-M.

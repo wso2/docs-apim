@@ -183,7 +183,7 @@ nav:
             - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                - Grouping APIs with Labels: deploy-and-publish/deploy-on-gateway/deploy-api/grouping-apis-with-labels.md
+                - Exposing APIs via Custom Hostnames: deploy/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy an API to a Cloud Cluster in PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
@@ -207,8 +207,7 @@ nav:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                     - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
                     - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Passing Enduser Attributes to the Backend:
-                    - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scaling the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
@@ -260,7 +259,7 @@ nav:
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
                 - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md  
+                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
@@ -549,12 +548,14 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
+                - Exposing Stream as Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md
           #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
                 - Streaming Integrator Tooling:
                       - Streaming Integrator Tooling Overview: develop/streaming-apps/streaming-integrator-studio-overview.md
                       - Working with the Design View: develop/streaming-apps/working-with-the-design-view.md
+                      - Working with the Async API View: develop/streaming-apps/working-with-the-async-api-view.md
                 - Creating Siddhi Applications: develop/streaming-apps/creating-a-siddhi-application.md
                 - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
                 - Testing Siddhi Applications: develop/streaming-apps/testing-a-siddhi-application.md
@@ -1353,20 +1354,20 @@ nav:
                     - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
                 - Message Brokers:
                     - AMQP (RabbitMQ):
-                        - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitMQ.md
-                        - Connecting to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ.md
+                        - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
+                        - Connecting to RabbitMQ: install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq.md
                     - JMS:
-                        - Connecting to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-ActiveMQ.md
-                        - Connecting to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-Apache-Artemis.md
-                        - Connecting to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-HornetQ.md
-                        - Connecting to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphere-app-server.md
-                        - Connecting to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphereMQ.md
-                        - Connecting to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-JBossMQ.md
-                        - Connecting to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-MSMQ.md
-                        - Connecting to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-SwiftMQ.md
-                        - Connecting to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-Tibco-EMS.md
-                        - Connecting to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-WebLogic.md
-                        - Connecting to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-WSO2-MB.md
+                        - Connecting to ActiveMQ: install-and-setup/setup/mi-setup/brokers/configure-with-activemq.md
+                        - Connecting to Apache Artemis: install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis.md
+                        - Connecting to HornetQ: install-and-setup/setup/mi-setup/brokers/configure-with-hornetq.md
+                        - Connecting to IBM Websphere App Server: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server.md
+                        - Connecting to IBM WebSphere MQ: install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq.md
+                        - Connecting to JBoss MQ: install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq.md
+                        - Connecting to MSMQ: install-and-setup/setup/mi-setup/brokers/configure-with-msmq.md
+                        - Connecting to Swift MQ: install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq.md
+                        - Connecting to TIBCO EMS: install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems.md
+                        - Connecting to Weblogic: install-and-setup/setup/mi-setup/brokers/configure-with-weblogic.md
+                        - Connecting to WSO2 MB: install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb.md
                         - Connecting to Multiple Brokers: install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers.md
                     - Kafka: install-and-setup/setup/mi-setup/feature_configs/configuring-kafka.md
                     - Azure Service Bus: install-and-setup/setup/mi-setup/brokers/configure-with-azureservicebus.md
@@ -1409,26 +1410,28 @@ nav:
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
         - Upgrading WSO2 API Manager:
             - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-            - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-320.md
-            - 3.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320.md
-            - 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320.md
-            - 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-320.md
-            - 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-320.md
-            - 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320.md
-            - 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320.md
-            - 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-320.md
-            - 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-320.md
+            - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
+            - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
+            - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
+            - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
+            - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
+            - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
+            - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
+            - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
+            - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
+            - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
             - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
         - Upgrading WSO2 IS as KM:
-            - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100.md
-            - 3.0.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
-            - 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
-            - 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
-            - 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
-            - 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
-            - 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
-            - 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
-            - 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
+            - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
+            - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
+            - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
+            - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
+            - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
+            - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
+            - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
+            - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
+            - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
+            - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
         - Kubernetes Operators:
           - K8s API Operator:
               - K8s API Operator Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
@@ -1441,12 +1444,12 @@ nav:
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
-            - Getting Started with WSO2 API Controller: install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
+            - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
             - Managing APIs and API Products:
                 - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
                 - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
                 - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
-                - Migrating API Products (with or without dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
@@ -1454,16 +1457,18 @@ nav:
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
-                - Managing Integrations with CTL: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
-            - Encrypting Secrets with CTL: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
+                - Managing Integrations with apictl: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
+            - Encrypting Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
             - Advanced Topics:
-                - Creating Custom Users to Perform API Controller Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                - Creating Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                 - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Using Dynamic Data in API Controller Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                - Using Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                - Formatting the outputs of get commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
+          - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
@@ -1491,7 +1496,6 @@ nav:
               - Using Inbound Endpoints: tutorials/integration-tutorials/using-inbound-endpoints.md
               - Reusing Mediation Sequences: tutorials/integration-tutorials/using-templates.md
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
-              - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
@@ -1516,6 +1520,8 @@ markdown_extensions:
     - markdown.extensions.meta
     - markdown.extensions.toc:
           permalink: true
+    - markdown_include.include:
+          base_path: docs
     - pymdownx.arithmatex
     - pymdownx.betterem:
           smart_enable: all
@@ -1672,6 +1678,7 @@ plugins:
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
               'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
 
     # Extra
 extra_css:

@@ -42,18 +42,29 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - **[AsyncAPI Definitions for Streaming APIs]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
     [AsyncAPI](https://www.asyncapi.com/) is used to define asynchronous APIs. In WSO2 API Manager, [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview) can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
 
+- **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames/)**
+    **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
+
 <!--
 
 - Changes to Publisher API/UI to support Streaming APIs
 
 - Changes to Dev Portal REST API/UI to support Streaming APIs
 
-- VHost feature
-
 - Improved Commenting Feature (Nested commenting, publisher view)
 
 - Defaulting code and configs to do with event based
 -->
+
+#### What has changed in this release
+
+##### Removed features and functionalities
+
+- Microgateway Labels
+
+      [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/latest/learn/api-microgateway/grouping-apis-with-labels/)
+      is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames)
+      and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
 #### Fixed Issues
 
@@ -145,7 +156,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     - Resolve parameters at server side while importing an API project
     - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
     - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the api_params.yaml
+    - Support to override subscription policies of an API using the params file
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
 

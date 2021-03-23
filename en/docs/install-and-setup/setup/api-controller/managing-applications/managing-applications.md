@@ -2,16 +2,17 @@
 
 ## Add Applications in an environment
 
-You can add Applications via the Publisher Portal and Developer Portal.
+You can add Applications via the Developer Portal.
+However, **WSO2 API Controller (apictl)** allows you to create Applications without using the Developer Portal. For more information on adding Applications, see [Migrating Apps to Different Environments]({{base_path}}/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments).
 
 ## Get Applications in an environment
 
-Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
+Follow the instructions below to display a list of Applications in an environment using apictl:
 
-1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding CTL command below to get (list) Applications in an environment.
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to get (list) Applications in an environment.
 
     -   **Command**
         ``` bash
@@ -62,14 +63,14 @@ Follow the instructions below to display a list of APIs/API Products/Application
             Output of the `get apps` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
 
         !!!note
-            `apictl list apps` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
+            `apictl list apps` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
         
 ## Delete an Application in an environment
 
-1.  Make sure that the WSO2 API Manager 4.0.0 version is started and that the 4.0.0 version of APICTL is setup.   
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
-3.  Run the corresponding CTL command below to get (list) Applications in an environment.
+1.  Make sure that the WSO2 API-M 4.0.0 version is started and that the 4.0.0 version of apictl is set up.   
+     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+3.  Run the corresponding apictl command below to get (list) Applications in an environment.
 
     -   **Command**
         ``` bash
