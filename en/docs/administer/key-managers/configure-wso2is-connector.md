@@ -6,7 +6,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 ## Step 1 - Configure WSO2 IS
 
-1. Download and install the [latest WSO2 Identity Server](https://wso2.com/identity-and-access-management/#).
+1. Download and install the [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/previous-releases/).
      
      If you downloaded the archive, extract it.
    `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
