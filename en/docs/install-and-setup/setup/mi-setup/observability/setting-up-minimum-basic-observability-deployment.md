@@ -306,7 +306,7 @@ Follow the steps given below.
 
 3. In the **Data Sources** section, click **Add your first data source**. In the **Add data source** page that appears, click **Select** for **Loki**.
 
-    ![Select Loki as Data Source]({{base_path}}/assets/img//integrate/monitoring-dashboard/grafana-select-datasource.png)
+    ![Select Loki as Data Source]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png)
 
 4. In the **Add data source** page -> **Settings** tab, update the configurations for Loki.
     
