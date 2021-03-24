@@ -2,7 +2,7 @@
 
 **Testing APIs** is trying out the APIs at the publisher itself and make sure whether the functionalities and behaviours are met.
 
-API Publisher  has an integrated API Console, which allows you to visualize the API contract and interact with API's resources.
+API Publisher has an integrated API Console, which allows you to visualize the API contract and interact with API's resources.
 
 Let's see how to use the Publisher test Console to test an API.
 
@@ -19,7 +19,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
 3.  You can generate the internal key by clicking on the get test key button to invoke the pizzashack API.
 
-      ![]({{base_path}}/assets/img/learn/publisher-testconsole-generateKey.png)
+      ![]({{base_path}}/assets/img/learn/publisher-testconsole-generatekey.png)
 
       <html><div class="admonition note">
             <p class="admonition-title">Note</p>
@@ -31,7 +31,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
     Note the successful response for the API invocation.
 
-    ![]({{base_path}}/assets/img/learn/publisher-testconsole-swaggerUI.png)
+    ![]({{base_path}}/assets/img/learn/publisher-testconsole-swaggerui.png)
 
 
 
