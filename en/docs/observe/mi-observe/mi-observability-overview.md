@@ -53,11 +53,11 @@ The cloud-native and classic observability solution are suitable for the followi
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions](../setup/observability/setting-up-minimum-basic-observability-deployment.md) or [Setting up classic observability solution](../setup/observability/setting-up-classic-observability-deployment.md)
+* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment)
 
-* For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution](cloud-native-observability-dashboards.md).
+* For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
 
-* For more information on how to use the classic observability solution, see [Classic Observability Deployment](using-the-analytics-dashboard.md).
+* For more information on how to use the classic observability solution, see [Classic Observability Deployment]({{base_path}}/observe/mi-observe/using-the-analytics-dashboard).
 
 ### Understanding observability solutions
 
@@ -80,11 +80,11 @@ You can integrate with external tools to do the following.
 
 **Monitoring Metrics**
 
-- [JMX Monitoring](jmx_monitoring.md)
-- [SNMP Monitoring](snmp_monitoring.md)
+- [JMX Monitoring]({{base_path}}/observe/mi-observe/jmx_monitoring)
+- [SNMP Monitoring]({{base_path}}/observe/mi-observe/snmp_monitoring)
 
 **TCP Message Monitoring**
 
 - [Starting TCPMon]({{base_path}}/observe/mi-observe/tcp/starting_tcp_mon)
-- [Message Monitoring with TCPMon](tcp/message_monitoring_with_tcpmon.md)
-- [Other Usages of TCPMon](tcp/other_usages_of_tcpmon.md)
+- [Message Monitoring with TCPMon]({{base_path}}/observe/mi-observe/tcp/message_monitoring_with_tcpmon)
+- [Other Usages of TCPMon]({{base_path}}/observe/mi-observe/tcp/other_usages_of_tcpmon)

@@ -1382,10 +1382,10 @@ nav:
                     - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
                     - Setting up Classic Observability Deployment: install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md
                     - Configuring Logs:
-                        - Enabling Logs for a Component: administer-and-observe/logs/enabling_component_logs.md
-                        - Configuring Logs: administer-and-observe/logs/configuring_log4j_properties.md
-                        - Managing Log Growth: administer-and-observe/logs/managing_log_growth.md
-                        - Masking Sensitive Information in Logs : administer-and-observe/logs/masking_sensitive_info_in_logs.md
+                        - Enabling Logs for a Component: install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md
+                        - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
+                        - Managing Log Growth: install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md
+                        - Masking Sensitive Information in Logs : install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
