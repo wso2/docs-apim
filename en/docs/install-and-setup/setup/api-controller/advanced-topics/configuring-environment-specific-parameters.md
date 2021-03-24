@@ -155,10 +155,16 @@ environments:
                       retryDelay: <retry_delay_in_ms>
                       factor: <suspension_factor>
           security:
-              enabled: <whether_security_is_enabled>
-              type: <endpoint_authentication_type_basic_or_digest>
-              username: <endpoint_username>
-              password: <endpoint_password>
+              production:
+                  enabled: <whether_security_is_enabled_for_production_endpoint>
+                  type: <endpoint_authentication_type_basic_or_digest_for_production_endpoint>
+                  username: <endpoint_username_for_production_endpoint>
+                  password: <endpoint_password_for_production_endpoint>
+              sandbox:
+                  enabled: <whether_security_is_enabled_for_sandbox_endpoint>
+                  type: <endpoint_authentication_type_basic_or_digest_for_sandbox_endpoint>
+                  username: <endpoint_username_for_sandbox_endpoint>
+                  password: <endpoint_password_for_sandbox_endpoint>
           deploymentEnvironments:
               - displayOnDevportal: <boolean>
 	            deploymentEnvironment: <environment_name>        
@@ -186,10 +192,11 @@ The following code snippet contains sample configuration of the params file of a
                 production:
                     url: 'https://dev.wso2.com'
             security:
-                enabled: true
-                type: basic
-                username: admin
-                password: admin
+                production:
+                    enabled: true
+                    type: basic
+                    username: admin
+                    password: admin
             certs:
                 - hostName: 'https://dev.wso2.com'
                   alias: Dev
@@ -212,10 +219,16 @@ The following code snippet contains sample configuration of the params file of a
                 sandbox:
                     url: 'https://test.sandbox.wso2.com'
             security:
-                enabled: true
-                type: digest
-                username: admin
-                password: admin
+                production:
+                    enabled: true
+                    type: digest
+                    username: admin
+                    password: admin
+                sandbox:
+                    enabled: true
+                    type: basic
+                    username: admin
+                    password: admin
         - name: production
           configs:
             endpoints:
@@ -242,7 +255,7 @@ You can provide the params file using `--params` flag when importing an API. A s
 
 -   You can deploy an API project which does not include `deployment_environments.yaml` (working copy of the API or a revision without deployment environments) by specifying the `deploymentEnvironments` fields in the params file.
 -   Production/Sandbox backends for each environment can be specified in the params file with additional configurations, such as timeouts.
--   Under the `security` field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
+-   Under the `security` field, you can specify the endpoint security details for the `production` and the `sandbox` endpoint separately. If the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then none of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in the `api.yaml` file will be considered.
 -   The params file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.
 -   To learn about setting up different endpoint types such as HTTP/REST, HTTP/SOAP (with load balancing and failover), Dynamic and AWS Lambda, see [Configuring Different Endpoint Types]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types).
 -   You can define the subscription level policies of an API using the field `policies`. There you can specify one or more subscription level policies that is available in the particular environment where you are importing the API to.
@@ -258,45 +271,83 @@ environments:
       configs: <multiple_configurations_relevant_to_the_specific_environment>
           dependentAPIs:
               <api_1_name>-<api_1_version>:
-                  endpoints:
-                      production:
-                      sandbox:
-                  security:
-                      enabled:
-                      type:
-                      username:
-                      password: 
-                  certs:
-                      - hostName:
-                        alias:
-                        path:
-                  mutualSslCerts:
-                      - tierName:
-                        alias:
-                        path:
-                  policies:
-                      - <subscription_policy_1_name>
-                      - <subscription_policy_2_name>
+                      endpoints:
+                          production:
+                              url: <production_endpoint_url_for_api_1>
+                              config:
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <retry_delay_in_ms_for_api_1>
+                                  factor: <suspension_factor_for_api_1>
+                          sandbox:
+                              url: <sandbox_endpoint_url_for_api_1>
+                              config:
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <retry_delay_in_ms_for_api_1>
+                                  factor: <suspension_factor_for_api_1>
+                      security:
+                          production:
+                              enabled: <whether_security_is_enabled_for_production_endpoint_for_api_1>
+                              type: <endpoint_authentication_type_basic_or_digest_for_production_endpoint_for_api_1>
+                              username: <endpoint_username_for_production_endpoint_for_api_1>
+                              password: <endpoint_password_for_production_endpoint_for_api_1>
+                          sandbox:
+                              enabled: <whether_security_is_enabled_for_sandbox_endpoint_for_api_1>
+                              type: <endpoint_authentication_type_basic_or_digest_for_sandbox_endpoint_for_api_1>
+                              username: <endpoint_username_for_sandbox_endpoint_for_api_1>
+                              password: <endpoint_password_for_sandbox_endpoint_for_api_1>
+                      deploymentEnvironments:
+                          - displayOnDevportal: <boolean_for_api_1>
+                            deploymentEnvironment: <environment_name_for_api_1>        
+                      certs:
+                          - hostName: <endpoint_url_for_api_1>
+                            alias: <certificate_alias_for_api_1>
+                            path: <certificate_name_for_api_1>
+                      mutualSslCerts:
+                          - tierName: <subscription_tier_name_for_api_1>
+                            alias: <certificate_alias_for_api_1>
+                            path: <certificate_name_for_api_1>
+                      policies: 
+                          - <subscription_policy_1_name_for_api_1>
+                          - <subscription_policy_2_name_for_api_1>
               <api_2_name>-<api_2_version>:
-                  endpoints:
-                      production:
-                      sandbox:
-                  security:
-                      enabled:
-                      type:
-                      username:
-                      password:
-                  certs:
-                      - hostName:
-                        alias:
-                        path:
-                  mutualSslCerts:
-                      - tierName:
-                        alias:
-                        path:
-                  policies:
-                      - <subscription_policy_1_name>
-                      - <subscription_policy_2_name>
+                      endpoints:
+                          production:
+                              url: <production_endpoint_url_for_api_1>
+                              config:
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <retry_delay_in_ms_for_api_1>
+                                  factor: <suspension_factor_for_api_1>
+                          sandbox:
+                              url: <sandbox_endpoint_url_for_api_1>
+                              config:
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
+                                  retryDelay: <retry_delay_in_ms_for_api_1>
+                                  factor: <suspension_factor_for_api_1>
+                      security:
+                          production:
+                              enabled: <whether_security_is_enabled_for_production_endpoint_for_api_1>
+                              type: <endpoint_authentication_type_basic_or_digest_for_production_endpoint_for_api_1>
+                              username: <endpoint_username_for_production_endpoint_for_api_1>
+                              password: <endpoint_password_for_production_endpoint_for_api_1>
+                          sandbox:
+                              enabled: <whether_security_is_enabled_for_sandbox_endpoint_for_api_1>
+                              type: <endpoint_authentication_type_basic_or_digest_for_sandbox_endpoint_for_api_1>
+                              username: <endpoint_username_for_sandbox_endpoint_for_api_1>
+                              password: <endpoint_password_for_sandbox_endpoint_for_api_1>
+                      deploymentEnvironments:
+                          - displayOnDevportal: <boolean_for_api_1>
+                            deploymentEnvironment: <environment_name_for_api_1>        
+                      certs:
+                          - hostName: <endpoint_url_for_api_1>
+                            alias: <certificate_alias_for_api_1>
+                            path: <certificate_name_for_api_1>
+                      mutualSslCerts:
+                          - tierName: <subscription_tier_name_for_api_1>
+                            alias: <certificate_alias_for_api_1>
+                            path: <certificate_name_for_api_1>
+                      policies: 
+                          - <subscription_policy_1_name_for_api_1>
+                          - <subscription_policy_2_name_for_api_1>
           deploymentEnvironments:
               - displayOnDevportal: <boolean>
 	            deploymentEnvironment: <environment_name>
@@ -326,10 +377,11 @@ The following code snippet contains sample configuration of the params file of a
                           sandbox:
                               url: https://sand2.wso2.com
                       security:
-                          enabled: true
-                          type: basic
-                          username: admin
-                          password: admin
+                          production:
+                              enabled: true
+                              type: basic
+                              username: admin
+                              password: admin
                       certs:
                           - hostName: https://prod1.wso2.com
                             alias: alice
@@ -344,10 +396,16 @@ The following code snippet contains sample configuration of the params file of a
                           sandbox:
                               url: https://sand2.wso2.com
                       security:
-                          enabled: true
-                          type: digest
-                          username: admin
-                          password: admin
+                          production:
+                              enabled: true
+                              type: digest
+                              username: admin
+                              password: admin
+                          sandbox:
+                              enabled: true
+                              type: basic
+                              username: admin
+                              password: admin
                       certs:
                           - hostName: https://prod1.wso2.com
                             alias: bob
