@@ -358,17 +358,17 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click the **Configuration** icon in the left menu and then click **Data Sources**.
     
-        ![Open Data sources]({{base_path}}/assets/img//integrate/monitoring-dashboard/open-datasources.png)
+        ![Open Data sources]({{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png)
         
     3. Click **Add data source** to open the **Add data source** page where all the available data source types are displayed. Here, click **Jaeger**.
     
-        ![Select Jaeger]({{base_path}}/assets/img//integrate/monitoring-dashboard/select-jaeger.png)
+        ![Select Jaeger]({{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png)
         
         This opens the **Data Sources/Jaeger** dialog box. 
         
     4. In the **Data Sources/Jaeger** dialog box, enter the URL of the Jaeger query component in the **URL** field in the `http://host:port` format as shown below.
     
-        ![Enter Basic Jaeger Information]({{base_path}}/assets/img//integrate/monitoring-dashboard/enter-basic-jaeger-information.png)
+        ![Enter Basic Jaeger Information]({{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png)
         
     5. Click **Save and Test**. If the data source is successfully configured, it is indicated via a message.
   
@@ -379,11 +379,11 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click **Variable**. This opens the following view.
     
-        ![Variables view]({{base_path}}/assets/img//integrate/monitoring-dashboard/variables.png)
+        ![Variables view]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)
         
     3. Edit the JaegerHost variable and provide your Jaeger query component hostname and port in the `host:port` syntax as shown below.
     
-        ![constant options]({{base_path}}/assets/img//integrate/monitoring-dashboard/constant-options.png)
+        ![constant options]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)
         
     4. Click **Save**
     
@@ -391,7 +391,7 @@ In order to configure Grafana to display tracing information, follow the steps g
     
 Once Grafana is successfully configured to visualize statistics, you should be correctly redirected to the Jaeger UI from the Response Time widget of each service-level dashboard as shown below.
     
-![jaeger ui]({{base_path}}/assets/img//integrate/-dashboard/jaeger-ui.png)
+![jaeger ui]({{base_path}}/assets/img/integrate/-dashboard/jaeger-ui.png)
 
 ## What's Next?
 
