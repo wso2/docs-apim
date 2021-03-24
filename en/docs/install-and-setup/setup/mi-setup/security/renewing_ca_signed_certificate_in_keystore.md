@@ -1,6 +1,6 @@
 # Renewing a CA-Signed Certificate in a Keystore
 
-The [digital certificates](../../../references/security/using_keystores) that are used for SSL handshaking has a validity period. Once a certificate expires, it can cause the client-server communication to fail at the SSL handshake level. 
+The [digital certificates]({{base_path}}/reference/mi-security-reference/using_keystores) that are used for SSL handshaking has a validity period. Once a certificate expires, it can cause the client-server communication to fail at the SSL handshake level. 
 
 !!! Note
     It is required to renew the certificates before the expiration date.

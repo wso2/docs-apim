@@ -4,7 +4,7 @@ WSO2 Streaming Integrator is powered by Siddhi. Siddhi supports an extension arc
 
 ## Purpose
 
-Streaming Integration use cases may require a wide range of functionalities. Extensions are supported because it is not possible to have all this functionality within the Siddhi core. If the functionality covered by the supported extensions have gaps when addressing the requirements of your use cases, you can [write a custom extension](writing-Custom-Siddhi-Extensions.md).
+Streaming Integration use cases may require a wide range of functionalities. Extensions are supported because it is not possible to have all this functionality within the Siddhi core. If the functionality covered by the supported extensions have gaps when addressing the requirements of your use cases, you can [write a custom extension]({{base_path}}/streaming/connectors/writing-custom-siddhi-extensions.md).
 
 All extensions have a namespace. This is used to identify the relevant extensions together, and to let you specifically call the extension.
 
@@ -142,5 +142,5 @@ For the complete list of pre-written Siddhi extensions that are currently availa
 
 ## Further References
 
-- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions](downloading-and-Installing-Siddhi-Extensions.md).
-- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions](../develop/installing-siddhi-extensions.md).
+- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).

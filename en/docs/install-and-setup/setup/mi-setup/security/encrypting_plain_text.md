@@ -74,7 +74,7 @@ In a <b>Kubernetes environment</b>, you don't need to manually run the Cipher to
 1. Open your Integration Project in WSO2 Integration Studio, which contains all the integration artifacts and the Kubernetes Exporter.
 2. Open the `pom.xml` of the Kubernetes Exporter module and select the <b>Enable Cipher Tool</b> check box as show below.
 
-    <img src="../../../assets/img/k8s_deployment/enable-cipher-tool-in-k8s.png">
+    <img src="{{base_path}}/assets/img/integrate/k8s_deployment/enable-cipher-tool-in-k8s.png">
 
 3.  When you build the Docker image from your Kubernetes exporter, the secrets will get encrypted and enabled in the environment.
 

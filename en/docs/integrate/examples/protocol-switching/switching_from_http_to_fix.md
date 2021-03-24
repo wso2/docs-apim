@@ -52,7 +52,7 @@ Run the quickfixj **Executor** sample application.
 java -jar quickfixj-examples-executor-2.1.1.jar
 ```
 
-Send the following request to EI and we will receive the response from the executor application.
+Send the following request to the Micro Integrator and we will receive the response from the executor application.
 
 ```bash
 curl -X POST \
