@@ -17,13 +17,23 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
      ![]({{base_path}}/assets/img/learn/publisher-testconsole-leftpane.png)
 
-3.  You can generate the internal key by clicking on the button to invoke the pizzashack API.
+3.  You can generate the internal key by clicking on the get test key button to invoke the pizzashack API.
 
       ![]({{base_path}}/assets/img/learn/publisher-testconsole-generateKey.png)
 
-      !!! Note   
-      If you want to authenticate the API call in custom way, you can generate token and please enter it in the internal key text field.
+      <html><div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <ul>If you want to authenticate by custom token, please enter it in the internal key text field.</ul>
+            </div>
+      </html> 
 
-4.  Expand the POST  method and click Try it out. Click Execute.
+4.  Expand the GET  method and click Try it out. Click Execute.
 
-    ![]({{base_path}}/assets/img/learn/publisher-testconsole-testkey.png)
+    Note the successful response for the API invocation.
+
+    ![]({{base_path}}/assets/img/learn/publisher-testconsole-swaggerUI.png)
+
+
+
+
+
