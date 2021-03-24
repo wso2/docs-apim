@@ -1,0 +1,3 @@
+
+!!! note
+    WSO2 API Manager comes with the default JWT generator. This JWT generator will generate specific claims based on the specifications and the user demands at the time the product is released. When you update the products, you will need to add/change some of the claims based on the specification updates. This means that even with the given released version, standard claims that come from the API Manager are subjected to change. Therefore, if you have planned to use specific claims in the backend, it is always recommended to implement a custom JWT generator with mandatory claims you wish to consume at your backend.

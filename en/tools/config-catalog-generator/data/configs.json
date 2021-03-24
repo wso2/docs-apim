@@ -423,7 +423,15 @@
                             "required": true,
                             "default": "Production and Sandbox",
                             "possible": "",
-                            "description": "User can add preferred values as the name."
+                            "description": "User can add preferred values and should not be changed once configured."
+                        },
+                        {
+                            "name": "display_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "<name> of the environment",
+                            "possible": "",
+                            "description": "User can add preferred set a name to display"
                         },
                         {
                             "name": "type",
@@ -504,6 +512,51 @@
                             "default": "no default value",
                             "possible": "",
                             "description": "http://localhost:8280/"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway.environment.toml"
+        },
+        {
+            "title": "Virtual host of API-M gateway environment configurations",
+            "options": [
+                {
+                    "name": "apim.gateway.environment.virtual_host",
+                    "required": false,
+                    "description": "Configuring virtual host for the gateways environment.",
+                    "params": [
+                        {
+                            "name": "http_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://<host of https endpoint>:80",
+                            "possible": "http://<host>:<por>/<optional context>",
+                            "description": "HTTP endpoint e.g. http://dev.wso2.com:8280"
+                        },
+                        {
+                            "name": "https_endpoint",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "https://<host>:<por>/<optional context>",
+                            "description": "HTTPS endpoint e.g. https://dev.wso2.com:8243"
+                        },
+                        {
+                            "name": "ws_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "ws://<host of https endpoint>:9099",
+                            "possible": "ws://<host>:<por>",
+                            "description": "WS endpoint e.g. ws://dev.wso2.com:9099"
+                        },
+                        {
+                            "name": "wss_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "wss://<host of https endpoint>:8099",
+                            "possible": "wss://<host>:<por>",
+                            "description": "WSS endpoint e.g. wss://dev.wso2.com:8099"
                         }
                     ]
                 }

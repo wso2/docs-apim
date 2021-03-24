@@ -6,7 +6,7 @@ Let's get started with creating new keystores.
 
 ## Before you begin
 
-Be sure to go through the [Recommendations for setting up keystores](../../configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) to understand the types of keystores you need.
+Be sure to go through the [Recommendations for setting up keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) to understand the types of keystores you need.
 
 ## Creating a new keystore
 
@@ -38,7 +38,7 @@ Secure Sockets Layer (SSL) is a protocol that is used to secure communication be
 
     !!! Important
 
-        If you are creating a new keystore for data encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in the [Recommendations for setting up keystores](../../configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
+        If you are creating a new keystore for data encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [Recommendations for setting up keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
 
         ``` java
             Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher 
@@ -192,8 +192,8 @@ Follow the steps given below to import the same CA-signed public key certificate
 
     Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<API-M_HOME>/repository/resources/security/` directory. You can now replace the default wso2carbon.jks keystore in your product with the newly created keystore by updating the configuration. 
 
-For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Asymmetric Cryptography](about-asymetric-cryptography.md) .
+For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
 
 ## What's next?
 
-Once you have created a new keystore in your product as explained above, update the configuration as explained in [Configuring Keystores in API Manager](../configuring-keystores-in-wso2-api-manager.md) .
+Once you have created a new keystore in your product as explained above, update the configuration as explained in [Configuring Keystores in API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager).

@@ -1,4 +1,4 @@
-# Configuring WSO2 Identity Server as a Key Manager
+# Set up WSO2 Identity Server as a Key Manager
 
 Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
 

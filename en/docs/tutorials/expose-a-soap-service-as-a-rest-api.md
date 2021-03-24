@@ -34,7 +34,6 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     | Context | /phoneverify       |
     | Version | 1.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
-    | Business Plans| Unlimited|
 
     ![]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
 

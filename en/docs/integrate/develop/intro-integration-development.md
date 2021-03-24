@@ -311,7 +311,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 			<b>Kubernetes Environment</b>
 		</td>
 		<td>
-			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="../../setup/deployment/k8s-pipeline/overview">EI Kubernetes CICD pipeline</a>.
+			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="../../setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
 		</td>
 	</tr>
 </table>
@@ -332,7 +332,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 			<b><a href="{{base_path}}/integrate/integration-overview">Integration Use Cases</a></b>
 		</td>
 		<td>
-			Read about the integration use cases supported by the Micro Integrator of EI 7.1.0.
+			Read about the integration use cases supported by the Micro Integrator.
 		</td>
 	</tr>
 	<tr>

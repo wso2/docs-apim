@@ -1,4 +1,4 @@
-# Managing Integrations with CTL
+# Managing Integrations with apictl
 
 WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (deployed in a specified Micro Integrator server) and perform various management and administration tasks from the command line.
 
@@ -7,7 +7,7 @@ WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (dep
 
     -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
-    -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
     -  Ensure that the Micro Integrator management endpoint is added to the environment configurations of CTL, before you start working with the following CTL commands. For more information, see [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
 
@@ -98,7 +98,7 @@ After adding an environment, you can login to the Micro Integrator instance of t
 
 ## Manage Users
 
-You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the CTL with administrator credentials, you can also add new users, and remove users from the user store.
+You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). If you are logged in to the apictl with administrator credentials, you can also add new users, and remove users from the user store.
 
 ### Get information about users
 
@@ -1398,9 +1398,9 @@ You can use the command below to generate the transaction count summary report b
     Transaction Count Report created in reports/mi/transaction-count-summary-1610597725520763836.csv
     ```
 
-## Update HashiCorp configurations
+## Update HashiCorp AppRole Pull secret ID
 
-You can use the command below to update the HashiCorp secret ID that is used by the Micro Integrator to connect with HashiCorp.
+You can use the command below to update the HashiCorp AppRole Pull secret ID that is used by the Micro Integrator to connect with HashiCorp.
 
 !!! note
     - The HashiCorp secret ID is only applicable when **AppRole Pull** authentication is used between the Micro Integrator and HashiCorp.

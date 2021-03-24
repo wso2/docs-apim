@@ -36,25 +36,35 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - **[Support for auth0 Key Manager]({{base_path}}/administer/key-managers/configure-auth0-connector/)** 
     It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
 
-- **Support for Server-Sent Event Messaging Protocol in API Gateway**
-    Server Sent Event is one of the protocols that support the asynchronous message flow. Server Sent Event API enables you to expose and manage the Server Sent Event (SSE) backend via a Streaming API in API Manager.
-<!--
-- WebSocket Support with Async APIs
+- **[Streaming API support in API Gateway]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview)**
+    Streaming APIs are asynchronous APIs that support asynchronous message flows. Asynchronous message flows are popular in the event driven architecture. With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (Webhook)** and **Server Sent Events (SSE)** backends in WSO2 API Manager.
 
-- Webhook Support For API Gateway
+- **[AsyncAPI Definitions for Streaming APIs]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
+    [AsyncAPI](https://www.asyncapi.com/) is used to define asynchronous APIs. In WSO2 API Manager, [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview) can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
+
+- **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames/)**
+    **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
+
+<!--
 
 - Changes to Publisher API/UI to support Streaming APIs
 
 - Changes to Dev Portal REST API/UI to support Streaming APIs
 
-- Generating AsyncAPI spec for existing services
-
-- VHost feature
-
 - Improved Commenting Feature (Nested commenting, publisher view)
 
 - Defaulting code and configs to do with event based
 -->
+
+#### What has changed in this release
+
+##### Removed features and functionalities
+
+- Microgateway Labels
+
+      [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/latest/learn/api-microgateway/grouping-apis-with-labels/)
+      is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames)
+      and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
 #### Fixed Issues
 
@@ -146,7 +156,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     - Resolve parameters at server side while importing an API project
     - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
     - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the api_params.yaml
+    - Support to override subscription policies of an API using the params file
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
 

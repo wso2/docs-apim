@@ -3,10 +3,10 @@
 !!! Info
     This feature is available as a product update from 27/10/2020 onwards. If you don't already have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/) now.
 
-By default, the Micro Integrator is configured to use [WSO2 secure vault for encrypting secrets](encrypting_plain_text.md). However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
+By default, the Micro Integrator is configured to use [WSO2 secure vault for encrypting secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text). However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
 
 !!! Note
-    HashiCorp secrets are only applicable to synapse configurations. For server configurations, you need to use [WSO2 secure vault](encrypting_plain_text.md).
+    HashiCorp secrets are only applicable to synapse configurations. For server configurations, you need to use [WSO2 secure vault]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text).
 
 ## Before you begin
 
@@ -180,7 +180,7 @@ If you want to update the secret token dynamically without restarting the server
     ```
 
 !!! Tip
-    You can use the WSO2 API Controller (APICTL) to update the secret token dynamically. For more information, see [Update HashiCorp configuration]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#update-hashicorp-configurations).
+    You can use the WSO2 API Controller (APICTL) to update the secret token dynamically. For more information, see [Update HashiCorp AppRole Pull secret ID]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#update-hashicorp-approle-pull-secret-id).
 
 ## Using Namespaces for the HashiCorp connection
 
