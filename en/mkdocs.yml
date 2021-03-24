@@ -115,6 +115,7 @@ nav:
                             - Secure APIs using API Keys: design/api-security/api-authentication/secure-apis-using-api-keys.md
                             - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                             - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                            - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                             - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                             - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                     - Authorization:
