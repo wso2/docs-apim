@@ -86,7 +86,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
     The **Import** dialog box opens as follows.
     
-    ![Import Dashboards dialog box]({{base_path}}/assets/img//integrate/monitoring-dashboard/grafana-import-dialog-box.png)
+    ![Import Dashboards dialog box]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png)
     
 3. Click **Upload.json file**. Then browse for one of the dashboards that you downloaded as a JSON file.
 
