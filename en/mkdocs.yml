@@ -694,6 +694,10 @@ nav:
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager Observability:
+            - API Manager Analytics:
+                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
+                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
             - Monitoring Logs:
                 - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -705,10 +709,6 @@ nav:
             - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
             - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-            - API Manager Analytics:
-                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
         - Micro Integrator Observability:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
@@ -1468,6 +1468,7 @@ nav:
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
+          - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
