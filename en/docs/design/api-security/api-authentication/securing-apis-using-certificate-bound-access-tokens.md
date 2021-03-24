@@ -30,7 +30,7 @@ Open the `<API-M_HOME>/repository/conf/deployment.toml` File and Configure the `
 
     ``` tab="Format"
      [apim.oauth_config]
-     enable_certificate_bound_access_token = true
+     enable_certificate_bound_access_token = <true|false>
     ```
 
     ``` tab="Example"
