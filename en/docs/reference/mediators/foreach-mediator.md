@@ -117,9 +117,3 @@ includes a [Log mediator]({{base_path}}/reference/mediators/log-Mediator) with t
 </foreach>
 ```
 
-<!--
-#### Sample
-
-See [Sample 18: Transforming a Message Using ForEach
-Mediator](https://docs.wso2.com/display/EI6xx/Sample+18%3A+Transforming+a+Message+Using+ForEach+Mediator).
--->

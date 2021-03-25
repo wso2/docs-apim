@@ -4,10 +4,10 @@ Follow the steps given below to set up the required IBM databases for your Micro
 
 !!! Tip
 	WSO2 Micro Integrator requires databases for the following scenarios: 
-	
-	-	<a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
-	-	<a href='../../../setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
-	-	<a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
+
+	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
+	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
+	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Prerequisites
 
@@ -28,16 +28,16 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>db2_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
 		</td>
 	</tr>
 	<tr>
 		<td>db2_user.sql</td>
-		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../../setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
+		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
 	</tr>
 	<tr>
 		<td>db2_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
@@ -72,14 +72,14 @@ Create the database using either [DB2 command processor](#using-the-db2-command-
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
 3.  Click **User and Group Objects** in the control center tree to
-    create users for the newly created database.  
+    create users for the newly created database.  
 4.  Give the required permissions to the newly created users.  
 
 ## Setting up DB2 JDBC drivers
 
 Copy the DB2 JDBC drivers (`db2jcc.jar` and `db2jcc_license_c0u.jar`) from the `<DB2_HOME>/SQLLIB/java/` directory to the `MI_HOME/lib/` directory.
 
-`<DB2_HOME>` refers to the installation directory of DB2 Express-C, and `<MI_HOME>` refers to the directory where you run the WSO2 product instance.
+`<DB2_HOME>` refers to the installation directory of DB2 Express-C, and `<MI_HOME>` refers to the directory where you run the WSO2 product instance.
 
 ## Connecting the database to the server
 
@@ -119,7 +119,6 @@ driver="com.ibm.db2.jcc.DB2Driver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"
@@ -128,4 +127,4 @@ update_interval = 2
 
 {!setup/pull/PULL-CONTENT-user-store-db-id.md!}
 
-See the descriptions of [database connection parameters](../../../references/config-catalog/#database-connection).
+See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).

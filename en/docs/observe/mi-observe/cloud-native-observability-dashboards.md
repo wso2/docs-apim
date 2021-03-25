@@ -8,9 +8,9 @@ Set up the suitable cloud-native observability deployment. The dashboards descri
 
 See the following topics for information and instructions:
 
--	Learn about [Observability deployment strategy](../../setup/observability/observability-deployment-strategy).
--	Setting up [cloud-native observability for a VM environment](../../setup/observability/setting-up-minimum-basic-observability-deployment)
--	Setting up [cloud-native observability for a Kubernetes environment](../../setup/observability/setting-up-cloud-native-observability-in-kubernetes)
+-	Learn about [Observability deployment strategy]({{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy).
+-	Setting up [cloud-native observability for a VM environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment)
+-	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes)
 
 ## Cluster dashboard
 
@@ -22,7 +22,7 @@ In the Cluster dashboard visualizes the overall statistics relating to your Micr
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Cluster Metrics](https://grafana.com/grafana/dashboards/12783).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
 
 ### Statistic types
 
@@ -70,7 +70,7 @@ This displays statistics specific to a selected node.
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Node Metrics](https://grafana.com/grafana/dashboards/12887).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
 
 ### Statistic types
 
@@ -117,7 +117,7 @@ In the Proxy service dashboard, we can view information related to a specific Pr
 
 You can download the dashboard from the [Grafana Labs - WSO2 Proxy Service Metrics](https://grafana.com/grafana/dashboards/12889).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
 
 ### Statistic types
 
@@ -159,7 +159,7 @@ This dashboard displays overall statistics related to a specific API.
 
 You can download the dashboard from the [Grafana Labs - WSO2 API Metrics](https://grafana.com/grafana/dashboards/12888).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
 
 ### Statistic types
 
@@ -199,7 +199,7 @@ At a given time, the Inbound endpoint dashboard displays the overall statistics 
 
 You can download the dashboard from the [Grafana Labs - WSO2 Inbound Endpoint Metrics](https://grafana.com/grafana/dashboards/12890).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment](../setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
 
 ### Statistic types
 

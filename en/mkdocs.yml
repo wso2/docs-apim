@@ -115,6 +115,7 @@ nav:
                             - Secure APIs using API Keys: design/api-security/api-authentication/secure-apis-using-api-keys.md
                             - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                             - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                            - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
                             - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                             - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                     - Authorization:
@@ -694,6 +695,10 @@ nav:
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager Observability:
+            - API Manager Analytics:
+                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
+                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
+                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
             - Monitoring Logs:
                 - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -705,10 +710,6 @@ nav:
             - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
             - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
-            - API Manager Analytics:
-                - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
         - Micro Integrator Observability:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
@@ -1323,11 +1324,11 @@ nav:
                 - Data Stores:
                     - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
                     - Databases:
-                        - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MySQL.md
-                        - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MSSQL.md
-                        - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-Oracle.md
-                        - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL.md
-                        - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2.md
+                        - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
+                        - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
+                        - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
+                        - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
+                        - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
                     - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
                 - Security:
                     - Setting up Keystores:
@@ -1381,10 +1382,10 @@ nav:
                     - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
                     - Setting up Classic Observability Deployment: install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md
                     - Configuring Logs:
-                        - Enabling Logs for a Component: administer-and-observe/logs/enabling_component_logs.md
-                        - Configuring Logs: administer-and-observe/logs/configuring_log4j_properties.md
-                        - Managing Log Growth: administer-and-observe/logs/managing_log_growth.md
-                        - Masking Sensitive Information in Logs : administer-and-observe/logs/masking_sensitive_info_in_logs.md
+                        - Enabling Logs for a Component: install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md
+                        - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
+                        - Managing Log Growth: install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md
+                        - Masking Sensitive Information in Logs : install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
@@ -1468,6 +1469,7 @@ nav:
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
+          - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
