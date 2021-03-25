@@ -17,8 +17,8 @@ Follow the instructions below to start the migration!
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
-	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
+	-	Install the product [using the Installer](../../../setup/installation/install_in_vm_installer).
+	-	Install the product [using the binary distribution](../../../setup/installation/install_in_vm_binary).
 
 -	Use [WSO2 Update Manager](https://docs.wso2.com/display/updates/) to get the latest available updates for your EI 7.1 distribution.
 
@@ -32,7 +32,7 @@ If you are already using a JDBC or LDAP user store with EI 6.x, you can simply c
 Note that **secondary** user stores are currently not supported in the Micro Integrator of EI 7.1.0.
 
 !!! info "Before you begin"
-	Read about [users and roles in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/managing-users) and about how they function. Note the following important facts:
+	Read about [users and roles in the Micro Integrator](../../../setup/user_stores/managing_users) and about how they function. Note the following important facts:
 
 	- Users in the Micro Intgrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
 	- All admin users in your existing ESB user store will function as admin users in the Micro integrator.
@@ -95,7 +95,7 @@ To connect the Micro Integrator to the primary user store:
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
-See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
+See the instructions on [configuring a user store](../../user_stores/setting_up_a_userstore) for more information.
 
 ### Migrating the registry
 
@@ -104,9 +104,9 @@ See the instructions on [configuring a user store]({{base_path}}/install-and-set
 
 	-	Your EI 6.x registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator](../file_based_registry).
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
-	-	If you have shared the registry of EI 6.x among multiple nodes, you can do the same for the file-based registry of EI 7.1. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of EI 7.1]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
+	-	If you have shared the registry of EI 6.x among multiple nodes, you can do the same for the file-based registry of EI 7.1. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of EI 7.1](../../../setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
 
-The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in EI 6.x). Note the following when migrating the registry:
+The Micro Integrator uses a [file-based registry](../file_based_registry) instead of a database (which is used in EI 6.x). Note the following when migrating the registry:
 
 -	If the registry resources in EI 6.x are added via carbon applications developed using WSO2 Integration Studio, you can directly migrate the artifacts to the Micro Integrator of EI 7.1. Copy the carbon applications from the `<EI_6.x.x_HOME>/repository/deployment/server/carbonapps` folder to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
 -	If the registry resources are added through the management console in EI 6.x.x, you need to convert them to a Registry Resources module in WSO2 Integration Studio and deploy them via a Carbon Application.
@@ -122,8 +122,8 @@ The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setu
 
 	Use one of the following approaches:
 
-	- [Checkout the Registry Resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the EI 6.x.x server directly into the Registry Resources module in WSO2 Integration Studio.
-	- Download the Registry Resources from EI 6.x.x and [import them]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
+	- [Checkout the Registry Resources](../../../develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the EI 6.x.x server directly into the Registry Resources module in WSO2 Integration Studio.
+	- Download the Registry Resources from EI 6.x.x and [import them](../../../develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
 
 	!!! Note
 	    Once you have imported the Registry Resources into WSO2 Integration Studio, open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
@@ -162,8 +162,8 @@ The recommended way to create integration artifacts (in EI 6.x or EI 7.x ) is to
 
 ### Migrating deployed Connectors
 
-- If the connector is added to EI 6.x via a composite application with the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in EI 6.x to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
-- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
+- If the connector is added to EI 6.x via a composite application with the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in EI 6.x to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
+- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
 
 ### Migrating custom components
 
@@ -172,7 +172,7 @@ Copy custom OSGI components in the `<EI_6.x.x_HOME>/dropins` folder to the `<MI_
 !!! Note
     -	To provide seamless integration with RabbitMQ, the Rabbitmq client lib is included in the Micro Integrator by default. Hence, you don't need to manually add any RabbitMQ components.
     -	WSO2 EI no longer packs the VFS/SMB provider by default. If you need to use the <b>VFS SMB</b> feature, download `jcifs-1.3.17.jar` and add it to the `<MI_HOME/lib` folder. Since this library is licensed under LGPL version 2.1, you have to comply with the [terms of LGPL version 2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html) and its restrictions.
-    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features]({{base_path}}/get-started/about-this-release/#features-removed) for details.
+    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features](../../../overview/about-this-release-7.1.0/#features-removed) for details.
 
 ### Migrating tenants
 
@@ -201,7 +201,7 @@ Given below are main configurations that have changed in the Micro integrator. E
 
 ??? note "Clustering configurations"
 
-	In the Micro Integrator, you don't need to enable clustering as you did with previous EI versions. Instead, you need to configure all nodes in the cluster to coordinate through an RDBMS. Find out more about [cluster coordination]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination).
+	In the Micro Integrator, you don't need to enable clustering as you did with previous EI versions. Instead, you need to configure all nodes in the cluster to coordinate through an RDBMS. Find out more about [cluster coordination](../../../setup/deployment/deploying_wso2_ei/#cluster-coordination).
 
     ```xml tab='XML configuration'
     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
@@ -224,7 +224,7 @@ Given below are main configurations that have changed in the Micro integrator. E
 	node_id = "node-1"
 	```
 
-    Find more [parameters]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei).
+    Find more [parameters](../../../setup/deployment/deploying_wso2_ei).
 
 ??? note "Analytics configurations"
 
@@ -1013,7 +1013,7 @@ Given below are some of the most critical XML configuraton files in the ESB prof
     task_server_count = "3"
     ```
 
-	Find more [parameters]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei).
+	Find more [parameters](../../../setup/deployment/deploying_wso2_ei).
 
 The complete list of TOML configurations for the Micro Integrator are listed in the [product configuration catalog](../../../references/config-catalog).
 
