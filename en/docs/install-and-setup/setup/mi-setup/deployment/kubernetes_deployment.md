@@ -1,6 +1,5 @@
 # Deploy on Kubernetes
 
-
 ##  Prerequisites (system requirements)
 
 Listed below are the system requirements for deploying integration solutions in Kubernetes using the EI K8s operator.
@@ -16,9 +15,9 @@ Listed below are the system requirements for deploying integration solutions in 
 !!! Tip
     To try the end-to-end process of deploying integration solutions on Kubernetes, see the K8s examples: 
 
-    - [Hello World example](../k8s-samples/hello-world)
-    - [Message Routing example](../k8s-samples/content-based-routing)
-    - [JMS Sender/Receiver exampe](../k8s-samples/jms-sender-receiver)
+    - [Hello World example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world)
+    - [Message Routing example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing)
+    - [JMS Sender/Receiver exampe]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.)
 
 Given below are the main steps your will follow when you deploy integration solutions in a Kubernetes cluster.
 
@@ -298,7 +297,7 @@ When you run the above command, Kubernetes will spawn another temporary pod, whi
 
 ## Run inbound endpoints
 
-[Inbound Endpoints](../../../references/synapse-properties/inbound-endpoints/about-inbound-endpoints/) in the Micro Integrator are used for separating endpoint listeners. That is, for each HTTP inbound endpoint, messages are handled separately. Also, we can create any number of inbound endpoints on any port. 
+[Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) in the Micro Integrator are used for separating endpoint listeners. That is, for each HTTP inbound endpoint, messages are handled separately. Also, we can create any number of inbound endpoints on any port. 
 
 Therefore, we can expose the inbound endpoint ports from the Kubernetes cluster by passing the `inboundPorts` property inside our `integration_cr.yaml` custom resource file as follows:
 
