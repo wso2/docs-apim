@@ -20,7 +20,7 @@ The Streaming Integrator component integrates streaming data from different sour
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Develop your First Streaming Solution</p>
-                <p class="hint">Build a simple integration scenario using WSO2 Integration Studio.</p>
+                <p class="hint">Build a simple streaming scenario using WSO2 streaming Integrator Tooling.</p>
             </div>
         </div>
         <!-- end card -->
