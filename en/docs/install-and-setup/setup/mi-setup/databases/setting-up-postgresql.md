@@ -4,7 +4,7 @@ Follow the steps given below to set up the required Postgre databases for your M
 
 !!! Tip
 	WSO2 Micro Integrator requires databases for the following scenarios:
-	
+
 	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a>
     -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
     -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
@@ -47,7 +47,7 @@ Create the databases and then create the DB tables by pointing to the relevant s
 5.  To create a database, click **Databases** in the tree (inside the
     object browser), and click **New Database** .
 6.  In the **New Database** dialog box, give a name to the database,
-    e.g., gregdb and click **OK** .
+    e.g., gregdb and click **OK** .
 7.  To create a login role, click **Login Roles** in the tree (inside
     the object browser), and click **New Login Role** . Enter the role
     name and a password.
@@ -104,7 +104,6 @@ driver="org.postgresql.Driver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"

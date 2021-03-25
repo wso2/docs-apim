@@ -4,7 +4,7 @@ Follow the steps given below to set up the required IBM databases for your Micro
 
 !!! Tip
 	WSO2 Micro Integrator requires databases for the following scenarios: 
-	
+
 	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
 	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
 	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
@@ -72,14 +72,14 @@ Create the database using either [DB2 command processor](#using-the-db2-command-
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
 3.  Click **User and Group Objects** in the control center tree to
-    create users for the newly created database.  
+    create users for the newly created database.  
 4.  Give the required permissions to the newly created users.  
 
 ## Setting up DB2 JDBC drivers
 
 Copy the DB2 JDBC drivers (`db2jcc.jar` and `db2jcc_license_c0u.jar`) from the `<DB2_HOME>/SQLLIB/java/` directory to the `MI_HOME/lib/` directory.
 
-`<DB2_HOME>` refers to the installation directory of DB2 Express-C, and `<MI_HOME>` refers to the directory where you run the WSO2 product instance.
+`<DB2_HOME>` refers to the installation directory of DB2 Express-C, and `<MI_HOME>` refers to the directory where you run the WSO2 product instance.
 
 ## Connecting the database to the server
 
@@ -119,7 +119,6 @@ driver="com.ibm.db2.jcc.DB2Driver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"

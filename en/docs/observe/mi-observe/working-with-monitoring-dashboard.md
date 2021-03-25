@@ -40,7 +40,7 @@ You can use the dashboard to perform the following administration tasks related 
 
 -   <b>Manage users</b>
 
-    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store](../../setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
+    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
 
 [comment]: <> (You can refer to the following video to get a quick understanding of how this is done.)
 
@@ -121,14 +121,14 @@ See the following topics to install the MI server and dashboard.
         </tr>
     </table> 
 
--	Set up the [Micro Integrator user store](../../setup/user_stores/setting_up_a_userstore).
+-	Set up the [Micro Integrator user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
 
     !!! Tip
         Note the following about your user store configurations.
 
         -	The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-        -	[User management](../../setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-        -	If you have an [external RDBMS user store](../../setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
+        -	[User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -	If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
 ##  Start the Micro Integrator
 
@@ -162,7 +162,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="../../setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>
