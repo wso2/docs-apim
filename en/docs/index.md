@@ -32,7 +32,7 @@ template: templates/single-column.html
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
                 ![Proxies icon]({{base_path}}/assets/img/home/proxies.svg)
-                <h4>Design and implement  API Proxies</h4>
+                <h4>Design and implement APIs</h4>
                 <p>
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
@@ -63,23 +63,23 @@ template: templates/single-column.html
         </div>
     </div>
     <div class="section04">
-        <h3>APIM Capabilities</h3>
+        <h3>APIM Scenarios</h3>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Easily and securely expose APIs to internal and external consumers</h4>
                 <p>
                     Centrally control access and traffic flows to your APIs, ensuring only the right people get the right information at the right time. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Enable design and runtime governance for the entire API lifecycle</h4>
                 <p>
                     Build APIs from existing services, manage APIs from internally built applications and from third-party providers, and monitor their usage and performance from inception to retirement.
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/streaming.svg)
                 <h4>Provide enhanced API security and policy enforcement</h4>
                 <p>
@@ -88,21 +88,21 @@ template: templates/single-column.html
             </div>
         </div>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Get business insights and intelligence through APIs</h4>
                 <p>
                     Provide real-time access to API usage and performance statistics to decision-makers to optimize your developer support, continuously improve your services, and drive further adoption to reach your business goals. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Flexible deployment models and seamless service discovery</h4>
                 <p>
                     Deploy in the cloud, in your private data centers, or anywhere in between, while cataloging your services in a single location to make it easy for your developers to find what they need to efficiently build their applications.
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='getting-started/quick-start-guide';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
                 ![]({{base_path}}/assets/img/home/streaming.svg)
                 <h4>Support modern services and integrate API workflows with your CI/CD pipeline</h4>
                 <p>
@@ -150,7 +150,7 @@ template: templates/single-column.html
         </p>
         <div class="DeploymentWrapper">
             <div class="Deploymentlinks">
-                <h4>APIs + Integrations </h4>
+                <h4>API Management </h4>
                 <ul>
                     <li><a href='#'>Message Routing and Transformation</a></li>
                     <li><a href='#'>Service Orchestration</a></li>
@@ -159,7 +159,7 @@ template: templates/single-column.html
                 </ul>
             </div>
             <div class="Deploymentlinks middle">
-                <h4>API Proxies </h4>
+                <h4>Integration </h4>
                 <ul>
                     <li><a href='#'>Message Routing and Transformation</a></li>
                     <li><a href='#'>Service Orchestration</a></li>
@@ -178,39 +178,3 @@ template: templates/single-column.html
             </div>
         </div>
     </div>
-    <div class="section07">
-        <h3>User Scenarios</h3>
-        <p>
-            These scenarios will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build an integrated system.
-        </p>
-        <div class="DeploymentWrapper">
-            <div class="Deploymentlinks">
-                <h4>APIs + Integrations </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks middle">
-                <h4>API Proxies </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks last">
-                <h4>Streaming Integration </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
