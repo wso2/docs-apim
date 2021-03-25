@@ -82,16 +82,16 @@ JavaScript, Groovy, or Ruby.
     <tbody>
     <tr class="odd">
     <td>Groovy</td>
-    <td>Download the groovy-all <code>-2.4.4.jar</code> file and copy it to the <code>&lt;EI_HOME&gt;/</code> dropins directory. Note that when you define the script, you need to start by importing Groovy.</td>
+    <td>Download the groovy-all <code>-2.4.4.jar</code> file and copy it to the <code>&lt;MI_HOME&gt;/</code> dropins directory. Note that when you define the script, you need to start by importing Groovy.</td>
     </tr>
     <tr class="even">
     <td>Ruby</td>
     <td><p>Install the JRuby engine for mediation. This is available in the WSO2 P2 repository as a feature (<strong>WSO2 Carbon - JRuby Engine for Mediation</strong>).</p>
-    <p>Alternatively, you can download and install the JRuby engine manually: Download the <code>              jruby-complete-1.3.0.wso2v1.jar             </code> file from the WSO2 P2 repository and copy it to the <code>                             &lt;EI_HOME&gt;/              </code> dropins directory.</p></td>
+    <p>Alternatively, you can download and install the JRuby engine manually: Download the <code>              jruby-complete-1.3.0.wso2v1.jar             </code> file from the WSO2 P2 repository and copy it to the <code>                             &lt;MI_HOME&gt;/              </code> dropins directory.</p></td>
     </tr>
     <tr class="odd">
     <td>JavaScript</td>
-    <td>The JavaScript/E4X support is enabled by default in the WSO2 Enterprise Integrator distribution and ready for use.</td>
+    <td>The JavaScript/E4X support is enabled by default in the Micro Integrator and ready for use.</td>
     </tr>
     </tbody>
     </table>
@@ -439,7 +439,7 @@ The following table contains examples of how some of the commonly used methods c
 <span id="cb5-14"><a href="#cb5-14"></a><span class="op">}</span></span></code></pre></div>
 </div>
 </div>
-<p><code>               mc.getPayloadJSON()              </code> returns the JSON payload (received as the response) as a JavaScript object. This object can be manipulated as a normal JavaScript variable within a script as shown in the above JavaScript code. See <a href="https://docs.wso2.com/display/EI650/Working+with+JSON+Message+Payloads#WorkingwithJSONMessagePayloads-Script">JSON Support</a> for further information about how this script is used.</p>
+<p><code>               mc.getPayloadJSON()              </code> returns the JSON payload (received as the response) as a JavaScript object. This object can be manipulated as a normal JavaScript variable within a script as shown in the above JavaScript code. See <a href="{{base_path}}/integrate/examples/json_examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used.</p>
 <p><br />
 </p>
 </div></td>
@@ -448,7 +448,7 @@ The following table contains examples of how some of the commonly used methods c
 <td>No</td>
 <td>setPayloadJSON(payload)</td>
 <td><p>See the example script for the <code>              getPayloadJSON()             </code> method.</p>
-<p>The <code>              mc.setPayloadJSON()             </code> method can be used to replace the existing payload with a new payload. In the above script, we build a new array object by using the fields of the incoming JSON payload and set that array object as the new payload. See <a href="https://docs.wso2.com/display/EI650/Working+with+JSON+Message+Payloads#WorkingwithJSONMessagePayloads-Script">JSON Support</a> for further information about how this script is used</p></td>
+<p>The <code>              mc.setPayloadJSON()             </code> method can be used to replace the existing payload with a new payload. In the above script, we build a new array object by using the fields of the incoming JSON payload and set that array object as the new payload. See <a href="{{base_path}}/integrate/examples/json_examples/json-examples/#script-mediator">JSON Support</a> for further information about how this script is used</p></td>
 </tr>
 <tr class="odd">
 <td>Yes</td>
@@ -496,23 +496,3 @@ The following table contains examples of how some of the commonly used methods c
 </tr>
 </tbody>
 </table>
-
-<!--
-## Samples
-
-The following samples demonstrate how to use the Script mediator.
-
--   [Sample 350: Introduction to the Script Mediator Using
-    JavaScript](https://docs.wso2.com/display/EI6xx/Sample+350%3A+Introduction+to+the+Script+Mediator+Using+JavaScript)
--   [Sample 351: Inline script mediation with
-    JavaScript](https://docs.wso2.com/display/EI6xx/Sample+351%3A+Inline+script+mediation+with+JavaScript)
--   [Sample 352: Accessing Synapse message context API using a scripting
-    language](https://docs.wso2.com/display/EI6xx/Sample+352%3A+Accessing+Synapse+message+context+API+using+a+scripting+language)
--   [Sample 353: Using Ruby Scripts for
-    Mediation](https://docs.wso2.com/display/EI6xx/Sample+353%3A+Using+Ruby+Scripts+for+Mediation)
--   [Sample 354: Using Inline Ruby Scripts for
-    Mediation](https://docs.wso2.com/display/EI6xx/Sample+354%3A+Using+Inline+Ruby+Scripts+for+Mediation)
-
-See also [Sample 441: Converting JSON to XML Using
-JavaScript](https://docs.wso2.com/display/EI6xx/Sample+441%3A+Converting+JSON+to+XML+Using+JavaScript)
--->

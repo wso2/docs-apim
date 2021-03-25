@@ -492,10 +492,4 @@ You can use Property mediators with `JSON` data type to enrich any JSON primitiv
     }
 }
 ```
-<!--
-For other example using the Enrich mediator, see [Sample 15: Using the
-    Enrich Mediator for Message Copying and Content
-    Enrichment](https://docs.wso2.com/display/EI6xx/Sample+15%3A+Using+the+Enrich+Mediator+for+Message+Copying+and+Content+Enrichment)
-    and [Sample 440: Converting JSON to XML Using
-    XSLT](https://docs.wso2.com/display/EI6xx/Sample+440%3A+Converting+JSON+to+XML+Using+XSLT).
--->
+

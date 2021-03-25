@@ -114,7 +114,7 @@ The parameters available to configure the DB Report mediator are as follows.
 <p>To include multiple database reports within the same database transaction i nside a particular message flow, set the value of this <strong>Use Transaction</strong> property to <strong>Yes</strong> .<br />
 </p>
 <p>However, when you have more reports it takes more time to complete a transaction and when multiple messages flow in, then multiple transactions can become active at the same time.</p>
-<p>By default, the maximum number of active transactions is 50 as imposed by the Atomikos JTA implementation. To override this, create a file named <code>                  transaction.properties                 </code> by including the following property and add it to the <code>                  &lt;EI_HOME&gt;/lib                 </code> directory:</p>
+<p>By default, the maximum number of active transactions is 50 as imposed by the Atomikos JTA implementation. To override this, create a file named <code>                  transaction.properties                 </code> by including the following property and add it to the <code>                  &lt;MI_HOME&gt;/lib                 </code> directory:</p>
 <pre><code>com.atomikos.icatch.max_actives=1000</code></pre>
 <div>
 Specifying the value as -1 allows unlimited transactions. Change the value accordingly to limit the number of active transactions based on your environment and the concurrency level of the service.
@@ -445,20 +445,3 @@ Transaction Mediator configuration.
     </target>
 </proxy>
 ```
-
-<!--
-#### Samples
-
-For more examples of the DB Report mediator, see:
-
--   [Sample 361: Introduction to DB Report
-    Mediator](https://docs.wso2.com/display/EI6xx/Sample+361%3A+Introduction+to+DBReport+Mediator)
--   [Sample 362: DB Report and DBLookup Mediators
-    Together](https://docs.wso2.com/display/EI6xx/Sample+362%3A+DBReport+and+DBLookup+Mediators+Together)
--   [Sample 363: Reusable Database Connection
-    Pools](https://docs.wso2.com/display/EI6xx/Sample+363%3A+Reusable+Database+Connection+Pools)
--   [Sample 271: File
-    Processing](https://docs.wso2.com/display/EI6xx/Sample+271%3A+File+Processing)
-    (moves files into a database using the VFS transport and the DB
-    Report mediator)
--->
