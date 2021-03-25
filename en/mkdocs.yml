@@ -1324,11 +1324,11 @@ nav:
                 - Data Stores:
                     - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
                     - Databases:
-                        - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MySQL.md
-                        - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-MSSQL.md
-                        - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-Oracle.md
-                        - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL.md
-                        - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2.md
+                        - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
+                        - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
+                        - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
+                        - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
+                        - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
                     - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
                 - Security:
                     - Setting up Keystores:
