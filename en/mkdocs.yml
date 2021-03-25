@@ -257,6 +257,7 @@ nav:
                     - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/security/rejecting-revoked-tokens.md
                     - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/security/importing-certificates-to-the-api-microgateway-truststore.md
                     - Define Security Using Extension: deploy-and-publish/eploy-on-gatewaydsecurity/define-security-using-extension.md
+                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
                 - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
