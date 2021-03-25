@@ -136,14 +136,3 @@ package samples.mediators;
         }
     }
 ```
-
-<!--
-#### Samples
-
-For more examples, see:
-
--   [Sample 380: Writing your own Custom Mediation in
-    Java](https://docs.wso2.com/display/EI650/Sample+380%3A+Writing+your+own+Custom+Mediation+in+Java)
--   [Sample 381: Class Mediator to CBR Binary
-    Messages](https://docs.wso2.com/display/EI650/Sample+381%3A+Class+Mediator+to+CBR+Binary+Messages)
--->
