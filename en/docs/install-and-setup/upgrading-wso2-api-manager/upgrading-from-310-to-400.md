@@ -409,6 +409,9 @@ Follow the instructions below to move all the existing API Manager configuration
         driver = "com.ibm.db2.jcc.DB2Driver"
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
+    !!! note
+        It is not recommend to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
+        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 3.1.0 version to API-M 4.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.0.0 version.
 
 3.   If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
@@ -624,6 +627,7 @@ Follow the instructions below to move all the existing API Manager configuration
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
           LABEL VARCHAR(255) NOT NULL,
+          VHOST VARCHAR(255) NULL,
           PRIMARY KEY (REVISION_ID, API_ID,LABEL),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         )
@@ -1268,6 +1272,7 @@ Follow the instructions below to move all the existing API Manager configuration
           API_ID VARCHAR(255) NOT NULL,
           REVISION_ID VARCHAR(255) NOT NULL,
           LABEL VARCHAR(255) NOT NULL,
+          VHOST VARCHAR(255) NULL,
           PRIMARY KEY (REVISION_ID, API_ID,LABEL),
           FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         ) ENGINE=InnoDB;
@@ -1366,7 +1371,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS CHANGE COMMENT_ID COMMENT_ID VARCHAR(64);
         ALTER TABLE AM_API_COMMENTS CHANGE COMMENTED_USER CREATED_BY VARCHAR(512);
         ALTER TABLE AM_API_COMMENTS CHANGE DATE_COMMENTED CREATED_TIME TIMESTAMP NOT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP;
+        ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(64) DEFAULT NULL;
         ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
@@ -2081,7 +2086,21 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
     - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
 
-5.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
+6.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
+    Generate your own secret key using a tool like OpenSSL.
+    
+    i.e.,
+       ```
+        openssl enc -nosalt -aes-128-cbc -k hello-world -P
+       ```        
+    Add the configuration to the <NEW_IS_HOME>/repository/conf/deployment.toml file.
+    
+       ```
+       [encryption]
+       key = "<provide-your-key-here>"
+       ```
+
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.10.0 to 5.11.0.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
@@ -2251,3 +2270,8 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, synapse configurations, execution plans and etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
+    
+!!! note
+   - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
+
+   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
