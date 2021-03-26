@@ -137,7 +137,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
 
-{!reference/connectors/deploy-capp-copy.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 
