@@ -105,7 +105,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 		</tr>
 	</table>
 
-See the [complete list of parameters](../../../references/config-catalog/#ldap-user-store) you can configure for the ldap user store.
+See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store) you can configure for the ldap user store.
 
 ## Configuring an RDBMS user store
 
@@ -248,7 +248,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 			</tr>
 		</table>
 		
-		See the complete list of [database connection parameters](../../../references/config-catalog/#database-connection) and their descriptions. Also, see the recommendations for [tuning the JDBC connection pool](../../../setup/performance_tuning/jdbc_tuning).
+		See the complete list of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection) and their descriptions. Also, see the recommendations for [tuning the JDBC connection pool](../../../setup/performance_tuning/jdbc_tuning).
 
 	3.	Add the JDBC user store manager under the `[user_store]` toml heading as shown below.
 

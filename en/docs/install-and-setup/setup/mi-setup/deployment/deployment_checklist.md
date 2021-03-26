@@ -181,7 +181,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
          <td>High availability</td>
          <td>
             <div class="content-wrapper">
-               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="../../../setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
+               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
                <p><code>curl -X GET http://localhost:9201/healthz</code></p>
                <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">here</a> to achieve high availability.</p>
             </div>

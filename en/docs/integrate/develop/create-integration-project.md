@@ -83,7 +83,7 @@ The following table lists out the available projects that can be associated with
     </tr>
     <tr>
         <td>Kubernetes Exporter</td>
-        <td>A Kubernetes Exporter allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="../../setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
+        <td>A Kubernetes Exporter allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
     </tr>
 </table>
 

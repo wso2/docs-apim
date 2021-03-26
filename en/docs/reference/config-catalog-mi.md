@@ -58,7 +58,7 @@ enable_swa=false
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="../../setup/deployment/deploying_wso2_ei">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
                             </p>
                         </div>
                         <div class="params-wrap">
