@@ -9,7 +9,7 @@ following pages.
 
 2.  [Testing The Pipeline Environment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment)
 
-3.  [Deploy Your Own Artifact](../deploy-your-own-artifact/)
+3.  [Deploy Your Own Artifact]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact)
 
 If the above requirements are satisfied let’s start modifying product
 configuration in a step by step manner
@@ -35,7 +35,7 @@ Replace the `[git-username]` tag with the name of your GitHub username.
         file under `wso2.deployment.wso2microIntegrator.env` as shown
         below  
         
-        [ ![Host-Name](../../../assets/img/k8s_pipeline/modify-product/modify-pro1.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro1.png)
+        [ ![Host-Name]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro1.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro1.png)
     
     2.  Change the chart data in the
         sample [values](https://raw.githubusercontent.com/wso2/kubernetes-pipeline/master/kubernetes-pipeline/samples/values-mi.yaml) file
@@ -101,9 +101,9 @@ Replace the `[git-username]` tag with the name of your GitHub username.
         the deployment of the setup with updated configurations being
         deployed in the Spinnaker dashboard.
         
-   [ ![Stop Manual Judgement](../../../assets/img/k8s_pipeline/modify-product/modify-pro2.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro2.png)
-   [ ![Stop Manual Judgement2](../../../assets/img/k8s_pipeline/modify-product/modify-pro3.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro3.png)
-   [ ![Stop Manual Judgement3](../../../assets/img/k8s_pipeline/modify-product/modify-pro4.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro4.png)
+   [ ![Stop Manual Judgement]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro2.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro2.png)
+   [ ![Stop Manual Judgement2]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro3.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro3.png)
+   [ ![Stop Manual Judgement3]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro4.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro4.png)
         
 3.  Refer to the environment variable **HOSTNAME** in the Docker
     Exporter project under the forked [CICD
@@ -141,6 +141,6 @@ Replace the `[git-username]` tag with the name of your GitHub username.
         deployed in the Spinnaker
         dashboard.
         
-   [ ![Manual Judgment1](../../../assets/img/k8s_pipeline/modify-product/modify-pro5.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro5.png)
-   [ ![Manual Judgment2](../../../assets/img/k8s_pipeline/modify-product/modify-pro6.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro6.png)
-   [ ![Manual Judgment3](../../../assets/img/k8s_pipeline/modify-product/modify-pro7.png)](../../../assets/img/k8s_pipeline/modify-product/modify-pro7.png)
+   [ ![Manual Judgment1]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro5.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro5.png)
+   [ ![Manual Judgment2]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro6.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro6.png)
+   [ ![Manual Judgment3]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro7.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/modify-product/modify-pro7.png)

@@ -69,7 +69,7 @@ This is done by providing a custom Dockerfile as shown in the steps below:
 6. Modify the API located at **cicd-sample-docker-mi>helloworldConfigs/src/main/synapse-config/apis/HelloWorld.xml**
  to return a new response as below:
     
-    [ ![Proxy-Service](../../../assets/img/k8s_pipeline/Deploying/deploy-mi1.png)](../../../assets/img/k8s_pipeline/Deploying/deploy-mi1.png)
+    [ ![Proxy-Service]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi1.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi1.png)
 
 7.  Commit and push the changes into your forked repository.
 
@@ -77,9 +77,9 @@ This is done by providing a custom Dockerfile as shown in the steps below:
     Environment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment) document,
     stop the manual judgment and watch the sample artifact being deployed in the Spinnaker dashboard.
     
-    [![Spinnaker1](../../../assets/img/k8s_pipeline/Deploying/deploy-mi2.png)](../../../assets/img/k8s_pipeline/Deploying/deploy-mi2.png)
-    [![Spinnaker2](../../../assets/img/k8s_pipeline/Deploying/deploy-mi3.png)](../../../assets/img/k8s_pipeline/Deploying/deploy-mi3.png)
-    [![Spinnaker3](../../../assets/img/k8s_pipeline/Deploying/deploy-mi4.png)](../../../assets/img/k8s_pipeline/Deploying/deploy-mi4.png)
+    [![Spinnaker1]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi2.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi2.png)
+    [![Spinnaker2]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi3.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi3.png)
+    [![Spinnaker3]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi4.png)]({{base_path}}/assets/img/integrate/k8s_pipeline/deploying/deploy-mi4.png)
 
 9.  Invoke the service 
     
