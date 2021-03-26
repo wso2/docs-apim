@@ -76,12 +76,12 @@ the changes done to the API in to the Microgateway.
     [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
 
 !!! tip
-**Production and Sandbox Tokens**: 
-To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+    **Production and Sandbox Tokens**: 
+    To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
 !!! tip
-**JWT tokens**: 
-As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
+    **JWT tokens**: 
+    As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
 
 ### Step 6 - Invoke the API via Microgateway.
 
