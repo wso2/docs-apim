@@ -25,3 +25,8 @@ This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
+
+!!! note
+    Before API Manager 4.0.0, the distributed deployment comprised of five main product profiles. They are Publisher, Devportal, Gateway, Key manager, and Traffic Manager. Along with the new architecture in APIM 4.0.0 we only have three profiles such as Gateway, Traffic Manager and Default.
+    Since all the data contains in databases in 4.0.0 executing the migration client  in Default profile is recomamded and it will migrate the data in the connected databases.
+    You can refer our  [WSO2 API Manager distributed documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/) in for more details of our 4.0.0 distributed deployment.  
