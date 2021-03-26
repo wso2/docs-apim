@@ -1156,12 +1156,13 @@ nav:
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
+              - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
     - Administer:
         - Administer Overview: administer/admin-overview.md
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
             - Managing Users for API Manager:
-              - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
+              - Managing User Roles: administer/managing-users-and-rol es/managing-user-roles.md
               - Managing Users: administer/managing-users-and-roles/managing-users.md
               - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
               - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
@@ -1208,6 +1209,7 @@ nav:
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
                 - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
                 - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
+                - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
                 - Running the Streaming Integrator in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md

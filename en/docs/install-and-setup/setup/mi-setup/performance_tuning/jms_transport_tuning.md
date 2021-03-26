@@ -3,7 +3,7 @@
 The Java Message Service (JMS) transport of the WSO2 Micro Integrator allows you to easily send and receive messages to queues and topics of any JMS service that implements the JMS specification. The following sections describe how you can tune the JMS transport of the Micro Integrator for better performance.
 
 !!! Info
-    See the [JMS troubleshooting guide](../../references/troubleshooting-jms.md) for more topics related to tuning JMS use cases.
+    See the [JMS troubleshooting guide]({{base_path}}/troubleshooting/troubleshooting-jms) for more topics related to tuning JMS use cases.
 
 ## Increasing the maximum JMS proxies
 
