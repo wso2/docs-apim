@@ -9,7 +9,7 @@ sending a message out from Micro Integrator, a **message formatter** is used to 
 the outgoing stream from the message. As with message builders, the
 message formatter is selected based on the message's content type. Given below is the typical workflow:
 
-<a href=""><img src="../../../assets/img/message-builders-formatters.png"></a>
+<a href=""><img src="{{base_path}}/assets/img/integrate/message-builders-formatters.png"></a>
 
 You can use the messageType property to change the message's content
 type as it flows through the Micro Integrator. For example, if the incoming message is in
@@ -66,7 +66,7 @@ class = "org.wso2.carbon.relay.BinaryRelayBuilder"
 content_type = "application/json/badgerfish"
 ```
 
-See [Configuring Message Relay](message-relay.md).
+See [Configuring Message Relay]({{base_path}}/install-and-setup/setup/mi-setup/message_builders_formatters/message-relay).
 
 ### Handling messages with no content type
 
