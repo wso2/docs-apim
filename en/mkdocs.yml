@@ -192,7 +192,6 @@ nav:
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-                - Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
                 - Message Mediation:
                     - Changing the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                     - Creating and Uploading using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
@@ -203,7 +202,7 @@ nav:
                     - Disabling Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
                     - Transforming API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
                     - Adding a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                    - Adding a Class Mediator:  deploy/api-gateway/message-mediation/adding-a-class-mediator.md
+                    - Adding a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
                     - Configuring message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Message Tracing: deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md
@@ -229,13 +228,13 @@ nav:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway.md
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
-                - Import API:
-                    - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
+                - Deploy an API:
+                    - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/api-microgateway/deploy-api/deploy-api-to-microgateway.md
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
                     - Overriding Endpoint Information:
-                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.
+                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.md
                         - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-a-backend-security-scheme.md
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/api-microgateway/http-2.0.md
@@ -247,28 +246,28 @@ nav:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/api-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
-                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
-                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/security/api-authentication/mutual-ssl-authentication.md
-                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/security/api-authentication/configuring-an-external-key-manager.md
-                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/security/api-authentication/making-application-security-optional.md
-                        - Disabling Security: deploy-and-publish/deploy-on-gateway/security/api-authentication/disabling-security.md
+                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/mutual-ssl-authentication.md
+                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/configuring-an-external-key-manager.md
+                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/making-application-security-optional.md
+                        - Disabling Security: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/disabling-security.md
                     - Authorization:
                         - Scope Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authorization/scope-validation.md
-                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/security/api-authorization/subscription-validation.md
-                    - Transport Security: deploy-and-publish/deploy-on-gateway/security/transport-security.md
-                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/security/enabling-cors.md
-                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/security/use-a-custom-authorization-header.md
-                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/security/rejecting-revoked-tokens.md
-                    - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/security/importing-certificates-to-the-api-microgateway-truststore.md
-                    - Define Security Using Extension: deploy-and-publish/eploy-on-gatewaydsecurity/define-security-using-extension.md
+                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authorization/subscription-validation.md
+                    - Transport Security: deploy-and-publish/deploy-on-gateway/api-microgateway/security/transport-security.md
+                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/api-microgateway/security/enabling-cors.md
+                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/api-microgateway/security/use-a-custom-authorization-header.md
+                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/api-microgateway/security/rejecting-revoked-tokens.md
+                    - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/api-microgateway/security/importing-certificates-to-the-api-microgateway-truststore.md
+                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/api-microgateway/security/define-security-using-extension.md
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
-                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
-                - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
-                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
+                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/api-microgateway/file-upload-via-multipart-requests.md
+                - Configure Caching: deploy-and-publish/deploy-on-gateway/api-microgateway/configure-caching.md
+                - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
+                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/api-microgateway/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
-            - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
+            - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
     - Consume:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
