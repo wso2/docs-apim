@@ -57,7 +57,7 @@ There are two ways to build a Docker image of the integration solution and push 
 	4.	Click <b>Build & Push</b> to build the image and push to the Docker registry.
 	5.	In the dialog box that opens, enter the credentials of your Docker registry to which the image should be pushed.
 
-	    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials" width="500">
+	    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials">
 
 	6.	Click <b>Push Image</b>.
 

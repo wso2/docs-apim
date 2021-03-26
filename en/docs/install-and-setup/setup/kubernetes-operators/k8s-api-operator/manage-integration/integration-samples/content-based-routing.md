@@ -15,17 +15,17 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 1.  Open WSO2 Integration Studio.
 2.  In the <b>Getting Started</b> view, select the <b>Content Based Routing</b> template.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-template.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-template.png">
 
 3.  Give a project name and click <b>Finish</b>.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-sample-project.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-sample-project.png">
 
 5.  Create a **Kubernetes Project** inside the integration project. 
 
     1.  Right-click the <b>content-routing-sample</b> project, go to **New -> Kubernetes Exporter**:
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.png" alt="Create Kubernetes Project" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.png" alt="Create Kubernetes Project">
 
     2.  In the **Kubernetes Exporter Information for K8s EI Operator** dialog box that opens, enter the following details:
 
@@ -101,7 +101,7 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 
 Your integration project with the <b>content routing</b> sample is now ready to be deployed in Kubernetes.
 
-<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-content-routing-sample-project.png" width="300">
+<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-content-routing-sample-project.png">
 
 ## Step 2: Build and Push the Docker image 
 
@@ -135,7 +135,7 @@ There are two ways to build a Docker image of the integration solution and push 
 
     3.  In the dialog box that opens, enter the credentials of your Docker registry to which the image should be pushed.
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials" width="500">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials">
 
     4.  Click <b>Push Image</b>.
 
