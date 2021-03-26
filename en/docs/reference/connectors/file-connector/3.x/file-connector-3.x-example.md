@@ -22,7 +22,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
-{!reference/connectors/importing-connector-to-integration-studio-copy.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 ## Creating the Integration Logic
 
@@ -122,7 +122,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
     ```
 
-{!reference/connectors/exporting-artifacts-copy.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 
 ## Get the project
