@@ -2884,53 +2884,6 @@ paths:
             $ref: '#/definitions/Error'
 
 ######################################################
-# The "Self Signup" functional resource APIs
-######################################################
-  /self-signup:
-
-#-----------------------------------------------------
-# Register a new user
-#-----------------------------------------------------
-    post:
-      summary: Register a new user
-      security:
-        - OAuth2Security:
-          - apim:self-signup
-      x-scope: apim:self-signup
-      description: |
-        User self signup API
-      parameters:
-        - in: body
-          name: body
-          description: |
-            User object to represent the new user
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      tags:
-        - Sign Up
-      responses:
-        201:
-          description: |
-            Created.
-            Successful response with the newly created object as entity in the body.
-            Location header contains URL of newly created entity.
-          schema:
-            $ref: '#/definitions/User'
-        202:
-          description: |
-            Accepted.
-            The request has been accepted.
-          schema:
-            $ref: '#/definitions/WorkflowResponse'
-        400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-
-######################################################
 # The "SDK Generation Languages" list resource APIs
 ######################################################
   /sdk-gen/languages:
