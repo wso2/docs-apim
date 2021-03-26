@@ -37,7 +37,7 @@ making the process of getting started hassle-free.
 The following diagram illustrates the architecture of the CI/CD
 pipeline.
 
-[ ![Pipeline-Architecture](../../../assets/img/k8s_pipeline/pipeline-architecture-k8s.png) ](../../../assets/img/k8s_pipeline/pipeline-architecture-k8s.png)
+[ ![Pipeline-Architecture]({{base_path}}/assets/img/integrate/k8s_pipeline/pipeline-architecture-k8s.png) ]({{base_path}}/assets/img/integrate/k8s_pipeline/pipeline-architecture-k8s.png)
   
 
 This pipeline uses Jenkins as the integration tool, while Spinnaker is

@@ -1,31 +1,50 @@
 # Integration Overview
 
-WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator), which enables comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs. This allows you to enable API-led connectivity across your business using a single platform.
+WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator) with comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs in an API marketplace. This allows you to enable API-led connectivity across your business using a single platform.
 
 ## Get Started with Integration
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/get-started/quick-start-guide/integration-qsg">Quick Start with Integration</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/develop/integration-development-kickstart">Develop your First Integration Service</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-key-concepts">Key Concepts of Integration</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/tutorials/tutorials-overview">Integration Tutorials</a>
-        </td>
-    </tr>
-</table>
+Let's get started with the integration capabilities and concepts of the Micro Integrator of WSO2 API Manager.
+
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Quick Start with Integration</p>
+                <p class="hint">Try out a simple message mediation using the Micro Integrator.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Develop your First Integration</p>
+                <p class="hint">Build a simple integration scenario using WSO2 Integration Studio.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Key Concepts of Integration</p>
+                <p class="hint">Explore the key concepts used by the Micro Integrator.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
 
 ## Integration Strategy
 
+You can now leverage the integration capabilities as well as the API management capabilities of the product to implement any of the following integration strategies.
+
 ### API-led Integration
 
-API Manager enables you to build integration services from the ground up using [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the Service Catalog at the time of deployment.
+WSO2 API Manager enables you to build integration services from the ground up using [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the **Service Catalog** of the API management layer at the time of deployment.
 
 <img src="{{base_path}}/assets/img/integrate/intro/api-led-integration-2.png" width="500">
 
@@ -37,7 +56,7 @@ The Micro Integrator is lightweight and container friendly. This allows you to l
 
 <img src="{{base_path}}/assets/img/integrate/intro/mi-microservices-architecture.png" width="700">
 
-If your organization is running on a decentralized, cloud-native, integration architecture where microservices are used for integrating the various APIs, events, and systems, WSO2 Micro Integrator can easily function as your Integration (micro) services and API (micro) services.
+If your organization is running on a decentralized, cloud-native, integration architecture where microservices are used for integrating the various APIs, events, and systems, the Micro Integrator can easily function as your Integration microservices and API microservices.
 
 ### Centralized Integration (Enterprise Service Bus)
 
@@ -47,9 +66,11 @@ At the heart of the Micro Integrator server is an event-driven, standards-based 
 
 ## Learn Integration
 
+See the topics in the following sections for details and instructions.
+
 ### Integration Capabilities
 
-The following are the main use cases of WSO2 Micro Integrator. These help you understand what you can do with the product.
+Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
 
 <table>
     <tr>
@@ -84,6 +105,8 @@ The following are the main use cases of WSO2 Micro Integrator. These help you un
 
 ### Management and Observability
 
+Learn about the dashboards, tools, and solutions that are available for managing and monitoring integrations deployed in the Micro Integrator.
+
 <table>
     <tr>
         <td>
@@ -99,6 +122,8 @@ The following are the main use cases of WSO2 Micro Integrator. These help you un
 </table>
 
 ### DevOps and Administration
+
+Learn how to set up a Micro Integrator deployment and configure the deployment according to your requirements.
 
 <table>
     <tr>
@@ -116,32 +141,43 @@ The following are the main use cases of WSO2 Micro Integrator. These help you un
 
 ### Integration Tutorials
 
-The integration tutorials will walk you through the main capabilities and features of WSO2 Micro Integrator, and help you understand how to build an integrated system.
+Learn how to implement various integration use cases, deploy them in the Micro Integrator, and test them locally.
 
-<table>
+-   API-led Integration tutorials
+
+    <table>
     <tr>
         <td>
-            <ul>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service">Sending a Simple Message to a Service</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">Routing Requests based on Message Headers</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">Translating Message Formats</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service">Exposing Several Services as a Single Service</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">Store and Forward Messages for Guaranteed Delivery</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">Exposing Datasources as a Service</a></li>
-            </ul>
-        </td>
-        <td>
-            <ul>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/file-processing">File Processing</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-scheduled-tasks">Periodic Execution of Integration Process</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Sending Emails from an Integration Service</a></li>
-                <li><a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Publishing API to Service Catalog</a></li>
-            </ul>
+            <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a>
         </td>
     </tr>
-</table>
+    </table>
+
+-   Message mediation tutorials
+
+    <table>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-service">Sending a Simple Message to a Service</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/routing-requests-based-on-message-content">Routing Requests based on Message Headers</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/transforming-message-content">Translating Message Formats</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service">Exposing Several Services as a Single Service</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/storing-and-forwarding-messages">Store and Forward Messages for Guaranteed Delivery</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">Exposing Datasources as a Service</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/file-processing">File Processing</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/using-scheduled-tasks">Periodic Execution of Integration Process</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/using-inbound-endpoints">Using Inbound Endpoints</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/using-templates">Reusing Mediation Sequences</a></li>
+                    <li><a href="{{base_path}}/tutorials/integration-tutorials/sap-integration">Sending Emails from an Integration Service</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
 ### Integration Examples
 

@@ -4,7 +4,7 @@ In this step, let's run the `SweetFactoryApp` Siddhi application that you create
 
 ## Installing the required extensions
 
-In [Step 2: Create the Siddhi Application](create-the-siddhi-application.md), you installed the `cdc-mysql` Siddhi extension in Streaming Integrator Tooling to test the `SweetFacoryApp` Siddhi application. Now let's install it in the Streaming Integrator server so that you can run the same Siddhi application there.
+In [Step 2: Create the Siddhi Application]({{base_path}}/streaming/getting-started/create-the-siddhi-application), you installed the `cdc-mysql` Siddhi extension in Streaming Integrator Tooling to test the `SweetFacoryApp` Siddhi application. Now let's install it in the Streaming Integrator server so that you can run the same Siddhi application there.
 
 1. Start the Streaming Integrator server by navigating to the `<SI_HOME>/bin` directory from the CLI, and issuing the appropriate command based on your operating system:</br>
    
@@ -28,7 +28,7 @@ To generate an input event, insert a record in the `production` database table b
 
 Then open the `/Users/foo/productioninserts.csv` file. The following record should be displayed.
 
-![Updated File](../../images/quick-start-guide-101/updated-file.png)
+![Updated File]({{base_path}}/assets/img/streaming/quick-start-guide-101/updated-file.png)
     
 !!! tip "What's Next?"
     Now you can try extending the `SweetFactoryApp` Siddhi application to perform more streaming integration activities. To try this, proceed to [Step 5: Update the Siddhi Application](update-the-siddhi-application.md).

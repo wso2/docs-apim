@@ -18,7 +18,7 @@ You can monitor the following statistics and more through the EI Analytics porta
 
 ## Before you begin
 
--   Set up the [EI Analytics deployment](../../setup/observability/setting-up-classic-observability-deployment).
+-   Set up the [EI Analytics deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 -   Note the following server directories in your deployment.
 
     <table>

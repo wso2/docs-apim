@@ -10,7 +10,7 @@ With [**JConsole**](#monitoring-with-jconsole), you can attach the Micro Integra
 
 Jconsole is a JMX-compliant monitoring tool, which comes with the Java
 Development Kit (JDK) 1.5 and newer versions. You can find this tool
-inside your `         <JDK_HOME>/bin        ` directory.
+inside your `<JDK_HOME>/bin` directory.
 
 ### Starting JConsole
         

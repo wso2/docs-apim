@@ -2,11 +2,11 @@
 
 Follow the instructions given below to enable observability for your Micro Integrator deployment using <b>EI Analytics</b>. 
 
-![EI-Analytics Observability](../../assets/img/monitoring-dashboard/classic-observability-architecture.png)
+![EI-Analytics Observability]({{base_path}}/assets/img/integrate/monitoring-dashboard/classic-observability-architecture.png)
 
 EI Analytics consists of two components: **Server** and **Portal**. The server processes the data streams that are sent from the Micro Integrator and publishes the statistics to a database. The portal reads the statistics published by the worker and displays the statistics. The server and portal are connected through the database.
 
-This solution is more suitable if you already have an observability stack such as ELK,  or if you want more business analytics and less operational observability. To select the most appropriate observability solution for your deployment, see [Observability Deployment Strategy](../../../setup/observability/observability-deployment-strategy).
+This solution is more suitable if you already have an observability stack such as ELK,  or if you want more business analytics and less operational observability. To select the most appropriate observability solution for your deployment, see [Observability Deployment Strategy]({{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy).
 
 ## System requirements
 
@@ -42,7 +42,7 @@ You will be running three servers (EI Analytics server, EI Analytics portal, and
     </tbody>
     </table>
 
--   For the Micro Integrator, see the [installation prerequsites](../../../setup/installation/install_prerequisites).
+-   For the Micro Integrator, see the [installation prerequsites]({{base_path}}/install-and-setup/install/installation-prerequisites).
 
 ## Download the servers
 
@@ -50,12 +50,12 @@ You will be running three servers (EI Analytics server, EI Analytics portal, and
     1.  Go to the WSO2 Enterprise Integrator <a href="https://wso2.com/integration/">product page</a>, click <b>Download</b>, and then go to the <b>Other Resources</b> section.
     2.  Click <b>Integration Analytics</b> to download the distribution.
 
-        <img src="../../../assets/img/observability/download-ei-analytics.png">
+        <img src="{{base_path}}/assets/img/integrate/observability/download-ei-analytics.png">
 
     !!! Info
         The location of your Analytics installation will be referred to as `<EI_ANALYTICS_HOME>`.
 
--   Download and [install the Micro Integrator](../../../setup/installation/install_in_vm_installer) of EI 7.1.
+-   Download and [install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
 ## Configuring the Micro Integrator
     
@@ -98,28 +98,28 @@ Alternatively, you can enable statistics for selected artifacts as explained bel
 
 ### Enabling statistics for specific artifacts
 
-Let's use the integration artifacts from the [service chaining](../../../use-cases/tutorials/exposing-several-services-as-a-single-service) tutorial.
+Let's use the integration artifacts from the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial.
 
 !!! Warning
     It is not recommended to enable **tracing** in production environments as it generates a large number of events that reduces the performance of the analytics profile. Therefore, tracing should only be enabled in development environments.
 
-If you did not try the [service chaining](../../../use-cases/tutorials/exposing-several-services-as-a-single-service) tutorial yet:
+If you did not try the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial yet:
 
 1.  Download the [pre-packaged project](https://github.com/wso2-docs/WSO2_EI/blob/master/Integration-Tutorial-Artifacts/Integration-Tutorial-Artifacts-EI7.1.0/service-orchestration-tutorial.zip) for the **service chaining** use case.
-2.  [Open WSO2 Integration Studio](../../../develop/installing-WSO2-Integration-Studio) and [import the pre-packaged project](../../../develop/importing-projects).
+2.  [Open WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio) and [import the pre-packaged project]({{base_patgh}}/integrate/develop/importing-projects).
 
 Follow the steps below to enable statistics and tracing for the **REST API** artifact:
 
 1.  Select `HealthcareAPI` in the canvas of WSO2 Integration Studio to open the **Properties** tab.
 2.  Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
 
-    <img src="../../../assets/img/ei-analytics/restapi-properties.png" alt="rest api properties" width="500">
+    <img src="{{base_path}}/assets/img/integrate/ei-analytics/restapi-properties.png" alt="rest api properties" width="500">
 
 Follow the steps below to enable statistics for the **endpoint** artifacts:
 
 1.  Select the required endpoint artifacts from the project explorer. 
 2.  Select **Statistics Enabled** and (if required) **Trace Enabled** as shown below.
-     ![endpoint properties](../../assets/img/ei-analytics/endpoint-properties.png)
+     ![endpoint properties]({{base_path}}/assets/img/integrate/ei-analytics/endpoint-properties.png)
      
 ### Load balancing among multiple Analytics servers
 
@@ -141,7 +141,7 @@ ei_analytics.username = "admin"
 ei_analytics.password = "admin"  
 ```  
 
-![lb events to servers](../../assets/img/ei-analytics/ob-lb-events-to-servers.png)
+![lb events to servers]({{base_path}}/assets/img/integrate/ei-analytics/ob-lb-events-to-servers.png)
 
 This handles failover as follows: If Analytics Receiver-1 is marked as down, then the Micro Integrator will send the data only to Analytics Receiver-2 and Analytics Receiver-3 in a round robin manner. When the Analytics Receiver-1 becomes active after some time, the Micro Integrator automatically detects it, adds it to the operation, and again starts to load balance between all three receivers. This functionality significantly reduces the loss of data and provides more concurrency.
 
@@ -153,7 +153,7 @@ This scenario is a combination of load balancing between a set of servers and se
 An event is sent to both set-A and set-B. Within set-A, it is sent either to Analytics A1 or Analytics A2. 
 Similarly within set-B, it is sent either to Analytics B1 or Analytics B2. 
 In the setup, you can have any number of sets and any number of servers as required.
-    ![lb events to set of servers](../../assets/img/ei-analytics/ob-lb-to-sets-of-servers.png)
+    ![lb events to set of servers]({{base_path}}/assets/img/integrate/ei-analytics/ob-lb-to-sets-of-servers.png)
     
 Similar to the other scenarios, you need to describe the server URLs as the receiver URL in the Micro Integrator configuration. The sets should be specified within curly braces separated by commas. Furthermore, each receiver that belongs to the set should be within the curly braces and with the receiver URLs in a comma-separated format. 
 
@@ -175,7 +175,7 @@ This setup involves sending all the events to more than one Analytics server.
 This approach is useful when you want to have multiple Analytics servers to analyze the same events simultaneously. 
 For example, as shown below, you can configure the Micro Integrator to publish the same event to both Analytics servers at the same time. 
 
- ![all events to all servers](../../assets/img/ei-analytics/ob-all-events-to-all-servers.png)
+ ![all events to all servers]({{base_path}}/assets/img/integrate/ei-analytics/ob-all-events-to-all-servers.png)
 
 The Analytics receiver URL should be configured with the following format in the Micro Integrator: `{tcp://Analytics-1>:<port>}, {tcp://Analytics-2>:<port>}, {tcp://<Analytics-3>:<port>}`
 
@@ -197,7 +197,7 @@ In the scenario depicted in the above image, the events are first sent to Analyt
 If it is unavailable, then events are sent to Analytics-2. 
 If Analytics-2  is also unavailable, then the events are sent to Analytics-3.
     
-![fail over](../../assets/img/ei-analytics/ob-fail-over.png)
+![fail over]({{base_path}}/assets/img/integrate/ei-analytics/ob-fail-over.png)
 
 The Analytics receiver URL should be configured with the following format in the Micro Integrator: `tcp://<Analytics-1>:<port>|tcp://<Analytics-2>:<port>|tcp://<Analytics-3>:<port>`
 
@@ -210,4 +210,4 @@ ei_analytics.password = "admin"
 ```
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the analytics portal](../../../administer-and-observe/using-the-analytics-dashboard).
+If you have successfully set up your anlaytics deployment, see the instructions on [using the analytics portal]({{base_path}}observe/mi-observe/using-the-analytics-dashboard).

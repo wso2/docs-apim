@@ -108,14 +108,14 @@ listener.parameter.PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,T
 
 ## Configuring the VFS transport
 
-This transport is used to process files in a specified source directory. After processing the files, the files are moved to a specified location or deleted. Note that files cannot remain in the source directory after processing because they will be processed again. Therefore, if you need to maintain these files or keep track of which files have been processed, specify the option to move them instead of deleting them after processing. If you want to move files into a database, use the VFS transport and the [DBReport Mediator](../../../../references/mediators/dB-Report-Mediator).
+This transport is used to process files in a specified source directory. After processing the files, the files are moved to a specified location or deleted. Note that files cannot remain in the source directory after processing because they will be processed again. Therefore, if you need to maintain these files or keep track of which files have been processed, specify the option to move them instead of deleting them after processing. If you want to move files into a database, use the VFS transport and the [DBReport Mediator]({{base_path}}/reference/mediators/db-report-mediator).
 
 !!! Note
     When you transfer a file to a remote FTP location via VFS, the integrator tries to detect the FTP location by navigating from the root folder first. If the integrator does not have <b>at least list permission</b> to the root (/), the file transfer fails.
 
 The VFS transport is enabled in the Micro Integrator server by default. Also, the VFS transport does not have any global parameters that can apply to all VFS use cases. Rather, it has a set of service-level parameters that must be specified when you create a proxy service or REST API artifact. The VFS transport supports the **SFTP protocol** with **Secure Sockets Layer (SSL)**. The configuration is identical to other protocols with the only difference being the URL prefixes and parameters.
 
-For more information, see [service-level VFS parameters](../../../references/synapse-properties/transport-parameters/vfs-transport-parameters).
+For more information, see [service-level VFS parameters]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters).
 
 ## Configuring the TCP transport
 
@@ -387,14 +387,13 @@ When you use the Micro Integrator to mediate messages, the mediation sequence ca
 
 The MailTo transport listener implementation can be configured by setting the parameters as described in the JavaMail API documentation. For IMAP related properties, see [IMAP Package Summary](https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html). For POP3 properties, see [POP3 Package Summary](https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html). The MailTo transport listener also supports the following transport parameters in addition to the parameters described in the JavaMail API documentation.
 
--	Configuring the MailTo listener
+- Configuring the MailTo listener
 
-    The MailTo transport listener is enabled by default. For more information
-    , see [About MailTo Transport](../../../references/synapse-properties/transport-parameters/mailto-transport-parameters).
+    The MailTo transport listener is enabled by default. For more information, see [About MailTo Transport]({{base_path}}/reference/synapse-properties/transport-parameters/mailto-transport-parameters).
 
-    See the [complete list of MailTo parameters](../../../references/config-catalog/#mail-transport-listener-non-blocking-mode).
+    See the [complete list of MailTo parameters]({{base_path}}/reference/config-catalog-mi/#mail-transport-listener-non-blocking-mode).
 
--	Configuring the MailTo sender
+- Configuring the MailTo sender
 
 	```toml
 	[[transport.mail.sender]]
@@ -452,19 +451,20 @@ To enable the JMS transport sender and listener in the Micro Integrator, you nee
 
 See the following topics for instructions on how to configure the Micro Integrator with different types of brokers:
 
--	[Connecting to ActiveMQ](../../setup/brokers/configure-with-ActiveMQ.md)
--	[Connecting to Apache Artemis](../../setup/brokers/configure-with-Apache-Artemis.md)
--	[Connecting to HornetQ](../../setup/brokers/configure-with-HornetQ.md)
--	[Connecting to IBM WebSphere App Server](../../setup/brokers/configure-with-IBM-websphere-app-server.md)
--	[Connecting to IBM WebSphere MQ](../../setup/brokers/configure-with-IBM-websphereMQ.md)
--	[Connecting to JBossMQ](../../setup/brokers/configure-with-JBossMQ.md)
--	[Connecting to MSMQ](../../setup/brokers/configure-with-MSMQ.md)
--	[Connecting to RabbitMQ](../../setup/brokers/configure-with-rabbitMQ.md)
--	[Connecting to SwiftMQ](../../setup/brokers/configure-with-SwiftMQ.md)
--	[Connecting to Tibco EMS](../../setup/brokers/configure-with-Tibco-EMS.md)
--	[Connecting to Oracle Weblogic](../../setup/brokers/configure-with-WebLogic.md)
--	[Connecting to WSO2 MB](../../setup/brokers/configure-with-WSO2-MB.md)
--	[Connecting to Multiple Brokers](../../setup/brokers/configure-with-multiple-brokers.md)
+-	[Connecting to ActiveMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq)
+-	[Connecting to Apache Artemis]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis)
+-	[Connecting to HornetQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-hornetq)
+-	[Connecting to IBM WebSphere App Server]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server)
+-	[Connecting to IBM WebSphere MQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq)
+-	[Connecting to JBossMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq)
+-	[Connecting to MSMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-msmq)
+-	[Connecting to RabbitMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq)
+-	[Connecting to SwiftMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq)
+-	[Connecting to Tibco EMS]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems)
+-	[Connecting to Oracle Weblogic]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-weblogic)
+-	[Connecting to WSO2 MB]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb)
+-	[Connecting to Multiple Brokers]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers)
+
 
 ## Configuring the Multi-HTTPS transport
 

@@ -38,7 +38,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 5. Start the selected message broker and create a queue with name <strong>Queue1</strong>. 
-6. [Configure MI with the selected message broker](../../../../setup/brokers/configure-with-ActiveMQ) and start the Micro-Integrator.
+6. [Configure MI with the selected message broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and start the Micro-Integrator.
 
 Set up the back-end service:
 

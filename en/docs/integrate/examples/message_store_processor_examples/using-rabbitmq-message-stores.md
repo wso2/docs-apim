@@ -106,7 +106,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-[Configure the RabbitMQ broker](../../../../setup/brokers/configure-with-rabbitMQ) with the Micro Integrator.
+[Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq) with the Micro Integrator.
 
 Invoke the service:
 

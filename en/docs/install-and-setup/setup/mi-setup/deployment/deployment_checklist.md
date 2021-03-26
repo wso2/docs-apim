@@ -67,7 +67,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
          <td>Registry and governance</td>
          <td>
             <div class="content-wrapper">
-               <p>The H2 database-based registry is not available in the Micro Integrator. Instead, it has a <a href="../file_based_registry">file system based registry</a>, which provides the same functionality.</p>
+               <p>The H2 database-based registry is not available in the Micro Integrator. Instead, it has a <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">file system based registry</a>, which provides the same functionality.</p>
             </div>
          </td>
       </tr>
@@ -115,7 +115,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
                      <strong>Related links</strong>
                   </div>
                   <div class="panelContent">
-                     <p>See <a href="../../../../administer-and-observe/jmx_monitoring">JMX-Based Monitoring</a> for information on monitoring WSO2 products using JMX.</p>
+                     <p>See <a href="{{base_path}}/observe/mi-observe/jmx_monitoring">JMX-Based Monitoring</a> for information on monitoring WSO2 products using JMX.</p>
                   </div>
                </div>
             </div>
@@ -133,7 +133,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
                   </div>
                   <div class="panelContent">
                      <div>
-                        Read about <a href="../../../setup/performance_tuning/tuning_jvm_performance">tuning the JVM</a> and <a href="../../../setup/performance_tuning/network_os_performance">tuning the network and OS</a>.
+                        Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance">tuning the JVM</a> and <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/network_os_performance">tuning the network and OS</a>.
                      </div>
                   </div>
                </div>
@@ -148,7 +148,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
                <ul>
                   <li>8290 - Default HTTP port used by the Micro Integrator for proxy services and APIs.</li>
                   <li>8253 - Default HTTPS port used by the Micro Integrator for proxy services and APIs.</li>
-                  <li>9164 - Default HTTPS port used by the Micro Integrator <a href="../../../administer-and-observe/working-with-management-api">Management APIs</a>.</li>
+                  <li>9164 - Default HTTPS port used by the Micro Integrator <a href="{{base_path}}/observe/mi-observe/working-with-management-api">Management APIs</a>.</li>
                </ul>
             </div>
          </td>
@@ -181,9 +181,9 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
          <td>High availability</td>
          <td>
             <div class="content-wrapper">
-               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="../../../setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
+               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
                <p><code>curl -X GET http://localhost:9201/healthz</code></p>
-               <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="../deploying_wso2_ei">here</a> to achieve high availability.</p>
+               <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">here</a> to achieve high availability.</p>
             </div>
          </td>
       </tr>
@@ -238,7 +238,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
                   <p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p>
                </li>
             </ul>
-            See <a href="../../../setup/security/creating_keystores">Creating New Keystores</a> for information on how to create and configure your own keys.
+            See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/creating_keystores">Creating New Keystores</a> for information on how to create and configure your own keys.
             </p>
          </td>
       </tr>
@@ -246,7 +246,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
          <td>Encrypt passwords in configuration files</td>
          <td>
             <p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-            <p>See <a href="../../../setup/security/encrypting_plain_text">Securing Passwords in Configuration Files</a> for instructions.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text">Securing Passwords in Configuration Files</a> for instructions.</p>
          </td>
       </tr>
       <tr class="even">
@@ -255,8 +255,8 @@ Given below are the common security guidelines for deploying a WSO2 product in a
             <p><br /></p>
          </td>
          <td>
-            <p>All the default ports used by WSO2 products are listed in <a href="../../../setup/changing_default_ports">here</a>. For example, proxy services are exposed over the following ports: 8253 and 8290.</p>
-            <p>To change a default port, update the <code>offset</code> element in the deployment.toml file as explained in <a href="../../../setup/changing_default_ports">Changing the Default Ports</a> .</p>
+            <p>All the default ports used by WSO2 products are listed in <a href="{{base_path}}/install-and-setup/setup/mi-setup/changing_default_ports">here</a>. For example, proxy services are exposed over the following ports: 8253 and 8290.</p>
+            <p>To change a default port, update the <code>offset</code> element in the deployment.toml file as explained in <a href="{{base_path}}/install-and-setup/setup/mi-setup/changing_default_ports">Changing the Default Ports</a> .</p>
          </td>
       </tr>
       <!--
@@ -292,7 +292,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
          </td>
          <td>
             <p>To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0 and 1.1. The TLS protocol and strong ciphers are configured for the passthrough transport in the <code>deployment.toml</code> file. See the following links for instructions:</p>
-            <p><a href="../../transport_configurations/configuring-transports#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
+            <p><a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports#configuring-transport-level-security">Configuring Transport-Level Security</a></p>
             <p>Note the following:</p>
             <ul>
                <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
@@ -317,7 +317,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
          </td>
          <td>
             <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
-            <p>See <a href="../../transport_configurations/configuring-transports/#disabling-weak-ciphers">Disabling weak ciphers</a> for instructions.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#disabling-weak-ciphers">Disabling weak ciphers</a> for instructions.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -393,8 +393,8 @@ Given below are the common security guidelines for deploying a WSO2 product in a
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="../../../administer-and-observe/logs/managing_log_growth">this</a> guide can be used.</p>
-            <p>See <a href="../../../administer-and-observe/logs/monitoring_logs">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">this</a> guide can be used.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/monitoring_logs">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -403,7 +403,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="../../../administer-and-observe/logs/configuring_log4j_properties">configuring the log4j.properties file</a>.</p>
+            <p>Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">configuring the log4j.properties file</a>.</p>
          </td>
       </tr>
       <tr class="even">
@@ -412,7 +412,7 @@ Given below are the common security guidelines for deploying a WSO2 product in a
             <p><br /></p>
          </td>
          <td>
-            <p>The recommended JDK version is JDK 1.8 or 1.11. See the <a href="../../../setup/installation/install_prerequisites">installation pre-requisites</a> for more information.</p>
+            <p>The recommended JDK version is JDK 1.8 or 1.11. See the <a href="{{base_path}}/install-and-setup/install/install_prerequisites">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
          </td>
       </tr>
@@ -445,7 +445,7 @@ This section provides the list of OS-level security guidelines for your producti
          </td>
          <td>
             <p>Make sure that you only install the software/packages that are relevant to your WSO2 product's deployment. Also, continuously monitor the software that you install.</p>
-            <p>See the <a href="../../installation/install_in_vm">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p>
+            <p>See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -511,7 +511,7 @@ This section provides the list of OS-level security guidelines for your producti
          </td>
          <td>
             <p>Make sure to backup important files and archive them continuously.</p>
-            <p>See <a href="../backup_recovery">Backup and Recovery Recommendations</a> for more information.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/backup_recovery">Backup and Recovery Recommendations</a> for more information.</p>
          </td>
       </tr>
    </tbody>
@@ -553,7 +553,7 @@ This section provides the list of security guidelines for configuring the netwo
          </td>
          <td>
             <p>Periodically check for open ports using port scanning tools and make sure that only the necessary ports are open to both internal and external networks. Be sure that only the ports relevant to your WSO2 products are open for communication. If there are other ports started, be sure to monitor them.</p>
-            <p>See the <a href="../../../setup/changing_default_ports">default ports</a> for more information.</p>
+            <p>See the <a href="{{base_path}}/install-and-setup/setup/mi-setup/changing_default_ports">default ports</a> for more information.</p>
          </td>
       </tr>
       <tr class="even">
@@ -578,11 +578,11 @@ This section provides the list of security guidelines for configuring the netwo
 
 ## Monitoring Transaction Counts
 
-A **Transaction** in WSO2 Micro Integrator is typically defined as an inbound request (a request coming to the server). That is, any inbound request to a [REST API](../../../develop/creating-artifacts/creating-an-api), [Proxy service](../../../develop/creating-artifacts/creating-a-proxy-service), or [Inbound Endpoint](../../../develop/creating-artifacts/creating-an-inbound-endpoint) is considered as one transaction.
+A **Transaction** in WSO2 Micro Integrator is typically defined as an inbound request (a request coming to the server). That is, any inbound request to a [REST API]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api), [Proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), or [Inbound Endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-an-inbound-endpoint) is considered as one transaction.
 
 However, when the Micro Integrator is configured as both the message producer and consumer to handle **asynchronous** messaging scenarios, the two requests (listening request and sending request) are considered as a single transaction.
 
-If you need to track the number of transactions in your Micro Integrator deployment, you can enable the transaction counter component in each Micro Integrator instance of your deployment. Currently, the transaction counter is responsible for counting all requests received via the [HTTP Passthru](../../../setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport) and [JMS](../../../setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) transports and for persisting the summary of the transaction count in a database for future use.
+If you need to track the number of transactions in your Micro Integrator deployment, you can enable the transaction counter component in each Micro Integrator instance of your deployment. Currently, the transaction counter is responsible for counting all requests received via the [HTTP Passthru]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport) and [JMS]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-jms-transport) transports and for persisting the summary of the transaction count in a database for future use.
 
 Follow the instructions given below.
 
@@ -592,11 +592,11 @@ Configure a relational database to persist transaction count information and the
 
 1.  Select the preferred database type from the  list given below and follow the relevant link to set up a database.
 
-    - [Setting up a MySQL database](../../../setup/databases/setting-up-MySQL)
-    - [Setting up an MSSQL database](../../../setup/databases/setting-up-MSSQL)
-    - [Setting up an Oracle database](../../../setup/databases/setting-up-Oracle)
-    - [Setting up a Postgre database](../../../setup/databases/setting-up-PostgreSQL)
-    - [Setting up an IBM database](../../../setup/databases/setting-up-IBM-DB2)
+    - [Setting up a MySQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MySQL)
+    - [Setting up an MSSQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-MSSQL)
+    - [Setting up an Oracle database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-Oracle)
+    - [Setting up a Postgre database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-PostgreSQL)
+    - [Setting up an IBM database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-IBM-DB2)
 
 2.  Once you have set up the database, verify that the `deployment.toml` file of your Micro Integrator contains the relevant datasource configurations:
 
@@ -706,6 +706,6 @@ Configure a relational database to persist transaction count information and the
 
 You can get the transaction count for a particular month or period. This data can be viewed or saved to a report. There are two ways to get transaction count data:
 
--  Start the [Micro Integrator CLI](../../../administer-and-observe/using-the-command-line-interface) and use the [mi transaction](../../../administer-and-observe/using-the-command-line-interface/#mi-transaction) option.
+-  Start the [Micro Integrator CLI]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller) and use the [mi transaction]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) option.
 
 -  Directly access the [Management API resources](../../../administer-and-observe/working-with-management-api) and invoke the [/transaction/count](../../../administer-and-observe/working-with-management-api/#get-transaction-count) and [/transaction/report](../../../administer-and-observe/working-with-management-api/#get-transaction-report-data) resources.

@@ -92,7 +92,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), [endpoints]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints), [message stores]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store) and [message processors]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the ActiveMQ broker](../../../../setup/brokers/configure-with-ActiveMQ).
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 
 You can analyze the message sent by the Micro Integrator to the secure service using TCPMon.
 
