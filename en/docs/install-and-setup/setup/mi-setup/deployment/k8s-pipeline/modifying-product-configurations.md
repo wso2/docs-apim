@@ -5,9 +5,9 @@
 This document assumes that you have completed the instructions in the
 following pages.
 
-1.  [Pipeline Quick Start Guide](../pipeline-quick-start-guide/)
+1.  [Pipeline Quick Start Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide)
 
-2.  [Testing The Pipeline Environment](../testing-the-pipeline-environment/)
+2.  [Testing The Pipeline Environment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment)
 
 3.  [Deploy Your Own Artifact](../deploy-your-own-artifact/)
 
@@ -40,7 +40,7 @@ Replace the `[git-username]` tag with the name of your GitHub username.
     2.  Change the chart data in the
         sample [values](https://raw.githubusercontent.com/wso2/kubernetes-pipeline/master/kubernetes-pipeline/samples/values-mi.yaml) file
         used in the [Pipeline Quick Start
-        Guide](../pipeline-quick-start-guide/) to
+        Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide) to
         use in the custom chart.
         
         ``` xml
@@ -71,7 +71,7 @@ Replace the `[git-username]` tag with the name of your GitHub username.
         
    **<RELEASE\_NAME\>** should be replaced with the release name
         provided when the pipeline is installed initially in the [Pipeline Quick Start
-        Guide](../pipeline-quick-start-guide/).
+        Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide).
    
    4.  Restart the Jenkins pod by deleting the existing pod. This will
         cause the cluster to spawn a new pod for Jenkins.

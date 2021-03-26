@@ -4,10 +4,10 @@ This is done by providing a custom Dockerfile as shown in the steps below:
 
 1.  Fork the [CICD sample](https://github.com/wso2-incubator/cicd-sample-docker-mi) repository that contains a [Maven
     Multi-Module
-    project](../../../../develop/create-integration-project/).
+    project]({{base_path}}/integrate/develop/create-integration-project).
 
 2.  Update the repositories in the  [sample values](https://raw.githubusercontent.com/wso2/kubernetes-pipeline/master/kubernetes-pipeline/samples/values-mi.yaml) file
-    used in the  [Pipeline Quick Start Guide](../pipeline-quick-start-guide/) to
+    used in the  [Pipeline Quick Start Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide) to
     include the forked repository in place of `[git-username]` as
     highlighted below:
     
@@ -74,7 +74,7 @@ This is done by providing a custom Dockerfile as shown in the steps below:
 7.  Commit and push the changes into your forked repository.
 
 8.  If you have completed the steps in [Testing The Pipeline
-    Environment](../testing-the-pipeline-environment/) document,
+    Environment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment) document,
     stop the manual judgment and watch the sample artifact being deployed in the Spinnaker dashboard.
     
     [![Spinnaker1](../../../assets/img/k8s_pipeline/Deploying/deploy-mi2.png)](../../../assets/img/k8s_pipeline/Deploying/deploy-mi2.png)
