@@ -40,7 +40,7 @@ Create the artifacts:
 3. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources) (change the registry path of the proxy accordingly). 
 4. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
-6. [Configure MI with the selected message broker](../{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and start the Micro-Integrator.
+6. [Configure MI with the selected message broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and start the Micro-Integrator.
 
 Invoke the HTTPtoJMSStockQuoteProxy with the following payload (using SOAP UI or CURL):
 
