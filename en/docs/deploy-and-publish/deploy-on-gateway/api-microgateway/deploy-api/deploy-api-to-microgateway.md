@@ -75,12 +75,12 @@ Whenever a new event occurs in API manager such as an API being deployed, API Ma
 !!! info
     **Before you begin**
 
-    This guide assumes that you already have a microgateway instance is up and running. If not, checkout the [quick start guide]() on how to install and run the microgateway. To learn more about the microgateway, have a look at the [overview of microgateway](). 
+    This guide assumes that you already have a microgateway instance is up and running. If not, checkout the [quick start guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview) on how to install and run the microgateway. To learn more about the microgateway, have a look at the [overview of microgateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview). 
 
 
 ### Step 1 - Download apictl and Set the Path Variable 
 
-First download [apictl](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha2) locally and extract it into a folder of your choice. Then, add its location to your PATH variable.
+First download [apictl](https://github.com/wso2/product-apim-tooling/releases) locally and extract it into a folder of your choice. Then, add its location to your PATH variable.
 
 ```
 export PATH=$PATH:<directory-of-the-apictl-executable>
