@@ -1162,7 +1162,7 @@ nav:
         - Managing Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
             - Managing Users for API Manager:
-              - Managing User Roles: administer/managing-users-and-rol es/managing-user-roles.md
+              - Managing User Roles: administer/managing-users-and-roles/managing-user-roles.md
               - Managing Users: administer/managing-users-and-roles/managing-users.md
               - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
               - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
