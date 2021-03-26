@@ -1,24 +1,35 @@
-# Community Links
+# Enable Social Media Interaction
 
-By default the community links are **disabled** (hidden) in the Developer portal and administrator has to enable the social feature from the Developer portal configurations.
+By default, the community links option is **disabled** (hidden). As a result, the sharable Developer Portal links of the APIs for Facebook, Twitter, and Reddit will not appear in the Developer Portal by default. Instead, the administrators have to enable the social media sharing option if they wish to allow API Consumers to use this feature.
 
-API community links allows API consumers to share the developer portal link of the API in social media platforms, WSO2 API manager
-generate sharable links for Facebook,Twitter and Reddit out of the box.
+In addition, the GitHub and Slack channel URLs will not appear in the Developer Portal unless the administrators have defined these URLs via the Publisher.
 
-To enable the community links:
+- [Enable sharing API links on social media](#enable-sharing-api-links-on-social-media)
+- [Add GitHub and Slack channel URLs to an API](#add-github-and-slack-channel-urls-to-an-api)
 
-1. Open the following configuration file in the WSO2 API Manager server.
+## Enable sharing API link on social media
+
+Follow the instructions below to enable API Consumers to be able to share the API link on Facebook, Twitter, and Reddit via the Developer Portal:
+
+### Step 1 - Enable the community links option 
+
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` configuration file in the WSO2 API Manager server.
+
     <html>
-        <div class="admonition note">
-            <p class="admonition-title">Note</p>
-            <p>For more information on the content of the default configuration, see <a href="{{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#content-of-defaultthemejson">Overriding developer portal theme</a>.</p>
-        </div> 
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <ul>
+    <li>
+    The default configuration comes with an empty configuration object declaration. You can override the default configuration in the <code>defaultTheme.js</code> file.
+    </li>
+    <li>
+    <p>For more information on the content that is in the default configuration, see <a href="{{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#content-of-defaultthemejs">Overriding the Developer Portal theme</a>.</p>
+    </li>
+    </ul>
+    </div> 
     </html>
-```
-<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js
-```
 
-2. The default configuration comes with an empty configuration object declaration. You can just override the required configuration in the above `defaultTheme.js` to override the default configuration. So, To enable the social feature add following configuration elements to the `defaultTheme.js`
+2.  Enable the community links option.
 
     ```javascript
     const Configurations = {
@@ -32,24 +43,55 @@ To enable the community links:
     };
     ```
 
-3.  Save the above changes to `defaultTheme.js` and open any published API from the Developer portal. Now you will able to see the Social media sharable links and email composer link along with the iframe code embedding of the API.
+### Step 2 - Verify the changes
 
-    ![]({{base_path}}/assets/img/learn/community_features/devportal-default-community-links.png)
+1.  Sign in to the Developer Portal.
+
+    `https://<hostname>:9443/devportal`
+     
+    For testing purposes, you can use `https://localhost:9443/devportal` and `admin` as the username and password.
+
+2. Click on any published API to view its details. 
+
+     The social media sharable links and the email composer link appear along with the iframe code embedding of the API.
+
+    [![Community link in Developer Portal]({{base_path}}/assets/img/design/community-features/devportal-default-community-links.png)]({{base_path}}/assets/img/design/community-features/devportal-default-community-links.png)
     
-    Next, Let's add Github and Slack channel URLs to the API.
 
-4. Login to the Publisher portal again and open a published API
+## Add GitHub and Slack channel URLs to an API
 
-5. Click on the **Basic info** link from the left hand side menu
+Follow the instructions below to enable the API related GitHub and Slack channel URLs to appear in the Developer Portal:
 
-    ![]({{base_path}}/assets/img/learn/community_features/publisher-community-link-basic-info.png)
+### Step 1 - Define your GitHub and Slack channel URLs
 
-6. Provide your Github ans Slack channel URL in the respective input fields and click **Save**
+1.  Sign in to the Publisher.
 
-    ![]({{base_path}}/assets/img/learn/community_features/publisher-slack-urls.png)
+    `https://<hostname>:9443/publisher`
+     
+    `https://localhost:9443/publisher`
 
-7. Open the API from the Developer portal and go to the API's overview page
+2. Click on any published API to view its details.
 
-    ![]({{base_path}}/assets/img/learn/community_features/devportal-community-links-with-slack-github.png)
+3. Click **Basic info**.
 
-Now, API consumer can use these community links to engage with the community activities, Explore the API source and much more.
+    [![Basic info link]({{base_path}}/assets/img/design/community-features/publisher-community-link-basic-info.png)]({{base_path}}/assets/img/design/community-features/publisher-community-link-basic-info.png)
+
+4. Provide your GitHub and Slack channel URL in the respective input fields and click **Save**
+
+    [![GitHub and Slack channel URL]({{base_path}}/assets/img/design/community-features/publisher-slack-urls.png)]({{base_path}}/assets/img/design/community-features/publisher-slack-urls.png)
+
+### Step 2 - Verify the changes
+
+1. Sign in to the Developer Portal.
+
+    `https://<hostname>:9443/devportal`
+     
+    For testing purposes, you can use `https://localhost:9443/devportal` and `admin` as the username and password.
+
+2. Click on the API.
+
+     The API's overview page appears with the GitHub and Slack channel URLs.
+
+     [![Developer Portal community links with Slack and Github]({{base_path}}/assets/img/design/community-features/devportal-community-links-with-slack-github.png)]({{base_path}}/assets/img/design/community-features/devportal-community-links-with-slack-github.png)
+
+     Now, API Consumers can use the GitHub and Slack channel community links to engage in community activities, explore the API source, and much more.
