@@ -229,6 +229,6 @@ Follow the steps mentioned in [Upgrading API-M from 2.0.0 to 4.0.0]({{base_path}
     type = "database_unique_id"
     ```
 !!! note
-    Before API Manager 4.0.0, the distributed deployment comprised of five main product profiles. They are Publisher, Devportal, Gateway, Key manager, and Traffic Manager. Along with the new architecture in APIM 4.0.0 we only have three profiles such as Gateway, Traffic Manager and Default.
-    Since all the data contains in databases in 4.0.0 executing the migration client  in Default profile is recomamded and it will migrate the data in the connected databases.
-    You can refer our  [WSO2 API Manager distributed documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/) in for more details of our 4.0.0 distributed deployment.  
+    Before API Manager 4.0.0, the distributed deployment comprised of five main product profiles. They are Publisher, Devportal, Gateway, Key manager, and Traffic Manager. Along with the new architecture in APIM 4.0.0 we only have three profiles such as Gateway, Traffic Manager, and Default.
+    Since API-M 4.0.0 all the data are persisted in databases, it is recommended to execute the migration client in the Default profile.
+    You can refer to our  [WSO2 API Manager distributed documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/) for more details of our 4.0.0 distributed deployment. 
