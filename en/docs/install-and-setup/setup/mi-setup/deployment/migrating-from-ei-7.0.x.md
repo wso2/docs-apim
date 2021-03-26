@@ -7,8 +7,8 @@ This guide explains the recommended strategy for migrating from the Micro Integr
 -	Make a backup of the database used by the current EI 6.x.x deployment. This backup is necessary in case the migration causes any issues in the existing database.
 -	Download and install EI 7.1 in your environment:
 
-	-	Install the product [using the Installer](../../../setup/installation/install_in_vm_installer).
-	-	Install the product [using the binary distribution](../../../setup/installation/install_in_vm_binary).
+	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
 
 -	Use [WSO2 Update Manager](https://docs.wso2.com/display/updates/) to get the latest available updates for your EI 7.0 distribution.
 
@@ -20,7 +20,7 @@ This guide explains the recommended strategy for migrating from the Micro Integr
 If you are already using a JDBC or LDAP user store with the Micro Integrator of EI 7.0, you can simply connect the same to the Micro Integrator of EI 7.1 by updating the configuration details in `deployment.toml` file. Following is a set of high-level configurations. 
 
 !!! Tip
-	See the instructions on [configuring a user store](../../user_stores/setting_up_a_userstore) for more information.
+	See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
 
 ```toml tab='RDBMS User Store'
 [user_store]
@@ -66,7 +66,7 @@ enable = false
 ```
 
 ### Migrating the registry
-The Micro Integrator uses a [file-based registry](../file_based_registry). You can directly migrate the artifacts to the Micro Integrator of EI 7.1.0 by copying the carbon applications from the `<MI_HOME>/repository/deployment/server/carbonapps` folder in the Micro Integrator of EI 7.0.0 to the same folder in EI 7.1.0. 
+The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry). You can directly migrate the artifacts to the Micro Integrator of EI 7.1.0 by copying the carbon applications from the `<MI_HOME>/repository/deployment/server/carbonapps` folder in the Micro Integrator of EI 7.0.0 to the same folder in EI 7.1.0. 
 
 ### Migrating artifacts
 Copy the contents inside the `<MI_HOME>/repository/deployment` folder in the Micro Integrator of EI 7.0.0 to the same folder in EI 7.1.0.
@@ -85,12 +85,12 @@ Copy the configurations in the `deployment.toml` file of the Micro Integrator of
 
 	See the following topics for the TOML configurations that correspond to your configurations in the `internal-apis.xml` file:
 	
-	-	[Management API Token Handler Parameters](../../../references/config-catalog/#management-api-token-handler).
-	-	[Management API Token Store Parameters](../../../references/config-catalog/#management-api-token-store).
-	-	[Management API Token Parameters](../../../references/config-catalog/#management-api-token).
-	-	[Management API - Default User Store Parameters](../../../references/config-catalog/#management-api-default-user-store).
-	-	[Management API - Users Parameters](../../../references/config-catalog/#management-api-users).
-	-	[Management API - CORS Parameters](../../../references/config-catalog/#management-api-cors).
+	-	[Management API Token Handler Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token-handler).
+	-	[Management API Token Store Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token-store).
+	-	[Management API Token Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token).
+	-	[Management API - Default User Store Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-default-user-store).
+	-	[Management API - Users Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-users).
+	-	[Management API - CORS Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-cors).
 
 ### Migrating encrypted passwords
 
@@ -123,9 +123,9 @@ Follow the instructions given below.
 
 	The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
-5.	Use the plain-text passwords and follow the normal procedure of encrypting secrets in EI 7.1 See [Encrypting Secrets](../../security/encrypting_plain_text) for instructions.
+5.	Use the plain-text passwords and follow the normal procedure of encrypting secrets in EI 7.1 See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 ### Migrating Hl7 Transport
 
 HL7 transport is not shipped by default in the pack and the jars need to be added to the product manually. Please 
-refer [Configuring the HL7 transport](../transport_configurations/configuring-transports/#configuring-the-hl7-transport) for more details.
+refer [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) for more details.

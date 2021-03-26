@@ -220,6 +220,7 @@ nav:
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
+                        - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
                         - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
                 - Concepts:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
@@ -257,6 +258,7 @@ nav:
                     - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/security/rejecting-revoked-tokens.md
                     - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/security/importing-certificates-to-the-api-microgateway-truststore.md
                     - Define Security Using Extension: deploy-and-publish/eploy-on-gatewaydsecurity/define-security-using-extension.md
+                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
                 - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
@@ -1210,59 +1212,6 @@ nav:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
             - Running the Product: install-and-setup/install/running-the-product.md
-        - Deploy:
-            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - All-In-One Deployment:
-                - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-            - Distributed Deployment:
-                - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-            - Deploying Micro Integrator:
-                - Deploy on Kubernetes:
-                    - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                    - K8s Pipeline:
-                        - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
-                        - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
-                        - Testing the Pipeline Environment: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment.md
-                        - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
-                        - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
-                        - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
-                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
-                - Deploy on a Virtual Machine:
-                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
-                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
-                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
-                - Deployment Best Practices:
-                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
-                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
-                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
-                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
-                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
-                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
-            - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
-                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
-                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
-                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
-                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
-                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
-            - Deploying Analytics for High Availability:
-                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
-                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
-                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
-            - Deployment Best Practices:
-                - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
-                - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
         - Setup:
             - Setting up API Manager:
                 - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
@@ -1404,6 +1353,59 @@ nav:
                 - Configuring Default Ports: install-and-setup/setup/si-setup/configuring-default-ports.md
                 - Changing the Host Name and Context Path of Web UI Applications: install-and-setup/setup/si-setup/change-hostname-and-context-path.md
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
+        - Deploy:
+            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
+            - All-In-One Deployment:
+                - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
+                - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+            - Distributed Deployment:
+                - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+            - Deploying Micro Integrator:
+                - Deploy on Kubernetes:
+                    - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
+                    - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                    - K8s Pipeline:
+                        - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
+                        - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
+                        - Testing the Pipeline Environment: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment.md
+                        - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
+                        - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
+                        - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
+                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
+                - Deploy on a Virtual Machine:
+                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
+                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
+                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
+                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
+                - Deployment Best Practices:
+                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
+                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
+                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
+                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
+                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
+                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+            - Deploying the Streaming Integrator:
+                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
+                - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
+                - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
+                - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
+                - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
+            - Deploying Analytics for High Availability:
+                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
+                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
+                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
+            - Deployment Best Practices:
+                - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
+                - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
+                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md

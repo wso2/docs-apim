@@ -6,7 +6,7 @@ The following diagram illustrates a scenario where a failover message
 store and a scheduled failover message forwarding processor is used
 to ensure guaranteed delivery:
 
-![guaranteed delivery]({{base_path}}/assets/img/integrate/tutorials/guaranteed-delivery-failover/Guaranteed_Delivery.png)
+![guaranteed delivery]({{base_path}}/assets/img/integrate/tutorials/guaranteed-delivery-failover/guaranteed-delivery.png)
 
 In this scenario, the original message store fails due to, either network
 failure, message store crash, or system shutdown for maintenance. The
@@ -133,7 +133,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker](../../../setup/transport_configurations/configuring-transports.md#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
 
