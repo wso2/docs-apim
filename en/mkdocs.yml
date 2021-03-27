@@ -187,7 +187,7 @@ nav:
             - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                - Exposing APIs via Custom Hostnames: deploy/deploy-api/exposing-apis-via-custom-hostnames.md
+                - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy an API to a Cloud Cluster in PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
@@ -211,7 +211,7 @@ nav:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                     - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
                     - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scaling the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
@@ -264,7 +264,7 @@ nav:
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
-                - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
