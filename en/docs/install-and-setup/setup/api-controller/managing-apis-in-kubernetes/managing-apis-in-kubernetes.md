@@ -1,6 +1,6 @@
 # Managing APIs in Kubernetes
 
-WSO2 API Controller, **apictl** allows you to manage APIs in Kubernetes with the use of WSO2 API operator. This approach uses the kubernetes native way to deploy the APIS into a running microgateway cluster from the command line.
+**WSO2 API Controller (apictl)** allows you to manage APIs in Kubernetes with the use of WSO2 API Operator. This approach uses the Kubernetes native way to deploy the APIs into a running Microgateway cluster from the command line.
 
 !!! Prerequisites
 
@@ -14,11 +14,13 @@ WSO2 API Controller, **apictl** allows you to manage APIs in Kubernetes with the
 !!! info
     **Before you begin** 
 
-    -  First download the microgateway distribution from the [github release page](https://github.com/wso2/product-microgateway/releases/) and extract that to a folder of your choice. Then deploy microgateway in kubernetes cluster. Please refer [Steps for deploying  microgateway in kubernetes]()
+    -  First download the Microgateway distribution from the [github release page](https://github.com/wso2/product-microgateway/releases/) and extract that to a folder of your choice.
 
-    -  Make sure the CTL is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
-    -  Ensure that the API Operator is deployed in the kubernetes cluster. Please refer [API Operator documentation](https://github.com/wso2/k8s-api-operator/tree/master) for detailed steps.
+    -  Ensure that the API Operator is deployed in the Kubernetes cluster. Please refer [API Operator documentation](https://github.com/wso2/k8s-api-operator/tree/master) for detailed steps.
+    
+    -  Then deploy Microgateway in Kubernetes cluster. Please refer [Steps for deploying  Microgateway in Kubernetes](https://github.com/wso2/product-microgateway/blob/envoy-gw/resources/k8s-artifacts/K8S-README.md#deployment-with-wso2-api-operator-for-kubernetes)
 
 ## Add an API to Kubernetes cluster
 
@@ -164,5 +166,4 @@ WSO2 API Controller, **apictl** allows you to manage APIs in Kubernetes with the
         kubectl kustomize
 
         ```
-
-
+        

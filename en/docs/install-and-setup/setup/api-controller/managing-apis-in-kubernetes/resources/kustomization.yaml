@@ -14,7 +14,6 @@ configurations:
 - kustomize-config.yaml
 
 configMapGenerator:
-# - name: deployment-configs
 - name: PizzaShackAPI-params
 - name: PizzaShackAPI-cm
   files:
@@ -28,19 +27,4 @@ secretGenerator:
   type: "kubernetes.io/tls"
 
 patchesStrategicMerge:
-# - deployment-configs.yaml
  - PizzaShackAPI-params.yaml
-
-# kustomized-used: true
-
-#kubect label change kustomized-used: false
-
-#kubectl kustomize over/ | kubectl apply -f 
-
-#kubectl delete cm -l kustomized-used: false
-
-
-
-
-
-
