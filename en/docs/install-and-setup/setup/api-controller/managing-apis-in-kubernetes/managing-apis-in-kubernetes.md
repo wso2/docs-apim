@@ -20,7 +20,7 @@
 
     -  Ensure that the API Operator is deployed in the Kubernetes cluster. Please refer [API Operator documentation](https://github.com/wso2/k8s-api-operator/tree/master) for detailed steps.
     
-    -  Then deploy Microgateway in Kubernetes cluster. Please refer [Steps for deploying  Microgateway in Kubernetes](https://github.com/wso2/product-microgateway/blob/envoy-gw/resources/k8s-artifacts/K8S-README.md#deployment-with-wso2-api-operator-for-kubernetes)
+    -  Then deploy Microgateway in Kubernetes cluster. Please refer [Steps for deploying  Microgateway in Kubernetes](https://github.com/wso2/product-microgateway/blob/envoy-gw/resources/k8s-artifacts/K8S-README.md#deployment-with-wso2-api-operator-for-kubernetes).
 
 ## Add an API to Kubernetes cluster
 
@@ -156,7 +156,44 @@
         The deployment directory for PizzaShackAPI-1.0.0 file is generated at Deployment-Directory
         ```
 
-2.  You can add [kustomization.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomization.yaml), [kustomize-config.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomize-config.yaml) and project zip file.
+    A project folder with the following default structure will be created in the given directory.
+
+    ``` java
+    <API_Name>-<API_Version>
+    ├── api_crd.yaml
+    ├── api_meta.yaml (api_product_meta.yaml for API Products)
+    ├── certificates
+    └── <API_Name>-params.yaml   
+    ```
+    
+    <table>
+        <thead>
+            <tr class="header">
+                <th>Sub Directory/File</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td><code>API_Name-params.yaml</code></td>
+                <td>The config map of `params.yaml` which is the specification of the environment specific configurations.</td>
+            </tr>
+            <tr class="even">
+                <td><code>api_meta.yaml</code>/<code>api_product_meta.yaml</code></td>
+                <td>The meta-information file of the source artifact (This includes the name and the version of the source).</td>
+            </tr>
+            <tr class="odd">
+                <td>certificates</td>
+                <td>Contains the client certificates for Mutual SSL enabled APIs/API Products and endpoint certificates for endpoint security enabled APIs.</td>
+            </tr>
+            <tr class="even">
+                <td><code>api_crd.yaml</code></td>
+                <td>The Custom Resource Definition of the API.</td>
+            </tr>
+        </tbody>
+    </table>
+
+2.  You can add [kustomization.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomization.yaml), [kustomize-config.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomize-config.yaml) and project zip file (Eg: PizzaShackAPI_1.0.0.zip).
 
 3.  Run the following command to generate the related config maps.
 
@@ -166,4 +203,3 @@
         kubectl kustomize
 
         ```
-        
