@@ -571,7 +571,7 @@ You can configure the default probe definition in the `integration_controller_co
 
 The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on the passthrough port (default 8290). Liveness of the Micro Integrator pod is checked by a ping to that port.
 
-WSO2  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with path `/healthz` which is exposed through HTTP inbound port(default 9201) is used to check that.
+The  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with the `/healthz` path, which is exposed through the HTTP inbound port (default 9201) is used to check the readiness.
 
 Note that these ports can change as per the configurations used at the MI based image. 
 
