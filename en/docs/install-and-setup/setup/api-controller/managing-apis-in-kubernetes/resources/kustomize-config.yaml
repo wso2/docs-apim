@@ -1,0 +1,14 @@
+nameReference:
+- kind: ConfigMap
+  fieldSpecs:
+  - path: spec/swaggerConfigMapName
+    kind: API
+- kind: ConfigMap
+  fieldSpecs:
+  - path: spec/paramsValues
+    kind: API
+- kind: Secret
+  fieldSpecs:
+  - path: spec/certsValues
+    kind: API
+    
