@@ -4,7 +4,7 @@ A user store is a repository that stores user credentials (user names and passwo
 
 ## Users in the Micro Integrator
 
-Find out about [user credentials in the Micro Integrator](../../../setup/user_stores/managing_users/#users-credentials-in-the-mi).
+Find out about [user credentials in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users/#users-credentials-in-the-mi).
 
 ## File-based user store (Default)
 
@@ -66,7 +66,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 				<code>connection_url</code>
 			</td>
 			<td>
-				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="../../../setup/security/importing_ssl_certificate">add certificates to the truststore</a>.
+				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="../{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate">add certificates to the truststore</a>.
 			</td>
 		</tr>
 		<tr>

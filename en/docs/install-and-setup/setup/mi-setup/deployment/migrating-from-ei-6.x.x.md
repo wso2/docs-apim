@@ -32,7 +32,7 @@ If you are already using a JDBC or LDAP user store with EI 6.x, you can simply c
 Note that **secondary** user stores are currently not supported in the Micro Integrator of EI 7.1.0.
 
 !!! info "Before you begin"
-	Read about [users and roles in the Micro Integrator](../../../setup/user_stores/managing_users) and about how they function. Note the following important facts:
+	Read about [users and roles in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) and about how they function. Note the following important facts:
 
 	- Users in the Micro Intgrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
 	- All admin users in your existing ESB user store will function as admin users in the Micro integrator.
