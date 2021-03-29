@@ -1049,7 +1049,7 @@ This example shows how to use arguments in a freemarker template to pass values 
 
 In this example, the value for the “argument one” key is replaced by the first argument value. The argument for the "argument two" key is replaced by the second argument value.
 
-### Handling Optional Values
+### Handling optional values
 
 Some of the input paramters you specify in the FreeMarker template (payload, properties, and arguments) may be optional. This 
 means that the value can be null or empty during runtime. It is important to handle optional parameters in the FreeMarker template to avoid runtime issues due to null or empty values. FreeMarker
