@@ -1051,13 +1051,11 @@ In this example, the value for the “argument one” key is replaced by the fir
 
 ### Handling Optional Values
 
-Input parameters to the PayloadFactory mediator (payload, properties, and arguments) can be optional. Which 
-means 
-they can be null or empty in the runtime. It is important to handle optional parameters in the FreeMarker template to
-avoid runtime issues due to null or empty values. FreeMarker
+Some of the input paramters you specify in the FreeMarker template (payload, properties, and arguments) may be optional. This 
+means that the value can be null or empty during runtime. It is important to handle optional parameters in the FreeMarker template to avoid runtime issues due to null or empty values. FreeMarker
 [documentation](https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing)
-describes methods to handle optional parameters properly. This example shows how to handle optional values in 
-FreeMarker templates using the **Default value operator** described in the FreeMarker documentation.
+describes methods for handling optional parameters properly. The following example shows how to handle optional values in a
+FreeMarker template by using the **Default value operator** described in the FreeMarker documentation.
 
 -   Input Payload
     ```json
