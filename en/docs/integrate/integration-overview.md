@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 # Integration Overview
 
 WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator) with comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs in an API marketplace. This allows you to enable API-led connectivity across your business using a single platform.
@@ -11,6 +13,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Integration</p>
                 <p class="hint">Try out a simple message mediation using the Micro Integrator.</p>
@@ -20,6 +25,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
                 <p class="title">Develop your First Integration</p>
                 <p class="hint">Build a simple integration scenario using WSO2 Integration Studio.</p>
@@ -29,6 +37,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Integration</p>
                 <p class="hint">Explore the key concepts used by the Micro Integrator.</p>
@@ -140,6 +151,36 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
 </table>
 
 ### Integration Tutorials
+
+<div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Quick Start with Integration</p>
+                <p class="hint">Try out a simple message mediation using the Micro Integrator.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Develop your First Integration</p>
+                <p class="hint">Build a simple integration scenario using WSO2 Integration Studio.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Key Concepts of Integration</p>
+                <p class="hint">Explore the key concepts used by the Micro Integrator.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
 
 Learn how to implement various integration use cases, deploy them in the Micro Integrator, and test them locally.
 
