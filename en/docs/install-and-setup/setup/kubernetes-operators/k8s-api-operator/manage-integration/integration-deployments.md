@@ -573,7 +573,8 @@ The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traf
 
 The  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with the `/healthz` path, which is exposed through the HTTP inbound port (default 9201) is used to check the readiness.
 
-Note that these ports can change as per the configurations used at the MI based image. 
+!!! Note 
+     These ports can change as per the configurations used in the Micro Integrator based image. 
 
 ```yaml
 apiVersion: v1
