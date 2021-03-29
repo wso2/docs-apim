@@ -1091,7 +1091,7 @@ FreeMarker template by using the **Default value operator** described in the Fre
     </payloadFactory>
     ```
 
-In this example, The FreeMarker template is expecting a property named `last_name` from the input payload. But the 
+In this example, The FreeMarker template is expecting a property named `last_name` from the input payload. However, the 
 payload does not contain that property. To handle that, the
 `${payload.last_name ! "" }` syntax is used in the template. This replaces the `last_name` value with an empty 
 string if it is not present in the input payload.
