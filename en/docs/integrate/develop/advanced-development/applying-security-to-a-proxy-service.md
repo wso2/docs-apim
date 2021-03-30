@@ -46,7 +46,7 @@ Follow the instructions given below to create a **WS-Policy** resource in your r
     !!! Info 
         Change the tokenStoreClass in the policy file to 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'
         
-        Also replace ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto'.
+        Also replace ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
         
 <!--
 #### Specifying role-based access?
