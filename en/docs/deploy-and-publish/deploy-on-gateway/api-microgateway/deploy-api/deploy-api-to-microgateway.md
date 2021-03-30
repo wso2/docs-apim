@@ -2,13 +2,13 @@
 
 There are two ways to add an API to the Microgateway.
 
-1. Via APIM 
+1. [Via API Manager](#via-api-manager)
 
     By enabling the Control Plane Event Hub in the Microgateway configuration file, the APIs deployed in API Manager will automatically be available in Microgateway. 
 
-2. Via the CLI tool
+2. [Via the CLI tool (apictl)](#via-the-cli-tool-apictl)
 
-    If you are not using WSO2 API Manager yet, or only want to tryout microgateway, simply use the CLI tool [apictl](https://github.com/wso2/product-apim-tooling/releases)to host your API.
+    If you are not using WSO2 API Manager yet, or only want to tryout microgateway, simply use the CLI tool [apictl](https://github.com/wso2/product-apim-tooling/releases) to host your API.
 
 ## Via API Manager
 
@@ -36,7 +36,7 @@ In the `[controlPlane.eventHub]` section,
  - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the default value `"Production and Sandbox"` as it is.
 
  Example
- ```
+ ``` yaml
  [controlPlane.eventHub]
   enabled = true
   serviceUrl = "https://192.168.1.94:9443/"
@@ -70,13 +70,12 @@ During the startup, Microgateway will check the `config.toml` to see if the `con
 Whenever a new event occurs in API manager such as an API being deployed, API Manager will notify Microgateway via the eventhub. Microgateway will then start fetching all the new artifacts related to its environment.  
 
 
-## Via the CLI tool apictl 
+## Via the CLI tool (apictl) 
 
 !!! info
     **Before you begin**
 
     This guide assumes that you already have a microgateway instance is up and running. If not, checkout the [quick start guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview) on how to install and run the microgateway. To learn more about the microgateway, have a look at the [overview of microgateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview). 
-
 
 ### Step 1 - Download apictl and Set the Path Variable 
 
@@ -94,7 +93,7 @@ Let's create your first project "petstore" using an open API definition. The fol
 
     If you have used a previous version of apictl before, remember to delete the directories `.wso2apictl` and `.wso2apictl.local` that are located in your home directory. Deleting them will make the newer apictl create them again, with content compatible with the current version.
 
-```
+``` bash
 apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
 ```
 
@@ -102,7 +101,7 @@ apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
 
 To use apictl for Microgateway, a Microgateway environment needs to be added to apictl. This environment will hold the adapter URL for further commands.
 
-```
+``` bash
 apictl mg add env dev --adapter https://localhost:9843
 ```
 
@@ -120,13 +119,13 @@ apictl mg add env dev --adapter https://localhost:9843
 
 You can use the following command to login to the above microgateway cluster (in other words login to the microgateway adapter). By logging in, an access token will be retrived from the microgateway and saved in apictl.
 
-```
+``` bash
 apictl mg login dev -k
 ```
 
 or
 
-```
+``` bash
 apictl mg login dev -u admin -p admin -k
 ```
 
@@ -134,16 +133,13 @@ apictl mg login dev -u admin -p admin -k
 
 Now let's deploy the API to Microgateway by executing the following command.
 
-```
+``` bash
 apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -k
 ```
 
 That's it!
 
 More apictl commands related to microgateway can be found at [Managing Microgateway with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl)
-
-
-
 
 ## Invoke the API
 {! ./includes/obtain-jwt.md !}
