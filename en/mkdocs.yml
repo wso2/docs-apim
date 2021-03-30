@@ -44,7 +44,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
     - Documentation: index.md
