@@ -270,7 +270,7 @@ nav:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
     - Consume:
-        - Consume APIs Overview: consume/consume-api-overview.md
+        - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
             - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
@@ -1711,5 +1711,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    # base_path: http://localhost:8000
+    #base_path: http://localhost:8000
     base_path: https://apim.docs.wso2.com/en/next
