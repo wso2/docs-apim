@@ -1458,6 +1458,7 @@ nav:
                 - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
                 - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
                 - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Importing APIs from AWS Apigateway to the wso2 APIM: install-and-setup/setup/api-controller/importing-apis-from-aws-apigateway-to-the-wso2-apim.md
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
