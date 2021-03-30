@@ -1,17 +1,17 @@
-# Test a WebSub Streaming API
+# Test a WebSub/Webhook Streaming API
 
-**Testing a WebSub Streaming API** is trying out a WebSub API at the developer portal and making sure whether the functionalities and behaviours are correctly met.
+**Testing a WebSub/Webhook Streaming API** is trying out a WebSub/Webhook API at the developer portal and making sure whether the functionalities and behaviours are correctly met.
 
 !!! Prerequisites
-     1. The WebSub API should have been published.
+     1. The WebSub/Webhook API should have been published.
 
-     2. The WebSub API topic should have been registered with your webhook provider. For more details, see [Create a WebSub API]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api).
+     2. The WebSub/Webhook API topic should have been registered with your webhook provider. For more details, see [Create a WebSub/Webhook API]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api).
 
-The examples here use the `RepoWatcher` WebSub API, which was created in [Create a WebSub API]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api).
+The examples here use the `RepoWatcher` WebSub/Webhook API, which was created in [Create a WebSub/Webhook API]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api).
 
 1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (eg., `https://localhost:9443/devportal`).
 
-2. Click on the WebSub API. The API overview appears.
+2. Click on the WebSub/Webhook API. The API overview appears.
 
 3. Click **Try Out** and go to the Try Out section.
 
@@ -47,7 +47,7 @@ The examples here use the `RepoWatcher` WebSub API, which was created in [Create
 
      5. Copy the generated cURL command, paste it in a terminal and execute it.
 
-7. Go to the **Subscriptions** page of your application in the Developer Portal. Clicking the Websub API's subscription entry will list down the subscription you just made.
+7. Go to the **Subscriptions** page of your application in the Developer Portal. Clicking the WebSub/Webhook API's subscription entry will list down the subscription you just made.
 
      You have now registered the given callback URL with the **/issues** topic. Triggering your webhook will send an event to the callback URL.
 
@@ -63,6 +63,6 @@ The examples here use the `RepoWatcher` WebSub API, which was created in [Create
 
      5. Copy the generated cURL command, paste it in a terminal and execute it.
 
-9. Go to the **Subscriptions** page of your application in the Developer Portal again. Clicking the Websub API's subscription entry will not list down the subscription you made previously anymore.
+9. Go to the **Subscriptions** page of your application in the Developer Portal again. Clicking the WebSub/Webhook API's subscription entry will not list down the subscription you made previously anymore.
 
      You have now unsubscribed the given callback URL from the **/issues** topic.

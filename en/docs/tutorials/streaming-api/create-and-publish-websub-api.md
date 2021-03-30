@@ -1,21 +1,21 @@
-# Create and Publish a WebSub API
+# Create and Publish a WebSub/Webhook API
 
-Follow the instructions in this tutorial to design and publish a WebSub API, and register a webhook to it.
+Follow the instructions in this tutorial to design and publish a WebSub/Webhook API, and register a webhook to it.
 
-The tutorial demonstrates a simple WebSub API that monitors your GitHub repository for new issues, and receives events when an issue is created.
+The tutorial demonstrates a simple WebSub/Webhook API that monitors your GitHub repository for new issues, and receives events when an issue is created.
 
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSub APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api">Create a WebSub API</a>.</p>
+<p>For more information on WebSub/Webhook APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/Webhook API</a>.</p>
 </div> 
 </html>
 
-### Step 1 - Design a WebSub API
+### Step 1 - Design a WebSub/Webhook API
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and click **Design New Streaming API**.
+2.  Click **CREATE API**, go to **Streaming API** and Click **Webhook API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
@@ -25,7 +25,7 @@ The tutorial demonstrates a simple WebSub API that monitors your GitHub reposito
       </div>
     </html>
 
-3.  Enter the details of the new WebSub API.
+3.  Enter the details of the new WebSub/Webhook API.
 
      <table>
      <thead>
@@ -57,11 +57,11 @@ The tutorial demonstrates a simple WebSub API that monitors your GitHub reposito
 
 4.  Click **CREATE**. 
 
-     The overview page of the created WebSub API appears.
+     The overview page of the created WebSub/Webhook API appears.
 
      [![Overview of WebSub API]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)
 
-5. Add a topic to the WebSub API.
+5. Add a topic to the WebSub/Webhook API.
 
      1. Click **Topics** and navigate to the Topics page.
 
@@ -71,7 +71,7 @@ The tutorial demonstrates a simple WebSub API that monitors your GitHub reposito
 
 6. Generate a secret.
      
-     1. Click **Runtime** and navigate to Runtime Configurations. Expand the **Subscription** section.
+     1. Expand the **Subscription Configuration** section in the **Topics** page.
 
           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-runtime-configurations.png)
 
@@ -84,7 +84,7 @@ The tutorial demonstrates a simple WebSub API that monitors your GitHub reposito
 
      4. Click **Save**.
 
-7. Attach business plans to the WebSub API.
+7. Attach business plans to the WebSub/Webhook API.
 
      1. Click **Subscriptions** and navigate to the Business Plans page.
 
@@ -97,7 +97,7 @@ Now, you have created and configured the Websub API successfully.
 
 ### Step 2 - Forward a Public URL
 
-A public URL should be forwaded to `localhost:9021`, so that your local server can be accessible to the webhook provider (GitHub). [ngrock](https://ngrok.com) can be used for this purpose.
+A public URL should be forwarded to `localhost:9021`, so that your local server can be accessible to the webhook provider (GitHub). [ngrock](https://ngrok.com) can be used for this purpose.
 
 1. Download [ngrock](https://ngrok.com/download), and start it. This will forward a public URL to `localhost:9021`.
 
@@ -159,7 +159,7 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
           <td>Secret</td>
           <td>
           <code>`[generated_secret]`</code>
-          <p>This is the secret you obtained from the <b>Subscriptions</b> section of the WebSub API's <b>Runtime Confgurations</b>.</p>
+          <p>This is the secret you obtained from the <b>Subscription Configuration</b> section of the WebSub/Webhook API's <b>Topics</b>.</p>
           </td>
           </tr>
           <tr>
@@ -176,7 +176,7 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
      3. Click **Add webhook**.
 
 
-### Step 4 - Publish the WebSub API
+### Step 4 - Publish the WebSub/Webhook API
 
 1. Go to WSO2 API Publisher. 
 
@@ -206,11 +206,11 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
 5. Leave the webpage open. You will need to come back again.
 
 
-### Step 6 - Invoke the WebSub API
+### Step 6 - Invoke the WebSub/Webhook API
 
 1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (e.g., `https://localhost:9443/devportal`).
 
-2. Click on the WebSub API. The API overview appears.
+2. Click on the WebSub/Webhook API. The API overview appears.
 
 3. Subscribe to the API.
 
@@ -254,4 +254,4 @@ A public URL should be forwaded to `localhost:9021`, so that your local server c
           ```
 
 
-You have successfully created and published your first WebSub API, subscribed to it, obtained an access token for testing, created a subscription to a webhook, and tested your API with the access token.
+You have successfully created and published your first WebSub/Webhook API, subscribed to it, obtained an access token for testing, created a subscription to a webhook, and tested your API with the access token.
