@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/next/
+site_url: https://apim.docs.wso2.com/en/4.0.0-dev/
 
 # Repository
 repo_name: wso2/docs-apim
