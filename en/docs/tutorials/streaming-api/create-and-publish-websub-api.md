@@ -197,11 +197,11 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
      [![Create Callback URL]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-create-callback-url.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-create-callback-url.png)
 
-3. Click **Copy to clipboard** which is next to **Your unique URL**. Let's call this as: `[callack_url]`.
+3. Click **Copy to clipboard** which is next to **Your unique URL**.
 
      [![Copy Callback URL]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-copy-callback-url.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-copy-callback-url.png)
 
-4. TODO REMOVE URL-encode the unique URL, which you have copied. Let's call this `[encoded_hub_callback]`.
+4. URL-encode the unique URL, which you have copied. Let's call this `[encoded_hub_callback]`.
 
 5. Leave the webpage open. You will need to come back again.
 
