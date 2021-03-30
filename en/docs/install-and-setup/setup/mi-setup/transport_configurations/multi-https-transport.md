@@ -161,9 +161,7 @@ Multi-HTTPS transport receiver) as a custom transport receiver.
     element.
     
     !!! Note
-        It is recommended to configure the hostname as the server when configuring custom SSL profiles. If an IP address is 
-        required to be configured as the server, the IP address needs to be mapped to a hostname in the Host file, and the 
-        hostname can be provided as the server.
+        It is recommended to configure the hostname as the server when configuring custom SSL profiles. If you want to use the IP address as the server, be sure to map the hostname in the Host file before using the hostname as the server.
 
 ## Loading SSL profiles at runtime
 
