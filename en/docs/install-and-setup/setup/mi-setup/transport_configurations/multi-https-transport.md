@@ -70,7 +70,7 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
     ```xml
     <parameter name="customSSLProfiles">
         <profile>
-            <servers>localhost:8244,192.168.1.234:8245</servers>
+            <servers>localhost:8244,hostname:8245</servers>
             <KeyStore>
                 <Location>repository/resources/security/esb.jks</Location>
                 <Type>JKS</Type>
@@ -97,19 +97,41 @@ Dynamic SSL profiles for the Multi-HTTPS **transport sender**:
 
 Dynamic SSL profiles for the Multi-HTTPS **transport listener**:
 
-!!! Warning
-        The following instructions relevant to the **Multi-HTTPS Transport Listener** is currently under review. Please refer [Issue #2034](https://github.com/wso2/micro-integrator/issues/2034) for details.
+To dynamically load the SSL profiles at runtime for the Multi-HTTPS transport listener, you can configure 
+`org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` (which is the existing implementation of the 
+Multi-HTTPS transport receiver) as a custom transport receiver.
 
-1.   Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following parameters.
+1.   Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory) and add the following parameter to disable 
+     the default HTTPS transport receiver.
 
     ```toml
     [transport.http]
-    listener.ssl_profile.file_path = "conf/sslprofiles/listenerprofiles.xml"
-    listener.ssl_profile.read_interval = 600000
+    listener.secured_enable = false
     ```
-
-2.   Create the `listenerprofiles.xml` file with the following configuration in the
-    `MI_HOME/conf/sslprofiles` directory:
+2.   Add the following parameters to configure `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` 
+     as a custom transport receiver.
+    
+    ```toml
+     [[custom_transport.listener]]
+     class="org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener"
+     protocol = "https"
+     parameter.port = 8243
+     parameter.non_blocking = true
+     
+     keystore.location = "repository/resources/security/wso2carbon.jks"
+     keystore.type = "JKS"
+     keystore.password = "wso2carbon"
+     keystore.key_password = "wso2carbon"
+     truststore.location = "repository/resources/security/client-truststore.jks"
+     truststore.type = "JKS"
+     truststore.password = "wso2carbon"
+     
+     ssl_profile.file_path= "conf/sslprofiles/listenerprofiles.xml"
+     ssl_profile.read_interval = 600000
+     ```
+     
+3.   Create the `listenerprofiles.xml` file in the `MI_HOME/conf/sslprofiles` directory and add the following 
+     configurations:
 
     !!! Info
         You can configure the file path for the `listenerprofiles.xml` file as required.
@@ -117,7 +139,7 @@ Dynamic SSL profiles for the Multi-HTTPS **transport listener**:
     ```xml
     <parameter name="SSLProfiles">
     <profile>
-            <bindAddress>192.168.0.123</bindAddress>
+            <bindAddress>hostname</bindAddress>
             <KeyStore>
                 <Location>repository/resources/security/esb.jks</Location>
                 <Type>JKS</Type>
@@ -137,6 +159,9 @@ Dynamic SSL profiles for the Multi-HTTPS **transport listener**:
     The SSL profile will be applied to each request that is received at
     the IP specified within the `           <bindAddress>          `
     element.
+    
+    !!! Note
+        It is recommended to configure the hostname as the server when configuring custom SSL profiles. If you want to use the IP address as the server, be sure to map the hostname in the Host file before using the hostname as the server.
 
 ## Loading SSL profiles at runtime
 
