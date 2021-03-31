@@ -5,7 +5,7 @@ See the following content on managing the growth of **Carbon logs** and
 
 ## Managing the growth of Carbon logs
 
-Log growth in [Carbon logs](../monitoring_logs/#carbon-logs) can be managed by the following configurations in the `MI_HOME/conf/log4j2.properties` file.
+Log growth in [Carbon logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/monitoring_logs/#carbon-logs) can be managed by the following configurations in the `MI_HOME/conf/log4j2.properties` file.
 
 -   **Configurable log rotation**: By default, log rotation is on a daily
     basis.
