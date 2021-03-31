@@ -19,13 +19,13 @@ Follow the instructions below to use the Publisher test console to test an API:
 
 3.  Click **TryOut**.
 
-     [![Try out menu option in the left panel]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png)]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png)
+     <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png" width="20%" alt="Try out menu option in the left panel"></a>
 
 4.  Click **GET TEST KEY**.
 
      This generates the internal key needed to invoke the API.
 
-      [![Generate key]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png)]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png)
+      <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png" width="60%" alt="Generate key"></a>
 
     <html><div class="admonition note">
     <p class="admonition-title">Note</p>
