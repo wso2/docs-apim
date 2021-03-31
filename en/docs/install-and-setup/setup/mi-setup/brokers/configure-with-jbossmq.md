@@ -25,6 +25,6 @@ To configure the JMS transport with JBossMQ:
     parameter.'java.naming.factory.url.pkgs' = "org.jnp.interfaces:org.jboss.naming"
     ```
     !!! Info
-        For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters](../../references/config-catalog/#jms-transport-listener-non-blocking-mode).
+        For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters]({base_path}}/reference/config-catalog-mi/#jms-transport-listener-non-blocking-mode).
 
 4.  Start WSO2 Micro Integrator and ensure that the logs print messages indicating that the JMS listener and sender are started, and that the JMS transport is initialized.

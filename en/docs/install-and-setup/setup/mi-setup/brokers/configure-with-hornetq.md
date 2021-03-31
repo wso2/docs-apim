@@ -79,7 +79,7 @@ a standalone HornetQ server.
     parameter.'java.naming.factory.url.pkgs' = "org.jboss.naming:org.jnp.interfaces"
     ```
     !!! Info
-        For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters](../../references/config-catalog/#jms-transport-listener-non-blocking-mode).
+        For details on the JMS configuration parameters used in the code segments above, see [JMS connection factory parameters]({base_path}}/reference/config-catalog-mi/#jms-transport-listener-non-blocking-mode).
 
 8.  Start HornetQ with the following command.
     -   On Windows:
