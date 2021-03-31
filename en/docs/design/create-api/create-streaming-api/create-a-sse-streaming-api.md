@@ -1,6 +1,9 @@
 # Create a Server Sent Events API
 
-Follow the instructions below to create a Server Sent Events (SSE) API using the basic flow.
+This section will guide you to create an API, which will expose a Server Sent Event (SSE) backend via WSO2 API Manager. 
+Once an SSE API is created, you will be able to add different topics and each topic can be mapped to different paths of the backend and can be used to manage them.
+
+Follow the instructions below to create the API using the basic flow.
 
 
 ### Design a Server Sent Events API

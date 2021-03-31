@@ -1,6 +1,13 @@
 # Create a WebSub/Webhook API
 
-Follow the instructions below to create a WebSub/Webhook API using the basic flow.
+This section will guide you through creating a WebSub API. Once a websub api is created you will be able to register 
+it's url as the callback  url for your webhook provider and be able to receive events from them.
+
+WebHook apis in WSO2 API Manager is implemented adhering the [WebSub](https://www.w3.org/TR/websub/) specification. That
+ is an API created will adhere to WebSub specification in terms of subscription, unsubscription, lease period and etc. Once the API is created, it will provide you a call back url, which you can register to any webhook provider. In 
+ other words, the user facing api from API Manager will adhere to websub specification where as the backend can be  anything which could send events to this call back url.
+
+Follow the instructions below to create one using the basic flow.
 
 ### Design a WebSub/Webhook API
 
