@@ -17,8 +17,8 @@ Follow the instructions below to start the migration!
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer](../../../setup/installation/install_in_vm_installer).
-	-	Install the product [using the binary distribution](../../../setup/installation/install_in_vm_binary).
+	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
 
 -	Use [WSO2 Update Manager](https://docs.wso2.com/display/updates/) to get the latest available updates for your EI 7.1 distribution.
 
@@ -95,7 +95,7 @@ To connect the Micro Integrator to the primary user store:
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
-See the instructions on [configuring a user store](../../user_stores/setting_up_a_userstore) for more information.
+See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
 
 ### Migrating the registry
 
@@ -106,7 +106,7 @@ See the instructions on [configuring a user store](../../user_stores/setting_up_
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
 	-	If you have shared the registry of EI 6.x among multiple nodes, you can do the same for the file-based registry of EI 7.1. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of EI 7.1]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
 
-The Micro Integrator uses a [file-based registry](../file_based_registry) instead of a database (which is used in EI 6.x). Note the following when migrating the registry:
+The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in EI 6.x). Note the following when migrating the registry:
 
 -	If the registry resources in EI 6.x are added via carbon applications developed using WSO2 Integration Studio, you can directly migrate the artifacts to the Micro Integrator of EI 7.1. Copy the carbon applications from the `<EI_6.x.x_HOME>/repository/deployment/server/carbonapps` folder to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
 -	If the registry resources are added through the management console in EI 6.x.x, you need to convert them to a Registry Resources module in WSO2 Integration Studio and deploy them via a Carbon Application.
@@ -122,8 +122,8 @@ The Micro Integrator uses a [file-based registry](../file_based_registry) instea
 
 	Use one of the following approaches:
 
-	- [Checkout the Registry Resources](../../../develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the EI 6.x.x server directly into the Registry Resources module in WSO2 Integration Studio.
-	- Download the Registry Resources from EI 6.x.x and [import them](../../../develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
+	- [Checkout the Registry Resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the EI 6.x.x server directly into the Registry Resources module in WSO2 Integration Studio.
+	- Download the Registry Resources from EI 6.x.x and [import them]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
 
 	!!! Note
 	    Once you have imported the Registry Resources into WSO2 Integration Studio, open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
@@ -162,8 +162,8 @@ The recommended way to create integration artifacts (in EI 6.x or EI 7.x ) is to
 
 ### Migrating deployed Connectors
 
-- If the connector is added to EI 6.x via a composite application with the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in EI 6.x to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
-- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
+- If the connector is added to EI 6.x via a composite application with the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in EI 6.x to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
+- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
 
 ### Migrating custom components
 
