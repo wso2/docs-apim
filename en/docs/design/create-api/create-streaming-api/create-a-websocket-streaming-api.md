@@ -2,7 +2,7 @@
 
 This section will guide you through creating a websocket API in which you will expose a websocket backend via WSO2
  API Manager. Once the API is created, you will be able to create independent channels to connect to each topic 
- in the API. These topics can be mapped to different channels in the backend. This way the user will be able to maintain multiple channels with the API to exchange different types of events simultaneously
+ in the API. These topics can be mapped to different channels in the backend. This way the user will be able to maintain multiple channels with the API to exchange different types of events simultaneously.
  
  
  Follow the instructions below to create a WebSocket API using the basic flow.
