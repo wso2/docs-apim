@@ -30,9 +30,9 @@ To see the Documentum connector, navigate to the [connector store](https://store
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version |
+| Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.0    | EI 7.1.0, 7.0.x |
+| 1.0.0    | APIM 4.0.0, EI 7.1.0, 7.0.x |
 
 For older versions, see the details in the connector store.
 

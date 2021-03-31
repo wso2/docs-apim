@@ -1,6 +1,6 @@
 # Google Spreadsheet Connector Overview
 
-The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the [Google Spreadsheet API Version v4](https://developers.google.com/sheets/api/guides/concepts) through WSO2 EI. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection.
+The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the [Google Spreadsheet API Version v4](https://developers.google.com/sheets/api/guides/concepts) through an integration sequence. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection.
 
 To see the Google Spreadsheet Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "google".
 
@@ -8,9 +8,9 @@ To see the Google Spreadsheet Connector, navigate to the [connector store](https
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version |
+| Connector Version | Supported product versions |
 | ------------- |-------------|
-| 3.0.1    | EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| 3.0.1    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 

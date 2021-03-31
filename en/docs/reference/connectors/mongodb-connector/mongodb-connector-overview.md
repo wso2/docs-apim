@@ -8,13 +8,13 @@ To download the MongoDB Connector, go to the [connector store](https://store.wso
 
 It is always recommended to download the latest version of the connector.
 
-<img src="../../../../assets/img/integrate/connectors/mongodb-connector-store.png" title="MongoDB Connector Store" width="200" alt="MongoDB Connector Store"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/mongodb-connector-store.png" title="MongoDB Connector Store" width="200" alt="MongoDB Connector Store"/>
 
 ## Compatibility
 
-| Connector version | Supported WSO2 ESB/EI version |
+| Connector version | Supported product versions |
 | ----------------- | ----------------------------- |
-| 1.0.0             | EI 6.6.0, EI 7.1.0            |
+| 1.0.0             | APIM 4.0.0, EI 7.1.0, EI 6.6.0    |
 
 This connector was tested with MongoDB version 4.4.3.
 
