@@ -1,6 +1,6 @@
 # Amazon DynamoDB Connector Overview
 
-Amazon DynamoDB Connector allows you to access the [Amazon DynamoDB REST API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.API.html) through WSO2 EI.
+Amazon DynamoDB Connector allows you to access the [Amazon DynamoDB REST API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.API.html) from an integration sequence.
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. AmazonDynamoDB enables customers to offload the administrative burdens of operating and scaling distributed databases to AWS, so they do not have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling.
 
@@ -10,9 +10,9 @@ To see the Amazon DynamoDB connector, navigate to the [connector store](https://
 
 ## Compatibility
 
-| Connector version | Supported WSO2 EI version |
+| Connector version | Supported product versions |
 | ------------- |------------- |
-|  [1.0.1](https://github.com/wso2-extensions/esb-connector-amazondynamodb/tree/1.0.1)        |  EI 7.1.0, EI 7.0.x, EI 6.6.0 |
+|  [1.0.1](https://github.com/wso2-extensions/esb-connector-amazondynamodb/tree/1.0.1)        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0 |
 
 For older versions, see the details in the connector store.
 

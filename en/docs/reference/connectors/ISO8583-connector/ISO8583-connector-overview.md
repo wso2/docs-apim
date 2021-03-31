@@ -13,15 +13,15 @@ To see the ISO8583 Connector, navigate to the [connector store](https://store.ws
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version |
+| Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.3    | EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+| 1.0.3    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
 ## ISO8583 Connector documentation
 
-The ISO8583 Connector allows you to send ISO8583 standard messages through WSO2 Enterprise Integrator (WSO2 EI). ISO8583 is an international messaging standard for financial transaction card originated messages, and is commonly used in transactions between devices such as point-of-sale(POS) terminals and automated teller machines(ATMs). Although there are various versions of the ISO8583 standard, this connector is developed based on the 1987 version. 
+The ISO8583 Connector allows you to send ISO8583 standard messages from an integration sequence. ISO8583 is an international messaging standard for financial transaction card originated messages, and is commonly used in transactions between devices such as point-of-sale(POS) terminals and automated teller machines(ATMs). Although there are various versions of the ISO8583 standard, this connector is developed based on the 1987 version. 
 
 * **[Setting up ISO8583 Connector]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-configuration/)**: This includes instructions on setting up the environment and the test server in order to try this out. 
 
@@ -31,7 +31,7 @@ The ISO8583 Connector allows you to send ISO8583 standard messages through WSO2 
 
 ## ISO8583 Inbound Endpoint documentation
 
-The ISO8583 inbound endpoint of WSO2 EI acts as a message consumer. This is bundled with the ISO8583 connector and can be obtained from the connector store. The ISO8583 inbound endpoint supported via the WSO2 EI is a listening inbound endpoint that can consume ISO8583 standard messages. The ISO8583 connector allows outbound messages from WSO2 EI to third-party applications, while the inbound endpoint only allows incoming messages. The inbound endpoint converts the messages to XML format and injects messages to a sequence in WSO2 EI.
+The ISO8583 inbound endpoint acts as a message consumer. This is bundled with the ISO8583 connector and can be obtained from the connector store. The ISO8583 inbound endpoint supported via the integration runtime of WSO2 is a listening inbound endpoint that can consume ISO8583 standard messages. The ISO8583 connector allows outbound messages from the integration runtime to third-party applications, while the inbound endpoint only allows incoming messages. The inbound endpoint converts the messages to XML format and injects messages to a sequence.
 
 * **[ISO8583 Inbound Endpoint Example]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example/)**: This example demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. 
 

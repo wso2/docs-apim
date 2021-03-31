@@ -10,7 +10,7 @@ To see the Amazon Lambda connector, navigate to the [connector store](https://st
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version |
+| Connector Version | Supported product versions |
 | ------------- |-------------|
 | 1.0.0    | EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0 |
 

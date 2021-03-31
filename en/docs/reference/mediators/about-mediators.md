@@ -60,4 +60,4 @@ WSO2 Micro Integrator includes a comprehensive library of mediators that provide
 
 **Extension Mediators**
 
-[Class]({{base_path}}/reference/mediators/class-mediator) | [Script]({{base_path}}/reference/mediators/script-mediator) |
+[Class]({{base_path}}/reference/mediators/class-mediator) | [Script]({{base_path}}/reference/mediators/script-mgiediator) |
