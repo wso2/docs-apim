@@ -48,7 +48,7 @@ There are two ways to enable logs for a component: using the Micro Integrator [d
 
 1.  Download and set up the [API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
-2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl).
+2.  Use the commands for [adding a new logger]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/#add-a-new-logger) to the Micro Integrator.
 
 ## Printing Logs
 
