@@ -915,7 +915,7 @@ html .md-footer-meta.md-typeset a,
    width: 100%;
    margin: 0 auto;
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
 }
 
@@ -927,6 +927,7 @@ html .md-footer-meta.md-typeset a,
 
 .card {
    height: 110px;
+   width: 325px;
    color: #404040;
    margin: 10px;
    background: #f8f8f8;
