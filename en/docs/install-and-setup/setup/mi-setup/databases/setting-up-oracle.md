@@ -4,10 +4,10 @@ Follow the steps given below to set up the required Oracle databases for your Mi
 
 !!! Tip
     WSO2 Micro Integrator requires databases for the following scenarios:
-    
-    -   <a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
-    -   <a href='../../../setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
-    -   <a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
+
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Setting up the database and users
 
@@ -22,16 +22,16 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>oracle_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
         </td>
 	</tr>
 	<tr>
 		<td>oracle_user.sql</td>
-		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../../setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
+		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
 	</tr>
 	<tr>
 		<td>oracle_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
@@ -44,7 +44,7 @@ Follow the steps below to set up an Oracle database.
 2.  Make the necessary changes in the Oracle
     `           tnsnames.ora          ` and
     `           listner.ora          ` files in order to define
-    addresses of the databases for establishing connections to the newly
+    addresses of the databases for establishing connections to the newly
     created database.
 3.  After configuring the `           .ora          ` files, start the
     Oracle instance using the following command:
@@ -82,14 +82,14 @@ Follow the steps below to set up an Oracle database.
 ## Setting up the JDBC driver
 
 1.  Copy the Oracle JDBC libraries (for example, \<
-    `          ORACLE_HOME/jdbc/lib/ojdbc14.jar)         ` to the `MI_HOME/lib/`
+    `ORACLE_HOME/jdbc/lib/ojdbc14.jar)` to the `MI_HOME/lib/`
     directory.
 2.  Remove the old database driver from the
     `MI_HOME/repository/components/dropins/         `
     directory.
 
 !!! Tip
-    If you get a "`timezone region not found"` error when using the `         ojdbc6.jar        ` file with the Micro Integrator, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.sh        ` as a new `JAVA_OPT` property.
+    If you get a "`timezone region not found"` error when using the `ojdbc6.jar` file with the Micro Integrator, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"` the value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `micro-integrator.sh        ` as a new `JAVA_OPT` property.
 
 ## Connecting the database to the server
 
@@ -129,7 +129,6 @@ driver="oracle.jdbc.OracleDriver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"
@@ -138,4 +137,4 @@ update_interval = 2
 
 {!setup/pull/PULL-CONTENT-user-store-db-id.md!}
 
-See the descriptions of [database connection parameters](../../../references/config-catalog/#database-connection).
+See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).

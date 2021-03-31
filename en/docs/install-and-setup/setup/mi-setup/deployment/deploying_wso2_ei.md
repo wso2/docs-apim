@@ -5,11 +5,11 @@ See the instructions on how to set up a cluster of WSO2 Micro Integrator nodes i
 
 This deployment scenario is a two-node Micro Integrator deployment. That is, two Micro Integrator nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<img src="../../../assets/img/clustered_deployment.png">
+<img src="{{base_path}}/assets/img/integrate/clustered_deployment.png">
 
 ## Install the Micro Integrator
 
-[Download and install WSO2 Micro Integrator](../../../setup/installation/install_in_vm_installer).
+[Download and install WSO2 Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
 Let's set up two instances of the Micro Integrator server.
 
@@ -22,7 +22,7 @@ Open the `deployment.toml` file (stored in the `<MI_HOME>/conf` folder) of each 
 hostname = "localhost"
 ```
 
-Find more [parameters](../../../references/config-catalog/#deployment) for deployment settings.
+Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment) for deployment settings.
 
 ## Cluster coordination
 
@@ -39,11 +39,11 @@ When the nodes in the cluster need to communicate with each other, the Micro Int
 
 1.  Create a database named `clusterdb`.
 
-    - [Setting up a MySQL database](../../../setup/databases/setting-up-MySQL)
-    - [Setting up an MSSQL database](../../../setup/databases/setting-up-MSSQL)
-    - [Setting up an Oracle database](../../../setup/databases/setting-up-Oracle)
-    - [Setting up a Postgre database](../../../setup/databases/setting-up-PostgreSQL)
-    - [Setting up an IBM database](../../../setup/databases/setting-up-IBM-DB2)
+    - [Setting up a MySQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mysql)
+    - [Setting up an MSSQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mssql)
+    - [Setting up an Oracle database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-oracle)
+    - [Setting up a Postgre database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-postgresql)
+    - [Setting up an IBM database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2)
 
 2.  Open the `deployment.toml` file and see that the configurations are updated as shown below.
 
@@ -283,7 +283,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two Micro Integrator servers. See the instructions on [creating a scheduled task](../../../develop/creating-artifacts/creating-scheduled-task).
+Create a simple scheduled task using WSO2 Integration Studio and deploy it in the two Micro Integrator servers. See the instructions on [creating a scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

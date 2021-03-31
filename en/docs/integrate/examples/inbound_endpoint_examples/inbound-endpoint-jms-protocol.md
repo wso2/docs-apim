@@ -44,7 +44,7 @@ Create the artifacts:
 3. Create a [mediation sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with configurations given in the above example.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the ActiveMQ broker](../../../../setup/brokers/configure-with-ActiveMQ).
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 
 Invoke the inbound endpoint:
 

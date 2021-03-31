@@ -4,10 +4,10 @@ Follow the steps given below to set up the required MSSQL databases for your Mic
 
 !!! Tip
 	WSO2 Micro Integrator requires databases for the following scenarios:
-	
-	-	<a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
-	-	<a href='../../../setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
-	-	<a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
+
+	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Enable TCP/IP
 
@@ -32,16 +32,16 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>mssql_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment).This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
 		</td>
 	</tr>
 	<tr>
 		<td>mssql_user.sql</td>
-		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../../setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
+		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
 	</tr>
 	<tr>
 		<td>mssql_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
@@ -55,7 +55,7 @@ Create the databases and then create the DB tables by pointing to the relevant s
 
 Assign newly created users the required grants/permissions to log in and
 create tables, to insert, index, select, update and delete data in
-tables in the newly created database. These are the minimum set of SQL
+tables in the newly created database. These are the minimum set of SQL
 server permissions.
 
 ## Setting up the JDBC driver
@@ -99,7 +99,6 @@ driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"
@@ -108,4 +107,4 @@ update_interval = 2
 
 {!setup/pull/PULL-CONTENT-user-store-db-id.md!}
 
-See the descriptions of [database connection parameters](../../../references/config-catalog/#database-connection).
+See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).

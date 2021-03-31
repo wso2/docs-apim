@@ -15,7 +15,7 @@ This tutorial demonstrates a simple command line based chat room which has two c
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
+2.  Click **CREATE API**, go to **Streaming API** and Click **WebSocket API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
@@ -77,7 +77,7 @@ This tutorial demonstrates a simple command line based chat room which has two c
 
      2. Delete the existing default topic, which has the name `/*`.
 
-     3. Click **Add Topic**, add the following topics one by one. Click **Add** after providing the name for each topic.
+     3. Add the following topics one by one. Select **pub** and **sub** as the **Types**, enter the **Topic Name**, and click **+** to add each topic.
 
           - /notifications
           - /rooms/{roomID}
@@ -108,7 +108,7 @@ Now, you have created and configured the WebSocket API successfully.
 
 ### Step 2 - Publish the WebSocket API
 
-1. Click **Lifecycle** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+1. Click **Lifecycle** to navigate to the API lifecycle and click **Publish** to publish the API to the API Developer Portal.
 
 2. Click **Deployments** to navigate to the Deployments page and click **Deploy New Revision**. 
 

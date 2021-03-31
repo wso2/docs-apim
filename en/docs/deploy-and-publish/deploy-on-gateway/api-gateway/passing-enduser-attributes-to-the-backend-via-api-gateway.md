@@ -1,4 +1,4 @@
-# Passing End-user Attributes to the Backend
+# Passing End User Attributes to the Backend
 
 {!./includes/deploy/backend-jwt-intro.md!}
 
@@ -27,7 +27,7 @@ expiry_time = "900"
 ```
 ## Enabling the default backend JWT generator
 
-Before passing end-user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default API Gateway.
+Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default API Gateway.
 
 1. Navigate to the `<API-M_HOME>/resources/conf/config.toml` file.
 
@@ -116,7 +116,7 @@ Follow the instructions below if you want to pass additional attributes to the b
 
 The JWT contains the list of user claims added when you enable the `apim.jwt.enable_user_claims` to `true` via the user store.
 
-Follow the instructions below to change the existing functionality of retrieving end-user related claims to the JWT:
+Follow the instructions below to change the existing functionality of retrieving end user related claims to the JWT:
 
 1. Write your own Claim Retriever implementation by implmenting `org.wso2.carbon.apimgt.impl.token.ClaimsRetriever`.
 
@@ -247,7 +247,7 @@ custom claims into JWT when invocation token in opaque mode.
 </table>
 
 !!! tip
-    You can use TCPMon or API Gateway debug logs to capture the JWT access token header with end-user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
+    You can use TCPMon or API Gateway debug logs to capture the JWT access token header with end user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
 
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>
@@ -255,4 +255,4 @@ custom claims into JWT when invocation token in opaque mode.
 
 ## See Also
 
-If you want to learn how you can pass end-user attributes to the backend when working with WSO2 API Microgateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway), which is under the WSO2 API Microgateway documentation section.
+If you want to learn how you can pass end user attributes to the backend when working with WSO2 API Microgateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway), which is under the WSO2 API Microgateway documentation section.

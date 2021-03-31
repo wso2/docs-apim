@@ -25,8 +25,12 @@ To export the `Integration Project` as a CApp, a `Composite Application Project`
 
 ### Exporting the Composite Application Project
 
+<<<<<<< HEAD
 1. Right-click the Composite Application Project and click **Export Composite Application Project**.
 
+=======
+1. Right click on Composite Application Project and click on **Export Composite Application Project**.<br> 
+>>>>>>> 94d5a16062ffeecabf9439bb35cfae47ed0553f4
   <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="400" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 

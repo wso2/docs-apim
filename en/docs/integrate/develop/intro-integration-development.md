@@ -311,7 +311,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 			<b>Kubernetes Environment</b>
 		</td>
 		<td>
-			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="../../setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
+			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
 		</td>
 	</tr>
 </table>

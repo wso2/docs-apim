@@ -11,7 +11,7 @@ By default, the Micro Integrator is configured to generate the basic log files t
 The following topics explain how you can use the default logs that are configured in the Micro Integrator. If you have additional logs configured,
 you will be able to access those logs as well.
 
-See [Configuring Logs](../../../administer-and-observe/logs/configuring_log4j_properties) for details on how logs are configured in the Micro Integator.
+See [Configuring Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) for details on how logs are configured in the Micro Integator.
 
 ## Download Log Files
 
@@ -131,7 +131,7 @@ HTTP access logs (requests and responses) help you monitor information such as t
 In the Micro Integrator, access logs are generated for the PassThrough transport. The PassThrough transport works on 8290/8253 ports and is used for API/Service invocations. By default, all access logs from the PassThrough transport are written to a common access log file - `http_access_.log`.
 
 !!! Note
-    See [Configuring Access Logs](../../../administer-and-observe/logs/configuring_log4j_properties/#configuring-http-access-logs) for instructions on configuring access logs.
+    See [Configuring Access Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/#configuring-http-access-logs) for instructions on configuring access logs.
 
 ```xml
 [10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" - - "-" "curl/7.64.1"

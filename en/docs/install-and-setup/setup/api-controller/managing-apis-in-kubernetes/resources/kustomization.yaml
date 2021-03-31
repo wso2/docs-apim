@@ -1,0 +1,30 @@
+namePrefix: production-
+
+commonLabels:
+  app: my-hello
+  kustomize-used: dtrue
+
+commonAnnotations:
+  note: Hello, I am production!
+
+resources:
+- api_crd.yaml
+
+configurations:
+- kustomize-config.yaml
+
+configMapGenerator:
+- name: PizzaShackAPI-params
+- name: PizzaShackAPI-cm
+  files:
+  - PizzaShackAPI_1.0.0.zip
+
+secretGenerator:
+- name: PizzaShackAPI-certs
+  files:
+    - "certificates/tls.cert"
+    - "certificates/tls.key"
+  type: "kubernetes.io/tls"
+
+patchesStrategicMerge:
+ - PizzaShackAPI-params.yaml

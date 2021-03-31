@@ -58,7 +58,7 @@ enable_swa=false
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="../../setup/deployment/deploying_wso2_ei">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a Micro Integrator server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">WSO2 Micro Integrator</a>. The required and optional parameters for this configuration are listed below.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -493,7 +493,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.primary]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the <a href="../../setup/security/configuring_keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
+                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -631,7 +631,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.internal]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="../../setup/security/configuring_keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
+                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -824,7 +824,7 @@ alias="symmetric.key.value"</code></pre>
                             <code>[truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="../../setup/security/configuring_keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
+                                This configuration header is required for configuring the parameters that connect the Micro Integrator to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring_keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -948,7 +948,7 @@ user.password = "pwd-2"
                             <code>[internal_apis.file_user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='../../setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
+                                This configuration header is required for disabling the default file-based user store of the Micro Integrator's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -978,7 +978,7 @@ user.password = "pwd-2"
                             <code>[[internal_apis.users]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='../../setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
+                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1086,7 +1086,7 @@ connection_retry_delay = "120000"
                             <code>[user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for conencting the Micro Integrator to an <a href='../../setup/user_stores/setting_up_a_userstore'>external user store</a>.
+                                This configuration header is required for conencting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore'>external user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1171,7 +1171,7 @@ connection_retry_delay = "120000"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to &lt;a href=&#39;../../setup/security/importing_ssl_certificate&#39;&gt;add certificates to the truststore&lt;/a&gt;.</p>
+                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to &lt;a href=&#39;{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate&#39;&gt;add certificates to the truststore&lt;/a&gt;.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1756,7 +1756,7 @@ pool_options.testOnBorrow = true</code></pre>
                             <code>[[datasource]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for connecting to a database from the Micro Integrator. Databases are only required if you are connecting the Micro Integrator to an <a href='../../setup/user_stores/setting_up_ro_ldap/#configuring-an-rdbms-user-store-optional'>RDBMS user store</a>.
+                                This configuration header is required for connecting to a database from the Micro Integrator. Databases are only required if you are connecting the Micro Integrator to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_ro_ldap/#configuring-an-rdbms-user-store-optional'>RDBMS user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">

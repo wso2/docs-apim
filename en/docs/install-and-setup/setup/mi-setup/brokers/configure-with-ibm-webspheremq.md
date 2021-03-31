@@ -31,34 +31,34 @@ following topics cover the configuration steps.
     | **Listen on port number** field | Enter the number of the port where you want to set the listener. In this example, the port number will be 1414.|
 
 6.  Click **Next** and then click **Finish** to save the configuration. The queue manager will be created as shown below.  
-    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130334.png)
+    ![Created Queue Manager]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130334.png)
 7.  Expand the navigation tree of the ESBQManager queue manager in the navigation tree. Right-click **Queues**, move the cursor to **New**, and then click **Local Queue** to open the **Create a Local Queue** wizard. Enter the local queue name as `LocalQueue1` and complete running the wizard. Leave the default values of all other fields unchanged, and click **Finish** to save the local queue.  
 8.  Right-click **Channels** , move the cursor to **New** , and then click **Server-connection Channel** to open the **Create a Server-connection Channel** wizard. Enter **myChannel** as the channel name and click **Next**. Make sure that the value for the **Transmission Protocol** is **TCP** . Leave the default values unchanged for the rest of the fields, and click **Finish** to save the channel.
 
 ### Generating the .bindings file
 
-1.  Create a directory in which the `          .bindings         ` file
+1.  Create a directory in which the `.bindings` file
     can be saved in any location of your computer. In this example, a
-    directory named `          jndidirectory         ` will be created
-    in the `          G         ` folder.
+    directory named `jndidirectory` will be created
+    in the `G` folder.
 2.  Go to IBM Websphere MQ, and right-click on **JMS Administered
     Objects** , and then click **Add Initial Context** .  
-    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130339.png)
+    ![JMS Administered Objects]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130339.png)
 3.  Select the **File system** option in the **Connection Details**
-    wizard. Enter `          file:G/jndidirectory         ` in the
+    wizard. Enter `file:G/jndidirectory` in the
     **Context nickname** field. Leave the default values unchanged for
     other fields and complete running the wizard. The new file initial
     context will be displayed in the left navigator under **JMS
     Administered Objects** as shown below.  
-    ![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130338.png)
+    ![New File Initial Context]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130338.png)
 4.  Click the file initial context (named
-    `          file:G/jndidirectory         ` in this example) in the
+    `file:G/jndidirectory` in this example) in the
     navigator to expand it. Right-click on **Connection Factories**,
     move the cursor to **New**, and then click **Connection Factory**.
     Enter the name of the connection factory as
-    `          MyQueueConnectionFactory         ` . Select
-    `          Queue Connection Factory         ` as the connection
-    factory type. Select `          MQClient         ` as the transport.
+    `MyQueueConnectionFactory`. Select
+    `Queue Connection Factory` as the connection
+    factory type. Select `MQClient` as the transport.
     Leave the default values unchanged for other fields and complete
     running the wizard.
 5.  Right-click on the newly connected connection factory in the left
@@ -104,11 +104,10 @@ ALTER QMGR CHLAUTH(DISABLED)
 ```java
 REFRESH SECURITY TYPE(CONNAUTH)
 ```
-
   
 The following will be displayed in the command prompt.
 
-![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130336.png)
+![Command Prompt]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130336.png)
 
 ### Configuring the Micro Integrator
 
@@ -204,7 +203,7 @@ Follow the instructions below to build and install IBM WebSphere MQ client JAR f
         If you are using IBM MQ docker container, you can find these libraries in inside the `/opt/mqm/java/lib` directory. You can use `docker cp` command to copy jar files from the docker container.
    
     !!! Note
-        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip](../../assets/img/broker-configs/IBM-websphere-mq/119130333.zip)
+        If you are using IBM MQ 8 with Mutual SSL enabled, you need to download the [wmq-client-8.0.0.zip]({{base_path}}/assets/img/integrate/broker-configs/IBM-websphere-mq/119130333.zip)
         file and follow the instructions in the readme.txt file.
 
     -   `             com.ibm.mq.allclient.jar            `
@@ -322,5 +321,5 @@ In this section, the following simple proxy service is deployed to listen to the
 
 Open IBM Websphere MQ and publish a message to `LocalQueue1`.
 
-![]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130337.png)
+![Publish Message to Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130337.png)
 

@@ -17,13 +17,13 @@ max_http_connection_per_host_port = 32767
 preserve_http_user_agent = false
 preserve_http_headers = ["Content-Type"]
 ```
-See the [descriptions](../../../references/config-catalog/#http-transport) of these parameters.
+See the [descriptions]({{base_path}}/reference/config-catalog-mi) of these parameters.
 
 <!--
 
 ## Configuring passthru-http.properties
 
-You can configure the following properties as required in the `         <EI_Home>/conf/passthru-http.properties        ` file:
+You can configure the following properties as required in the `<EI_Home>/conf/passthru-http.properties` file:
 
 <table>
 <thead>
@@ -119,16 +119,16 @@ The main difference between using this property and using the <a href="https://d
 
 ## Tuning blocking invocations
 
-The [Callout mediator](../.././references/mediators/callout-Mediator.md) as well
-as the [Call mediator](../.././references/mediators/call-Mediator.md) in blocking
-mode uses the axis2 `         CommonsHTTPTransportSender        `
+The [Callout mediator]({{base_path}}/reference/mediators/callout-mediator) as well
+as the [Call mediator]({{base_path}}/reference/mediators/call-mediator) in blocking
+mode uses the axis2 `CommonsHTTPTransportSender`
 internally to invoke services. It uses the
-`         MultiThreadedHttpConnectionManager        ` to handle
+`MultiThreadedHttpConnectionManager` to handle
 connections, but by default it only allows two simultaneous connections
 per host. So if there are more than two requests per host, the requests
 have to wait until a connection is available. Therefore if the backend
 service is slow, many requests have to wait until a connection is
-available from the `         MultiThreadedHttpConnectionManager        `. This can lead to a significant degrade in the performance of WSO2 Micro Integrator.
+available from the `MultiThreadedHttpConnectionManager`. This can lead to a significant degrade in the performance of WSO2 Micro Integrator.
 
 In order to overcome this issue, setting the `defaultMaxConnectionsPerHost` parameter to `100` in the deployment.toml file (stored in the `MI_HOME/conf` directory).
 
@@ -151,4 +151,4 @@ sender.default_connections_per_host = 100
 ```
 -->
 
-See the [descriptions](../../../references/config-catalog/#http-transport) of these parameters.
+See the [descriptions]({{base_path}}/reference/config-catalog-mi#http-transport) of these parameters.

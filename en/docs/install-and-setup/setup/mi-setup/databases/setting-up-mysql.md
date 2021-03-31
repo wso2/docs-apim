@@ -1,24 +1,23 @@
-
 # Setting up a MySQL Database
 
 Follow the steps given below to set up the required MySQL databases for your Micro Integrator.
 
 !!! Tip
 	WSO2 Micro Integrator requires databases for the following scenarios: 
-	
-	-	<a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a>
-	-	<a href='../../../setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
-	-	<a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitoring transaction counts</a>.
+
+	-	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei#cluster-coordination'>cluster coordination</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>using an RDBMS user store</a>
+    -	<a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist#monitoring-transaction-counts'>monitoring transaction counts</a>.
 
 ## Setting up a MySQL server
 
 To set up MySQL:
 
 1. Download and install [MySQL Server](http://dev.mysql.com/downloads/).
-2. Execute the following command in a terminal/command where the username is the username you want to use to access the server:
+2. Execute the following command in a terminal/command where the username is the username you want to use to access the server:
 
 	 ```bash
-	 mysql -u username -p
+	 mysql -u username -p
 	 ```
 
 3. When prompted, specify the password to access the server with the username you specified.
@@ -36,16 +35,16 @@ You can run the scripts on one database instance or set up separate instances fo
 	</tr>
 	<tr>
 		<td>mysql_cluster.sql</td>
-		<td>This script creates the database tables that are required for <a href='../../../setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
+		<td>This script creates the database tables that are required for <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination'>cluster coordination</a> (i.e., coordinating the server nodes in your VM deployment). This is only applicable if you have stateful integration artifacts deployed in a clustered setup.
 		</td>
 	</tr>
 	<tr>
 		<td>mysql_user.sql</td>
-		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='../../../setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
+		<td>This script creates the database tables that are required for storing users and roles. This is only required if you have configured an <a href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore'>RDBMS user store</a>.</td>
 	</tr>
 	<tr>
 		<td>mysql_transaction_count.sql</td>
-		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='../../../setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
+		<td>This script creates the database tables that are required for storing the transaction counts. This is only required if you want to <a href='{{base_path}}/install-and-setup/setup/mi-setup/deployment/deployment_checklist/#monitoring-transaction-counts'>monitor transaction counts</a> in your deployment.</td>
 	</tr>
 </table>
 
@@ -72,8 +71,8 @@ mysql> source <MI_HOME>/dbscripts/mysql/mysql_transaction_count.sql;
 !!! Info
 	**About using MySQL in different operating systems**
 
-	-	For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look: `mysql> create database <DATABASE_NAME> character set latin1;`
-	-	For users of other operating systems, the standard database creation commands will suffice. For these operating systems, the following is how your database creation command should look: `mysql> create database <DATABASE_NAME>;`
+	-	For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look: `mysql> create database <DATABASE_NAME> character set latin1;`
+	-	For users of other operating systems, the standard database creation commands will suffice. For these operating systems, the following is how your database creation command should look: `mysql> create database <DATABASE_NAME>;`
 
 ## Setting up the JDBC driver
 
@@ -118,7 +117,6 @@ driver="com.mysql.jdbc.Driver"
 pool_options.maxActive=50
 pool_options.maxWait = 60000
 pool_options.testOnBorrow = true
-
 [transaction_counter]
 enable = true
 data_source = "WSO2_TRANSACTION_DB"
@@ -127,4 +125,4 @@ update_interval = 2
 
 {!setup/pull/PULL-CONTENT-user-store-db-id.md!}
 
-See the descriptions of [database connection parameters](../../../references/config-catalog/#database-connection).
+See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).
