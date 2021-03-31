@@ -11,10 +11,14 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting passwords in product configurations 
 
-1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
+1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-2.  Add the `[secrets]` configuration section and include the passwords which you need to protect. Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
-   
+2.  Add the `[secrets]` configuration section and include the passwords which you need to protect. 
+
+    !!! warning "Important"
+        The `[secrets]` configuration section should be added at the very end of the `deployment.toml` file.
+
+     Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.    
        
        ``` tab="Format"
        [secrets]
