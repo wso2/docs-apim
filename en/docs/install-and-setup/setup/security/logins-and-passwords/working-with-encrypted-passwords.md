@@ -13,7 +13,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-2.  Add the `[secrets]` configuration section and include the passwords which you need to protect. 
+2.  Add the `[secrets]` configuration section at the **bottom** of the `deployment.toml` file and include the passwords that you need to protect. 
 
     !!! warning "Important"
         The `[secrets]` configuration section should be added at the very end of the `deployment.toml` file or else this will cause errors in server startup.
