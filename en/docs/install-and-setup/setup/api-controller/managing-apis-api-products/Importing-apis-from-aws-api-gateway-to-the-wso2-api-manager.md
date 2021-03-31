@@ -16,7 +16,7 @@ Then the user can use the `apictl import-api` command to import the initialized 
 
 2. After successfully installing the AWS CLI it needs to be configured. Refer [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
-3. Disable AWS CLI pagination. By default the AWS CLI returns all objects in the output, but if you have disabled pagination you will have to enable pagination for the `aws init` command to successfully work. 
+3. Enable AWS CLI pagination. By default the AWS CLI returns all objects in the output, but if you have disabled pagination you will have to enable pagination for the `aws init` command to successfully work. 
 For more information, refer [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html).
 
 ## Importing an API from AWS Apigateway to the WSO2 API Manager  
