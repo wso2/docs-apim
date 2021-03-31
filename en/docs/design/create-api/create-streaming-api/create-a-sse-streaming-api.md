@@ -7,7 +7,7 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
+2.  Click **CREATE API**, go to **Streaming API** and Click **SSE API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
@@ -33,14 +33,14 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
              </tr>
              <tr>
                  <td colspan="2" class="confluenceTd">Name</td>
-                 <td class="confluenceTd">ServerSentEvent</td>
+                 <td class="confluenceTd">ServerSentEvents</td>
              </tr>
              <tr>
                  <td colspan="2" class="confluenceTd">Context</td>
                  <td class="confluenceTd">
                      <div class="content-wrapper">
                          <p>
-                             <code>/event</code>
+                             <code>/events</code>
                          </p>
                          <div>
                              <div class="confluence-information-macro-body">
@@ -75,7 +75,7 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
              <tr>
                  <td colspan="2" class="confluenceTd">Endpoint</td>
                  <td colspan="1" class="confluenceTd">
-                     <code>https://localhost:8080</code>
+                     <code>http://localhost:8080</code>
                      <p>You need to have a Server Sent Events server running for this purpose locally</p>
                  </td>
              </tr>
@@ -84,16 +84,7 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
              
       [![SSE Create API Page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/create-sse-api-form.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/create-sse-api-form.png)
 
-4.  Click **CREATE** or **CREATE & PUBLISH** to create the API.
-
-     <html>
-     <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>The <b>CREATE & PUBLISH</b> option will only appear when a user who has <code>publisher</code> permission adds the details for the <b>Endpoint</b> and <b>Business plan(s)</b>, which are optional fields.</p>
-     </div>
-     </html>
-
-    The overview page of the newly created API appears. 
+4.  Click **CREATE** to create the API. The overview page of the newly created API appears. 
     
     [![SSE API overview page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-overview-page.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-overview-page.png)
 
@@ -102,17 +93,15 @@ Follow the instructions below to create a Server Sent Events (SSE) API using the
 
 Topics of an SSE API are always **Subscribe only**, where the flow of events will be from the server (backend) to the client. By default, an SSE API will have a topic with the name `/*`.
 
-1. Click **Show More** to navigate to the **Topics** page.
+1. Click **Topics** to navigate to the **Topics** page.
 
-    [![SSE API Topics]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-topics-show-more.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-topics-show-more.png)
-
-2. Modify the topics as follows and click **SAVE** to update them.
+2. Modify the topics as follows and click **Save** to update them.
 
     1. Optionally click delete as shown below, to delete an existing topic.
 
         [![SSE API Delete Existing Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-delete-default-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-delete-default-topic.png)
 
-    2. Click **Add Topic** to add a new topic.
+    2. Select **sub** under **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
             
        [![SSE API Add Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-create-new-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-create-new-topic.png)
         
@@ -123,18 +112,20 @@ Topics of an SSE API are always **Subscribe only**, where the flow of events wil
 
 ### View the AsyncAPI Definition
 
-Click **API Definition**. The Async Specification of API appears.
+Click **AsyncAPI Definition** under **API Configurations**. The AsyncAPI specification of the API appears.
+    
+   [![SSE API AsyncAPI Definition]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-asyncapi.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-asyncapi.png)
 
 
 ### Configure the Runtime Configurations
 
-1. Click **Runtime Configuration**. 
+1. Click **Runtime** under **API Configurations**. 
 
     Transport Level Security  defines the transport protocol on which the API is exposed.  
 
     [![SSE API Runtime Configurations Page]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-runtime-configurations-page.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/sse/sse-api-runtime-configurations-page.png)
 
-2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
+2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the appropriate checkbox under **Transport Level Security**.
 
     Both HTTP and HTTPS transports are selected by default.
 

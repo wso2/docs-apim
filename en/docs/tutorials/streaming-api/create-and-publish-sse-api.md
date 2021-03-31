@@ -76,7 +76,7 @@ Now, you have created and configured the WebSocket API successfully.
 
 ### Step 2 - Publish the SSE API
 
-1. Click **Lifecycle** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+1. Click **Lifecycle** to navigate to the API lifecycle and click **Publish** to publish the API to the API Developer Portal.
 
 2. Click **Deployments** to navigate to the Deployments page and click **Deploy New Revision**. 
 
