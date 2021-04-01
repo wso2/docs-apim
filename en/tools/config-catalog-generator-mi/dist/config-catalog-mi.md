@@ -3738,7 +3738,7 @@ force_json_validation = false</code></pre>
                             <code>[transport.http]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance_tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for <a href='{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning'>tuning the default HTTP/S passthrough transport</a> of the Micro Integrator in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5032,7 +5032,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
                             <code>[[transport.http.proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring <a href='../../setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.
+                                This configuration header is required for configuring <a href='{{base_path}}/install-and-setup/setup/mi-setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5177,7 +5177,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
                             <code>[[transport.http.secured_proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring <a href='../../setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.
+                                This configuration header is required for configuring <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/configuring_proxy_servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8125,7 +8125,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8829,7 +8829,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[transport.rabbitmq]</code>
                             
                             <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8859,7 +8859,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[[transport.rabbitmq.sender]]</code>
                             
                             <p>
-                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9653,7 +9653,7 @@ sender.bapi.parameter.customParameter = ""</code></pre>
                             <code>[transport.sap]</code>
                             
                             <p>
-                                This configuration header groups the parameters that configure the Micro Integrator to <a href='../../use-cases/tutorials/sap-integration'>communicate with SAP</a>.
+                                This configuration header groups the parameters that configure the Micro Integrator to <a href='{{base_path}}/tutorials/integration-tutorials/sap-integration'>communicate with SAP</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -11170,7 +11170,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                             <code>[[external_vault]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring an external vault for secrets. Read more about <a href='../../setup/security/using-hashicorp-secrets'>using HashiCorp sercrets</a>.
+                                This configuration header is required for configuring an external vault for secrets. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/security/using-hashicorp-secrets'>using HashiCorp sercrets</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
