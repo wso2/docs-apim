@@ -7,7 +7,7 @@ This customization can be easily achieved in WSO2 API Manager because the fields
 #### User sign-up page
 
 By default, the Developer Portal sign-up page looks as follows:
-![User Signup](../../../assets/img/learn/signup.png)
+![User Signup]({{base_path}}/assets/img/learn/signup.png)
 
 It has following fields by default.
 
@@ -29,7 +29,7 @@ Let's add a field named **City** by following the instructions below:
 1.  Start the WSO2 API Manager server, and go to the WSO2 API-M Management Console ( <https://localhost:9443/carbon/> )
 2.  Navigate to the **Main** menu and click **Add** which is under the **Claims** tab.
 3.  Click **Add Local Claim** .
-    ![Add New Claim](../../../assets/img/learn/add-new-claim.png)
+    ![Add New Claim]({{base_path}}/assets/img/learn/add-new-claim.png)
 4.  Enter the following values as the local claim details.
 
     |                      |                               |
@@ -40,7 +40,7 @@ Let's add a field named **City** by following the instructions below:
     | Mapped Attribute     | city                          |
     | Supported By Default | select                        |
 
-    ![Add Local Claim City](../../../assets/img/learn/add-local-claim-city.png)
+    ![Add Local Claim City]({{base_path}}/assets/img/learn/add-local-claim-city.png)
 
     <div class="admonition info">
         <p class="admonition-title">Info</p>
@@ -51,7 +51,7 @@ Let's add a field named **City** by following the instructions below:
 6.  Click **Add** .
 7.  Navigate to Developer Portal sign-up page and refresh it.
     You should see the newly added field.
-    ![Updated sign-up form](../../../assets/img/learn/signup-new-field-city.png)
+    ![Updated sign-up form]({{base_path}}/assets/img/learn/signup-new-field-city.png)
 
 #### Modifying existing fields in the user sign-up form
 
@@ -62,15 +62,15 @@ Let's make the field named **City** a mandatory field and also change the disp
 1.  Start the WSO2 API Manager server and navigate to WSO2 API-M Management Console (<https://localhost:9443/carbon/>).
 2.  Navigate to the **Main** menu and click **List** which is under the **Claims** tab.
 3.  Click <http://wso2.org/claims> in the list of claims that appear.
-    ![List claims](../../../assets/img/learn/list-claims-city.png)
+    ![List claims]({{base_path}}/assets/img/learn/list-claims-city.png)
 4.  Edit the respective claim.
     1.  Click on the **Edit** link that corresponds to the **City** claim.
-        ![Available claims](../../../assets/img/learn/available-claims-city.png)
+        ![Available claims]({{base_path}}/assets/img/learn/available-claims-city.png)
     2.  Select the **Required** check box and save changes.
-        ![Required option for claim](../../../assets/img/learn/edit-local-claim-city.png)
+        ![Required option for claim]({{base_path}}/assets/img/learn/edit-local-claim-city.png)
 5.  Navigate to Develper Portal Sign-up page and refresh it.
     You will see that the **City** field is marked as mandatory.
-    ![Required option updated sign-up form](../../../assets/img/learn/required-field-city-claim.png)
+    ![Required option updated sign-up form]({{base_path}}/assets/img/learn/required-field-city-claim.png)
 
 Similarly, you can modify the other existing fields in the user sign-up page by editing the claims based on your requirement.
 
