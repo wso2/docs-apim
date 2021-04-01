@@ -1264,6 +1264,11 @@ nav:
                 - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+            - CI/CD:
+                - Building a Jenkins CI/CD Pipeline for Micro Integrator:
+                    - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
+                    - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
+                    - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
         - Setup:
             - Setting up API Manager:
                 - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
