@@ -10,11 +10,11 @@ The sample API given below demonstrates how the MongoDB connector can be used to
 
 - `/insertmany`: The user sends a request payload that includes the connection information, collection name, and the documents to be inserted. This request is sent to the integration runtime by invoking the MongodbConnector API. This will insert the documents into the MongoDB database.
 
-    <p><img src="../../../../assets/img/integrate/connectors/mongodb-conn-1.png" title="Insert many function" width="800" alt="Insert many function" /></p>
+    <p><img src="{{base_path}}/img/integrate/connectors/mongodb-conn-1.png" title="Insert many function" width="800" alt="Insert many function" /></p>
 
 - `/find`: The user sends the request payload containing the connection information, collection name, and the find query. This request is sent to the integration runtime by invoking the MongodbConnector API. Once the API is invoked, it returns the documents matching the find query.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-2.png" title="Find function" width="800" alt="Find function"/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-2.png" title="Find function" width="800" alt="Find function"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -44,22 +44,22 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 1.  Create a new integration project named `MongodbConnector`. Be sure to enable a Connector Exporter.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-3.png" title="Create project" width="500" alt="Create project"/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-3.png" title="Create project" width="500" alt="Create project"/>
 
 2.  Right-click the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
-    <img src="../../../../assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3.  Provide the API name as `MongoConnector` and the API context as `/mongodbconnector`.
 
 4.  First, create the `/insertmany` resource. This API resource inserts documents into the MongoDB database.<br/>
     Right-click on the API Resource and go to the **Properties** view. Let's use a URL template called `/insertmany` as there are two API resources inside a single API. The method is `Post`.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-4.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-4.png" title="Adding the API resource." width="800" alt="Adding the API resource."/>
 
 5.  Drag the 'insertMany' operation of the MongoDB Connector to the Design view as shown below.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-5.png" title="Adding the insert many operation." width="800" alt="Adding the insert many operation."/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-5.png" title="Adding the insert many operation." width="800" alt="Adding the insert many operation."/>
 
 6.  Create a connection from the Properties view by clicking the '+' icon as shown below.
 
@@ -70,11 +70,11 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Connection URI - mongodb+srv://server.example.com/?connectTimeoutMS=300000&amp;authSource=aDifferentAuthDB
     - Database - TestDatabase
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-6.png" title="Adding the connection." width="800" alt="Adding the connection."/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-6.png" title="Adding the connection." width="800" alt="Adding the connection."/>
 
 7.  After the connection is successfully created, you can select the new connection from the 'Connection' menu in the properties view.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-7.png" title="Selecting the connection." width="800" alt="Selecting the connection."/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-7.png" title="Selecting the connection." width="800" alt="Selecting the connection."/>
 
 8.  Next, provide JSON expressions for the following two properties. These expressions will retrieve the respective values from the JSON request payload.
 
@@ -83,7 +83,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 9.  Drag the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after inserting documents) as shown below.
 
-    <img src="../../../../assets/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
+    <img src="{{base_path}}/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
 
 10. Create the next API resource (which is `/find`) by dragging another API resource to the Design view. This API resource will find all the documents matching the find query given by the user. This will also be a `POST` request.
 
@@ -135,8 +135,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 You can download the ZIP file and extract the contents to get the project code.
 
-<a href="../../../../assets/attachments/connectors/MongodbConnector.zip">
-    <img src="../../../../assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+<a href="{{base_path}}/attachments/connectors/MongodbConnector.zip">
+    <img src="{{base_path}}/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
 </a>
 
 ## Deployment

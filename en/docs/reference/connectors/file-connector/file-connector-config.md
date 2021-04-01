@@ -15,7 +15,7 @@ The File connector can be used to deal with two types of file systems:
     
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
-<img src="../../../../assets/img/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
+<img src="{{base_path}}/img/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
 
 
 !!! Note
