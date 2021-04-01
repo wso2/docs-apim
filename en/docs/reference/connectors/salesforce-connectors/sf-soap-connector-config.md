@@ -27,7 +27,7 @@ Follow the steps below to import the Salesforce certificate into the integration
 4. Import the certificate to the integration runtime's client keystore using the following [command]({{base_path}}/install-and-setup/security/importing_ssl_certificate/).
 
     ```
-    keytool -importcert -file <certificate file> -keystore <SERVER_HOME>/repository/resources/security/client-truststore.jks -alias "Salesforce"
+    keytool -importcert -file <certificate file> -keystore <PRODUCT_HOME>/repository/resources/security/client-truststore.jks -alias "Salesforce"
     ```
 
 5. Restart the server and deploy the following Salesforce configuration:

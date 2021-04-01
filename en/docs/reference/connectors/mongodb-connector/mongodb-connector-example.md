@@ -81,7 +81,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Collection - json-eval($.collection)
     - Documents - json-eval($.documents)
 
-9.  Drag the [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after inserting documents) as shown below.
+9.  Drag the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after inserting documents) as shown below.
 
     <img src="../../../../assets/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
 
@@ -96,7 +96,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Drag the [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Drag the [Respond Mediator]({{base_path/reference/mediators/respond-mediator) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
 

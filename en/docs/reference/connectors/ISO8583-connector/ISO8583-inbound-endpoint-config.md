@@ -13,7 +13,7 @@ In order to use the ISO8583 inbound endpoint, you need to do the following:
 - Download `jdom-1.1.3.jar` from [http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3). 
 - Download `commons-cli-1.3.1.jar` from [http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1). 
 
-Copy the .jar files to the <SERVER_HOME>/lib directory.
+Copy the .jar files to the <PRODUCT_HOME>/lib directory.
 
 > **Note**: `jpos` is the third party library, and `jposdef.xml` has the field definitions of the standard ISO8583 Messages. According to the field definitions, each and every ISO8583 message that  comes from the client will be unpacked and the fields of the ISO8583 standard messages will be identified.
 
