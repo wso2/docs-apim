@@ -41,7 +41,7 @@ For some integrations, it is necessary to update the server configurations. For 
 Click the <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel-icon.png" width="20"> icon to open the <b>Embedded Micro Integrator Configuration</b> dialog box shown below.
 
 !!! Note 
-	You can also paramterize configurations as [environment variables](../../setup/dynamic_server_configurations) and later [inject environment variables to the embedded Micro Integrator](#injecting-environment-variables-to-embedded-micro-integrator).
+	You can also paramterize configurations as [environment variables]({{base_path}}/install-and-setup/setup/mi-setup/dynamic_server_configurations) and later [inject environment variables to the embedded Micro Integrator](#injecting-environment-variables-to-embedded-micro-integrator).
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel.png">
 
@@ -52,7 +52,7 @@ In the upper section, update the server configuration file (`deployment.toml` fi
 If you have secrets in the `deployment.toml` file, you can encrypt them using the <b>Cipher Tool</b>. 
 
 1.  Open the [<b>Embedded Micro Integrator Configuration</b>](#update-embedded-server-configs-and-libraries) dialog box. 
-2.  Update the static secrets in the `deployment.toml` file as explained in [encrypting server secrets](../../setup/security/encrypting_plain_text).
+2.  Update the static secrets in the `deployment.toml` file as explained in [encrypting server secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text).
 3.  Click <b>Encrypt Secrets</b>.
 	
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/encrypt-secrets.png">
@@ -75,7 +75,7 @@ WSO2 Micro Integrator supports environment variables for server configurations a
 !!!	Note
 	To be able to dynamically inject parameters to the embedded Micro Integrator, you must first define the relevant configurations as environment variables. See the following topics for instructions:
 
-	- [Environment variables for server Configurations](../../setup/dynamic_server_configurations)
+	- [Environment variables for server Configurations]({{base_path}}/install-and-setup/setup/mi-setup/dynamic_server_configurations)
 	- [Environment variables for synapse configurations]({{base_path}}/integrate/develop/injecting-parameters)
 
 Follow the steps given below.
