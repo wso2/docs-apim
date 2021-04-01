@@ -89,8 +89,17 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
             <div class="line"></div>
             <div class="card-content" >
-                <p class="title">Message Transformation and Routing</p>
-                <p class="hint">Explore how messages are transformed into different formats and routed to various endpoints.</p>
+                <p class="title">Message Routing</p>
+                <p class="hint">Explore how messages are routed to different endpoints.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Message Transformation</p>
+                <p class="hint">Explore how messages are transformed into different formats.</p>
             </div>
         </div>
         <!-- end card -->
@@ -103,17 +112,17 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
             </div>
         </div>
         <!-- end card -->
+    </div>
+    <div class="content">
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/file-processing-overview';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">File Processing</p>
-                <p class="hint">Explore how data from file systems are moved between locations and used during message mediation.</p>
+                <p class="hint">Explore how data from file systems are moved and used during message mediation.</p>
             </div>
         </div>
         <!-- end card -->
-    </div>
-    <div class="content">
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/connectors';">
             <div class="line"></div>
@@ -127,17 +136,8 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/service-orchestration-overview';">
             <div class="line"></div>
             <div class="card-content" >
-                <p class="title">Restful Services and Orchestration</p>
+                <p class="title">Service Orchestration</p>
                 <p class="hint">Explore how multiple Restful services are exposed as a single course-grained service.</p>
-            </div>
-        </div>
-        <!-- end card -->
-        <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/protocol-switching-overview';">
-            <div class="line"></div>
-            <div class="card-content">
-                <p class="title">Protocol Switching</p>
-                <p class="hint">Explore how message protocols are changed during message mediation.</p>
             </div>
         </div>
         <!-- end card -->
@@ -148,7 +148,7 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Enterprise Messaging</p>
-                <p class="hint">Explore how asynchronous messaging patterns are implemented using message brokers.</p>
+                <p class="hint">Explore asynchronous messaging patterns using message brokers.</p>
             </div>
         </div>
         <!-- end card -->
@@ -156,8 +156,17 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/scheduled-task-overview';">
             <div class="line"></div>
             <div class="card-content" >
-                <p class="title">Periodic Execution of Integration Processes</p>
-                <p class="hint">Explore how the integration processes you define for the Micro Integrator are executed periodically.</p>
+                <p class="title">Scheduled Integration Processes</p>
+                <p class="hint">Explore how integration processes are scheduled and executed periodically.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/protocol-switching-overview';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Protocol Switching</p>
+                <p class="hint">Explore how message protocols are changed during message mediation.</p>
             </div>
         </div>
         <!-- end card -->
@@ -183,7 +192,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
         <div class="card" onclick="location.href='{{base_bath}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl';">
             <div class="line"></div>
             <div class="card-content" >
-                <p class="title">APICTL (Command Line for Integration)</p>
+                <p class="title">APICTL (CLI for Integration)</p>
                 <p class="hint">Command-line tool for monitoring integration artifacts in a Micro Integrator instance.</p>
             </div>
         </div>
@@ -220,7 +229,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Deployment</p>
-                <p class="hint">Select a Micro Integrator deployment strategy and set up a deployment (on containers or VMs).</p>
+                <p class="hint">Select a deployment strategy and set up a deployment (on containers or VMs).</p>
             </div>
         </div>
         <!-- end card -->
@@ -249,7 +258,7 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">CICD Pipelines</p>
-                <p class="hint">Implement CICD pipelines for your Micro Integrator deployment (on containers or VMs).</p>
+                <p class="hint">Implement CICD pipelines for your deployment (on containers or VMs).</p>
             </div>
         </div>
         <!-- end card -->
