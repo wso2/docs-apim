@@ -2,6 +2,8 @@
 
 The following operations allow you to work with the Amazon DynamoDB Connector. Click an operation name to see parameter details and samples on how to use it.
 
+---
+
 ## Initialize the connector
 
 To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in your configuration before carrying out any other operations. To authenticate, it uses the Signature Version 4 signing specification, which describes how to construct signed requests to AWS. Whenever you send a request to AWS, you must include authorization information with your request so that AWS can verify the authenticity of the request. AWS uses the authorization information from your request to recreate your signature and then compares that signature with the one that you sent. These two signatures must match for you to successfully access AWS. Click here for further reference on the signing process.
