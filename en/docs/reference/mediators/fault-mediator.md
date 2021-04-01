@@ -218,9 +218,4 @@ the Fault Mediator. Else, if the result is false, it continues the flow.
 </proxy>
 ```
 
-<!--
-### Samples
 
-[Sample 5: Creating SOAP Fault Messages and Changing the Direction of a
-Message](https://docs.wso2.com/display/EI6xx/Sample+5%3A+Creating+SOAP+Fault+Messages+and+Changing+the+Direction+of+a+Message).
--->

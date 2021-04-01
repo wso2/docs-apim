@@ -2,7 +2,7 @@
 
 This example demonstrates how WSO2 Micro Integrator receives messages in HTTP and passes the messages through JMS. The Micro Integrator uses a proxy service over HTTP, forwards the received messages to the EPR using JMS, and immediately responds with a 202. 
 
-If the previous example on [JMS to HTTP](../switching_from_JMS_to_HTTP) is also configured, it will pick the message from queue and send it to the stockquote proxy.
+If the previous example on [JMS to HTTP]({{base_path}}/integrate/examples/switching_from_JMS_to_HTTP) is also configured, it will pick the message from queue and send it to the stockquote proxy.
 
 ## Synapse configuration
 
@@ -40,7 +40,7 @@ Create the artifacts:
 3. Add [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl) as a [registry resource]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources) (change the registry path of the proxy accordingly). 
 4. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
-6. [Configure MI with the selected message broker](../../../../setup/brokers/configure-with-ActiveMQ) and start the Micro-Integrator.
+6. [Configure MI with the selected message broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and start the Micro-Integrator.
 
 Invoke the HTTPtoJMSStockQuoteProxy with the following payload (using SOAP UI or CURL):
 

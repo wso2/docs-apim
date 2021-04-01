@@ -39,7 +39,7 @@ Create the artifacts:
 3. Create a [mediation sequence]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and [inbound endpoint]({{base_path}}/integrate/develop/creating-an-inbound-endpoint) with configurations given in the above example.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the RabbitMQ broker](../../../../setup/brokers/configure-with-rabbitMQ).
+[Configure the RabbitMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq).
 
 Use the following [Java client](https://mvnrepository.com/artifact/com.rabbitmq/amqp-client) to publish a request to the RabbitMQ broker.
 

@@ -1,46 +1,43 @@
 # Test a REST API
 
-**Testing APIs** is trying out the APIs at the publisher itself and make sure whether the functionalities and behaviours are met.
+Testing APIs refers to the process of trying out the APIs in the Publisher itself to make sure that the APIs meet the required functionalities and behaviour.
 
-API Publisher has an integrated API Console, which allows you to visualize the API contract and interact with API's resources.
+WSO2 API Manager's Publisher offers an integrated API Console that allows API creators and API publishers to visualize the API contract and interact with API's resources.
 
-Let's see how to use the Publisher test Console to test an API.
+Follow the instructions below to use the Publisher test console to test an API:
 
-The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) .
+!!! note
+    Create the `PizzaShack` REST API or an API of your choice before following the instructions below. For more information, see [Create a REST API.]({{base_path}}/design/create-api/create-a-rest-api)
 
-1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide](/learn/design-api/create-api/create-a-rest-api/) to create a new API.
+1.  {!includes/sign-in-publisher.md!}
 
-     If there are no APIs created, [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) before starting.
+     The list of APIs that are available in the Publisher appear.
 
+2. Click on the API that you wish to test.
 
-2.  Click **Try out** on the left navigation menu.
+     Let's use the sample `PizzaShack` REST API.
 
-     ![]({{base_path}}/assets/img/learn/publisher-testconsole-leftpane.png)
+3.  Click **TryOut**.
 
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
       <ul> The API can be tested in any lifecycle state, and can be used in any state except for retired, even in block
       they could still try it out but will get a 503(service unavailable) response.</ul>
       </html> 
+       <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png" width="20%" alt="Try out menu option in the left panel"></a>
 
-3.  You can generate the internal key by clicking on the Generate Key button to invoke and test the pizzashack API.
+4.  You can generate the internal key by clicking on the Generate Key button to invoke and test the pizzashack API.
 
        <html><div class="admonition note">
           <p class="admonition-title">Note</p>
           <ul>UI generates an Internal token to authenticate the API call.</ul>
           <ul>In case if the API publisher has a token / key then they could paste it in the UI and invoke the API using that key</ul>
           </div>
-       </html> 
-      ![]({{base_path}}/assets/img/learn/publisher-testconsole-generatekey.png)
+       </html>
+      <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png" width="60%" alt="Generate key"></a>
 
-
-4.  Expand the GET  method and click Try it out. Click Execute.
+5.  Expand the GET  method and click Try it out. Click Execute.
 
     Note the successful response for the API invocation.
 
-    ![]({{base_path}}/assets/img/learn/publisher-testconsole-swaggerui.png)
-
-
-
-
-
+    [![Publisher test console]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)

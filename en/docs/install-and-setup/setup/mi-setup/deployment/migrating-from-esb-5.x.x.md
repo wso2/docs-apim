@@ -71,8 +71,8 @@ Follow the instructions below to start the migration!
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer](../../../setup/installation/install_in_vm_installer).
-	-	Install the product [using the binary distribution](../../../setup/installation/install_in_vm_binary).
+	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
 
 -	Use [WSO2 Update Manager](https://docs.wso2.com/display/updates/) to get the latest available updates for your EI 7.1 distribution.
 
@@ -86,7 +86,7 @@ If you are already using a JDBC or LDAP as the **primary** user store of your ES
 Note that **secondary** user stores are currently not supported in the Micro Integrator of EI 7.1.0.
 
 !!! info "Before you begin"
-	Read about [users and roles in the Micro Integrator](../../../setup/user_stores/managing_users) and about how they function. Note the following important facts:
+	Read about [users and roles in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/managing-users) and about how they function. Note the following important facts:
 
 	- Users in the Micro Intgrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
 	- All admin users in your existing ESB user store will function as admin users in the Micro integrator.
@@ -149,18 +149,18 @@ To connect the Micro Integrator to the primary user store:
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
-See the instructions on [configuring a user store](../../user_stores/setting_up_a_userstore) for more information.
+See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
 
 ### Migrating the registry
 
 !!! info "Before you begin"
     Note the following:
 
-	-	Your ESB 5.0 registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator](../file_based_registry).
+	-	Your ESB 5.0 registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry).
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
-	-	If you have shared the registry of ESB 5.0 among multiple nodes, you can do the same for the file-based registry of EI 7.1. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of EI 7.1](../../../setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
+	-	If you have shared the registry of ESB 5.0 among multiple nodes, you can do the same for the file-based registry of EI 7.1. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of EI 7.1]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
 
-The Micro Integrator uses a [file-based registry](../file_based_registry) instead of a database (which is used in ESB 5.0). Follow the guidelines given below when you migrate the registry artifacts.
+The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in ESB 5.0). Follow the guidelines given below when you migrate the registry artifacts.
 
 -	If the registry resources in ESB 5.0 are added via carbon applications developed using WSO2 Integration Studio, you can directly migrate the artifacts to the Micro Integrator of EI 7.1. Copy the carbon applications from the `<ESB_5.0.0_HOME>/repository/deployment/server/carbonapps` folder to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
 -	If the registry resources are added through the management console in ESB 5.0, you need to convert them to a Registry Resources module in WSO2 Integration Studio and deploy them via a Carbon Application.
@@ -176,8 +176,8 @@ The Micro Integrator uses a [file-based registry](../file_based_registry) instea
 
 	Use one of the following approaches:
 
-	- [Checkout the Registry Resources](../../../develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the ESB 5.0 server directly into the Registry Resources module in WSO2 Integration Studio.
-	- Download the Registry Resources from ESB 5.0 and [import them](../../../develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
+	- [Checkout the Registry Resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the ESB 5.0 server directly into the Registry Resources module in WSO2 Integration Studio.
+	- Download the Registry Resources from ESB 5.0 and [import them]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
 
 	!!! Note
 	    Once you have imported the Registry Resources into WSO2 Integration Studio, open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
@@ -224,14 +224,14 @@ The Micro Integrator uses a [file-based registry](../file_based_registry) instea
 		http_content_negotiation = true
 		```
 
-The recommended way to create integration artifacts (in ESB 5.0 or EI 7.x ) is to use [WSO2 Integration Studio](../../../develop/WSO2-Integration-Studio):
+The recommended way to create integration artifacts (in ESB 5.0 or EI 7.x ) is to use [WSO2 Integration Studio]({{base_path}}/integrate/develop/WSO2-Integration-Studio):
 
 - If the artifacts are created in the recommended way, copy the CAR files inside `<ESB_5.0.0_HOME>/repository/deployment/server/carbonapps` to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
 
 	!!! warning "Changed package names"
 		Note that some of the class names of packages used inside your integration artifacts have changed in the Micro Integrator. 
 
-		For example, if you have used a <b>Token Store</b> when [applying security policy to a proxy service](../../../develop/advanced-development/applying-security-to-a-proxy-service) in the ESB, the token store class has changed from `org.wso2.carbon.security.util.SecurityTokenStore` to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore` in the Micro Integrator. 
+		For example, if you have used a <b>Token Store</b> when [applying security policy to a proxy service]({{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service) in the ESB, the token store class has changed from `org.wso2.carbon.security.util.SecurityTokenStore` to `org.wso2.micro.integrator.security.extensions.SecurityTokenStore` in the Micro Integrator. 
 
 
 		Therefore, these artifacts have to be updated with the correct class name and packaged into a new CAR file before migration.
@@ -239,15 +239,15 @@ The recommended way to create integration artifacts (in ESB 5.0 or EI 7.x ) is t
 - If you have a custom mediator packed in a CAR, do one of the following:
 	- Include all the artifacts (using that mediator) in the same CAR.
 	- Alternatively, you can add the JAR of the mediator to the `<MI_HOME>/lib/dropins` folder so that it can be shared by artifacts in multiple CARs.
-- If the artifacts are created using the management console of ESB 5.0, you need to recreate them using WSO2 Integration Studio and package them as a composite application. See the instructions on [packaging artifacts](../../../develop/packaging-artifacts).
+- If the artifacts are created using the management console of ESB 5.0, you need to recreate them using WSO2 Integration Studio and package them as a composite application. See the instructions on [packaging artifacts]({{base_path}}/integrate/develop/packaging-artifacts).
 
 !!! Tip
      For testing purposes, you can copy the artifacts to the same folder structure inside the `<MI_HOME>/repository/deployment/server/synapse-configs/default` directory.
 
 ### Migrating deployed Connectors
 
-- If the connector is added to ESB 5.0 via a composite application with the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in ESB 5.0 to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
-- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project](../../../develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
+- If the connector is added to ESB 5.0 via a composite application with the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors), the same can be used in EI 7.1 seamlessly. Simply copy the CAR file in ESB 5.0 to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
+- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors) and deploy via a composite application in EI 7.1.
 
 ### Migrating custom components
 
@@ -256,7 +256,7 @@ Copy custom OSGI components in the `<ESB_5.0.0_HOME>/repository/components/dropi
 !!! Note
     -	To provide seamless integration with RabbitMQ, the Rabbitmq client lib is included in the Micro Integrator by default. Hence, you don't need to manually add any RabbitMQ components.
     -	WSO2 EI no longer packs the VFS/SMB provider by default. If you need to use the <b>VFS SMB</b> feature, download `jcifs-1.3.17.jar` and add it to the `<MI_HOME/lib` folder. Since this library is licensed under LGPL version 2.1, you have to comply with the [terms of LGPL version 2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html) and its restrictions.
-    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features](../../../overview/about-this-release-7.1.0/#features-removed) for details.
+    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features]({{base_path}}/get-started/about-this-release/#features-removed) for details.
 
 ### Migrating tenants
 
@@ -285,7 +285,7 @@ Given below are main configurations that have changed in the Micro integrator. E
 
 ??? note "Clustering configurations"
 
-	In the Micro Integrator, you don't need to enable clustering as you did with previous ESB versions. Instead, you need to configure all nodes in the cluster to coordinate through an RDBMS. Find out more about [cluster coordination](../../../setup/deployment/deploying_wso2_ei/#cluster-coordination).
+	In the Micro Integrator, you don't need to enable clustering as you did with previous ESB versions. Instead, you need to configure all nodes in the cluster to coordinate through an RDBMS. Find out more about [cluster coordination]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#cluster-coordination).
 
     ```xml tab='XML configuration'
     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
@@ -308,7 +308,7 @@ Given below are main configurations that have changed in the Micro integrator. E
 	node_id = "node-1"
 	```
 
-    Find more [parameters](../../../setup/deployment/deploying_wso2_ei).
+    Find more [parameters]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei).
 
 ??? note "Analytics configurations"
 
@@ -317,7 +317,7 @@ Given below are main configurations that have changed in the Micro integrator. E
 	-	`<ESB_HOME>/repository/deployment/server/eventpublishers/MessageFlowConfigurationPublisher.xml`
 	-	`<ESB_HOME>/repository/deployment/server/eventpublishers/MessageFlowStatisticsPublisher.xml`
 
-	If you using EI Analytics with your new Micro Integrator solution, you can follow the instructions in [Setting up the EI Analytics Profile for Observability](../../../setup/observability/setting-up-classic-observability-deployment).
+	If you using EI Analytics with your new Micro Integrator solution, you can follow the instructions in [Setting up the EI Analytics Profile for Observability]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
 Given below are some of the most critical XML configuraton files in ESB 5.0. Expand each section to find the TOML configurations corresponding to the XML configurations in the file.
 
@@ -334,7 +334,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    hostname = "www.wso2.org"
 		```
 
-    	Find more [parameters](../../../references/config-catalog/#deployment).
+    	Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment).
 
 	-	Port offset
 
@@ -349,7 +349,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    offset  = 0
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#deployment).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment).
 
 
 	-	Primary keystore
@@ -375,7 +375,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    key_password = "wso2carbon"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#primary-keystore).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#primary-keystore).
 
 	-	Internal keystore
 
@@ -398,7 +398,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    key_password = "wso2carbon"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#internal-keystore).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#internal-keystore).
 
 	-	Truststore
 
@@ -419,7 +419,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    algorithm = "AES"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#trust-store).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#trust-store).
 
 
 ??? note "user-mgt.xml"
@@ -483,7 +483,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    connection_name = "uid=admin,ou=system"   #inferred
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#ldap-user-store).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store).
 
 	-	JDBC userstore
 
@@ -539,7 +539,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
     pool_options.testOnBorrow = true
 	```
 
-    Find more [parameters](../../../references/config-catalog/#database-connection).
+    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).
 
 
 ??? note "axis2.xml"
@@ -566,7 +566,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    enable_mtom = false
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#deployment).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment).
 
 	-	Enable SWA
 
@@ -579,7 +579,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    enable_swa = false
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#deployment).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#deployment).
 
 	-	Message formatters
 
@@ -621,7 +621,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 		class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"
 	    ```
 
-	    Find more [parameters](../../../references/config-catalog/#message-formatters-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#message-formatters-non-blocking-mode).
 
 	-	Message builders
 
@@ -657,7 +657,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 		class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#message-builders-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#message-builders-non-blocking-mode).
 
 	-	HTTP transport receiver
 
@@ -678,7 +678,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    listener.bind_address = "hostname or IP address"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
 	-	HTTPS transport receiver
 
@@ -721,7 +721,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    listener.truststore.type = "JKS" listener.truststore.password = "wso2carbon"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
 	-	VFS transport receiver
 
@@ -734,7 +734,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    listener.enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#vfs-transport).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#vfs-transport).
 
 	-	Mailto transport receiver
 
@@ -748,7 +748,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    name = "mailto"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#mail-transport-listener-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#mail-transport-listener-non-blocking-mode).
 
 	-	JMS transport receiver
 
@@ -776,7 +776,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    parameter.cache_level = "consumer"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#jms-transport-listener-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#jms-transport-listener-blocking-mode).
 
 	-	FIX transport receiver
 
@@ -789,7 +789,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    listener.enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#fix-transport).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#fix-transport).
 
 	-	RabbitMQ transport receiver
 
@@ -816,7 +816,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    parameter.password = "guest"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#rabbitmq-listener).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#rabbitmq-listener).
 
 	-	HL7 transport listener
 
@@ -850,7 +850,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender.enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
 	-	HTTPS transport sender
 
@@ -887,7 +887,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender.truststore.password = "wso2carbon"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
 	-	VFS transport sender
 
@@ -900,7 +900,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender.enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#vfs-transport).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#vfs-transport).
 
 	-	VFS transport sender
 
@@ -928,7 +928,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    parameter.from = "synapse.demo.0@gmail.com"
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#mail-transport-sender-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#mail-transport-sender-non-blocking-mode).
 
 	-	FIX transport sender
 
@@ -941,7 +941,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender.enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#fix-transport).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#fix-transport).
 
 	-	RabbitMQ transport sender
 
@@ -954,7 +954,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender_enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#rabbitmq-sender).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#rabbitmq-sender).
 
 
 	-	JMS transport sender
@@ -968,7 +968,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
 	    sender_enable = true
 		```
 
-	    Find more [parameters](../../../references/config-catalog/#jms-transport-sender-non-blocking-mode).
+	    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#jms-transport-sender-non-blocking-mode).
 
 	-	HL7 transport sender
 
@@ -999,7 +999,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
     synapse.max_threads = 100
 	```
 
-    Find more [parameters](../../../references/config-catalog/#message-mediation).
+    Find more [parameters]({{base_path}}/reference/config-catalog-mi/#message-mediation).
 
 ??? note "passthru-http.properties"
 
@@ -1018,7 +1018,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
         worker_pool_queue_length = -1
 		```
 
-    	Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+    	Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
     -	Preserve headers
 
@@ -1035,7 +1035,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
         preserve_http_headers = ["Content-Type"]
         ```
 
-        Find more [parameters](../../../references/config-catalog/#https-transport-non-blocking-mode).
+        Find more [parameters]({{base_path}}/reference/config-catalog-mi/#https-transport-non-blocking-mode).
 
 ??? note "jndi.properties"
 
@@ -1052,7 +1052,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
         'connectionfactory.TopicConnectionFactory' = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://localhost:5675'"
 		```
 
-    	Find more [parameters](../../../references/config-catalog/#jndi-connection-factories).
+    	Find more [parameters]({{base_path}}/reference/config-catalog-mi/#jndi-connection-factories).
 
     -	JMS queue
 
@@ -1065,7 +1065,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
         JMSMS = "JMSMS"
         ```
 
-        Find more [parameters](../../../references/config-catalog/#jndi-connection-factories).
+        Find more [parameters]({{base_path}}/reference/config-catalog-mi/#jndi-connection-factories).
 
     -	JMS topic
 
@@ -1078,7 +1078,7 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
         MyTopic = "example.MyTopic"
         ```
 
-        Find more [parameters](../../../references/config-catalog/#jndi-connection-factories).
+        Find more [parameters]({{base_path}}/reference/config-catalog-mi/#jndi-connection-factories).
 
 ??? note "tasks-config.xml"
 
@@ -1097,9 +1097,9 @@ Given below are some of the most critical XML configuraton files in ESB 5.0. Exp
     task_server_count = "3"
     ```
 
-	Find more [parameters](../../../setup/deployment/deploying_wso2_ei).
+	Find more [parameters]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei).
 
-The complete list of TOML configurations for the Micro Integrator are listed in the [product configuration catalog](../../../references/config-catalog).
+The complete list of TOML configurations for the Micro Integrator are listed in the [product configuration catalog]({{base_path}}/reference/config-catalog-mi).
 
 #### Migrating Log4j configurations
 
@@ -1107,12 +1107,12 @@ WSO2 ESB 5.0 (and all ESB versions prior to EI 6.6.0) use log4j. In  WSO2 EI 7 M
 
 See the topics given below to configure log4j2 in EI 7 Micro Integrator.
 
--	[Log4j2 properties](../../../administer-and-observe/logs/configuring_log4j_properties)
--	[Correlation logs](../../../administer-and-observe/observability)
--	[Wire logs](../../../develop/using-wire-logs)
--	[Service-level logs](../../../develop/enabling-logs-for-services)
--	[REST API Access logs](../../../develop/enabling-logs-for-api)
--	[Managing Log Growth](../../../administer-and-observe/logs/managing_log_growth)
+-	[Log4j2 properties]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties)
+-	[Correlation logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/)
+-	[Wire logs]({{base_path}}/integrate/develop/using-wire-logs)
+-	[Service-level logs]({{base_path}}/integrate/develop/enabling-logs-for-services)
+-	[REST API Access logs]({{base_path}}/integrate/develop/enabling-logs-for-api)
+-	[Managing Log Growth]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth)
 
 Follow the instructions given below if you have used a **custom log4j component** in your older ESB version.
 
@@ -1147,12 +1147,12 @@ Follow the instructions given below if you have used a **custom log4j component*
 		<commons.logging.version.range>[1.2.0,2.0.0)</commons.logging.version.range>
 		```
 
-4.	Follow the instructions on [configuring log4j2](../../../administer-and-observe/logs/configuring_log4j_properties) to register the Appenders and Loggers.
+4.	Follow the instructions on [configuring log4j2]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) to register the Appenders and Loggers.
 
 ### Migrating encrypted passwords
 
 To migrate the encrypted passwords from ESB 5.0.0, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of
-encrypting secrets in EI 7. See [Encrypt Secrets](../../security/encrypting_plain_text) for instructions.
+encrypting secrets in EI 7. See [Encrypt Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 In case you need to obtain the plaintext passwords from the encrypted passwords in the WSO2 ESB 5.0.0,
 you can use the [password decryption tool](https://github.com/wso2-docs/WSO2_EI/tree/master/migration-client).
@@ -1186,8 +1186,8 @@ Follow the instructions given below to use the password decryption tool.
 
 	The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
-6.	You can now follow the instructions in [Encrypting Secrets](../../security/encrypting_plain_text) to re-encrypt the plain text secrets for the Micro Integrator.
+6.	You can now follow the instructions in [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) to re-encrypt the plain text secrets for the Micro Integrator.
 
 ### Migrating the Hl7 Transport
 
-HL7 transport is not shipped by default in the Micro Integrator of EI 7.1.0. Therefore, see [Configuring the HL7 transport](../../transport_configurations/configuring-transports/#configuring-the-hl7-transport) to set up HL7 in the Micro Integrator.
+HL7 transport is not shipped by default in the Micro Integrator of EI 7.1.0. Therefore, see [Configuring the HL7 transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport) to set up HL7 in the Micro Integrator.

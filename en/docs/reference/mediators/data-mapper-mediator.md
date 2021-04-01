@@ -129,7 +129,7 @@ Sample input XML file:
 -   **CSV:** to load a sample CSV file with column names as the first
     record
 -   **JSONSCHEMA:** to load a WSO2 Data Mapper JSON schema
--   **CONNECTOR:** to use Data Mapper with WSO2 EI Connectors.
+-   **CONNECTOR:** to use Data Mapper with Connectors.
     Connectors will contain JSON schemas for each operation that defines
     the message formats to which it will respond and expect. Therefore,
     when you integrate connectors in a project this Connector option

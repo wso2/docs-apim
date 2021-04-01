@@ -52,7 +52,7 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
       axis2server.bat
       ```
 
-[Enable the TCP transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-tcp-transport) and start the Micro-Integrator.
+[Enable the TCP transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-tcp-transport) and start the Micro-Integrator.
 
 Send the following message via TCP to the TCP listener port.
 ```xml

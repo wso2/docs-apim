@@ -301,15 +301,3 @@ The parameters available to configure the DBLookup mediator are as follows.
 ```
 
 In this example, when a message is received by a proxy service with a DBLookup mediator configuration, it opens a connection to the database and executes the SQL query. The SQL query uses **?** character for attributes that will be filled at runtime. The parameters define how to calculate the value of those attributes at runtime. In this sample, the DBLookup Mediator has been used to extract  the `         id        ` of the company from the company database using the symbol which is evaluated using an XPath against the SOAP envelope.
-
-<!--
-
-### Samples
-
--   [Sample 360: Introduction to DBLookup
-    Mediator](https://docs.wso2.com/display/EI6xx/Sample+360%3A+Introduction+to+DBLookup+Mediator)
--   [Sample 362: DBReport and DBLookup Mediators
-    Together](https://docs.wso2.com/display/EI6xx/Sample+362%3A+DBReport+and+DBLookup+Mediators+Together)
--   [Sample 363: Reusable Database Connection
-    Pools](https://docs.wso2.com/display/EI6xx/Sample+363%3A+Reusable+Database+Connection+Pools)
--->

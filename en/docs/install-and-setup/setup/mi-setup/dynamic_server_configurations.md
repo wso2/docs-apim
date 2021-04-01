@@ -5,7 +5,7 @@ When you have multiple environments (Dev, QA, UAT, Prod), you need the flexibili
 ## Managing Server Configurations
 
 All the server configurations of the Micro Integrator are specified in a single
-[TOML-based configuration file](../../references/config-catalog) (`deployment.toml` file). To be able to dynamically inject values, define your server configurations as environment variables or system properties. You can then separately inject configuration values to each environment.
+[TOML-based configuration file]({{base_path}}/reference/config-catalog-mi) (`deployment.toml` file). To be able to dynamically inject values, define your server configurations as environment variables or system properties. You can then separately inject configuration values to each environment.
 
 You can define the server configurations in one of three ways based on your preference:
 
@@ -88,7 +88,7 @@ When you update product configurations for a container deployment (Docker or Kub
 
 You can open the `deployment.toml` file from the project explorer and update the parameter values as [system properties](#system-properties) or [environment variables](#environment-variables).
 
-<img src="../../assets/img/env-variable-support/k8s-project-deployment-file.img" width="500">
+<img src="{{base_path}}/assets/img/integrate/env-variable-support/k8s-project-deployment-file.img" width="500">
 
 When you execute the `docker run` command to start the container, you can pass the system properties and environment variables. These values will be resolved dynamically during the runtime.
 
@@ -96,4 +96,4 @@ When you execute the `docker run` command to start the container, you can pass t
 
 You can dynamically inject parameters to synapse configurations either using environment variables or a file (containing parameter values).
 
-Read [Injecting Synapse Parameters](../../develop/injecting-parameters) for details.
+Read [Injecting Synapse Parameters]({{base_path}}/integrate/develop/injecting-parameters) for details.
