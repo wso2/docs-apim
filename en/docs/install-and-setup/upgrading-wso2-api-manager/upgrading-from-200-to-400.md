@@ -3257,14 +3257,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ``` java
         [keystore.tls]
-        file_name = "wso2carbon.jks"
+        file_name = "internal.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
         key_password = "wso2carbon"
                 
         [keystore.primary]
-        file_name = "wso2carbon.jks"
+        file_name = "primary.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
@@ -3453,7 +3453,35 @@ Follow the instructions below to move all the existing API Manager configuration
             2. Re-run the command above.
 
             **Make sure to revert the change done in <a href="#stepT1">Step 1</a>, after the migration is complete.**
-    
+
+            If you encounter below error when running the execute the given db script against the shared_db;
+            
+            
+            Sample exception stack trace is given below.
+            ```
+            ERROR - UserIDMigrator Error occurred while updating user id for the user. user id updating process stopped at the offset 0 in domain PRIMARY in tenant carbon.super
+            com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'UM_USER_ID' in 'field list'
+            ```
+           
+            ??? info "DB Scripts"
+            ```tab="MySQL"
+            DROP PROCEDURE IF EXISTS ALTER_UM_USER;
+            DELIMITER $$
+            CREATE PROCEDURE ALTER_UM_USER()
+            BEGIN
+                IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
+                    IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
+                        ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
+                        UPDATE UM_USER SET UM_USER_ID = UUID();
+                        ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+                    END IF;
+                END IF;
+            END $$
+            DELIMITER ;
+            CALL ALTER_UM_USER();
+
+        Once it is done, re-run the command above.
+                   
     7.  After you have successfully completed the migration, stop the server, and remove the following files and folders.
 
         -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
@@ -3560,3 +3588,5 @@ This concludes the upgrade process.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
+   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the the fault messages have been changed from XML to JSON in API-M 4.0.0.  
