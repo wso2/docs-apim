@@ -8,7 +8,7 @@ This example depicts how to use AmazonS3 connector to:
 
 1. Create a S3 bucket (a location for storing your data) in Amazon cloud.
 2. Upload a message into the created bucket as a text file.
-3. Retrieve created text file back and convert into a message in WSO2 EI integration.
+3. Retrieve created text file back and convert into a message in the integration runtime.
 
 All three operations are exposed via an API. The API with the context `/s3connector` has three resources:
 
@@ -179,7 +179,7 @@ Now we can export the imported connector and the API into a single CAR applicati
 
 {!reference/connectors/exporting-artifacts.md!}
 
-Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
+Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
@@ -194,7 +194,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime.
+Follow these steps to deploy the exported CApp in the integration runtime.
 
 {!reference/connectors/deploy-capp.md!}
 

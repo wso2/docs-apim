@@ -49,7 +49,7 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
     </amazondynamodb.init>
     ```
 
-    Ensure that the following Axis2 configurations are added and enabled in the `<EI_HOME>\conf\axis2\axis2.xml` file.
+    Ensure that the following Axis2 configurations are added and enabled in the `<PRODUCT_HOME>\conf\axis2\axis2.xml` file.
 
     ```xml
     <messageFormatter contentType="application/x-amz-json-1.0" class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
@@ -57,7 +57,7 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
     <messageBuilder contentType="application/x-amz-json-1.0" class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
     ```
 
-    > **Note**: If you want to perform blocking invocations, ensure that the above builder and formatter are added and enabled in the `<EI_HOME>\conf\axis2\axis2_blocking_client.xml` file.
+    > **Note**: If you want to perform blocking invocations, ensure that the above builder and formatter are added and enabled in the `<PRODUCT_HOME>\conf\axis2\axis2_blocking_client.xml` file.
     
 ---
 

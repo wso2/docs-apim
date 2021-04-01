@@ -6,8 +6,8 @@ The following configurations allow you to work with the File Connector version 4
 
 The File connector can be used to deal with two types of file systems:
 
--   <b>Local File System</b>: A file system of the server where WSO2 EI is deployed.
--   <b>Remote File System</b>: A file system outside the server where WSO2 EI is deployed. There are few industry standard protocols established to expose a file system over TCP. Following protocols are supported by the File connector. 
+-   <b>Local File System</b>: A file system of the server where the WSO2 integration runtime is deployed.
+-   <b>Remote File System</b>: A file system outside the server where the WSO2 integration runtime is deployed. There are few industry standard protocols established to expose a file system over TCP. Following protocols are supported by the File connector. 
 
     -   FTP
     -   FTPS
@@ -15,7 +15,7 @@ The File connector can be used to deal with two types of file systems:
     
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
-<img src="../../../../assets/img/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
+<img src="{{base_path}}/img/connectors/filecon-reference-22.png" title="types of file connections" width="800" alt="types of file connections"/>
 
 
 !!! Note
@@ -130,11 +130,11 @@ There are different connection configurations that can be used for the above pro
             <ul>
                 <li>
                     <b>Local</b></br>
-                    When a lock is acquired, it is acquired within the context of file operations performed by that EI node only. Local lock acquired by some file operation on a particular EI node is not visible to the other EI nodes that may access the same file system.
+                    When a lock is acquired, it is acquired within the context of file operations performed by that server node only. Local lock acquired by some file operation on a particular server node is not visible to the other server nodes that may access the same file system.
                 </li>
                 <li>
                    <b>Cluster</b></br> 
-                   When multiple EI nodes access the same file system performing read and write operations, you may use this behaviour. Here, when a file lock is acquired, it is visible to all file connector operations across the nodes. This is acquired by creating a <code>.lock</code> file in the same file system (for the file that is being accessed). The behaviour depends on the OS and the file system. Therefore, this feature may not work as intended in high-concurrent scenarios.
+                   When multiple server nodes access the same file system performing read and write operations, you may use this behaviour. Here, when a file lock is acquired, it is visible to all file connector operations across the nodes. This is acquired by creating a <code>.lock</code> file in the same file system (for the file that is being accessed). The behaviour depends on the OS and the file system. Therefore, this feature may not work as intended in high-concurrent scenarios.
                 </li>
             </ul>
             <b>Note</b>:</br>
