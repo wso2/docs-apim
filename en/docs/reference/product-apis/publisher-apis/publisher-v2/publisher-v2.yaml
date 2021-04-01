@@ -1603,6 +1603,7 @@ paths:
             type: string
         - name: apiId
           in: query
+          description: API ID consisting of the UUID of the API
           schema:
             type: string
       responses:
@@ -4327,7 +4328,7 @@ paths:
         200:
           description: |
             OK.
-            The Certificate added successfully.
+            Alias and Endpoint of the certificate are returned.
           headers:
             Location:
               description: |
@@ -4355,7 +4356,7 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=alias
-          -F "endpoint=endpoint=https://www.abc.com" "https://127.0.0.1:9443/api/am/publisher/v2/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates"'
+          -F endpoint=https://www.abc.com "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates"'
       operationId: addEndpointCertificate
 
   /endpoint-certificates/{alias}:
@@ -4369,6 +4370,7 @@ paths:
         - name: alias
           in: path
           required: true
+          description: Alias for the certificate
           schema:
             type: string
       responses:
@@ -4432,7 +4434,7 @@ paths:
         200:
           description: |
             OK.
-            The Certificate updated successfully.
+            Alias and Endpoint of the certificate are returned.
           headers:
             Location:
               description: |
@@ -4461,7 +4463,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v2/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates/wso2carbon"'
+          -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates/wso2carbon"'
       operationId: updateEndpointCertificateByAlias
 
     delete:
@@ -4543,7 +4545,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates/wso2carbon/content"'
+          "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates/wso2carbon/content" --output test.crt'
       operationId: getEndpointCertificateContentByAlias
 
   ######################################################
@@ -5639,7 +5641,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            -F file=@admin-PizzaShackAPIProduct.zip "https://127.0.0.1:9443/api/am/admin/v2/api-products/importt?preserveProvider=false&overwriteAPIProduct=false&overwriteAPIs=false&importAPIs=false"'
+            -F file=@admin-PizzaShackAPIProduct.zip "https://127.0.0.1:9443/api/am/publisher/v2/api-products/import?preserveProvider=false&overwriteAPIProduct=false&overwriteAPIs=false&importAPIs=false"'
       operationId: importAPIProduct
 
   ######################################################
@@ -8335,9 +8337,11 @@ components:
         alias:
           type: string
           example: wso2carbon
+          description: Alias for the certificate
         endpoint:
           type: string
           example: www.abc.com
+          description: Endpoint to which the certificate should be applied
       description: Representation of the details of a certificate
     CertificateInfo:
       title: Certificate information
@@ -9703,7 +9707,7 @@ components:
       name: scopeId
       in: path
       description: |
-        Scope name
+        Scope name (Base 64 encoded value of Scope Name)
       required: true
       schema:
         type: string
