@@ -26,7 +26,7 @@ Follow the instructions below to use the Publisher test console to test an API:
       </html> 
        <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png" width="20%" alt="Try out menu option in the left panel"></a>
 
-4.  You can generate the internal key by clicking on the Generate Key button to invoke and test the pizzashack API.
+4.  You can generate the internal key by clicking on the **Generate Key** button to invoke and test the pizzashack API.
 
        <html><div class="admonition note">
           <p class="admonition-title">Note</p>
@@ -36,7 +36,7 @@ Follow the instructions below to use the Publisher test console to test an API:
        </html>
       <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png" width="60%" alt="Generate key"></a>
 
-5.  Expand the GET  method and click Try it out. Click Execute.
+5.  Expand the **GET**  method, click **Try it out**, and click **Execute**.
 
     Note the successful response for the API invocation.
 
