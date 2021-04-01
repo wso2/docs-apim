@@ -597,16 +597,16 @@ Setting up the Micro Integrator component involves performing the following task
  			    <a>Configuring Logs</a>
  			</li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/configuring_log4j_properties">Configuring Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/managing_log_growth">Managing Log Growth</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
                 </li>                                                 		 						 			
  		</td>
  	</tr>

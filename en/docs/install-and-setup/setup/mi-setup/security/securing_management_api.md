@@ -3,7 +3,7 @@
 The Management API of WSO2 Micro Integrator is an internal REST API, which was introduced to substitute
 the **admin services** that were available in WSO2 EI 6.x.x.
 
-The [Micro Integrator CLI](../../../administer-and-observe/using-the-command-line-interface) and the [Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) communicates with this service to
+The [API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller) and the [Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) communicates with this service to
 obtain administrative information of the server instance and to perform various administration tasks. If required, you can [directly access the management API]({{base_path}}/observe/mi-observe/working-with-management-api) without using the dashboard or CLI.
 
 See the topics given below information on securing the management API.
@@ -22,12 +22,12 @@ The following resources of the API handles login and logout:
 
 When you [access the management API directly]({{base_path}}/observe/mi-observe/working-with-management-api), you must first acquire a JWT token with your valid username and password. To log out of the management API, this token must be revoked. See [securely invoking the management API]({{base_path}}/observe/mi-observe/working-with-management-api/#securely-invoking-the-api) for more information.
 
-When you use the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) or the [Micro Integrator CLI](../../../administer-and-observe/using-the-command-line-interface), JWT token-based authentication is handled internally.
+When you use the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) or the [API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller), JWT token-based authentication is handled internally.
 
 ### Disable user authentication
 
 !!! Note
-    The [management API]({{base_path}}/observe/mi-observe/working-with-management-api) and related tools (the [CLI](../../../administer-and-observe/using-the-command-line-interface) and the [dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) will not be accessible if authentication is disabled.
+    The [management API]({{base_path}}/observe/mi-observe/working-with-management-api) and related tools (the [CLI]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller) and the [dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) will not be accessible if authentication is disabled.
 
 If security is **not required**, you can simply disable the handler for the Micro Integrator. Open the `deployment.toml` file (stored in the `MI_HOME/conf/` directory) and add the following configuration:
 
