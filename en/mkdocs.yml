@@ -705,16 +705,16 @@ nav:
                 - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
                 - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
             - Monitoring Logs:
-                - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
-                - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
-                - Monitoring audit Logs: observe/logging-and-monitoring/logging/monitoring-audit-logs.md
-                - Managing log growth: observe/logging-and-monitoring/logging/managing-log-growth.md
-                - Masking sensitive information in logs: observe/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-            - Working with Observability: observe/logging-and-monitoring/monitoring/working-with-observability.md
-            - Enabling Tracing with OpenTracing: observe/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
-            - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
-            - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
-            - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
+                - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
+                - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
+                - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
+                - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+            - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
+            - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
+            - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+            - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+            - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Micro Integrator Observability:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
@@ -1169,7 +1169,7 @@ nav:
               - Managing Users: administer/managing-users-and-roles/managing-users.md
               - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
               - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
-            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/managing-users.md
+            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/user_stores/managing_users.md
             - Managing Users for the Streaming Integrator: install-and-setup/setup/si-setup/user-management.md
         - Managing User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
@@ -1446,9 +1446,9 @@ nav:
               - Manage Integration:
                 - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
                 - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.md
+                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/jms-sender-receiver.md
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
