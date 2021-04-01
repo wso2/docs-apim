@@ -59,4 +59,4 @@ You can access the Amazon S3 service using the root user credentials but these c
      <img src="{{base_path}}/assets/img/integrate/connectors/download-access-key.png" title="Download access key" width="800" alt="Download access key"/>
 
 
-The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4) will be required to configure WSO2 EI Amazon S3 connector. You can manage S3 buckets logging into S3 console.
+The Access Key ID (e.g., AKIAJA3J6GE646JWVA9C) and Secret Access Key (e.g., H/P/G3Tey1fQOKPAU1GBbl/NhL/WpSaEvxbvUlp4) will be required to configure the Amazon S3 connector. You can manage S3 buckets logging into S3 console.

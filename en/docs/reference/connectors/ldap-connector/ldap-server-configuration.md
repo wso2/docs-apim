@@ -53,9 +53,9 @@ You can follow the steps below to import your LDAP certificate into wso2ei clien
 
 1. To encrypt the connections, you need to configure a certificate authority (https://www.digitalocean.com/community/tutorials/how-to-encrypt-openldap-connections-using-starttls) 
 and use it to sign the keys for the LDAP server.
-2. Use the following command to import the certificate into the EI client keystore. 
+2. Use the following command to import the certificate into the integration server's client keystore. 
    ```bash
-   keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "LDAP"
+   keytool -importcert -file <certificate file> -keystore <SERVER_HOME>/repository/resources/security/client-truststore.jks -alias "LDAP"
    ```
 3. Restart the server and deploy the LDAP configuration.
 

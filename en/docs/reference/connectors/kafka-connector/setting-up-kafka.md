@@ -1,6 +1,6 @@
 # Setting up Kafka
 
-To use the Kafka connector, download and install [Apache Kafka](http://kafka.apache.org/downloads.html). Before you start configuring the Kafka you also need WSO2 EI and we refer to that location as <PRODUCT_HOME>.
+To use the Kafka connector, download and install [Apache Kafka](http://kafka.apache.org/downloads.html). Before you start configuring the Kafka you also need the integration runtime and we refer to that location as <PRODUCT_HOME>.
 
 > **Note**: The recommended version is [Kafka 2.12-1.0.0](https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.12-1.0.0.tgz). For all available versions of Kafka that you can download, see https://kafka.apache.org/downloads. The recommended Java version is 1.8.
 

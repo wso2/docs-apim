@@ -2,9 +2,9 @@
 
 The following operations allow you to work with the ISO8583 Inbound Endpoint. Click an operation name to see parameter details and samples on how to use it.
 
-ISO8583 Inbound endpoint allows the ISO8583 standard messages through WSO2 EI. ISO8583 is a message standard that is used in financial transactions. There are various versions of the ISO8583 standard. The Inbound Endpoint is developed based on the 1987 version of the standard. For more information about ISO8583 Standard, go to ISO8583 Documentation.
+ISO8583 Inbound endpoint allows the ISO8583 standard messages through the WSO2 integration runtime. ISO8583 is a message standard that is used in financial transactions. There are various versions of the ISO8583 standard. The Inbound Endpoint is developed based on the 1987 version of the standard. For more information about ISO8583 Standard, go to ISO8583 Documentation.
 
-WSO2 EI ISO8583 inbound endpoint acts as a message consumer. Since it is a listening inbound, it is listening on port 5000. When a client is connected on port 5000, WSO2 EI ISO8583 Inbound Endpoint starts to consume the ISO8583 standard messages and inject the messages in XML format into sequence.
+The WSO2 ISO8583 inbound endpoint acts as a message consumer. Since it is a listening inbound, it is listening on port 5000. When a client is connected on port 5000, the WSO2 ISO8583 Inbound Endpoint starts to consume the ISO8583 standard messages and inject the messages in XML format into sequence.
 
 In order to use the ISO8583 inbound endpoint, you need to do the following: 
 
@@ -13,7 +13,7 @@ In order to use the ISO8583 inbound endpoint, you need to do the following:
 - Download `jdom-1.1.3.jar` from [http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3). 
 - Download `commons-cli-1.3.1.jar` from [http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1](http://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1). 
 
-Copy the .jar files to the <EI_HOME>/lib directory.
+Copy the .jar files to the <SERVER_HOME>/lib directory.
 
 > **Note**: `jpos` is the third party library, and `jposdef.xml` has the field definitions of the standard ISO8583 Messages. According to the field definitions, each and every ISO8583 message that  comes from the client will be unpacked and the fields of the ISO8583 standard messages will be identified.
 

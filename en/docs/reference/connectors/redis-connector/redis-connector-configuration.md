@@ -1,10 +1,10 @@
 # Setting up the Redis Environment 
 
-The Redis connector allows you to access the Redis commands through the WSO2 EI. Redis stands for remote dictionary server. Redis store/server that stores data as key-value pairs and this key-value store can be used as a database.
+The Redis connector allows you to access the Redis commands from an integration sequence. Redis stands for remote dictionary server. Redis store/server that stores data as key-value pairs and this key-value store can be used as a database.
 
 ## Setting up the environment
 
-Before you start configuring the Redis connector, you need WSO2 EI.Download [WSO2 EI](https://wso2.com/integration/micro-integrator/) and extract the zip file to a known location. In this setup guide we refer to that location as <PRODUCT_HOME>.
+Before you start configuring the Redis connector, you need the WSO2 integration runtime. [Download](https://wso2.com/integration/micro-integrator/) the integration runtime and extract the ZIP file to a known location. In this setup guide we refer to that location as <PRODUCT_HOME>.
 
 To configure the Redis connector, download the following client libraries from the given locations and copy to the `<PRODUCT_HOME>/lib` directory.
 
