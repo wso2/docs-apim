@@ -17,15 +17,22 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
      ![]({{base_path}}/assets/img/learn/publisher-testconsole-leftpane.png)
 
-3.  You can generate the internal key by clicking on the get test key button to invoke the pizzashack API.
+     <html><div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <ul> The API can be tested in any lifecycle state, and can be used in any state except for retired, even in block
+      they could still try it out but will get a 503(service unavailable) response.</ul>
+      </html> 
 
+3.  You can generate the internal key by clicking on the Generate Key button to invoke and test the pizzashack API.
+
+       <html><div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <ul>UI generates an Internal token to authenticate the API call.</ul>
+          <ul>In case if the API publisher has a token / key then they could paste it in the UI and invoke the API using that key</ul>
+          </div>
+       </html> 
       ![]({{base_path}}/assets/img/learn/publisher-testconsole-generatekey.png)
 
-      <html><div class="admonition note">
-            <p class="admonition-title">Note</p>
-            <ul>If you want to authenticate by custom token, please enter it in the internal key text field.</ul>
-            </div>
-      </html> 
 
 4.  Expand the GET  method and click Try it out. Click Execute.
 
