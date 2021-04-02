@@ -24,7 +24,7 @@ Given below is how visibility levels work for users in different roles:
     
      `https://<localhost>:9443/publisher` 
 
-2.  [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-a-rest-api/) or edit an existing API.
 3.  Click **Design Configurations**, click **Developer Portal Visibility**, and select the desired visibility option.
     
      [![Developer Portal Visibility]({{base_path}}/assets/img/learn/api-visibility-devportal.png)]({{base_path}}/assets/img/learn/api-visibility-devportal.png)
@@ -88,7 +88,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
      `https://<localhost>:9443/publisher`
 
-2.  [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-a-rest-api/) or edit an existing API.
 
 3.  Click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option.
      

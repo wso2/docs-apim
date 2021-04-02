@@ -75,7 +75,7 @@ Use Business Plans that you create in the previous steps.
 ### Invoke a GraphQL API
 
 To invoke a GraphQL API, see 
-[Invoke a GraphQL API]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console).
+[Invoke a GraphQL API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console).
 
 To perform **GraphQL Query Depth Limitation**: 
 

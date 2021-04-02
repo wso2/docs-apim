@@ -166,7 +166,7 @@ With the integration of the registry life cycle to the API life cycle of API Man
 
 Following are some extention points where the default API life cycle can be extended by modifying above mentioned XML configuration of the API life cycle.
 
--   [Define your own life cycle states]({{base_path}}/learn/design-api/lifecycle-management/customize-api-life-cycle/) in the API life cycle
+-   [Define your own life cycle states]({{base_path}}/design/lifecycle-management/customize-api-life-cycle/) in the API life cycle
 -   Change the state transition events as per the environmental preferences
 -   Add custom checklist items for specific state transitions
 -   Change the execution code for each state transition

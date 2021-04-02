@@ -130,6 +130,6 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
 
      (e.g., `https://localhost:9443/devportal`). 
 
-     For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/).
+     For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
     
      

@@ -197,4 +197,4 @@ The Transport Level Security defines the transport protocol on which the API is 
 
 Now, a REST API from an Open API Definition has been created and configured successfully. 
 
-Next, publish the API, for more information, see [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Next, publish the API, for more information, see [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).

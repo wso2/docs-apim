@@ -225,7 +225,7 @@ The following is an example params file for this scenario. (Make sure to specify
     ```
 
 !!! tip
-    When importing an API, if you are specifying the endpoint type as `dynamic`, you can include a message mediation policy with a `To` header inside the `Sequences` directory of your API Project. (Refer [Adding Dynamic Endpoints]({{base_path}}/learn/api-gateway/message-mediation/adding-dynamic-endpoints/#adding-dynamic-endpoints) to learn more about Dynamic endpoints and message mediations associated with that.)
+    When importing an API, if you are specifying the endpoint type as `dynamic`, you can include a message mediation policy with a `To` header inside the `Sequences` directory of your API Project. (Refer [Adding Dynamic Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints/#adding-dynamic-endpoints) to learn more about Dynamic endpoints and message mediations associated with that.)
 
 ### AWS Lambda Endpoints
 

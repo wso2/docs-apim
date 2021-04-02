@@ -69,7 +69,7 @@ Follow the instructions below to implement the latter mentioned business scenari
     ![](https://lh5.googleusercontent.com/BNuL3PLtGf2I7p4dboo1I_CNCAyD9-ajT8dEtnCV83XFtQzxx-TiJeNXiqTqSxoVGhvn4uEl9eHIjSK72rvHwsBVao0VLeIAs69MT5uHb350OfzBJ_QE_AObHTHkKmLtWt5oOm4v)
 4.  Sign in as an operations' department (maintenance department) user, [subscribe]({{base_path}}/getting-started/quick-start-guide/#step-2-subscribe-to-the-api) to the `Maintenance_ask_API` API to get the required maintenance tasks for the day.
 
-5.  [Allow visibiliy]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal) of the `Employee_info_API` API only to the finance and manufacturing departments, and restrict it to the operations departments, so that the finance and manufacturing departments can get the number of employees working in the core departments.
+5.  [Allow visibiliy]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal) of the `Employee_info_API` API only to the finance and manufacturing departments, and restrict it to the operations departments, so that the finance and manufacturing departments can get the number of employees working in the core departments.
 
     !!! tip
         From this you can share/restrict the consumption of the API in the Developer Portal , but you can not share/restrict editing of the API in Publisher. This has been identified as a GAP in WSO2 API Manager 2.1.0

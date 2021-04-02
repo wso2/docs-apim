@@ -80,7 +80,7 @@ You will notice that the topics have been created automatically, from the AsyncA
 
 Now, a Streaming API has been created successfully from an Async API Definition. 
 
-Next, publish the API, for more information, see [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Next, publish the API, for more information, see [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 
 <div class="admonition note">
@@ -99,11 +99,11 @@ Next, publish the API, for more information, see [Publish an API]({{base_path}}/
 
         Click the following topics to learn more on the concepts that you need to know when creating an API:
        -   [Creating A Streaming Backend]({{base_path}}/get-started/quick-start-guide/streaming-qsg)
-       -   [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-       -   [Endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-types/)
-       -   [Throttling Tiers]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases/)
-       -   [Custom Properties]({{base_path}}/learn/design-api/create-api/adding-custom-properties-to-apis/)
-       -   [API Security]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens)
-       -   [Life Cycle Management]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/)
-       -   [API Documentation]({{base_path}}/learn/design-api/api-documentation/add-api-documentation/)
-       -   [API Monetization]({{base_path}}/learn/api-monetization/monetizing-an-api/)
+       -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+       -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+       -   [Throttling Tiers]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+       -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+       -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
+       -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+       -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+       -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)
