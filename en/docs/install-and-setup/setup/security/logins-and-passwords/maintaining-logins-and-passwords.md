@@ -93,13 +93,13 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     username="admin!wso2.com!carbon.super"
     password = "$ref{super_admin.password}"
     ```
-3. (Optional) Please follow below instructions if you have enabled regular expression to validate usernames in the step 1.
+3.  Optionally, follow the instructions below if you have enabled regular expression to validate usernames in the step 1.
  
     You need to manually create a default user with a valid email username instead of the default `apim_reserved_user` user for each tenant.
 
     This user is an internal user created to handle cross tenant subscription validations. 
-    Hence, if you have enabled cross tenant subscription validation feature you need to configure the above created user name in the 
-    deployment.toml for `default_reserved_username` field, instead of the `apim_reserved_user` default user as shown below.
+    Therefore, if you have enabled cross tenant subscription validation feature you need to configure the above created username in the 
+    deployment.toml for the `default_reserved_username` field, instead of the `apim_reserved_user` default user as shown below.
 
     ``` toml
     [user_store]
