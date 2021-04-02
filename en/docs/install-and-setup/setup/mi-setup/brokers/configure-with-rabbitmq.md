@@ -7,7 +7,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Ra
 
 ## Setting up RabbitMQ
 
-Please refer [RabbitMQ Deployment](deploy-rabbitMQ.md) 
+Please refer [RabbitMQ Deployment]({{base_path}}/install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq) 
 
 ## Enabling the RabbitMQ Listener
 

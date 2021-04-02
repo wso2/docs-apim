@@ -2,7 +2,7 @@
 
 This example demonstrates how WSO2 Micro Integrator receives messages in HTTP and passes the messages through JMS. The Micro Integrator uses a proxy service over HTTP, forwards the received messages to the EPR using JMS, and immediately responds with a 202. 
 
-If the previous example on [JMS to HTTP](../switching_from_JMS_to_HTTP) is also configured, it will pick the message from queue and send it to the stockquote proxy.
+If the previous example on [JMS to HTTP]({{base_path}}/integrate/examples/switching_from_JMS_to_HTTP) is also configured, it will pick the message from queue and send it to the stockquote proxy.
 
 ## Synapse configuration
 

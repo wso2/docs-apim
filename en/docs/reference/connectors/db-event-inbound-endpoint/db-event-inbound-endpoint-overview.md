@@ -2,7 +2,7 @@
 
 Data is the most valuable asset in any business. Almost every cooperate system has an on-premise or cloud-based data storage facility. When the individual systems in a particular business are integrated together, sometimes they are coupled via database systems. For an example, one system can write data, while another system reads and processes them. In such instances, the systems may want to know if there are any changes to the data being performed by external parties or systems. 
 
-Hence, for an enterprise integration platform it is a useful feature to be able to generate events based on the data changes. **DB Event Inbound Endpoint** is the DB event listener for `WSO2 Enterprise Integrator`. You can configure it with any popular Database systems such as `MySQL` and `Oracle` etc.
+Hence, for an enterprise integration platform it is a useful feature to be able to generate events based on the data changes. **DB Event Inbound Endpoint** is the DB event listener for the integration runtime of WSO2. You can configure it with any popular Database systems such as `MySQL` and `Oracle` etc.
 
 To see the DB Event Inbound Endpoint, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Event". **DB Event Listener** is the name of the connector that has this functionality.
 
@@ -10,9 +10,9 @@ To see the DB Event Inbound Endpoint, navigate to the [connector store](https://
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version |
+| Connector Version | Supported product versions |
 | ------------- |-------------|
-| 1.0.4    | EI, 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0, EI 6.1.1 |
+| 1.0.4    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0, EI 6.4.0, EI 6.1.1 |
 
 For older versions, see the details in the connector store.
 

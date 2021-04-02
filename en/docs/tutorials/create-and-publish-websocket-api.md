@@ -1,6 +1,8 @@
 # Create and Publish a WebSocket API
 
-Follow the instructions in this tutorial to design and publish API with a WebSocket backend, and thereafter invoke it using the **wscat** WebSocket client.
+This tutorial will guide you to implement a websocket based chat application using the WSO2 API Manager.
+Follow the instructions in this tutorial to design and publish API with a WebSocket backend, and thereafter 
+invoke it using the **wscat** WebSocket client.
 
 <html>
 <div class="admonition note">

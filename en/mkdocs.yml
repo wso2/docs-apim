@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/next/
+site_url: https://apim.docs.wso2.com/en/4.0.0-dev/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -66,14 +66,14 @@ nav:
                     - Create a Streaming API:
                         - Streaming APIs Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                        - Create a WebSub API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                        - Create a WebSub/Webhook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
                         - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
                     - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md
                     - Build APIs in Integration Studio: design/create-api/api-integration-studio.md
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
-                    - Test a WebSub Streaming API: design/create-api/test-a-websub-api.md
+                    - Test a WebSub/Webhook Streaming API: design/create-api/test-a-websub-api.md
             - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -1411,6 +1411,7 @@ nav:
                 - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -1483,7 +1484,7 @@ nav:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
-                - Create and Publish a WebSub API: tutorials/streaming-api/create-and-publish-websub-api.md
+                - Create and Publish a WebSub/Webhook API: tutorials/streaming-api/create-and-publish-websub-api.md
                 - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
             - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
@@ -1712,4 +1713,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: https://apim.docs.wso2.com/en/4.0.0-dev

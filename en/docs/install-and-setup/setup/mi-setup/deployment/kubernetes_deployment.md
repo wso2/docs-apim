@@ -16,9 +16,9 @@ Listed below are the system requirements for deploying integration solutions in 
 !!! Tip
     To try the end-to-end process of deploying integration solutions on Kubernetes, see the K8s examples: 
 
-    - [Hello World example](../k8s-samples/hello-world)
-    - [Message Routing example](../k8s-samples/content-based-routing)
-    - [JMS Sender/Receiver exampe](../k8s-samples/jms-sender-receiver)
+    - [Hello World example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world)
+    - [Message Routing example]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing)
+    - [JMS Sender/Receiver exampe]({{base_path}}/install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver)
 
 Given below are the main steps your will follow when you deploy integration solutions in a Kubernetes cluster.
 

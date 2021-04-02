@@ -8,7 +8,7 @@ When you deploy your integrations, the main concern is to ensure high availabili
 
 The following diagram depicts a single worker node deployment, which contains a single pod (single replica).
 
-<img src="../../../assets/img/k8s_deployment/k8s-single-pod.png" width='250'>
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-single-pod.png">
 
 A single worker node will reduce your management overheads when you build an on-premise cluster (does not apply to cloud instances). Also, there will be lower costs and resource requirements when compared to a multiple node cluster.
 
@@ -27,7 +27,7 @@ The following diagram depicts a kubernetes cluster with multiple replicas of an 
 !!! Note
 	In this example, one node only carries one replica of a pod. However, depending on the capacity of your worker node, you can maintain multiple pod replicas in a single worker node.
 
-<img src="../../../assets/img/k8s_deployment/k8s-muliple-workers-single-pod.png" width="2000">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers-single-pod.png">
 
 When you have multiple instances of an application, you need a way to distribute the traffic to all of them. Therefore, the cluster should be fronted by an <b>Ingress</b> or an <b>external load balancer service</b> (given that your Kubernetes environment supports external load balancers) that will distribute network traffic to all pods of the exposed deployment.
 
@@ -61,7 +61,7 @@ However, the following set of integration artifacts are stateful and requires co
 
 As long as you maintain a single artifact deployment for each of these artifacts, coordination is not required. You can arrange your cluster in the following manner to ensure that the same task is not deployed in multiple containers/pods in the cluster. As shown below, you can have multiple replicas of <b>POD 1</b>. However, <b>POD 2</b> and <b>POD 3</b> can only have one replica each because they contain stateful artifacts.
 
-<img src="../../../assets/img/k8s_deployment/k8s-muliple-workers.png" width="2000">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers.png">
 
 ### Load balancing
 
