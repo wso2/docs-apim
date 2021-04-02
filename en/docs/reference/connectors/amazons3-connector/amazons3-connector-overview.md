@@ -2,7 +2,7 @@
 
 Amazon S3 is a web-based storage service that can be used to store and retrieve data at anytime from anywhere on the web. Amazon uses the same service to run its own network that proves its scalability, reliability, and security.
 
-The Amazon S3 Connector versions 1.0.10 and below allow you to access the REST API of [Amazon Storage Service S3](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). This lets you store your information and retrieve it back when needed. WSO2 EI AmazonS3 Connector is useful to take your on-premise data to the cloud. The advantage is, you do not need to worry about managing and replicating data on-premise.
+The Amazon S3 Connector versions 1.0.10 and below allow you to access the REST API of [Amazon Storage Service S3](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). This lets you store your information and retrieve it back when needed. The AmazonS3 Connector is useful to take your on-premise data to the cloud. The advantage is, you do not need to worry about managing and replicating data on-premise.
 
 The versions 2.0.0 and above allow you to access the AWS component via AWS [SDK](https://aws.amazon.com/sdk-for-java/). The SDK makes it easy to call AWS services using idiomatic Java APIs.
 
@@ -12,16 +12,16 @@ To see the Amazon S3 connector, navigate to the [connector store](https://store.
 
 ## Compatibility
 
-| Connector Version | Supported WSO2 EI version | Supported API |
+| Connector Version | Supported product versions | Supported API |
 | ------------- |-------------|-------------|
-| 2.0.0    | EI 7.0.x, EI 6.6.0 | AWS SDK |
-| 1.0.10    | EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 | REST |
+| 2.0.0    | APIM 4.0.0, EI 7.0.x, EI 6.6.0 | AWS SDK |
+| 1.0.10    | APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 | REST |
 
 For older versions, see the details in the connector store.
 
 ## Amazon S3 Connector documentation (latest - 2.x version)
 
-* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-example/)**: This example demonstrates how to use Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it back, and convert it into a message in WSO2 EI integration. 
+* **[Amazon S3 Connector Example]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-example/)**: This example demonstrates how to use the Amazon S3 Connector to create an S3 bucket, upload a text message into the bucket, retrieve it, and convert it into a message in the integration runtime. 
 
 * **[Amazon S3 Connector Reference]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference/)**: This documentation provides a reference guide for the Amazon S3 Connector.
 

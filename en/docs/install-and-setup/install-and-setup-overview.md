@@ -503,37 +503,37 @@ Setting up the Micro Integrator component involves performing the following task
  			    <a>JMS</a>
  			</li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-ActiveMQ">Connecting to ActiveMQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq">Connecting to ActiveMQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-Apache-Artemis">Connecting to Apache Artemis</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-apache-artemis">Connecting to Apache Artemis</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-HornetQ">Connecting to HornetQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-hornetq">Connecting to HornetQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphere-app-server">Connecting to IBM Websphere App Server</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-ibm-websphere-app-server">Connecting to IBM Websphere App Server</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-IBM-websphereMQ">Connecting to IBM WebSphere MQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-ibm-webspheremq">Connecting to IBM WebSphere MQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-JBossMQ">Connecting to JBoss MQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-jbossmq">Connecting to JBoss MQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-MSMQ">Connecting to MSMQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-msmq">Connecting to MSMQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-SwiftMQ">Connecting to Swift MQ</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-swiftmq">Connecting to Swift MQ</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-Tibco-EMS">Connecting to TIBCO EMS</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-tibco-ems">Connecting to TIBCO EMS</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-WebLogic">Connecting to Weblogic</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-weblogic">Connecting to Weblogic</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-WSO2-MB">Connecting to WSO2 MB</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-wso2-mb">Connecting to WSO2 MB</a>
                 </li>
                 <li>
                     <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-multiple-brokers">Connecting to Multiple Brokers</a>
@@ -597,16 +597,16 @@ Setting up the Micro Integrator component involves performing the following task
  			    <a>Configuring Logs</a>
  			</li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/configuring_log4j_properties">Configuring Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/managing_log_growth">Managing Log Growth</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
                 </li>                                                 		 						 			
  		</td>
  	</tr>

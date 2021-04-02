@@ -6,9 +6,9 @@ The JIRA Connector allows you to connect to JIRA, which is an online issue-track
 
 ## Compatibility
 
-| Connector version | Supported WSO2 EI version |
+| Connector version | Supported product versions |
 | ------------- |------------- |
-|  1.0.5      |  EI 7.1.0, EI 6.5.0 |
+|  1.0.5      |  APIM 4.0.0, EI 7.1.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 

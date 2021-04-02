@@ -189,7 +189,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
 				<b>Encrypting Sensitive Data</b>
 				<ul>
 					<li>
-						<a href="../../setup/security/encrypting_plain_text/">Encrpting Secrets</a>
+						<a href="{{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/">Encrpting Secrets</a>
 					</li>
 					<li>
 						<a href="{{base_path}}/integrate/develop/creating-artifacts/using_docker_secrets/">Docker Secrets</a>
@@ -198,7 +198,7 @@ To start developing integration solutions, you need to first <a href="{{base_pat
 						<a href="{{base_path}}/integrate/develop/creating-artifacts/using_k8s_secrets/">Kubernetes Secrets</a>
 					</li>
 					<li>
-						<a href="../../setup/security/single_key_encryption/">Symmetric Encryption</a>
+						<a href="{{base_path}}/install-and-setup/setup/mi-setup/security/single_key_encryption/">Symmetric Encryption</a>
 					</li>
 				</ul>
 			</td>
@@ -311,7 +311,7 @@ It is recommended to use a <b>CICD pipeline</b> to deploy your tested integratio
 			<b>Kubernetes Environment</b>
 		</td>
 		<td>
-			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="../../setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
+			If you have a <b>Kubernetes deployment</b>, see the instructions on how to use the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview">Kubernetes CICD pipeline</a>.
 		</td>
 	</tr>
 </table>

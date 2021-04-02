@@ -16,13 +16,13 @@ To know the further information about these operations please refer this link.
 
 > **Note**: If no ID element is provided, or the value is wrong, the server responds with a HTTP 400 error code and provides an operation outcome identifying the issue.
 
-Before you start configuring the FHIR connector, you also need to download WSO2 EI, and we refer to that location as `<PRODUCT_HOME>`.
+Before you start configuring the FHIR connector, you also need to download the relevant integration runtime of WSO2, and we refer to that location as `<PRODUCT_HOME>`.
 
-Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the WSO2 EI service.
+Specific message builders/formatters configuration needs to be enabled in the product as shown below before starting the integration service.
 
-If you are using **EI7**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
+If you are using **EI7** or **APIM 4.0.0**, you need to enable this property by adding the following to the **<PRODUCT_HOME>/conf/deployment.toml** file. You can further refer to the [Working with Message Builders and Formatters]({{base_path}}/reference/config-catalog/#http-transport) and [Product Configurations]({{base_path}}/install-and-setup/message_builders_formatters/message-builders-and-formatters/) documentations.
 
-```
+```toml
 [[custom_message_builders]]
 content_type = "application/fhir+json"
 class = "org.wso2.micro.integrator.core.json.JsonStreamBuilder"
@@ -36,12 +36,14 @@ If you are using **EI 6**, you can enable this property by doing the following A
 
 **messageFormatters**
 
-```
+```xml
 <messageFormatter contentType="application/fhir+json" 
 class="org.wso2.carbon.integrator.core.json.JsonStreamFormatter"/>
 ```
+
 **messageBuilders**
-```
+
+```xml
 <messageBuilder contentType="application/fhir+json" 
 class="org.wso2.carbon.integrator.core.json.JsonStreamBuilder"/>
 ```
@@ -253,7 +255,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
     
@@ -420,7 +422,7 @@ curl -v POST -d
 </jsonObject>
 ```    
 
-This demonstrates how the WSO2 EI FHIR connector works.
+This demonstrates how the WSO2 FHIR connector works.
    
 ## What's next
 

@@ -2,19 +2,19 @@
 
 In the real world, financial scenarios are happening among thousands of banking systems and networks. In this situation, one system needs to act as a message publisher and another system needs to be capable of receiving messages. Once the message is received, further processing actions are performed based on the logic that is implemented in the internal system.
 
-The ISO8583 inbound endpoint of WSO2 EI acts as a message consumer. The ISO8583 inbound endpoint supported via the WSO2 EI is a listening inbound endpoint that can consume ISO8583 standard messages. It then converts the messages to XML format and injects messages to a sequence in WSO2 EI.
+The ISO8583 inbound endpoint of WSO2 acts as a message consumer. The ISO8583 inbound endpoint is a listening inbound endpoint that can consume ISO8583 standard messages. It then converts the messages to XML format and injects messages to a sequence in the integration runtime.
 
 ## What you'll build
 
 This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program.In here inside the banking network functionality simulates using the test client program.
 
-The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence into WSO2 EI.
+The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence in the integration runtime.
 
-See [ISO8583 connector configuration]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-configuration/) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators](https://docs.wso2.com/display/EI660/ESB+Mediators). 
+See [ISO8583 connector configuration]({{base_path}}/reference/connectors/ISO8583-connector/ISO8583-connector-configuration/) for more information. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [ mediators]({{base_path}/reference/mediators/about-mediators). 
 
 The following diagram illustrates all the required functionality of the ISO8583 inbound operations that you are going to build. 
 
-For example, while transferring bank and financial sector information using the ISO85883 message format among the banking networks, the message receiving can be done by using inbound endpoints. The ISO8583 inbound endpoint of WSO2 EI acts as an ISO8583 message receiver. You can inject that message into the mediation flow for getting the required output.
+For example, while transferring bank and financial sector information using the ISO85883 message format among the banking networks, the message receiving can be done by using inbound endpoints. The ISO8583 inbound endpoint of WSO2 acts as an ISO8583 message receiver. You can inject that message into the mediation flow for getting the required output.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/iso8583-inbound-operations.png" title="ISO8583 inbound operations" width="800" alt="ISO8583 inbound operations"/>
 
@@ -55,7 +55,7 @@ For example, while transferring bank and financial sector information using the 
    ```
 ## Exporting Integration Logic as a CApp
 
-**CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
+**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
   <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
@@ -72,7 +72,7 @@ For example, while transferring bank and financial sector information using the 
 
 3. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
 
-4. Start the WSO2 EI server. 
+4. Start the integration server. 
 
 ## Testing  
 

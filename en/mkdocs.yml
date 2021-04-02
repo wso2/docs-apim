@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/next/
+site_url: https://apim.docs.wso2.com/en/4.0.0-dev/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -66,14 +66,14 @@ nav:
                     - Create a Streaming API:
                         - Streaming APIs Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                        - Create a WebSub API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                        - Create a WebSub/Webhook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
                         - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
                     - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md
                     - Build APIs in Integration Studio: design/create-api/api-integration-studio.md
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
-                    - Test a WebSub Streaming API: design/create-api/test-a-websub-api.md
+                    - Test a WebSub/Webhook Streaming API: design/create-api/test-a-websub-api.md
             - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -108,6 +108,9 @@ nav:
                     - Add API Documentation: design/api-documentation/add-api-documentation.md
                     - Search Documentation:
                             - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
+            - API Collaboration: 
+                    - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
+                    - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
             - API Security:
                     - Authentication:
                             - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -184,7 +187,7 @@ nav:
             - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                - Exposing APIs via Custom Hostnames: deploy/deploy-api/exposing-apis-via-custom-hostnames.md
+                - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy an API to a Cloud Cluster in PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
@@ -208,7 +211,7 @@ nav:
                     - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                     - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
                     - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Passing End-user Attributes to the Backend: deploy/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scaling the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
@@ -261,13 +264,13 @@ nav:
                     - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
                 - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
-                - Passing Enduser Attributes to the Backend Using JWT: deploy-and-publish/deploy-on-gateway/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
     - Consume:
-        - Consume APIs Overview: consume/consume-api-overview.md
+        - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
             - AI-based Recommendations for the Developer Portal: consume/discover-apis/api-recommendations.md
@@ -307,7 +310,7 @@ nav:
             - Invoke an API Using a SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Try out using Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
         - Collaborations:
-            - Use the Community Features: consume/collaboration/use-the-community-features.md
+            - Interact with the Community: consume/collaboration/interact-with-the-community.md
         - Generating SDKs:
             - Generate SDKs in Developer Portal: consume/generating-sdks/generate-sdks-in-dev-portal.md
             - Write a Client Application Using the SDK: consume/generating-sdks/write-a-client-application-using-the-sdk.md
@@ -702,16 +705,16 @@ nav:
                 - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
                 - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
             - Monitoring Logs:
-                - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
-                - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
-                - Monitoring audit Logs: observe/logging-and-monitoring/logging/monitoring-audit-logs.md
-                - Managing log growth: observe/logging-and-monitoring/logging/managing-log-growth.md
-                - Masking sensitive information in logs: observe/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-            - Working with Observability: observe/logging-and-monitoring/monitoring/working-with-observability.md
-            - Enabling Tracing with OpenTracing: observe/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
-            - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
-            - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
-            - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
+                - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
+                - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
+                - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
+                - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+            - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
+            - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
+            - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+            - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+            - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Micro Integrator Observability:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
@@ -997,9 +1000,9 @@ nav:
                 - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-connector-example.md
                 - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/microsoft-azure-storage-reference.md
             - MongoDB Connector:
-                - MongoDB Connector Overview: references/connectors/mongodb-connector/mongodb-connector-overview.md
-                - MongoDB Connector Example: references/connectors/mongodb-connector/mongodb-connector-example.md
-                - MongoDB Connector Reference: references/connectors/mongodb-connector/mongodb-connector-config.md
+                - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
+                - MongoDB Connector Example: reference/connectors/mongodb-connector/mongodb-connector-example.md
+                - MongoDB Connector Reference: reference/connectors/mongodb-connector/mongodb-connector-config.md
             - Redis Connector:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -1156,6 +1159,7 @@ nav:
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
+              - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
     - Administer:
         - Administer Overview: administer/admin-overview.md
         - Managing Users and Roles:
@@ -1165,7 +1169,7 @@ nav:
               - Managing Users: administer/managing-users-and-roles/managing-users.md
               - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
               - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
-            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/managing-users.md
+            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/user_stores/managing_users.md
             - Managing Users for the Streaming Integrator: install-and-setup/setup/si-setup/user-management.md
         - Managing User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
@@ -1208,6 +1212,7 @@ nav:
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
                 - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
                 - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
+                - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
                 - Running the Streaming Integrator in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
@@ -1406,6 +1411,7 @@ nav:
                 - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
@@ -1441,9 +1447,9 @@ nav:
               - Manage Integration:
                 - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
                 - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.md
+                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/jms-sender-receiver.md
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
@@ -1456,6 +1462,7 @@ nav:
             - Managing Applications:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+            - Managing APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
             - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
@@ -1477,7 +1484,7 @@ nav:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
-                - Create and Publish a WebSub API: tutorials/streaming-api/create-and-publish-websub-api.md
+                - Create and Publish a WebSub/Webhook API: tutorials/streaming-api/create-and-publish-websub-api.md
                 - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
             - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
@@ -1683,6 +1690,7 @@ plugins:
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
               'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
+              'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
 
     # Extra
 extra_css:
@@ -1705,4 +1713,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: https://apim.docs.wso2.com/en/4.0.0-dev

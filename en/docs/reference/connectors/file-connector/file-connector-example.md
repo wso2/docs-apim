@@ -4,7 +4,7 @@ File Connector can be used to perform operations in the local file system as wel
 
 ## What you'll build
 
-This example describes how to use the File Connector to write messages to local files and then read the files. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other mediators coming with WSO2 EI to manipulate messages. 
+This example describes how to use the File Connector to write messages to local files and then read the files. Similarly, the same example can be configured to communicate with a remote file system (i.e FTP server) easily. The example also uses some other WSO2 mediators to manipulate messages. 
 
 <!--
 Following diagram shows the overall solution.
@@ -186,7 +186,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 
@@ -246,7 +246,7 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator runt
 
 4.  If you invoke the API again with a different set of employees, the new employees will get appended to the same file. The response you receive will include all the employees that were added from both messages.
 
-In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2 EI, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config/) for more information. 
+In this example, the File connector was used to create a file, write to a file, and to read a file. By blending these capabilities together with other powerful message manipulation features of WSO2, it is possible to define a working scenario in minutes. The File connector has many more functionalities. Refer the [File Connector reference guide]({{base_path}}/reference/connectors/file-connector/file-connector-config/) for more information. 
 
 ## What's Next
 

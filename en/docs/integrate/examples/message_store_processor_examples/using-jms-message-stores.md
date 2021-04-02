@@ -100,7 +100,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-[Configure the ActiveMQ broker](../../../../setup/brokers/configure-with-ActiveMQ) and set up the JMS Sender.
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and set up the JMS Sender.
 
 Invoke the service:
 
@@ -249,6 +249,6 @@ Set up the back-end service:
       axis2server.bat
       ```
    
-[Configure the ActiveMQ broker](../../../../setup/brokers/configure-with-ActiveMQ).
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq).
 
 Invoke the service. Note a message similar to the following example printed in the backend service.

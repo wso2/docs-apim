@@ -51,8 +51,8 @@ WSO2 API Manager supports the following DBMSs.
 ## Tested WSO2 Products
 The following is a list of other WSO2 products that is tested with WSO2 API Manager 3.2.0.
 
-- WSO2 Enterprise Integrator 6.6.0
-- WSO2 Identity Server 5.10.0
+- [WSO2 Enterprise Integrator 6.6.0](https://wso2.com/enterprise-integrator/6.6.0#)
+- [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/previous-releases/)
 
 ## Compatible WSO2 Identity Server as the Key Managers
 

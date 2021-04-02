@@ -1,10 +1,10 @@
 # Google Pub Sub Connector Example  
 
-The Google Pub/Sub connector allows you to access the [Google Cloud Pub/Sub API Version v1](https://cloud.google.com/pubsub/docs/reference/rest/) through WSO2 EI. 
+The Google Pub/Sub connector allows you to access the [Google Cloud Pub/Sub API Version v1](https://cloud.google.com/pubsub/docs/reference/rest/) from an integration sequence. 
 
 ## What you'll build
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 EI Google Pub Sub Connector to:
+Given below is a sample scenario that demonstrates how to work with the WSO2 Google Pub Sub Connector to:
 
 1. Create a Topic to store company update notifications.
 2. Insert company update notifications to the created topic.
@@ -20,7 +20,7 @@ All three operations are exposed via an API. The API with the context `/resource
 * `/insertCompanyNotifications` : Used to insert company update notifications to the subscribed topic.
 * `/getcompanynotifictions` : Used to retrieve information about the company updates.
 
-> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport). If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
+> **Note**: In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. If you are using **EI 7** or **APIM 4.0.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport). If you are using **EI 6**, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
    ```   
    [mediation]
    synapse.enable_xpath_dom_failover=true
@@ -34,7 +34,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -275,7 +275,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 

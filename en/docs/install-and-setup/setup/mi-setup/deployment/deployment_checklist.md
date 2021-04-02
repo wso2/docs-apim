@@ -2,7 +2,7 @@
 
 The requirements for deploying WSO2 products can change based on the deployment scenario and pattern. The recommendations in this topic are for general production use, assuming moderate load conditions. For situations where a high volume of traffic is expected and if there are large deployments, these guidelines may not be sufficient.
 
-See [Troubleshooting in Production Environments](troubleshooting_deployment.md) for information on how to analyse production issues.
+See [Troubleshooting in Production Environments]({{base_path}}/install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment) for information on how to analyse production issues.
 
 ## Common Product Guidelines
 
@@ -181,7 +181,7 @@ Listed below are the common guidelines for making a WSO2 product ready for produ
          <td>High availability</td>
          <td>
             <div class="content-wrapper">
-               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="../../../setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
+               <p>In the cloud native deployment, high availability should be achieved via the container orchestration system ( Ex: Kubernetes ). There are builtin <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/health_check/#basic-health-check">readiness and liveness probes</a> available in Micro Integrator. We can invoke the readiness probe as follows</p>
                <p><code>curl -X GET http://localhost:9201/healthz</code></p>
                <p>In a VM deployment, we can use a load balancer with multiple nodes as described <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">here</a> to achieve high availability.</p>
             </div>
@@ -708,4 +708,4 @@ You can get the transaction count for a particular month or period. This data ca
 
 -  Start the [Micro Integrator CLI]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller) and use the [mi transaction]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) option.
 
--  Directly access the [Management API resources](../../../administer-and-observe/working-with-management-api) and invoke the [/transaction/count](../../../administer-and-observe/working-with-management-api/#get-transaction-count) and [/transaction/report](../../../administer-and-observe/working-with-management-api/#get-transaction-report-data) resources.
+-  Directly access the [Management API resources]({{base_path}}/observe/mi-observe/working-with-management-api) and invoke the [/transaction/count]({{base_path}}/working-with-management-api/#get-transaction-count) and [/transaction/report]({{base_path}}/observe/mi-observe/working-with-management-api)/#get-transaction-report-data) resources.

@@ -3,7 +3,7 @@
 The Java Message Service (JMS) transport of the WSO2 Micro Integrator allows you to easily send and receive messages to queues and topics of any JMS service that implements the JMS specification. The following sections describe how you can tune the JMS transport of the Micro Integrator for better performance.
 
 !!! Info
-    See the [JMS troubleshooting guide](../../references/troubleshooting-jms.md) for more topics related to tuning JMS use cases.
+    See the [JMS troubleshooting guide]({{base_path}}/troubleshooting/troubleshooting-jms) for more topics related to tuning JMS use cases.
 
 ## Increasing the maximum JMS proxies
 
@@ -13,7 +13,7 @@ If you create several JMS proxy services in the Micro Integrator, you will see a
 WARN - JMSListener Polling tasks on destination : JMStoHTTPStockQuoteProxy18 of type queue for service JMStoHTTPStockQuoteProxy18 have not yet started after 3 seconds ..
 ```
 
-This issue occurs when you do not have enough threads available to consume messages from JMS queues. The maximum number of concurrent consumers (that is, the number of JMS proxies) that can be deployed is limited by the base transport worker pool that is used by the [JMS transport](../../../concepts/messaging-transports/#jms). You can configure the size of this worker pool using the system properties `lst_t_core` and `lst_t_max`. Note that increasing these values will also increase the memory consumption, because the worker pool will allocate more resources.
+This issue occurs when you do not have enough threads available to consume messages from JMS queues. The maximum number of concurrent consumers (that is, the number of JMS proxies) that can be deployed is limited by the base transport worker pool that is used by the [JMS transport]({{base_path}}/reference/synapse-properties/transport-parameters/jms-transport-parameters). You can configure the size of this worker pool using the system properties `lst_t_core` and `lst_t_max`. Note that increasing these values will also increase the memory consumption, because the worker pool will allocate more resources.
 
 Similarly, you can configure the current number and the anticipated number of outbound JMS proxies using the system properties `snd_t_core` and `snd_t_max`.
 
@@ -65,7 +65,7 @@ To adjust the values of these properties, you can modify the server startup scri
 
 ## Tuning the JMS Listener
 
-To increase the JMS listener performance, add the following parameters to the [JMS listener configuration](../../../references/config-catalog/#jms-transport-listener) in the `deployment.toml` file (stored in the `MI_HOME/conf`):
+To increase the JMS listener performance, add the following parameters to the [JMS listener configuration]({{base_path}}/reference/config-catalog-mi/#jms-transport-listener) in the `deployment.toml` file (stored in the `MI_HOME/conf`):
 
 ```toml
 [[transport.jms.listener]]
@@ -120,7 +120,7 @@ parameter.max_concurrent_consumer = 50
 
 ## Tuning the JMS Sender
 
-To increase the JMS sender performance, add the following parameters to the [JMS listener configuration](../../../references/config-catalog/#jms-transport-sender) in the `deployment.toml` file (stored in the `MI_HOME/conf`):
+To increase the JMS sender performance, add the following parameters to the [JMS listener configuration]({{base_path}}/reference/config-catalog-mi/#jms-transport-sender) in the `deployment.toml` file (stored in the `MI_HOME/conf`):
 
 ```toml
 [[transport.jms.sender]]

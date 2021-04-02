@@ -6,7 +6,7 @@ existing streaming backend API implementation to the [API Publisher]({{base_path
 Streaming API support is provided via three main protocols in the WSO2 API Manager (WSO2 API-M).
 
 1. [WebSocket]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api)
-2. [WebSub (WebHooks)]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api)
+2. [WebSub (WebHook)]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api)
 3. [Server Sent Events (SSE)]({{base_path}}/design/create-api/create-streaming-api/create-a-sse-streaming-api)
 
 ## Topics

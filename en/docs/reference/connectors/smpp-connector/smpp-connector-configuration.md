@@ -1,6 +1,6 @@
 # Setting up the SMPP Connector 
 
-SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS through the WSO2 EI. You need to set up the environment and SMSC simulator before using this. 
+SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS from an integration sequence. You need to set up the environment and SMSC simulator before using this. 
  
 ## Setting up the environment
 

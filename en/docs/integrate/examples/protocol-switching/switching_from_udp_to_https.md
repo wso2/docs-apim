@@ -52,7 +52,7 @@ https://github.com/wso2-docs/WSO2_EI/blob/master/Back-End-Service/axis2Server.zi
       axis2server.bat
       ```
 
-[Enable the UDP transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-udp-transport) and start the Micro-Integrator.
+[Enable the UDP transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-udp-transport) and start the Micro-Integrator.
 
 Send the following message via UDP to the UDP listener port (9999).
 ```xml

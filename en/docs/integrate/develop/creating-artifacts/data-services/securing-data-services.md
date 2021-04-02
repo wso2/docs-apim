@@ -8,7 +8,7 @@ service.
 
 ## Prerequisites
 
-Be sure to [configure a user store](../../../../setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1: Creating a registry resource module
 
@@ -107,7 +107,7 @@ option of encrypting the datasource connection password. This ensures
 that the password is encrypted in the configuration file (.dbs file) of
 the data service.
 
-See the instructions on [encrypting plain-text passwords](../../../setup/security/encrypting_plain_text)
+See the instructions on [encrypting plain-text passwords]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text)
 
 Once you have encrypted the datasource password, you can update the data
 service as explained below.

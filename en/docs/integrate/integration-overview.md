@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 # Integration Overview
 
 WSO2 API Manager 4.0.0 is shipped with an integration runtime (Micro Integrator) with comprehensive enterprise integration capabilities. Therefore, you can now use WSO2 API Manager to develop complex integration services and expose them as managed APIs in an API marketplace. This allows you to enable API-led connectivity across your business using a single platform.
@@ -11,6 +13,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Integration</p>
                 <p class="hint">Try out a simple message mediation using the Micro Integrator.</p>
@@ -20,6 +25,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
                 <p class="title">Develop your First Integration</p>
                 <p class="hint">Build a simple integration scenario using WSO2 Integration Studio.</p>
@@ -29,6 +37,9 @@ Let's get started with the integration capabilities and concepts of the Micro In
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Integration</p>
                 <p class="hint">Explore the key concepts used by the Micro Integrator.</p>
@@ -72,72 +83,187 @@ See the topics in the following sections for details and instructions.
 
 Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/message-routing-overview">Message Routing and Transformation</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/service-orchestration-overview">Restful Service and Orchestration</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/asynchronous-message-overview">Enterprise Messaging</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/connectors">SaaS and B2B Connectivity</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/data-integration-overview">Data Integration</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/protocol-switching-overview">Protocol Switching</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/file-processing-overview">File Processing</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/integrate/integration-use-case/scheduled-task-overview">Periodic Execution of Integration Processes</a>
-        </td>
-    </tr>
-</table>
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Message Routing</p>
+                <p class="hint">Explore how messages are routed to different endpoints.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/message-routing-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Message Transformation</p>
+                <p class="hint">Explore how messages are transformed into different formats.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/data-integration-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Data Integration</p>
+                <p class="hint">Explore how data from various sources are used during message mediation.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/file-processing-overview';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">File Processing</p>
+                <p class="hint">Explore how data from file systems are moved and used during message mediation.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/connectors';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">SaaS and B2B Connectivity</p>
+                <p class="hint">Explore how to integrate with third-party systems using WSO2 connectors.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/service-orchestration-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Service Orchestration</p>
+                <p class="hint">Explore how multiple Restful services are exposed as a single course-grained service.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/asynchronous-message-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Enterprise Messaging</p>
+                <p class="hint">Explore asynchronous messaging patterns using message brokers.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/scheduled-task-overview';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Scheduled Integration Processes</p>
+                <p class="hint">Explore how integration processes are scheduled and executed periodically.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-use-case/protocol-switching-overview';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Protocol Switching</p>
+                <p class="hint">Explore how message protocols are changed during message mediation.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
 
 ### Management and Observability
 
 Learn about the dashboards, tools, and solutions that are available for managing and monitoring integrations deployed in the Micro Integrator.
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
-        </td>
-        <td>
-            <a href="{{base_bath}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller">APICTL (Command Line for Integration)</a>
-        </td>
-        <td>
-            <a href="{{base_path}}/observe/mi-observe/mi-observability-overview">Observability Solution for Integration</a>
-        </td>
-    </tr>
-</table>
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Micro Integrator Dashboard</p>
+                <p class="hint">Dashboard for monitoring integration artifacts in a Micro Integrator cluster.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_bath}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">APICTL (CLI for Integration)</p>
+                <p class="hint">Command-line tool for monitoring integration artifacts in a Micro Integrator instance.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Observability for Integrations</p>
+                <p class="hint">Observability solution for integrations deployed in a Micro Integrator cluster.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
 
 ### DevOps and Administration
 
 Learn how to set up a Micro Integrator deployment and configure the deployment according to your requirements.
 
-<table>
-    <tr>
-        <td>
-            <a href="">Micro Integrator Installation</a>
-        </td>
-        <td>
-            <a href="">Micro Integrator Deployment</a>
-        </td>
-        <td>
-            <a href="">Continuous Integration and Continous Deployment</a>
-        </td>
-    </tr>
-</table>
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#installing_1';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Installation</p>
+                <p class="hint">Install the Micro Integrator in your environment.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_bath}}/install-and-setup/install-and-setup-overview/#deploying_1';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Deployment</p>
+                <p class="hint">Select a deployment strategy and set up a deployment (on containers or VMs).</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#upgrading_1';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Upgrade</p>
+                <p class="hint">Upgrade to the latest Micro Integrator from previous product versions.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#setting-up_1';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Configuration and Set up</p>
+                <p class="hint">Configure Security, Data Stores, Perfomance, Message Brokers, Transports, etc.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_bath}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">CICD Pipelines</p>
+                <p class="hint">Implement CICD pipelines for your deployment (on containers or VMs).</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
 
 ### Integration Tutorials
 
