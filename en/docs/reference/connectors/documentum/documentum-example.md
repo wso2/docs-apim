@@ -10,13 +10,13 @@ parent folder in the specified cabinet.
 The example consists of an API named as Documentum API with two resources create folder and get cabinets.
 
 **Create Folder**
-/createfolder: The user sends the request payload which includes the repository, parent folder ID and folder name. This request is sent to WSO2 EI by invoking the Documentum API. It will create the new folder in Documentum under the parent folder given.
+/createfolder: The user sends the request payload which includes the repository, parent folder ID and folder name. This request is sent to the integration runtime by invoking the Documentum API. It will create the new folder in Documentum under the parent folder given.
 
 **Get Cabinets**
-/getcabinets: The user sends the request payload, containing the repository name to list cabinets present under that in Documentum. This request is sent to WSO2 EI where the Documentum Connector API resides. Once the API is invoked, it returns the list of cabinets.
+/getcabinets: The user sends the request payload, containing the repository name to list cabinets present under that in Documentum. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it returns the list of cabinets.
 
 **Create Document**
-/createdocument: The user sends the request payload which includes the folder ID and document name. This request is sent to WSO2 EI where the Documentum Connector API resides. Once the API is invoked, it will create the new Document in Documentun under the given folder ID.
+/createdocument: The user sends the request payload which includes the folder ID and document name. This request is sent to the integration runtime where the Documentum Connector API resides. Once the API is invoked, it will create the new Document in Documentun under the given folder ID.
 
 The following diagram shows the overall solution.
 
@@ -26,7 +26,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -83,7 +83,7 @@ Now we can export the imported connector and the API into a single CAR applicati
 
 {!reference/connectors/exporting-artifacts.md!}
 
-Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
+Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
@@ -98,7 +98,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 
