@@ -14,7 +14,7 @@ The diagram below illustrates the resource owner password credentials grant flow
 
 #### Prerequisites
 
--   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+-   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin]({{base_path}}/consume/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 -   A valid consumer key and consumer secret pair. Initially, these keys must be generated through the API Developer Portal by clicking **GENERATE KEYS** on the **Production Keys** tab of the application.
 -   A running API Gateway instance (typically an API Manager instance should be running). For instructions on API Gateway, see [Components]({{base_path}}/getting-started/basic-architecture/#api-gateway).
 

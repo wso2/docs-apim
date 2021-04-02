@@ -185,7 +185,7 @@ This should be done in the backend services in the Application Server or WSO2 ES
 
 ### How can I enable self signup to the Developer Portal ?
 
-See [how to enable self signup]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+See [how to enable self signup]({{base_path}}/consume/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 
 ### How can I disable self signup to the Developer Portal ? I want to engage my own approval mechanism.
 

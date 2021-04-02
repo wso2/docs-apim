@@ -123,7 +123,7 @@ The registry data of API Manager is stored in the above-mentioned `jdbc/SHARED_D
 
 ### Step 3 - Create a BPEL
 
-In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/) workflow.
+In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-creation-workflow/) workflow.
 
 
 1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) and create a tenant using the **Configure -&gt; Multitenancy** menu.

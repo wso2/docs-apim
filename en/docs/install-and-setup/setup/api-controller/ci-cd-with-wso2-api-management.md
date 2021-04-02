@@ -117,7 +117,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
      For more information, see [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
     !!! tip
-        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 2. Export the latest revision of the API from the lower environment using the `export api` command.
 
@@ -375,7 +375,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
 
 !!! tip
-    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
+    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
     - You should log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
 Run any of the following apictl commands to get keys for the API/API Product.

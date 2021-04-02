@@ -8,7 +8,7 @@ Applications allow you to:
 -   Subscribe multiple times to a single API with different Service Level Agreements (SLAs)/business plans which 
 operate on per access token basis.
 
-WSO2 API Manager comes with a pre-created default application, which allows unlimited access by default. You can also [create]({{base_path}}/learn/consume-api/manage-application/create-application/#create-a-new-application) your own.
+WSO2 API Manager comes with a pre-created default application, which allows unlimited access by default. You can also [create]({{base_path}}/consume/manage-application/create-application/#create-a-new-application) your own.
 
 ## Create a new application
 

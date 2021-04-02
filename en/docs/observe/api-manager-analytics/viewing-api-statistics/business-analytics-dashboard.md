@@ -235,6 +235,6 @@ Using this widget, the user will be able to identify the key locations where the
 
 Here, Geolocation based statistics are used to carry out detailed monitoring of geographic locations. 
 Geographic location is identified from X-Forwarded-For header with the relevant IP in the API request. 
-For more information, see [Using Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/).
+For more information, see [Using Geolocation Based Statistics]({{base_path}}/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/).
 
 ![Geo location based invocations]({{base_path}}/assets/img/learn/analytics/geo-location-stats.png)
