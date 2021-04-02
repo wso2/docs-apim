@@ -561,13 +561,14 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .quick_links {
-    float: right;
-    height: 53px;
+    position: absolute;
+    right: 60px;
+    top: 55px;
 }
 
 .md-tabs__list {
     display: inline-block;
-    width: calc(100% - 55px);
+    width: 100%;
     overflow: hidden;
 }
 
@@ -1590,7 +1591,4 @@ html .md-footer-meta.md-typeset a,
  }
  .floatRight .md-tabs__item{
      padding-right: 0;
- }
- .externalLink {
-     margin-right: 20px;
  }
