@@ -110,7 +110,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
      'header.X-WSO2-KEY-MANAGER' = "default"
      ```
 
-2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
+2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/design/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
 3. Optionally, add the following configuration to enable distributed cache invalidation within the Key Manager nodes.
