@@ -202,4 +202,4 @@ Follow the steps below to add a new state to the default life cycle.
         If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/)section.
 
 
-For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/learn/design-api/lifecycle-management/extending-the-api-life-cycle/) .
+For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/design/lifecycle-management/extending-the-api-life-cycle/) .

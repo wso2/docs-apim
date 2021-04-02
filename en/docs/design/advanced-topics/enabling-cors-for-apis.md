@@ -36,7 +36,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 ## Enabling CORS Per API
 
 !!! note
-    You need to enable CORS globally before you enable CORS Per API. Therefore, if you have not enabled CORS globally, follow the instructions in [Enabling CORS Globally]({{base_path}}/learn/design-api/advanced-topics/enabling-cors-for-apis/#enabling-cors-globally) before carrying out the following instructions.
+    You need to enable CORS globally before you enable CORS Per API. Therefore, if you have not enabled CORS globally, follow the instructions in [Enabling CORS Globally]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#enabling-cors-globally) before carrying out the following instructions.
 
 
 1.  Sign in to API Publisher and [create a new API]({{base_path}}/design/create-api/create-a-rest-api).

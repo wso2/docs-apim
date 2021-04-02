@@ -54,7 +54,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p> Note that when creating this API, the default option of **Rate limiting level** , was selected to **API Level**. For more information on setting advanced throttling policies,
-     see [Enforce Throttling and Resource Access Policies]({{base_path}}/learn/rate-limiting/setting-throttling-limits/).</p>
+     see [Enforce Throttling and Resource Access Policies]({{base_path}}/design/rate-limiting/setting-throttling-limits/).</p>
      </div>
      </html>
      

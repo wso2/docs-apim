@@ -54,7 +54,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p> Note that when creating this API, **API Level** was selected as the default option for the **Rate limiting level**. For more information on setting advanced throttling policies,
-     see [Enforce Throttling and Resource Access Policies]({{base_path}}/learn/rate-limiting/setting-throttling-limits/).</p>
+     see [Enforce Throttling and Resource Access Policies]({{base_path}}/design/rate-limiting/setting-throttling-limits/).</p>
      </div>
      </html>
 

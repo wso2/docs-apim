@@ -6,7 +6,7 @@ You can download a Postman collection for either an **Open API** or a **GraphQL 
     If required, instead of using Postman you can try out your APIs using the WSO2 API Manager integrated consoles that correspond to your API as mentioned below.
 
     - REST API - [Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md)
-    - GraphQL API - [Integrated GraphQL Console]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md)
+    - GraphQL API - [Integrated GraphQL Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console)
 
 For example, let's download an OpenAPI as a Postman collection and try it out using Postman.
 

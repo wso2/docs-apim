@@ -31,7 +31,7 @@ Follow the instructions below to create a new version of an existing API:
      You are redirected to the API **Overview** page. 
 
 !!! note
-    For more details on the default version, see [Backward Compatibility]({{base_path}}/learn/design-api/api-versioning/backward-compatibility/) section.
+    For more details on the default version, see [Backward Compatibility]({{base_path}}/design/api-versioning/backward-compatibility/) section.
 
 !!! note
     By default, only the latest version of an API is shown in the Developer Portal. If you want to display multiple versions, add/change the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file, and restart the server.
@@ -41,5 +41,5 @@ Follow the instructions below to create a new version of an existing API:
     ```
 
 You have created a new version of an API. In the next tutorial, let's learn how to
-[publish the new version and deprecate old API versions]({{base_path}}/learn/design-api/api-versioning/deprecate-the-old-version/).
+[publish the new version and deprecate old API versions]({{base_path}}/design/api-versioning/deprecate-the-old-version/).
 
