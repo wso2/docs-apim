@@ -24,6 +24,7 @@ Follow the steps below to import the Salesforce certificate into the integration
    <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
+
 4. Import the certificate to the integration server's client keystore using either the following [command]({{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate/).
 
     ```
