@@ -30,7 +30,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration `<API-M_HOME>/repository/conf/user-mgt.xml` in both nodes.
 
     !!! tip
-        In an actual deployment, both these servers can [share the user store]({{base_path}}/learn/extensions/saml2-sso/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
+        In an actual deployment, both these servers can [share the user store]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
 
 2.  Start the WSO2 API Manager server and log in to the Management Console. Create user information with the following permission structure.
 
