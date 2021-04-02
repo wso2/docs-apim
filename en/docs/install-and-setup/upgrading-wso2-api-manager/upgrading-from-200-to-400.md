@@ -3454,7 +3454,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             **Make sure to revert the change done in <a href="#stepT1">Step 1</a>, after the migration is complete.**
 
-            If you encounter the following error when executing the execute the given DB script against the shared_db:  
+            If you encounter the following error when executing the given DB script against the shared_db:  
             
             
             Sample exception stack trace is given below.
