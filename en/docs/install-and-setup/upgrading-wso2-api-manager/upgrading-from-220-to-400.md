@@ -2976,14 +2976,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ``` java
         [keystore.tls]
-        file_name = "wso2carbon.jks"
+        file_name = "internal.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
         key_password = "wso2carbon"
                         
         [keystore.primary]
-        file_name = "wso2carbon.jks"
+        file_name = "primary.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
@@ -3259,3 +3259,5 @@ This concludes the upgrade process.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
+   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the the fault messages have been changed from XML to JSON in API-M 4.0.0.  
