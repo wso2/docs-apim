@@ -37,4 +37,4 @@ To monetize APIs using your subscription models, do the following
 
 For more details, see [Enabling Monetization of APIs-]({{base_path}}/design/api-monetization/monetizing-an-api).
 
-To view API usage and statistics, configure WSO2 API-M Analytics. For more details, see [Configuring APIM Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/#configuring-apim-analytics).
+To view API usage and statistics, configure WSO2 API-M Analytics. For more details, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#configuring-apim-analytics).
