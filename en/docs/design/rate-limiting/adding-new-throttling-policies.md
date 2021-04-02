@@ -165,7 +165,7 @@ You have added a new application-level throttling policy.
     
      **Free** - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.              **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.       
      **Freemium** - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.                                                                                                                                                    <p>                                                            
-      This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/learn/api-monetization/configuring-api-monetization-category-labels/).   </p>                                                                                     
+      This labeling happens on the Developer Portal only if monetization has been enabled. For information on how to enable monetization and how to tag subscription tiers, see [Configuring API Monetization Category Labels]({{base_path}}/design/api-monetization/configuring-api-monetization-category-labels/).   </p>                                                                                     
     </div>                                                                           
     You have now successfully added a new subscription-level throttling policy.
     

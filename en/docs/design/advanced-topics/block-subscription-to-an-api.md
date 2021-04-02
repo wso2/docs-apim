@@ -5,7 +5,7 @@ An API publisher can **block subscription** to an API as a way of disabling acce
 You can block APIs by subscription by blocking access to a respective user to access a specific API that they had subscribed to using a particular application. If a user has subscribed to two APIs, using the same application, and you block access to only one of the APIs, the respective user can continue to invoke the other API that they had previously subscribed to using the same application. In addition, the user can continue to access the same API subscribed to using different applications.
 
 !!! info
-    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request denylisting]({{base_path}}/learn/rate-limiting/access-control/#denying-requests).
+    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request denylisting]({{base_path}}/design/rate-limiting/access-control/#denying-requests).
 
 
 Blocking can be done at two levels:
