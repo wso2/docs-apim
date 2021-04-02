@@ -36,7 +36,7 @@ Adapter will pull the APIs that are deployed in the specified set of environment
 3. Pull all the application key details for a specific tenant.
 4. Pull all the subscriptions of a specific tenant.
 
-The detailed explanation of subscription validation can be found [here](${{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation).
+The detailed explanation of subscription validation can be found [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation).
 
 ##Rate Limiting
 

@@ -114,7 +114,7 @@ apictl mg deploy api -f <PROJRECT_NAME> -e <ENVIRONMENT_NAME> -k
 
 ``` java tab="Example"
 apictl mg deploy api -f petstore -e dev -k
-    ```
+```
 
 ### Step 5 - Invoke the sample API
 ##### Step 5.1 - Obtain a token
