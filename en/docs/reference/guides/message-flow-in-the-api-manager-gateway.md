@@ -34,7 +34,7 @@ Each handler performs a specific task as mentioned in the table below. Note that
 
 ### Mediation extensions
 
-Mediation extensions are the custom mediation logic that can be executed in either the inflow or the outflow. For more details on how to configure mediation extensions, see [Adding Mediation Extensions]({{base_path}/4.0.0-dev/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests}) .
+Mediation extensions are the custom mediation logic that can be executed in either the inflow or the outflow. For more details on how to configure mediation extensions, see [Adding Mediation Extensions]({{base_path}}/4.0.0-dev/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) .
 
 ### In sequence and out sequence
 
