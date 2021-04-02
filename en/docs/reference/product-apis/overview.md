@@ -17,7 +17,7 @@ There are two versions of REST APIs available for the Admin Portal.
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/admin-apis/admin-v2/admin-v2/">WSO2 Admin Portal v2</a></td>
   </tr>
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/">WSO2 Gateway API v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/gateway-apis/gateway-v1/gateway-v1/">WSO2 Gateway API v1</a></td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/">WSO2 Service Catalog API v1</a></td>
