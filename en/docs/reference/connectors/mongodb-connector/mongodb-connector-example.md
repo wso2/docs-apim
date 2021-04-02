@@ -97,7 +97,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Drag the [Respond Mediator]({{base_path/reference/mediators/respond-mediator) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Drag the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
 
