@@ -62,7 +62,7 @@ and use it to sign the keys for the LDAP server.
 **Ensuring secure data**
 
 Secure Vault is supported for encrypting passwords. See, 
-[Working with Secrets]({{base_path}/install-and-setup/install-and-setup-overview/encrypting_plain_text) on integrating 
+[Working with Secrets]({{base_path}}/install-and-setup/install-and-setup-overview/encrypting_plain_text) on integrating 
 and using Secure Vault.
 
 **Re-using LDAP configurations**
