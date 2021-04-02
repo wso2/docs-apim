@@ -11,9 +11,9 @@ Since clients have the possibility to request very complex queries, servers must
 
 The Static Query Analyser detects complex queries based on a predefined policy and prevents them from reaching the backend. A basic outline of such a policy is shown below.
 
-   - [Query Depth Limitation]({{base_path}}/learn/api-security/graphql-query-analysis/query-depth-limitation)
+   - [Query Depth Limitation]({{base_path}}/design/api-security/graphql-query-analysis/query-depth-limitation)
     
-   - [Query Complexity Limitation]({{base_path}}/learn/api-security/graphql-query-analysis/query-complexity-limitation)
+   - [Query Complexity Limitation]({{base_path}}/design/api-security/graphql-query-analysis/query-complexity-limitation)
 
 
 To implement applicable query limits for the GraphQL APIs, two optional fields, **GraphQL Max Depth** and **GraphQL Max Complexity**, were introduced to Subscription Policies.
