@@ -162,7 +162,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
         ...
      ```
 
-3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 

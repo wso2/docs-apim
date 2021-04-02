@@ -96,10 +96,10 @@ Widgets in this section are mainly focusing on the API Health and System related
 ### API availability summary
 
 !!! note
-    In order to view statistics of API Availability widget, it is required to enable alerts as described in [Configuring Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/).
+    In order to view statistics of API Availability widget, it is required to enable alerts as described in [Configuring Alerts]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts/).
 
 API availability summary widget provides an overall look on the availability of the APIs. It shows whether the API is available(which means API is in good health), whether the Response time of the API is high or whether a server error occurred when accessing the API as percentages for the APIs of the logged in user's tenant. 
-The availability of API statistics are directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
+The availability of API statistics are directly related to the [Availability of APIs (health monitoring)]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
 Moreover, once the user clicks on one of the available three status for the API availability, it drills down to the API availability widget and shows details of the APIs which have the selected status.
 
 !!! note

@@ -7,7 +7,7 @@ WSO2 API Manager analytics-based alerts are disabled by default. Once you [enabl
 -   Configure alerts via the Publisher
 -   Configure alerts via the Developer Portal
 
-Once you have configured alerts, you can subscribe to alerts to receive email notifications. For instructions, see [Subscribing for Alerts]({{base_path}}/learn/analytics/subscribing-for-alerts/).
+Once you have configured alerts, you can subscribe to alerts to receive email notifications. For instructions, see [Subscribing for Alerts]({{base_path}}/observe/api-manager-analytics/subscribing-for-alerts/).
 
 !!! note
      Before you begin, make sure that you have configured Analytics for API Manager. For instructions, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/).
