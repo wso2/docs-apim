@@ -45,7 +45,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
   
      <html><div class="admonition note"><p class="admonition-title">Note</p>
      <p>
-     If you wish to add scopes to the resources that were created, click  **Resources**. Thereafter, create new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see [OAuthscopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/).
+     If you wish to add scopes to the resources that were created, click  **Resources**. Thereafter, create new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see [OAuthscopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/).
      </p>
      </div></html>   
 
@@ -60,6 +60,6 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
 Now, the SOAP service is created and configured successfully as a RESTful API. 
 
-For more information on API publishing, see [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-api/).
+For more information on API publishing, see [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
 
 To learn more, see the tutorial on [Creating and Publishing a SOAP service as a RESTful API]({{base_path}}/learn/tutorials/expose-a-soap-service-as-a-rest-api/).

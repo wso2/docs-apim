@@ -177,7 +177,7 @@ You can enable centralized authentication using a WSO2 Identity Server based [se
 
 ### How can I manage the API permissions/visibility?
 
-To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
+To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
 
 ### How can I add security policies (UT, XACML, etc.) for the services?
 

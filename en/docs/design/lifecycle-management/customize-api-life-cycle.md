@@ -1,6 +1,6 @@
 # Customize API Life Cycle
 
-APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consists of [six states]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/#api-lifecycle-states) . This tutorial demonstrates how you can edit the default API lifecycle and customize it according to your requirements.
+APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consists of [six states]({{base_path}}/design/lifecycle-management/api-lifecycle/#api-lifecycle-states) . This tutorial demonstrates how you can edit the default API lifecycle and customize it according to your requirements.
 
 Follow the steps below to add a new state to the default life cycle.
 

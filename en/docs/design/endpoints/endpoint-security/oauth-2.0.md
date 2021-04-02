@@ -16,7 +16,7 @@ The OAuth 2.0 Authorization Framework specification declares 4 grant-types to ob
 
 ## Securing an endpoint with OAuth 2.0 in WSO2 API Manager
 
-When you [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api) using the API Publisher, you can specify the production and sandbox endpoints of the API backend implementation via the **Endpoints** page.
+When you [create an API]({{base_path}}/design/create-api/create-a-rest-api) using the API Publisher, you can specify the production and sandbox endpoints of the API backend implementation via the **Endpoints** page.
 
 Follow the instructions below to use OAuth 2.0 as the endpoint authorization type when using a secured endpoint and allow WSO2 API Manager to communicate with the backend to retrieve access tokens on behalf of the API.
 

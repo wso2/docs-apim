@@ -229,7 +229,7 @@ You have created documentation using the API Publisher and viewed the documentat
 #### Control API document visibility using the API Publisher
 1.  Sign in to the API Publisher as an API creator using the following URL: 
      `https://<localhost>:9443/publisher`
-2.  [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-a-rest-api/) or edit an existing API.
 3.  In the **Documents** tab, Click **Add New Document**, to see a new drop-down list added to select visibility from.
      [ ![API document visibility selector]({{base_path}}/assets/img/learn/api-doc-visibility-selector.png) ](/{{base_path}}/assets/img/learn/api-doc-visibility-selector.png)
 4.  Select the desired visibility level for the document. 

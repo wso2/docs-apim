@@ -9,7 +9,7 @@ The WebSocket protocol is designed to achieve the following:
 -   Be backward compatible with the pre-WebSocket world by starting up as an HTTP connection before switching to WebSocket frames.
 
 A WebSocket API allows an API creator to expose a WebSocket backend as an API to offer services via a WebSocket protocol while providing 
-[OAuth security]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens), [Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases/), [Analytics]({{base_path}}/learn/analytics/overview-of-api-analytics/), etc.
+[OAuth security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens), [Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/), [Analytics]({{base_path}}/learn/analytics/overview-of-api-analytics/), etc.
 
 Follow the instructions below to design a WebSocket API.
 
@@ -98,7 +98,7 @@ Follow the instructions below to design a WebSocket API.
 
     [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
 
-Now, you have successfully created and configured a WebSocket API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Now, you have successfully created and configured a WebSocket API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>

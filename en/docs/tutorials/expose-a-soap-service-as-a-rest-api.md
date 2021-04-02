@@ -46,7 +46,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     <html><div class="admonition note"><p class="admonition-title">Note</p>
     <p>
             If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/)
+    [OAuthscopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/)
             </p>
         </div></html>   
 

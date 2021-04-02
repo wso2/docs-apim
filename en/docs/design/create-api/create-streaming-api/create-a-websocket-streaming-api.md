@@ -133,7 +133,7 @@ Click **AsyncAPI Definition** under **API Configurations**. The AsyncAPI specifi
     
    [![WebSocket API AsyncAPI Definition]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-asyncapi.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-asyncapi.png)
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>
@@ -144,11 +144,11 @@ Now, you have successfully created and configured a Streaming API. Next, let's [
 
         Click the following topics to learn more on the concepts that you need to know when creating an API:
        -   [Creating A Streaming Backend]({{base_path}}/get-started/quick-start-guide/streaming-qsg)
-       -   [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-       -   [Endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-types/)
-       -   [Throttling Tiers]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases/)
-       -   [Custom Properties]({{base_path}}/learn/design-api/create-api/adding-custom-properties-to-apis/)
-       -   [API Security]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens)
-       -   [Life Cycle Management]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/)
-       -   [API Documentation]({{base_path}}/learn/design-api/api-documentation/add-api-documentation/)
-       -   [API Monetization]({{base_path}}/learn/api-monetization/monetizing-an-api/)
+       -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+       -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+       -   [Throttling Tiers]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+       -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+       -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
+       -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+       -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+       -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)
