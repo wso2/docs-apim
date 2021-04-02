@@ -1,6 +1,6 @@
 # Setting up the BigQuery Environment  
 
-The BigQuery connector allows you to access the [BigQuery REST API](https://cloud.google.com/bigquery/docs/reference/rest) through WSO2 EI.
+The BigQuery connector allows you to access the [BigQuery REST API](https://cloud.google.com/bigquery/docs/reference/rest) from an integration sequence.
 
 To work with the BigQuery connector, you need to have a Google Cloud Platform account. If you do not have a Google Cloud Platform account, go to [console.cloud.google.com](https://console.cloud.google.com/freetrial), and create a Google Cloud Platform trial account.
 
@@ -53,7 +53,7 @@ Follow the steps below to generate user credentials.
     
     <img src="{{base_path}}/assets/img/integrate/connectors/bigquery-get-authorization-code.png" title="Get authorization code" width="600" alt="Get authorization code"/> 
     
-11. Get the `access token` and `refresh token` by sending a POST request to the URL given below. Be sure to use an **x-www-form-urlencoded** body with the `<authorization_code>`, `<client_id>`, `<client_secret>`, and `<redirect_uri>` values noted before, and also set the `grant_type` to **authorization_code**. You will need them to configure WSO2 EI Big Query Connector. 
+11. Get the `access token` and `refresh token` by sending a POST request to the URL given below. Be sure to use an **x-www-form-urlencoded** body with the `<authorization_code>`, `<client_id>`, `<client_secret>`, and `<redirect_uri>` values noted before, and also set the `grant_type` to **authorization_code**. You will need them to configure the WSO2 Big Query Connector. 
     
     ```
     https://www.googleapis.com/oauth2/v3/token.

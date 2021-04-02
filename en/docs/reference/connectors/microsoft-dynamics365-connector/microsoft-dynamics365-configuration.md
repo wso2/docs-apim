@@ -1,6 +1,6 @@
 # Setting up the Microsoft Dynamics365 Environment with Azure
 
-The Microsoft Dynamics 365 (Microsoft Dynamics CRM) Connector allows you to access the [Microsoft Dynamics 365 Web API](https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/mt593051(v=crm.8)?redirectedfrom=MSDN) through WSO2 Enterprise Integrator. The Microsoft Dynamics CRM system (now known as Microsoft Dynamics 365) is a standalone CRM product from Microsoft that provides sales, marketing, and service management capabilities only via individual modules.
+The Microsoft Dynamics 365 (Microsoft Dynamics CRM) Connector allows you to access the [Microsoft Dynamics 365 Web API](https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/mt593051(v=crm.8)?redirectedfrom=MSDN) through the WSO2 integration runtime. The Microsoft Dynamics CRM system (now known as Microsoft Dynamics 365) is a standalone CRM product from Microsoft that provides sales, marketing, and service management capabilities only via individual modules.
 
 To use the Microsoft Dynamics 365, you must have folowing accounts. 
 

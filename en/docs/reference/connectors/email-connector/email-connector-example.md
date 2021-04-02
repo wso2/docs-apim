@@ -8,11 +8,11 @@ This example explains how to use Email Connector to send an email and retrieve t
 
 The example consists of an API named as EmailConnector API with two resources `send` and `retrieve`. 
 
-* `/send `: The user sends the request payload which includes the recipients, content and attachments of the email. This request is sent to WSO2 EI by invoking the EmailConnector API. It will send the email to the relevant recipients. 
+* `/send `: The user sends the request payload which includes the recipients, content and attachments of the email. This request is sent to the integration runtime by invoking the EmailConnector API. It will send the email to the relevant recipients. 
 
     <p><img src="{{base_path}}/assets/img/integrate/connectors/email-conn-14.png" title="Send function" width="800" alt="Send function" /></p>
 
-* `/retrieve `: The user sends the request payload, containing the filter to search the received email. This request is sent to WSO2 EI where the EmailConnector API resides. Once the API is invoked, it returns the filtered emails.
+* `/retrieve `: The user sends the request payload, containing the filter to search the received email. This request is sent to the integration runtime where the EmailConnector API resides. Once the API is invoked, it returns the filtered emails.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/email-conn-15.png" title="Retrieve function" width="800" alt="Retrieve function"/>
 
@@ -204,7 +204,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 

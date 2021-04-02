@@ -15,7 +15,7 @@ The MongoDB connector can be used to deal with two types of connections:
 
 There are different connection configurations that can be used for the above protocols. They contain a common set of configurations and some additional configurations specific to the protocol.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-9.png" title="Types of MongoDB connections" width="800" alt="Types of MongoDB connections"/>
+<img src="{{base_path}}/img/integrate/connectors/mongodb-conn-9.png" title="Types of MongoDB connections" width="800" alt="Types of MongoDB connections"/>
 
 The supported connection URI types and connection options are listed in the [MongoDB Connection String](https://docs.mongodb.com/manual/reference/connection-string/) documentation.
 

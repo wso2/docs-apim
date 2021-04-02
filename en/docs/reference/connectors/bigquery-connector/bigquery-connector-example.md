@@ -1,12 +1,12 @@
 # BigQuery Connector Example
 
-The WSO2 EI BigQuery connector is mostly comprised of operations that are useful for retrieving BigQuery data such as project details, datasets, tables, and jobs (it has one operation that can be used to insert data into BigQuery tables).
+The WSO2 BigQuery connector is mostly comprised of operations that are useful for retrieving BigQuery data such as project details, datasets, tables, and jobs (it has one operation that can be used to insert data into BigQuery tables).
 
 In this example we are trying to build up a sample scenario based on the BigQuery Table operations.
 
 ## What you'll build
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 EI BigQuery Connector:
+Given below is a sample scenario that demonstrates how to work with the WSO2 BigQuery Connector:
 
 1. The user sends the request to invoke an API to get created table details from the BigQuery. This REST call will retrieve schema level information and send it back to the API caller.
 2. Insert data in to the created table.
@@ -30,7 +30,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -506,7 +506,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 

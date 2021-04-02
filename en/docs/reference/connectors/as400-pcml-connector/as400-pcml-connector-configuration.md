@@ -1,8 +1,8 @@
 # Setting up the AS400 PCML Environment  
 
-The AS400 PCML connector allows you to access RPG programs that are available on AS400 (renamed as IBM iSeries) servers using WSO2 EI. This is done using [Program Call Markup Language](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzahh/pcml.htm) (PCML). 
+The AS400 PCML connector allows you to access RPG programs that are available on AS400 (renamed as IBM iSeries) servers using the integration runtime of WSO2. This is done using [Program Call Markup Language](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzahh/pcml.htm) (PCML). 
 
-you need to have access to an IBM iSeries server. If you do not have an on-premise IBM iSeries server, go to public IBM iSeries server, and create a [public IBM iSeries server](https://pub400.com/) account.
+You need to have access to an IBM iSeries server. If you do not have an on-premise IBM iSeries server, go to public IBM iSeries server, and create a [public IBM iSeries server](https://pub400.com/) account.
 
 The connector uses the IBM JTOpen library for all its operations. Copy the **jt400.jar** to `<ESB_HOME>/repository/components/lib` folder. You can download the IBM JTOpen library from (here)[https://sourceforge.net/projects/jt400/].
 
@@ -25,6 +25,7 @@ Follow the steps below to create public IBM iSeries server.
 5. Download the **IBM i Access Client Solutions**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/as400-ibm-client-access.png" title="IBM i Access Client Solutions" width="600" alt="IBM i Access Client Solutions"/>
+
 
 6. Extract the downloaded .zip file and install it.
 
@@ -55,11 +56,13 @@ Follow the steps below to create public IBM iSeries server.
 13. When you click this emulator you need to add the username and password you got in step 3. Then you will see the following window.   
 
     <img src="{{base_path}}/assets/img/integrate/connectors/as400-pub400-server-window.png" title="PUB400 server command line view" width="600" alt="PUB400 server command line view"/>
+
  
 14. You need to add the same user name and password you got in the step 3.
 
 15. Now you can see the following **IBM i Main Menu**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/as400-ibm-i-main-menu.png" title="IBM i Main Menu" width="600" alt="IBM i Main Menu"/>
+
 
 To configure the AS400 PCML connector, you will be required AS400 public server `username` and `password`.

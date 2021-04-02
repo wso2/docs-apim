@@ -1,6 +1,6 @@
 # Setting up the ServiceNow Instance
 
-The ServiceNow connector allows you to access the ServiceNow REST API of through WSO2 EI. To use the REST API, we need to have a [ServiceNow](https://www.servicenow.com/) account. 
+The ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. To use the REST API, we need to have a [ServiceNow](https://www.servicenow.com/) account. 
 
 ## Signing Up for Servicenow
 

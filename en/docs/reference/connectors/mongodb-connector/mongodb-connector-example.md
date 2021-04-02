@@ -8,11 +8,12 @@ This example explains how to use MongoDB Connector to insert and find documents 
 
 The sample API given below demonstrates how the MongoDB connector can be used to connect to the MongoDB Server and perform **insert many** and **find** operations on it.
 
-- `/insertmany`: The user sends a request payload that includes the connection information, collection name, and the documents to be inserted. This request is sent to WSO2 EI by invoking the MongodbConnector API. This will insert the documents into the MongoDB database.
+- `/insertmany`: The user sends a request payload that includes the connection information, collection name, and the documents to be inserted. This request is sent to the integration runtime by invoking the MongodbConnector API. This will insert the documents into the MongoDB database.
 
-    <p><img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-1.png" title="Insert many function" width="800" alt="Insert many function" /></p>
 
-- `/find`: The user sends the request payload containing the connection information, collection name, and the find query. This request is sent to WSO2 EI by invoking the MongodbConnector API. Once the API is invoked, it returns the documents matching the find query.
+    <p><img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-1.png" title="Insert many function"  alt="Insert many function" /></p>
+
+- `/find`: The user sends the request payload containing the connection information, collection name, and the find query. This request is sent to the integration runtime by invoking the MongodbConnector API. Once the API is invoked, it returns the documents matching the find query.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-2.png" title="Find function" width="800" alt="Find function"/>
 
@@ -81,7 +82,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Collection - json-eval($.collection)
     - Documents - json-eval($.documents)
 
-9.  Drag the [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after inserting documents) as shown below.
+9.  Drag the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to the canvas. This returns the response message to the client (after inserting documents) as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/mongodb-conn-8.png" title="Adding the respond mediator." width="800" alt="Adding the respond mediator."/>
 
@@ -96,7 +97,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     - Collection - json-eval($.collection)
     - Query - json-eval($.query)
 
-14. Drag the [Respond Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/respond-Mediator/) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
+14. Drag the [Respond Mediator]({{base_path/reference/mediators/respond-mediator) to the canvas. This returns the response message to the client (after retrieving documents) as shown below.
 
 15. You can find the complete API XML configuration below. You can go to the source view and copy paste the following config.
 
@@ -141,7 +142,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime.
+Follow these steps to deploy the exported CApp in the integration runtime.
 
 {!reference/connectors/deploy-capp.md!}
 

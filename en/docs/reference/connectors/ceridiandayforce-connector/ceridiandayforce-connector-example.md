@@ -101,7 +101,7 @@ going to deploy to server runtime.
 
 {!reference/connectors/exporting-artifacts.md!}
 
-Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
+Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
@@ -113,7 +113,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 
@@ -140,7 +140,7 @@ curl --location --request POST 'http://192.168.8.100:8290/dayforceconnector/getE
 ```
 
 **Note**
-* You may have to change the 'http://192.168.8.100:8290' part depending on the ip address your EI instance is running.
+* You may have to change the 'http://192.168.8.100:8290' part depending on the ip address on which your integration server instance is running.
 * You may have to change the 'clientNamespace' in the request body as Dayforce developer instance gets moved around by Ceridian. The address can be obtained ad mentioned in section Setting up the environment 
  
 **Expected Response**:
