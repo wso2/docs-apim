@@ -14,7 +14,7 @@ Let's see how to use the GraphQL Console in the Developer Portal to invoke a Gra
 !!! Note
     You can only try out HTTPS based APIs via the GraphQL Console because the API Store runs on HTTPS.
 
-The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/learn/design-api/create-api/create-a-graphql-api/).
+The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/design/create-api/create-a-graphql-api/).
 
 1. Sign in to the WSO2 Developer Portal and click on an API (e.g., `StarWarsAPI`).
 
