@@ -372,7 +372,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 <a name="G"></a>
 ### (G.) - Get keys for an API/API Product
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
 
 !!! tip
     - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
@@ -424,7 +424,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
 ### (H.) - Extending a CI/CD pipeline to support API Products
 
-For example, let us consider there is an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
+For example, let us consider there is an [API Product]({{base_path}}/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
 1.  Export the API Product using `export api-product` command from the development environment (dev).
 

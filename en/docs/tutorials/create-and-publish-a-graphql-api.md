@@ -4,7 +4,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on GraphQL APIs, see <a href="{{base_path}}/learn/design-api/create-api/create-a-graphql-api">Create a GraphQL API</a>.</p>
+<p>For more information on GraphQL APIs, see <a href="{{base_path}}/design/create-api/create-a-graphql-api">Create a GraphQL API</a>.</p>
 </div> 
 </html>
 ### Step 1 - Design a GraphQL API

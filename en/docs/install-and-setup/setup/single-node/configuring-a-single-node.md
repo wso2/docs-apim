@@ -110,8 +110,8 @@ In this case, let's use `api.am.wso2.com` as the hostname:
 If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
 configure API-M Analytics. If not, you can **skip this step**.
 
-Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
-[Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
+Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
+[Configuring API-M Analytics - Standard Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) 
 to configure API-M Analytics in a production setup.
 
 ## Step 7 - Configure Production Hardening
