@@ -8,7 +8,7 @@ service.
 
 ## Prerequisites
 
-Be sure to [configure a user store](../../{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1: Creating a registry resource module
 
@@ -65,7 +65,7 @@ module:
                 
         !!! Info
             Switch to source view of the policy file and make sure the tokenStoreClass in the policy file is 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'.
-            Also replace ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
+            In addition, replace the ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
         
 5.  Save the policy file.
 
@@ -101,7 +101,7 @@ See the instructions [deploying the artifacts]({{base_path}}/integrate/develop/d
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
 
-For guidelines on using SoapUI, please visit [here]({{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
+For guidelines on using SoapUI, see [general guidelines on testing with SOAP UI]({{base_path}}/integrate/develop/advanced-development/applying-security-to-a-proxy-service/#general-guidelines-on-testing-with-soap-ui).
 
 ## Using an encrypted datasource password
 
