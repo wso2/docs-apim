@@ -38,7 +38,7 @@ You also can limit the number of users that needs to be listed by changing the l
 
 The statistics for this widget takes the number of users shared across each application in to consideration. 
 
-To enable application sharing among users within the same organization, see [Sharing Applications]({{base_path}}/learn/consume-api/manage-application/sharing-applications/sharing-applications/).
+To enable application sharing among users within the same organization, see [Sharing Applications]({{base_path}}/consume/manage-application/sharing-applications/sharing-applications/).
 
 <html>
 <body>
