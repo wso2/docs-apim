@@ -8,7 +8,7 @@ Let's see how to use the API Console in the Developer Portal to invoke an API.
     You can only try out HTTPS-based APIs via the API Console because the Developer Portal runs on HTTPS.
 
 
-The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
+The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api/).
 
 1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack`).
 
@@ -23,7 +23,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
     !!! tip
         **Production and Sandbox Tokens**
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
         **JWT tokens**
@@ -61,7 +61,7 @@ You have now successfully invoked an API using the Open API Console
 ## Invoke an API deployed on a cloud cluster
 
 !!! Attention "Before You Begin"
-    You need to have an API published to a cloud cluster in order to invoke the API as follows. For instructions on how to publish an API to a cloud cluster in PrivateJet Mode, see [Publish an API to a Cloud Cluster in PrivateJet Mode]({{base_path}}/learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/).
+    You need to have an API published to a cloud cluster in order to invoke the API as follows. For instructions on how to publish an API to a cloud cluster in PrivateJet Mode, see [Publish an API to a Cloud Cluster in PrivateJet Mode]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/).
 
 1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click on the API that you deployed on a cloud cluster. 
 
@@ -81,7 +81,7 @@ You have now successfully invoked an API using the Open API Console
     !!! tip
         **Production and Sandbox Tokens**
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
         **JWT tokens**

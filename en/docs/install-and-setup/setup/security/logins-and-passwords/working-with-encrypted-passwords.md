@@ -104,7 +104,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend, which is secured with [Digest]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
 Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
 

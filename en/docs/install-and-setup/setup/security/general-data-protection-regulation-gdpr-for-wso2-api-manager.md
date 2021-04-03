@@ -358,4 +358,4 @@ The tenant ID of the user whose identity references you want to remove.
 
 ## GDPR for WSO2 API Manager Analytics
 
-For information on GDPR for API Manager Analytics, see [General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics]({{base_path}}/learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics).
+For information on GDPR for API Manager Analytics, see [General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics]({{base_path}}/observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics).

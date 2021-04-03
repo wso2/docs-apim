@@ -1,6 +1,6 @@
 # Revoke OAuth2 Application
 
-1.  An OAuth client is created when an application [access token is generated]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens). When a subscriber creates an application and generates an access token to the application using the Developer Portal, the Developer Portal makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
+1.  An OAuth client is created when an application [access token is generated]({{base_path}}/consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens). When a subscriber creates an application and generates an access token to the application using the Developer Portal, the Developer Portal makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
 
     You can revoke the access tokens issued for the application by following the instructions below
 

@@ -551,7 +551,7 @@ data:
   maxReplicas: "5"
 ```
 
-Note how you can set required resources and resource limits for the pods in the deployment referring to the above section [Managing resources for pods in EI deployment](#Managing-resources-for-pods-in-EI-deployment). HPA configs are injected through the integration configmap. See how you can define it at [integration_controller_conf.yaml]([integration_controller_conf.yaml](https://github.com/wso2/k8s-api-operator/blob/master/api-operator/deploy/controller-configs/integration_controller_conf.yaml)) file. 
+Note how you can set required resources and resource limits for the pods in the deployment referring to the above section [Managing resources for pods in EI deployment](#Managing-resources-for-pods-in-EI-deployment). HPA configs are injected through the integration configmap. See how you can define it at ([integration_controller_conf.yaml](https://github.com/wso2/k8s-api-operator/blob/master/api-operator/deploy/controller-configs/integration_controller_conf.yaml)) file. 
 
 ```yaml
   hpaMetrics: |

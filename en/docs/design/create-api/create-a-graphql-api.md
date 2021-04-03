@@ -193,7 +193,7 @@ Follow the instructions below to design a GraphQL API
 
                  [![Scope list]({{base_path}}/assets/img/learn/scope-list.png)]({{base_path}}/assets/img/learn/scope-list.png)
 
-Now, you have successfully created and configured a GraphQL API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Now, you have successfully created and configured a GraphQL API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ### GraphQL operations
 
@@ -236,5 +236,5 @@ Rate limiting is set to unlimited, and thereby disabled by default.
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>
 
-<p>Learn more by trying out the tutorial on <a href="{{base_path}}/learn/tutorials/create-and-publish-a-graphql-api">Creating and Publishing a GrapQL API</a>.</p>
+<p>Learn more by trying out the tutorial on <a href="{{base_path}}/tutorials/create-and-publish-a-graphql-api">Creating and Publishing a GrapQL API</a>.</p>
 </div> 

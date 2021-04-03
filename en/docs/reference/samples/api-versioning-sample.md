@@ -31,7 +31,7 @@ API versioning is a key functionality that needs to be addressed when the users,
     ![](https://lh4.googleusercontent.com/san9j-KzZXoKcKZ77uIuvo9eG4-3gz-rXE1xbaJGe4RyqVsXjcrv3QkjGIEOl0Y5Rc50z_CN-Dx7wS8JWaWwIXgdGw99kW-6g9d1Typfazf8l8AbNpbKyR3R0uI30exuLk44Y8Q_)
 -   Subscribers of the old API to notified when the new API version is published.
 
-Users can configure to get notifications for the newly created API. For more details, see [Enabling Notifications]({{base_path}}/learn/design-api/api-versioning/enabling-notifications).
+Users can configure to get notifications for the newly created API. For more details, see [Enabling Notifications]({{base_path}}/design/api-versioning/enabling-notifications).
 
 !!! note
     Enabling grace period to upgrade to a new version can be achieved by using the notifications when a new version of an API is created. At that time, when a new version of an API is created, a notification should be sent to existing subscribers to notify that the API will be deprecated in X months and retired in Y months. Then API Publisher have to perform those actions (deprecation and retiring) in X and Y months time period respectively.

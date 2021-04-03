@@ -4,15 +4,15 @@ API authentication is a way of protecting API access from unidentified or anonym
 
 WSO2 API Manager offers the following authentication mechanisms to secure your API from unauthenticated access.
 
-- [Securing APIs using OAuth2 Access Tokens]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens)
+- [Securing APIs using OAuth2 Access Tokens]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
 
-    - [JWT (Self Contained) Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens)
+    - [JWT (Self Contained) Access Tokens]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens)
     
-- [Secure APIs Using API Keys]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys)
+- [Secure APIs Using API Keys]({{base_path}}/design/api-security/api-authentication/secure-apis-using-api-keys)
 
-- [Secure APIs Using Mutual SSL]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-mutual-ssl)
+- [Secure APIs Using Mutual SSL]({{base_path}}/design/api-security/api-authentication/secure-apis-using-mutual-ssl)
 
-- [Secure APIs Using Basic Authentication]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-basic-authentication)
+- [Secure APIs Using Basic Authentication]({{base_path}}/design/api-security/api-authentication/secure-apis-using-basic-authentication)
 
 
 WSO2 API Manager allows you to enable multiple Key Managers for authentication.

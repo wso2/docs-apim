@@ -58,4 +58,4 @@ For new API Creations and Subscription creations, API Manager publishes an event
 ```
 
 !!! note
-This feature is available from API Manager 3.2.0. If you are using an older version of API Manager, please follow the [Configuration for WSO2 API Manager]({{base_path}}/install-and-setup/configuration-for-wso2-api-manager/) to configure Microgateway correctly.
+    This feature is available from API Manager 3.2.0. If you are using an older version of API Manager, please follow the [Configuration for WSO2 API Manager]({{base_path}}/install-and-setup/configuration-for-wso2-api-manager/) to configure Microgateway correctly.
