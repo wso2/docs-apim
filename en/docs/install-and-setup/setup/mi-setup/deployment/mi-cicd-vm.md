@@ -4,10 +4,10 @@
 
 There are two kinds of jobs in Jenkins. One kind is for the Integration projects. Another kind is for the Descriptor repositories. 
 
-*   We need to maintain one jenkins job per Integration Project repo.
+*   We need to maintain one Jenkins job per Integration Project repository.
 *   The Integration Project has to be a Maven Multi Module project and it has to contain one Composite Exporter module. By default, the script supports one Exporter module. Users can customize it to support multiple Exporter modules per Integration Project.
 *   The build phase of the job will build the Integration project and run the unit tests if a Unit test server is configured.
-*   The release phase of the job will publish the CApps to the nexus repository and create a release tag in github.
+*   The release phase of the job will publish the CApps to the Nexus repository and create a release tag in GitHub.
 *   We need to maintain one jenkins job per Environment.
 *   There will be descriptor files for each project inside a separate folder.
 *   To use a new version / rollback to a previous version, the user should define the change inside the respective descriptor and commit to the respective branch.

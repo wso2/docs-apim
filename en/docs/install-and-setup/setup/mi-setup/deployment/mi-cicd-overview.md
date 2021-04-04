@@ -8,7 +8,7 @@ This is a guide of a reference implementation on setting up a CI/CD process for 
 
 ## Phases of SDLC
 
-Considering a deployment with having three typical environments as follows:
+Let's consider a deployment that has three typical environments as follows:
 
 *   Developers use the Dev environment to develop their code and execute developer testing.
 *   Staging (Quality Assurance) uses the Test environment for functional testing.
@@ -28,4 +28,4 @@ Main project should be an Integration project. Integration project can contain t
 *   Docker Exporter module
 *   Kubernetes Exporter module
 
-Please note that you are not allowed to create Nested Integration projects. Also for CI/CD, it is recommended to maintain one git repo per Integration project.
+Please note that you are not allowed to create Nested Integration projects. Also, for CI/CD, it is recommended to maintain one GitHub repository per Integration project.
