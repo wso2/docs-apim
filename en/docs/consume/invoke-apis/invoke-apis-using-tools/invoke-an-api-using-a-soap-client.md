@@ -2,7 +2,7 @@
 
 You can use any SOAP client to **invoke an API** . We use the SOAP UI in this example.
 
-The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/learn/tutorials/expose-a-soap-service-as-a-rest-api/) .
+The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/tutorials/expose-a-soap-service-as-a-rest-api/) .
 
 Let's invoke the `PhoneVerification` API using a SOAP client.
 

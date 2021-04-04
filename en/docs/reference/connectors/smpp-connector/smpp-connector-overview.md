@@ -8,25 +8,25 @@ To see the available SMPP connector, navigate to the [connector store](https://s
 
 ## Compatibility
 
-| Connector version | Supported WSO2 EI version |
+| Connector version | Supported product versions |
 | ------------- |------------- |
-|  1.0.3        |  EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+|  1.0.3        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
 ## SMPP Connector documentation
 
-The SMPP Connector allows you to send an SMS through the WSO2 EI. It uses the [jsmpp API](https://jsmpp.org/) to communicate with an SMSC, which is used to store, forward, convert, and deliver Short Message Service (SMS) messages. JSMPP is a Java implementation of the SMPP protocol. 
+The SMPP Connector allows you to send an SMS from an integration sequence. It uses the [jsmpp API](https://jsmpp.org/) to communicate with an SMSC, which is used to store, forward, convert, and deliver Short Message Service (SMS) messages. JSMPP is a Java implementation of the SMPP protocol. 
 
 * **[Setting up the SMPP Connector]({{base_path}}/reference/smpp-connector/smpp-connector-configuration/)**: You need to set up the environment and SMSC simulator before using the connector.
 
-* **[SMPP Connector Example]({{base_path}}/reference/smpp-connector/smpp-connector-example/)**: This example demonstrates how to work with the WSO2 EI SMPP Connector and send SMS messages via the SMPP protocol. 
+* **[SMPP Connector Example]({{base_path}}/reference/smpp-connector/smpp-connector-example/)**: This example demonstrates how to work with the WSO2 SMPP Connector and send SMS messages via the SMPP protocol. 
 
 * **[SMPP Connector Reference]({{base_path}}/reference/smpp-connector/smpp-connector-config/)**: This documentation provides a reference guide for SMPP.
 
 ## SMPP Inbound Endpoint documentation
 
-The SMPP inbound endpoint allows you to consume messages from SMSC via WSO2 EI. WSO2 EI SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages to the EI sequence. It will receive alert notifications or will notify when a data short message accepted.
+The SMPP inbound endpoint allows you to consume messages from SMSC from an integration sequence. The WSO2 SMPP inbound endpoint acts as a message consumer. It creates a connection with the SMSC, then listens over a port to consume only SMS messages from the SMSC and injects the messages to the integration sequence. It will receive alert notifications or will notify when a data short message accepted.
 
 * **[SMPP Inbound Endpoint Example]({{base_path}}/reference/smpp-connector/smpp-inbound-endpoint-example/)**: This scenario demonstrates how the SMPP inbound endpoint works as an message consumer. 
 

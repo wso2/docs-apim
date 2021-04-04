@@ -7,25 +7,21 @@ Often it is faster and simpler to perform local unit testing on your pipeline co
 This guide assumes that you have completed the instructions in the
 following pages.
 
-1.  [Pipeline Quick Start Guide](../pipeline-quick-start-guide/)
+1. [Pipeline Quick Start Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide)
 
-2.  [Testing The Pipeline
-    Environment](../testing-the-pipeline-environment/)
+2. [Testing The Pipeline Environment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment)
 
 Test cases are available in the [chart source repository](https://github.com/wso2-incubator/cicd-sample-chart-mi) under a
 directory named `tests`. 
 
-1.  Create a fork of the [sample chart source
-    repository](https://github.com/wso2-incubator/cicd-sample-chart-mi).
+1. Create a fork of the [sample chart source repository](https://github.com/wso2-incubator/cicd-sample-chart-mi).
 
-2.  Create a clone of the forked chart source repository using the
-    following command.
+2. Create a clone of the forked chart source repository using the following command.
     
     ``` xml
     $ git clone https://github.com/[git-username]/cicd-sample-chart-mi.git
     ```
-
-    
+       
    Replace the `[git-username]` tag with the name of your GitHub username.
 
 3.  In the sample chart repository,click on 
@@ -60,7 +56,7 @@ directory named `tests`.
 5.  Change the chart repository in the
     sample [values](https://raw.githubusercontent.com/wso2/kubernetes-pipeline/master/kubernetes-pipeline/samples/values-mi.yaml) file
     used in the [Pipeline Quick Start
-    Guide](../pipeline-quick-start-guide/)
+    Guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide)
     to use a custom chart.
     
     ``` xml
@@ -101,6 +97,6 @@ directory named `tests`.
     deployment of the setup with test cases being deployed in the
     Spinnaker dashboard.
     
-    [ ![Application Page1](../../../assets/img/k8s_pipeline/testcases/testcases-mi1.png) ](../../../assets/img/k8s_pipeline/testcases/testcases-mi1.png)
-    [ ![Application Page2](../../../assets/img/k8s_pipeline/testcases/testcases-mi2.png) ](../../../assets/img/k8s_pipeline/testcases/testcases-mi2.png)
-    [ ![Application Page3](../../../assets/img/k8s_pipeline/testcases/testcases-mi3.png) ](../../../assets/img/k8s_pipeline/testcases/testcases-mi3.png)
+    [ ![Application Page1]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi1.png) ]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi1.png)
+    [ ![Application Page2]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi2.png) ]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi2.png)
+    [ ![Application Page3]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi3.png) ]({{base_path}}/assets/img/integrate/k8s_pipeline/testcases/testcases-mi3.png)

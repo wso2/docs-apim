@@ -63,7 +63,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-Be sure to [configure a user store](../../../../setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
 Set up the SOAP client:
 

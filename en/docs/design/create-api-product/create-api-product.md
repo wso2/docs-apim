@@ -1,6 +1,6 @@
 # Create an API Product
 
-Let's create an API Product named customer leasing that includes resources from the Customer Info API & Leasing API, as discussed in the [previous example]({{base_path}}/learn/design-api/create-api-product/api-product-overview/#how-it-works).
+Let's create an API Product named customer leasing that includes resources from the Customer Info API & Leasing API, as discussed in the [previous example]({{base_path}}/design/create-api-product/api-product-overview/#how-it-works).
 
 1. Sign in to the API Publisher.
 
@@ -130,6 +130,6 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
 
      (e.g., `https://localhost:9443/devportal`). 
 
-     For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/).
+     For more information on how to subscribe to an API, see [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/).
     
      

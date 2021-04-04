@@ -461,7 +461,7 @@ In the SSL handshake between the API Manager and the API Manager Analytics serve
 - If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. 
 - To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-1-generating-a-ca-signed-certificate).
 
-For more information, see [Configuring Keystores in API-M Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/#configuring-keystores-in-api-m-analytics).
+For more information, see [Configuring Keystores in API-M Analytics]({{base_path}}/observe/api-manager-analytics/configuring-keystores-in-apim-analytics/#configuring-keystores-in-api-m-analytics).
 
 ### Step 7 - Configure the User-Agent Parser
 

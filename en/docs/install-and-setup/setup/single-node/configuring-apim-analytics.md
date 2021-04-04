@@ -288,7 +288,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
 !!! Info
       **Do the following to integrate third party products when configuring databases.**
       <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
-      For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
+      For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/observe/api-manager-analytics/adding-third-party-non-osgi-libraries/).
 
 #### Step 5 - Configure APIM IdP Client
 
@@ -349,4 +349,4 @@ In the SSL handshake between the API Manager and API Manager Analytics servers, 
 
 If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
-For more information follow [Configuring Keystores in APIM Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/).
+For more information follow [Configuring Keystores in APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-keystores-in-apim-analytics/).

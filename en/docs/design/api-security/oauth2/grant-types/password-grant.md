@@ -14,7 +14,7 @@ The diagram below illustrates the resource owner password credentials grant flow
 
 #### Prerequisites
 
--   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+-   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin]({{base_path}}/consume/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 -   A valid consumer key and consumer secret pair. Initially, these keys must be generated through the API Developer Portal by clicking **GENERATE KEYS** on the **Production Keys** tab of the application.
 -   A running API Gateway instance (typically an API Manager instance should be running). For instructions on API Gateway, see [Components]({{base_path}}/getting-started/basic-architecture/#api-gateway).
 
@@ -52,7 +52,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
         !!! tip
             **`<scope>` is optional.**
     
-            If you define a [scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) for an API's resource, the API can only be accessed through a token that is issued for the scope of the said resource. For example, if you define a scope named 'update' and issue one token for the scopes 'read' and 'update', the token is allowed to access the resource. However, if you issue the token for the scope named 'read', the request to the API will be blocked.
+            If you define a [scope]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) for an API's resource, the API can only be accessed through a token that is issued for the scope of the said resource. For example, if you define a scope named 'update' and issue one token for the scopes 'read' and 'update', the token is allowed to access the resource. However, if you issue the token for the scope named 'read', the request to the API will be blocked.
 
 
     -   Headers 

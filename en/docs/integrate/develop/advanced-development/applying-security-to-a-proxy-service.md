@@ -4,7 +4,7 @@ The steps below demonstrate how you can apply security to a proxy service via WS
 
 ## Prerequisites
 
-Be sure to [configure a user store](../../../setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1: Creating the security policy file
 
@@ -45,7 +45,9 @@ Follow the instructions given below to create a **WS-Policy** resource in your r
     
     !!! Info 
         Change the tokenStoreClass in the policy file to 'org.wso2.micro.integrator.security.extensions.SecurityTokenStore'
-
+        
+        Also replace ServerCrypto class with 'org.wso2.micro.integrator.security.util.ServerCrypto' if present.
+        
 <!--
 #### Specifying role-based access?
 
@@ -109,3 +111,52 @@ See the instructions [deploying the artifacts]({{base_path}}/integrate/develop/d
 ## Step 5: Testing the service
 
 Create a Soap UI project with the relevant security settings and then send the request to the hosted service.
+
+### General guidelines on testing with SOAP UI
+
+1.  Create a “SOAP Project” in SOAP UI using the WSDL URL of the proxy service (eg: http://localhost:8280/services/SampleProxy?wsdl)
+
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.png" width="600">
+
+2.  Double click on the created SOAP project, click on “WS-Security-Configuration” -> “Keystores”, and add the WSO2 keystore.
+
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-keystore.png" width="600">
+    
+3.  We need to enter keystore password for the keystore configuration. 
+4.  Click on “Outgoing WS-Security Configuration”, and add a new policy by specifying a name. (Name can be anything).
+
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-outgoing-wss-configuration.png" width="600">
+    
+5.  Add required WSS entries for the created configuration (What you need add will vary according to the policy you are using). Explanation about adding three main sections is given below.
+
+    - Adding **Signature**  
+    
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.png" width="600">
+    
+    - Adding **Timestamp**
+    
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.png" width="600">
+    
+    - Adding **Encryption**
+    
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.png" width="600">
+    
+    !!! Info
+        Note: Please note that the order of the WS entries matters. So always add the above one after the other (If you are adding only two sections, you need to maintain the order).
+        
+6.  Once we are done with WS security configurations, we have to specify the created WS-policy under “Outgoing WSS” at the request “Authorization”.
+
+    <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.png" width="700">
+   
+7.  Now you can invoke the Proxy Service. 
+
+!!! Info
+
+    When defining Outgoing WS-Security Configuration, you need to pick on the WS entries based on your WS policy.
+    
+    Eg:
+    
+    - Non Repudiation policy needs only Timestamp and Signature. Confidentiality needs all three : Timestamp, Signature and Encryption.
+    - For UsernameToken policy, you do not need to provide a Outgoing WS-Security Configuration. Providing the basic auth configuration is enough.
+    
+        <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.png" width="700">

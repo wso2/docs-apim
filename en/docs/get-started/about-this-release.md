@@ -25,7 +25,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. These revisions cannot be edited and you can even **restore** your API to a specific revision if you want to discard the latest changes.
 
 - **[Swagger/GraphqL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
-    [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
+    [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
 
 - **[Support for Forgerock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)** 
     WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to Forgerock as a third-party Key Manager.
@@ -42,7 +42,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - **[AsyncAPI Definitions for Streaming APIs]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
     [AsyncAPI](https://www.asyncapi.com/) is used to define asynchronous APIs. In WSO2 API Manager, [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview) can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
 
-- **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames/)**
+- **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)**
     **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
 
 <!--
@@ -62,8 +62,8 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - Microgateway Labels
 
-      [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/latest/learn/api-microgateway/grouping-apis-with-labels/)
-      is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy/deploy-api/exposing-apis-via-custom-hostnames)
+      [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/3.2.0/learn/api-microgateway/grouping-apis-with-labels/)
+      is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
 #### Fixed Issues

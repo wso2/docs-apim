@@ -1,12 +1,19 @@
-# Create a WebSub API
+# Create a WebSub/Webhook API
 
-Follow the instructions below to create a WebSub API using the basic flow.
+This section will guide you through creating a WebSub API. Once a websub api is created you will be able to register 
+it's url as the callback  url for your webhook provider and be able to receive events from them.
 
-### Design a WebSub API
+WebHook apis in WSO2 API Manager is implemented adhering the [WebSub](https://www.w3.org/TR/websub/) specification. That
+ is an API created will adhere to WebSub specification in terms of subscription, unsubscription, lease period and etc. Once the API is created, it will provide you a call back url, which you can register to any webhook provider. In 
+ other words, the user facing api from API Manager will adhere to websub specification where as the backend can be  anything which could send events to this call back url.
+
+Follow the instructions below to create one using the basic flow.
+
+### Design a WebSub/Webhook API
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
+2.  Click **CREATE API**, go to **Streaming API** and Click **Webhook API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
@@ -16,7 +23,7 @@ Follow the instructions below to create a WebSub API using the basic flow.
       </div>
     </html>
 
-3.  Enter the details of the new WebSub API.
+3.  Enter the details of the new WebSub/Webhook API.
 
      <table>
      <thead>
@@ -46,28 +53,24 @@ Follow the instructions below to create a WebSub API using the basic flow.
      </table>
 
 
-4.  Click **CREATE**. 
-
-     The overview page of the created WebSub API appears.
+4.  Click **CREATE**. The overview page of the created WebSub/Webhook API appears.
 
      [![Overview of WebSub API]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)
 
 
 ### Configure the Topics
 
-Topics of a WebSub API are always **Subscribe only**. By default, a WebSub API will have a topic with name `_default`.
+Topics of a WebSub/Webhook API are always **Subscribe only**. By default, a WebSub/Webhook API will have a topic with name `_default`.
 
-1. Click **Show More** to navigate to the **Topics** page.
+1. Click **Topics** to navigate to the **Topics** page.
 
-    [![WebSub API Topics]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-topics-show-more.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-topics-show-more.png)
-
-2. Modify the topics as follows and click **SAVE** to update them.
+2. Modify the topics as follows and click **Save** to update them.
 
     1. Optionally click delete as shown below, to delete an existing topic.
 
         [![WebSub API Delete Existing Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-delete-default-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-delete-default-topic.png)
 
-    2. Click **Add Topic** to add a new topic.
+    2. Select **sub** under **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
             
         [![WebSub API Add Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-add-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-add-topic.png)
         
@@ -80,29 +83,26 @@ Topics of a WebSub API are always **Subscribe only**. By default, a WebSub API w
 
 ### View the AsyncAPI Definition
 
-Click **API Definition**. The Async Specification of API appears.
-
-
-### View the AsyncAPI Definition
-
-Click **API Definition**. The Async Specification of API appears.
+Click **AsyncAPI Definition** under **API Configurations**. The AsyncAPI specification of the API appears.
+    
+   [![SSE API AsyncAPI Definition]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-api-asyncapi.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-api-asyncapi.png)
 
 
 ### Configure the Runtime Configurations
 
-1. Click **Runtime Configuration**. 
+1. Click **Runtime** under **API Configurations**.
 
     Transport Level Security  defines the transport protocol on which the API is exposed.  
 
     [![WebSub API Runtime Configurations Page]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websub/websub-api-runtime-configurations.png)
 
-2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
-
+2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the appropriate checkbox under **Transport Level Security**.
+   
     Both HTTP and HTTPS transports are selected by default.
 
 ### Generate a Secret
 
-When required by a webhook provider (eg: GitHub), the secret generated by a WebSub API can be used to register the WebSub API with the webhook provider. This is used by the webhook provider to sign the payload when sending events back to the WebSub API.
+When required by a webhook provider (eg: GitHub), the secret generated by a WebSub/Webhook API can be used to register the WebSub/Webhook API with the webhook provider. This is used by the webhook provider to sign the payload when sending events back to the WebSub/Webhook API.
      
 1. Click **Runtime** and navigate to Runtime Configurations. Expand the **Subscription** section.
 
@@ -119,7 +119,7 @@ When required by a webhook provider (eg: GitHub), the secret generated by a WebS
      The generated secret can be used when registering the topic with a webhook provider. For a detailed tutorial, see [Create and Publish a WebSub API]({{base_path}}/tutorials/streaming-api/create-and-publish-websub-api).
 
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 <div class="admonition note">
 <p class="admonition-title">What's Next?</p>
@@ -130,11 +130,11 @@ Now, you have successfully created and configured a Streaming API. Next, let's [
 
         Click the following topics to learn more on the concepts that you need to know when creating an API:
        -   [Creating A Streaming Backend]({{base_path}}/get-started/quick-start-guide/streaming-qsg)
-       -   [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-       -   [Endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-types/)
-       -   [Throttling Tiers]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases/)
-       -   [Custom Properties]({{base_path}}/learn/design-api/create-api/adding-custom-properties-to-apis/)
-       -   [API Security]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens)
-       -   [Life Cycle Management]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/)
-       -   [API Documentation]({{base_path}}/learn/design-api/api-documentation/add-api-documentation/)
-       -   [API Monetization]({{base_path}}/learn/api-monetization/monetizing-an-api/)
+       -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+       -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+       -   [Throttling Tiers]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+       -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+       -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
+       -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+       -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+       -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)

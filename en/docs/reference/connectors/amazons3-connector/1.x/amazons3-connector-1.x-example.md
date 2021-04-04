@@ -8,7 +8,7 @@ This example depicts how to use AmazonS3 connector to:
 
 1. Create a S3 bucket (a location for storing your data) in Amazon cloud.
 2. Upload a message into the created bucket as a text file.
-3. Retrieve created text file back and convert into a message in WSO2 EI integration. 
+3. Retrieve created text file back and convert into a message in the integration runtime. 
 
 All three operations are exposed via an API. The API with the context `/s3connector` has three resources:  
 
@@ -32,7 +32,7 @@ Please follow the steps mentioned at [Setting up Amazon S3]({{base_path}}/refere
 
 Follow these steps to set up the Integration Project and import AmazonS3 connector into it.
 
-{!reference/connectors/importing-connector-to-integration-studio-copy.md!} 
+{!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
@@ -229,9 +229,9 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
 
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
 
-{!reference/connectors/exporting-artifacts-copy.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
-Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test.
+Now the exported CApp can be deployed in the integration runtime so that we can run it and test.
 
 ## Get the project
 
@@ -246,9 +246,9 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
-{!reference/connectors/deploy-capp-copy.md!}
+{!reference/connectors/deploy-capp.md!}
 
 ## Testing
 

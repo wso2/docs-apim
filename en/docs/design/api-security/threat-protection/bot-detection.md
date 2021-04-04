@@ -30,7 +30,7 @@ Follow the instructions below to enable email notifications for bot detection:
 
 1. Enable WSO2 API Manager Analytics.
 
-    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/).
+    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/).
     
 2. Share your API-M database (`AM_DB`).
 
@@ -61,7 +61,7 @@ Follow the instructions below to enable email notifications for bot detection:
 
      ```
 
-3. [Enable Alerts]({{base_path}}/learn/analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 
@@ -134,7 +134,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
 
 1. Enable WSO2 API Manager Analytics.
 
-    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/).
+    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/).
     
 2. Share your API-M database (`AM_DB`). 
 
@@ -162,7 +162,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
         ...
      ```
 
-3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 

@@ -25,7 +25,7 @@ Follow the steps below to filter a data service according to a specific user rol
 ## Extend role-based filtering via a custom authorization provider
 
 In the Micro Integrator, you can filter content to specific user roles by taking roles from
-the [user store](../../../setup/user_stores/setting_up_a_userstore) connected to the server. However, this extension provides
+the [user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) connected to the server. However, this extension provides
 the flexibility for you to develop data services by plugging in a
 mechanism to provide those role details from any preferred external
 source (e.g., third party identity provider, JWT token etc.). Hence, in

@@ -73,7 +73,7 @@ Create the artifacts:
 6. Change the `{reg_path}` with the XSLT registry location. 
 6. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Enable the FIX transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
+[Enable the FIX transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 
 Set up the back-end service:
 

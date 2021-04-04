@@ -1,11 +1,13 @@
 # Create and Publish a WebSocket API
 
-Follow the instructions in this tutorial to design and publish API with a WebSocket backend, and thereafter invoke it using the **wscat** WebSocket client.
+This tutorial will guide you to implement a websocket based chat application using the WSO2 API Manager.
+Follow the instructions in this tutorial to design and publish API with a WebSocket backend, and thereafter 
+invoke it using the **wscat** WebSocket client.
 
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/learn/design-api/create-api/create-a-websocket-api">Create a WebSocket API</a>.</p>
+<p>For more information on WebSocket APIs, see <a href="{{base_path}}/design/create-api/create-a-websocket-api">Create a WebSocket API</a>.</p>
 </div> 
 </html>
 
@@ -90,9 +92,9 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
      
          For more information, see the following sections on endpoint related configurations.
 
-         - [Endpoint Timeouts]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-timeouts)
-         - [Endpoint Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-suspension)
-         - [Prevent API Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/prevent-api-suspension)
+         - [Endpoint Timeouts]({{base_path}}/design/endpoints/resiliency/endpoint-timeouts)
+         - [Endpoint Suspension]({{base_path}}/design/endpoints/resiliency/endpoint-suspension)
+         - [Prevent API Suspension]({{base_path}}/design/endpoints/resiliency/prevent-api-suspension)
 
      [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
 

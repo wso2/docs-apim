@@ -1,6 +1,6 @@
 # Tuning the VFS Transport
 
-When you work with the [VFS transport](../../../concepts/messaging-transports/#virtual-file-system-jms), you might have a scenario where you need to send large files to a destination. If you use the normal VFS configuration, the memory consumption will be very high since WSO2 Micro Integrator builds the files that are within. The Micro Integrator provides VFS file streaming support to overcome this issue. With VFS file streaming, only the stream is
+When you work with the [VFS transport]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters), you might have a scenario where you need to send large files to a destination. If you use the normal VFS configuration, the memory consumption will be very high since WSO2 Micro Integrator builds the files that are within. The Micro Integrator provides VFS file streaming support to overcome this issue. With VFS file streaming, only the stream is
 passed and therefore memory consumption is less.
 
 !!! Tip
@@ -21,7 +21,7 @@ To use the streaming mode with the VFS transport, see the following instructions
     application_binary = "org.apache.axis2.format.BinaryFormatter"
     ```
 
-    See the complete list of [parameters](../../../references/config-catalog) for configuring message builders and formatters.
+    See the complete list of [parameters]({{base_path}}/reference/config-catalog-mi) for configuring message builders and formatters.
 
 ## Update service-level configurations
 

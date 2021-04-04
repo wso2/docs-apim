@@ -40,7 +40,7 @@ When maintaining high availability (HA) in the WSO2 API-M distributed set up, yo
 
 ## Step 5 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure WSO2 API-M Analytics. Follow the [standard setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
+If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure WSO2 API-M Analytics. Follow the [standard setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
 
 ## Step 6 - Configure the connections among the components and start the servers
 
@@ -110,7 +110,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
      'header.X-WSO2-KEY-MANAGER' = "default"
      ```
 
-2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
+2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/design/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
 3. Optionally, add the following configuration to enable distributed cache invalidation within the Key Manager nodes.
@@ -747,7 +747,7 @@ This section involves setting up the Gateway node and enabling it to work with t
 
 3.  If you need to enable JSON Web Token (JWT), you have to enable it in all the Gateway nodes.
 
-     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
+     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
 4.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to communicate with the Traffic Manager node(s).
      

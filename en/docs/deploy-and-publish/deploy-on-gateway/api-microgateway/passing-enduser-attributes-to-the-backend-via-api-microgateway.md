@@ -1,10 +1,10 @@
-# Passing End-user Attributes to the Backend
+# Passing End User Attributes to the Backend
 
 {!./includes/deploy/backend-jwt-intro.md!}
 
 ## Enabling the default backend JWT generator
 
-Before passing end-user attributes, you need to enable and configure the JWT implementation, as mentioned below in WSO2 Microgateway.
+Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in WSO2 Microgateway.
 
 1. Navigate to the `<MG_HOME>/resources/conf/config.toml` file.
 
@@ -155,4 +155,4 @@ The relevant elements in the JWT generation configuration are described below. I
 
 ## See Also
 
-If you want to learn how you can pass end-user attributes to the backend when working with the default API Gateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway), which is under the API Gateway documentation section.
+If you want to learn how you can pass end user attributes to the backend when working with the default API Gateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway), which is under the API Gateway documentation section.

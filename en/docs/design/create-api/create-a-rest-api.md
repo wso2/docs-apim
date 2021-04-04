@@ -1,6 +1,6 @@
 # Create a REST API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/design/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/getting-started/overview/#api-publisher) itself.
 
 Follow the instructions below to create a REST API using the basic flow.
 
@@ -134,19 +134,19 @@ Follow the instructions below to create a REST API using the basic flow.
 
      [![REST API definition]({{base_path}}/assets/img/learn/api-definiton-rest.jpg)]({{base_path}}/assets/img/learn/api-definiton-rest.jpg)
 
-Now, you have successfully created and configured a REST API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api/).
+Now, you have successfully created and configured a REST API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
 
 !!! More
 
         Click the following topics to learn more on the concepts that you need to know when creating an API:
-       -   [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
-       -   [Endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-types/)
-       -   [Throttling Tiers]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases/)
-       -   [Custom Properties]({{base_path}}/learn/design-api/create-api/adding-custom-properties-to-apis/)
-       -   [API Security]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-oauth2-tokens)
-       -   [Life Cycle Management]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/)
-       -   [API Documentation]({{base_path}}/learn/design-api/api-documentation/add-api-documentation/)
-       -   [API Monetization]({{base_path}}/learn/api-monetization/monetizing-an-api/)
+       -   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+       -   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+       -   [Throttling Tiers]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases/)
+       -   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+       -   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
+       -   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+       -   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+       -   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)
 
 
 

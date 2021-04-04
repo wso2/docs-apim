@@ -4,11 +4,11 @@
 unless specifically requested to do so. When Message Relay is enabled,
 an incoming message is wrapped inside a default SOAP envelope as binary
 content and sent through the Micro Integrator. This is useful for scenarios where the
-Micro Integrator does not need to work on the full message but can work on [message properties](../../references/mediators/property-Mediator.md)
+Micro Integrator does not need to work on the full message but can work on [message properties]({{base_path}}/reference/mediators/property-mediator)
 like request URLs or transport headers instead. With Message Relay, the
 Micro Integrator can achieve a very high throughput.
 
-See also [PassThrough Transport](../../transport_configurations/configuring-transports/#configuring-the-httphttps-transport).
+See also [PassThrough Transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/#configuring-the-httphttps-transport).
 
 ## Configuring Message Relay
 

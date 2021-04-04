@@ -1,12 +1,12 @@
 # Redis Connector Example
 
-The Redis connector allows you to access the Redis commands through the WSO2 EI. 
+The Redis connector allows you to access the Redis commands from an integration sequence. 
 
 ## What you'll build
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 EI Redis Connector and access the Redis server, using Redis commands.
+Given below is a sample scenario that demonstrates how to work with the WSO2 Redis Connector and access the Redis server, using Redis commands.
 
-The user sends the request to invoke an API to get stock details. This REST call will get converted into a SOAP message and is sent to the back-end service. While the response from the backend service is converted back to JSON and sent back to the API caller, WSO2 EI will extract stock volume details from the response and store it into a configured Redis server.
+The user sends the request to invoke an API to get stock details. This REST call will get converted into a SOAP message and is sent to the back-end service. While the response from the backend service is converted back to JSON and sent back to the API caller, the integration runtime will extract stock volume details from the response and store it into a configured Redis server.
 When users need to retrieve stock volumes collected, they can invoke the `getstockvolumedetails` resource. This example also demonstrates how users can manipulate this stock volume details by removing unwanted items from the Redis server.
 
 > **Note**: In this scenario you need to set up the Redis Server in your local machine. Please refer the [Setting up the Redis Connector]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/) documentation. Follow the steps listed under `Setting up the Redis server` section to setup the Redis server and `Set up the back-end service` section to setup the Stockquote service. 
@@ -30,7 +30,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -267,7 +267,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 

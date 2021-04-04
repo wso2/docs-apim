@@ -52,7 +52,7 @@ Furthermore, the client may be accessing this information via WSO2 API Manager u
 
 ### API developer optimizing the API output by identifying the client
 
-API developers can use the headers sent by the client to detect the type of the client (e.g., if the client is a mobile device or not). For example, consider a client who is accessing ABC bank's API’s and performing online account balance checking. In the latter mentioned scenario, if the API developer needs to allow mobile device clients to only access a selected set of data of their account details, and expose all the data to desktop application clients, this can be achieved when using WSO2 API Manager by having a custom sequence in the API definition. For more information on adding custom sequences, see [Adding Mediation Extensions]({{base_path}}/learn/api-gateway/message-mediation/adding-a-class-mediator).
+API developers can use the headers sent by the client to detect the type of the client (e.g., if the client is a mobile device or not). For example, consider a client who is accessing ABC bank's API’s and performing online account balance checking. In the latter mentioned scenario, if the API developer needs to allow mobile device clients to only access a selected set of data of their account details, and expose all the data to desktop application clients, this can be achieved when using WSO2 API Manager by having a custom sequence in the API definition. For more information on adding custom sequences, see [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator).
 
 **Example**
 

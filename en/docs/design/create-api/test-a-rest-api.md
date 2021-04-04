@@ -1,45 +1,43 @@
 # Test a REST API
 
-**Testing APIs** is trying out the APIs at the publisher itself and make sure whether the functionalities and behaviours are  met before publishing to the gateway for subscribers to access.
+Testing APIs refers to the process of trying out the APIs in the Publisher itself to make sure that the APIs meet the required functionalities and behaviour.
 
-Only the API developers (creator, publisher) are allowed to test the APIs through the test console. The developers can do the basic functional tests such as checking mediation policy, validating that the request is sent to the back-end and a proper responses is received as expected, request/response schema validation, and making sure that the API resources are defined correctly.
-The **Test Console**  menu item in the Publisher portal's left navigation menu can be used to initialize the test at the design phase. Once the developer initiates the test by clicking on the initialize test button, the API is transformed to the prototype(testing)
-state and the swagger console is populated with a test-key(token) which prevents the unauthorized users accessing the particular API.
+WSO2 API Manager's Publisher offers an integrated API Console that allows API creators and API publishers to visualize the API contract and interact with API's resources.
 
-If the API is in the created lifecycle state, the developer can initialize the test.
+Follow the instructions below to use the Publisher test console to test an API:
 
-!!! Note
-    We don't allow testing for the APIs that are in publish state.Hence API developer/publisher has to demote the API to prototype/created
-    state.
-    ![]({{base_path}}/assets/img/learn/publisher-testconsole-publishstate.png)
+!!! note
+    Create the `PizzaShack` REST API or an API of your choice before following the instructions below. For more information, see [Create a REST API.]({{base_path}}/design/create-api/create-a-rest-api)
 
-Let's see how to use the Publisher test Console to test an API.
+1.  {!includes/sign-in-publisher.md!}
 
-The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) .
+     The list of APIs that are available in the Publisher appear.
 
-1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide](/learn/design-api/create-api/create-a-rest-api/) to create a new API.
+2. Click on the API that you wish to test.
 
-     If there are no APIs created, [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) before starting.
+     Let's use the sample `PizzaShack` REST API.
 
-2.  Click on an API that is in the **CREATED** state.
+3.  Click **TryOut**.
 
-     <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
+     <html><div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <ul> The API can be tested in any lifecycle state, and can be used in any state except for the "retired" state, even in the "block" state you can still try it out, but you will get a 503 (service unavailable) response.</ul></div>
+     </html>
 
-3.  Click **Test Console** on the left navigation menu.
+     <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-leftpane.png" width="20%" alt="Try out menu option in the left panel"></a>
 
-     ![]({{base_path}}/assets/img/learn/publisher-testconsole-createdstate.png)
+4.  You can generate the internal key by clicking on the **Generate Key** button to invoke and test the PizzaShack API.
 
-4.  Click on  the **Initiate Test**  button. This will open the swagger UI(API Console) to test the PizzaShack API before publish to the subscribers.
+       <html><div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <ul>The UI generates an Internal token to authenticate the API call.</ul>
+          <ul>If the API Publishers have a token or key then they can paste it in the UI and invoke the API using that key</ul>
+          </div>
+       </html>
+      <a href="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png"><img src="{{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-generatekey.png" width="80%" alt="Generate key"></a>
 
-      ![]({{base_path}}/assets/img/learn/publisher-testconsole-swaggerconsole.png)
+5.  Expand the **GET**  method, click **Try it out**, and click **Execute**.
 
-5.  Expand the POST  method and click Try it out. It will generate the **test-key** to invoke the API. Click Execute.
+    Note the successful response for the API invocation.
 
-    ![]({{base_path}}/assets/img/learn/publisher-testconsole-testkey.png)
-
-    !!! tip
-            **test-key token**
-
-            if an API developer initiates a test, the swagger console will be automatically populated with the generated **test-key**. If you try the test api call through the terminal or command line, make sure you copy the generated test-key.
-
-You have now successfully tested an API using the publisher test Console. Now you can publish the API to the gateway.
+    [![Publisher test console]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)

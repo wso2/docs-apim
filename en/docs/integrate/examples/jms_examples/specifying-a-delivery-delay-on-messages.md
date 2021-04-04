@@ -145,7 +145,7 @@ Create the artifacts:
 
 Set up the broker:
 
-1.  [Configure a broker](../../../setup/transport_configurations/configuring-transports.md#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
+1.  [Configure a broker]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transport#configuring-the-jms-transport) with your Micro Integrator instance. Let's use HornetQ for this example.
     
     -   On **Windows**: HORNETQ_HOME\bin\run.bat --run
     -   On **MacOS/Linux/Solaris**: sh HORNETQ_HOME/bin/run.sh

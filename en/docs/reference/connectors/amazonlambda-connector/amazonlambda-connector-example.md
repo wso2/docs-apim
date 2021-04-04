@@ -101,7 +101,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     ```
 3. Now we can export the imported connector and the API into a single CAR application. The CAR application is what we are going to deploy during server runtime.
 
-{!/reference/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Create Amazon Lambda Deployment Package (Lambda function) 
 In this scenario we created sample AWS Deployment Package (Lambda function) in Python.
@@ -155,7 +155,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 

@@ -1,10 +1,10 @@
 # SMPP Connector Example
 
-SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS through the WSO2 EI. It uses the [jsmpp API](https://jsmpp.org/) to communicate with an SMSC (Short Message Service Center), which is used to store, forward, convert, and deliver Short Message Service (SMS) messages. jsmpp is a Java implementation of the SMPP protocol.
+SMPP (Short Message Peer-to-Peer Protocol) Connector allows you to send an SMS from an integration sequence. It uses the [jsmpp API](https://jsmpp.org/) to communicate with an SMSC (Short Message Service Center), which is used to store, forward, convert, and deliver Short Message Service (SMS) messages. jsmpp is a Java implementation of the SMPP protocol.
 
 ## What you'll build
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 EI SMPP Connector and send SMS messages via the SMPP protocol.
+Given below is a sample scenario that demonstrates how to work with the WSO2 SMPP Connector and send SMS messages via the SMPP protocol.
 
 The SMPP server in SMSC have all the ESME (External Short Messaging Entity) addresses. This is an external application that connects to a SMSC and the active connection. When you send an SMS to a destination, it comes to the SMSC. Then one of the modules in SMSC checks if the destination address is available or not. If it is available, it creates a connection object that is responsible for sending the SMS message.
 There are many SMPP gateways available in the world and now almost all the message centers support SMPP. It is not practical always to connect with real SMSC. However, in this scenario we will try it with **SMSC simulator**. Please refer the [Setting up the SMPP Connector]({{base_path}}/reference/connectors/smpp-connector/smpp-connector-configuration/) documentation.
@@ -21,7 +21,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -164,7 +164,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 

@@ -1,6 +1,6 @@
 # Using a WebSocket Endpoint
 
-WebSocket is a protocol that provides full-duplex communication channels over a single TCP connection. This can be used by any client or server application. The Micro Integrator provides WebSocket support via the [WebSocket Transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-websocket-transport) and the [WebSocket Inbound Protocol]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket).
+WebSocket is a protocol that provides full-duplex communication channels over a single TCP connection. This can be used by any client or server application. The Micro Integrator provides WebSocket support via the [WebSocket Transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-websocket-transport) and the [WebSocket Inbound Protocol]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket).
 
 ## Example 1: Sending a Message from a WebSocket Client to a WebSocket Endpoint
 
