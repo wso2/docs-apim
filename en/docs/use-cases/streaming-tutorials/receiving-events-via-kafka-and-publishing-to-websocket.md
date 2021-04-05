@@ -51,7 +51,7 @@ From here onwards, this directory is referred to as `<KAFKA_HOME>`.
 
 ### Step 1: Start Kafka
 
-1. Navigate to the `<KAFKA_HOME>` directory and start a zookeeper node by issuing the following command.
+1. Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node by issuing the following command.
 
     `sh bin/zookeeper-server-start.sh config/zookeeper.properties`
 
@@ -150,7 +150,6 @@ Check the output in the terminal of <SIHome>/samples/sample-clients/websocket-re
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
 * Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
-
 
 
 
