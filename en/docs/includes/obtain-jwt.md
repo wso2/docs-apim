@@ -5,5 +5,3 @@ Let's use the following command to generate a JWT to access the API, and set it 
 ```
 TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 ```
-
-Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md) for more details.

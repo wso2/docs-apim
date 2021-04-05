@@ -8,7 +8,7 @@ There are two ways to add an API to the Microgateway.
 
 2. [Via the CLI tool (apictl)](#via-the-cli-tool-apictl)
 
-    If you are not using WSO2 API Manager yet, or only want to tryout microgateway, simply use the CLI tool [apictl](https://github.com/wso2/product-apim-tooling/releases) to host your API.
+    If you are not using WSO2 API Manager yet, or only want to try out Microgateway (as a standalone gateway), simply use the CLI tool [apictl](https://github.com/wso2/product-apim-tooling/releases) to host your API.
 
 ## Via API Manager
 
@@ -19,7 +19,7 @@ There are two ways to add an API to the Microgateway.
 
     - Download the latest [Microgateway 4.0.0 release](https://github.com/wso2/product-microgateway/releases)and extract it to a folder of your choice. The extracted folder will be referred to as `MG_HOME` here onwards.
 
-    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases)and follow the steps [here](https://github.com/wso2/product-apim#installation--running)
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
 
 ### Step 1 - Find the APIM IP Address
 
@@ -65,9 +65,17 @@ docker-compose up -d
 That's it!
 
 
-During the startup, Microgateway will check the `config.toml` to see if the `controlPlane.eventHub` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, and etc.
+During the startup, Microgateway will check the `config.toml` to see if the `controlPlane.eventHub` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, etc.
 
-Whenever a new event occurs in API manager such as an API being deployed, API Manager will notify Microgateway via the eventhub. Microgateway will then start fetching all the new artifacts related to its environment.  
+Whenever a new event occurs in API Manager such as an API being deployed, API Manager will notify Microgateway via Event Hub. Microgateway will then start fetching all the new artifacts related to its environment. 
+
+!!! Note 
+
+    Refer to the following content to learn more,
+
+    - [API Manager as Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane)
+    - [Deploy an API in API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) 
+    - [Publish an API on the Developer Portal]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api)
 
 
 ## Via the CLI tool (apictl) 
@@ -75,7 +83,7 @@ Whenever a new event occurs in API manager such as an API being deployed, API Ma
 !!! info
     **Before you begin**
 
-    This guide assumes that you already have a microgateway instance is up and running. If not, checkout the [quick start guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview) on how to install and run the microgateway. To learn more about the microgateway, have a look at the [overview of microgateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview). 
+    This guide assumes that you already have a Microgateway instance that is up and running. If not, checkout the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview) on how to install and run Microgateway. To learn more about Microgateway, have a look at the [Overview of Microgateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview). 
 
 ### Step 1 - Download apictl and Set the Path Variable 
 
@@ -107,7 +115,7 @@ apictl mg add env dev --adapter https://localhost:9843
 
 !!! info
 
-    Note `mg` in the above command. The apictl commands that starts as `apictl mg` are microgateway specific. If a command does not have `mg` after `apictl` then the command could probably be common to both Microgateway and API Manager, but it could also be API Manager specific. 
+    Note `mg` in the above command. The apictl commands that starts as `apictl mg` are Microgateway specific. If a command does not have `mg` after `apictl` then the command could probably be common to both Microgateway and API Manager, but it could also be API Manager specific. 
 
 !!! tip
 
@@ -115,9 +123,9 @@ apictl mg add env dev --adapter https://localhost:9843
 
     To communicate via https without skipping SSL verification (without -k flag), add the cert in the Microgateway truststore into the `<USER_HOME>/.wso2apictl/certs` folder.
 
-### Step 4 - Login to the Mcrogateway Environment in apictl
+### Step 4 - Log in to the Microgateway Environment in apictl
 
-You can use the following command to login to the above microgateway cluster (in other words login to the microgateway adapter). By logging in, an access token will be retrived from the microgateway and saved in apictl.
+You can use the following command to log in to the above Microgateway cluster (in other words log in to the Microgateway adapter). By logging in, an access token will be retrieved from Microgateway and saved in apictl.
 
 ``` bash
 apictl mg login dev -k
@@ -139,8 +147,16 @@ apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -
 
 That's it!
 
-More apictl commands related to microgateway can be found at [Managing Microgateway with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl)
+!!! Note 
+
+    Refer to the following content to learn more,
+
+    - [Managing Microgateway with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl)
+    - [API Microgateway as a Standalone Gateway]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway)
 
 ## Invoke the API
 {! ./includes/obtain-jwt.md !}
 {! ./includes/invoke-api-with-jwt.md !}
+
+<!-- brought the following here because the path becomes relative when included in the includes folder -->
+Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md) for more details.
