@@ -139,7 +139,7 @@ If you edit this application while it's running, stop the application -> Save ->
 
 ## Viewing the Results:
 
-Check the output in the terminal of <SIHome>/samples/sample-clients/websocket-receiver. You will see output similar to the following: 
+Check the output in the terminal of `<SI_HOME>/samples/sample-clients/websocket-receiver`. You will see output similar to the following: 
 ```
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341745974, data=[Jelly Bean, 6559.3817149644165], isExpired=false}
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341746974, data=[KitKat, 292.1776931457968], isExpired=false}
@@ -150,5 +150,4 @@ Check the output in the terminal of <SIHome>/samples/sample-clients/websocket-re
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
 * Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
-
 
