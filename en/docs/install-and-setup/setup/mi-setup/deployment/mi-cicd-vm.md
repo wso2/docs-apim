@@ -2,27 +2,30 @@
 
 #### Overview
 
-There are two kinds of jobs in Jenkins. One kind is for the Integration projects. Another kind is for the Descriptor repositories. 
+There are two kinds of jobs in Jenkins that we need to maintain. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
 
-*   We need to maintain one Jenkins job per Integration Project repository.
-*   The Integration Project has to be a Maven Multi Module project and it has to contain one Composite Exporter module. By default, the script supports one Exporter module. Users can customize it to support multiple Exporter modules per Integration Project.
-*   The build phase of the job will build the Integration project and run the unit tests if a Unit test server is configured.
-*   The release phase of the job will publish the CApps to the Nexus repository and create a release tag in GitHub.
-*   We need to maintain one jenkins job per Environment.
-*   There will be descriptor files for each project inside a separate folder.
-*   To use a new version / rollback to a previous version, the user should define the change inside the respective descriptor and commit to the respective branch.
-*   This job contains only the build phase. This will fetch the relevant new CApps from the Nexus and add it to the VM instance. This will also delete relevant CApps.
+#### Integration Project Build Job
+- We need to maintain one Jenkins job per Integration Project repository.
+- The Integration Project has to be a [Maven Multi Module project]({{base_path}}/integrate/develop/create-integration-project/#maven-multi-module-projects) and it has to contain one Composite Exporter module. By default, the sample scripts provided, supports one Exporter module. Users can customize it to support multiple Exporter modules per Integration Project.
+- The build phase of the job will build the Integration project and run the unit tests if a Unit test server, if configured.
+- The release phase of the job will publish the CApps to the Nexus repository and create a release tag in GitHub.
+
+#### Deployment Descriptor Build Job
+- We need to maintain one Jenkins job per Environment.
+- There will be descriptor files for each project inside a separate folder.
+- To use a new version / rollback to a previous version, the user should define the change inside the respective descriptor and commit to the respective branch.
+- This job contains only the build phase. This will delete the CApps from the VM instance and fetch the defined CApps from the Nexus and add it to the VM instance.
 
 #### Setting up the environment
 
 ##### Prerequisites
 
-1. Integration Studio 8.0.0
+1. Integration Studio 8.0.0 or higher
 
-2. Github repositories 
-
-    - Source repository - To maintain the source of the project
-    - Deployment repository - To maintain the descriptor files of the environment
+2. Two Github repositories 
+   
+   *   Source repository - To maintain the source of the project
+   *   Deployment repository - To maintain the descriptor files of the environment
 
 3. Jenkins server for Continuous Integration 
 
@@ -51,7 +54,7 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
 
 4. Commit your changes to the Github source repository
 5. [Set up Jenkins server](#setting-up-jenkins-server)
-6. Login to the Jenkins server using the credentials given in the Dockerfile of jenkins instance.
+6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
 8. Create webhooks in relevant Github repositories pointing to the Jenkins server. (Source & Deployment)
 9. [Set up Nexus server](#setting-up-nexus-server)
@@ -68,9 +71,9 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
     ```
 
 13. Commit the above created folder to the dev branch (environment) of the deployment repository. 
-14. Once you commit the changes, you can observe that the descriptor-dev job starts running and it pulls the relevant CApp from the nexus and copies it to the configured Micro Integrator instance in the Dev environment.
+14. Once you commit the changes, you can observe that the descriptor-dev job starts running and it pulls the CApps from the nexus and copies it to the configured Micro Integrator instance in the Dev environment.
 15. Verify that the new changes are available in the Dev environment.
-16. You can repeat steps 12, 13 and 14 for the Staging and Prod environment.
+16. You can repeat steps 13, 14 and 15 for the Staging and Prod environment.
 
 
 ##### Setting up Jenkins Server
@@ -81,15 +84,15 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 
-3. Navigate to the Docker VM artifacts directory.
+3. Navigate to the docker-vm-artifacts directory.
 
-    `cd sample-apim/ei-cicd/docker-vm-artifacts/jenkins`
+    `cd sample-apim/mi-cicd/docker-vm-artifacts/jenkins`
 
 4. Open up the Dockerfile and fill up the project and environment related details.
 
     `vi Dockerfile`
 
-5. [Optional] If you want to customize the Jenkins configuration, update the jenkins_casc_vm.yaml file.
+5. [Optional] If you want to customize the Jenkins configuration, update the Jenkins_casc_vm.yaml file.
 
     `vi jenkins_casc_vm.yaml`
 
@@ -97,11 +100,11 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
 
 7. Run the following build command to build the docker image.
 
-    `docker build -t &lt;image-name>:&lt;image-tag> .`
+    `docker build -t <image-name>:<image-tag> .`
 
 8. Run the following command to run the image. You need to configure the .ssh folder to access the dev, staging and production environment and mount the folder to the container.
 
-    `docker run -d -p 8080:8080 -v ~/.ssh:/root/.ssh &lt;image-name>:&lt;image-tag>`
+    `docker run -d -p 8080:8080 -v ~/.ssh:/root/.ssh <image-name>:<image-tag>`
     
     !!! Info
         We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the Micro Integrator instances are running.
@@ -115,7 +118,7 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
 
 2. Navigate to the Docker VM artifacts directory.
 
-    `cd sample-apim/ei-cicd/docker-vm-artifacts/nexus`
+    `cd sample-apim/mi-cicd/docker-vm-artifacts/nexus`
 
 3. Open up the Dockerfile and fill up the project and environment related details.
 
@@ -127,24 +130,24 @@ There are two kinds of jobs in Jenkins. One kind is for the Integration projects
 
 5. Run the following build command to build the docker image.
 
-    `docker build -t &lt;image-name>:&lt;image-tag> .`
+    `docker build -t <image-name>:<image-tag> .`
 
 6. Run the following command to run the image. 
 
-    `docker run -d -p 8081:8081 &lt;image-name>:&lt;image-tag>`
+    `docker run -d -p 8081:8081 <image-name>:<image-tag>`
 
 7. After installing nexus, the repository browser can be accessed via [http://localhost:8081/](http://localhost:8081/) . 
 
 ##### Setting up Synapse Unit testing server
 
-If you have written Synapse unit tests for your Integration project, you can run them during the jenkins build.
+If you have written Synapse unit tests for your Integration project, you can run them during the Jenkins build.
 
 To set up the Synapse Unit testing server, please follow the below steps.
 
 1. Run a separate Micro Integrator Instance in Unit testing mode. To start the server in Unit testing mode please pass this argument `-DsynapseTest`.
 
-    If you want to change the synapse testing port, you can pass the -DsynapseTestPort=&lt;new Port> to the above command. Default port is 9008
+    If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` to the above command. Default port is 9008
 
-2. Update jenkins Dockerfile as below.
+2. Update Jenkins Dockerfile as below.
 
-        SYNAPSE_TEST_FRAMEWORK_CONFIGS= -DtestServerType=remote -DtestServerHost=&lt;IP of testing server> -DtestServerPort=9008
+        SYNAPSE_TEST_FRAMEWORK_CONFIGS= -DtestServerType=remote -DtestServerHost=<IP of testing server> -DtestServerPort=9008

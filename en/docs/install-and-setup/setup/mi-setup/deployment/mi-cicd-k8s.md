@@ -4,11 +4,11 @@
 
 #### Overview
 
-There are two kinds of jobs in Jenkins. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
+There are two kinds of jobs in Jenkins that we need to maintain. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
 
 #### Integration Project Build Job
 - We need to maintain one Jenkins job per Integration Project repository.
-- The Integration Project has to be a Maven Multi Module project and it has to contain one Kubernetes Exporter module. 
+- The Integration Project has to be a [Maven Multi Module project]({{base_path}}/integrate/develop/create-integration-project/#maven-multi-module-projects) and it has to contain one Kubernetes Exporter module. 
 - The build phase of the job will build the Integration project and run the unit tests if a Unit test server, if configured.
 - The release phase of the job generates docker images using the provided repository, name and project version and pushes the image to the configured docker registry and creates a release tag in github.
 
@@ -70,7 +70,7 @@ These will be generated inside a folder with the Project Name.
    
 4. Commit your changes to the Github source repository
 5. [Set up Jenkins server](#setting-up-jenkins-server)
-6. Login to the Jenkins server using the credentials given in the Dockerfile of jenkins instance.
+6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
 8. Create webhooks in relevant Github repositories pointing to the Jenkins server. (Source & Deployment)
 9. Perform a maven release by giving release and development versions.
@@ -81,7 +81,8 @@ These will be generated inside a folder with the Project Name.
 14. Verify that the new changes are available in the Dev environment.
 15. You can repeat steps 12, 13 and 14 for the Staging and Prod environment.
 
-Please note that according to current scripts, when you change the config map only, the change won’t get reflected in the running pod. To do a proper deployment you may need to use tools like kustomize.
+    !!!Info
+        Please note that according to current scripts, when you change only the config map, the change won’t get reflected in the running pod. To do a proper deployment you may need to use tools like [kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
 
 #### Setting up Jenkins server
 
@@ -91,27 +92,27 @@ Please note that according to current scripts, when you change the config map on
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 
-3.Navigate to the Docker VM artifacts directory.
-
+3. Navigate to the Docker VM artifacts directory.
+    
     `cd sample-apim/ei-cicd/docker-vm-artifacts/jenkins`
 
 3. Open up the Dockerfile and fill up the project and environment related details.
 
     `vi Dockerfile`
 
-4. [Optional] If you want to customize the Jenkins configuration, update the jenkins_casc_vm.yaml file.
+4. [Optional] If you want to customize the Jenkins configuration, update the Jenkins_casc_vm.yaml file.
 
-`vi jenkins_casc_k8s.yaml`
+    `vi jenkins_casc_k8s.yaml`
 
 5. [Optional] : [Setting up Synapse Unit testing server](#setting-up-synapse-unit-testing-server)
 
 6. Run the following build command to build the docker image.
 
-    `docker build -t &lt;image-name>:&lt;image-tag> .`
+    `docker build -t <image-name>:<image-tag> .`
 
 7. Run the following command to run the image. You need to configure the .ssh folder to access the dev, staging and production environment and mount the folder to the container.
 
-    `docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock -v ~/.kube:/root/.kube &lt;image-name>:&lt;image-tag>`
+    `docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock -v ~/.kube:/root/.kube <image-name>:<image-tag>`
 
 8. We need to share the host .ssh configurations with the Docker container as in above. The host machine needs to have ssh access to copy the CApps files to the remote instance where the Micro Integrator instances are running. 
 
@@ -119,15 +120,15 @@ Please note that according to current scripts, when you change the config map on
 
 #### Setting up Synapse Unit testing server
 
-If you have written Synapse unit tests for your Integration project, you can run them during the jenkins build.
+If you have written Synapse unit tests for your Integration project, you can run them during the Jenkins build.
 
 To set up the Synapse Unit testing server, please follow the below steps.
 
 
 1. Run a separate Micro Integrator Instance in Unit testing mode. To start the server in Unit testing mode please pass this argument `-DsynapseTest`.
 
-    If you want to change the synapse testing port, you can pass the -DsynapseTestPort=&lt;new Port> to the above command. Default port is 9008
+    If you want to change the synapse testing port, you can pass the `-DsynapseTestPort=<new Port>` to the above command. Default port is 9008
 
-2. Update jenkins Dockerfile as below.
+2. Update Jenkins Dockerfile as below.
 
-        SYNAPSE_TEST_FRAMEWORK_CONFIGS= -DtestServerType=remote -DtestServerHost=&lt;IP of testing server> -DtestServerPort=9008
+        SYNAPSE_TEST_FRAMEWORK_CONFIGS= -DtestServerType=remote -DtestServerHost=<IP of testing server> -DtestServerPort=9008
