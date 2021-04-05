@@ -250,6 +250,8 @@ Create an API from a deployed service by clicking on the **Create API** button i
 Provide the details in there for API Name, Context and Version where all fields are mandatory, and click on the **Create API** button. 
 Then you will then be directed to the overview page of the API created from the deployed service.
 
+![Create API from Service](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/integrate/service-catalog/create-api-from-service.png)
+
 ## Additional Information
 
 For more information on deploying Siddhi Applications, see [Deploying Siddhi Applications](https://github.com/wso2/docs-apim/blob/master/en/docs/develop/streaming-apps/deploying-streaming-applications.md).
