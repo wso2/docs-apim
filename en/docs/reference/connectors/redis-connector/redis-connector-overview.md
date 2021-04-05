@@ -20,7 +20,7 @@ For older versions, see the details in the connector store.
 
 * **[Setting up the Redis Environment]({{base_path}}/reference/connectors/redis-connector/redis-connector-configuration/)**: This involves setting up the Redis server and a backend to test the flow.
 
-* **[Redis Connector Example]({{base_path}}/reference/connectos/redis-connector/redis-connector-example/)**: This example demonstrates how to work with the WSO2 EI Redis Connector and access the Redis server using Redis commands. 
+* **[Redis Connector Example]({{base_path}}/reference/connectos/redis-connector/redis-connector-example/)**: This example demonstrates how to work with the Redis Connector and access the Redis server using Redis commands. 
 
 * **[Redis Connector Reference]({{base_path}}/reference/connectors/redis-connector/redis-connector-reference/)**: This documentation provides a reference guide for the Redis Connector.
 

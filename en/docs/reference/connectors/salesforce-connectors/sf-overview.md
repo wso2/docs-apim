@@ -64,7 +64,7 @@ The Salesforce Desk connector allows you to access the [Salesforce Desk REST API
 
 ### Pardot
 
-The Pardot connector allows you to access the Pardot REST API through WSO2 EI. Pardot, B2B marketing automation by Salesforce, offers a marketing automation solution that allows marketing and sales departments to create, deploy, and manage online marketing campaigns.
+The Pardot connector allows you to access the Pardot REST API through the WSO2 integration runtime. Pardot, B2B marketing automation by Salesforce, offers a marketing automation solution that allows marketing and sales departments to create, deploy, and manage online marketing campaigns.
 
 * **[Pardot Connector documentation](https://docs.wso2.com/display/ESBCONNECTORS/Pardot+Connector)**: Includes an overview of the connector and links to associated documentation.
 

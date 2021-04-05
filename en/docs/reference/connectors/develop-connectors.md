@@ -740,7 +740,7 @@ Following methods in `PayloadUtils` class can be used for payload building and t
 ## Best practices
 
 **Use functionalities available in Connector Core**
-Every connector depends on the [WSO2 Connector Core](https://github.com/wso2/carbon-mediation/tree/master/components/mediation-connector/org.wso2.carbon.connector.core), which acts as the interface between the mediation engine and the connector implementation. It is the SDK provided to develop WSO2 EI connectors. Connection pooling, OAuth-based authentication, JSON and XML utilities are there. 
+Every connector depends on the [WSO2 Connector Core](https://github.com/wso2/carbon-mediation/tree/master/components/mediation-connector/org.wso2.carbon.connector.core), which acts as the interface between the mediation engine and the connector implementation. It is the SDK provided to develop connectors. Connection pooling, OAuth-based authentication, JSON and XML utilities are there. 
 
 **Never use class level variables when you extend “AbstractConnector” class**
 The `connect` method of this class must be stateless as multiple threads will access it at the same time (e.g., [Email Send](https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/java/org/wso2/carbon/connector/operations/EmailSend.java)). Due to the same reason, avoid using class level variables to assign and keep values as that makes this method stateful. 

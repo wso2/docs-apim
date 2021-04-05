@@ -53,7 +53,7 @@ The cloud-native and classic observability solution are suitable for the followi
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment)
+* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
 * For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
 
