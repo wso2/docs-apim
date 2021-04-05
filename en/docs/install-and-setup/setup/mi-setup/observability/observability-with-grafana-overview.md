@@ -4,9 +4,9 @@ Observability can be viewed as a superset of monitoring where monitoring is enri
 
 WSO2 Enterprise Integrator 7.0.0 and older versions offer an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not  sufficiently stream-lined.
 
-To address that limitation, WSO2 Enterprise Integrator 7.1.0 introduced an observability solution that utilizes a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions. 
+The current observability solution avoids this limitation by utilizing a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions. 
 
-The older analytics distribution is referred to as the Classic Observability Deployment, and the newer solution introduced with WSO2 Enterprise Integrator 7.1.0 is referred to as the Cloud Native Observability Deployment.
+The older analytics distribution is referred to as the Classic Observability Deployment, and the newer solution (introduced with WSO2 Enterprise Integrator 7.1.0) is the Cloud Native Observability Deployment.
 
 - **Classic Observability Deployment**
 

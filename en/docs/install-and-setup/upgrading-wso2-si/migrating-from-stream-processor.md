@@ -9,9 +9,9 @@ If you are currently using WSO2 Stream Processor to carry out any streaming inte
 The following prerequisites should be completed before upgrading.
 
 - Make a backup of the SP 4.4.0 database and copy the <SP_HOME> directory in order to backup the product configurations.
-- Download the Streaming Integrator from the [Enterprise Integrator Home](https://wso2.com/integration/)
+- Download the [Streaming Integrator](https://wso2.com/integration/).
 
-## Migrating Databases
+## Migrating databases
 
 To connect the Streaming Integrator to the same databases as WSO2 SP 4.4.0 so that the persisted data can be accessed, configure the data sources as follows:
 

@@ -27,7 +27,7 @@ The basic observability stack allows you to view metrics by installing and confi
 
     `helm install wso2-observability . --render-subchart-notes`
     
-4. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+4. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
     
 The above step deploys the basic deployment and displays instructions to access the dashboards. This deployment allows you to access both Prometheus and Grafana UIs, and provides you with ability to view and analyze metrics.
 
@@ -50,7 +50,7 @@ This deployment involves deploying Prometheus, Grafana, Loki, and Fluent-bit Dae
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
 
 Above steps deploy the observability solution with log processing capabilities and display instructions to access the dashboards. With this deployment you can access Prometheus and Grafana UIs.     
 
@@ -73,7 +73,7 @@ This involves deploying Prometheus, Grafana, and Jaeger-operator with all the re
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
 
 The above steps deploy the observability solution with tracing capabilities and displays instructions to access the dashboards. With this deployment, you are able to access Prometheus, Grafana, and Jaeger UIs.
 
@@ -123,7 +123,7 @@ To install the cloud native observability solution with logging and tracing capa
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
     
 The above step deploys the complete deployment and displays instructions to access the dashboards. This deployment allows you to access Prometheus, Grafana, and Jaeger UIs.
 

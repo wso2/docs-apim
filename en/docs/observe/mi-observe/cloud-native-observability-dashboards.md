@@ -8,13 +8,13 @@ Set up the suitable cloud-native observability deployment. The dashboards descri
 
 See the following topics for information and instructions:
 
--	Learn about [Observability deployment strategy]({{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy).
--	Setting up [cloud-native observability for a VM environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment)
--	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes)
+-	Learn about the [observability deployment strategy]({{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy).
+-	Setting up [cloud-native observability for a VM environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment).
+-	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes).
 
 ## Cluster dashboard
 
-In the Cluster dashboard visualizes the overall statistics relating to your Micro Integrator cluster. we can view information related to our MI Cluster. 
+Cluster dashboards visualize the overall statistics relating to your Micro Integrator cluster. We can view information related to our MI cluster. 
 
 ![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.png)
 
@@ -22,7 +22,7 @@ In the Cluster dashboard visualizes the overall statistics relating to your Micr
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Cluster Metrics](https://grafana.com/grafana/dashboards/12783).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md).
 
 ### Statistic types
 
@@ -48,17 +48,17 @@ This dashboard serves the following purposes:
 
 - It also provides the basic details of the nodes and services deployed in the cluster. This can indicate how each node/service affects the overall cluster performance. e.g., If the **Error Rate** widget indicates a surge in the error rate at a particular time, you can identify a node/service that started at around the same time (as shown by the **Node List** and **Service List** widgets) as a possible cause of it.
 
-- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your Enterprise Integrator set up.
+- It provides access to other dashboards that display statistics related to specific nodes and services so that you can carry out further analysis relating to the performance of your Micro Integrator set up.
 
 ### Recommended action
 
 - Identify the times at which the error rate and/or the response time has been rising. Depending on the time, you can investigate the cause of if (e.g., a node/service that started around the same time). 
 
-- Click on the nodes/services that you have identified as nodes/services to be further analyzed to improve the performance of your EI set up, and view the visualizations specific to them.
+- Click on the nodes/services that you have identified as nodes/services to be further analyzed to improve the performance of your Micro Integrator set up, and view the visualizations specific to them.
 
 - Based on the request count, make the appropriate decisions with regard to the resource allocation (i.e., whether to add or reduce the number of nodes to to leave the present number unchanged).
 
-- Identify the popular services and make business decisions accordingly. e.g., If there is a surge in the request rate, you can identify the services that were active  during that time. You can analyze such services in more detail by viewing information specific to them and decide whether to invest more in them.
+- Identify the popular services and make business decisions accordingly. For example, if there is a surge in the request rate, you can identify the services that were active  during that time. You can analyze such services in more detail by viewing information specific to them and decide whether to invest more in them.
 
 ## Node dashboard
 
@@ -70,7 +70,7 @@ This displays statistics specific to a selected node.
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Node Metrics](https://grafana.com/grafana/dashboards/12887).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md).
 
 ### Statistic types
 
@@ -80,7 +80,7 @@ The following is the list of widgets displayed in this dashboard.
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Up Time**                    | The time duration that has elapsed since the node became active for the current session.|                                                                                                              |
 | **Service Count**              | The number of services (i.e., proxy services and REST API services) that are currently deployed in the node.|
-| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current Enterprise Integrator setup.|
+| **All Time Request Count**     | The total number of requests received by the node after it became a member of the current Micro Integrator setup.|
 | **All Time Error Count**       | The total number of requests handled by the node that have resulted in errors.|
 | **CPU Utilization**            | A visualization of the node's CPU consumption over time.|
 | **JVM Heap Memory**            | A visualization of the amount of JVM heap memory consumed by the node over time.|
@@ -117,7 +117,7 @@ In the Proxy service dashboard, we can view information related to a specific Pr
 
 You can download the dashboard from the [Grafana Labs - WSO2 Proxy Service Metrics](https://grafana.com/grafana/dashboards/12889).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md).
 
 ### Statistic types
 
@@ -191,7 +191,7 @@ The following is the list of widgets displayed in this dashboard.
 
 ## WSO2 Inbound Endpoint Metrics dashboard
 
-At a given time, the Inbound endpoint dashboard displays the overall statistics related to a selected endpoint. we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time,, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time.
+At a given time, the Inbound endpoint dashboard displays the overall statistics related to a selected endpoint. we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time.
 
 ![Inbound Endpoint Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
 
