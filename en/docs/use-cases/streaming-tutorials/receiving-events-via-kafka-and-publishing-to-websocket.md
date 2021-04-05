@@ -1,9 +1,11 @@
-# Recieving XML events via Kafka and Publishing to WebSocket
+# Receiving XML events via Kafka, Publishing to WebSocket and Generation of Asynchronous API and Deployment
 
 ## Introduction
 
-The Streaming Integrator can consume events from a Kafka topic and publish those events to a WebSocket in a streaming manner.
+The Streaming Integrator can consume events from a Kafka topic and publish those events to a WebSocket in a streaming manner when a stream of events are received by the Kafka source and they are published to the WebSocket sink simultaneously.
 
+As the Siddhi application contains a WebSocket source, this can be exposed as an API in the API Manager. Here this documentation will provide an overview of generating an Async API, viewing it in Streaming Integrator Tooling and how to export the Async API specification into the Service Catalogue during the Siddhi application deployment in the WSO2 Streaming Integrator.
+ 
 ## Purpose
 
 This application demonstrates how to configure WSO2 Streaming Integrator Tooling to receive events to the `SweetProductionStream` via Kafka transport in XML format and send sweet production events via WebSocket transport in XML format and log the events in `LowProductionAlertStream` to the output console.
@@ -45,7 +47,7 @@ From here onwards, this directory is referred to as `<KAFKA_HOME>`.
                 
 5. Add the OSGI converted Kafka libs from the `Destination` directory to the `<SI_HOME>/lib` directory.
 
-6. Add the original Kafka libs from `Source` to `<SIHome>/samples/sample-clients/lib`.
+6. Add the original Kafka libs from `Source` to `<SI_Home>/samples/sample-clients/lib`.
 
 ## Consuming data from Kafka
 
@@ -74,7 +76,6 @@ INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Int
 
 ### Step 3: Consume from a Kafka topic and Publish to WebSocket
 
-####
 1. Let's create a basic Siddhi application to consume messages from a Kafka topic and publish to WebSocket in XML format.
 
 ```
@@ -139,13 +140,85 @@ If you edit this application while it's running, stop the application -> Save ->
 
 ## Viewing the Results:
 
-Check the output in the terminal of `<SI_HOME>/samples/sample-clients/websocket-receiver`. You will see output similar to the following: 
+Check the output in the terminal of <SI_Home>/samples/sample-clients/websocket-receiver. You will see output similar to the following: 
 ```
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341745974, data=[Jelly Bean, 6559.3817149644165], isExpired=false}
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341746974, data=[KitKat, 292.1776931457968], isExpired=false}
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341739972, data=[Cream Sandwich, 9850.605768948268], isExpired=false}
 [java] [io.siddhi.core.stream.output.sink.LogSink] : WebSocketSample : logStream : Event{timestamp=1617341737970, data=[Éclair, 2183.9079927424236], isExpired=false}
 ```
+
+### Step 4: Generate an Async API
+
+1. After saving the Siddhi file, click **Async API View** button to open the Async API Generation form.
+
+![Async API View button](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/open-async-api-view-button.png)
+
+Since there are no Async API content with the @App:asyncAPI annotation, the Async API generation form opens as shown in the figure below.
+
+It consists of set of fields such as,
+	- Title
+	- Version
+	- Description
+	- Server Name
+	- Source/ Sink to generate Async API
+	- Sources
+to be filled in order to generate the Async API spec for the selected source.
+The fields can be populated as follows in the given figure.
+
+![Design View of Async API](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/async-api-form.png)
+
+2. To view the generated Async API specification, click on the **Generate Async API** Button.
+
+![Generate Async API button](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/generate-async-api-view-button.png)
+
+### Step 5: View the Async API
+
+1. After the Async API is generated as described above, the Async API specifications will be visible in the `Async API View` as follows.
+
+   ![Async API view](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/async-api-spec-view.png)
+
+2. Click on the **Add Async API** button to add the generated Async API to the Siddhi application. 
+
+   ![Add Async API](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/add-async-api-button.png)
+
+3. Click on the **Code View** button to view the updated Siddhi application with the Async API that was generated.
+
+   ![Async API view](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/async-api-form.png)
+
+### Step 6: Export the Siddhi Application to Service Catalogue in SI Server
+
+Then our next step will be to export this Async API definition that we created to the Service Catalogue of the WSO2 API Manager.
+
+1. For this we should deploy the Siddhi Application to the WSO2 Streaming Integrator Server. This can be done via the tooling distribution. There's an option as `Deploy to server` under `Deploy` menu to deploy one or more Siddhi applications and deploy them to one or more Streaming Integrator servers. 
+
+![Deploy To Server](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/async-api-deploy-to-server.png)
+
+2. After selecting the particular Siddhi Application and by adding the relevant WSO2 Streaming Integrator server information as shown in the following diagram, Click on `Deploy` button.
+
+![Deploy Button](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/async-api-deploy.png)
+
+3. When the Siddhi Application get deployed in the WSO2 Streaming Integrator server, the generated Async API definition will be exported to the Service Catalogue. This can be confirmed using the following logs in the WSO2 Streaming Integrator server.
+
+```
+Siddhi App AsyncAPIDef deployed successfully
+Async API: SweetProdApp-1.0.0 uploaded to the service catalogue
+```
+
+The following log can be seen in the API Manager
+`CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0`
+
+4. To view the Async API in the API Manager Service Catalogue, access the API Manager Publisher's Catalogue via the `https://localhost:9448/publisher/service-catalog`
+
+The `SweetProdApp` that we generated will be shown in the Service Catalogue as follows.
+![Service Catalogue Entry in API Manager](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/streaming/working-with-async-api/service-catalogue-entry.png)
+
+
+## Additional Information:
+For more information on deploying Siddhi Applications, see [Deploying Siddhi Applications](https://github.com/wso2/docs-apim/blob/master/en/docs/develop/streaming-apps/deploying-streaming-applications.md).
+
+For more information on [Publishing Async API Specifications to API Manager](https://github.com/wso2/docs-apim/blob/4d68b4d29927cd249ae1209b2a80207f5b953bb7/en/docs/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md) 
+to check on how WSO2 Streaming Integrator deploys the Async API specification into Service Catalogue of the WSO2 API Manager.
 
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
