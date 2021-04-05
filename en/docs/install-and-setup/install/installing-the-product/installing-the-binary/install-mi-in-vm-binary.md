@@ -8,8 +8,7 @@ You can refer to the following video to get a quick understanding of how this is
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FxJApHXU63E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-Go to the product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+Go to the [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
 
 Extract the download ZIP file to a location on your computer. 
 
