@@ -43,7 +43,7 @@ From here onwards, this directory is referred to as `<KAFKA_HOME>`.
                 sh {WSO2SIHome}/bin/jartobundle.sh <{Source} Directory Path> <{Destination} Directory Path>
                 ```
                 
-5. Add the OSGI converted kafka libs from the `Destination` directory to the `<SI_HOME>/lib` directory.
+5. Add the OSGI converted Kafka libs from the `Destination` directory to the `<SI_HOME>/lib` directory.
 
 6. Add the original Kafka libs from `Source` to `<SIHome>/samples/sample-clients/lib`.
 
@@ -150,7 +150,6 @@ Check the output in the terminal of <SIHome>/samples/sample-clients/websocket-re
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
 * Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
-
 
 
 
