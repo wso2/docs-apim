@@ -2,7 +2,7 @@
 
 Follow the instructions given below to set up a cloud-native observability solution in a Kubernetes environment. 
 
-To streamline the deployment of the cloud native observability solution in Kubernetes, WSO2 EI provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a very few additional configurations. 
+To streamline the deployment of the cloud native observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a very few additional configurations. 
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ The above step deploys the complete deployment and displays instructions to acce
 
 ## Setting up the Micro Integrator deployment
 
-To integrate with the observability deployment, you are required to perform the following three main tasks in the EI containers:
+To integrate with the observability deployment, you are required to perform the following three main tasks in containers:
 
 ### Enabling observability for the Micro Integrator
 
@@ -170,7 +170,7 @@ To integrate with the observability deployment, you are required to perform the 
     
 Once the above tasks are completed, the container that is being deployed through the integration Kubernetes resource emits metric data, and the Observability deployment can discover and start without further configuration.
 
-**Configuring EI pods to parse logs through Fluent-bit**
+**Configuring pods to parse logs through Fluent-bit**
 
 To do this, set the following pod level annotation to the Micro Integrator pod.
 
