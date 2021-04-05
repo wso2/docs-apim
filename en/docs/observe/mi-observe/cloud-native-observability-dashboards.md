@@ -14,7 +14,7 @@ See the following topics for information and instructions:
 
 ## Cluster dashboard
 
-In the Cluster dashboard visualizes the overall statistics relating to your Micro Integrator cluster. We can view information related to our MI cluster. 
+Cluster dashboards visualize the overall statistics relating to your Micro Integrator cluster. We can view information related to our MI cluster. 
 
 ![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.png)
 

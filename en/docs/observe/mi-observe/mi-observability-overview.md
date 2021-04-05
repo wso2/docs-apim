@@ -4,7 +4,7 @@ This section explains how to set up the observability solutions and perform mana
 
 ### Observability solutions
 
-There are two observability solutions for the Micro Integrator; referred to as the cloud-native observability deployment and classic observability deployment.
+There are two observability solutions for the Micro Integrator; The cloud-native observability deployment and the classic observability deployment.
 
 <img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
 
