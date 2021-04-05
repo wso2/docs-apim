@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Streaming Integrator can consume events from a Kafka topic and publish those events to a WebSocket  in a streaming manner.
+The Streaming Integrator can consume events from a Kafka topic and publish those events to a WebSocket in a streaming manner.
 
 ## Purpose
 
@@ -150,6 +150,5 @@ Check the output in the terminal of <SIHome>/samples/sample-clients/websocket-re
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
 * Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
-
 
 
