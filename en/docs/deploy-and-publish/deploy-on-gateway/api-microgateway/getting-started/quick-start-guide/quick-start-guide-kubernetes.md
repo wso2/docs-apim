@@ -21,8 +21,8 @@ Let's get started...
 
 ### Step 1 - Setup Microgateway and K8s API Operator in Kubernetes
 
-1.  Download the WSO2 API Microgateway v4.0.0-m10 from
-    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-m10) assets and extract them
+1.  Download the WSO2 API Microgateway v4.0.0-alpha from
+    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-alpha) assets and extract them
     to a folder of your choice. We will refer to this folder as the `MG_HOME`.
 
 2.  Using the kubectl tool, apply Kubernetes configurations for Microgateway.
