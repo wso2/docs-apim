@@ -15,7 +15,7 @@ There are two ways to add an API to the Microgateway.
 !!! info
     **Before you begin**
 
-    - Make sure you have installed docker and docker-compose on your machine.
+    - Make sure you have installed Docker and Docker Compose on your machine.
 
     - Download the latest [Microgateway 4.0.0 release](https://github.com/wso2/product-microgateway/releases)and extract it to a folder of your choice. The extracted folder will be referred to as `MG_HOME` here onwards.
 
