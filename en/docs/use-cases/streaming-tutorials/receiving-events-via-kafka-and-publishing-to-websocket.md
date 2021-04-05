@@ -119,7 +119,7 @@ You can limit the number of events as follows as well,
 ant -Dtype=xml -DnoOfEventsToSend=5 -DtopicName=kafka_sample_topic
 ```
 
-2. Open a terminal and navigate to the `<SIHome>/samples/sample-clients/websocket-receiver` directory and run the ant command.
+2. Open a terminal and navigate to the `<SIHome>/samples/sample-clients/websocket-receiver` directory and run the `ant` command.
 
     If you use the default host 'localhost' and port '8025' in your program use `ant` command without any arguments.
     However, if you use different host or port, run the ant command with appropriate arguments. 
@@ -150,4 +150,3 @@ Check the output in the terminal of `<SI_HOME>/samples/sample-clients/websocket-
 ## Note:
 * Stop this Siddhi application, once you are done with the execution.
 * Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
-
