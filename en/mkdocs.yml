@@ -231,6 +231,18 @@ nav:
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
                 - Deploy an API:
                     - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/api-microgateway/deploy-api/deploy-api-to-microgateway.md
+                    - Event Hub Subscription Validation : deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
+                - Configurations:
+                    - Configuration Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/configuration-overview.md
+                    - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/configure-log4j.md
+                    - Main Configurations:
+                        - Adapter: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/adapter-configurations.md
+                        - Enforcer: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/enforcer-configurations.md
+                        - Router: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/router-configurations.md
+                        - Security: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/security-configurations.md
+                        - Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/control-plane-configurations.md
+                - Import API:
+                    - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md

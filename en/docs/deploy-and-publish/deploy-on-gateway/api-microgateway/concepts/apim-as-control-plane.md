@@ -106,3 +106,8 @@ When working with Real-time Notifications, WSO2 API Microgateway uses a Publishe
 When using Persistent Notifications, WSO2 API Microgateway uses a persistent storage mechanism to link the Security Token Service (STS) and the WSO2 API Microgateway servers. Whenever a token revoke request is received, the STS publishes a message to the persistent storage. When a new WSO2 API Microgateway server spins up, it pulls the list of revoked tokens from the persistent storage, and stores them in the revoked jti (JWT ID) cache. The latter mentioned process only takes place once, and the state of the token is preserved. The state of the revoked token is used at restarts and when new API Microgateways join the cluster of Microgateway servers. By default, WSO2 API Microgateway can use WSO2 API Manager or [etcd](https://github.com/etcd-io/etcd) servers as its persistent storage when working with persistent notifications. However, unlike when using the real-time notifications, you can use any persistent storage and a custom implementation.
 
 For more information on how to enable and work with this feature, check [How to revoke tokens]({{base_path}}/design/api-security/rejecting-revoked-tokens)
+
+## Third party Key Managers
+
+Choreo Connect connects with the event hub to receive key manager events when actions such as add, update, delete happens in API Manager. Also during the startup, it pulls the key manager configuration details of third party keymanagers which are resided on API Manager admin portal in order to get the events that has happened before starting the Choreo Connect.
+
