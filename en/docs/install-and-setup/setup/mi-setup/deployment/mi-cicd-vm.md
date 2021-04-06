@@ -22,7 +22,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 1. Integration Studio 8.0.0 or higher
 
-2. Two Github repositories 
+2. Two GitHub repositories 
    
    *   Source repository - To maintain the source of the project
    *   Deployment repository - To maintain the descriptor files of the environment
@@ -52,11 +52,11 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
       </scm>
     ```
 
-4. Commit your changes to the Github source repository
+4. Commit your changes to the GitHub source repository
 5. [Set up Jenkins server](#setting-up-jenkins-server)
 6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
-8. Create webhooks in relevant Github repositories pointing to the Jenkins server. (Source & Deployment)
+8. Create webhooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
 9. [Set up Nexus server](#setting-up-nexus-server)
 10. Login to the Nexus server using the credentials given in the Dockerfile of nexus instance and confirm that the ‘Integration’ repository has been created.
 11. Go to the Jenkins server and perform a maven release by giving release and development versions.
@@ -80,7 +80,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repos (dev, staging, prod). 
 
-2. Both the Integration project, and descriptor repos will be in Github.
+2. Both the Integration project, and descriptor repos will be in GitHub.
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 
@@ -98,7 +98,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 6. [Optional] [Set up Synapse Unit testing server](#setting-up-synapse-unit-testing-server)
 
-7. Run the following build command to build the docker image.
+7. Run the following build command to build the Docker image.
 
     `docker build -t <image-name>:<image-tag> .`
 
@@ -128,7 +128,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
     `vi nexus_casc.yaml`
 
-5. Run the following build command to build the docker image.
+5. Run the following build command to build the Docker image.
 
     `docker build -t <image-name>:<image-tag> .`
 

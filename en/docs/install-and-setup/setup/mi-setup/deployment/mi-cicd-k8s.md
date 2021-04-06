@@ -10,7 +10,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 - We need to maintain one Jenkins job per Integration Project repository.
 - The Integration Project has to be a [Maven Multi Module project]({{base_path}}/integrate/develop/create-integration-project/#maven-multi-module-projects) and it has to contain one Kubernetes Exporter module. 
 - The build phase of the job will build the Integration project and run the unit tests if a Unit test server, if configured.
-- The release phase of the job generates docker images using the provided repository, name and project version and pushes the image to the configured docker registry and creates a release tag in github.
+- The release phase of the job generates Docker images using the provided repository, name and project version and pushes the image to the configured Docker registry and creates a release tag in GitHub.
 
 #### Deployment Descriptor Build Job
 - We need to maintain one Jenkins job per Environment.
@@ -37,7 +37,7 @@ These will be generated inside a folder with the Project Name.
 
 1. Integration Studio 8.0.0 or higher
 
-2. Two Github repositories 
+2. Two GitHub repositories 
 
 *   Source repository - To maintain the source of the project
 *   Deployment repository - To maintain the descriptor files of the environment
@@ -68,11 +68,11 @@ These will be generated inside a folder with the Project Name.
       </scm>
     ```
    
-4. Commit your changes to the Github source repository
+4. Commit your changes to the GitHub source repository
 5. [Set up Jenkins server](#setting-up-jenkins-server)
 6. Login to the Jenkins server using the credentials given in the Dockerfile of Jenkins instance.
 7. Navigate to the project build job and trigger a build.
-8. Create webhooks in relevant Github repositories pointing to the Jenkins server. (Source & Deployment)
+8. Create webhooks in relevant GitHub repositories pointing to the Jenkins server. (Source & Deployment)
 9. Perform a maven release by giving release and development versions.
 10. Once the release build is passed, confirm that the Docker image is available in the Docker registry.
 11. Copy the folder containing the yaml files in Kubernetes exporter project inside a folder specific to each environment.
@@ -88,7 +88,7 @@ These will be generated inside a folder with the Project Name.
 
 1. Docker scripts for setting up a Jenkins environment are provided here. This will spin up a preconfigured Docker image. By default, 4 Jenkins jobs will be created. One project for the Integration project and three more for the environment descriptor repos (dev, staging, prod). 
 
-2. Both the Integration project, and descriptor repos will be in Github.
+2. Both the Integration project, and descriptor repos will be in GitHub.
 
     Note: You can customize the Docker scripts to create Jenkins jobs for multiple Integration projects.
 
@@ -106,7 +106,7 @@ These will be generated inside a folder with the Project Name.
 
 5. [Optional] : [Setting up Synapse Unit testing server](#setting-up-synapse-unit-testing-server)
 
-6. Run the following build command to build the docker image.
+6. Run the following build command to build the Docker image.
 
     `docker build -t <image-name>:<image-tag> .`
 
