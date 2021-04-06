@@ -21,20 +21,11 @@ There are two ways to add an API to the Microgateway.
 
     - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
 
-### Step 1 - Create an API in API Manager
-
-Follow the steps [here]({{base_path}}/design/create-api/create-a-rest-api/).
-
-### Step 2 - Deploy the API in API Manager
-
- You can choose to do this later as well. By deploying in APIM now, you complete the steps required to be done on API Manager side.
-
- The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you could easily deploy the API you just created.
-### Step 3 - Find the APIM IP Address
+### Step 1 - Find the APIM IP Address
 
 In order to tell Microgateway where API Manager (APIM) is located, find out the IP that can be used to access the API Manager instance. If you are trying out WSO2 API Manager locally, the private IP retrived using `hostname -I` or `ipconfig` would do.
 
-### Step 4 - Update the Microgateway Config File
+### Step 2 - Update the Microgateway Config File
 
 Open the `<MGW_HOME>/resources/conf/config.toml` file in a text editor and update it as follows.
 
@@ -63,7 +54,7 @@ In the `[controlPlane.eventHub]` section,
 
     In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab.
 
-### Step 5 - Start the Microgateway
+### Step 3 - Start the Microgateway
 
 Now, let's start the microgateway. Navigate to `MG_HOME` and execute the following command.
     
@@ -71,7 +62,15 @@ Now, let's start the microgateway. Navigate to `MG_HOME` and execute the followi
 docker-compose up -d
 ```
 
-That's it!
+### Step 4 - Create an API in API Manager
+
+Follow the steps [here]({{base_path}}/design/create-api/create-a-rest-api/).
+
+### Step 5 - Deploy the API in API Manager
+
+ The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you could easily deploy the API you just created.
+
+That's it! To invoke the API follow the steps [here](#invoke-the-api).
 
 
 During the startup, Microgateway will check the `config.toml` to see if the `controlPlane.eventHub` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, etc.
