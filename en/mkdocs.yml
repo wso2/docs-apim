@@ -229,8 +229,8 @@ nav:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway.md
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
-                - Import API:
-                    - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
+                - Deploy an API:
+                    - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/api-microgateway/deploy-api/deploy-api-to-microgateway.md
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
