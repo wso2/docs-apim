@@ -1,16 +1,16 @@
 # Installing via the Binary
 
-Follow the steps given below to install the WSO2 Streaming Integrator runtime by using the <b>binary distribution</b> of WSO2 Enterprise Integrator.
+Follow the steps given below to install the WSO2 Streaming Integrator runtime by using the <b>binary distribution</b>.
 
 ## Download and install
 
-Go to the WSO2 Enterprise Integrator [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+Go to the [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
 
 Extract the download ZIP file to a location on your computer. The <b>streaming-integrator</b> folder inside the extracted ZIP file will be your <b>SI_HOME</b> directory.
 
 ## Prerequisites
 
-**Setting the Java_Home**: Set up a [JDK that is compatible with WSO2 Enterprise Integrator]({{base_path}}/install-and-setup/setup/si-setup/environment-compatibility) and point the `java_home` variable to your JDK instance.
+**Setting the Java_Home**: Set up a [JDK that is compatible with the Streaming Integrator]({{base_path}}/install-and-setup/setup/si-setup/environment-compatibility) and point the `java_home` variable to your JDK instance.
 
 ## Running the SI server
 

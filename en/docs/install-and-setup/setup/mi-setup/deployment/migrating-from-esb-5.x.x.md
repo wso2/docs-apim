@@ -1,7 +1,7 @@
 # Migrating from WSO2 ESB 5.0 to WSO2 EI 7.1
 This guide provides the recommended strategy for migrating from WSO2 ESB 5.0 to the Micro Integrator of WSO2 EI 7.1.
 
-{!setup/pull/PULL-CONTENT-migration-esb-mi.md!}
+{!includes/integration/PULL-CONTENT-migration-esb-mi.md!}
 
 -	If you are migrating from a version older than WSO2 ESB 5.0.0, you should first migrate to ESB 5.0.0 and then migrate to the Micro Integrator of EI 7.1.0.
 -	The distribution folder structure has changed from ESB 5.0.0 to EI 7.1:

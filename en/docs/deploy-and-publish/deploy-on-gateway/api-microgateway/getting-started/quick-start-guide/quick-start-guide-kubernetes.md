@@ -21,8 +21,8 @@ Let's get started...
 
 ### Step 1 - Setup Microgateway and K8s API Operator in Kubernetes
 
-1.  Download the WSO2 API Microgateway v4.0.0-m3 from
-    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-m3) assets and extract them
+1.  Download the WSO2 API Microgateway v4.0.0-alpha from
+    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-alpha) assets and extract them
     to a folder of your choice. We will refer to this folder as the `MG_HOME`.
 
 2.  Using the kubectl tool, apply Kubernetes configurations for Microgateway.
@@ -33,7 +33,7 @@ Let's get started...
 3.  Let's create a namespace and install K8s API Operator by executing the following command.
     ```bash
     kubectl create ns wso2-system;
-    kubectl apply -n wso2-system -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-alpha/api-operator-configs.yaml
+    kubectl apply -n wso2-system -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-beta/api-operator-configs.yaml
     ```
 
 ### Step 2 - Create and deploy an API project
@@ -41,25 +41,33 @@ Let's get started...
 Let's create our first project with the name "petstore" by adding the
 [open API definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  Download the api controller (apictl) and the microgateway distribution from the 
-    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-m3) assets and 
-    extract them to a folder of your choice.
-    ```bash
-    export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
-    ```
+1.  First we need to create a Kubernetes ConfigMap with the swagger definition.
 
     ```bash
-    apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+    kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
     ```
 
-    The project is now initialized. You should notice a directory with the name "petstore" being created in the location 
-    where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
-    You can also use this Kubernetes configmap to deploy APIs.
+    !!! note
+        You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
 
-    ```bash
-    zip -r petstore.zip petstore/
-    kubectl create cm petstore-cm --from-file petstore.zip
-    ```
+        Download the api controller (apictl) from the 
+        [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-beta) assets and 
+        extract them to a folder of your choice.
+        ```bash
+        export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
+        ```
+
+        ```bash
+        apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+        ```
+
+        The project is now initialized. You should notice a directory with the name "petstore" being created in the location 
+        where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
+        You can also use this Kubernetes configmap to deploy APIs.
+        ```bash
+        zip -r petstore.zip petstore/
+        kubectl create cm petstore-cm --from-file petstore.zip
+        ```
 
 2.  Now let's deploy our first API by creating an API resource in Kubernetes.
 
@@ -73,11 +81,9 @@ Let's create our first project with the name "petstore" by adding the
         swaggerConfigMapName: petstore-cm
     EOF
     ```
-
     Or else execute the following command
-
     ```bash
-    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-alpha/scenarios/scenario-2/petstore-api.yaml
+    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-beta/scenarios/scenario-2/petstore-api.yaml
     ```
 
 ### Step 3 - Invoke the API
@@ -96,7 +102,7 @@ Let's create our first project with the name "petstore" by adding the
         [Secure APIs using JWT (Self Contained) Access Token]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens)
         if you want to generate an access token.
 
-2.  We can now invoke the API running on the microgateway using cURL as below. Replace "<NODE_IP>" with one of Kubernetes worker nodes before
+2.  We can now invoke the API running on the microgateway using cURL as below. Replace `<NODE_IP>` with one of Kubernetes worker nodes before
     executing the command.
 
     ```bash

@@ -1,6 +1,6 @@
 # Salesforce SOAP Connector Configuration
 
-The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm?search_text=SOAP%20API%20Developer%20Guide) through WSO2 EI. 
+The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm?search_text=SOAP%20API%20Developer%20Guide) from an integration sequence. 
 
 ## Setting up the Salesforce account
 
@@ -14,7 +14,7 @@ The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](htt
 
 To use the Salesforce connector, add the `<salesforce.init>` element to your configuration before carrying out any other Salesforce operations.
 
-Before you start configuring the connector, import the **Salesforce certificate** to your WSO2 Enterprise Integrator (EI) **client keystore**.
+Before you start configuring the connector, import the **Salesforce certificate** to your integration runtime's **client keystore**.
 
 Follow the steps below to import the Salesforce certificate into the EI client keystore:
 

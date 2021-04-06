@@ -35,9 +35,26 @@ Microgateway uses the below methods to fetch API and subscription-related data f
 - Internal Data REST API
 - JMS Topic
 
-The Internal Data API (```https://<APIM_HOST>:<PORT>/internal/data/v1```) is a REST API exposed in WSO2 API Manager to retrieve data related to APIs, Applications, subscriptions, etc. During the startup, Microgateway invokes this API to fetch the already published API and subscription data of the configured tenant.
+The Internal Data API (```https://<APIM_HOST>:<PORT>/internal/data/v1```) is a REST API exposed in WSO2 API Manager to retrieve data related to APIs, applications, subscriptions, key managers, throttling and token revocation. During the startup, Choreo Connect invokes this API to fetch the already created APIs, applications, subscriptions, key managers and retrieve throttling, revoked token data of the configured tenant.
 
-For new API Creations and Subscription creations, API Manager publishes an event through a JMS topic. Microgateways, which are subscribed to the topic, update the in-memory data stores when the event is received.
+For new create/remove/update action happens for an API, application or subscription in WSO2 API Manager, it publishes events through relevant JMS topic. Therefore the Choreo Connect, which are subscribed to the topics, update the in-memory data stores when the event is received.
+
+## Setting the Connection for JMS receiver
+
+Multiple event listening endpoints can be defined as an array to use for the connection, along with optional failover parameters. 
+
+| Option| Default Value| Description|
+|-----------|-----------|----------|
+|`retries`  | 1 |The number of retry attempts when connecting to the broker.|
+|`connectdelay`  | None | How long (in seconds) to wait before attempting to reconnect. The recommended value is 30 seconds.|
+
+Sample configuration for `eventListeningEndpoints` for JMS reciever can be defined as follows.
+```
+[controlPlane.eventHub.jmsConnectionParameters]
+ eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'",
+ "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='20'&connectdelay='30'"]
+```
+
 
 ### Event Hub Configuration
 
@@ -53,9 +70,6 @@ For new API Creations and Subscription creations, API Manager publishes an event
   skipSSLVerification=true
   # Message broker connection URL of the control plane
   [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='5'&connectdelay='30000'"]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='5'&connectdelay='30'"]
 
 ```
-
-!!! note
-    This feature is available from API Manager 3.2.0. If you are using an older version of API Manager, please follow the [Configuration for WSO2 API Manager]({{base_path}}/install-and-setup/configuration-for-wso2-api-manager/) to configure Microgateway correctly.
