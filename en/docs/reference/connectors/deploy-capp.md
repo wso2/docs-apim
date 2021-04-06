@@ -2,7 +2,7 @@
 
 You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. Micro Integrator will be started and the composite application will be deployed.
 
-You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl).
+You can further refer the application deployed through the CLI tool. See the instructions on [managing integrations from the CLI](../../../../install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/).
 
 ??? note "Click here for instructions on deploying on WSO2 Enterprise Integrator 6"
     1. You can copy the composite application to the `<PRODUCT-HOME>/repository/deployment/server/carbonapps` folder and start the server. 
