@@ -211,7 +211,7 @@ CommonUtil Creation of folder is successful. Directory Name : SweetProdApp-1.0.0
 
 ### Step 7: View the Async API in API Manager
 
-To view the Async API in the API Manager Service Catalogue, access the API Manager Publisher's Service Catalogue. via the `https://localhost:9448/publisher/service-catalog`. For this let's get logged in to the WSO2 API Manager.
+To view the Async API in the API Manager Service Catalogue, access the API Manager Publisher's Service Catalogue. For this let's get logged in to the WSO2 API Manager.
 
 1. Sign in to the WSO2 API **Publisher Portal**.
 
@@ -252,14 +252,91 @@ Then you will then be directed to the overview page of the API created from the 
 
 ![Create API from Service](https://github.com/wso2/docs-apim/blob/master/en/docs/assets/img/integrate/service-catalog/create-api-from-service.png)
 
+### Step 10: Publishing of the API
+
+1. Click **Lifecycle** to navigate to the API lifecycle and click **Publish** to publish the API to the API Developer Portal.
+
+If the API is published successfully, the lifecycle state will shift to **PUBLISHED**.
+
+![Publish API](hhttps://github.com/wso2/docs-apim/blob/4d68b4d29927cd249ae1209b2a80207f5b953bb7/en/docs/assets/img/learn/publish-api.png)
+
+2. Navigate to the Developer Portal.
+
+`(https://<hostname>:9443/devportal)` (e.g. `https://localhost:9443/devportal`). 
+
+In here the API that you published is visible under the APIs listing.
+
+### Step 11: Start the WebSocket Server
+
+1. Download the sample WebSocket server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim).
+
+2. Go to the `ws-chat-server` directory and start it.
+
+```
+node index.js
+```
+
+### Step 12: Invoke the Published API
+
+1. View the API overview in the Developer portal
+
+2. Subscribe to the API.
+
+3. Go to the **Subscriptions** page in here and click on the **SUBSCRIPTION & KEY GENERATION WIZARD**.
+
+    1. This wizard of **SUBSCRIPTION & KEY GENERATION WIZARD** takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API.
+
+    ![Subscription & Key Generation Wizard](https://github.com/wso2/docs-apim/blob/5d3c37cf1d3a9443261320a17280395e0fd5d0a0/en/docs/assets/img/learn/key-generation-wizard.png)
+
+    2. Copy the authorization token that appears in here.
+
+    ![Authorization token](https://github.com/wso2/docs-apim/blob/5d3c37cf1d3a9443261320a17280395e0fd5d0a0/en/docs/assets/img/learn/generate-access-token-popup.jpg)
+
+4. Try out the operations.
+
+   1. Install wscat client.
+
+```
+npm install -g wscat
+```
+
+   2. Invoke the API by using an authorization header by executing the following command.
+        
+           ``` java tab="WS"
+           wscat -c ws://localhost:9099/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+           ```
+
+           ``` java tab="WSS"
+           wscat -n -c wss://localhost:8099/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           ```
+
+
+<html>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
+    There are clients (especially browsers) that do not allow to add headers. In such cases, you can send the access token for the API invocation as a query parameter named `access_token` by using the command below:</p>
+</div>
+</html>
+
+           ``` java tab="WS"
+           wscat -c "ws://localhost:9099/sweetProdApp/1.0.0?access_token=[accesstoken]" 
+           ```
+  
+           ``` java tab="WSS"
+           wscat -n -c "wss://localhost:8099/sweetProdApp/1.0.0?access_token=[accesstoken]"
+           ```
+
+Now the API from that service in Service Catalogue is successfully created and published, subscribed to it, obtained an access token for testing, and tested the API with the access token generated.
+
+## Note
+
+- Stop this Siddhi application, once you are done with the execution.
+- Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
+
 ## Additional Information
 
 For more information on deploying Siddhi Applications, see [Deploying Siddhi Applications](https://github.com/wso2/docs-apim/blob/master/en/docs/develop/streaming-apps/deploying-streaming-applications.md).
 
 For more information on [Publishing Async API Specifications to API Manager](https://github.com/wso2/docs-apim/blob/4d68b4d29927cd249ae1209b2a80207f5b953bb7/en/docs/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md) 
 to check on how WSO2 Streaming Integrator deploys the Async API specification into Service Catalogue of the WSO2 API Manager.
-
-## Note
-
-- Stop this Siddhi application, once you are done with the execution.
-- Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
