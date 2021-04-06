@@ -2,7 +2,7 @@
 
 This guide provides the recommended strategy for migrating from the ESB profile of WSO2 EI 6.x to the Micro Integrator of WSO2 EI 7.1.
 
-{!setup/pull/PULL-CONTENT-migration-esb-mi.md!}
+{!includes/integration/PULL-CONTENT-migration-esb-mi.md!}
 
 ## Migrating to the Micro Integrator
 
