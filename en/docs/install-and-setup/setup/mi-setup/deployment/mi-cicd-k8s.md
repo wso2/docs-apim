@@ -9,24 +9,24 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 #### Integration Project Build Job
 - We need to maintain one Jenkins job per Integration Project repository.
 - The Integration Project has to be a [Maven Multi Module project]({{base_path}}/integrate/develop/create-integration-project/#maven-multi-module-projects) and it has to contain one Kubernetes Exporter module. 
-- The build phase of the job will build the Integration project and run the unit tests if a Unit test server, if configured.
+- The build phase of the job will build the Integration project and run the unit tests if a Unit test server is configured.
 - The release phase of the job generates Docker images using the provided repository, name and project version and pushes the image to the configured Docker registry and creates a release tag in GitHub.
 
 #### Deployment Descriptor Build Job
 - We need to maintain one Jenkins job per Environment.
 - There will be descriptor files for each project inside a separate folder. These will be generated in Integration Studio when you create a Kubernetes Exporter Module.
-- To use a new version / rollback to a previous version, the user should define the version inside the respective descriptor file (integration_cr.yaml or integration_k8s.yaml) and commit to the respective branch.
+- To use a new version / rollback to a previous version, the user should define the version inside the respective descriptor file `integration_cr.yaml` or `integration_k8s.yaml` and commit to the respective branch.
 - This job contains only the build phase. This will apply the relevant yaml files in the relevant environment.
 
 ### Kubernetes artifacts
-Integration Studio will be used to generate kubernetes artifacts while creating Kubernetes exporter module. There are two kinds of Kubernetes artifacts that you can create in Integration Studio. 
+Integration Studio will be used to generate Kubernetes artifacts, while creating the Kubernetes exporter module. There are two kinds of Kubernetes artifacts that you can create in Integration Studio. 
 These will be generated inside a folder with the Project Name.
 
 *   Pure Kubernetes artifacts 
     *   Deployment.yaml
     *   Service.yaml
     *   ConfigMap.yaml
-*   K8s-Operator based kubernetes artifact 
+*   K8s-Operator based Kubernetes artifact 
     *   CRD.yaml
     *   ConfigMap.yaml
 
