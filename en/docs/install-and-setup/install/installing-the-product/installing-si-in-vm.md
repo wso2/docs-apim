@@ -12,11 +12,11 @@ Follow the steps given below to install the WSO2 Streaming Integrator runtime.
 
 ## Download and install
 
-Go to the WSO2 Enterprise Integrator [product page](https://wso2.com/integration/#), click **Download**, and then click the **Installer**.
+Go to the [product page](https://wso2.com/integration/#), click **Download**, and then click the **Installer**.
 
 The **product installer** that is compatible with your operating system is downloaded.
 
-Double-click to open the installation wizard that guides you through the installation. Once you finish, all the runtimes of WSO2 Enterprise Integrator are installed and ready for use.
+Double-click to open the installation wizard that guides you through the installation. Once you finish, all the runtimes are installed and ready for use.
 
 ## Running the SI server
 

@@ -1,4 +1,3 @@
-
 Execute the following cURL command to Invoke the API using the JWT.
 
  ``` bash tab="Format"
@@ -6,6 +5,6 @@ Execute the following cURL command to Invoke the API using the JWT.
  ```
  
  ``` bash tab="Example"
- curl -X GET "https://localhost:9095/petstore/v1/pet/1" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
+ curl -X GET "https://localhost:9095/v2/pet/findByStatus?status=available" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
  ```
- 
+

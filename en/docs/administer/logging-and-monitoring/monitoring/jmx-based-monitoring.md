@@ -254,7 +254,7 @@ Follow the steps below to use Jolokia to monitor a WSO2 product.
 2.  Add it to the `<PRODUCT-HOME>/repository/components/dropins/` directory.
 
     !!! tip
-        In WSO2 EI, add it to the `<EI-HOME>/dropins/` directory.
+        In the Micro Integrator, add it to the `<MI-HOME>/dropins/` directory.
 
 
 3.  Start the WSO2 product server.

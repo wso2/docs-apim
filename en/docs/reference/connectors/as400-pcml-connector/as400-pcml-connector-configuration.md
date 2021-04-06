@@ -1,6 +1,6 @@
 # Setting up the AS400 PCML Environment  
 
-The AS400 PCML connector allows you to access RPG programs that are available on AS400 (renamed as IBM iSeries) servers using WSO2 EI. This is done using [Program Call Markup Language](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzahh/pcml.htm) (PCML). 
+The AS400 PCML connector allows you to access RPG programs that are available on AS400 (renamed as IBM iSeries). This is done using [Program Call Markup Language](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzahh/pcml.htm) (PCML). 
 
 you need to have access to an IBM iSeries server. If you do not have an on-premise IBM iSeries server, go to public IBM iSeries server, and create a [public IBM iSeries server](https://pub400.com/) account.
 

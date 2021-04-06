@@ -1,45 +1,5 @@
 # Multi-HTTPS Transport
 
-<!--
-## Synchronizing the profiles in a cluster
-
-If you are running in a clustered environment and want your SSL profiles
-to be synchronised across the cluster nodes, you can move the
-`         SSLProfiles        ` parameter from
-`         axis2.xml        ` to
-`         <EI_HOME>/repository/deployment/server/multi_ssl_profiles.xml        `
-. Then you can add the `         SSLProfilesConfigPath        `
-parameter to the Multi-HTTPS transport receiver configuration in the
-`         axis2.xml        ` file and point to the new destination of
-the configuration.
-
-For example, the Multi-HTTPS transport configuration in the
-`         axis2.xml        ` file will now look as follows:
-
-```
-<transportReceiver name="multi-https" class="org.apache.synapse.transport.nhttp.HttpCoreNIOMultiSSLListener">
-            <parameter name="port">8343</parameter>
-            <parameter name="non-blocking">true</parameter>
-            <parameter name="SSLProfilesConfigPath">
-               <filePath>/repository/deployment/server/multi_ssl_profiles.xml</filePath>
-            </parameter>
-</transportReceiver>
-```
-
-To synchronise this configuration between two EI nodes, you must enable
-EI clustering and the SVN-Based Deployment Synchronizer.
-
-The `         <EI_HOME>/repository/deployments/server        `
-directory will then be synchronized on the WSO2 EI nodes when the nodes
-are run in a clustered environment. If you change the
-`         multi_ssl_profiles.xml        ` file, you must manually reload
-it into each WSO2 EI node by invoking the
-`         reloadSSLProfileConfig        ` in the
-`         org.apache.synapse.MultiSSLProfileReload        ` MBean in
-JConsole. For more information, see [JMX-based
-Monitoring](https://docs.wso2.com/display/ADMIN44x/JMX-Based+Monitoring).
--->
-
 You can [enable dynamic SSL profiles](#enabling-dynamic-ssl-profiles) for the Micro Integrator by updating the `deployment.toml` file with the required SSL
 profile configurations. Also, you can [dynamically load the SSL profiles](#loading-ssl-profiles-at-runtime) at
 runtime using a periodic schedule or JMX invocation. That is, instead of reloading the entire `deployment.toml` at runtime, you can

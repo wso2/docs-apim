@@ -8,7 +8,6 @@ This section describes some recommended performance tuning configurations to opt
 !!! info
     The values that WSO2 discusses here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. WSO2 recommends that you carry out load tests on your environment to tune the API Manager accordingly.
 
-
 ## OS-level settings
 
 When it comes to performance, the OS that the server runs plays an important role.
@@ -109,7 +108,7 @@ The following diagram shows the communication/network paths that occur when an A
 
 -   **Client call API Gateway + API Gateway call Backend**
 
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport). Add the following section to the `deployment.toml` file to configure the Socket timeout value.
             ``` java
                 [passthru_http]
                 http.socket.timeout=180000

@@ -9,7 +9,7 @@ Upon validation of a policy, the Gateway passes Web service calls to the actual 
 After the API Manager server has started, you can access the Gateway using the Management Console [https://localhost:9443/carbon](https://localhost:9443/carbon). If you need to integrate a monitoring and analytics component to WSO2 API Manager, you can do so by configuring WSO2 API Manager Analytics. This component provides reports, statistics, and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via Geolocation statistics and carry out a detailed analysis of the logs.
 
 !!! Info    
-    Although the API Gateway contains WSO2 Enterprise Integrator (WSO2 EI) features, it is recommended not to use it for EI-specific tasks. Use it only for Gateway functionality related to API invocations. For example, if you want to call external services (e.g., SAP), use a separate EI cluster for this purpose.
+    Although the API Gateway contains integration features, it is recommended not to use it for integration-specific tasks. Use it only for Gateway functionality related to API invocations. For example, if you want to call external services (e.g., SAP), use a separate Micro Integrator cluster for this purpose.
 
 **Gateway Architecture**
 
