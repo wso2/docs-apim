@@ -1,10 +1,10 @@
 # Event Hub and Subscription Validation Model
 
-When using WSO2 API Manager as the key manager with Microgateway, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Microgateway, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Microgateway is capable of validating subscriptions only for the configured tenant (One tenant per Microgateway basis).
+When using WSO2 API Manager as the key manager with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (One tenant per Choreo Connect basis).
 
 ## Subscription Validation Model
 
-Subscriptions are validated in the Microgateway itself using a set of internal data stores. These data stores contain APIs, Applications, and Subscription related information.
+Subscriptions are validated in the Choreo Connect itself using a set of internal data stores. These data stores contain APIs, Applications, and Subscription related information.
 
 The following are the data stores that are being used.
 
@@ -30,11 +30,12 @@ The following are the data stores that are being used.
 
 Event Hub is the endpoint configuration which is used to fetch API, Application and Subscription data from WSO2 API Manager.
 
-Microgateway uses the below methods to fetch API and subscription-related data from API Manager.
+Choreo Connect uses the below methods to fetch API and subscription-related data from API Manager.
 
 - Internal Data REST API
 - JMS Topic
 
+<<<<<<< HEAD:en/docs/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
 The Internal Data API (```https://<APIM_HOST>:<PORT>/internal/data/v1```) is a REST API exposed in WSO2 API Manager to retrieve data related to APIs, applications, subscriptions, key managers, throttling and token revocation. During the startup, Choreo Connect invokes this API to fetch the already created APIs, applications, subscriptions, key managers and retrieve throttling, revoked token data of the configured tenant.
 
 For new create/remove/update action happens for an API, application or subscription in WSO2 API Manager, it publishes events through relevant JMS topic. Therefore the Choreo Connect, which are subscribed to the topics, update the in-memory data stores when the event is received.
@@ -55,6 +56,11 @@ Sample configuration for `eventListeningEndpoints` for JMS reciever can be defin
  "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='20'&connectdelay='30'"]
 ```
 
+=======
+The Internal Data API (```https://<APIM_HOST>:<PORT>/internal/data/v1```) is a REST API exposed in WSO2 API Manager to retrieve data related to APIs, Applications, subscriptions, etc. During the startup, Choreo Connect invokes this API to fetch the already published API and subscription data of the configured tenant.
+
+For new API Creations and Subscription creations, API Manager publishes an event through a JMS topic. Choreo Connect (Enforcer), which are subscribed to the topic, update the in-memory data stores when the event is received.
+>>>>>>> 7396826f3... Refactor Microgateway documentation:en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
 
 ### Event Hub Configuration
 
@@ -72,4 +78,9 @@ Sample configuration for `eventListeningEndpoints` for JMS reciever can be defin
   [controlPlane.eventHub.jmsConnectionParameters]
     eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='5'&connectdelay='30'"]
 
+<<<<<<< HEAD:en/docs/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
 ```
+=======
+!!! note
+    This feature is available from API Manager 3.2.0. If you are using an older version of API Manager, please follow the [Configuration for WSO2 API Manager]({{base_path}}/install-and-setup/configuration-for-wso2-api-manager/) to configure Choreo Connect correctly.
+>>>>>>> 7396826f3... Refactor Microgateway documentation:en/docs/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md

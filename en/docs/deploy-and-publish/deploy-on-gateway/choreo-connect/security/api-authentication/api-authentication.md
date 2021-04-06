@@ -1,14 +1,13 @@
 # API Authentication
 
-WSO2 Microgateway provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in the WSO2 Microgateway. API security can be divided into two main categories; namely, Application-level security and Transport level security.
+Choreo Connect provides the ability to secure APIs in API level and resource levels. The following section would concisely guide you through the available security options in the Choreo Connect. API security can be divided into two main categories; namely, Application-level security and Transport level security.
 
 By default, APIs are secured with application security. However, if you want to disable all security for API/Resource, you can achieve it by following the document on [Disabling Security]({{base_path}}/publish/security/api-authentication/api-authentication/).
 
 ### Application Security
+Application security can be provided in the API and resource levels. The following are the API authentication types granted by Choreo Connect.
 
-Application security can be provided in the API and resource levels. The following are the API authentication types granted by WSO2 Microgateway.
-
--   [JWT authentication]({{base_path}}/deploy/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
+-   [JWT authentication]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt/) <!-- TODO: Enable once the feature is completed for MGW 4.0.0
    [Opaque token authentication]({{base_path}}/publish/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens/)
    [Basic authentication]({{base_path}}/publish/security/api-authentication/basic-authentication/)
    [API Key authentication]({{base_path}}/publish/security/api-authentication/api-key-authentication/)
@@ -19,7 +18,7 @@ If you provide two or more security types for a resource or API, API invocation 
 
 ### Transport Security
 
-Mutual SSL support is provided in the gateway level and API Level in WSO2 Microgateway. Mutual SSL authentication is supported at the API level.
+Mutual SSL support is provided in the gateway level and API Level in Choreo Connect. Mutual SSL authentication is supported at the API level.
 
 -   [Mutual SSL authentication]({{base_path}}/deploy/api-microgateway/security/api-authentication/mutual-ssl-authentication/)
 

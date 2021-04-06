@@ -184,7 +184,7 @@ nav:
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Deploy and Publish:
         - Deploy on Gateway:
-            - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
+            - Deploying APIs in API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
                 - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
@@ -217,19 +217,20 @@ nav:
                 - Advanced Topics:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-            - API Microgateway:
+            - Choreo Connect:
                 - Getting Started:
-                    - Microgateway Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview.md
+                    - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
                     - Quick start Guide:
-                        - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
-                        - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
-                        - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
-                        - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                        - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
+                        - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
+                        - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
+                        - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
                 - Concepts:
-                    - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
-                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway.md
-                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
+                    - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
+                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
+                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Deploy an API:
+<<<<<<< HEAD
                     - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/api-microgateway/deploy-api/deploy-api-to-microgateway.md
                     - Event Hub Subscription Validation : deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
                 - Configurations:
@@ -243,41 +244,44 @@ nav:
                         - Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/configurations/control-plane-configurations.md
                 - Import API:
                     - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
+=======
+                    - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-microgateway.md
+>>>>>>> 7396826f3... Refactor Microgateway documentation
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
-                    - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
+                    - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
                     - Overriding Endpoint Information:
-                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.md
-                        - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
-                    - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-a-backend-security-scheme.md
-                - HTTP 2.0: deploy-and-publish/deploy-on-gateway/api-microgateway/http-2.0.md
+                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.md
+                        - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                    - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
+                - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
-                    - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/api-microgateway/rate-limiting/distributed-throttling.md
-                - Service Discovery: deploy-and-publish/deploy-on-gateway/api-microgateway/service-discovery.md
+                    - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
+                - Service Discovery: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery.md
                 - Security:
                     - Authentication:
-                        - API Authentication: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/api-authentication.md
+                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
-                            - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
-                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
-                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/mutual-ssl-authentication.md
-                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/configuring-an-external-key-manager.md
-                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/making-application-security-optional.md
-                        - Disabling Security: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/disabling-security.md
+                            - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
+                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
+                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/making-application-security-optional.md
+                        - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
                     - Authorization:
-                        - Scope Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authorization/scope-validation.md
-                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authorization/subscription-validation.md
-                    - Transport Security: deploy-and-publish/deploy-on-gateway/api-microgateway/security/transport-security.md
-                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/api-microgateway/security/enabling-cors.md
-                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/api-microgateway/security/use-a-custom-authorization-header.md
-                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/api-microgateway/security/rejecting-revoked-tokens.md
-                    - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/api-microgateway/security/importing-certificates-to-the-api-microgateway-truststore.md
-                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/api-microgateway/security/define-security-using-extension.md
-                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
-                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/api-microgateway/file-upload-via-multipart-requests.md
-                - Configure Caching: deploy-and-publish/deploy-on-gateway/api-microgateway/configure-caching.md
-                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/api-microgateway/support-custom-claims-mapping.md
+                        - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
+                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
+                    - Transport Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security.md
+                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
+                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
+                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
+                    - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
+                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
+                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
+                - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
+                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
@@ -1475,7 +1479,7 @@ nav:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
             - Managing APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
-            - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
+            - Managing Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
@@ -1700,7 +1704,7 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
 
