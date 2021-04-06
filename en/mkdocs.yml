@@ -231,6 +231,7 @@ nav:
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Deploy an API:
 <<<<<<< HEAD
+<<<<<<< HEAD
                     - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/api-microgateway/deploy-api/deploy-api-to-microgateway.md
                     - Event Hub Subscription Validation : deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
                 - Configurations:
@@ -247,6 +248,9 @@ nav:
 =======
                     - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-microgateway.md
 >>>>>>> 7396826f3... Refactor Microgateway documentation
+=======
+                    - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
+>>>>>>> 2a756bfe5... Refactor choreo-connect docs
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
