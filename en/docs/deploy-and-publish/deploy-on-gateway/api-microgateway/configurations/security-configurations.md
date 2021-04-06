@@ -1,12 +1,13 @@
 # Security configurations in config.toml
 
-The following are the configurations with regard to security. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<MGW_HOME>/resources/conf` directory.
+The following are the configurations with regard to security. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
 
-|Heading|Description|
-|-----------|-----------|
-|`adapter`  | The configurations required for adapter to provide API authorization security for Choreo Connect and the backend. By default `enableOutboundAuthHeader` is false which removes the authorization header from the backend request.  `authorizationHeader` configuration defines the authorization header expected by the Choreo Connect. It can be overridden at API level using the `x-auth-header` extension.
-|
-|`enforcer`  | The configurations required for enforcer to apply API management security. `tokenService` defines the configuration required to JWT token authorization. You can provide multiple JWT issuers. When the Choreo Connect connects with WSO2 API Manager, the tokenService configurations defined at config.toml are overridden by the APIM keymanager configurations if the same issuer persists in both side.|
+
+   | Heading                     | Description                                                                          |
+    |-----------------------------------|--------------------------------------------------------------------------------------|
+    | `security.adapter`              | The configurations required for adapter to provide API authorization security for Choreo Connect and the backend. By default `enableOutboundAuthHeader` is false which removes the authorization header from the backend request.  `authorizationHeader` configuration defines the authorization header expected by the Choreo Connect. It can be overridden at API level using the `x-auth-header` extension.                       |
+    | `security.enforcer`                    | The configurations required for enforcer to apply API management security. |
+    | `security.enforcer.tokenService`                    | `tokenService` defines the configuration required to JWT token authorization. You can provide multiple JWT issuers. When the Choreo Connect connects with WSO2 API Manager, the tokenService configurations defined at config.toml are overridden by the APIM keymanager configurations receiving through the add/update events, if the same token service persists in both side. But for the delete events will not be proceed, if it still persists in config.toml |
 
 ### Sample
 

@@ -1,11 +1,10 @@
 # Control plane configurations in config.toml
 
-The following are the configurations with regard to control plane. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<MGW_HOME>/resources/conf` directory.
+The following are the configurations with regard to control plane. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
 
 |Heading|Description|
 |-----------|-----------|
-|`eventHub`  | Endpoint configuration which is used to fetch data from WSO2 API Manager.
-|
+|`eventHub`  | Endpoint configuration which is used to fetch data from WSO2 API Manager.|
 
 For more information follow the [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation/#the-event-hub)
 

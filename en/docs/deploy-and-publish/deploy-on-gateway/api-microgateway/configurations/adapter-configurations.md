@@ -1,11 +1,11 @@
 # Adapter configurations in config.toml
 
-The following are the configurations with regard to Adapter. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<MGW_HOME>/resources/conf` directory.
+The following are the configurations with regard to Adapter. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
 
 |Heading|Description|
 |-----------|-----------|
-|`server`  | The configurations  to REST API of adapter.|
-|`keystore`  | The configurations of Key store used in Choreo Connect.|
+|`server`  | The server configurations of adapter.|
+|`keystore`  | The configurations of key store used in Choreo Connect.|
 |`truststore`| The configurations of trust store used in in the Choreo Connect.|
 |`consul` | The configuration of the consul service in the Choreo Connect. |
 

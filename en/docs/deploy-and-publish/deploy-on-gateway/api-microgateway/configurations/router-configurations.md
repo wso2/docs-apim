@@ -1,6 +1,6 @@
 # Router configurations in config.toml
 
-The following are the configurations with regard to Router. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<MGW_HOME>/resources/conf` directory.
+The following are the configurations with regard to Router. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
 
 |Heading|Description|
 |-----------|-----------|

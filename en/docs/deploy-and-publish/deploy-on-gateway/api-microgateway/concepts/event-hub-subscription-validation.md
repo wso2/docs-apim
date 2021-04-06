@@ -48,11 +48,11 @@ Multiple event listening endpoints can be defined as an array to use for the con
 |`retries`  | 1 |The number of retry attempts when connecting to the broker.|
 |`connectdelay`  | None | How long (in seconds) to wait before attempting to reconnect. The recommended value is 30 seconds.|
 
-sample eventListeningEndpoints configuration
+Sample configuration for `eventListeningEndpoints` for JMS reciever can be defined as follows.
 ```
 [controlPlane.eventHub.jmsConnectionParameters]
- eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='100'&connectdelay='30'",
- "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='50'&connectdelay='30'"]
+ eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'",
+ "amqp://admin:$env{cp_admin_pwd}@apim:5673?retries='20'&connectdelay='30'"]
 ```
 
 
