@@ -1,6 +1,6 @@
 # Configuring Log4j2 Properties
 
-All WSO2 products are shipped with the log4j2 logging capabilities, which generates administrative activities and server side logs. The `log4j2.properties` file, which governs how logging is performed by the enforcer can be found in the `CHOREO_CONNECT_HOME/resources/conf` directory.
+All WSO2 products are shipped with the log4j2 logging capabilities, which generates administrative activities and server side logs. The `log4j2.properties` file, which governs how logging is performed by the enforcer can be found in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf` directory.
 
 There are three main components when configuring log4j2: **Loggers**, **Appenders**, and **Layouts**.
 

@@ -6,7 +6,7 @@
 
 Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in WSO2 Microgateway.
 
-1. Navigate to the `<MG_HOME>/resources/conf/config.toml` file.
+1. Navigate to the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
 
 2. Enable and configure the backend JWT implementation.
 
@@ -19,7 +19,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 3. Start the server.
  
-     For more information, see the [Quick Start Guide]({{base_path}}/deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview/).
+     For more information, see the [Quick Start Guide]({{base_path}}/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
 
 ## Enabling a customized backend JWT generator
 
@@ -83,7 +83,7 @@ When generating the backend JWT, it retrieves the claims from the invoked JWT. I
 
 4. Start the server.
 
-     For more information, see the [Quick Start Guide]({{base_path}}/deploy/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview/).
+     For more information, see the [Quick Start Guide]({{base_path}}/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
     
 ## Backend JWT generator configuration details
 
