@@ -1,6 +1,6 @@
 # Adapter configurations in config.toml
 
-The following are the configurations with regard to Adapter. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
+The following are the configurations with regard to Adapter. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf` directory.
 
 |Heading|Description|
 |-----------|-----------|

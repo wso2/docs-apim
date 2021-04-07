@@ -1,6 +1,6 @@
 # Enforcer configurations in config.toml
 
-The following are the configurations with regard to Enforcer. The configuration file ( `config.toml` ) of the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory. 
+The following are the configurations with regard to Enforcer. The configuration file ( `config.toml` ) of the Choreo Connect is located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf` directory. 
 
 |Heading|Description|
 |-----------|-----------|
