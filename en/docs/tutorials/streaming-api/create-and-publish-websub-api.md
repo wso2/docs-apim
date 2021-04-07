@@ -200,8 +200,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 6. Select **Production and Sandbox**, choose **localhost** as the VHost, and click on **Deploy**.
 
-      [![Deploy New Revision]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png)
-
+      <a href="{{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png" width="80%" alt="Deploy New Revision"></a>
 
 ### Step 5 - Create a Callback URL
 

@@ -156,7 +156,7 @@ You have added a new application-level throttling policy.
      <a href="{{base_path}}/assets/img/design/rate-limiting/event-based-quota-limits.png"><img src="{{base_path}}/assets/img/design/rate-limiting/event-based-quota-limits.png" width="70%" alt="Event Based (AsyncAPI) quota limits"></a>
 
     !!! note
-        - Event Based (Async API) - These configurations are applicable to all the Streaming APIs (WebSocket, SSE and WebHook (WebSub) APIs).
+        - Event Based (Async API) - These configurations are applicable to all the Streaming APIs (WebSocket, SSE, and WebHook (WebSub) APIs).
         - WebHooks - This is only applicable to the WebHook (WebSub) APIs
 
 

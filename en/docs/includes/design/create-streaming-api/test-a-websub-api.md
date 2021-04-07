@@ -35,11 +35,11 @@ The examples here use the `RepoWatcher` WebSub/WebHook API, which was created in
      
            A unique URL will be created for you. 
 
-           [![Create Callback URL](../../assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)](../../assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)
+           [![Create Callback URL](../../../../assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)](../../../../assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)
 
      3. Click **Copy to clipboard**, which is next to **Your unique URL**.
 
-           [![Copy Callback URL](../../assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)](../../assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)
+           [![Copy Callback URL](../../../../assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)](../../../../assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)
 
      4. URL-encode the URL, which you have copied.
 
