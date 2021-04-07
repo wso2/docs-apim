@@ -1,6 +1,6 @@
 # Configurations
 
-The following are the WSO2 API Microgateway related configuration files.
+The following are the Choreo Connect related configuration files.
 
 | File name                                                                                 | Description                                                                                                                                                   |
 |-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,10 +1,10 @@
 # Event Hub and Subscription Validation Model
 
-When using WSO2 API Manager as the key manager with Microgateway, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Microgateway, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Microgateway is capable of validating subscriptions only for the configured tenant (One tenant per Microgateway basis).
+When using WSO2 API Manager as the key manager with Choreo Connect, it can be configured to validate the API Subscriptions. For this, the same API should be published in both API Manager and Choreo Connect, and a valid access token (JWT or Reference token) should be obtained by subscribing to the API via an Application. Choreo Connect is capable of validating subscriptions only for the configured tenant (One tenant per Choreo Connect basis).
 
 ## Subscription Validation Model
 
-Subscriptions are validated in the Microgateway itself using a set of internal data stores. These data stores contain APIs, Applications, and Subscription related information.
+Subscriptions are validated in the Choreo Connect itself using a set of internal data stores. These data stores contain APIs, Applications, and Subscription related information.
 
 The following are the data stores that are being used.
 
@@ -30,7 +30,7 @@ The following are the data stores that are being used.
 
 Event Hub is the endpoint configuration which is used to fetch API, Application and Subscription data from WSO2 API Manager.
 
-Microgateway uses the below methods to fetch API and subscription-related data from API Manager.
+Choreo Connect uses the below methods to fetch API and subscription-related data from API Manager.
 
 - Internal Data REST API
 - JMS Topic
