@@ -1,0 +1,173 @@
+# Configuration Overview
+
+The configurations of the K8s API Operator are stored in K8s secrets and configmaps. Users are able to change the
+configurations by changing the secrets and config maps in K8s.
+
+### API Controller
+
+- Control deploying to the API microgateway and API Manager.
+
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: api-controller-config
+  data:
+    # Deploy the API to Microgateway
+    deployAPIToMicrogateway: "true"
+    # Deploy the API to API Manager
+    deployAPIToAPIManager: "false"
+  ```
+
+### API Manager
+
+- Configure key manager endpoints, API publisher endpoint, ssl verification and secret name for API Manager credentials.
+
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: apim-config
+  data:
+    # The following 3 endpoints are related to importing API to API Manager
+    # API Manager Keymanager/DCR endpoint
+    apimKeymanagerEndpoint: "https://localhost:9443"
+    # API Manager Publisher endpoint
+    apimPublisherEndpoint: "https://localhost:9443"
+    # API Manager token endpoint
+    apimTokenEndpoint: "https://localhost:9443/oauth2/token"
+  
+    # Skip verification for the REST API invocations. If "false", you need to provide the cert
+    insecureSkipVerify: "true"
+    # Secret name containing API Manager credentials and cert
+    apimCredentialsSecret: "apim-secret"
+    # Enable configurations for retrieving API and subscription data from API Manager.
+  ``` 
+
+### API Microgateway 
+
+- Configure adapter connection url and ssl verification.
+
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: envoy-mgw-configs
+  data:
+    mgwAdapterHost: "https://adapter.default:9843"
+    # Skip verification for Microgateway Adapter endpoint call. If "false", you need to provide the cert
+    mgwInsecureSkipVerify: "true"
+  ``` 
+
+### API Microgateway
+
+- Configure credentials related to API Manager and API Microgateway using K8s secrets as below. The input values should
+be Base64 encoded.
+
+  ```yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: apim-secret
+  type: Opaque
+  data:
+    # Base64 encoded username, password, and, cert secret name for API Manager
+    username: YWRtaW4=
+    password: YWRtaW4=
+    cert_security: YXBpbS1jZXJ0LXNlY3JldA==
+  ``` 
+  
+  ```yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: apim-cert-secret
+  data:
+    # Base64 encoded public cert of API Manager instance
+    apim.pem: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEcVRDQ0FwR2dBd0lCQWdJRVhiQUJvekFOQmdrcWhraUc5dzBCQVFzRkFEQmtNUXN3Q1FZRFZRUUdFd0pWDQpVekVMTUFrR0ExVUVDQXdDUTBFeEZqQVVCZ05WQkFjTURVMXZkVzUwWVdsdUlGWnBaWGN4RFRBTEJnTlZCQW9NDQpCRmRUVHpJeERUQUxCZ05WQkFzTUJGZFRUekl4RWpBUUJnTlZCQU1NQ1d4dlkyRnNhRzl6ZERBZUZ3MHhPVEV3DQpNak13TnpNd05ETmFGdzB5TWpBeE1qVXdOek13TkROYU1HUXhDekFKQmdOVkJBWVRBbFZUTVFzd0NRWURWUVFJDQpEQUpEUVRFV01CUUdBMVVFQnd3TlRXOTFiblJoYVc0Z1ZtbGxkekVOTUFzR0ExVUVDZ3dFVjFOUE1qRU5NQXNHDQpBMVVFQ3d3RVYxTlBNakVTTUJBR0ExVUVBd3dKYkc5allXeG9iM04wTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGDQpBQU9DQVE4QU1JSUJDZ0tDQVFFQXhlcW9aWWJRL1NyOERPRlErL3FiRWJDcDZWemI1aHpIN29hM2hmMkZaeFJLDQpGMEg2YjhDT016ejgrMG12RWRZVnZiLzMxak1FTDJDSVFoa1FSb2wxSXJ1RDZuQk9ta2p1WEpTQmZpY2tsTWFKDQpaT1JodUNyQjRyb0h4em9HMTlhV21zY0EwZ25mQktvMm9HWFNqSm1uWnhJaCsyWDZzeUhDZnlNWlowMEx6RHlyDQpnb1hXUVh5RnZDQTJheDU0czdzS2lIT00zUDRBOVc0UVV3bW9FaTRIUW1QZ0pqSU00ZUdWUGgwR3RJQU5OK0JPDQpRMUtrVUk3T3p0ZUhDVEx1M1ZqeE0wc3c4UVJheVpkaG5pUEYrVTluM2ZhMW1PNEtMQnNXNG1ETGpnOFIvSnVBDQpHVFgvU0VFR2owQjVIV1FBUDZteXhLRnoyeHdEYUNHdlQrcmR2a2t0T3dJREFRQUJvMk13WVRBVUJnTlZIUkVFDQpEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZFRHBMQjRQRGd6c2R4RDJGVjNyVm5Pci9BMERNQjBHDQpBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFMQmdOVkhROEVCQU1DQlBBd0RRWUpLb1pJDQpodmNOQVFFTEJRQURnZ0VCQUU4SC9heEFnWGp0OTNIR0NZR3VtVUxXMmxLa2dxRXZYcnlQMlFrUnBieVFTc1RZDQpjTDdaTFNWQjdNVlZIdElzSGg4ZjFDNFhxNlF1OE5VcnF1NVpMQzFwVUJ5YXFSMlpJemNqL09XTEdZUmpTVEhTDQpWbVZJcTlRcUJxMWo3cjZmM0JXcWFPSWlrbm1UekV1cUlWbE9UWTBnTytTSGRTNjJ2cjJGQ3o0eU9yQkV1bEdBDQp2b21zVThzcWc0UGhGbmtoeEk0TTkxMkx5KzJSZ045TDdBa2h6SytFelhZMS9RdGxJL1Z5c05mUzZ6ckhhc0t6DQo2Q3JLS0NHcVFuQm5TdlNUeUY5T1I1S0ZIbmtBd0U5OTVJWnJjU1FpY014c0xoVE1VSERMUS9nUnl5N1YvWnBEDQpNZkFXUis1T2VRaU5BcC9iRzRmakpvVGRvcWt1bDUxKzJiSEhWclU9DQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tDQo=
+  type: Opaque
+  ``` 
+  
+  ```yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: envoymgw-adapter-secret
+  type: Opaque
+  data:
+    # Base64 encoded username and password for Envoy MGW Adapter
+    username: YWRtaW4=
+    password: YWRtaW4=
+    mgwCertSecretName: ZW52b3ltZ3ctY2VydC1zZWNyZXQ=
+  ``` 
+  
+  ```yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: envoymgw-cert-secret
+  data:
+    # Base64 encoded public cert of Microgateway Adapter
+    adapter.pem: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURmakNDQW1hZ0F3SUJBZ0lKQUwzUW9rdFZDWDJTTUEwR0NTcUdTSWIzRFFFQkN3VUFNR1F4Q3pBSkJnTlYKQkFZVEFsVlRNUXN3Q1FZRFZRUUlEQUpEUVRFV01CUUdBMVVFQnd3TlRXOTFiblJoYVc0Z1ZtbGxkekVOTUFzRwpBMVVFQ2d3RVYxTlBNakVOTUFzR0ExVUVDd3dFVjFOUE1qRVNNQkFHQTFVRUF3d0piRzlqWVd4b2IzTjBNQjRYCkRUSXhNREV6TVRFM05USXpOVm9YRFRNeE1ERXlPVEUzTlRJek5Wb3daREVMTUFrR0ExVUVCaE1DVlZNeEN6QUoKQmdOVkJBZ01Ba05CTVJZd0ZBWURWUVFIREExTmIzVnVkR0ZwYmlCV2FXVjNNUTB3Q3dZRFZRUUtEQVJYVTA4eQpNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdnZ0VpTUEwR0NTcUdTSWIzCkRRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRHkrTjRmTkdHK2w4ekt5MmR3K2NzRmJMKzNrWGQ0TEZ0d3R0MjYKQmFmTitjaUJwWHBOYWVvOEZScUFrRXFuTkZtemdEMUNOcjltdEpVbU5peHNCSE1KTCtxSmFuUUozQ1NxZnBrSgplbVp1bCtOaWNvNUdydzN3ejdOWnBKbGhzMjlZbm1oSTdpUWY0c3BiTTROb1Y1dkJNa0dteEhXOEtFY2YzbDJqCkVXNVNPSmxxS3hWcENCUW5wMnRGMlVPMGlhbjJ2MFFCZmZwaEU2NWdVK2dRbHkrd2ZqKzY0QkhvS1VuWFpFVGMKejVnM2cxT0xYQnBVMjhadlBqZWcydWsvTHRKZUNtTE9LZURGSVl5b2pwWlRiS3hHYVQ5LzBBdUNJOGlrVU9tNQorSUpOaG9oeEZQNWh4VEtuMmN3T1ZOR3lReTRQNTFEV3gwazVyWFUvL0l5ejZDVjlBZ01CQUFHak16QXhNQzhHCkExVWRFUVFvTUNhQ0IyRmtZWEIwWlhLQ0NHVnVabTl5WTJWeWdnWnliM1YwWlhLQ0NXeHZZMkZzYUc5emREQU4KQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBa2l5WXQrMGZwOGNzOW9hMkhWVS9OZkltbHpRTUJWMFMrTTNERmxwNgo0ZWdMV2JEWE05azVHZWNybFUyYlkzdU8ydU1UOWp6V0o3R1UxZnVKdEFJRFFwVVJydWhvWHFpdVFmM3owUTZPClhsSlVXTlJpVWFZeWhNQkNLM2VrbXhyVEtrZ3dUZHpIWlBlRTN3MkRIOHA2bjU3YVBFNkJjYXJLTzdCWEJERDAKdmx3amtDNm5zOStQcGplMmJZeFIyQlBBNkxrcVpleWZ5WmNwUE55NE5UTjY2TEErVVFFaXpVTWV0R2FocFNwaAo1TlFlSUZnOFM0OWJsRlZsdWNYS0ZMdEFKUVgyVWJEdUxMamhDZEh1b3AwMGxZN3Nicks2dnJ5d3RydDEyaHp1Cnp3TmR3S01pQ1V3MTRvQzdBMlpmaEE1UEVpT2JFdFIwSittUGhuTEdHVk1HNHc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+  type: Opaque
+  ``` 
+  
+### Integration Controller
+
+- Configure Integration custom resource related configurations.
+
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: integration-config
+  data:
+    reconcileInterval: "10"
+    autoIngressCreation: "true"
+    enableAutoScale: "false"
+    minReplicas: "1"
+    maxReplicas: "5"
+    # Auto Scaling Configurations
+    hpaMetrics: |
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 70
+    # K8s Probes
+    livenessProbe: |
+      tcpSocket:
+        port: 8290
+      initialDelaySeconds: 10
+      periodSeconds: 5
+    readinessProbe: |
+      httpGet:
+        path: /healthz
+        port: 9201
+      initialDelaySeconds: 10
+      periodSeconds: 5
+  ``` 
+
+### Integration Controller
+
+- Configure Ingress configurations for Integration services.
+
+  ```yaml
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: integration-ingress-config
+  data:
+    ingress.properties: |
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+      nginx.ingress.kubernetes.io/ssl-redirect: false
+    ingressResourceName: "api-operator-ingress"
+    #Define whether ingress to use http or https endpoint of operator deployment
+    ingressTransportMode: "https"
+    #Define the hostname of the ingress
+    ingressHostName : "wso2ei.ingress.wso2.com"
+    #Define the secret name for TLS certificate
+    #tlsSecretName: ""
+  ``` 
