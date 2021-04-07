@@ -231,7 +231,6 @@ nav:
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
-                    - Event Hub Subscription Validation : deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md
