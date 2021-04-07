@@ -230,7 +230,7 @@ nav:
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Deploy an API:
-                    - Deploy an API to Microgateway: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-microgateway.md
+                    - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                     - Event Hub Subscription Validation : deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
@@ -241,9 +241,6 @@ nav:
                         - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
                         - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
-                - Import API:
-                    - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/import-api/using-an-openapi-definition.md
-                    - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                 - Endpoints:
                     - Endpoint Types: design/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
