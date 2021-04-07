@@ -568,6 +568,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255) /
         ALTER TABLE AM_API ADD STATUS VARCHAR(30) /
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL /
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0 /
         
         CREATE TABLE AM_REVISION (
                     ID INTEGER NOT NULL,
@@ -758,7 +759,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
         /
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20) DEFAULT 'DEVPORTAL'
         /
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
         /
@@ -915,6 +916,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE VARBINARY(MAX) DEFAULT NULL;
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
         
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVISION]') AND TYPE IN (N'U'))
         CREATE TABLE AM_REVISION (
@@ -1086,7 +1088,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXEC sp_rename 'AM_API_COMMENTS.DATE_COMMENTED', 'CREATED_TIME', 'COLUMN';
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME DATETIME;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
@@ -1212,6 +1214,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL;
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_REVISION (
           ID INTEGER NOT NULL,
@@ -1373,7 +1376,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS CHANGE DATE_COMMENTED CREATED_TIME TIMESTAMP NOT NULL;
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(64) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);        
         ```
@@ -1530,7 +1533,8 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL
         /
-        
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0
+        /
         CREATE TABLE AM_REVISION (
                     ID INTEGER NOT NULL,
                     API_UUID VARCHAR(256) NOT NULL,
@@ -1723,7 +1727,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
         /
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20) DEFAULT 'DEVPORTAL'
         /
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
         /
@@ -1889,7 +1893,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BYTEA DEFAULT NULL;
-        
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
+
         DROP TABLE IF EXISTS AM_REVISION;
         CREATE TABLE IF NOT EXISTS AM_REVISION (
                     ID INTEGER NOT NULL,
@@ -2067,7 +2072,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS RENAME COLUMN DATE_COMMENTED TO CREATED_TIME;
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
@@ -2283,3 +2288,7 @@ This concludes the upgrade process.
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
   
    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the the fault messages have been changed from XML to JSON in API-M 4.0.0.  
+   
+   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).

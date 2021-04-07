@@ -108,7 +108,7 @@ nav:
                     - Add API Documentation: design/api-documentation/add-api-documentation.md
                     - Search Documentation:
                             - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
-            - API Collaboration: 
+            - API Collaboration:
                     - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
                     - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
             - API Security:
