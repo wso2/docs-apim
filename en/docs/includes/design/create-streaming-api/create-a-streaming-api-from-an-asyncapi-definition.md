@@ -37,7 +37,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
      https://raw.githubusercontent.com/asyncapi/asyncapi/master/examples/2.0.0/streetlights.yml
      ```
 
-     <a href="../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png"><img src="../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png" width="80%" alt ="Import Websocket Streaming API from AsyncAPI URL"></a>
+     <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png" width="80%" alt ="Import Websocket Streaming API from AsyncAPI URL"></a>
 
 4.  Edit the Streaming API information and click **Create**.
 
@@ -57,7 +57,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
       | Protocol | WebSocket (or any other type of Streaming API) |
       | Endpoint | ws://localhost:8080 |
  
-      <a href="../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-configure-values.png"><img src="../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-configure-values.png" width="80%" alt="AsyncAPI configuration values"></a>
+      <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-configure-values.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-configure-values.png" width="80%" alt="AsyncAPI configuration values"></a>
 
       Now, the **StreetlightsAPI API** overview page will appear.
 
