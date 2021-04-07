@@ -6,7 +6,7 @@ Let's host your first API on  Choreo Connect using Docker.
 
 Make sure to install and set up [Docker](https://www.docker.com).
 
-### Step 1 - Download and setup Choreo Connect distribution zip and APICTL(Command Line Tool)
+### Step 1 - Download and setup Choreo Connect distribution zip and APICTL (Command Line Tool)
 
 #### Step 1.1 - Download and Install APICTL
 
@@ -63,7 +63,7 @@ The project is now initialized. A directory with the name "petstore" has been cr
 
 ### Step 3 - Start Choreo Connect
 
-Start the Choreo Connect on docker by executing the docker compose script inside the `MG_HOME`. Navigate to `MG_HOME` and execute the following command
+Start the Choreo Connect on docker by executing the docker compose script inside the `CHOREO-CONNECT_HOME`. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/` and execute the following command.
 
 ``` java
 docker-compose up -d

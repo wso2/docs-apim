@@ -23,12 +23,12 @@ Let's get started...
 
 1. Download the Choreo Connect v4.0.0-alpha from
     [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-alpha) assets and extract them
-    to a folder of your choice. We will refer to this folder as the `MG_HOME`.
+    to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
 
 2. Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.
 
     ```bash
-    kubectl apply -Rf <MG_HOME>/resources/k8s-artifacts
+    kubectl apply -Rf <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/choreo-connect
     ```
 
 3. Let's create a namespace and install K8s API Operator by executing the following command.

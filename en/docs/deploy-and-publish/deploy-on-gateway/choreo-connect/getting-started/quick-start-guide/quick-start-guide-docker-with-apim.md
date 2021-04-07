@@ -12,7 +12,7 @@ Latest Choreo Connect distribution can be downloaded from the [page.](https://ws
 
 ### Step 2 - Configure Choreo Connect to Connect to API Manager
 
-We have to enable the `[controlPlane.eventHub]` in the `config.toml` in the `MG_HOME/resources/conf` file.
+We have to enable the `[controlPlane.eventHub]` in the `config.toml` file in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim/conf` directory.
 Let's edit the `config.toml` like below to enable the event hub.
 
 ``` java
@@ -29,7 +29,7 @@ Add the following entry to `/etc/hosts` file
 127.0.0.1   apim
 ```
 
-Start the Choreo Connect and API Manager on docker by executing the docker compose script inside the `MG_HOME/docker-with-apim` folder.
+Start the Choreo Connect and API Manager on docker by executing the docker compose script inside the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` folder.
 
 ``` java
 docker-compose up -d
@@ -42,7 +42,7 @@ docker ps | grep choreo-connect-
 ```
 
 !!! info
-    Note that the docker-compose deploy API Manager with basic configurations. In order to deploy API Manager in production grade docker setupuser artifacts from [APIM page.](https://wso2.com/api-management/) This docker-compose scripts is provided for try out purposes only.
+    Note that the docker-compose deploy API Manager with basic configurations. In order to deploy API Manager in production grade docker setup artifacts from [APIM page.](https://wso2.com/api-management/) This docker-compose scripts is provided for try out purposes only.
 
 ### Step 4 - Deploy Sample API from API Manager
 
