@@ -104,6 +104,11 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
     n20:19:47,019 [-] [PassThroughMessageProcessor-15] TRACE {"Latency":83,"Operation":"API:Response_Latency","Tags":{"span.resource":"/menu","span.kind":"server","span.api.name":"PizzaShackAPI","span.consumerkey":"Fn9RGuFeefEe7W07jOq_mvQvLJwa","span.request.method":"GET","span.request.path":"pizzashack/1.0.0/menu","span.api.version":"1.0.0","span.activity.id":"urn:uuid:339f337a-8848-41ec-adba-73da367fa66e"}}
     n
     ```
+!!! Note
+    
+    1. There are some limitations in the Jaeger client, which by default uses a UDP sender as mentioned in [the Jaeger documentation](https://www.jaegertracing.io/docs/1.22/client-libraries/). If the payload size exceeds 65 KB, spans might get lost in the Jaeger console. 
+    2. Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. If you are depending on the TPS, the sampler type should be carefully chosen.
+    3. In general, before including tracing in production deployments it is essential to look into performance tests and scaling requirements. Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
 
 ## Use Custom Tracer Implementation
 
