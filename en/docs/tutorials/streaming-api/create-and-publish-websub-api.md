@@ -9,7 +9,7 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSub/WebHook APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/WebHook API</a>.</p>
+<p>For more information on WebSub/WebHook APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/WebHook API</a>.</p>
 </div> 
 </html>
 
