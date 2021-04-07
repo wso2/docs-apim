@@ -127,7 +127,7 @@ After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a
 Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-Choreo Connect/security/generate-a-test-jwt.md) for more details.
 
 ``` java tab="Sample Token"
-TOKEN=$(curl -X POST "https://localhost:9095/testkey" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
+    TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
 ```
 
 !!! info
