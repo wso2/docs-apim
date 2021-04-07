@@ -46,7 +46,7 @@ You can add advanced throttling policies to both APIs and resources.
      </p>
     </div>
 
-     You can add Description about condition group by click **Description** under **Condition Group**.
+     You can add a description about the condition group by click **Description** under **Condition Group**.
     
      [![Add advanced policy page]({{base_path}}/assets/img/learn/new-conditional-groups.png)]({{base_path}}/assets/img/learn/new-conditional-groups.png)
 
@@ -135,7 +135,7 @@ You have added a new application-level throttling policy.
 2.  Click **Subscription Policies** under the **Rate Limiting Policies** section. The existing set of throttling tiers are displayed.
 3.  To add a new tier, click **Add Policy**.
 
-    [![Add subscription policy page]({{base_path}}/assets/img/learn/add-subscription-policy.png)]({{base_path}}/assets/img/learn/add-subscription-policy.png)
+    [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -145,15 +145,30 @@ You have added a new application-level throttling policy.
     </div>    
 4.  Fill in the details required by this form and click **Save** once you are done.
 
-     [![Add subscription policy page]({{base_path}}/assets/img/learn/save-new-subscription-policy.png)]({{base_path}}/assets/img/learn/save-new-subscription-policy.png)
+     [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
+
+     **Request bandwidth based quota limits**
+
+     <a href="{{base_path}}/assets/img/design/rate-limiting/request-bandwith-based-quota-limits.png"><img src="{{base_path}}/assets/img/design/rate-limiting/request-bandwith-based-quota-limits.png" width="70%" alt="Request bandwidth based quota limits"></a>
+
+     **Event Based (AsyncAPI) quota limits**
+
+     <a href="{{base_path}}/assets/img/design/rate-limiting/event-based-quota-limits.png"><img src="{{base_path}}/assets/img/design/rate-limiting/event-based-quota-limits.png" width="70%" alt="Event Based (AsyncAPI) quota limits"></a>
+
+    !!! note
+        - Event Based (Async API) - These configurations are applicable to all the Streaming APIs (WebSocket, SSE and WebHook (WebSub) APIs).
+        - WebHooks - This is only applicable to the WebHook (WebSub) APIs
+
 
      Given below are the descriptions of the fields you find in the form:
 
      | Field  | Description     |                                                                           
      |--------|-----------------|
-     | Request Count/Request Bandwidth | The maximum number of requests/maximum bandwidth allowed to the API within the time period given in the next field.|
+     | Request Count/Request Bandwidth/Event Count | The maximum number of requests/maximum bandwidth/maximum events allowed to the API within the time period given in the next field.|
      | Unit Time                       | Time within which the number of requests given in the previous field is allowed to the API. This can be defined in minutes, hours, days, weeks, months or years.                   |
      | Burst Control (Rate Limiting)   | You can define the request count/bandwidth per unit time on an addition layer by using rate limiting. This is usually a smaller number of requests/bandwidth for a shorter time span than what is enforced in the above fields. For instance, if there's a subscription level policy enforced over a long period, you may not want users to consume the entire quota within a short time span. Enforcing a rate limit protects the backend from sudden request bursts and controls the usage at a subscription and API level. |
+     | GraphQL                         | Provide the [maximum complexity]({{base_path}}/design/rate-limiting/graphql-api/query-complexity-limitation/) and [maximum depth values]({{base_path}}/design/rate-limiting/graphql-api/query-depth-limitation/) for GraphQL APIs using this policy.|
+     | WebHooks                        | Maximum number of WebHooks allowed for a WebHooks API using this policy. |
      | Stop On Quota Reach             | This indicates the action to be taken when a user goes beyond the allocated quota. If the check box is selected, the user's requests are dropped and an error response (HTTP Status code 429) is given. If the check box is cleared, the requests are allowed to pass through.             |
      | Billing Plan                    | This field only makes sense if you have API Monetization enabled. The available **billing plans** are **Free, Commercial, and Freemium**. An API is tagged/labelled as Free, Paid, or Freemium depending on its subscription tiers(e.g., Unlimited, Gold, etc.), which are the tiers selected when creating an API. |
      | Custom Attributes               | You can choose to display additional information about tiers using custom attributes during custom implementations. The main objective of these fields are to provide more information regarding the tier to Application Developers at the time of API subscription. An example usage of custom attributes is API Monetization. See [Enabling Monetization of APIs-]({{base_path}}/design/api-monetization/monetizing-an-api/) for more information on practical usage of custom attributes in the subscription tier.      |

@@ -1,25 +1,25 @@
-# Create and Publish a WebSub/Webhook API
+# Create and Publish a WebSub/WebHook API
 
 This tutorial will guide you to create a WebHook API which will listen to the issues created in GitHub and send you 
-a notification upon creation.Follow the instructions in this tutorial to design and publish a WebSub/Webhook API, and 
-register a webhook for it.
+a notification upon creation.Follow the instructions in this tutorial to design and publish a WebSub/WebHook API, and 
+register a WebHook for it.
 
-The tutorial demonstrates a simple WebSub/Webhook API that monitors your GitHub repository for new issues, and receives events when an issue is created.
+The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub repository for new issues, and receives events when an issue is created.
 
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSub/Webhook APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/Webhook API</a>.</p>
+<p>For more information on WebSub/WebHook APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/WebHook API</a>.</p>
 </div> 
 </html>
 
-### Step 1 - Design a WebSub/Webhook API
+### Step 1 - Design a WebSub/WebHook API
 
-1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
+1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **CREATE API**, go to **Streaming API** and Click **Webhook API**.
+2.  Click **CREATE API**, go to **Streaming API**, and Click **WebHook API**.
 
-    [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
+    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -27,7 +27,7 @@ The tutorial demonstrates a simple WebSub/Webhook API that monitors your GitHub 
       </div>
     </html>
 
-3.  Enter the details of the new WebSub/Webhook API.
+3.  Enter the details of the new WebSub/WebHook API.
 
      <table>
      <thead>
@@ -56,66 +56,70 @@ The tutorial demonstrates a simple WebSub/Webhook API that monitors your GitHub 
      </tbody>
      </table>
 
-
 4.  Click **CREATE**. 
 
-     The overview page of the created WebSub/Webhook API appears.
+     The overview page of the created WebSub/WebHook API appears.
 
-     [![Overview of WebSub API]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-overview.png)
+     [![Overview of WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)
 
-5. Add a topic to the WebSub/Webhook API.
+5. Add a topic to the WebSub/WebHook API.
 
      1. Click **Topics** and navigate to the Topics page.
 
-     2. Click **Add Topic**. Add a topic with the name **/issues**, click **Add**, and finally click **Save**.
+     2. Click **Add Topic**, add a topic with the name **/issues**, click **Add**, and finally click **Save**.
 
-          [![Add Topics to WebSub API]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-add-topic.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-add-topic.png)
+           [![Add Topics to WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)
 
 6. Generate a secret.
      
-     1. Expand the **Subscription Configuration** section in the **Topics** page.
+      1. Expand the **Subscription Configuration** section in the **Topics** page.
 
-          [![WebSub API Runtime Configurations]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-runtime-configurations.png)
+           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-runtime-configurations.png)
 
-     2. Select **SHA1** as the **Signing Algorithm**.
+      2. Select **SHA1** as the **Signing Algorithm**.
      
-     3. Click **Generate**, which will generate a secret. Copy the generated secret. Let's call this `[generated_secret]`.
+      3. Click **Generate** to generate a secret.
 
-          [![WebSub API Generate Secret]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-generate-secret.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-generate-secret.png)
+           <a href="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-generate-secret.png" width="80%" alt="WebSub API Generate Secret"></a>
 
+      4. Copy the generated secret. 
+      
+           Let's refer to the generated secret as `[generated_secret]`.
 
-     4. Click **Save**.
+      5. Click **Save**.
 
-7. Attach business plans to the WebSub/Webhook API.
+7. Attach business plans to the WebSub/WebHook API.
 
-     1. Click **Subscriptions** and navigate to the Business Plans page.
+      1. Click **Subscriptions** and navigate to the Business Plans page.
 
-     2. Select **AsyncWHGold** and click on **Save**.
+      2. Select **AsyncWHGold** and click on **Save**.
 
-     [![Subscriptions of Websub API]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-subscriptions.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-subscriptions.png)
+           <a href="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-subscriptions.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-subscriptions.png" width="80%" alt="Subscriptions of Websub API"></a>
 
-Now, you have created and configured the Websub API successfully.
-
+Now, you have created and configured the Websub API (WebHook API) successfully.
 
 ### Step 2 - Forward a Public URL
 
-A public URL should be forwarded to `localhost:9021`, so that your local server can be accessible to the webhook provider (GitHub). [ngrock](https://ngrok.com) can be used for this purpose.
+A public URL should be forwarded to `localhost:9021`, so that your local server can be accessible to the WebHook provider (GitHub). [ngrock](https://ngrok.com) can be used for this purpose.
 
-1. Download [ngrock](https://ngrok.com/download), and start it. This will forward a public URL to `localhost:9021`.
+1. Download [ngrock](https://ngrok.com/download), and start it. 
+
+      This will forward a public URL to `localhost:9021`.
 
      ```sh
      ./ngrok http 9021
      ```
 
-2. Copy the HTTP URL that is forwarded to `http://localhost:9021`, as shown in ngrock's terminal. In the following example, it is `http://3b1*******c9.ngrok.io`.
+2. Copy the HTTP URL that is forwarded to `http://localhost:9021`, as shown in ngrock's terminal. 
+
+      In the following example, it is `http://3b1*******c9.ngrok.io`.
 
      ``` string
      Forwarding                    http://3b1*******c9.ngrok.io -> http://localhost:9021
      Forwarding                    https://3b1*******c9.ngrok.io -> http://localhost:9021
      ```
 
-
-### Step 3 - Add a Webhook to your GitHub Repository
+### Step 3 - Add a WebHook to your GitHub Repository
 
 <div class="admonition note">
      <p class="admonition-title">Note</p>
@@ -124,19 +128,23 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 1. Go to **Settings** of your GitHub repository.
 
-2. Click **Webhooks**, navigate to the Webhooks page, and click **Add webhook**.
+2. Click **WebHooks**, navigate to the WebHooks page, and click **Add WebHook**.
 
-     [![GitHub Webhooks Page]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/github-webhooks-page.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/github-webhooks-page.png)
+      [![GitHub Webhooks Page]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-page.png)]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-page.png)
 
-3. Configure the webhook.
+3. Configure the WebHook.
 
-     1. Go back to the WSO2 API Publisher, navigate to the Topics page, and expand the **/issues** topic. Copy the **Callback URL**.
+     1. Go back to the WSO2 API Publisher, click **Topics** to navigate to the Topics page, and expand the **/issues** topic. 
+     
+     2. Copy the **Callback URL**.
 
           ```string
           https://{GATEWAY_HOST}:9021/repo-watcher/1.0.0/webhooks_events_receiver_resource?topic=/issues
           ```
 
-     2. Go back to your GitHub repository's **Webhooks** page. Provide the following values.
+     3. Go back to your GitHub repository's **WebHooks** page. 
+      
+           Provide the following values.
 
           <table>
           <thead>
@@ -161,11 +169,11 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           <td>Secret</td>
           <td>
           <code>`[generated_secret]`</code>
-          <p>This is the secret you obtained from the <b>Subscription Configuration</b> section of the WebSub/Webhook API's <b>Topics</b>.</p>
+          <p>This is the secret you obtained from the <b>Subscription Configuration</b> section of the WebSub/WebHook API's <b>Topics</b>.</p>
           </td>
           </tr>
           <tr>
-          <td>Which events would you like to trigger this webhook?</td>
+          <td>Which events would you like to trigger this WebHook?</td>
           <td>
           <p>Select <b>Let me select individual events</b>, and check <b>Issues</b>.</p>
           </td>
@@ -173,87 +181,111 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           </tbody>
           </table>
 
-          [![GitHub Select Event Type]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/github-webhooks-select-issues.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/github-webhooks-select-issues.png)
+          [![GitHub Select Event Type]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)
 
-     3. Click **Add webhook**.
+     3. Click **Add WebHook**.
 
 
-### Step 4 - Publish the WebSub/Webhook API
+### Step 4 - Publish the WebSub/WebHook API
 
 1. Go to WSO2 API Publisher. 
 
-2. Click **Lifecycle** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+2. Click **Lifecycle** to navigate to the API lifecycle.
 
-3. Click **Deployments** to navigate to the Deployments page and click **Deploy New Revision**. 
+3. Click **PUBLISH** to publish the API to the API Developer Portal.
 
-4. Select **Production and Sandbox**, choose **localhost** as the VHost, and click on **Deploy**.
+4. Click **Deployments** to navigate to the Deployments page.
 
-     [![Deploy New Revision]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-deploy-new-revision.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-deploy-new-revision.png)
+5. Click **Deploy New Revision**. 
+
+6. Select **Production and Sandbox**, choose **localhost** as the VHost, and click on **Deploy**.
+
+      [![Deploy New Revision]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png)
 
 
 ### Step 5 - Create a Callback URL
 
 1. Go to [https://webhook.site.org](https://webhook.site).
 
-2. Click **New**. Leave the default values, and click **Create**. A unique URL will be created for you. 
+2. Click **New**, leave the default values, and click **Create**. 
 
-     [![Create Callback URL]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-create-callback-url.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-create-callback-url.png)
+      A unique URL will be created for you. 
+
+     [![Create Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)
 
 3. Click **Copy to clipboard** which is next to **Your unique URL**.
 
-     [![Copy Callback URL]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-copy-callback-url.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-copy-callback-url.png)
+      [![Copy Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)
 
-4. URL-encode the unique URL, which you have copied. Let's call this `[encoded_hub_callback]`.
+4. URL-encode the unique URL that you copied. 
 
-5. Leave the webpage open. You will need to come back again.
+      Let's refer to the URL-encode unique URL as `[encoded_hub_callback]`.
 
+5. Leave the webpage open as you will need to come back to it again.
 
-### Step 6 - Invoke the WebSub/Webhook API
+### Step 6 - Invoke the WebSub/WebHook API
 
-1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (e.g., `https://localhost:9443/devportal`).
+1. {!includes/sign-in-devportal.md!}
 
-2. Click on the WebSub/Webhook API. The API overview appears.
+2. Click on the WebSub/WebHook API. 
+
+      The API overview appears.
 
 3. Subscribe to the API.
 
-    1. Go to the **Subscriptions** page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
+    1. Click **Subscriptions** to go to the Subscriptions page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
     
-         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
+           This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
-         <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p> 
-         You can use any application (e.g., JWT or OAuth) to subscribe to the API.
-         </p>
-         </div>
+           <div class="admonition note">
+           <p class="admonition-title">Note</p>
+           <p> 
+           You can use any application (e.g., JWT or OAuth) to subscribe to the API.
+           </p>
+           </div>
 
-         [![Key Generation Wizard]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
+           [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
     2. Copy the authorization token that appears, and click **FINISH**.
 
-         [![Authorization Token]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-subscription-token.png)
+         [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
 4. Try out the operations.
 
-     1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
+     1. Subscribe to the **/issues** topic.
 
-          ``` bash
-          curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=subscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
-          ```
+          1. Subscribe the callback URL with the **/issues** topic by executing the following cURL command. 
      
-     2. Go to the **Subscriptions** page of your application in the Developer Portal. Clicking the Websub API's subscription entry will list down the subscription you just made.
-     
-     3. Go to your GitHub repo and create a new issue. This will trigger the GitHub webhook you have created.
-     
-     4. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. A new request which denotes the issue creation would have appeared.
+                Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
-          [![Received Event]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-received-event.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/websub/websub-api-received-event.png)
+               ``` bash
+               curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=subscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
+               ```
+     
+           2. Click **Subscriptions** to go to the Subscriptions page of your application in the Developer Portal. 
+     
+           3. Click the WebSub API's subscription entry.
+           
+                This will list down the subscription that you just made.
+     
+           4. Go to your GitHub repo and create a new issue. 
+               
+                This will trigger the GitHub WebHook you have created.
+     
+           5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. 
+     
+                A new request which denotes the issue creation would have appeared.
 
-     5. Unsubscribe the callback URL from the **/issues** topic by executing the following cURL command. Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
+               [![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
+     
+     2. Unsubscribe from the **/issues** topic.
+
+           Unsubscribe the callback URL from the **/issues** topic by executing the following cURL command. 
+           
+           Replace `[encoded_hub_callback]` and `accesstoken` with the values you have obtained.
 
           ``` bash
           curl -X POST 'http://localhost:8280/repo-watcher/1.0.0?hub.callback=[encoded_hub_callback]&hub.mode=unsubscribe&hub.secret=newValue&hub.lease_seconds=50000000&hub.topic=/issues' -H "Authorization: Bearer [accesstoken]"
           ```
 
-
-You have successfully created and published your first WebSub/Webhook API, subscribed to it, obtained an access token for testing, created a subscription to a webhook, and tested your API with the access token.
+You have successfully created and published your first WebSub/WebHook API, subscribed to it, obtained an access token for testing, created a subscription to a WebHook, and tested your API with the access token.
