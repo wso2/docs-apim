@@ -11,7 +11,7 @@ The following are the configurations with regard to Adapter. The configuration f
 
 ### Sample
 
-The following is a sample Microgateway adapter configurations.
+The following is a sample Choreo Connect adapter configurations.
 
 ``` java
 [adapter]
