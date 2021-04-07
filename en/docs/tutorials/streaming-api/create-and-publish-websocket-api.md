@@ -9,7 +9,7 @@ This will demonstrate a simple command line based chat room which has two channe
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api">Create a WebSocket API</a>.</p>
+<p>For more information on WebSocket APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api">Create a WebSocket API</a>.</p>
 </div> 
 </html>
 

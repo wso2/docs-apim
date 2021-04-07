@@ -6,7 +6,7 @@ and gives you the values in a continuous manner. Follow the instructions in this
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on SSE APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-sse-streaming-api">Create a SSE API</a>.</p>
+<p>For more information on SSE APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api">Create a SSE API</a>.</p>
 </div> 
 </html>
 
