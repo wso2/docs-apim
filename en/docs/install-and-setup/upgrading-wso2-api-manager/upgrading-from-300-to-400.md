@@ -569,6 +569,13 @@ Follow the instructions below to move all the existing API Manager configuration
                     UNIQUE(REVISION_UUID))
         /
         
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        )/
+        
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
                     NAME VARCHAR(255) NOT NULL,
                     VHOST VARCHAR(255) NULL,
@@ -947,6 +954,15 @@ Follow the instructions below to move all the existing API Manager configuration
           UNIQUE(REVISION_UUID)
         );
         
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_REVISION_METADATA]') AND TYPE IN (N'U'))
+        
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        );
+                
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_DEPLOYMENT_REVISION_MAPPING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
           NAME VARCHAR(255) NOT NULL,
@@ -1271,6 +1287,13 @@ Follow the instructions below to move all the existing API Manager configuration
           CREATED_BY VARCHAR(255),
           PRIMARY KEY (ID, API_UUID),
           UNIQUE(REVISION_UUID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
         )ENGINE INNODB;
         
         CREATE TABLE IF NOT EXISTS AM_DEPLOYMENT_REVISION_MAPPING (
@@ -1625,6 +1648,14 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     PRIMARY KEY (ID, API_UUID),
                     UNIQUE(REVISION_UUID))
+        /
+        
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        )
         /
         
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
@@ -2019,6 +2050,14 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     PRIMARY KEY (ID, API_UUID),
                     UNIQUE(REVISION_UUID)
+        );
+        
+        DROP TABLE IF EXISTS AM_API_REVISION_METADATA;
+        CREATE TABLE IF NOT EXISTS AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
         );
         
         DROP TABLE IF EXISTS AM_DEPLOYMENT_REVISION_MAPPING;
