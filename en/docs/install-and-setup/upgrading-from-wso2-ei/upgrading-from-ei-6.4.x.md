@@ -1,4 +1,4 @@
-# Migrating from WSO2 EI 6.4.0 to WSO2 API-M 4.0.0
+# Migrating from WSO2 EI 6.4.x to WSO2 API-M 4.0.0
 
 This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.4.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
@@ -99,35 +99,7 @@ See the instructions on [configuring a user store]({{base_path}}/install-and-set
 
 ### Migrating the registry
 
-!!! info "Before you begin"
-		Note the following:
-
-	-	Your EI 6.4.0 registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry).
-	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
-	-	If you have shared the registry of EI 6.4.0 among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among Micro Integrator nodes]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
-
-The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in EI 6.4.0). Note the following when migrating the registry:
-
--	If the registry resources in EI 6.4.0 are added via carbon applications developed using WSO2 Integration Studio, you can directly migrate the artifacts to the Micro Integrator. Copy the carbon applications from the `<EI_HOME>/repository/deployment/server/carbonapps` folder to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
--	If the registry resources are added through the management console in EI 6.4.0, you need to convert them to a Registry Resources module in WSO2 Integration Studio and deploy them via a Carbon Application.
-
-	!!! warning "Known Issues"
-		A registry migration using this method is currently not possible due to the known issues listed below. Please contact WSO2 if you require a registry migration.
-
-		 - [issue1258](https://github.com/wso2/devstudio-tooling-ei/issues/1258)
-
-		 - [issue19770](https://github.com/wso2/micro-integrator/issues/1977)
-
-		 - [issue1257](https://github.com/wso2/devstudio-tooling-ei/issues/1257)
-
-	Use one of the following approaches:
-
-	- [Checkout the Registry Resources]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#check-out-from-registry) from the EI 6.4.0 server directly into the Registry Resources module in WSO2 Integration Studio.
-	- Download the Registry Resources from EI 6.4.0 and [import them]({{base_path}}/integrate/develop/creating-artifacts/creating-registry-resources/#import-from-file-system) into the Registry Resources module in WSO2 Integration Studio.
-
-	!!! Note
-	    Once you have imported the Registry Resources into WSO2 Integration Studio, open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
-	    ![Registry Resource Editor]({{base_path}}/assets/img/integrate/migration/registry-resource-editor.png)
+{!includes/integration/PULL-CONTENT-registry-migration.md!}
 
 ### Migrating integration artifacts
 
