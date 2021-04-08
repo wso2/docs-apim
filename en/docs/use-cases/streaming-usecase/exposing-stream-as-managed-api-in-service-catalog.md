@@ -205,6 +205,6 @@ Follow the instructions below to view the Streaming API in the API Manager Servi
    
 ## What's Next?
 
-- [Learn more on the available Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview.md). 
+- [Learn more on the available Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview). 
 
 - [Learn how you can use a **third-party Streaming Provider** as opposed to WSO2 Streaming Integrator, which is used by default, to create a Streaming API]({{base_path}}/get-started/quick-start-guide/streaming-qsg).
