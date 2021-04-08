@@ -3039,6 +3039,10 @@ enable_query_param_based_throttling = true
 enable_unlimited_tier = true
 throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]
 skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerMin"] 
+enable_data_publishing = true
+enable_policy_deploy = true
+enable_blacklist_condition = true
+enable_persistence = false 
 </code></pre>
                     </div>
                 </div>
