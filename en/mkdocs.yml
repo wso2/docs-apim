@@ -570,7 +570,7 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
-                - Exposing a Stream as Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog.md
+                - Exposing a Stream as a Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md
           #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
