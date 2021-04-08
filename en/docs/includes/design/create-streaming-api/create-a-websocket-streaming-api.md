@@ -12,6 +12,9 @@ This section guides you through the process of creating a WebSocket API from scr
 
 The WebSocket server can send messages to the WebSocket client, or vice-versa, or both. This is useful in use cases based on the Event Driven Architecture (EDA), where events are sent to be consumed in an asynchronous manner and paving the way for an immediate user experience.
 
+!!! note
+    When you create a WebSocket Streaming API it's exposed via both <code>ws</code> and <code>wss</code> protocols. By default, the <code>ws</code> transport uses port 9099, and the <code>wss</code> transport uses port 8099.
+
 ## Example usage
 
 For example, chat room applications use WebSocket API so that messages can be sent in a bi-directional manner from the server to the client and vise versa.
@@ -93,7 +96,8 @@ Follow the instructions below to create a WebSocket API using the basic flow:
                  <td colspan="2" class="confluenceTd">Endpoint</td>
                  <td colspan="1" class="confluenceTd">
                     <p>
-                    Use one of the following endpoints.
+                    Use one of the following endpoints. 
+                    
                     <ul>
                         <li>ws://echo.websocket.org:80</li>
                         <li>wss://echo.websocket.org:443</li>

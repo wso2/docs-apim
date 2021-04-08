@@ -1,17 +1,10 @@
 # Create and Publish a WebSub/WebHook API
 
-This tutorial will guide you to create a WebHook API which will listen to the issues created in GitHub and send you 
-a notification upon creation.Follow the instructions in this tutorial to design and publish a WebSub/WebHook API, and 
+This tutorial will guide you to create a [WebHook API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api) which will listen to the issues created in GitHub and send you 
+a notification upon creation. Follow the instructions in this tutorial to design and publish a WebSub/WebHook API, and 
 register a WebHook for it.
 
 The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub repository for new issues, and receives events when an issue is created.
-
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on WebSub/WebHook APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api">Create a WebSub/WebHook API</a>.</p>
-</div> 
-</html>
 
 ### Step 1 - Design a WebSub/WebHook API
 
