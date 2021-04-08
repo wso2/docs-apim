@@ -1,12 +1,12 @@
-# Support Custom Claims Mapping
+# Custom Claims Mapping
 
-Microgateway provides the capability to map any claims in an incoming authentication JWT token, to claims expected by the backend upstream service using the custom claim mapping feature.
+Choreo Connect provides the capability to map any claims in an incoming authentication JWT token, to claims expected by the backend upstream service using the custom claim mapping feature.
 
-When JWT tokens are retrieved from multiple identity providers, Microgateway can map the relevant claims to the supported claims in order to validate the JWT. The claims of the incoming authentication JWT can differ based on the Authorization server that issued the JWT token. This feature maps the incoming JWT remote claims to the local claims of the Microgateway, and the transformed local claims will be sent to the back-end service as well. You can use custom claim mapping transformation in Microgateway when you have different keys or values of claims in your JWT token to make it compatible with microgateway as well as your back-end service.
+When JWT tokens are retrieved from multiple identity providers, Choreo Connect can map the relevant claims to the supported claims in order to validate the JWT. The claims of the incoming authentication JWT can differ based on the Authorization server that issued the JWT token. This feature maps the incoming JWT remote claims to the local claims of the Choreo Connect, and the transformed local claims will be sent to the back-end service as well. You can use custom claim mapping transformation in Choreo Connect when you have different keys or values of claims in your JWT token to make it compatible with Choreo Connect as well as your back-end service.
 
 ## Example
 
-Let's assume that you generated a JWT token with the claim `"scp": [“write”, “read”]` to represent the scope of the token. Microgateway only validates scopes when they are available in the token with the claim key `scope` and when the scopes are separated by spaces as a string. Therefore, you need to use a custom claim mapping to transform the remote claim to a local claim. In this scenario, you can do either one of the following actions:
+Let's assume that you generated a JWT token with the claim `"scp": [“write”, “read”]` to represent the scope of the token. Choreo Connect only validates scopes when they are available in the token with the claim key `scope` and when the scopes are separated by spaces as a string. Therefore, you need to use a custom claim mapping to transform the remote claim to a local claim. In this scenario, you can do either one of the following actions:
 
 - [Change the claim key](#configuring-claim-keys) by only using the configuration.
 - [Change the claim values](#configuring-claim-values) using a custom JWT transformer. 
@@ -24,7 +24,7 @@ If the key of the remote claim is different from the custom claim, you can confi
      You need to add the claim mapping configurations under the respective JWT issuer that the claim mapping should be applied to. You can define multiple keys of the remote claims and local claims.
 
     ```toml
-    [[enforcer.jwtTokenConfig]]
+    [[security.enforcer.tokenService]]
         name="Resident Key Manager"
         issuer = "https://localhost:9443/oauth2/token"
         certificateAlias = "wso2carbon"
@@ -36,7 +36,7 @@ If the key of the remote claim is different from the custom claim, you can confi
         consumerKeyClaim = "azp"
         # Certificate Filepath within enforcer
         certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
-        [[enforcer.jwtTokenConfig.claimMapping]]
+        [[security.enforcer.tokenService.claimMapping]]
             remoteClaim = "scp"
             localClaim = "scope"
     ```      
@@ -49,7 +49,7 @@ If the format of the remote claim value differs from the required format, you ca
 
 ### Step 1 - Write a JWT claim value transformer
 
-Microgateway uses the `org.wso2.carbon.apimgt.common.gateway.jwttransformer.JWTTransformer` Java interface when writing a custom JWT value transformer. Developers can use the following interface to write a custom JWT transformer to achieve custom transformation logic. The following JWT transformer will append the `CustomClaim:` string to the local claim key.
+Choreo Connect uses the `org.wso2.carbon.apimgt.common.gateway.jwttransformer.JWTTransformer` Java interface when writing a custom JWT value transformer. Developers can use the following interface to write a custom JWT transformer to achieve custom transformation logic. The following JWT transformer will append the `CustomClaim:` string to the local claim key.
 
 ```` java
 package org.wso2.carbon.apimgt.common.gateway.jwttransformer;
@@ -255,6 +255,6 @@ public class CustomJWTTransformer implements JWTTransformer {
 
 1. Build the JWT transformer project after the JWT claim value transformer is written.
 
-2. Add the output JAR in the `<MG_HOME>/resources/enforcer/dropins` directory. 
+2. Add the output JAR in the `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/dropins` directory. 
 
      If any third-party libraries are used when writing the JWT claim value transformer, these custom JARs too should also be placed in the same directory.
