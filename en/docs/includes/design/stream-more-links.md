@@ -10,5 +10,8 @@
      -   [API Documentation](../../../../design/api-documentation/add-api-documentation/)
      -   [Custom Properties](../../../../design/create-api/adding-custom-properties-to-apis/)
 
-- Learn how you can use a **third-party Streaming Provider** as opposed to WSO2 Streaming Integrator, which is used by default, to create a Streaming API.
-     - [Creating a Streaming Backend](../../../../get-started/quick-start-guide/streaming-qsg) 
+- Learn how to test a Streaming API. For an example, see [Test a WebSub/WebHook API](../../../../use-cases/streaming-usecase/create-streaming-api/test-a-websub-api).
+
+- [Learn how you can use a **third-party Streaming Provider** as opposed to WSO2 Streaming Integrator, which is used by default, to create a Streaming API](../../../../get-started/quick-start-guide/streaming-qsg).
+
+- [Learn how to expose a stream as a managed API](../../../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
