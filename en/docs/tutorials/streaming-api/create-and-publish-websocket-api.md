@@ -1,17 +1,13 @@
 # Create and Publish a WebSocket API
 
-This tutorial will guide you to implement a websocket based chat application using the WSO2 API Manager.
+This tutorial will guide you to implement a WebSocket based chat application using the WSO2 API Manager.
 Follow the instructions in this tutorial to design and publish API via a WebSocket backend, and thereafter 
-invoke it using the **wscat** WebSocket client.
+invoke the [WebSocket API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api) using the **wscat** WebSocket client.
 
 This will demonstrate a simple command line based chat room which has two channels: **rooms**, and **notifications**.
 
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api">Create a WebSocket API</a>.</p>
-</div> 
-</html>
+!!! note
+    When you create a WebSocket Streaming API it's exposed via both <code>ws</code> and <code>wss</code> protocols. By default, the <code>ws</code> transport uses port 9099, and the <code>wss</code> transport uses port 8099.
 
 ### Step 1 - Design a WebSocket API
 
@@ -63,7 +59,12 @@ This will demonstrate a simple command line based chat room which has two channe
     <html>
      <div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p>
+     <ul>
+     <li>When you create a WebSocket Streaming API it's exposed via both ws and wss protocols. By default, ws transport uses port 9099, and wss transport uses port 8099.
+     </li>
+     <li><p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p><li>
+
+     </ul>
      </div>
      </html>
 
@@ -216,7 +217,14 @@ Now, you have created and configured the WebSocket API successfully.
            ``` bash tab="WSS"
            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
            ```
-          
+
           </div>
+
+          <html>
+          <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>
+          `BasicAuth` and `API Key` do not work for the security of WebSocket APIs.</p>
+          </div></html>
 
 You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.

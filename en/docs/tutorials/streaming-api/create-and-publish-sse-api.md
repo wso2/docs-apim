@@ -1,14 +1,6 @@
 # Create and Publish a Server Sent Events API
 
-This tutorial will guide you to create a SSE API which is connected to a backend that observes your system's memory, 
-and gives you the values in a continuous manner. Follow the instructions in this tutorial to design and publish an API with an SSE backend, and thereafter invoke it using a cURL command.
-
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on SSE APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api">Create a SSE API</a>.</p>
-</div> 
-</html>
+This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api) which is connected to a backend that observes your system's memory, and gives you the values in a continuous manner. Follow the instructions in this tutorial to design and publish an API with an SSE backend, and thereafter invoke it using a cURL command.
 
 ## Step 1 - Design a SSE API
 
