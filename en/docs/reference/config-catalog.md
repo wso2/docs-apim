@@ -3208,7 +3208,87 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                         <p>This will enable/disable the JMS Message retrieval connection based on the provided value(true/false).</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_data_publishing</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable publishing of request and throttling data</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                  <div class="param-name">
+                                    <span class="param-name-wrap"> <code>enable_policy_deploy</code> </span>
+                                  </div>
+                                  <div class="param-info">
+                                      <div>
+                                          <p>
+                                              <span class="param-type string"> boolean </span>
+                                          </p>
+                                          <div class="param-default">
+                                              <span class="param-default-value">Default: <code>true</code></span>
+                                          </div>
+                                          <div class="param-possible">
+                                              <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                          </div>
+                                      </div>
+                                      <div class="param-description">
+                                          <p>Enable deploying of throttling policies</p>
+                                      </div>
+                                  </div>
+                              </div><div class="param">
+                                    <div class="param-name">
+                                      <span class="param-name-wrap"> <code>enable_blacklist_condition</code> </span>
+                                    </div>
+                                    <div class="param-info">
+                                        <div>
+                                            <p>
+                                                <span class="param-type string"> boolean </span>
+                                            </p>
+                                            <div class="param-default">
+                                                <span class="param-default-value">Default: <code>true</code></span>
+                                            </div>
+                                            <div class="param-possible">
+                                                <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                            </div>
+                                        </div>
+                                        <div class="param-description">
+                                            <p>Enable blocking conditions from the admin portal</p>
+                                        </div>
+                                    </div>
+                                </div><div class="param">
+                                    <div class="param-name">
+                                      <span class="param-name-wrap"> <code>enable_persistence</code> </span>
+                                    </div>
+                                    <div class="param-info">
+                                        <div>
+                                            <p>
+                                                <span class="param-type string"> boolean </span>
+                                            </p>
+                                            <div class="param-default">
+                                                <span class="param-default-value">Default: <code>false</code></span>
+                                            </div>
+                                            <div class="param-possible">
+                                                <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                            </div>
+                                        </div>
+                                        <div class="param-description">
+                                            <p>Enable persisting current counter state of the TM</p>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
