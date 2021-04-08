@@ -10,7 +10,7 @@ The **WSO2 API Manager 4.0.0-Alpha** is the **latest** **WSO2 API Manager re
 
 ---
 
-### API Manager 
+## API Manager 
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
 
@@ -56,9 +56,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Defaulting code and configs to do with event based
 -->
 
-#### What has changed in this release
-
-##### Removed features and functionalities
+#### Removed features and functionalities
 
 - Microgateway Labels
 
@@ -76,7 +74,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### Micro Integrator
+## Micro Integrator
 
 The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems.
 
@@ -107,7 +105,7 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
     WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
 
-### Compare this release with previous ESBs
+#### Compare this release with previous ESBs
 
 Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 ESB runtimes. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 ESB runtime.
 
@@ -119,7 +117,7 @@ If you are migrating from a previous ESB, this comparison will help you understa
 	-	[WSO2 ESB 5.0](https://docs.wso2.com/display/ESB500/WSO2+Enterprise+Service+Bus+Documentation)
 	-	[ESB profile of WSO2 EI 6.x.x series](https://docs.wso2.com/display/EI660/WSO2+Enterprise+Integrator+Documentation)
 
-#### Feature comparison
+**Feature comparison**
 
 The following table explains the availability of the most critical features in the ESB runtime and Micro Integrator runtime of API-M 4.0.0. In addition to the following list, the Micro Integrator runtime also contains [new and improved features](#whats-new-in-this-release) listed above.
 
@@ -253,7 +251,7 @@ The following table explains the availability of the most critical features in t
 	</tr>
 </table>
 
-#### Features removed
+**Features removed**
 
 The following features, which are available in ESB runtimes, are removed from the Micro Integrator of API-M 4.0.0 because they are not frequently used.
 
@@ -337,7 +335,7 @@ The following features, which are available in ESB runtimes, are removed from th
 	</tr>
 </table>
 
-#### Mediators and artifacts removed (After ESB 5.0.0)
+**Mediators and artifacts removed (After ESB 5.0.0)**
 
 The following mediators and artifacts are removed from the ESB runtime in all versions after ESB 5.0.0. If you are migrating from ESB 5.0.0 to the Micro Integrator of API-M 4.0.0, note that these artifacts are no longer supported.
 
@@ -363,7 +361,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### Streaming Integrator
+## Streaming Integrator
 
 Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
 
@@ -386,7 +384,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### API Controller
+## API Controller
 
 WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. 
 
@@ -416,7 +414,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### WSO2 Integration Studio
+## WSO2 Integration Studio
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
@@ -437,7 +435,7 @@ All the open issues pertaining to WSO2 Integration Studio are reported [here](ht
 
 ---
 
-### Streaming Integrator tooling
+## Streaming Integrator tooling
 
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
@@ -459,7 +457,7 @@ All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [her
 
 ---
 
-### Kubernetes API operator
+## Kubernetes API operator
 
 The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. 
 
