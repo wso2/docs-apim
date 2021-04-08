@@ -1514,6 +1514,7 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
+                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md      
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
