@@ -718,8 +718,25 @@ nav:
         - API Manager Observability:
             - API Manager Analytics:
                 - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                - Configuring APIM Analytics:
+                    - Registering for APIM Analytics: observe/api-manager-analytics/configure-analytics/register-for-analytics.md
+                    - Configuring Gateway:
+                        - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
+                        - Configuring Synapse Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
+                - Viewing APIM analytics:
+                    - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                    - Pages:
+                        - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
+                        - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
+                        - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
+                        - Cache Page: observe/api-manager-analytics/analytics-pages/analytics-pages-cache.md
+                        - Devices Page: observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md
+                        - Alerts Page: observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md
+                    - Usecases:
+                        - Finding Faulty APIs: observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md
+                - Quality of Service: observe/api-manager-analytics/analytics-qos.md
+                - Querying APIM analytics: observe/api-manager-analytics/querying-apim-analytics.md
+                - Troubleshooting Analytics: observe/api-manager-analytics/troubleshooting-analytics.md
             - Monitoring Logs:
                 - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
