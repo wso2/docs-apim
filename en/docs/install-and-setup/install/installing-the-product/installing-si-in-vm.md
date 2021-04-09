@@ -34,15 +34,15 @@ On **MacOS/Linux/CentOS**, open a terminal and execute one of the commands given
    
 -  To <b>start</b> the Streaming Integrator as a <b>service</b>:
       
-      ```bash tab='On MacOS'
+      ```bash tab="On MacOS"
       sudo wso2si-service start
       ```
 
-      ```bash tab='On Linux'
+      ```bash tab="On Linux"
       sudo service wso2si start
       ```
 
-      ```bash tab='On Centos'
+      ```bash tab="On Centos"
       sudo wso2si start
       ```
 
