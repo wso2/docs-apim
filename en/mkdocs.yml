@@ -1742,6 +1742,7 @@ plugins:
               'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
+              "design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md": 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
 
     # Extra
 extra_css:
