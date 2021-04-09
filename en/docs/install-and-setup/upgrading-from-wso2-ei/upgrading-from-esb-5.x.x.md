@@ -1,7 +1,7 @@
 # Migrating from WSO2 ESB 5.0 to WSO2 API-M 4.0.0
 This guide provides the recommended strategy for upgrading from WSO2 ESB 5.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
-{!includes/integration/PULL-CONTENT-migration-esb-mi.md!}
+{!includes/integration/pull-content-migration-esb-mi.md!}
 
 -	If you are migrating from a version older than WSO2 ESB 5.0.0, you should first migrate to ESB 5.0.0 and then migrate to the Micro Integrator of API-M 4.0.0.
 -	The distribution folder structure has changed from ESB 5.0.0 to API-M 4.0.0:

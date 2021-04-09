@@ -2,7 +2,7 @@
 
 This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.4.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
-{!includes/integration/PULL-CONTENT-migration-esb-mi.md!}
+{!includes/integration/pull-content-migration-esb-mi.md!}
 
 ## Migrating to the Micro Integrator
 
@@ -99,7 +99,7 @@ See the instructions on [configuring a user store]({{base_path}}/install-and-set
 
 ### Migrating the registry
 
-{!includes/integration/PULL-CONTENT-registry-migration.md!}
+{!includes/integration/pull-content-registry-migration.md!}
 
 ### Migrating integration artifacts
 
