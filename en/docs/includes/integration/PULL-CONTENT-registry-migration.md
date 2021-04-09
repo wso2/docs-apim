@@ -6,6 +6,7 @@
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
 	-	If you have shared the registry of your WSO2 EI among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
 	
+	
 You can migrate the registry resources by using the **registry migration tool** as follows:
 
 1. Download the [tool]() and save it to a location on your computer.
