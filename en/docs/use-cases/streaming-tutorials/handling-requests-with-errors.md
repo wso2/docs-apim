@@ -12,7 +12,7 @@ In order to save streaming data with errors in a MySQL store, complete the follo
    
 - Start the SI server by navigating to the `<SI_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
 
-    - For Windows: `streaming-integrator.bat`
+    - For Windows: `server.bat --run`
     - For Linux:  `sh server.sh`
 
   The following log appears in the Streaming Integrator console once you have successfully started the server.

@@ -37,7 +37,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
     
     4. Start the SI server by issuing the appropriate command based on your operating system.
     
-          - For Windows: `streaming-integrator.bat`
+          - For Windows: `server.bat --run`
           - For Linux:  `sh server.sh`
 
 - Once you install MySQL and start the MySQL server, create the database and the database table you require as follows:

@@ -9,7 +9,7 @@ This tutorial takes you through the different modes and options you could use, i
 !!!info "Before you begin:"
     - Start the SI server by navigating to the `<SI_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:<br/>
       <br/>
-        - For Windows: `streaming-integrator.bat`<br/>
+        - For Windows: `server.bat --run`<br/>
       <br/>
         - For Linux:  `sh server.sh`<br/>
       <br/>
