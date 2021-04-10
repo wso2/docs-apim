@@ -1,6 +1,9 @@
 # Migrating from WSO2 EI 6.2.x to WSO2 API-M 4.0.0
 
-This guide provides the recommended strategy for migrating from the ESB profile of WSO2 EI 6.2.0 to the Micro Integrator of WSO2 API-M 4.0.0.
+!!! Info
+	**The contents of this page are currently under review**
+
+This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.2.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
 {!includes/integration/pull-content-migration-esb-mi.md!}
 

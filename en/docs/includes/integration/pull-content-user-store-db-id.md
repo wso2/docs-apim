@@ -8,3 +8,4 @@
 	```
 
 	Otherwise the user store database id defaults to 'WSO2CarbonDB' in the realm manager configurations..
+	

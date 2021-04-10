@@ -17,53 +17,12 @@ This guide explains the recommended strategy for upgrading from the Micro Integr
 
 ### Migrating the user store
 
-If you are already using a JDBC or LDAP user store with the Micro Integrator of EI 7.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. Following is a set of high-level configurations. 
+If you are already using a JDBC or LDAP user store with the Micro Integrator of EI 7.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
 
-!!! Tip
-	See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
+Follow the links given below for instructions.
 
-```toml tab='RDBMS User Store'
-[user_store]
-type = "database"
-read_only = "false"
-
-[[datasource]]
-id = "WSO2_USER_DB"
-url= "jdbc:mysql://localhost:3306/userdb"
-username="root"
-password="root"
-driver="com.mysql.jdbc.Driver"
-
-[realm_manager]
-data_source = "WSO2_USER_DB" 
-
-[internal_apis.file_user_store]
-enable = false
-```
-
-```toml tab='Read-Only LDAP User Store'
-[user_store]
-connection_url = "ldap://localhost:10389"  
-connection_name = "uid=admin,ou=system"
-connection_password = "admin"  
-user_search_base = "ou=Users,dc=wso2,dc=org"
-type = "read_only_ldap"
-   
-[internal_apis.file_user_store]
-enable = false
-```
-
-```toml tab='Read-Write LDAP User Store'
-[user_store]
-connection_url = "ldap://localhost:10389"  
-connection_name = "uid=admin,ou=system"
-connection_password = "admin"  
-user_search_base = "ou=Users,dc=wso2,dc=org"
-type = "read_write_ldap"
-   
-[internal_apis.file_user_store]
-enable = false
-```
+-	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
+-	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.
 
 ### Migrating the registry
 The Micro Integrator uses a [file-based registry]({{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry). You can directly migrate the artifacts to the Micro Integrator of API-M 4.0.0 by copying the carbon applications from the `<MI_HOME>/repository/deployment/server/carbonapps` folder in the Micro Integrator of EI 7.0.0 to the same folder in API-M 4.0.0. 
@@ -83,18 +42,11 @@ Copy the configurations in the `deployment.toml` file of the Micro Integrator of
 !!! Info
 	If you have done any customization to the `<MI_HOME>/conf/internal-apis.xml` file in the Micro Integrator of EI 7.0.0, you have to move them to the `deployment.toml` file in API-M 4.0.0. 
 
-	See the following topics for the TOML configurations that correspond to your configurations in the `internal-apis.xml` file:
-	
-	-	[Management API Token Handler Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token-handler).
-	-	[Management API Token Store Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token-store).
-	-	[Management API Token Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-token).
-	-	[Management API - Default User Store Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-default-user-store).
-	-	[Management API - Users Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-users).
-	-	[Management API - CORS Parameters]({{base_path}}/reference/config-catalog-mi/#management-api-cors).
+	See [Securing the Management API]({{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api) for instructions.
 
 ### Migrating encrypted passwords
 
-In version 7.0.0, **secure vault** was used to store sensitive information used in **synapse** configurations and the **cipher tool** was used for sensitive **server** configurations. In API-M 4.0.0, all the sensitive information (in server configurations as well as synapse configuration) can simply be encrypted and stored using the cipher tool.
+In version 7.0.0, **secure vault** was used to store sensitive information used in **synapse** configurations and the **cipher tool** was used for sensitive **server** configurations. In API-M 4.0.0, all the sensitive information (in server configurations as well as synapse configurations) can simply be encrypted and stored using the cipher tool.
 
 To migrate the encrypted passwords from EI 7.0.0, you need to first obtain the plain-text passwords. We provide a migration tool, which allows you to decrypt already encrypted passwords in EI 7.0.0.  The plain-text values can then be added to the `[secrets]` section of the `deployment.toml` file of the Micro Integrator of API-M 4.0.0 and re-encrypted by running the cipher tool. 
 
@@ -119,7 +71,7 @@ Follow the instructions given below.
 	```
 
 	!!! Info
-		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<MI_HOME>/migration/secure-vault-decrypted.properties` file and the `<MI_HOME>/migration/cipher-text-decrypted.properties` file in the Micro Integrator of EI 7.0.0.
+		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files are written respectively to the `<MI_HOME>/migration/secure-vault-decrypted.properties` file and the `<MI_HOME>/migration/cipher-text-decrypted.properties` file in the Micro Integrator of EI 7.0.0.
 
 	The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
