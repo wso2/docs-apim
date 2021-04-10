@@ -1,8 +1,6 @@
 # Streaming Integrator Tooling Overview
 
-The Streaming Integrator Tooling is a developer tool that is shipped with
-the Streaming Integrator to develop Siddhi applications. It allows provides four
-interfaces to develop Siddhi applications
+The Streaming Integrator Tooling is a developer tool that is shipped with the Streaming Integrator to develop Siddhi applications. It provides four interfaces to develop Siddhi applications.
 
 -   **Source View** : This allows you to write Siddhi applications
     in the Siddhi Query Language. This supports auto-completion and
