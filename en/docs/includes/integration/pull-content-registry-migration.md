@@ -184,7 +184,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 
 		4.	Open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
 			
-			![Registry Resource Editor](../../../assets/img/integrate/migration/registry-resource-editor.png)
+			![Registry Resource Editor](../../assets/img/integrate/migration/registry-resource-editor.png)
 
 		5. Select the required resources from your registry resources project and export a CAR file.
 
