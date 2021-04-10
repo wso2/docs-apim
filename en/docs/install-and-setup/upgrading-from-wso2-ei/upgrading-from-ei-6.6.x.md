@@ -48,50 +48,10 @@ To connect the Micro Integrator to the primary user store:
 	type = "read_only_ldap"
 	```
 
-3.	Update the `[user_store]` section and other configurations as given below.
+3.	See the instructions in the following sections:
 
-	```toml tab='RDBMS User Store'
-	[user_store]
-	type = "database"
-	read_only = "false"
-
-	[[datasource]]
-	id = "WSO2_USER_DB"
-	url= "jdbc:mysql://localhost:3306/userdb"
-	username="root"
-	password="root"
-	driver="com.mysql.jdbc.Driver"
-
-	[realm_manager]
-	data_source = "WSO2_USER_DB"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Only LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_only_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Write LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_write_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
+	-	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
+	-	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.	
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 

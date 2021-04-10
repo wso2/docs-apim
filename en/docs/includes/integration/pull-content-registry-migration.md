@@ -9,7 +9,7 @@
 	
 You can migrate the registry resources by using the **registry migration tool** as follows:
 
-1. Download the [tool]() and save it to a location on your computer.
+1. Download the [tool](https://github.com/wso2-docs/WSO2_EI/blob/master/RegistryMigration-EI6.x.xtoMI/registry-migration-service-1.0.0.jar) and save it to a location on your computer.
 
 2. Execute one of the commands given below to start the tool.
 

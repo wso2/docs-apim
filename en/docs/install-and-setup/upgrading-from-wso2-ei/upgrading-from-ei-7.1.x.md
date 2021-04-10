@@ -1,6 +1,9 @@
 # Upgrading from WSO2 EI 7.1.x to WSO2 API-M 4.0.0
 
-This guide explains the recommended strategy for upgrading from the Micro Integrator of WSO2 EI 7.1.0 to the Micro Integrator of WSO2 API-M 4.0.0.
+This guide explains the recommended strategy for upgrading from the Micro Integrator of WSO2 EI 7.1.0 to the Micro Integrator of WSO2 API-M 4.0.0. 
+
+!!! Note
+	Because there aren't any database changes between the Micro Integrators of EI 7.1.0 and API-M 4.0.0, upgrading involves moving (migrating) all your artifacts and configurations from EI 7.1.0 to API-M 4.0.0.
 
 ### Setting up
 
@@ -17,53 +20,12 @@ This guide explains the recommended strategy for upgrading from the Micro Integr
 
 ### Migrating the user store
 
-If you are already using a JDBC or LDAP user store with the Micro Integrator of EI 7.1.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. Following is a set of high-level configurations. 
+If you are already using a JDBC or LDAP user store with the Micro Integrator of EI 7.1.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file.
 
-!!! Tip
-	See the instructions on [configuring a user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore) for more information.
+Follow the links given below for instructions.
 
-```toml tab='RDBMS User Store'
-[user_store]
-type = "database"
-read_only = "false"
-
-[[datasource]]
-id = "WSO2_USER_DB"
-url= "jdbc:mysql://localhost:3306/userdb"
-username="root"
-password="root"
-driver="com.mysql.jdbc.Driver"
-
-[realm_manager]
-data_source = "WSO2_USER_DB" 
-
-[internal_apis.file_user_store]
-enable = false
-```
-
-```toml tab='Read-Only LDAP User Store'
-[user_store]
-connection_url = "ldap://localhost:10389"  
-connection_name = "uid=admin,ou=system"
-connection_password = "admin"  
-user_search_base = "ou=Users,dc=wso2,dc=org"
-type = "read_only_ldap"
-   
-[internal_apis.file_user_store]
-enable = false
-```
-
-```toml tab='Read-Write LDAP User Store'
-[user_store]
-connection_url = "ldap://localhost:10389"  
-connection_name = "uid=admin,ou=system"
-connection_password = "admin"  
-user_search_base = "ou=Users,dc=wso2,dc=org"
-type = "read_write_ldap"
-   
-[internal_apis.file_user_store]
-enable = false
-```
+-	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
+-	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.
 
 ### Migrating the registry
 
