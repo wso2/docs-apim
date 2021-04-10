@@ -113,7 +113,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 				Export as a Carbon Application
 			</td>
 			<td>
-				If you select this option, the CAR files that with the registry resource in your WSO2 EI instance will be exported as a single CAR file.
+				If you select this option, the registry resources in your WSO2 EI instance are exported as a single CAR file, which you directly copy to your Micro Integrator distribution.
 			</td>
 		</tr>
 	</table>

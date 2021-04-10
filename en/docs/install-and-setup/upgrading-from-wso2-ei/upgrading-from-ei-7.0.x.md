@@ -94,7 +94,7 @@ Copy the configurations in the `deployment.toml` file of the Micro Integrator of
 
 ### Migrating encrypted passwords
 
-In version 7.0.0, **secure vault** was used to store sensitive information used in **synapse** configurations and the **cipher tool** was used for sensitive **server** configurations. In API-M 4.0.0, all the sensitive information (in server configurations as well as synapse configuration) can simply be encrypted and stored using the cipher tool.
+In version 7.0.0, **secure vault** was used to store sensitive information used in **synapse** configurations and the **cipher tool** was used for sensitive **server** configurations. In API-M 4.0.0, all the sensitive information (in server configurations as well as synapse configurations) can simply be encrypted and stored using the cipher tool.
 
 To migrate the encrypted passwords from EI 7.0.0, you need to first obtain the plain-text passwords. We provide a migration tool, which allows you to decrypt already encrypted passwords in EI 7.0.0.  The plain-text values can then be added to the `[secrets]` section of the `deployment.toml` file of the Micro Integrator of API-M 4.0.0 and re-encrypted by running the cipher tool. 
 
@@ -119,7 +119,7 @@ Follow the instructions given below.
 	```
 
 	!!! Info
-		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<MI_HOME>/migration/secure-vault-decrypted.properties` file and the `<MI_HOME>/migration/cipher-text-decrypted.properties` file in the Micro Integrator of EI 7.0.0.
+		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files are written respectively to the `<MI_HOME>/migration/secure-vault-decrypted.properties` file and the `<MI_HOME>/migration/cipher-text-decrypted.properties` file in the Micro Integrator of EI 7.0.0.
 
 	The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
