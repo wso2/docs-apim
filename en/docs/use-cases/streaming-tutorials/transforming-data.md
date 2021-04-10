@@ -12,9 +12,9 @@ To understand how the Streaming Integrator can transform streaming data from one
 
 2. Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
    
-    - For Windows: `streaming-integrator-tooling.bat`
+    - For Windows: `tooling.bat`
     
-    - For Linux: `./streaming-integrator-tooling.sh`
+    - For Linux: `./tooling.sh`
 
 3. Open a new file and create a Siddhi application named `ConvertStreamingEventsApp`. You can specify the Siddhi application name via the `@App:name` annotation as shown below.
 

@@ -21,11 +21,11 @@ Extract the download ZIP file to a location on your computer. The <b>streaming-i
 2.  Execute the relevant command:
 
     ```bash tab='On MacOS/Linux/CentOS'
-    sh streaming-integrator.sh
+    sh server.sh
     ```
     
     ```bash tab='On Windows'
-    streaming-integrator.bat
+    server.bat --run
     ```
       
 By default, the HTTP listener port is 8290 and the default HTTPS listener port is 8253.
