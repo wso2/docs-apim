@@ -2,8 +2,6 @@
 
 The Developer Portal provides several useful features to build and nurture an active community of users for your APIs. This is required to advertise APIs, learn user requirements, and market trends.
 
-Let's see what community features are available in the Developer Portal:
-
 #### Use the search facility
 
 You can search for APIs in the API Publisher or Developer Portal in the following ways:
