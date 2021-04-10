@@ -68,12 +68,12 @@ The streaming tutorials walk you through the main capabilities and features of t
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling">Creating an ETL Application via SI Tooling</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/working-with-kafka">Working with Kafka</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates">Working with Business Rules</a></li>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/integrating-stores">Integrating Stores</a></li>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/exposing-processed-data-as-api">Exposing Processed Data as API</a></li>
             </ul>
         </td>
         <td>
             <ul>
-                <li><a href="{{base_path}}/use-cases/streaming-tutorials/integrating-stores">Integrating Stores</a></li>
-                <li><a href="{{base_path}}/use-cases/streaming-tutorials/exposing-processed-data-as-api">Exposing Processed Data as API</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors">Error Handling with Data Streams</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator">Triggering Integration Flows</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/running-si-with-docker-and-kubernetes">Running the Streaming Integrator in Containerized Environments</a></li>
@@ -81,4 +81,3 @@ The streaming tutorials walk you through the main capabilities and features of t
         </td>
     </tr>
 </table>
-</tr>
