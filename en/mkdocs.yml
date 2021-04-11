@@ -1560,6 +1560,7 @@ nav:
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
+              - Exposing a Kafka Topic as a Managed WebSocket API: use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
               - Performing Real-time ETL with Files: use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
               - Creating an ETL Application via Wizard: use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
