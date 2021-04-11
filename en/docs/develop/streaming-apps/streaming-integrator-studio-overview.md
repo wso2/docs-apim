@@ -25,7 +25,7 @@ To start and access the Streaming Integrator Tooling, follow the steps below:
     commands from the `<SI_HOME>/bin` directory.
 
     -   For Windows: `tooling.bat`
-    -   For Linux: `./tooling.sh           `
+    -   For Linux: `./tooling.sh`
 
 2.  Access the Streaming Integrator Tooling via the `http://localhost:/editor`
     URL. The Streaming Integrator Tooling opens as shown below.
