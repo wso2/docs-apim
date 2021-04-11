@@ -106,4 +106,6 @@ For more information on how to enable and work with this feature, check [How to 
 
 ## Third party Key Managers
 
-Choreo Connect connects with the event hub to receive key manager events when actions such as add, update, delete happens in API Manager. Also during the startup, it pulls the key manager configuration details of third party keymanagers which are resided on API Manager admin portal in order to get the events that has happened before starting the Choreo Connect.
+During startup, Choreo Connect connects with the event hub and pull the list of key manager data which are resided on API Manager admin portal and stored at issuer data store at Enforcer. These data are used for JWT token validation. After whenever key manager event (add, update, delete) receive, issuer data store will be updated accordingly. 
+
+If the same token service is configured at config.toml configuration file, the config data are overridden by the configurations receiving from API Manager either from add/update events or startup. But if it still persists in config.toml, delete events will not be proceed.
