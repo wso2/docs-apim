@@ -45,7 +45,9 @@ Follow the instructions below to create a REST API using the basic flow.
 
 6. Go to **Develop** -> **Portal Configurations** and click **Basic Info** on the left-hand panel.
 
-    [![Click Basic Info]({{base_path}}/assets/img/learn/click-basic-info.png)]({{base_path}}/assets/img/learn/click-basic-info.png)
+    <html>
+     <img src="{{base_path}}/assets/img/learn/click-basic-info.png" width="200">
+    </html>
      
 
      1. Configure the API design configurations.
