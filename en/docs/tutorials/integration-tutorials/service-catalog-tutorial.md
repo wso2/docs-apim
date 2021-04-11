@@ -377,7 +377,7 @@ Let's expose the integration service as a managed API.
 
 4.  Open the HealthcareAPI
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/new-service-api-view.png" alt="api created from service catalot">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/new-service-api-view.png" alt="API created from service catalog">
 
 5.  Click **Create API** in the above screen to open the **Create API** dialog box.
 
