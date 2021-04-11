@@ -9,7 +9,7 @@ You would need to create an API prototype for the purpose of early promotion and
     The example described in the following steps uses the `PizzaShackAPI 1.0.0` API. For more information on creating this API, see 
     [Create a New API Version]({{base_path}}/design/api-versioning/create-a-new-api-version/).
 
-1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 2.0.0`) that you want to prototype.
+1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 1.0.0`) that you want to prototype.
      
      [![PizzaShack API in the Publisher]({{base_path}}/assets/img/learn/prototype-api-pizza-shack-publisher.png)]({{base_path}}/assets/img/learn/prototype-api-pizza-shack-publisher.png)
 
@@ -46,7 +46,7 @@ You would need to create an API prototype for the purpose of early promotion and
     
     The **Overview** page of the API appears.
 
-    [![View overview of PizzaShackAPI 2.0.0]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)
+    [![View overview of PizzaShackAPI 1.0.0]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)
 
 5.  Click **Try Out** to invoke the Prototyped API. 
    
