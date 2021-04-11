@@ -35,7 +35,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
       </div>
     </html>
 
-    [![Design New Streaming API](../../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    [![Design New Streaming API](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
     
 3.  Enter the API details. 
     

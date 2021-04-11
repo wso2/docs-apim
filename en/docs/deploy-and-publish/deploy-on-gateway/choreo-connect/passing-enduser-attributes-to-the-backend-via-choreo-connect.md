@@ -19,7 +19,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
 3. Start the server.
  
-     For more information, see the [Quick Start Guide]({{base_path}}/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
+     For more information, see the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview/).
 
 ## Enabling a customized backend JWT generator
 

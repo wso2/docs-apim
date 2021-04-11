@@ -17,7 +17,7 @@ Follow the instructions below to use the Publisher test console to test an API:
 
      Let's use the sample `PizzaShack` REST API.
 
-3.  Click **TryOut**.
+3.  Go to **Test** and click **TryOut**.
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>

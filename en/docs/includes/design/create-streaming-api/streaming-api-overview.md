@@ -73,3 +73,5 @@ A scope acts as a limiting factor on what Streaming API topics can be accessed u
      - [Server Sent Events (SSE)](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api)
      - [Create a Streaming API from an AsyncAPI Definition](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition)
 - [Test a WebSub/WebHook API](../../../../use-cases/streaming-usecase/create-streaming-api/test-a-websub-api)
+- [Learn how to expose a stream as a managed API](../../../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
+- [Learn how you can use a third-party Streaming Provider as opposed to WSO2 Streaming Integrator, which is used by default, to create a Streaming API](../../../../get-started/quick-start-guide/streaming-qsg).
