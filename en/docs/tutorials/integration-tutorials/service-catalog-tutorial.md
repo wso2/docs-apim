@@ -13,7 +13,7 @@ This demonstrates how the integration components and API management components o
 1. An **Integration Developer** creates the service using WSO2 Integration Studio and deploys it in the Micro Integrator runtime.
 
     !!! Note
-        The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specialisations.
+        The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specializations.
 
 2. An **API Creator** converts the integration service to a managed API (apply security, rate limiting, etc.).
 3. An **API Publisher** publishes the API to the API marketplace (Developer Portal).
@@ -58,7 +58,7 @@ Follow the instructions given in this section to create and configure the requir
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png">
 
     !!! Note
-        A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the swagger and metadata YAML files. These YAML files will be uploaded to the service catalog later in this tutorial.   
+        A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the Swagger and metadata YAML files. These YAML files will be uploaded to the service catalog later in this tutorial.   
 
 6.  Create an **Endpoint** artifact. 
 
@@ -185,7 +185,7 @@ When the **HealthcareAPI** is created, the following two new files are created i
             HealthcareAPI_swagger.yaml
         </th>
         <td>
-            This swagger file contains the OpenAPI definition of the integration service.
+            This Swagger file contains the OpenAPI definition of the integration service.
         </td>
     </tr>
 </table>
@@ -409,7 +409,7 @@ Let's allocate some business plans for the API.
  
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api">
 
-**Deploy API in Gateway**
+**Deploy API in the Gateway**
 
 Let's deploy the API in a gateway environment.
 
