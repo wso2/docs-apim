@@ -3,7 +3,7 @@ As explained in the [overview section]({{base_path}}/observe/api-manager-analyti
  Manager Gateway needs to be configured to publish analytics data into the cloud.
  
  This documentation is structured into two sections where the 'Basic Configuration' section explains the bare minimal settings
-  needed to enable analytics while 'Advanced Configuration' section explains additional advance configurations which
+  needed to enable analytics, while 'Advanced Configuration' section explains additional advanced configurations that
    are needed to fine tune the analytics data publishing.
    
 ## Basic Configuration
