@@ -6,9 +6,10 @@
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
 	-	If you have shared the registry of your WSO2 EI among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
 	
+	
 You can migrate the registry resources by using the **registry migration tool** as follows:
 
-1. Download the [tool]() and save it to a location on your computer.
+1. Download the [tool](https://github.com/wso2-docs/WSO2_EI/blob/master/RegistryMigration-EI6.x.xtoMI/registry-migration-service-1.0.0.jar) and save it to a location on your computer.
 
 2. Execute one of the commands given below to start the tool.
 
@@ -112,7 +113,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 				Export as a Carbon Application
 			</td>
 			<td>
-				If you select this option, the CAR files that with the registry resource in your WSO2 EI instance will be exported as a single CAR file.
+				If you select this option, the registry resources in your WSO2 EI instance are exported as a single CAR file, which you directly copy to your Micro Integrator distribution.
 			</td>
 		</tr>
 	</table>
@@ -183,7 +184,7 @@ You can migrate the registry resources by using the **registry migration tool** 
 
 		4.	Open the resource editor and make sure that the <b>media type</b> of the resource is set properly.
 			
-			![Registry Resource Editor](../../../assets/img/integrate/migration/registry-resource-editor.png)
+			![Registry Resource Editor](../../assets/img/integrate/migration/registry-resource-editor.png)
 
 		5. Select the required resources from your registry resources project and export a CAR file.
 

@@ -119,7 +119,7 @@ If you are migrating from a previous ESB, this comparison will help you understa
 
 **Feature comparison**
 
-The following table explains the availability of the most critical features in the ESB runtime and Micro Integrator runtime of API-M 4.0.0. In addition to the following list, the Micro Integrator runtime also contains [new and improved features](#whats-new-in-this-release) listed above.
+The following table explains the availability of the most critical features in the ESB runtime and Micro Integrator runtime of API-M 4.0.0. In addition to the following list, the Micro Integrator runtime also contains [new and improved features](#micro-integrator) listed above.
 
 <table>
 	<tr>
@@ -198,10 +198,10 @@ The following table explains the availability of the most critical features in t
 			Tooling
 		</td>
 		<td>
-			<a href="{{base_path}}/develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a>
 		</td>
 		<td>
-			<a href="{{base_path}}/develop/WSO2-Integration-Studio">WSO2 Integration Studio</a>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a>
 		</td>
 	</tr>
 	<tr>
@@ -212,8 +212,8 @@ The following table explains the availability of the most critical features in t
 			Managemement Console
 		</td>
 		<td>
-			<a href="{{base_path}}/administer-and-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
-			<a href="{{base_path}}/administer-and-observe/using-the-command-line-interface">Micro Integrator CLI</a>
+			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
+			<a href="{{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl">API Controller (CLI)</a>
 		</td>
 	</tr>
 	<tr>
@@ -235,7 +235,7 @@ The following table explains the availability of the most critical features in t
 			RDBMS-based Registry
 		</td>
 		<td>
-			<a href="{{base_path}}/setup/deployment/file_based_registry">File system based Registry</a>
+			<a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">File system based Registry</a>
 		</td>
 	</tr>
 	<tr>

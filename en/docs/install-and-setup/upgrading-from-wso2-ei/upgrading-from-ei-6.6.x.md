@@ -6,7 +6,7 @@ This guide provides the recommended strategy for upgrading from the ESB profile 
 
 ## Upgrading to the Micro Integrator
 
-Follow the instructions below to start the migration!
+Follow the instructions below to start the upgrade!
 
 ### Setting up
 
@@ -48,50 +48,10 @@ To connect the Micro Integrator to the primary user store:
 	type = "read_only_ldap"
 	```
 
-3.	Update the `[user_store]` section and other configurations as given below.
+3.	See the instructions in the following sections:
 
-	```toml tab='RDBMS User Store'
-	[user_store]
-	type = "database"
-	read_only = "false"
-
-	[[datasource]]
-	id = "WSO2_USER_DB"
-	url= "jdbc:mysql://localhost:3306/userdb"
-	username="root"
-	password="root"
-	driver="com.mysql.jdbc.Driver"
-
-	[realm_manager]
-	data_source = "WSO2_USER_DB"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Only LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_only_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Write LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_write_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
+	-	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
+	-	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.	
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
@@ -134,7 +94,7 @@ Copy custom OSGI components in the `<EI_HOME>/dropins` folder to the `<MI_HOME>/
 !!! Note
     -	To provide seamless integration with RabbitMQ, the Rabbitmq client lib is included in the Micro Integrator by default. Hence, you don't need to manually add any RabbitMQ components.
     -	The Micro Integrator no longer includes the VFS/SMB provider by default. If you need to use the <b>VFS SMB</b> feature, download `jcifs-1.3.17.jar` and add it to the `<MI_HOME/lib` folder. Since this library is licensed under LGPL version 2.1, you have to comply with the [terms of LGPL version 2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html) and its restrictions.
-    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features]({{base_path}}/get-started/about-this-release/#features-removed) for details.
+    -	If you used an <b>HL7 Message Store</b> (custom message store) implementation, note that the Micro Integrator does not support this functionality. See the list of [removed features]({{base_path}}/get-started/about-this-release/#compare-this-release-with-previous-esbs) for details.
 
 ### Migrating tenants
 
@@ -151,7 +111,7 @@ Copy the JKS files from the `<EI_HOME>/repository/resources/security` folder to 
 	- 	Configuration management was handled in EI 6.6.0 via multiple files such as `carbon.xml`, `synapse.properties`, `axis2.xml`, etc.
 	-	The Micro Integrator uses a new configuration model where most of the product configurations are managed by a single configuration file named `deployment.toml` (stored in the `<MI_HOME>/conf` directory).
 
-The following sections of this document will guide you to migrate the product configurations including log4j.
+The following sections of this document will guide you to migrate the product configurations.
 
 #### Migrating to TOML configurations
 
@@ -976,12 +936,12 @@ Given below are some of the most critical XML configuraton files in the ESB prof
 
 	Find more [parameters]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei).
 
-The complete list of TOML configurations for the Micro Integrator are listed in the [product configuration catalog]({{base_path}}/reference/config-catalog-mi).
+The complete list of TOML configurations for the Micro Integrator are listed in the [Micro Integrator configuration catalog]({{base_path}}/reference/config-catalog-mi).
 
 
 ### Migrating encrypted passwords
 
-To migrate the encrypted passwords from EI 6.6.0, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of encrypting secrets in the Micro Integrator. See [Encrypt Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
+To migrate the encrypted passwords from EI 6.6.0, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of encrypting secrets in the Micro Integrator. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 In case you need to obtain the plain-text passwords by decrypting the encrypted passwords in the EI 6.6.0,
 you can use the [password decryption tool](https://github.com/wso2-docs/WSO2_EI/tree/master/migration-client).
@@ -992,7 +952,7 @@ Follow the instructions given below to use the password decryption tool.
 
 2. Copy the `org.wso2.mi.migration-1.2.0.jar` into the `EI_HOME/dropins` folder in the server.
 
-3. Create a directory named migration in `EI_HOME`.
+3. Create a directory named migration in `<EI_HOME>`.
 
 4. Copy the [migration-conf.properties](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/migration-conf.properties) file into the migration directory and update the following property.
 
@@ -1011,7 +971,7 @@ Follow the instructions given below to use the password decryption tool.
 	```
 
 	!!! Info
-		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<EI_HOME>/migration/secure-vault-decrypted.properties` file and the `<EI_HOME>/migration/cipher-text-decrypted.properties` file in EI 6.6.0.
+		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files are written respectively to the `<EI_HOME>/migration/secure-vault-decrypted.properties` file and the `<EI_HOME>/migration/cipher-text-decrypted.properties` file in EI 6.6.0.
 
 The encrypted passwords are now decrypted and you have access to the plain-text password values.
 
