@@ -4,7 +4,7 @@ As explained in the [overview section]({{base_path}}/observe/api-manager-analyti
  
  This documentation is structured into two sections where the 'Basic Configuration' section explains the bare minimal settings
   needed to enable analytics, while 'Advanced Configuration' section explains additional advanced configurations that
-   are needed to fine tune the analytics data publishing.
+   are needed to fine-tune the analytics data publishing.
    
 ## Basic Configuration
 
