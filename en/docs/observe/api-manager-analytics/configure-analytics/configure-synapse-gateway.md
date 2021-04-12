@@ -31,7 +31,7 @@ documentation to
  
 ## Advanced Configurations
  This section will explain the additional configurations you can make to fine tune the analytics data publishing
- . Each of these configurations are set to a default value derived through testing. However, based on based other
+ . Each of these configurations are set to a default value derived through testing. However, based on other
   factors there may be need to fine tune these parameters.
   
 ### Worker Thread Count
