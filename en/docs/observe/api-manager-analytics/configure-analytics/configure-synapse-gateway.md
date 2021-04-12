@@ -37,8 +37,8 @@ documentation to
 ### Worker Thread Count
 This property denotes the number of threads that are publishing analytics data into analytics cloud. Default value is
  one thread. One thread can serve up to 3200 requests per second with unrestricted internet bandwidth. In case
-  a single thread is not enough to meet the load handled by your gateway, you will encounter an error that indicates '**Event queue is full
-  . Starting to drop analytics events.**' error message in gateway logs. If you get this error during an API
+  a single thread is not enough to meet the load handled by your Gateway, you will encounter an error that indicates '**Event queue is full
+  . Starting to drop analytics events.**' error message in Gateway logs. If you get this error during an API
    invocation spike then please increase the 'Queue Size' as explained in next section. However, if you are getting
     that error repeatedly then you should increase the worker thread count as shown below.
    
@@ -53,7 +53,7 @@ properties.'worker.thread.count' = 2
 ### Queue Size
 This property denotes the number of analytics events Gateway keeps in-memory and used to handle request bursts
 . Default value is set to 20000. As explained in the previous section if you observe '**Event queue is full
-. Starting to drop analytics events.**' error message in gateway logs during API invocation spikes you should
+. Starting to drop analytics events.**' error message in Gateway logs during API invocation spikes you should
  consider increasing queue size. However, another factor you should consider when increasing queue size is the memory
   foot print. Single analytics publishing event is around 1 KB. Hence you should plan the capacity to not hinder the
    JVM heap. To tweak the property, add the configuration as shown below.
