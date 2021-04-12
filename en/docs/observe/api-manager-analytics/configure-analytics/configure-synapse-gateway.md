@@ -6,7 +6,7 @@ As explained in the [overview section]({{base_path}}/observe/api-manager-analyti
   needed to enable analytics, while 'Advanced Configuration' section explains additional advanced configurations that
    are needed to fine-tune the analytics data publishing.
    
-## Basic Configuration
+## Basic configuration
 
 To publish analytics data to analytics cloud, you need to follow below steps.
 
