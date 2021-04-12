@@ -19,7 +19,7 @@ To publish analytics data to analytics cloud, you need to follow below steps.
     auth_token = “<use token that you generate>”
     ```
 
-2. Fill the auth token field with on-premise token that you obtained via Analytics Portal. If you didn't obtain the key
+2. Fill the auth token field with the on-premise token that you obtained via the Analytics Portal. If you have not obtained the key,
  please follow 
  [this]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics) 
  documentation on how to obtain a token.
