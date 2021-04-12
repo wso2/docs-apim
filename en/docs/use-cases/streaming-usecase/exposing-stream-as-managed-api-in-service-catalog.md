@@ -9,42 +9,9 @@ This involves enabling the AsyncAPI functionality in the Streaming Integrator co
 1. [Start the Streaming Integrator server]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary/#starting-the-si-server).
 2. [Start the API Manager server]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/).
 
-## Step 1 - Enable AsyncAPI generation
+## Step 1 - Enable publishing to the service catalog
 
-Follow the instructions below to enable AsyncAPI generation in the Streaming Integrator:
-
-1. Configure the API Manager port.
-
-     You have to define the port to which the Streaming Integrator publishes the AsyncAPI definition.
-
-     1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-     2. Uncomment `offset` in the `[server]` section and set it to `5` as shown below.
-
-         ```
-         [server]
-         offset=5
-         ```
-   
-2. Configure the basic details needed for AsyncAPI generation.
-
-     1. Open the `<SI_HOME>/conf/server/deployment.yaml` file. 
-     
-     2. Update the `async.api.configs:` section as follows:
-
-        ```
-        async.api.configs:
-            enabled: true
-            hostname: localhost
-            port: 9448
-            username: admin
-            password: admin
-        ```
-         In the above configuration -
-         
-           - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
-            
-           - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+{!includes/streaming/enable-publishing.md!}
    
 ## Step 2 - Create a Streaming Backend
 
