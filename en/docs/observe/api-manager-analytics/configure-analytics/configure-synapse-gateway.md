@@ -37,7 +37,7 @@ documentation to
 ### Worker Thread Count
 This property denotes the number of threads that are publishing analytics data into analytics cloud. Default value is
  one thread. One thread can serve up to 3200 requests per second with unrestricted internet bandwidth. In case
-  single thread is not enough to meet the load handled by your gateway you will run into '**Event queue is full
+  a single thread is not enough to meet the load handled by your gateway, you will encounter an error that indicates '**Event queue is full
   . Starting to drop analytics events.**' error message in gateway logs. If you get this error during an API
    invocation spike then please increase the 'Queue Size' as explained in next section. However, if you are getting
     that error repeatedly then you should increase the worker thread count as shown below.
