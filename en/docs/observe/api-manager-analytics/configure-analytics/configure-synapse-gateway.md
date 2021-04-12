@@ -10,7 +10,7 @@ As explained in the [overview section]({{base_path}}/observe/api-manager-analyti
 
 To publish analytics data to analytics cloud, you need to follow below steps.
 
-1. Open `<APIM_HOME>/repository/conf/deployment.toml` and uncomment below config segment.
+1. Open `<APIM_HOME>/repository/conf/deployment.toml` and uncomment the following config segment.
 
     ```toml
     [apim.analytics]
