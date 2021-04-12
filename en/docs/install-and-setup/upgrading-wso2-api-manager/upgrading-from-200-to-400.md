@@ -3566,6 +3566,34 @@ Follow the instructions below to move all the existing API Manager configuration
 
         - Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
+    5. Execute below db script in the respective AM database.    
+    ??? info "DB Scripts"
+        ```tab="DB2"
+        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+        /
+    
+        ```
+        
+        ```tab="MySQL"
+        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+   
+        ```
+                
+        ```tab="MSSQL"
+        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+   
+        ``` 
+
+        ```tab="PostgreSQL"
+        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+   
+        ```
+                
+        ```tab="Oracle"
+        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+        /
+   
+        ```
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
