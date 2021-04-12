@@ -79,7 +79,7 @@ Now, you have created and configured the SSE API successfully.
 
 ## Step 3 - Start the SSE Server
 
-1. Download the sample SSE server from [WSO2 APIM Samples - GitHub repository](https://github.com/wos2/samples-apim/raw/sse/streaming-api-backends/sse/target/sse-server-1.0.0.jar).
+1. Download the sample SSE server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim/raw/master/streaming-api-backends/sse/target/sse-server-1.0.0.jar).
 
 2. Go to the directory where you downloaded the SSE server and run the following command.
 
