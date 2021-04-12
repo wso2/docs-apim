@@ -1,17 +1,16 @@
 # Configure Synapse Gateway
+As explained in the overview section API Manager Analytics is delivered via API Manager Analytics cloud. Hence API
+ Manager Gateway needs to be configured to publish analytics data into the cloud.
+ 
+ Documentation is structured into two sections where 'Basic Configuration' section explains the bare minimal settings
+  needed to enable analytics while 'Advanced Configuration' section explains additional advance configurations which
+   are needed to fine tune the analytics data publishing.
+   
+## Basic Configuration
 
-In order to view analytics in the Synapse Gateway, you need to publish events to the cloud and view it in a dashboard available in the analytics cloud. 
+To publish analytics data to analytics cloud, you need to follow below steps.
 
-To publish events to analytics cloud, you need to configure WSO2 API Manager to enable analytics.
-
-1. Enable analytics. Open `<APIM_HOME>/repository/conf/deployment.toml` and enable analytics as follows.
-
-    ```toml
-    [apim.analytics]
-    enable = true
-    ```
-
-2. The analytics cloud config endpoint is required to publish events to cloud. You need to configure the auth_token property with an auth token. The config endpoint and auth token configurations are as follows.
+1. Open `<APIM_HOME>/repository/conf/deployment.toml` and uncomment below config segment.
 
     ```toml
     [apim.analytics]
@@ -20,4 +19,63 @@ To publish events to analytics cloud, you need to configure WSO2 API Manager to 
     auth_token = “<use token that you generate>”
     ```
 
-3. Restart the API Manager and try to invoke APIs.
+2. Fill the auth token field with on-premise token that you obtained via Analytics Portal. If you didn't obtain the key
+ please follow 
+ [this]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics) 
+ documentation on how to obtain a token.
+
+3. Restart the API Manager, invoke APIs and log into Analytics Portal to view dashboards. Refer 
+[this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-overview) 
+documentation to
+ get more details about available dashboards and their usage.
+ 
+## Advanced Configurations
+ This section will explain the additional configurations you can make to fine tune the analytics data publishing
+ . Each of these configurations are set to a default value derived through testing. However, based on based other
+  factors there may be need to fine tune these parameters.
+  
+### Worker Thread Count
+This property denotes the number of threads that are publishing analytics data into analytics cloud. Default value is
+ one thread. One thread can serve up to 3200 request per second with unrestricted internet bandwidth. In case
+  single thread is not enough to meet the load handled by your gateway you will run into '**Event queue is full
+  . Starting to drop analytics events.**' error message in gateway logs. If you get this error during an API
+   invocation spike then please increase the 'Queue Size' as explained in next section. However, if you are getting
+    that error repeatedly then you should increase the worker thread count as shown below.
+   
+```toml
+[apim.analytics]
+enable = true
+config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+auth_token = “<use token that you generate>”
+properties.'worker.thread.count' = 2
+```    
+
+### Queue Size
+This property denotes the number of analytics events Gateway keeps in-memory and used to handle request bursts
+. Default value is set to 20000. As explained in the previous section if you observe '**Event queue is full
+. Starting to drop analytics events.**' error message in gateway logs during API invocation spikes you should
+ consider increasing queue size. However, another factor you should consider when increasing queue size is the memory
+  foot print. Single analytics publishing event is around 1 KB. Hence you should plan the capacity to not hinder the
+   JVM heap. To tweak the property, add the configuration as shown below.
+```toml
+[apim.analytics]
+enable = true
+config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+auth_token = “<use token that you generate>”
+properties.'queue.size' = 10000
+```
+### Client Flushing Delay
+This property denotes the guaranteed frequency analytics events will be published to the cloud in milliseconds.
+. Currently analytics
+ events are batched before sending. Once a given batch is full that batch will be published into Analytics Cloud
+ . However under low throughput, it can take sometime for a batch to be filled. In such cases Client Flushing Delay
+  will come into picture. Separate publisher will publish analytics events once every Client Flushing Delay if Event
+   Queue mentioned above is empty and non of the worker threads are currently publishing. By default this is set to
+    10 seconds. To tweak the property, add the configuration as shown below.
+```toml
+[apim.analytics]
+enable = true
+config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+auth_token = “<use token that you generate>”
+properties.'client.flushing.delay' = 15000
+```
