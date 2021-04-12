@@ -24,7 +24,7 @@ To publish analytics data to analytics cloud, you need to follow below steps.
  [this]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics) 
  documentation on how to obtain a token.
 
-3. Restart the API Manager, invoke APIs and log into Analytics Portal to view dashboards. Refer 
+3. Restart the API Manager, invoke APIs, and log into the Analytics Portal to view dashboards. Refer 
 [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-overview) 
 documentation to
  get more details about available dashboards and their usage.
