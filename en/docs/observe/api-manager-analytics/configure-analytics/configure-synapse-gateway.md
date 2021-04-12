@@ -70,7 +70,7 @@ This property denotes the guaranteed frequency analytics events will be publishe
  events are batched before sending. Once a given batch is full that batch will be published into Analytics Cloud
  . However under low throughput, it can take sometime for a batch to be filled. In such cases Client Flushing Delay
   will come into picture. Separate publisher will publish analytics events once every Client Flushing Delay if Event
-   Queue mentioned above is empty and non of the worker threads are currently publishing. By default this is set to
+   Queue mentioned above is empty and none of the worker threads are currently publishing. By default this is set to
     10 seconds. To tweak the property, add the configuration as shown below.
 ```toml
 [apim.analytics]
