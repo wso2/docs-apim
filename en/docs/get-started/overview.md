@@ -186,7 +186,8 @@ The following are some of the main capabilities of the product.
 ## What's Next
 
 - Try out the WSO2 API Manager by following the Quick Start Guides on the following.
-    - [Managing an API proxy]({{base_path}}/get-started/quick-start-guide/quick-start-guide/)
-    - [Creating an integration service]({{base_path}}/get-started/quick-start-guide/integration-qsg/)
-    - [Streaming integration]({{base_path}}/get-started/quick-start-guide/streaming-qsg/)
-- Understand the [basic architecture of the product]({{base_path}}/get-started/architecture/).
+    - [Managing an API proxy]({{base_path}}/get-started/quick-start-guide/quick-start-guide)
+    - [Creating an integration service]({{base_path}}/get-started/quick-start-guide/integration-qsg)
+    - [Streaming integration]({{base_path}}/get-started/quick-start-guide/streaming-qsg)
+- Understand the [basic architecture of the product]({{base_path}}/get-started/architecture).
+- Learn more [about this release]({{base_path}}/get-started/about-this-release).

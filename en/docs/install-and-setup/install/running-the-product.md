@@ -40,6 +40,10 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 
 4. The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
+!!! note
+     If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs.
+     In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+
 #### On Solaris
 
 To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command prompt as described below.
@@ -233,4 +237,3 @@ You can restrict access to the management console of your product by binding the
 
 -   [Installing as a Windows Service]({{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-windows-service/)
 -   [Installing as a Linux Service]({{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-linux-service/)
-

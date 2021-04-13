@@ -136,5 +136,5 @@ You can see the following message in the Kafka Consumer log.
     
     - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).
     - Start using the Streaming Integrator. For more information and instructions about Streaming Integration functionality, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).
-    - Manage and expose streaming backends via [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview).
+    - Manage and expose streaming backends via [Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview).
 
