@@ -4,9 +4,7 @@ The WSO2 API Manager is a platform for building and managing APIs. It helps deve
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 4.0.0 documentation]({{base_path}}/getting-started/overview/).
 
-## What is new in this release
-
-The **WSO2 API Manager 4.0.0-Alpha** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0-Beta** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0**. It contains the following components, which have new features and enhancements:
 
 ---
 
@@ -63,14 +61,6 @@ It is now available to download from [here](https://github.com/wso2/product-apim
       [Grouping APIs with Microgateway Labels](https://apim.docs.wso2.com/en/3.2.0/learn/api-microgateway/grouping-apis-with-labels/)
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
-
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
 
 ---
 
@@ -351,14 +341,6 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 -	Router Mediator
 -	Publish Event Mediator
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/23?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/micro-integrator/issues).
-
 ---
 
 ## Streaming Integrator
@@ -373,14 +355,6 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 - Add support to capture multiple operations from single cdc source
 - Make regex matching dynamic in copy function
 - Add SSE source functionality
-
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/13?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator/issues).
 
 ---
 
@@ -404,14 +378,6 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
-
 ---
 
 ## WSO2 Integration Studio
@@ -424,14 +390,6 @@ It is now available to download from [here](https://github.com/wso2/integration-
 
 - Added Cassandra data source support for DSS
 - Added Registry Resource Properties support
-
-#### Fixed Issues
-
-See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/7?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
 
 ---
 
@@ -447,14 +405,6 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 - Make regex matching dynamic in copy function
 - Add SSE source functionality
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/12?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
-
 ---
 
 ## Kubernetes API operator
@@ -468,16 +418,54 @@ It is now available to download from [here](https://github.com/wso2/k8s-api-oper
 - Deploy APIs to Microgateway
 - Deploy APIs to API Manager
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0-alpha+is%3Aclosed).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
-
 ---
 
 ## Compatible WSO2 product versions
 
 WSO2 API Manager 4.0.0-Alpha is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+
+---
+
+## Fixed and known issues
+
+**API Manager**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+
+**Micro Integrator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/23?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/micro-integrator/issues).
+
+**Streaming Integrator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/13?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator/issues).
+
+**API Controller**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
+
+**Integration Studio**
+
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/7?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
+
+**Streaming Integrator Tooling**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/12?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
+
+**Kubernetes API Operator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0-alpha+is%3Aclosed).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
