@@ -52,7 +52,7 @@ template: templates/single-column.html
             <p>
                 Introduces WSO2 API Manager and quickly describes what it can do.
             </p>
-            <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
+            <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
         </div>
         <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
             <h3>Concepts</h3>
