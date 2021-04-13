@@ -48,18 +48,18 @@ template: templates/single-column.html
     </div>
     <div class="section03">
         <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/key-concepts';">
+            <h3>Overview</h3>
+            <p>
+                Introduces WSO2 API Manager and quickly describes what it can do.
+            </p>
+            <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
+        </div>
+        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
             <h3>Concepts</h3>
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
             </p>
             <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
-        </div>
-        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
-            <h3>User Scenarios</h3>
-            <p>
-                Try out the first WSO2 API Manager tutorial, which helps you solve a real world problem using the product. This tutorial aims to showcase all the major features of the product and get you acquainted with API Manager.
-            </p>
-            <a href='{{base_path}}/tutorials/tutorials-overview'><h4>User Scenarios</h4></a>
         </div>
         <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/architecture';">
             <h3>Architecture</h3>
