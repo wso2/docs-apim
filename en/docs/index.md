@@ -150,38 +150,3 @@ template: templates/single-column.html
             </div>
         </div>
     </div>
-    <div class="section06">
-        <h3>Tutorials</h3>
-        <p>
-            These tutorials will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build API Management, integration, and streaming solutions.
-        </p>
-        <div class="DeploymentWrapper">
-            <div class="Deploymentlinks">
-                <h4>API Management </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks middle">
-                <h4>Integration </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks last">
-                <h4>Streaming Integration </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
