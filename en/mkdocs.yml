@@ -63,6 +63,7 @@ nav:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
+                    - Create a REST API from an Integration Service: design/create-api/create-api-from-service.md
                     - Create a Streaming API:
                         - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
@@ -329,6 +330,7 @@ nav:
     - Integrate:
         - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
+        - API-led Integration: integrate/api-led-integration.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
             - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
@@ -347,8 +349,7 @@ nav:
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
-            - Service Catalog:
-                - Working with Service Catalog: integrate/develop/working-with-service-catalog.md
+            - Publish Integrations to the Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
