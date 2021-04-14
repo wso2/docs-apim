@@ -63,7 +63,6 @@ nav:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                    - Create a REST API from an Integration Service: design/create-api/create-api-from-service.md
                     - Create a Streaming API:
                         - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
