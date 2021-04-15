@@ -1,6 +1,6 @@
 # Register for Analytics
 
-API Manager 4.0.0 offers analytics as a cloud service. Hence users need to register with analytics cloud in order to
+API Manager 4.0.0 offers analytics as a cloud service. Hence, users need to register with analytics cloud in order to
  use API Manager Analytics
  
 ## Prerequisites
