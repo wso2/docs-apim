@@ -15,7 +15,7 @@ Listed below are the system requirements for deploying integration solutions in 
 
 - [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.14+** client. 
 - [Docker](https://docs.docker.com/)
-- Install K8s API Operator using OperatorHub.io. For information, see the installation instructions in the [OperatorHub.io](https://operatorhub.io/operator/api-operator)
+- [Install K8s API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md)
 
 ## Deploy integration solutions in K8s
 
