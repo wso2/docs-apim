@@ -11,7 +11,7 @@ You need to be a registered Choreo user in order to utilize Analytics cloud. If 
 ## Register On-premise Environment
 Please follow below steps to register your on-premise environment.
 
-- Please log in to Choreo console(https://console.choreo.dev) using your credentials.
+- Please log on to [Choreo console](https://console.choreo.dev) using your credentials.
 - Click on the user profile in the top right corner of the screen and select 'Settings'
 - Choose 'On-prem Keys' tab and click on generate keys
 - Provide a suitable name for your environment(Ex: customer1-dev) and click on 'Generate' button
