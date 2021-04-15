@@ -68,6 +68,8 @@ username = "admin"
 password = "admin"
 ```
 
+See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
+
 ## Start the servers
 
 Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). Note that the API-M server should be started before the Micro Integrator. The Service Catalog client in the Micro Integrator publishes the integration services to the API-M layer during server startup.
