@@ -1,6 +1,6 @@
 # API-led Integration
 
-WSO2 API Manager 4.0.0 consists of an API management layer as well as an integration layer. While the integration layer (Micro Integrator) is used for running the integration logic, the API management layer is used for managing the APIs (with the integration logic) and making these APIs discoverable to developers.
+WSO2 API Manager consists of an API management layer as well as an integration layer. While the integration layer (Micro Integrator) is used for running the integration logic, the API management layer is used for managing the APIs (with the integration logic) and making these APIs discoverable to developers.
 
 This allows you to implement an API-led integration strategy by developing the front-end APIs and integration APIs separately. There are two approaches to development when you implement API-led integation: Create the APIs first and then create the integration logic, or create the integration logic first followed by the APIs.
 
@@ -16,7 +16,7 @@ The high-level steps are as follows:
 
 1.  **Create the API proxy**
 
-    Open the **Publisher** of WSO2 API-M 4.0.0 and create a new API using a Swagger defintion (OpenAPI specification). This will be your experience API. The production endpoint of your experience API should point to the **process API** or **system API** that is deployed in the integration layer (Micro Integrator runtime) of the API-M 4.0.0 platform.
+    Open the **Publisher** of WSO2 API-M and create a new API using a Swagger defintion (OpenAPI specification). This will be your experience API. The production endpoint of your experience API should point to the **process API** or **system API** that is deployed in the integration layer (Micro Integrator runtime) of the API-M platform.
     
     !!! Tip
         At the time of creating this API, you will not have the production endpoint ready. However, you can still publish this API using a prototype endpoint of your choice. You can even provide prototype implementations for the API as required. Once published as a prototype, you can test the API. 
@@ -29,7 +29,7 @@ The high-level steps are as follows:
 
 3.  **Connect the API proxy and integration service**
 
-    Once you have created the integration service and tested it, you can create a CApp and deploy it in the Micro Integrator of WSO2 API-M 4.0.0 and start the Micro Integrator.
+    Once you have created the integration service and tested it, you can create a CApp and deploy it in the Micro Integrator of WSO2 API-M and start the Micro Integrator.
 
 ## Integration-First development
 
