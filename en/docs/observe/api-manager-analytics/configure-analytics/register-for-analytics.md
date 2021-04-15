@@ -16,7 +16,7 @@ Please follow below steps to register your on-premise environment.
 - Choose the **On-prem Keys** tab and click on **Generate keys**.
 - Provide a suitable name for your environment (e.g., customer1-dev) and click the **Generate** button
 - You will be provided with a key in the next step. Copy that key before closing the dialog box.
-- Now you can use this key to configure Gateway to publish stats into Analytics cloud. Please follow [this
+- Now you can use this key to configure the Gateway to publish stats into the Analytics cloud. Follow [this
  document]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) if you are using
   Synapse Gateway and follow 
   [this document]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-microgateway) 
