@@ -45,7 +45,7 @@ The high-level steps are as follows:
 
 2.  **Publish the integration service**
 
-    Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). Note that the API-M server should be started before the Micro Integrator. The Micro Integrator uses the meta data in the integration service and publish the service to the API-M layer during server startup.
+    Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). Note that the API-M server should be started before the Micro Integrator. The Service Catalog client in the Micro Integrator publishes the integration services to the API-M layer during server startup.
 
 3.  **Create the API proxy**
 
