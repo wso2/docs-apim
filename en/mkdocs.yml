@@ -329,6 +329,7 @@ nav:
     - Integrate:
         - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
+        - API-led Integration: integrate/api-led-integration.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
             - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
@@ -347,8 +348,7 @@ nav:
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
-            - Service Catalog:
-                - Working with Service Catalog: integrate/develop/working-with-service-catalog.md
+            - Publish Integrations to the Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
@@ -1493,14 +1493,18 @@ nav:
             -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
         - Kubernetes Operators:
           - K8s API Operator:
-              - K8s API Operator Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
-              - Manage Integration:
-                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
+              - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
+              - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
+              - Manage APIs:
+                  - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+              - Manage Integrations:
+                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                 - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-samples/jms-sender-receiver.md
+                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
               - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
+              - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
             - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
