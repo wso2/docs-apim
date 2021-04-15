@@ -62,8 +62,7 @@ This will demonstrate a simple command line based chat room which has two channe
      <ul>
      <li>When you create a WebSocket Streaming API it's exposed via both ws and wss protocols. By default, ws transport uses port 9099, and wss transport uses port 8099.
      </li>
-     <li><p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p><li>
-
+     <li><p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p></li>
      </ul>
      </div>
      </html>
@@ -220,7 +219,7 @@ Now, you have created and configured the WebSocket API successfully.
           
           You will receive the message: `You joined room1!` in this terminal, along with the corresponding notification in the `notifications` terminal.
           
-          Since there are two users connected to `room1`, both of them can send and receive chats via `room1`. Try sending messages from both of these terminals back and forth.
+          As there are two users connected to `room1`, both of them can send and receive chats via `room1`. Try sending messages from both of these terminals back and forth.
 
           <html>
           <div class="admonition note">
