@@ -14,7 +14,7 @@ Please follow below steps to register your on-premise environment.
 - Please log on to [Choreo console](https://console.choreo.dev) using your credentials.
 - Click on the user profile in the top right corner of the screen and select 'Settings'
 - Choose 'On-prem Keys' tab and click on generate keys
-- Provide a suitable name for your environment(Ex: customer1-dev) and click on 'Generate' button
+- Provide a suitable name for your environment (e.g., customer1-dev) and click the **Generate** button
 - You will be provided with a key in the next step and please copy that key before closing the dialogue box
 - Now you can use this key to configure Gateway to publish stats into Analytics cloud. Please follow [this
  document]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) if you are using
