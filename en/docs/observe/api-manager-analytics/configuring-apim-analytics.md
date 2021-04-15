@@ -270,7 +270,7 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
         ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
         ```
   
-  - The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment. 
+  - The Worker supports an Active-Active deployment and an Active-Passive deployment. 
   - As the dashboard is used only to render the data there is no active-active or active-passive concept. However, based on the High-availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the `loadbalance` configuration.
   
 #### System requirements

@@ -1434,10 +1434,6 @@ nav:
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
-            - Deploying Analytics for High Availability:
-                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
-                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
-                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
             - Deployment Best Practices:
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
@@ -1771,5 +1767,5 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
-    #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.0.0-dev
+    base_path: http://localhost:8000
+    #base_path: https://apim.docs.wso2.com/en/4.0.0-dev
