@@ -12,7 +12,7 @@ Follow the instructions below to start your WSO2 product based on the operating 
 
 #### On Windows/Linux/Mac OS
 
-To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<PRODUCT_HOME>/bin/wso2server.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
+To start the server, run `<PRODUCT_HOME>\bin\api-manager.bat` (on Windows) or `<PRODUCT_HOME>/bin/api-manager.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
 
 1. Open a command prompt by following the instructions below.
 
@@ -24,19 +24,19 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 3. Execute one of the following commands:
 
     -   To start the server in a typical environment:
-        -   On Windows: `wso2server.bat --run`
-        -   On Linux/Mac OS: `sh wso2server.sh`
+        -   On Windows: `api-manager.bat --run`
+        -   On Linux/Mac OS: `sh api-manager.sh`
 
-    -   To start the server in the background mode of Linux: `sh wso2server.sh start`
-        To stop the server running in this mode, you will enter: `sh wso2server.sh stop`
+    -   To start the server in the background mode of Linux: `sh api-manager.sh start`
+        To stop the server running in this mode, you will enter: `sh api-manager.sh stop`
 
     -   To provide access to the production environment without allowing any user group (including admin) to log in to the Management Console:
 
-        -   On Windows: `wso2server.bat --run -DworkerNode`
-        -   On Linux/Mac OS: `sh wso2server.sh -DworkerNode`
+        -   On Windows: `api-manager.bat --run -DworkerNode`
+        -   On Linux/Mac OS: `sh api-manager.sh -DworkerNode`
 
     -   To check for additional options you can use with the startup commands, type `-help` after the command, such as:
-    `sh wso2server.sh -help` (see the related topics section at the end of this page).
+    `sh api-manager.sh -help` (see the related topics section at the end of this page).
 
 4. The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
@@ -46,7 +46,7 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 
 #### On Solaris
 
-To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command prompt as described below.
+To start the server, run `<PRODUCT_HOME>/bin/api-manager.sh` from the command prompt as described below.
 
 !!! note
 
@@ -54,17 +54,17 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
 
 1.  Click **Launch &gt;Run Applications,** type `dtterm` at the prompt, and then press **Enter** to open a command prompt.
 2.  Navigate to the `<PRODUCT_HOME>/bin/` directory using the command prompt.
-3.  Execute the following command: `bash` wso2server.sh
+3.  Execute the following command: `bash` api-manager.sh
 4.  The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! info
 
     If you are starting the product in service/nohup mode in Solaris, do the following:
 
-    1.  Update the `<PRODUCT_HOME>/bin/wso2server.sh` file as follows:
-        1.  Search for the following occurrences: `nohup sh "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &                         `
+    1.  Update the `<PRODUCT_HOME>/bin/api-manager.sh` file as follows:
+        1.  Search for the following occurrences: `nohup sh "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &                         `
 
-        2.  Replace those occurrences with the following: **`nohup                             bash                            "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &             `
+        2.  Replace those occurrences with the following: **`nohup                             bash                            "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &             `
             **
 
             !!! tip
@@ -72,7 +72,7 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
                 The only change is replacing `sh` with `bash` . This is required only for Solaris.
 
 
-    2.  Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `wso2server.sh` script or you can run the following command on a terminal:
+    2.  Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `api-manager.sh` script or you can run the following command on a terminal:
 
         ``` java
         export PATH=/usr/xpg4/bin/sh:$PATH
@@ -197,7 +197,7 @@ At the Developer Portal home page, you can click sign in link at top right corne
 
 To stop the server, press **Ctrl+C** in the command window, or click the **Shutdown/Restart** link in the navigation pane in the Management Console. If you started the server in background mode in Linux, enter the following command instead:
 
-`sh <PRODUCT_HOME>/bin/wso2server.sh stop        `
+`sh <PRODUCT_HOME>/bin/api-manager.sh stop        `
 
 ### Restricting access to the Management Console and web applications
 

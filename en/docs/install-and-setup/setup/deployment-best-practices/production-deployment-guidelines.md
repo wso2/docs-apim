@@ -124,8 +124,8 @@ To remove an already installed product, follow the instructions below:
 
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
--   **Set the properties from a script** . Setting your system properties in the product's startup script (wso2server.sh
-  for Linux and wso2server.bat for Windows), is ideal because it ensures that you set the properties every time you 
+-   **Set the properties from a script** . Setting your system properties in the product's startup script (api-manager.sh
+  for Linux and api-manager.bat for Windows), is ideal because it ensures that you set the properties every time you 
   start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
 
     !!! note
@@ -263,7 +263,7 @@ The following are security related recommendations to be followed when running t
 -   **Running as a different user** : For security reasons, it's recommended to run the product as an unprivileged user. After adding a user to the system, apply your organizational security policies to that user.
 -   **Running on a different port** : If you want to run on a different port, like port 80, the recommended way is to add a port forwarding rule from your firewall.
 -   **Running as a Unix daemon** : You have the option of running each product as a standard Unix service. You can start, stop, and restart the WSO2 product instances as follows.
-`# sh bin/wso2server.sh [start | stop | restart]         `
+`# sh bin/api-manager.sh [start | stop | restart]         `
 
 ------------------------------------------------------------------------
 
