@@ -62,6 +62,7 @@ nav:
             - Create a New API:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
+                    - Create a REST API from an Integration Service: design/create-api/create-api-from-service.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
                     - Create a Streaming API:
                         - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
@@ -1393,26 +1394,19 @@ nav:
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - All-In-One Deployment:
-                - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-            - Distributed Deployment:
-                - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-            - Deploying Micro Integrator:
+            - Deploying the API-M Runtime:
+                - All-In-One Deployment:
+                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                    - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                - Distributed Deployment:
+                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+            - Deploying the Micro Integrator:
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                    - K8s Pipeline:
-                        - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
-                        - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
-                        - Testing the Pipeline Environment: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment.md
-                        - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
-                        - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
-                        - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
-                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
                 - Deploy on a Virtual Machine:
                     - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                     - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
@@ -1433,10 +1427,6 @@ nav:
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
-            - Deploying Analytics for High Availability:
-                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
-                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
-                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
             - Deployment Best Practices:
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md

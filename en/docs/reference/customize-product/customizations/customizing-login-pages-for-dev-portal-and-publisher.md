@@ -16,7 +16,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 1.  Download [WSO2 Identity Server](http://wso2.com/products/identity-server/) and extract it.
 
-2.  [Run the server](https://is.docs.wso2.com/en/next/setup/running-the-product/) by executing `/bin/wso2server.sh` if on a Unix-based systems, or `/bin/wso2server.bat` if on Windows.
+2.  [Run the server](https://is.docs.wso2.com/en/next/setup/running-the-product/) by executing `/bin/api-manager.sh` if on a Unix-based systems, or `/bin/api-manager.bat` if on Windows.
 
 3.  On the [management console](https://is.docs.wso2.com/en/next/setup/running-the-product/#accessing-the-management-console), click **Add** under **Service Providers** in the **Main** menu.
 

@@ -60,7 +60,7 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 ### How can I change the memory allocation for the API Manager?
 
-The memory allocation settings are stored in the `<API-M_HOME>/bin/wso2server.sh` file.
+The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.sh` file.
 
 ### How do I start up only selected components of the API Manager?
 

@@ -143,15 +143,15 @@ Create an optimized distribution for a particular API-M profile.
     Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
     
     ``` tab="Sample Format"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
+    sh <API-M_HOME>/bin/api-manager.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
     ```
     
     ``` tab="Example:Linux/Solaris/MacOS"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher --optimize --skipConfigOptimization
+    sh <API-M_HOME>/bin/api-manager.sh -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
+    <PRODUCT_HOME>/bin/api-manager.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```    
 
 #### Method 2 - Optimizing while starting the server
@@ -159,15 +159,15 @@ Create an optimized distribution for a particular API-M profile.
 1.  Start the server using the script based on your operating system, using the command given below.
 
     ``` tab="Sample Format"
-    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile>
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
     ```
     
     ``` tab="Example:Linux/Solaris/MacOS"
-    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher
+    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher
     ```  
     
 
@@ -206,15 +206,15 @@ Create an optimized distribution for a particular API-M profile.
         ```
     
     ``` tab="Sample Format"
-    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
     ```
     
     ``` tab="Example:Linux/Solaris/MacOS"
-    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
+    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
+    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
     
     ```  
         

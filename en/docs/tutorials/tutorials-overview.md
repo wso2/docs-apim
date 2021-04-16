@@ -74,6 +74,7 @@ The streaming tutorials walk you through the main capabilities and features of t
         <td>
             <ul>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates">Working with Business Rules</a></li>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/integrating-stores">Integrating Stores</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/exposing-processed-data-as-api">Exposing Processed Data as API</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors">Error Handling with Data Streams</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/triggering-integrations-via-micro-integrator">Triggering Integration Flows</a></li>
@@ -82,4 +83,3 @@ The streaming tutorials walk you through the main capabilities and features of t
         </td>
     </tr>
 </table>
-</tr>

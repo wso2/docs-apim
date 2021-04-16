@@ -14,5 +14,4 @@
 
 - [Learn how to expose a stream as a managed API](../../../../use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
 
-- [Learn how you can use a third-party Streaming Provider as opposed to WSO2 Streaming Integrator, which is used by default, to create a Streaming API](../../../../get-started/quick-start-guide/streaming-qsg).
-
+- [Learn how you can use a **third-party Streaming Provider** together with the Streaming Integrator in WSO2 API-M ](../../../../get-started/quick-start-guide/streaming-qsg).
