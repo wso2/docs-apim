@@ -168,7 +168,7 @@ If you are using any other third party key manager with WSO2 API-M, follow the b
     </tr>
     <tr class="even">
         <td>consumerKey</td>
-        <td>Consumer key of the client application which revoking token belongs to</td>
+        <td>The consumer key of the client application, which corresponds to the token that should be revoked from Gateway token cache.</td>
         <td>Optional</td>
     </tr>                      
     </table>
