@@ -48,7 +48,7 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
         [2021-04-16 08:48:27,655] ERROR - InboundEndpointDeployer Inbound Endpoint deployment from the file : /Users/sanjeewa/Downloads/wso2am-4.0.0/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml : Failed.
         org.apache.synapse.SynapseException: Error initializing inbound endpoint SecureWebhookServer at org.apache.synapse.inbound.InboundEndpoint.init(InboundEndpoint.java:83) ~[synapse-core_2.1.7.wso2v227.jar:2.1.7-wso2v227]
         ```
-        This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port in all the Gateway nodes in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml`. Change 8021 to a different port.
+        This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port that the webhooks HTTPS inbound endpoint is listening in all the Gateway nodes in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml`. Change 8021 to a different port.
         ```xml
         <p:parameter  name="inbound.http.port">8021</p:parameter>
 
