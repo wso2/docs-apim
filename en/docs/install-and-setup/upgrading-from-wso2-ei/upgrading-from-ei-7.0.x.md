@@ -63,11 +63,11 @@ Follow the instructions given below.
 4. Start the server using the `migrate.from.product.version` system property as follows:
 
 	```bash tab='On Linux/Unix'
-	sh micro-integrator.sh -Dmigrate.from.product.version=110
+	sh micro-integrator.sh -Dmigrate.from.product.version=mi110
 	```
 	
 	```bash tab='On Windows'
-	micro-integrator.bat -Dmigrate.from.product.version=110
+	micro-integrator.bat -Dmigrate.from.product.version=mi110
 	```
 
 	!!! Info
