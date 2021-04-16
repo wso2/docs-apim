@@ -66,7 +66,7 @@ The parameters required to invoke the following API are as follows:
     curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
     ```
     
-## Revoking Tokens with Third Party Key Managers
+## Revoking tokens with third party Key Managers
 
 There may be situations where immediate token revocation is needed in each Gateway node's token cache when a user logs out, credentials change, etc. Immediate token revocation is supported in WSO2 API-M when using the in-built resident Key Manager or WSO2 Identity Server as Key Manager. 
 
