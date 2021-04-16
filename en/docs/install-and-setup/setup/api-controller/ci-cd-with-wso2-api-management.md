@@ -181,8 +181,12 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
                 sandbox:
                   url: 'http://dev.sandbox.wso2.com' 
               deploymentEnvironments:
-                - deploymentEnvironment: Default
-                - deploymentEnvironment: Label1
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Default
+                    deploymentVhost : localhost
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Label1
+                    deploymentVhost : us.wso2.com 
           - name: prod
             configs:
               endpoints:
@@ -190,9 +194,13 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
                   url: 'http://prod.wso2.com'
                 sandbox:
                   url: 'http://prod.sandbox.wso2.com'
-              deploymentEnvironments:
-                - deploymentEnvironment: FoodGateway
-                - deploymentEnvironment: Label3
+            deploymentEnvironments:
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Label1
+                    deploymentVhost : localhost
+                  - displayOnDevportal: true
+                    deploymentEnvironment: Label2
+                    deploymentVhost : us.wso2.com 
         ```  
 
      [![]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)        
