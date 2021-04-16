@@ -173,34 +173,34 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
     !!! example
         ```bash
         environments: 
-          - name: dev 
-            configs:
-              endpoints: 
-                production: 
-                  url: 'http://dev.wso2.com' 
-                sandbox:
-                  url: 'http://dev.sandbox.wso2.com' 
-              deploymentEnvironments:
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Default
-                    deploymentVhost : localhost
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Label1
-                    deploymentVhost : us.wso2.com 
-          - name: prod
-            configs:
-              endpoints:
-                production:
-                  url: 'http://prod.wso2.com'
-                sandbox:
-                  url: 'http://prod.sandbox.wso2.com'
-            deploymentEnvironments:
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Label1
-                    deploymentVhost : localhost
-                  - displayOnDevportal: true
-                    deploymentEnvironment: Label2
-                    deploymentVhost : us.wso2.com 
+            - name: dev 
+                configs:
+                    endpoints: 
+                        production: 
+                            url: 'http://dev.wso2.com' 
+                        sandbox:
+                            url: 'http://dev.sandbox.wso2.com' 
+                    deploymentEnvironments:
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Default
+                          deploymentVhost : localhost
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label1
+                          deploymentVhost : us.wso2.com 
+            - name: prod
+                configs:
+                    endpoints:
+                        production:
+                            url: 'http://prod.wso2.com'
+                        sandbox:
+                            url: 'http://prod.sandbox.wso2.com'
+                    deploymentEnvironments:
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label2
+                          deploymentVhost : localhost
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label3
+                          deploymentVhost : us.wso2.com 
         ```  
 
      [![]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)        
