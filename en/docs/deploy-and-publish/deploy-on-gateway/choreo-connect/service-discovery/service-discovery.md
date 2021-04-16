@@ -20,13 +20,13 @@ Therefore, WSO2 Choreo Connect supports service discovery using the Consul so th
 
 Add the following configuration under the Adapter section to the main configuration file of Choreo Connect (`config.toml` file).
 
-``` java
+``` 
 [adapter.consul]
   enable = true
   url = "https://169.254.1.1:8501"
   pollInterval = 5
   aclToken = "d3a2a719-4221-8c65-5212-58d4727427ac"
-  mgwServiceName = "wso2"
+  mgwServiceName = "choreo-connect"
   serviceMeshEnabled = true
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
   certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
@@ -100,14 +100,14 @@ Define the upstream endpoints to the Consul service catalog based services in WS
 Define the upstream endpoints to the Consul service catalog based services directly in the OpenAPI definition file using the syntax explained above. 
 
 
-```java tab="Format"
+```yaml tab="Format"
 x-wso2-production-endpoints:
   urls:
     - consul(<service_name>,<default_host>)
   type: load_balance
 ```
 
-```java tab="Example"
+```yaml tab="Example"
 paths:
   /pet:
     x-wso2-production-endpoints:
@@ -130,9 +130,8 @@ paths:
 ```
 
 !!! info
-        - The Adapter takes one `pollInterval` amount of time to update the upstreams' data to the Router.
-        The requests that come to the Choreo Connect during that time are served via the
-        `default_host`. <br>
+        - Choreo Connect takes one `pollInterval` amount of time to update the upstreams' configuration after being updated in Consul service catalog.<br>
+        - At the initial start of the Adapter component, the requests that come to the Choreo Connect during are served via the `default_host` until the Adapter gets configuration from a Consul client. <br>
         - Choreo Connect supports both API level and Resource level endpoints for Consul service discovery.<br>
-        - Upstreams discovered through Consul are configured as ***Load Balanced*** clusters in the Router.
+        - If multiple upstreams are discovered through Consul for the same service name, requests are ***Load Balanced*** to the upstreams.
         <br>
