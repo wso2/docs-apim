@@ -115,7 +115,7 @@ If you are using any other third party key manager with WSO2 API-M, follow the b
     }
     ```    
 
-    The following table provides definitions for each of the even payload field.
+    The following table provides definitions for each of the even payload fields.
     <table>
     <colgroup>
         <col width="30%" />
@@ -173,4 +173,4 @@ If you are using any other third party key manager with WSO2 API-M, follow the b
     </tr>                      
     </table>
 
-    Once the Traffic Manager receives the request, the data is sent to the Token Revocation JMS Event Publisher through a set of pre-defined Event Streams deployed in the Traffic Manager server. And from the Event Publisher, a Token Revocation message is pushed to all subscribed Gateway nodes to mark the specific JTI (JWT) as revoked in Gateway token caches. 
+    Once the Traffic Manager receives the request, the data is sent to the Token Revocation JMS Event Publisher through a set of predefined Event Streams deployed in the Traffic Manager server. And from the Event Publisher, a Token Revocation message is pushed to all subscribed Gateway nodes to mark the specific JTI (JWT) as revoked in Gateway token caches. 
