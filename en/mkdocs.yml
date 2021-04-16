@@ -1394,7 +1394,7 @@ nav:
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - Deploying the API-M:
+            - Deploying the API-M Runtime:
                 - All-In-One Deployment:
                     - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                     - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
