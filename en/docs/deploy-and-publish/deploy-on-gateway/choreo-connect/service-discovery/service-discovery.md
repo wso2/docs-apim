@@ -41,7 +41,7 @@ The following table describes above configuration.
 | `url`                                 | The `URL` of the [Consul HTTP API](https://www.consul.io/api-docs#http-api-structure).|
 | `pollInterval`                        | The time interval (in seconds) in which the Choreo Connect should fetch updates from the Consul service catalog.|
 | `aclToken`                            | [Access Control Token](https://learn.hashicorp.com/tutorials/consul/access-control-setup-production) generated using Consul. You should grant read access to services when creating the token|
-| `mgwServiceName`                      | Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined inorder to allow access to other services in mesh. |
+| `mgwServiceName`                      | Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined inorder to grant access to other services in mesh. |
 | `serviceMeshEnabled`                  | Set this to `true` if service mesh is enabled in Consul |
 | `caFile`                              | CaFile is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified.|
 | `certFile`                            | CertFile is the optional path to the certificate for Consul communication. If this is set, then you need to also set `keyFile`.|
@@ -86,18 +86,19 @@ consul([aws-east,gcp-west].pet.[prod],https://10.10.1.5:5000)
 
 Define the upstream endpoints to the Consul service catalog based services using one of the following methods.
 
-- [Define Consul service catalog based services in WSO2 API Manager]({{base_path}}/deploy/api-microgateway/service-discovery/#define-consul-service-catalog-based-services-in-wso2-api-manager)
-- [Define Consul service catalog based services using an Open API definition]({{base_path}}/deploy/api-microgateway/service-discovery/#define-consul-service-catalog-based-services-using-an-open-api-definition)
+- Use WSO2 API Manager
+- Manually editing the Open API definition(when using APICTL)
 
 ### Define Consul service catalog based services in WSO2 API Manager
 
-Define the upstream endpoints to the Consul service catalog based services in WSO2 API Manager using the proper syntax described above via the WSO2 API Manger publisher portal.
-
+Define the upstream endpoints to the Consul service catalog based services in WSO2 API Manager using the syntax described above via the WSO2 API Manger publisher portal.<br>
+You have to define the service using the above mentioned syntax and put it in the Production endpoint ot Sandbox endpoint or both.<br>
 [![reference]({{base_path}}/assets/img/deploy/consul-apim.png)]({{base_path}}/assets/img/deploy/consul-apim.png)
 
 ### Define Consul service catalog based services in an Open API definition (when using APICTL)
 
-Define the upstream endpoints to the Consul service catalog based services directly in the OpenAPI definition file using the syntax explained above. 
+Define the upstream endpoints to the Consul service catalog based services directly in the OpenAPI definition file using the syntax explained above. <br>
+The definition should go under the `urls` section of `x-wso2-production-endpoints` or `x-wso2-sandbox-endpoints` (or both).
 
 
 ```yaml tab="Format"

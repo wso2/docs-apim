@@ -48,8 +48,13 @@ Refer to the Adapter section to the main configuration file of Choreo Connect (`
   certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
 ```
-Make sure the property `serviceMeshEnabled` is set to `true`.
+
+Change the `url` to the url of the Consul agent you want to connect to.<br>
+Change the `aclToken` to the token you generated from the previous step.<br>
+Make sure the property `serviceMeshEnabled` is set to `true`.<br>
+`mgwServiceName` should be the name you registered Choreo Connect as Consul service.<br>
+Add the `caCertFile`, `certFile`, and `keyFile` you generated from the previous step.<br>
 Then start Choreo Connect.
 
 ## Step 4 - Deploy the API
-You can use either WSO2 API Manager or APICTL to deploy APIs as described in []()
+You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints](../service-discovery/#how-to-define-the-endpoints) guide.
