@@ -198,6 +198,13 @@ You can retrieve environment variables using the following syntax.
 Syntax:  
 `get-property('env', String propertyName)`
 
+#### file scope
+
+You can retrieve properties defined in the `file.properties` configuration file using the following syntax.
+
+Syntax:  
+`get-property('file', String propertyName)`
+
 #### operation scope
 
 You can retrieve a property in the operation context level from the

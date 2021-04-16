@@ -27,10 +27,12 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">You can build integration services that are registered in a Service Catalog and are made discoverable to the API Management layer so that API proxies can directly be created using them.
- 
+<div class="leftContentOverview" style="width:75% !important;">You can implement an API-led integration strategy by easily combining the API management layer and the integration layer of the product's platform.
+    <ul>
+            <li><a href="{{base_path}}/integrate/api-led-integration">API-led Integration</li>
+    </ul>
   </div>
-  
+
   <div class="rightImageOverview">
           <a href='{{base_path}}/assets/img/get_started/overview/icons/integrate-api-workflows.png'>
               <img src='{{base_path}}/assets/img/get_started/overview/icons/integrate-api-workflows.png' alt="Develop, Deploy and Manage APIs/API Products" />
