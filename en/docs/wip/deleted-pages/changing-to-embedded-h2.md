@@ -110,8 +110,8 @@ When a database connection is returned to the pool, by default  the product rol
 
 -   **Configure the connection pool to commit pending transactions on connection return**
     1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS: `<API-M_HOME>/bin/wso2server.sh/`
-        -   On Windows: `<API-M_HOME>\bin\wso2server.bat`
+        -   On Linux/Mac OS: `<API-M_HOME>/bin/api-manager.sh/`
+        -   On Windows: `<API-M_HOME>\bin\api-manager.bat`
     2.  Add the following JVM option:
 
         ``` java
@@ -227,9 +227,9 @@ Follow the instructions below to run the script in Web console:
 !!! info
     You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
 
-    -   For Windows: `<API-M_HOME>/bin/wso2server.bat -Dsetup`
+    -   For Windows: `<API-M_HOME>/bin/api-manager.bat -Dsetup`
 
-    -   For Linux: `<API-M_HOME>/bin/wso2server.sh -Dsetup`
+    -   For Linux: `<API-M_HOME>/bin/api-manager.sh -Dsetup`
 
 !!! warning
         Deprecation of -DSetup

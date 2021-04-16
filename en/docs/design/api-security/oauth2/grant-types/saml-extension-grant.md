@@ -9,7 +9,7 @@ Enterprise applications that have SAML2 based SSO infrastructures sometimes ne
 !!! info
     When SAML bearer token is used, the roles of the user can be retrieved from either the user store or the SAML assertion. When **checkRolesFromSamlAssertion** system property is set to true, the roles will be checked from the SAML assertion, not the user store. Refere the stepe below to set this property:
 
-    1.  Set the property `-DcheckRolesFromSamlAssertion=true` in the `<API-M_HOME>/bin/wso2server.(sh|bat)` file.
+    1.  Set the property `-DcheckRolesFromSamlAssertion=true` in the `<API-M_HOME>/bin/api-manager.(sh|bat)` file.
     2.  Restart the server.
 
 

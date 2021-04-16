@@ -131,12 +131,12 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-key-manager
+    sh api-manager.sh -Dprofile=api-key-manager
     ```
 
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-key-manager
+    api-manager.bat --run -Dprofile=api-key-manager
     ```
 
 ??? info "Sample configuration for the Key Manager"
@@ -269,12 +269,12 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=traffic-manager
+    sh api-manager.sh -Dprofile=traffic-manager
     ```
 
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=traffic-manager
+    api-manager.bat --run -Dprofile=traffic-manager
     ```
 
 ??? info "Sample configuration for the Traffic Manager"
@@ -428,12 +428,12 @@ This section involves setting up the API Publisher node and enabling it to work 
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-publisher
+    sh api-manager.sh -Dprofile=api-publisher
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-publisher
+    api-manager.bat --run -Dprofile=api-publisher
     ```
 
 ??? info "Sample configuration for the Publisher"
@@ -608,12 +608,12 @@ This section involves setting up the Developer Portal node and enabling it to wo
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-devportal
+    sh api-manager.sh -Dprofile=api-devportal
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-devportal
+    api-manager.bat --run -Dprofile=api-devportal
     ```
 
     ??? info "Sample configuration for the Developer Portal"
@@ -814,12 +814,12 @@ This section involves setting up the Gateway node and enabling it to work with t
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=gateway-worker
+    sh api-manager.sh -Dprofile=gateway-worker
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=gateway-worker
+    api-manager.bat --run -Dprofile=gateway-worker
     ```
 
     ??? info "Sample configuration for the Gateway"

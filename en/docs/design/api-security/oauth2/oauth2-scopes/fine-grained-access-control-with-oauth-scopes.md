@@ -177,7 +177,7 @@ and [Local Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-g
 
    **Option 1**: Adding in startup script
 
-         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
+         Open <API-M_HOME>/bin/api-manager.(sh|bat) file.
          Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
          Restart the server.
 
@@ -188,21 +188,21 @@ and [Local Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-g
    - Linux/Mac OS
          
        ``` tab="Format"
-         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
+         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
        ```
              
        ``` tab="Example"
-         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=true
+         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=true
        ```
              
    - Windows
          
        ``` tab="Format"
-         wso2server.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
+         api-manager.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
        ```
              
        ``` tab="Example"
-             wso2server.bat -DdisableRoleValidationAtScopeCreation=true           
+             api-manager.bat -DdisableRoleValidationAtScopeCreation=true           
        ```
        
 ## Obtaining Tokens with Scopes

@@ -286,12 +286,12 @@ Start the WSO2 API-M servers using the standard start-up script. For more inform
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/
-sh wso2server.sh
+sh api-manager.sh
 ```
 
 ```tab="Windows"
 cd <API-M_HOME>\bin\
-wso2server.bat --run 
+api-manager.bat --run 
 ```
 
 !!! info
