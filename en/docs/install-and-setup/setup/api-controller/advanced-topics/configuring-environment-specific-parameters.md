@@ -432,7 +432,7 @@ The following code snippet contains sample configuration of the params file of a
           configs:
               deploymentEnvironments:
                   - displayOnDevportal: true
-                    deploymentEnvironment: Production and Sandbox
+                    deploymentEnvironment: Default
               mutualSslCerts:
                   - tierName: Unlimited
                     alias: Prod1

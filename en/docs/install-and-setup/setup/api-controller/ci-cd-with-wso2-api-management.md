@@ -181,7 +181,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
                 sandbox:
                   url: 'http://dev.sandbox.wso2.com' 
               deploymentEnvironments:
-                - deploymentEnvironment: Production and Sandbox
+                - deploymentEnvironment: Default
                 - deploymentEnvironment: Label1
           - name: prod
             configs:
