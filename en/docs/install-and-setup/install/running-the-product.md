@@ -6,7 +6,7 @@ To run WSO2 products, you start the product server at the command line. You can 
 
     The Management Console uses the default HTTP-NIO transport, which is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. ( `<PRODUCT_HOME>` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
 
-### Starting the server
+### Starting the API Manager server
 
 Follow the instructions below to start your WSO2 product based on the operating system you use.
 
@@ -41,8 +41,25 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 4. The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! note
-     If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs.
-     In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+     * If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+     * If you are on Mac OS, you may encounter the following startup error with similar logs.
+        ```bash
+        [2021-04-16 08:48:27,655] ERROR - InboundEndpoint Error initializing inbound endpoint SecureWebhookServer
+        [2021-04-16 08:48:27,655] ERROR - InboundEndpointDeployer Inbound Endpoint deployment from the file : /Users/sanjeewa/Downloads/wso2am-4.0.0/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml : Failed.
+        org.apache.synapse.SynapseException: Error initializing inbound endpoint SecureWebhookServer at org.apache.synapse.inbound.InboundEndpoint.init(InboundEndpoint.java:83) ~[synapse-core_2.1.7.wso2v227.jar:2.1.7-wso2v227]
+        ```
+        This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port that the webhooks HTTPS inbound endpoint is listening in all the Gateway nodes in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml`. Change 8021 to a different port.
+        ```xml
+        <p:parameter  name="inbound.http.port">8021</p:parameter>
+
+        ```
+        For publisher nodes, you need to change the `deployment.toml` file.
+        ```toml
+        [[apim.gateway.environment]]
+        ######## other properties ########
+        websub_event_receiver_https_endpoint = "https://localhost:8021"
+        ```
+        
 
 #### On Solaris
 
@@ -95,7 +112,7 @@ WSO2 API Manager has several web portals such as the Management Console, the API
 
    This scenario is suitable for testing purposes or for running the program on the company's internal networks. If you want to make the above portals available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization. Refer [Creating new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) to learn more about the information on configuring the keystores using certificates.
 
-### Accessing the Management Console
+### Accessing the API Manager's Management Console
 
 Once the server has started, you can run the Management Console by typing its URL in a web browser. The following sections provide more information about running the Management Console:
 
