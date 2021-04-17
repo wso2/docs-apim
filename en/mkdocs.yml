@@ -60,21 +60,22 @@ nav:
     - Design APIs:
             - Design APIs Overview: design/design-api-overview.md
             - Create a New API:
-                    - Create a REST API: design/create-api/create-a-rest-api.md
-                    - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
-                    - Create a REST API from an Integration Service: design/create-api/create-api-from-service.md
-                    - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                    - Create a Streaming API:
-                        - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
-                        - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                        - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-                        - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-                        - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                        - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
-                    #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
-                    - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
-                    - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
-                    - Test a REST API: design/create-api/test-a-rest-api.md
+                - Create a REST API:
+                    - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
+                    - Create a REST API from an OpenAPI Definition: design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+                    - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
+                    - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
+                    - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
+                - Create a GraphQL API: design/create-api/create-a-graphql-api.md
+                - Create a Streaming API:
+                    - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
+                    - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+                    - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                    - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+                    - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                    - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
+                - Create an API using a Service: design/create-api/create-an-api-using-a-service.md
+                #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
             - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -1718,7 +1719,7 @@ plugins:
               'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
-              'design/create-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/design/create-api/create-a-rest-api-from-a-openapi-definition/'
+              'design/create-api/create-rest-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/design/create-api/create-rest-api/create-a-rest-api-from-a-openapi-definition/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/alert-types.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/alert-types/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/configuring-alerts/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/subscribing-for-alert/'
@@ -1731,6 +1732,11 @@ plugins:
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
               'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
               'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/test-a-websub-api/'
+              'design/create-api/create-rest-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api/'
+              'design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
+              'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
+              'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
+              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/test-a-rest-api.md'
 
     # Extra
 extra_css:
