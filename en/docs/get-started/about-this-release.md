@@ -66,11 +66,11 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 ## Micro Integrator
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems.
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to API Manager 4.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/download/v4.0.0-m8/wso2mi-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
 
 #### New features
 
@@ -345,9 +345,9 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 
 ## Streaming Integrator
 
-Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
+Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/download/v4.0.0-m8/wso2si-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/).
 
 #### New features
 
@@ -360,7 +360,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ## API Controller
 
-WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. 
+WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. The Micro Integrator operations are newly added in for API Manager 4.0.0.
 
 It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha).
 
