@@ -4,7 +4,7 @@ The WSO2 API Manager is a platform for building and managing APIs. It helps deve
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 4.0.0 documentation]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.0.0-Beta** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
 
 ---
 
@@ -12,7 +12,7 @@ The **WSO2 API Manager 4.0.0-Beta** is the **latest** **WSO2 API Manager rel
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
 
-It is now available to download from [here](https://github.com/wso2/product-apim/releases/download/v4.0.0-alpha/wso2am-4.0.0-alpha.zip).
+It is now available to download from [here](https://github.com/wso2/product-apim/releases/).
 
 #### New features
 
@@ -422,7 +422,7 @@ It is now available to download from [here](https://github.com/wso2/k8s-api-oper
 
 ## Compatible WSO2 product versions
 
-WSO2 API Manager 4.0.0-Beta is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ---
 
