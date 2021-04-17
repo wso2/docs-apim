@@ -8,7 +8,7 @@ You need to enable response caching when creating a new API or editing an existi
 
 Please follow below steps to enable response caching for an API.
 
-1.  [Create an API]({{base_path}}/design/create-api/create-a-rest-api/).
+1.  [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 2.  Navigate to the **Runtime Configurations** tab where you find the response caching configuration. Then turn on Response caching and give a timeout value. This enables the default response caching settings.
 
