@@ -41,5 +41,5 @@ Below diagram illustrate the basic architecture of the solution.
 
 As you can observe Gateways will now publish analytics stat directly to analytics cloud over the internet. 
 Analytics cloud will have regional deployments to reduce publishing latencies and honor data privacy. 
-Analytics console is deployed as a separate web application which will query the processing later to visualize
+Analytics console is deployed as a separate web application that will query the processing to visualize
  API statistics.
