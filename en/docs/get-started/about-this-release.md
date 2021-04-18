@@ -97,7 +97,13 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 #### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
-Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 EI runtimes, particularly EI 7.x. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 EI runtimes. The Micro Integrator is one of the components of WSO2 EI and is now shipped with WSO2 API Manager 4.0.0.
+The Micro Integrator is the integration runtime of WSO2 API-M 4.0.0 as well WSO2 EI 7.x versions.
+
+The **new features** introduced with the Micro Integrator of API-M 4.0.0 are listed above. In addition, note the following significant changes:
+
+- The CLI tool of EI 7.x is replaced with the [API Controller (CLI)]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) of API-M 4.0.0.
+- The EI Kubernetes Operator of EI 7.x is merged with the [API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview) of API-M 4.0.0.
+
 
 
 #### Compare this release with previous ESBs
