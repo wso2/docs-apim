@@ -34,15 +34,15 @@ On **MacOS/Linux/CentOS**, open a terminal and execute one of the commands given
    
 -  To <b>start</b> the Streaming Integrator as a <b>service</b>:
       
-      ```bash tab='On MacOS'
+      ```bash tab="On MacOS"
       sudo wso2si-service start
       ```
 
-      ```bash tab='On Linux'
+      ```bash tab="On Linux"
       sudo service wso2si start
       ```
 
-      ```bash tab='On Centos'
+      ```bash tab="On Centos"
       sudo wso2si start
       ```
 
@@ -53,7 +53,7 @@ On **Windows**
 !!! Tip
     If you have **installed the product using the installer** and you want to manually run the product startup script from the `<SI_HOME>/bin` directory, you need to use the following command:<br/><br/>
     ```bash
-    sudo sh launcher_streaming-integrator.sh
+    sudo sh launcher_server.sh
     ```<br/><br/>
     This script automatically assigns the JAVA HOME of your VM to the root user of your Streaming Integrator instance.
     

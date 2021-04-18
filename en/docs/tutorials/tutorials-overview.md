@@ -17,8 +17,8 @@ The following list of tutorials guide you to use the API-first approach when cre
         </td>
         <td>
             <ul>
-                <li><a href="{{base_path}}/tutorials/streaming-api/create-and-publish-websocket-api">Create and Publish a Websocket API<a></li>
-                <li><a href="{{base_path}}/tutorials/streaming-api/create-and-publish-websub-api">Create and Publish a WebSub API<a></li>
+                <li><a href="{{base_path}}/tutorials/streaming-api/create-and-publish-websocket-api">Create and Publish a WebSocket API<a></li>
+                <li><a href="{{base_path}}/tutorials/streaming-api/create-and-publish-websub-api">Create and Publish a WebSub API (WebHook API)<a></li>
                 <li><a href="{{base_path}}/tutorials/streaming-api/create-and-publish-sse-api">Create and Publish a SSE API<a></li>
                 <li><a href="{{base_path}}/tutorials/edit-an-api-by-modifyng-the-api-definition">Edit an API by Modifying the API Definition<a></li>
             </ul>
@@ -63,15 +63,17 @@ The streaming tutorials walk you through the main capabilities and features of t
     <tr>
         <td>
             <ul>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api">Exposing a Kafka Stream as a Managed WebSocket API</a></li>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql">Performing Real-time Change Data Capture with MySQL</a></li>            
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-mysql">Performing Real-time Change Data Capture with MySQL</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/performing-real-time-etl-with-files">Performing Real-time ETL with Files</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling">Creating an ETL Application via SI Tooling</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/working-with-kafka">Working with Kafka</a></li>
-                <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates">Working with Business Rules</a></li>
             </ul>
         </td>
         <td>
             <ul>
+                <li><a href="{{base_path}}/use-cases/streaming-tutorials/creating-business-rules-templates">Working with Business Rules</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/integrating-stores">Integrating Stores</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/exposing-processed-data-as-api">Exposing Processed Data as API</a></li>
                 <li><a href="{{base_path}}/use-cases/streaming-tutorials/handling-requests-with-errors">Error Handling with Data Streams</a></li>
@@ -81,4 +83,3 @@ The streaming tutorials walk you through the main capabilities and features of t
         </td>
     </tr>
 </table>
-</tr>

@@ -37,7 +37,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
     
     4. Start the SI server by issuing the appropriate command based on your operating system.
     
-          - For Windows: `streaming-integrator.bat`
+          - For Windows: `server.bat --run`
           - For Linux:  `sh server.sh`
 
 - Once you install MySQL and start the MySQL server, create the database and the database table you require as follows:
@@ -76,9 +76,9 @@ To design the Siddhi application with ETL functionality via the Streaming Integr
 
 1. Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
 
-    - For Windows: `streaming-integrator-tooling.bat`
+    - For Windows: `tooling.bat`
 
-    - For Linux: `./streaming-integrator-tooling.sh`
+    - For Linux: `./tooling.sh`
     
     Then Access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
     

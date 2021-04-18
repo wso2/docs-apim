@@ -51,6 +51,14 @@ The Streaming Integrator component integrates streaming data from different sour
 
 The Streaming Integrator component consumes APIs via transports such as Websocket, Webhooks, and SSE, and exposes the requests in a streaming manner to make that data available to applications that cannot consume APIs. Similarly, it uses the same transports to publish streaming data via APIs in an asynchronous manner.
 
+<table>
+    <tr>
+        <td>
+            <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview">WebSocket, SSE, and WebSub/WebHook APIs</a>
+        </td>
+    </tr>
+</table>
+
 ## Learn Integration
 
 ### Streaming Capabilities
@@ -134,4 +142,4 @@ The streaming tutorials walk you through the main capabilities and features of W
         </td>
     </tr>
 </table>
-</tr>
+

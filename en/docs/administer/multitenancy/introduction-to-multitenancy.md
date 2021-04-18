@@ -7,7 +7,7 @@ You can register tenant domains using the Management Console of WSO2 products.
 !!! info
     When multitenancy is enabled and a tenant becomes inactive for a long period of time, the tenant is unloaded from the server's memory. By default, the time period is 30 minutes. After that, the tenant has to log in again before sending requests to the server.
 
-    You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./wso2server.sh` file for Linux and `wso2server.bat` for Windows) as shown below:
+    You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./api-manager.sh` file for Linux and `api-manager.bat` for Windows) as shown below:
 
     ``` java
         JAVA_OPTS \

@@ -173,7 +173,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
             ```go
             ID                                     REVISION            DESCRIPTION                                GATEWAY_ENVS
-            8ee17243-e3c6-4517-b126-ec9745220004   1                  Initial Revision                           [Production and Sandbox Label3 Label4]
+            8ee17243-e3c6-4517-b126-ec9745220004   1                  Initial Revision                           [Default Label3 Label4]
             660852cb-f23e-4d51-a622-0c4604f8598f   2                  Revision created after importing the API   [Label2]
             2812a8e8-c3b0-49c2-8023-435e27a888e4   3                  Revision created after importing the API   []
             f90fc252-5758-49ef-ab20-3d681f4b3238   4                  Revision created after importing the API   [Label1]
@@ -219,7 +219,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
             ```go
             ID                                     REVISION            DESCRIPTION         GATEWAY_ENVS
-            86ae2e4f-59b4-45a8-8693-0edb64a7fd6a   1                   Initial Revision    [Production and Sandbox Label1]
+            86ae2e4f-59b4-45a8-8693-0edb64a7fd6a   1                   Initial Revision    [Default Label1]
             cbabfcca-7e53-4d9a-b07b-e5fc67768e0e   2                   Updated endpoints   [Label2 Label3]
             ```
 
@@ -414,7 +414,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 apictl undeploy api --n PizzaShackAPI --v 1.0.0 --rev 2 -g Label1 Label2 Label3 --e production 
                 ```    
                 ```go
-                apictl undeploy api --name PizzaShackAPI --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 "Production and Sandbox"  --environment production 
+                apictl undeploy api --name PizzaShackAPI --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 "Default"  --environment production 
                 ```  
     
         -   **Response**
@@ -455,7 +455,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 Label2 Label3 --e production 
                 ```    
                 ```go
-                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 "Production and Sandbox"  --environment production 
+                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 "Default"  --environment production 
                 ```  
          
             -   **Response**

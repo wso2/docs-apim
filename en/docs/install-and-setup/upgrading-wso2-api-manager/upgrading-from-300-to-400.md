@@ -6,10 +6,10 @@ The following information describes how to upgrade your API Manager server **fro
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100) instead of below steps.
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110) instead of below steps.
 
 !!! Attention
-    If you are using WSO2 API Manager Analytics. Please contact WSO2 Team for migration purposes.
+    If you are using WSO2 API Manager Analytics, please contact WSO2 Team for migration purposes.
  
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -17,7 +17,7 @@ The following information describes how to upgrade your API Manager server **fro
     ALTER USER <user> WITH SUPERUSER;
     ```
 !!! note "If you are using Oracle"
-    Please commit the changes after running the scripts given below
+    Commit the changes after running the scripts given below
     
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.0.0 to 4.0.0**.
 
@@ -261,7 +261,7 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
     ```
     
     !!! note "NOTE"
-        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
+        Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
@@ -290,7 +290,7 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 4.0.0 to avoid any issues.
 
-    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
+    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows how to configure MySQL database configurations.
 
     ```
     [database.apim_db]
@@ -370,10 +370,10 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
     !!! note
-        It is not recommend to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
+        It is not recommended to use default H2 databases other than `WSO2_MB_STORE_DB` in production. Therefore migration of default H2 databases will not be supported since API-M 4.0.0.
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 3.0.0 version to API-M 4.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 4.0.0 version.
 
-3.   If you have used separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+3.   If you have used a separate DB for user management, you need to update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -2234,7 +2234,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -2260,9 +2260,9 @@ Follow the instructions below to move all the existing API Manager configuration
        key = "<provide-your-key-here>"
        ```
 
-7.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.11.0.
+7.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.11.0.
 
-    1.  Download the identity component migration resources and unzip it in a local directory.
+    1.  Download the identity component migration resources and unzip it in a local directory.
 
         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
          
@@ -2299,7 +2299,7 @@ Follow the instructions below to move all the existing API Manager configuration
     5. Update <API-M_4.0.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
     
     !!! note
-            This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
+            This step is only required if the user store type in the previous version is set to "database" instead of default "database_unique_id".
                     
         ```
         [user_store]
@@ -2312,18 +2312,18 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
                     
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
-            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server gets started.
 
         !!! note
-            Please note that if you want to use the latest user store, please update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+            Note that if you want to use the latest user store, update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
 
             ```
             [user_store]
@@ -2331,7 +2331,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ```
 
         !!! warning "Troubleshooting"
-            When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
+            When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
             Sample exception stack trace is given below.
             ```
@@ -2354,7 +2354,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -2371,11 +2371,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=3.0.0
+        sh api-manager.sh -DmigrateFromVersion=3.0.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=3.0.0
+        api-manager.bat -DmigrateFromVersion=3.0.0
         ```
 
     4. Shutdown the API-M server.
@@ -2416,7 +2416,7 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
+            Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -2426,7 +2426,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Add the following configuration in to `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration into the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]
@@ -2447,11 +2447,11 @@ Follow the instructions below to move all the existing API Manager configuration
 1.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
-    sh wso2server.sh
+    sh api-manager.sh
     ```
 
     ```tab="Windows"
-    wso2server.bat
+    api-manager.bat
     ```
 
 This concludes the upgrade process.
@@ -2470,7 +2470,7 @@ This concludes the upgrade process.
      
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
 
-   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the the fault messages have been changed from XML to JSON in API-M 4.0.0.  
+   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
   
    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.

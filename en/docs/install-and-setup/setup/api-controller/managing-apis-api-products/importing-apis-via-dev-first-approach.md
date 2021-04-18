@@ -382,7 +382,6 @@
             name : SampleAPI
             version: 1.0.0
             context: /sampleapi
-            enableStore: true
             endpointConfig:
                 endpoint_type: http
                 production_endpoints:

@@ -40,7 +40,7 @@ If you have Lazy loading enabled, you can configure the allowed tenant idle time
 
 -   Alternatively, you can specify the tenant idle time when you start the server:
 
-    1.  Open the product startup script (. `/wso2server.sh` file for Linux and `wso2server.bat` for Windows), which is stored in the `<PRODUCT_HOME>/bin` directory.
+    1.  Open the product startup script (. `/api-manager.sh` file for Linux and `api-manager.bat` for Windows), which is stored in the `<PRODUCT_HOME>/bin` directory.
     2.  Add the following system property.
 
         ``` java

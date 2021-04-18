@@ -6,7 +6,7 @@ The following information describes how to upgrade your API Manager server **fro
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100).    
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110).    
 
 !!! Attention
     If you are using WSO2 API Manager Analytics. Please contact WSO2 Team for migration purposes.
@@ -17,7 +17,7 @@ The following information describes how to upgrade your API Manager server **fro
     ALTER USER <user> WITH SUPERUSER;
     ```
 !!! note "If you are using Oracle"
-    Please commit the changes after running the scripts given below
+    Cmmit the changes after running the scripts given below
     
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.2.0 to 4.0.0**.
 
@@ -1431,7 +1431,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_4.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -1510,18 +1510,18 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
                     
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
-            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
         
         !!! note
-            Please note that if you want to use the latest user store, please update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+            Note that if you want to use the latest user store, update the <API-M_4.0.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
 
             ```
             [user_store]
@@ -1529,7 +1529,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ``` 
 
         !!! warning "Troubleshooting"
-            When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
+            When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
             Sample exception stack trace is given below.
             ```
@@ -1552,7 +1552,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -1569,11 +1569,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=3.2.0
+        sh api-manager.sh -DmigrateFromVersion=3.2.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=3.2.0
+        api-manager.bat -DmigrateFromVersion=3.2.0
         ```
 
     4. Shutdown the API-M server.
@@ -1615,7 +1615,7 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
+            Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -1646,11 +1646,11 @@ Follow the instructions below to move all the existing API Manager configuration
 1.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
-    sh wso2server.sh
+    sh api-manager.sh
     ```
 
     ```tab="Windows"
-    wso2server.bat
+    api-manager.bat
     ```
 
 This concludes the upgrade process.

@@ -8,7 +8,7 @@ The following information describes how to upgrade your API Manager server **fro
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 1.10.0 to 3.2.0**.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100).
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110).
 
 !!! note "If you are using PostgreSQL"
     The DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
@@ -16,7 +16,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     ALTER USER <user> WITH SUPERUSER;
     ```
 !!! note "If you are using Oracle"
-    Please commit the changes after running the scripts given below.
+    Commit the changes after running the scripts given below.
     
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
@@ -4332,7 +4332,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.10.0.
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.1.0 to 5.10.0.
 
     !!! note
         If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100) instead of the steps mentioned below.
@@ -4340,7 +4340,7 @@ Follow the instructions below to move all the existing API Manager configuration
         But, if you are not using WSO2 IS as a Key Manager, you have to follow the steps mentioned below in order to upgrade the identity components that have been shared with WSO2 API-M.
 
     ??? note "If you are using DB2"
-        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
+        Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table. 
 
@@ -4395,7 +4395,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the identity component migration resources and unzip it in a local directory.
+    1.  Download the identity component migration resources and unzip it in a local directory.
         
         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
 
@@ -4454,15 +4454,15 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) section before moving to the next step.
 
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
-            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finishes completely and the server gets started.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server gets started.
         
         !!! note
             Note that if you want to use the latest user store, you need to update the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows after the identity migration.
@@ -4496,7 +4496,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `api-manager.bat` file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -4514,11 +4514,11 @@ Follow the instructions below to move all the existing API Manager configuration
      
         1. Migrate registry resources from 1.10 to 2.0 as follows.
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            sh api-manager.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
     
             ``` tab="Windows"
-            wso2server.bat -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            api-manager.bat -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
             
         2. Migrate file system from 1.10 to 2.0. 
@@ -4526,11 +4526,11 @@ Follow the instructions below to move all the existing API Manager configuration
              This migrates the Synapse config files such as APIs that reside in the file system. Therefore, you must run this command on the Gateway node/s of a distributed WSO2 API Manager setup.
 
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            sh api-manager.sh -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
     
             ``` tab="Windows"
-            wso2server.bat -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            api-manager.bat -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
         
         3. Migrate to the new throttling engine and generate throttle policies. 
@@ -4538,21 +4538,21 @@ Follow the instructions below to move all the existing API Manager configuration
              This migrates Synapse config files, the API-M database with new throttle policies and generates throttle policies in the `<API-M_3.2.0_HOME>/executionplans` directory. Therefore, you must run this command against a node that has Synapse config files and the `AM_DB`. After the migration, copy the `<API-M_3.2.0_HOME>/executionplans` directory to the `<API-M_3.2.0_HOME>/repository/deployment/server/executionplans` directory of the Traffic Manager node.
 
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
+            sh api-manager.sh -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
             ```
     
             ``` tab="Windows"
-            wso2server.bat -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
+            api-manager.bat -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
             ```
             
     4. Start the API-M server as follows to migrate API Manager artifacts from 2.0 to 3.2.
     
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=2.0.0
+        sh api-manager.sh -DmigrateFromVersion=2.0.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.0.0
+        api-manager.bat -DmigrateFromVersion=2.0.0
         ```
 
     4. Shutdown the API-M server.
@@ -4573,7 +4573,7 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Please note that depending on the number of records in the `REG_LOG` table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
+            Note that depending on the number of records in the `REG_LOG` table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 

@@ -127,6 +127,7 @@ If the <strong>Expression</strong> option is selected for the <strong>Set Action
 <li><strong>Registry</strong>: This scope is used to retrieve properties within the registry .</li>
 <li><strong>System</strong>: This scope is used to retrieve Java system properties.</li>
 <li><strong>Environment</strong>: This scope is used to retrieve environment variables ('env').</li>
+<li><strong>File</strong>: This scope is used to retrieve properties defined in the `file.properties` configuration file ('file').</li>
 </ul>
 <p>For a detailed explanation of each scope, see <a href="{{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath">Accessing Properties with XPath</a>.</p></td>
 </tr>
