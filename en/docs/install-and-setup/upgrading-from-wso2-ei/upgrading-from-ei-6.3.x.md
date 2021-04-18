@@ -30,7 +30,21 @@ Follow the instructions below to start the migration!
 
 ### Migrating the user store
 
-If you are already using a JDBC or LDAP user store with EI 6.3.0, you can simply connect the same to the Micro Integrator.
+If you are using LDAP user store with EI 6.3.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file.
+
+If you are using a JDBC user store with EI 6.3.0, you can use the same databases with APIM 4.0.0. However, you need to apply the following updates.
+
+#### Update the database structure
+
+There are changes in the database structure (schema) that is used in EI 6.3.0. To update the database schema:
+
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-EI63X_to_APIM400.zip).
+
+2. Unzip the downloaded file and select the script relevant to your database type.
+
+3. Connect to the database and run the script.
+
+Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file as given below.
 
 Note that **secondary** user stores are currently not supported in the Micro Integrator.
 
