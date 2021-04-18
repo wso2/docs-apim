@@ -5,7 +5,7 @@ APIs are widely used in Business Integrations and are becoming a key part of dri
 strategy. Ensuring the proper functioning of the APIs, getting feedback on the performance, and deriving business 
 insights from APIs are becoming equally important.
 
-With the API Manager 4.0.0 release API Analytics was completely revamped and offered as a cloud-based analytics solution
+With the API Manager 4.0.0 release, API Analytics was completely revamped and offered as a cloud-based analytics solution
  to provide users with an unparallel analytics experience addressing many customer concerns we received for earlier 
  releases.
 
