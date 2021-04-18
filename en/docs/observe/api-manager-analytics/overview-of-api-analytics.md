@@ -39,7 +39,7 @@ Below diagram illustrate the basic architecture of the solution.
 
 ![APIM Analytics Simplified Design]({{base_path}}/assets/img/observe/apim-analytics-simplified.jpg)
 
-As you can observe Gateways will now publish analytics stat directly to analytics cloud over the internet. 
+As you can observe, Gateways will now publish analytics stats directly to the analytics cloud over the internet. 
 Analytics cloud will have regional deployments to reduce publishing latencies and honor data privacy. 
 Analytics console is deployed as a separate web application that will query the processing to visualize
  API statistics.
