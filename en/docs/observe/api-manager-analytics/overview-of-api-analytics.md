@@ -11,21 +11,17 @@ With the API Manager 4.0.0 release, API Analytics was completely revamped and of
 
 ## Highlights
 ### Hassle Free Setting Up
-One of the major concerns customers had earlier was the effort taken up to setup the analytics environment. This 
-involves setting up a minimum of two node deployment with tuned parameters which is a considerable effort and utilizes 
-considerable amount of resources. 
-With all new API Manager 4.0.0 cloud-based analytics model all that you need to do is,
+With all new API Manager 4.0.0 cloud-based analytics model setting up analytics is as easy as it had ever been. You just follow below two steps to setup analytics and get it working.
  - [Register for API Manager Analytics]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics)
  - [Configure Synapse Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) or [Choreo Connect Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-microgateway)
 
 These are the only two steps that are needed to setup analytics with the new solution.
 
 ### Modern Responsive UIs
-Earlier versions on API Manager analytics relied on home drown dashbaording solution for which We received the
- feedback that UIs look outdated. With cloud-based analytics now we have sleek and modern responsive UIs with improved 
+With cloud-based analytics now we have sleek and modern responsive UIs with improved 
  filtering and drill down capabilities. 
-You can access the all new analytics portal through this solution. Use this document as a reference to the composition of each
- dashboard and information that is available through them. This document will guide you through different usecases
+You can access the all new analytics portal through [here](https://analytics.choreo.dev/). Use [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-overview) document as a reference to the composition of each
+ dashboard and information that is available through them. [This]({{base_path}}/observe/api-manager-analytics/analytics-usecases/finding-faulty-apis) document will guide you through different usecases
   you can achieve through analytics portal.
 
 ### One Portal to View and Configure Alerts
