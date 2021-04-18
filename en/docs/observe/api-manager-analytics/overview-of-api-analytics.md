@@ -24,7 +24,7 @@ These are the only two steps that are needed to setup analytics with the new sol
 Earlier versions on API Manager analytics relied on home drown dashbaording solution for which We received the
  feedback that UIs look outdated. With cloud-based analytics now we have sleek and modern responsive UIs with improved 
  filtering and drill down capabilities. 
-You can access the all new analytics portal through here. Use this document as a reference to composition of each
+You can access the all new analytics portal through this solution. Use this document as a reference to the composition of each
  dashboard and information that is available through them. This document will guide you through different usecases
   you can achieve through analytics portal.
 
