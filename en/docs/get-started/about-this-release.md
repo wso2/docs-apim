@@ -4,7 +4,7 @@ The WSO2 API Manager is a platform for building and managing APIs. It helps deve
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 4.0.0 documentation]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.0.0-Beta** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
 
 ---
 
@@ -12,7 +12,7 @@ The **WSO2 API Manager 4.0.0-Beta** is the **latest** **WSO2 API Manager rel
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
 
-It is now available to download from [here](https://github.com/wso2/product-apim/releases/download/v4.0.0-alpha/wso2am-4.0.0-alpha.zip).
+It is now available to download from [here](https://github.com/wso2/product-apim/releases/).
 
 #### New features
 
@@ -66,11 +66,11 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 ## Micro Integrator
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems.
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to API Manager 4.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/download/v4.0.0-m8/wso2mi-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
 
 #### New features
 
@@ -94,6 +94,17 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
     WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+
+#### Compare this release with the Micro Integrator of WSO2 EI 7.x
+
+The Micro Integrator is the integration runtime of WSO2 API-M 4.0.0 as well WSO2 EI 7.x versions.
+
+The **new features** introduced with the Micro Integrator of API-M 4.0.0 are listed above. In addition, note the following significant changes:
+
+- The CLI tool of EI 7.x is replaced with the [API Controller (CLI)]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) of API-M 4.0.0.
+- The EI Kubernetes Operator of EI 7.x is merged with the [API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview) of API-M 4.0.0.
+
+
 
 #### Compare this release with previous ESBs
 
@@ -345,9 +356,9 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 
 ## Streaming Integrator
 
-Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
+Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/download/v4.0.0-m8/wso2si-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/).
 
 #### New features
 
@@ -360,7 +371,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ## API Controller
 
-WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. 
+WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. The Micro Integrator operations are newly added in for API Manager 4.0.0.
 
 It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha).
 
@@ -397,7 +408,7 @@ It is now available to download from [here](https://github.com/wso2/integration-
 
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.0.0-m8/wso2si-tooling-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
 #### New features
 
@@ -409,12 +420,13 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ## Kubernetes API operator
 
-The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. 
+The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. The Micro Integrator Kubernetes Operator is merged with the API Operator of API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/tag/v2.0.0-alpha). K8s API Operator M3 is compatible with API Manager M4.
+It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/). K8s API Operator M3 is compatible with API Manager M4.
 
 #### New features
 
+- New Micro Integrator Kubernetes operations added
 - Deploy APIs to Microgateway
 - Deploy APIs to API Manager
 
@@ -422,7 +434,7 @@ It is now available to download from [here](https://github.com/wso2/k8s-api-oper
 
 ## Compatible WSO2 product versions
 
-WSO2 API Manager 4.0.0-Beta is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ---
 

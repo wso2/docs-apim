@@ -206,6 +206,7 @@ The URL appears next to `Developer Portal Default Context` in the start script l
 The URL should be in the following format: `https://<Server Host>:9443/devportal        `
 
 You can use this URL to access the Developer Portal on this computer from any other computer connected to the Internet or LAN. When accessing the Developer Portal from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/devportal                                  `
+
 ##### Signing in
 
 At the Developer Portal home page, you can click sign in link at top right corner to sign-in to the API Publisher using **admin** as both the username and password.
