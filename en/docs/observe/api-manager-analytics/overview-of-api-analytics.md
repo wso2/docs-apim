@@ -35,7 +35,7 @@ In the earlier versions customers had to log in to a separate console to configu
 
 ## Design
 All above highly user-friendly features are possible through the new design adopted by the analytics solution. 
-Below diagram illustrate the basic architecture of the solution.
+The following diagram illustrates the basic architecture of the solution.
 
 ![APIM Analytics Simplified Design]({{base_path}}/assets/img/observe/apim-analytics-simplified.jpg)
 
