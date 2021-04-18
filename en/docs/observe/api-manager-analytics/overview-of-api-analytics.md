@@ -29,7 +29,7 @@ You can access the all new analytics portal through here. Use this document as a
   you can achieve through analytics portal.
 
 ### One Portal to View and Configure Alerts
-In the earlier versions customers had to log in to a separate console to configure alerts related to analytics. With
+In the earlier versions, customers had to log on to a separate console to configure alerts related to analytics. With
  the cloud-based analytics now you can configure alerts using the same console you used to view analytics. 
  Please refer this documentation to configure alerts
 
