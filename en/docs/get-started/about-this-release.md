@@ -99,7 +99,6 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 
 Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 EI runtimes, particularly EI 7.x. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 EI runtimes. The Micro Integrator is one of the components of WSO2 EI and is now shipped with WSO2 API Manager 4.0.0.
 
-If you are migrating from a previous EI, the above feature list will help you understand the important changes in the Micro Integrator that will impact your migration.
 
 #### Compare this release with previous ESBs
 
