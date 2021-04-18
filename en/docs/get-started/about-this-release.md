@@ -95,7 +95,7 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
     WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
 
-#### Compare this release with previous versions of WSO2 EI 7.x
+#### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
 Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 EI runtimes, particularly EI 7.x. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 EI runtimes. The Micro Integrator is one of the components of WSO2 EI and is now shipped with WSO2 API Manager 4.0.0.
 
