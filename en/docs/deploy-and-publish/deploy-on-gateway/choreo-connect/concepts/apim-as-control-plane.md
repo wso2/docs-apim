@@ -106,6 +106,4 @@ For more information on how to enable and work with this feature, check [How to 
 
 ## Third party Key Managers
 
-During startup, Choreo Connect connects with the event hub and pull the list of key manager data which are resided on API Manager admin portal and stored at issuer data store at Enforcer. These data are used for JWT token validation. After, whenever key manager event (add, update, delete) receives, issuer data store will be updated accordingly. 
-
-If the same token service is configured at config.toml configuration file, the config data are overridden by the configurations receiving from API Manager either from add/update events or startup. But if it still persists in config.toml, delete events will not be proceed.
+Third Party Key Managers can be registered at APIM Admin Portal. The issuer data are used for JWT token validation in Choreo Connect. During the Choreo Connect startup, it is  connected with the event hub and pull the list of existing Key Managers. The data are stored in issuer data store at Enforcer. If the same token service has found at `config.toml` file, the configuration data in that issuer will be overridden with Key Manager Configurations comes from APIM Admin Portal. Whenever a Key Manager event (add, update, delete) receives to Choreo Connect, issuer data store will be updated accordingly. But if it still persists in `config.toml`, delete events will not be proceed.
