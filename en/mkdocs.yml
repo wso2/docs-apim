@@ -1415,7 +1415,7 @@ nav:
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Streaming Integrator Deployment - Overview: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
                 - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
