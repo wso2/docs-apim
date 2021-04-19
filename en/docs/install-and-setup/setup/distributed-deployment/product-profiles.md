@@ -1,4 +1,4 @@
-# Product Profiles
+# API-M Profiles
 
 When a WSO2 product starts, it starts all components, features and related artifacts bundled with it. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
 
@@ -14,63 +14,48 @@ When a WSO2 product starts, it starts all components, features and related artif
 The following are the different profiles available in WSO2 API Manager.
 
 <table>
-<thead>
-<tr class="header">
-<th>Profile</th>
-<th>Command Option with Profile Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Gateway worker</td>
-<td><pre><code>-Dprofile=gateway-worker   </code></pre></td>
-<td><div class="content-wrapper">
-<p>Only starts the components related to the API Gateway.</p>
+    <tr>
+        <th>
+            Profile
+        </td>
+        <th>
+            Command
+        </td>
+        <th>
+            Description
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Gateway Profile
+        </td>
+        <td><pre><code>-Dprofile=gateway-worker   </code></pre></td>
+        <td>
+            <p>Only starts the components related to the API Gateway.</p>
 <p>You use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
-</div></td>
-</tr>
-<tr class="even">
-<td>Key Manager</td>
-<td><pre><code>-Dprofile=api-key-manager</code></pre></td>
-<td><div class="content-wrapper">
-<p>Only starts the features relevant to the Key Manager component of the API Manager.</p>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Traffic Manager</td>
-<td><div class="content-wrapper">
-<pre><code>-Dprofile=traffic-manager</code></pre>
-<p><br />
-</p>
-</div></td>
-<td><div class="content-wrapper">
-<p>Only starts the features relevant to the Traffic Manager component of the API Manager.</p>
-<p>The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests.</p>
-</div></td>
-</tr>
-<tr class="even">
-<td>API Publisher</td>
-<td><pre><code>-Dprofile=api-publisher</code></pre></td>
-<td><div class="content-wrapper">
-<p>Only starts the front end/backend features relevant to the API Publisher.</p>
-<p><br />
-</p>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Developer Portal</td>
-<td><pre><code>-Dprofile=api-devportal</code></pre></td>
-<td><div class="content-wrapper">
-<p>Only starts the front end/backend features relevant to the Developer Portal.</p>
-<p><br />
-</p>
-</div></td>
-</tr>
-</tbody>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Core Profile
+        </td>
+        <td><pre><code></code></pre></td>
+        <td>
+            Consists of all API-M components exclusing the Gateway.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Default Profile
+        </td>
+        <td><pre><code></code></pre></td>
+        <td>
+            Consists of all the API-M components.
+        </td>
+    </tr>
 </table>
 
-### Starting an API-M profile
+## Starting an API-M profile
 
 You can start an API Manager profile in the following methods, based on your requirement
 
@@ -86,7 +71,7 @@ You can start an API Manager profile in the following methods, based on your req
     4. Developer Portal
     5. Gateway
     
-#### Method 1- Optimizing before starting the server
+### Method 1- Optimizing before starting the server
 
 Create an optimized distribution for a particular API-M profile.
 
@@ -154,7 +139,7 @@ Create an optimized distribution for a particular API-M profile.
     <PRODUCT_HOME>/bin/api-manager.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
     ```    
 
-#### Method 2 - Optimizing while starting the server
+### Method 2 - Optimizing while starting the server
 
 1.  Start the server using the script based on your operating system, using the command given below.
 

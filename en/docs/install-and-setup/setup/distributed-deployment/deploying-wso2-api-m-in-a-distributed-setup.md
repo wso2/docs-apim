@@ -1,4 +1,4 @@
-# Deploying WSO2 API-M in a Distributed Setup
+# Configuring a Distributed API-M Deployment
 
 Follow the instructions below to deploy WSO2 API Manager's five main components (Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager) in a distributed environment.
 
