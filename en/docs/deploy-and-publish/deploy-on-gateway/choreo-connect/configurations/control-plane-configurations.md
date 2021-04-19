@@ -6,7 +6,7 @@ The following are the configurations with regard to control plane. The configura
 |-----------|-----------|
 |`eventHub`  | Endpoint configuration which is used to fetch data from WSO2 API Manager.|
 
-For more information follow the [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation/#the-event-hub)
+For more information follow the [Event Hub]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub/)
 
 ### Sample
 
