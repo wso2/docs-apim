@@ -44,7 +44,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
     - Documentation: index.md
@@ -1456,6 +1456,7 @@ nav:
             - Managing APIs and API Products:
                 - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
                 - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                - Importing APIs from AWS API-Gateway to the WSO2 APIM: install-and-setup/setup/api-controller/managing-apis-api-products/Importing-apis-from-aws-api-gateway-to-the-wso2-api-manager.md
                 - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
                 - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
                 - Importing APIs from AWS Apigateway to the wso2 APIM: install-and-setup/setup/api-controller/importing-apis-from-aws-apigateway-to-the-wso2-apim.md
