@@ -23,12 +23,12 @@ Enabling observability is simple in the new API Manager. All that needs to be do
     
     Linux/Mac OS
     ```java
-    sh wso2server.sh -DenableCorrelationLogs=true start
+    sh api-manager.sh -DenableCorrelationLogs=true start
     ```
 
     Windows
     ```java
-    wso2server.bat --run -DenableCorrelationLogs=true start
+    api-manager.bat --run -DenableCorrelationLogs=true start
     ```
 
 !!! note

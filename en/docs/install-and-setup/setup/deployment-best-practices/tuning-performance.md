@@ -64,7 +64,7 @@ Following are the configurations that can be applied to optimize the OS-level pe
 
 When an XML element has a large number of sub-elements and the system tries to process all the sub-elements, the system can become unstable due to a memory overhead. This is a security risk.
 
-To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
+To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/api-manager.bat` file (for Windows) or the `<API-M_HOME>/bin/api-manager.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
 -DentityExpansionLimit=10000
@@ -133,7 +133,7 @@ Some general API-M-level recommendations are listed below:
 <tr class="odd">
 <td>API Gateway nodes</td>
 <td><div class="content-wrapper">
-<p>Increase memory allocated by modifying the <code>/bin/wso2server.sh</code>  file with the following setting:</p>
+<p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
 <ul>
 <li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
 </ul>

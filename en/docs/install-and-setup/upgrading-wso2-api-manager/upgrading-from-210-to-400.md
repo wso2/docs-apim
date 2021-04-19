@@ -3381,11 +3381,11 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
         
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
@@ -3450,7 +3450,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the api-manager.bat file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -3467,11 +3467,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=2.1.0
+        sh api-manager.sh -DmigrateFromVersion=2.1.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.1.0
+        api-manager.bat -DmigrateFromVersion=2.1.0
         ```     
 
     4. Shutdown the API-M server.
@@ -3516,11 +3516,11 @@ Follow the instructions below to move all the existing API Manager configuration
 1.  Restart the WSO2 API-M server.
 
     ```tab="Linux / Mac OS"
-    sh wso2server.sh
+    sh api-manager.sh
     ```
 
     ```tab="Windows"
-    wso2server.bat
+    api-manager.bat
     ```
 
 This concludes the upgrade process.

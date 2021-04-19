@@ -1,6 +1,6 @@
 # Use a Custom Authorization Header
 
-By default Microgateway uses **Authorization** header to receive the authorization token to secure the APIs. However there can be scenarios where this header needs to be reserved for some other purposes. For example if the backend endpoint of an API requires Authorization header to be present in the request to do perform its own authentication step. For scenarios like this you can configure microgateway to use a different header to recieve the authorization token.
+By default Choreo Connect uses **Authorization** header to receive the authorization token to secure the APIs. However there can be scenarios where this header needs to be reserved for some other purposes. For example if the backend endpoint of an API requires Authorization header to be present in the request to do perform its own authentication step, you can configure it either in per API or globally at Choreo Connect in order to use a different header to recieve the authorization token.
 
 ## Per API Configuration
 
@@ -12,9 +12,9 @@ x-wso2-auth-header: "XAuth"
 
 ## Global configuration
 
-This configuration should be done in the micro-gw.conf file. Configuration is global for all API in a specific runtime.
+This security configuration is to be added in to the config.toml file and it is global for all API in a specific runtime.
 
 ``` java tab="Adding configuration"
-[authConfig]
-    authorizationHeader = "XAuth"
+[security.adapter]
+  authorizationHeader = "XAuth"
 ```

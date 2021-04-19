@@ -6,13 +6,13 @@ To run WSO2 products, you start the product server at the command line. You can 
 
     The Management Console uses the default HTTP-NIO transport, which is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. ( `<PRODUCT_HOME>` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
 
-### Starting the server
+### Starting the API Manager server
 
 Follow the instructions below to start your WSO2 product based on the operating system you use.
 
 #### On Windows/Linux/Mac OS
 
-To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<PRODUCT_HOME>/bin/wso2server.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
+To start the server, run `<PRODUCT_HOME>\bin\api-manager.bat` (on Windows) or `<PRODUCT_HOME>/bin/api-manager.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
 
 1. Open a command prompt by following the instructions below.
 
@@ -24,29 +24,46 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 3. Execute one of the following commands:
 
     -   To start the server in a typical environment:
-        -   On Windows: `wso2server.bat --run`
-        -   On Linux/Mac OS: `sh wso2server.sh`
+        -   On Windows: `api-manager.bat --run`
+        -   On Linux/Mac OS: `sh api-manager.sh`
 
-    -   To start the server in the background mode of Linux: `sh wso2server.sh start`
-        To stop the server running in this mode, you will enter: `sh wso2server.sh stop`
+    -   To start the server in the background mode of Linux: `sh api-manager.sh start`
+        To stop the server running in this mode, you will enter: `sh api-manager.sh stop`
 
     -   To provide access to the production environment without allowing any user group (including admin) to log in to the Management Console:
 
-        -   On Windows: `wso2server.bat --run -DworkerNode`
-        -   On Linux/Mac OS: `sh wso2server.sh -DworkerNode`
+        -   On Windows: `api-manager.bat --run -DworkerNode`
+        -   On Linux/Mac OS: `sh api-manager.sh -DworkerNode`
 
     -   To check for additional options you can use with the startup commands, type `-help` after the command, such as:
-    `sh wso2server.sh -help` (see the related topics section at the end of this page).
+    `sh api-manager.sh -help` (see the related topics section at the end of this page).
 
 4. The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! note
-     If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs.
-     In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+     * If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+     * If you are on Mac OS, you may encounter the following startup error with similar logs.
+        ```bash
+        [2021-04-16 08:48:27,655] ERROR - InboundEndpoint Error initializing inbound endpoint SecureWebhookServer
+        [2021-04-16 08:48:27,655] ERROR - InboundEndpointDeployer Inbound Endpoint deployment from the file : /Users/sanjeewa/Downloads/wso2am-4.0.0/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml : Failed.
+        org.apache.synapse.SynapseException: Error initializing inbound endpoint SecureWebhookServer at org.apache.synapse.inbound.InboundEndpoint.init(InboundEndpoint.java:83) ~[synapse-core_2.1.7.wso2v227.jar:2.1.7-wso2v227]
+        ```
+        This may occur due to a native `launchd` service `com.apple.ftp-proxy.plist` living at `/System/Library/LaunchDaemons/com.apple.ftp-proxy.plist` that fires `/usr/libexec/ftp-proxy`. To fix this issue, change the default port that the webhooks HTTPS inbound endpoint is listening in all the Gateway nodes in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/inbound-endpoints/SecureWebhookServer.xml`. Change 8021 to a different port.
+        ```xml
+        <p:parameter  name="inbound.http.port">8021</p:parameter>
+
+        ```
+        For publisher nodes, you need to change the `deployment.toml` file.
+        ```toml
+        [[apim.gateway.environment]]
+        ######## other properties ########
+        websub_event_receiver_https_endpoint = "https://localhost:8021"
+        ```
+        
 
 #### On Solaris
 
-To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command prompt as described below.
+To start the server, run `<PRODUCT_HOME>/bin/api-manager.sh` from the command prompt as described below.
 
 !!! note
 
@@ -54,17 +71,17 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
 
 1.  Click **Launch &gt;Run Applications,** type `dtterm` at the prompt, and then press **Enter** to open a command prompt.
 2.  Navigate to the `<PRODUCT_HOME>/bin/` directory using the command prompt.
-3.  Execute the following command: `bash` wso2server.sh
+3.  Execute the following command: `bash` api-manager.sh
 4.  The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! info
 
     If you are starting the product in service/nohup mode in Solaris, do the following:
 
-    1.  Update the `<PRODUCT_HOME>/bin/wso2server.sh` file as follows:
-        1.  Search for the following occurrences: `nohup sh "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &                         `
+    1.  Update the `<PRODUCT_HOME>/bin/api-manager.sh` file as follows:
+        1.  Search for the following occurrences: `nohup sh "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &                         `
 
-        2.  Replace those occurrences with the following: **`nohup                             bash                            "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &             `
+        2.  Replace those occurrences with the following: **`nohup                             bash                            "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &             `
             **
 
             !!! tip
@@ -72,7 +89,7 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
                 The only change is replacing `sh` with `bash` . This is required only for Solaris.
 
 
-    2.  Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `wso2server.sh` script or you can run the following command on a terminal:
+    2.  Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `api-manager.sh` script or you can run the following command on a terminal:
 
         ``` java
         export PATH=/usr/xpg4/bin/sh:$PATH
@@ -95,7 +112,7 @@ WSO2 API Manager has several web portals such as the Management Console, the API
 
    This scenario is suitable for testing purposes or for running the program on the company's internal networks. If you want to make the above portals available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization. Refer [Creating new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) to learn more about the information on configuring the keystores using certificates.
 
-### Accessing the Management Console
+### Accessing the API Manager's Management Console
 
 Once the server has started, you can run the Management Console by typing its URL in a web browser. The following sections provide more information about running the Management Console:
 
@@ -189,6 +206,7 @@ The URL appears next to `Developer Portal Default Context` in the start script l
 The URL should be in the following format: `https://<Server Host>:9443/devportal        `
 
 You can use this URL to access the Developer Portal on this computer from any other computer connected to the Internet or LAN. When accessing the Developer Portal from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/devportal                                  `
+
 ##### Signing in
 
 At the Developer Portal home page, you can click sign in link at top right corner to sign-in to the API Publisher using **admin** as both the username and password.
@@ -197,7 +215,7 @@ At the Developer Portal home page, you can click sign in link at top right corne
 
 To stop the server, press **Ctrl+C** in the command window, or click the **Shutdown/Restart** link in the navigation pane in the Management Console. If you started the server in background mode in Linux, enter the following command instead:
 
-`sh <PRODUCT_HOME>/bin/wso2server.sh stop        `
+`sh <PRODUCT_HOME>/bin/api-manager.sh stop        `
 
 ### Restricting access to the Management Console and web applications
 
