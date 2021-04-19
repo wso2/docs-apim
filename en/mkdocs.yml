@@ -1427,6 +1427,7 @@ nav:
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - CI/CD:

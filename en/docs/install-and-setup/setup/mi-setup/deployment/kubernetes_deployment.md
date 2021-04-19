@@ -7,10 +7,10 @@ You can set up a Kubernetes cluster for the Micro Integrator in two ways:
 
 ## Use the K8s Operator
 
-!!! Note
-    Work in progress
+The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the `Integration` custom resource (`integration_cr.yaml` file) that is available in the Kubernetes module (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
+
+See [Deploying Integrations on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments) for more details and instructions.
 
 ## Use Kubernetes resources
 
-!!! Note
-    Work in progress
+Integration developers can directly generate the kubernetes artifacts that are required for a kubernetes deployment using WSO2 Integration Studio. Once these resources are generated, you can set a Kubernetes deployment by following the Kubernetes documentation.

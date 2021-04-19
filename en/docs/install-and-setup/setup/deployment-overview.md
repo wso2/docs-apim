@@ -119,3 +119,11 @@ The integration cluster consist of a minimum of two ndes of the integration runt
     </li>
 </ul>
 
+<ul>
+    <li>
+        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
+    </li>
+    <li>
+        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
+    </li>
+</ul>
