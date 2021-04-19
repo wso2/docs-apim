@@ -1048,3 +1048,50 @@ This example shows how to use arguments in a freemarker template to pass values 
     ```
 
 In this example, the value for the “argument one” key is replaced by the first argument value. The argument for the "argument two" key is replaced by the second argument value.
+
+### Handling optional values
+
+Some of the input paramters you specify in the FreeMarker template (payload, properties, and arguments) may be optional. This 
+means that the value can be null or empty during runtime. It is important to handle optional parameters in the FreeMarker template to avoid runtime issues due to null or empty values. FreeMarker
+[documentation](https://freemarker.apache.org/docs/dgui_template_exp.html#dgui_template_exp_missing)
+describes methods for handling optional parameters properly. The following example shows how to handle optional values in a
+FreeMarker template by using the **Default value operator** described in the FreeMarker documentation.
+
+-   Input Payload
+    ```json
+    {
+    "first_name": "John",
+    "age": 35
+    }
+    ```
+-   FreeMarker Tamplate
+    ```
+    {
+    "Name": "${payload.first_name} ${payload.last_name ! "" }",
+    "Age": ${payload.age}
+    }
+    ```
+
+-   Output Payload
+    ```json
+    {
+    "Name": "John ",
+    "Age": 35
+    }
+    ```
+
+-   Synapse Code
+    ```xml
+    <payloadFactory media-type="json" template-type="freemarker">
+        <format><![CDATA[{
+        "Name": "${payload.first_name} ${payload.last_name ! "" }",
+        "Age": ${payload.age}
+         }]]>
+        </format>
+    </payloadFactory>
+    ```
+
+In this example, The FreeMarker template is expecting a property named `last_name` from the input payload. However, the 
+payload does not contain that property. To handle that, the
+`${payload.last_name ! "" }` syntax is used in the template. This syntax replaces the `last_name` value with an empty 
+string if it is not present in the input payload.

@@ -6,7 +6,7 @@ Follow the instructions below to create a WebSocket API using the basic flow.
 
 1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
 
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
+2.  Click **CREATE API**, go to **Streaming API** and Click **WebSocket API**.
 
     [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
 
@@ -87,16 +87,7 @@ Follow the instructions below to create a WebSocket API using the basic flow.
              
       [![Create WebSocket API Form]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/create-websocket-streaming-api-form.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/create-websocket-streaming-api-form.png)
 
-4.  Click **CREATE** or **CREATE & PUBLISH** to create the API.
-
-     <html>
-     <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>The <b>CREATE & PUBLISH</b> option will only appear when a user who has <code>publisher</code> permission adds the details for the <b>Endpoint</b> field.</p>
-     </div>
-     </html>
-
-    The overview page of the newly created API appears. 
+4.  Click **CREATE** to create the API. The overview page of the newly created API appears. 
     
     [![WebSocket API Overview Page]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-overview-page.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-overview-page.png)
 
@@ -105,17 +96,15 @@ Follow the instructions below to create a WebSocket API using the basic flow.
 
 Topics of an WebSocket API are always **Subscribe and Publish**, where the flow of events can be either from the server (backend) to the client, or from the client to the server. By default, the WebSocket API will have a topic with the name `/*`.
 
-1. Click **Show More** to navigate to the **Topics** page.
+1. Click **Topics** and navigate to the **Topics** page.
 
-    [![WebSocket API Show Topics]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-topics-show-more.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-topics-show-more.png)
-
-2. Modify the topics as follows and click **SAVE** to update them.
+2. Modify the topics as follows and click **Save** to update them.
 
     1. Optionally click delete as shown below, to delete an existing topic.
 
         [![WebSocket API Delete Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-delete-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-delete-topic.png)
 
-    2. Click **Add Topic** to add a new topic. Provide a topic name and click **Add**.
+    2. Select the **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
          
         [![WebSocket API Add Topic]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-add-topic.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-add-topic.png)
       
@@ -135,8 +124,9 @@ Topics of an WebSocket API are always **Subscribe and Publish**, where the flow 
 
 ### View the AsyncAPI Definition
 
-Click **AsyncAPI Definition** under **API Configuration**. The Async Specification of API appears.
-
+Click **AsyncAPI Definition** under **API Configurations**. The AsyncAPI specification of the API appears.
+    
+   [![WebSocket API AsyncAPI Definition]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-asyncapi.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/websocket/websocket-streaming-api-asyncapi.png)
 
 Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
 

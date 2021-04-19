@@ -1,22 +1,22 @@
-# Encrypting Secrets with CTL
+# Encrypting Secrets with apictl
 
-WSO2 API Controller, **apictl** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/#dynamic-secrets).
+**WSO2 API Controller (apictl)** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/#dynamic-secrets).
 
 
-## Initialize CTL with a Key Store
+## Initialize apictl with a key store
 
 !!! Note    
     Secret encryption supports only JKS Key Stores.
 
 !!! Note    
-    Key Store used in this step needs to be the same Key Store which is used by the API Manager or Micro Integrator to decrypt secrets.
+    Key Store used in this step needs to be the same Key Store which is used by the WSO2 API Manager (WSO2 API-M) or WSO2 Micro Integrator (WSO2 MI) to decrypt secrets.
 
-Run the following command to initialize the CTL with the Key Store used to encrypt the secrets. It will prompt you to input the following,
+Run the following command to initialize the apictl with the Key Store used to encrypt the secrets. It will prompt you to input the following,
 
 <table>
     <tr>
         <td>Key Store location</td>
-        <td>Path to the Key Store used by the API Manager or Micro Integrator to decrypt secrets</td>
+        <td>Path to the Key Store used by the WSO2 API-M or WSO2 MI to decrypt secrets</td>
     </tr>
     <tr>
         <td>Key Store password</td>
@@ -53,15 +53,15 @@ Run the following command to initialize the CTL with the Key Store used to encry
     Key Store initialization completed
     ```
 
-## Encrypt Secrets
+## Encrypt secrets
 
 !!! Note    
     Secret encryption supports only **RSA/ECB/OAEPWithSHA1AndMGF1Padding** (default) or **RSA/ECB/PKCS1Padding** as encryption algorithm.
 
 !!! Note    
-    Encrypting algorithm used in this step needs to be the same algorithm used by the API Manager or Micro Integrator to decrypt secrets.
+    Encrypting algorithm used in this step needs to be the same algorithm used by the WSO2 API-M or WSO2 MI to decrypt secrets.
 
-Run the following command to encrypt secrets with the CTL,
+Run the following command to encrypt secrets with the apictl,
 
 -   **Command**
     ``` bash

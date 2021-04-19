@@ -123,8 +123,3 @@ via the Registry.
 </resource-config> 
 </smooks-resource-list>
 ```
-
-<!--
-### Samples
-[Sample 654: Smooks Mediator](https://docs.wso2.com/display/EI6xx/Sample+654%3A+Smooks+Mediator)
--->

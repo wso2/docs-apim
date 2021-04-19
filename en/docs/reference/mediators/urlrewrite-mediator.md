@@ -135,7 +135,7 @@ which the rewrite rule is applied and the target where the result URL is
 set. This configuration is typically used when the address URL of a
 request contains the context `         soap        ` which needs to be
 converted since all the services are deployed under a context named
-`         services        ` in the EI server. Thus, the URL
+`         services        ` in the Micro Integrator. Thus, the URL
 `                   http://localhost:8280/soap/StockQuoteProxy1                 `
 is rewritten as
 `         http://localhost:8280/                   services                 `
@@ -149,17 +149,3 @@ are successfully delivered to the server.
     </rewriterule>
 </rewrite>
 ```
-
-<!--
-### Samples
-
-For more examples, see:
-
--   [Sample 450: Introduction to the URLRewrite
-    Mediator](https://docs.wso2.com/display/EI6xx/Sample+450%3A+Introduction+to+the+URL+Rewrite+Mediator)
--   [Sample 451: Conditional URL
-    Rewriting](https://docs.wso2.com/display/EI6xx/Sample+451%3A+Conditional+URL+Rewriting)
--   [Sample 452; Conditional URL Rewriting with Multiple
-    Rules](https://docs.wso2.com/display/EI6xx/Sample+452%3A+Conditional+URL+Rewriting+with+Multiple+Rules)
-
--->

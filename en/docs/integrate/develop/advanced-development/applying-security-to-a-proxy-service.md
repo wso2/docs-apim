@@ -4,7 +4,7 @@ The steps below demonstrate how you can apply security to a proxy service via WS
 
 ## Prerequisites
 
-Be sure to [configure a user store](../../../setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
+Be sure to [configure a user store](../{{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore) for the Micro Integrator and add the required users and roles.
 
 ## Step 1: Creating the security policy file
 

@@ -1,8 +1,8 @@
 # Connectors Overview
 
-WSO2 Enterprise Integrator (EI) Connectors are extensions to WSO2 EI runtime (compatible with both 6.x and 7.x) that allows you to interact with SaaS applications on the cloud, databases, and popular B2B protocols. 
+Integration Connectors are extensions to the integration runtime of WSO2 (compatible with EI 6.x, EI 7.x, and also APIM 4.0.0). They allow you to interact with SaaS applications on the cloud, databases, and popular B2B protocols. 
 
-Connectors are hosted in a [connector store](https://store.wso2.com/store/assets/esbconnector/list) and can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your sequences and proxy services.
+Connectors are hosted in a [connector store](https://store.wso2.com/store/assets/esbconnector/list) and can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your sequences.
 
 Each connector provides a set of operations, which you call from your proxy services, sequences, and APIs to interact with the specific third-party service.
 
@@ -10,7 +10,7 @@ This documentation provides an example of how to use each connector and a refere
 
 ## Types of connectors
 
-There are three types of connectors available in WSO2 EI.
+There are three types of connectors available.
 
 **Cloud Connectors**: These connectors enable you to integrate with the APIs of external cloud systems (SaaS Applications) such as Salesforce, ServiceNow, Gmail, Amazon S3, etc.
 
@@ -20,7 +20,7 @@ There are three types of connectors available in WSO2 EI.
 
 ## Inbound and outbound connectors
 
-Most of the connectors available in the connector store are outbound connectors that illustrate connections and operations going out from WSO2 EI to third-party applications and systems. However, there are connectors that also enable inbound connectivity from popular third-party applications into WSO2 EI.
+Most of the connectors available in the connector store are outbound connectors that illustrate connections and operations going out from the integration runtime to third-party applications and systems. However, there are connectors that also enable inbound connectivity from popular third-party applications.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/inbound-outbound.png" title="Inbound and Outbound Connectors" width="700" alt="Inbound and Outbound Connectors"/>
 
@@ -41,7 +41,7 @@ Using connectors provide the following advantages:
     </tr>
     <tr>
         <td><b>Integrate fast</b></td>
-        <td>Let's say you need to get some data from Salesforce and return some of it back to users. If you want to do it, first you need to find and analyze the available APIs from Salesforce. Then you need to code to interfaces or use a SDK provided to communicate with the third party. Designing such a module from ground up takes a lot of time. WSO2 EI Connectors make this process simple as you can easily add the connector via WSO2 Integration Studio and drag and drop your connector’s operations onto the canvas and use them to design your integration flow with the help of our detailed documentation.</td>
+        <td>Let's say you need to get some data from Salesforce and return some of it back to users. If you want to do it, first you need to find and analyze the available APIs from Salesforce. Then you need to code to interfaces or use a SDK provided to communicate with the third party. Designing such a module from ground up takes a lot of time. Connectors make this process simple as you can easily add the connector via WSO2 Integration Studio and drag and drop your connector’s operations onto the canvas and use them to design your integration flow with the help of our detailed documentation.</td>
     </tr>
     <tr>
         <td><b>Easy to use</b></td>
@@ -53,7 +53,7 @@ Using connectors provide the following advantages:
     </tr>
     <tr>
         <td><b>Less domain knowledge required</b></td>
-        <td>When integrating with different APIs, WSO2 EI Connector documentation provides detailed information. Less domain knowledge is required when integrating with systems since all the information about operations are available to you and you do not need to know elaborate details of the system you are integrating with. You can spend less time studying the APIs and focus more on business use cases..</td>
+        <td>When integrating with different APIs, the Connector documentation provides detailed information. Less domain knowledge is required when integrating with systems since all the information about operations are available to you and you do not need to know elaborate details of the system you are integrating with. You can spend less time studying the APIs and focus more on business use cases.</td>
     </tr>
     <tr>
         <td><b>Dynamically added to the runtime</b></td>
@@ -61,13 +61,13 @@ Using connectors provide the following advantages:
     </tr>
     <tr>
         <td><b>Easy maintenance</b></td>
-        <td>Connectors act as a bridge between main integration logic and the third party application. Even if the application needs to be updated to support new features, the main integration logic of the API version does not need to be changed.</td>
+        <td>Connectors act as a bridge between main integration logic and the third-party application. Even if the application needs to be updated to support new features, the main integration logic of the API version does not need to be changed.</td>
     </tr>
 </table>
 
 ## How to use connectors
 
-When configuring the integration logic, you need to use Integration Studio. When ready, you can export the project along with dependency connectors to the WSO2 EI runtime. See [documentation on adding connectors]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors/) for more information.
+When configuring the integration logic, you need to use WSO2 Integration Studio. When ready, you can export the project along with dependency connectors to the integration runtime. See [documentation on adding connectors]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors/) for more information.
 
 See the following video for a quick look at how to use connectors.
 
@@ -85,11 +85,11 @@ You need to start using the connector by dragging and dropping the `init` operat
 
 ### Operations
 
-An operation of a particular connector represents a function that can be executed using that connector. The input parameters of an operation can be hard coded or fed into the connector programmatically using Properties. You can use any property (custom or internal) set to the message flow before the connector operation is used. Sometimes, the payload in the message context is considered by the connector for its operation as the payload to be sent over the connector. You can manipulate this payload using mediators like enrich, payloadfactory etc. After the connector operation is used in the message flow, response received by invoking that operation will be available in the message context for the next mediator to be used. 
+An operation of a particular connector represents a function that can be executed using that connector. The input parameters of an operation can be hard coded or fed into the connector programmatically using Properties. You can use any property (custom or internal) set to the message flow before the connector operation is used. Sometimes, the payload in the message context is considered by the connector for its operation as the payload to be sent over the connector. You can manipulate this payload using mediators like enrich, payloadfactory, etc. After the connector operation is used in the message flow, response received by invoking that operation will be available in the message context for the next mediator to be used. 
 
 ### Input Sources
 
-As described above input for the connector operations would be:
+As described above, input for the connector operations would be:
 
 * Hard coded values
 * Values of properties set to the message flow before the connector operation is used 
@@ -97,15 +97,15 @@ As described above input for the connector operations would be:
 
 ### Inbound endpoints
 
-Inbound endpoints are used to listen or poll for messages from external systems like Kafka and NATS. These are also used to trigger events into WSO2 EI and start a message flow upon changes made to external systems (i.e., RDBMS Database). 
+Inbound endpoints are used to listen or poll for messages from external systems like Kafka and NATS. These are also used to trigger events in your integration runtime and start a message flow upon changes made to external systems (i.e., RDBMS Database). 
 
-The configurations are made using Integration Studio for inbound endpoints as well. When configuring, you need to define it as an inbound endpoint of type “custom”. The parameter “class” has the fully qualified name to the Java class implementing message pooling functionality. 
+The configurations are made using WSO2 Integration Studio for inbound endpoints as well. When configuring, you need to define it as an inbound endpoint of type “custom”. The parameter “class” has the fully qualified name to the Java class implementing message pooling functionality. 
 
-You need to download the required libraries from the connector store and import them to WSO2 EI runtime. Usually the inbound endpoint is co-hosted with the associated outbound connector. 
+You need to download the required libraries from the connector store and import them to the integration runtime. Usually, the inbound endpoint is co-hosted with the associated outbound connector. 
 
 ### Exporting to runtime
 
-Once the integration logic is done, you can export it along with the dependency connectors as a CApp. CApp is the deployable unit for WSO2 EI runtime. However, when you are using inbound endpoints, you need to place corresponding libraries in WSO2 EI runtime. 
+Once the integration logic is done, you can export it along with the dependency connectors as a CApp. CApp is the deployable unit of your integration logic. However, when you are using inbound endpoints, you need to place corresponding libraries in the integration runtime. 
 
 ## Example scenarios and operations
 
@@ -134,7 +134,7 @@ For an example, please refer to [this issue](https://github.com/wso2/micro-integ
 2. Use the following command to build the connector.
 
     ```
-       mvn clean install
+    mvn clean install
     ```
 
 3. Make the changes you need and send in a pull request.

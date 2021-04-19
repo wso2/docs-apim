@@ -1,6 +1,6 @@
 # Using HL7 Messages with File Systems
 
-The Micro Integrator of WSO2 EI allows messages to be transferred between HL7 and the file system using the HL7 
+The Micro Integrator allows messages to be transferred between HL7 and the file system using the HL7 
 and VFS transports.
 
 ## Transferring HL7 messages between file systems

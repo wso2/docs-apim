@@ -47,10 +47,10 @@ For more information, see [Manage Users]({{base_path}}/install-and-setup/setup/a
 
 See the [Micro Integrator Dashboard documentation](../../../administer-and-observe/working-with-monitoring-dashboard) to set up the dashboard. Be sure to log in to the Micro Integrator server (from the dashboard) with your admin user name and password.
 
-Select <b>Users</b> in the left-hand navigator and use the <b>Users</b> tab to view the list of existing users. You can also delete other users (non-admin users and admin users created by you). 
+Select <b>Users</b> in the left-hand navigator to view the list of existing users.
 
 <img src="../../../assets/img/monitoring-dashboard/dashboard-users-1.png" width="700">
 
-Go to the <b>Add User</b> tab to create new users. Note that you can assign admin privileges during the creation.
+Click <b>Add User</b> to create new users. Note that you can assign admin privileges during user creation.
 
 <img src="../../../assets/img/monitoring-dashboard/dashboard-users-2.png" width="700">

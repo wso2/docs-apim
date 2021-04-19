@@ -195,9 +195,3 @@ In these examples, the **Iterate** mediator splits the messages into parts and p
     </iterate>
 ```
 
-<!--
-####  Sample
-See [Sample 400: Message Splitting and Aggregating the
-Responses](https://docs.wso2.com/display/EI6xx/Sample+400%3A+Message+Splitting+and+Aggregating+the+Responses)
-for another example.
--->

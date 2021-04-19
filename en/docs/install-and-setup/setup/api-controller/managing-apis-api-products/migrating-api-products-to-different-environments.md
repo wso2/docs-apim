@@ -1,18 +1,21 @@
-# Migrating API Products (with or without dependent APIs) to Different Environments
+# Migrating API Products (with or without Dependent APIs) to Different Environments
 
-WSO2 API Controller, **apictl** allows you to maintain multiple environments running on the same WSO2 API-M version. This allows you to import and export API Products between your environments. For example, if you have an API Product running in the development environment, you can export it and import it to the production environment. Thereby, API Products do not have to be created from scratch in different environments.
+**WSO2 API Controller (apictl)** allows you to maintain multiple environments running on the same WSO2 API Manager (WSO2 API-M) version. This allows you to import and export API Products between your environments. For example, if you have an API Product running in the development environment, you can export it and import it to the production environment. Thereby, API Products do not have to be created from scratch in different environments.
 
 !!! info
     **Before you begin** 
 
-    -   Make sure WSO2 APICTL Tool is initialized and setup, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 
-    -  Make sure to add an environment before you start working with the following CTL commands, because all API Products need to be imported or exported to/from a specific environment.      
+    -  Make sure to add an environment before you start working with the following apictl commands, because all API Products need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+
+!!! tip
+    A user with `Internal/devops` role or `admin` role are allowed to import/export API Products. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ### Export an API Product
 
-1.  Log in to the API Manager in exporting the environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -20,7 +23,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     !!! info
         If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
-2.  Run any of the following CTL commands to export an API Product as a `.zip` archive.  
+2.  Run any of the following apictl commands to export an API Product as a `.zip` archive.  
 
     -   **Command**
      
@@ -71,7 +74,8 @@ The exported ZIP file has the following structure:
 
 ``` java
 <APIProductName>-version
-├── api.yaml
+├── api_product.yaml
+├── api_product_meta.yaml
 ├── deployment_environments.yaml
 ├── Client-certificates
 │   ├── Alias1.crt
@@ -111,10 +115,14 @@ The structure of an exported API Product ZIP file is explained below:
     </thead>
     <tbody>
         <tr class="odd">
-            <td><code>api.yaml</code></td>
+            <td><code>api_product.yaml</code></td>
             <td>Contains all the basic information required for an API Product to be imported to another environment.</td>
         </tr>
         <tr class="even">
+            <td><code>api_product_meta.yaml</code></td>
+            <td>The meta-information file of the source artifact (This includes the name and the version of the API Product. Since currently we do not have the version support for API Products, the version will be always 1.0.0).</td>
+        </tr>
+        <tr class="odd">
             <td><code>deployment_environments.yaml</code></td>
             <td>If the exported revision is deployed in one or more gateway environments, this file will contain the list of those deployed gateways.
             <pre><code>
@@ -209,12 +217,12 @@ data:
 
 ### Import an API Product
 
-You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API Product, you can either **create the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.
-If the API Product archive contains information about deployment environments in the deployment_environments.yaml file, 
+You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the WSO2 API-M instance in the target environment. When importing the API Product, you can either **create the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.
+If the API Product archive contains information about deployment environments in the `deployment_environments.yaml` file, 
 once the API Product is successfully created or updated, a **new revision will be created** and that revision will be deployed in the
 mentioned gateway environments. If the **deployment environments are not provided, only the working copy will be updated**.  
 
-1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
+1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -222,7 +230,7 @@ mentioned gateway environments. If the **deployment environments are not provide
     !!! info
         If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
-2.  Run any of the following CTL commands to import an API Product.
+2.  Run any of the following apictl commands to import an API Product.
 
     -   **Command**
         ``` bash
@@ -238,7 +246,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --update-api-product=<update_api_product> 
         ```
         ``` bash
-        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skip-cleanup=<skip-cleanup> --rotate-revision=<rotate-revision>
+        apictl import api-product --file <path-to-API-Product-archive> --environment <environment> --preserve-provider=<preserve_provider> --update-apis=<update_apis> --skip-cleanup=<skip-cleanup> --params <environment-params-file> --rotate-revision=<rotate-revision>
         ```
 
         !!! info
@@ -254,7 +262,8 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--import-apis` : Import depedent APIs to the environment along with the API Product. Default value is `false`.  
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
-                `--skip-cleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
+                `--params` : Define the API Manager environment params file.  
+                `--skip-cleanup` : Leave all temporary files created in the apictl during import process. Default value is `false`.  
 
         !!! example
             ```bash
@@ -275,6 +284,10 @@ mentioned gateway environments. If the **deployment environments are not provide
             ``` go
             apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true  
             ```
+            ``` go
+            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true --params dev/api_product_params.yaml  
+            ```
+
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip.`, then you need to enter `dev/LeasingAPIProduct_1.0.0.zip` as the value for `--file` or `-f` flag.
 
@@ -285,7 +298,7 @@ mentioned gateway environments. If the **deployment environments are not provide
             If you set `--update-apis` flag to true, it will make `--update-api-product` flag true as well.
 
         !!! tip
-            When using `--update-api-product` or `--update-apis` flags with `import api-product` command, the CTL tool will check if the given API Product exists in the targeted environment. If the API Product exists, it will update the existing API Product. If not, it will create a new API Product in the imported environment. 
+            When using `--update-api-product` or `--update-apis` flags with `import api-product` command, the apictl tool will check if the given API Product exists in the targeted environment. If the API Product exists, it will update the existing API Product. If not, it will create a new API Product in the imported environment. 
 
        
      -   **Response**
@@ -298,9 +311,9 @@ mentioned gateway environments. If the **deployment environments are not provide
     !!! note
         **Changes to the import command with the revision support for API Products**  
         
-        - Since APIM v4.0.0, you have to create a new revision in order to deploy both APIs and API Products in an 
+        - From WSO2 API-M 4.0.0 onwards, you have to create a new revision in order to deploy both APIs and API Products in an 
             gateway environment and **only a revision can be deployed in a gateway environment**.
-        - With the import command of the CTL, if the API Product project has specified the deployment environments, import 
+        - With the import command of the apictl, if the API Product project has specified the deployment environments, import 
             will first **update the working copy of the API Product and dependent APIs**.
         - If the number of revisions created for that API Product **does not exceed the max revision limit of 5**, a new revision
             of that API Product will be created and that revision will be deployed in the specified gateway environments.
@@ -321,18 +334,16 @@ mentioned gateway environments. If the **deployment environments are not provide
         As an example, If `--preserve-provider` is set to `true`, when importing an API Product created by user-1 in environment-1 will be preserved with user-1 as the provider when and after importing that API Product to environment-2 by user-2. If `--preserve-provider` is set to `false`, when importing that API Product created by user-1 to the environment-2, the provider will be changed (not preserved) to user-2 who is importing the API Product. (Same goes with dependent APIs as well)
 
         !!! tip
-            You must add the flag `--preserve-provider` to the CTL command and set its value to `false` if the API Product is imported to a different domain than its exported one. So it sets the provider of the imported API Product to the user who is issuing the CTL command. 
+            You must add the flag `--preserve-provider` to the apictl command and set its value to `false` if the API Product is imported to a different domain than its exported one. So it sets the provider of the imported API Product to the user who is issuing the apictl command. 
 
 !!! note
     **Configuring Environment Specific Parameters**
 
-    When the importing and exporting environments are different, before importing the API Product, you may need to update the dependent APIs with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. For each dependent API, you can specify those inside the corresponding folder of that particular API. As an example, if you have an exported API Product named LeasingAPIProduct_1.0.0.zip, you can find the dependent APIs inside APIs folder in the .zip. Assume it has a subfolder named LeasingAPI-1.0.0 (which is a dependent API), add/change the `api_params.yaml` file inside it to match with the environment.
-    
-    For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
+    When the importing and exporting environments are different, before importing the API Product, you may need to update the exported API Product with details relevant to the importing environment. For example, the subscription policies, MutualSSL certificates and deployment environments of an API Product might differ between the dev and production environments. Furthermore, when considering the dependent APIs of an API product, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between environments as well. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for API Products, see [Defining the params file for an API Product]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product).
 
-    **Add Dynamic Data to Environment Configs**
+    **Add dynamic data to environment configs**
 
-    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
+    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add dynamic data to environment configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment.
@@ -340,15 +351,15 @@ mentioned gateway environments. If the **deployment environments are not provide
 !!! tip
     **Troubleshooting**  
         
-    After importing, if the API Products or the dependent APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
+    After importing, if the API Products or the dependent APIs are not visible in the WSO2 API-M Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the API Manager 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
+    1.  Shut down the WSO2 API-M 4.0.0, backup and delete the `<API-M_4.0.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_4.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed WSO2 API-M setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart API Manager 4.0.0 server.
+    3.  Restart WSO2 API-M 4.0.0 server.
 
-### Import/Export API Products in Tenanted Environments 
+### Import/Export API Products in tenanted environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing API Products between tenanted environments.
 
 !!! warning

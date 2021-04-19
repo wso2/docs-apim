@@ -55,7 +55,7 @@ Create the artifacts:
 3. Create the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service), [endpoint]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints), [message store]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-store) and [message processor]({{base_path}}/integrate/develop/creating-artifacts/creating-a-message-processor) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure the ActiveMQ broker](../../../../setup/brokers/configure-with-ActiveMQ) and set up the JMS Sender.
+[Configure the ActiveMQ broker]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-activemq) and set up the JMS Sender.
 
 Set up the back-end service:
 

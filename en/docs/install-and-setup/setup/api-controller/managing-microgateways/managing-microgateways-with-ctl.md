@@ -1,6 +1,6 @@
 # Managing Microgateways
 
-WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager (WSO2 API-M).
+**WSO2 API Controller (apictl)** can be used as a developer CLI tool for Microgateway. It enables interacting with one or more Microgateways without having to perform the following tasks via the WSO2 API Manager (WSO2 API-M).
 
 - Deploy an API
 - View the list of deployed APIs
@@ -11,9 +11,9 @@ WSO2 API Controller (apictl) can be used as a developer CLI tool for Microgatewa
 
     -  Download the Microgateway distribution from the [github release page's](https://github.com/wso2/product-microgateway/releases) and follow the Quick Start Guide attached with the release.
 
-    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). Following the guide upto [Check the version of the CTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-ctl) will be sufficient to continue. 
+    -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). Following the guide upto [Check the version of the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#check-the-version-of-the-apictl) will be sufficient to continue. 
 
-    -  Remember to add the cert of Microgateway into `/home/<your-pc-username>/.wso2apictl/certs` to communicate via https (to avoid having to use insecure mode with -k or --insecure). Click [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#import-ssl-certificates-for-secure-http-communication-with-api-manager) for more information.
+    -  Remember to add the cert of Microgateway into `/home/<your-pc-username>/.wso2apictl/certs` to communicate via https (to avoid having to use insecure mode with -k or --insecure). Click [here]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#import-ssl-certificates-for-secure-http-communication-with-wso2-api-m) for more information.
 
 
 ## Add a Microgateway Environment
