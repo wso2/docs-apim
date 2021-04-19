@@ -1,0 +1,7 @@
+[transport.blocking.udp]
+
+listener.enable = false
+listener.parameter.customParameter = ""
+
+sender.enable = false        
+sender.parameter.customParameter = ""

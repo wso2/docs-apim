@@ -14,7 +14,7 @@ deployment, which has all the API-M components in one instance, would be simple 
 
 In this setup, API traffic is served by one all-in-one instance of WSO2 API Manager.
 
-[![A single all-in-one instance]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment"></a>
 
 | Pros                                                                                                               | Cons                                                                                             |
 |--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -33,7 +33,7 @@ In this setup, API traffic is served by one all-in-one instance of WSO2 API Mana
 
 In this setup, API traffic is served by two single node (all-in-one) instances of WSO2 API Manager.
 
-[![Active active deployment]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active apim deployment"></a>
 
 | Pros                                                                                                    | Cons                                                                        |
 |---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|

@@ -33,3 +33,11 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 !!! Note
 
     - To configure databases for Analytics, see [Configuring Datasources for Analytics](https://docs.wso2.com/display/SP440/Configuring+Datasources)
+
+!!! Note
+
+    - To enable the default H2 database, add the below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
+          ```toml
+          [database_configuration]
+          enable_h2_console = true
+          ```

@@ -39,7 +39,7 @@ Follow the instructions below to set up an Oracle database.
 !!! info
     If you get a `"timezone region not found"` error when using the `ojdbc6.jar` file with WSO2 servers, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"        `
 
-    The value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `wso2server.sh` as a new `JAVA_OPT` property.
+    The value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `api-manager.sh` as a new `JAVA_OPT` property.
 
 ### Executing db scripts to create tables on Oracle database
 
@@ -60,7 +60,18 @@ Follow the instructions below to set up an Oracle database.
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/oracle-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to Oracle, then you need to have seperate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
+
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 ## Changing the database to Oracle
 
@@ -101,8 +112,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@localhost:1521/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     
@@ -146,8 +157,8 @@ Follow the instructions below to change the type of the default datasource.
     [database.shared_db]
     type = "oracle"
     url = "jdbc:oracle:thin:@localhost:1521/shared_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
     validationQuery = "SELECT 1 FROM DUAL"
     pool_options.maxActive = 100

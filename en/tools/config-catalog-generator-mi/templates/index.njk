@@ -1,0 +1,33 @@
+# Integration Server Configs
+
+All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+
+The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup]({{base_path}}/setup/install_and_setup_overview) for details on applying product configurations to your Micro Integrator deployment.
+
+## Instructions for use
+
+To update the product configurations:
+
+1. Open the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+2. Select the required configuration headers and parameters from the list given below and apply them to the `deployment.toml` file.
+
+The **default** `deployment.toml` file of the Micro Integrator is as follows:
+
+```toml
+[server]
+hostname = "localhost"
+
+[keystore.primary]
+file_name = "wso2carbon.jks"
+password = "wso2carbon"
+alias = "wso2carbon"
+key_password = "wso2carbon"
+
+[truststore]
+file_name = "client-truststore.jks"
+password = "wso2carbon"
+alias = "symmetric.key.value"
+algorithm = "AES"
+```
+
+{% include "../templates/_configs.njk" %}

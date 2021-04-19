@@ -5,19 +5,19 @@ WSO2 introduces the [WSO2 Update Manager (WUM)](http://wso2.com/update/) , which
 ##WSO2 in-place updates
 The WSO2 in-place updates tool allows you to update your currently used product by fetching updates from the server and merging all configurations and files. The tool also gives backup and restore capability.
 
-For more information, see [Using WSO2 In-Place Updates](https://docs.wso2.com/display/updates/Using+WSO2+In-Place+Updates)
+For more information, see [Using WSO2 In-Place Updates](https://docs.wso2.com/display/updates100/Using+WSO2+In-Place+Updates)
 
 
 ##WSO2 update manager (WUM)
 You should manually merge the updated configuration files or use a tool like Puppet. You should store backups with the custom configurations in your system, in case you have to restore later.
 
-For more information, see [Using WSO2 Update Manager](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager)
+For more information, see [Using WSO2 Update Manager](https://docs.wso2.com/display/updates100/Using+WSO2+Update+Manager)
 
 !!! warning
 
     **Persisting Index data**
 
-    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. Refer [Add New Search Keyword]({{base_path}}/learn/design-api/api-documentation/search-documentation/add-new-search-keyword) for more information.
+    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. For maore information, see [Add New Search Keyword]({{base_path}}/design/api-documentation/search-documentation/add-new-search-keyword).
     
     !!! tip
         Before you discard the old API Manager instance,

@@ -6,7 +6,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 ## Step 1 - Configure WSO2 IS
 
-1. Download and install the [latest WSO2 Identity Server](https://wso2.com/identity-and-access-management/#).
+1. Download and install the [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/previous-releases/).
      
      If you downloaded the archive, extract it.
    `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
@@ -78,20 +78,20 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.17.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.0.15`
+     - `wso2is.key.manager.core-1.0.17`
 
-     - `wso2is.notification.event.handlers_1.0.15`
+     - `wso2is.notification.event.handlers_1.0.17
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 6. Start WSO2 Identity Server with a port offset.
    portOffset is required only if you are running both API-m and ID in the same JVM.
 
-      `sh wso2server.sh --DportOffset=1`
+      `sh wso2server.sh -DportOffset=1`
 
 ## Step 2 - Configure WSO2 API Manager
 

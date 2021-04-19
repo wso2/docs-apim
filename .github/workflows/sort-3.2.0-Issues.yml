@@ -1,0 +1,23 @@
+on:
+  issues:
+    types: [labeled]
+jobs:
+  Move_Labeled_Issue_On_Project_Board:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Analytics" 
+    - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
+      with:
+        project-url: "https://github.com/wso2/docs-apim/projects/2"
+        column-name: "Analytics"
+        label-name: |
+                    "API-M-3.2.0"
+                    "component/learn-analytics"
+    - name: "Migration" 
+    - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
+      with:
+        project-url: "https://github.com/wso2/docs-apim/projects/2"
+        column-name: "Migration"
+        label-name: |
+                    "API-M-3.2.0"
+                    "component/migration"

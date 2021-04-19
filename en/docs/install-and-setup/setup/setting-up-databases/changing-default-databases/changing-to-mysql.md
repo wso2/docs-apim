@@ -65,22 +65,32 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  Provide authorization to the user that you use to access the databases. 
 
-     For example, let's consider `apimadmin` as the user.
+     For example, let's consider `apimadmin` and `sharedadmin` as the users.
 
     ``` java
-    mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    mysql> GRANT ALL ON apim_db.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    ```
+    ``` java
+    mysql> GRANT ALL ON shared_db.* TO sharedadmin@localhost IDENTIFIED BY "sharedadmin";
     ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, use the following commands to create the user and the grant authorization:
+        If you are using MySQL version - 8.0.x, use the following commands to create the users and the grant authorization:
 
         ``` java
         mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
         ```
 
         ``` java
-        mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        mysql> GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
         ```
+    ``` java
+        mysql> CREATE USER 'sharedadmin'@'localhost' IDENTIFIED BY 'sharedadmin';
+        ```
+
+        ``` java
+        mysql> GRANT ALL ON shared_db.* TO 'sharedadmin'@'localhost';
+        ```        
 
 1.  After you have finalized the permissions, reload all the privileges.
 
@@ -116,7 +126,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
-    $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    $ mysql -u sharedadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
@@ -126,7 +136,18 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MySQL, then you need to have separate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
+
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 !!! note
     Additional notes
@@ -372,8 +393,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
 
     [database.apim_db]
     type = "mysql"
@@ -421,8 +442,8 @@ Follow the  instructions below to change the type of the default datasources.
     [database.shared_db]
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000

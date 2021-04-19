@@ -133,7 +133,7 @@ Given below is a sample configuration for the external read/write user store in 
 !!! note
     When working with Active Directory;
 
-    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](./../../configuring-the-authorization-manager/) for more information.
+    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configuring-the-authorization-manager) for more information.
 
         ``` xml
         <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">

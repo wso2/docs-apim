@@ -1,0 +1,6 @@
+[transport.ws]
+
+sender.enable = false
+sender.outflow_dispatch_sequence = "outflowDispatchSeq"
+sender.outflow_dispatch_fault_sequence = "outflowFaultSeq"      
+sender.parameter.customParameter = ""

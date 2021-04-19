@@ -1,0 +1,7 @@
+[management_api.jwt_token_security_handler]
+enable = true
+token_store_config.max_size= "200"
+token_store_config.clean_up_interval= "600"
+token_store_config.remove_oldest_token_on_overflow= "true"
+token_config.expiry= "3600"
+token_config.size= "2048"

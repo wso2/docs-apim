@@ -66,18 +66,28 @@ $ pip install mssql-cli
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U regadmin -P regadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
+    $ mssql-cli -U sharedadmin -P sharedadmin -d shared_db -i <API-M_HOME>/dbscripts/mssql.sql;
     ```
 
 1.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
 
     ```sh
-    $ mssql-cli -U regadmin -P regadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
+    $ mssql-cli -U sharedadmin -P sharedadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mssql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MSSQL, then you need to have seperate databases for each API-M Traffic Manager node.
+    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+    
+!!! warning "Troubleshooting"
+    If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
 
+    ```
+    ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
+    ```
+
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+
+     2. Restart the server.
 
 ## Changing the database to MSSQL
 
@@ -121,8 +131,8 @@ Follow the steps below to change the type of the default datasource.
     [database.shared_db]
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
 
@@ -169,8 +179,8 @@ Follow the steps below to change the type of the default datasource.
     [database.shared_db]
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "sharedadmin"
+    password = "sharedadmin"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
     pool_options.maxActive = 100

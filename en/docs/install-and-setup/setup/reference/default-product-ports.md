@@ -60,22 +60,18 @@ Certain ports are randomly opened during server startup. This is due to the spec
 ### WSO2 API Manager ports
 
 -   5672 - Used by the internal Message Broker.
--   7611 - Authenticate data published when Thrift data publisher is used for throttling.
--   7612 - Publish analytics to the API Manager Analytics server.
--   7711 - Port for secure transport when Thrift data publisher is used for throttling.
--   7711 + `Port offset of the APIM Analytics Server` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
+-   7611 - TCP port to receive throttling events. Required when Thrift data publisher is used for throttling.
+-   7711 - SSL port for secure transport to receive throttling events. Required when Thrift data publisher is used for throttling.
 -   8280 - Passthrough or NIO HTTP transport
 -   8243 - Passthrough or NIO HTTPS transport
--   9611 - Publish data to the Traffic Manager. Required when binary data publisher for throttling.
--   9711 - Authenticate data published to the Traffic Manager. Required when binary data publisher for throttling.
--   10397 - Thrift client and server ports.
+-   9611 - TCP port to receive throttling events. Required when Binary data publisher is used for throttling.
+-   9711 - SSL port for secure transport to receive throttling events. Required when Binary data publisher is used for throttling.
 -   9099 - Web Socket ports.
--   1886 - Default MQTT port.
 
 ### WSO2 API Manager Analytics ports
 
--   7712 - Thrift SSL port for secure transport, where the client(gateway) is authenticated to use WSO2 API-M Analytics.
--   7612 - Thrift TCP port where WSO2 API-M Analytics receives events from clients(gateways).
+-   7612 - TCP port to receive analytics events. Thrift data publisher is used.
+-   7712 - SSL port for secure transport to receive analytics events. Thrift data publisher is used.
 -   7444 - The default port for the Siddhi Store REST API.
 -   9444 - MSF4J HTTPS Port used to upload analytics data from WSO2 API Microgateway.
 -   9643 - Default port for the Analytics Dashboard Portal. 

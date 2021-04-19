@@ -137,7 +137,7 @@ Transport Level Security</a>.</p>
 </tr>
 <tr class="odd">
 <td><p>Increase Ephemeral Diffie-Hellman Key size</p></td>
-<td><p>Before starting the server, open the product startup script (<code>wso2server.sh</code> in Linux and <code>wso2server.bat</code> in Windows) and enter the following with the other Java properties:</p>
+<td><p>Before starting the server, open the product startup script (<code>api-manager.sh</code> in Linux and <code>api-manager.bat</code> in Windows) and enter the following with the other Java properties:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>-Djdk.tls.ephemeralDHKeySize=2048 \</code></pre>
@@ -148,7 +148,7 @@ Transport Level Security</a>.</p>
 <td><p>Disable client-initiated renegotiation</p>
 <p><br />
 </p></td>
-<td><p>Before starting the server, open the product startup script (<code>wso2server.sh</code> in Linux and <code>wso2server.bat</code> in Windows) and enter the following with the other Java properties:</p>
+<td><p>Before starting the server, open the product startup script (<code>api-manager.sh</code> in Linux and <code>api-manager.bat</code> in Windows) and enter the following with the other Java properties:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>-Djdk.tls.rejectClientInitiatedRenegotiation=true \</code></pre>
@@ -160,7 +160,7 @@ Transport Level Security</a>.</p>
 <p><br />
 </p></td>
 <td><p>If your product is using Carbon Kernel 4.4.17 or a later version (which implies API-M 2.2.0 and newer), make 
-sure that hostname verification is enabled in the product startup script (<code>wso2server.sh</code> in Linux and <code>wso2server.bat</code> in Windows) with the <strong>Strict</strong> mode. If it is not, you need to enable it as below:</p>
+sure that hostname verification is enabled in the product startup script (<code>api-manager.sh</code> in Linux and <code>api-manager.bat</code> in Windows) with the <strong>Strict</strong> mode. If it is not, you need to enable it as below:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>-Dhttpclient.hostnameVerifier=Strict \</code></pre>
@@ -236,6 +236,14 @@ been removed from Hotspot JVM.</p>
 <p><br />
 </p></td>
 <td><p>In a WSO2 API-M deployment, WSO2 recommends that you restrict outbound connections of the Publisher node and only allow access to the required internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
+</td>
+</tr>
+<tr class="odd">
+<td><p>Use a seperate admin user account to login into the system</p>
+<p><br />
+</p></td>
+<td><p>WSO2 recommends that you use two seperate admin user accounts in production, one account for logging into the system and the other one as the system user in configurations (for internal service communications).</p>
+<p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">Super admin configurations</a>.</p>
 </td>
 </tr>
 </tbody>

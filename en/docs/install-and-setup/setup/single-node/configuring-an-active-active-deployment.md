@@ -2,7 +2,7 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each has all the components of the API-M together in one instance (all-in-one instance).
 
-[![Active active deployment]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active apim deployment"></a>
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
@@ -99,8 +99,16 @@ To enable synchronization for runtime artifacts of the two all in one WSO2 API-M
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
 system such as Network File System (NFS) or any other shared file system that is available. 
 
-You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, 
-in order to share all APIs and throttling policies between all the nodes.
+You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
+
+1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
+2.  `<APIM_HOME>/repository/deployment/server/executionplans` - Includes siddhi queries related to event processing logic.
+3.  `<APIM_HOME>/repository/deployment/server/synapse-configs` - Includes API gateway configuration files.
+4.  `<APIM_HOME>/repository/tenants` - If tenancy is been used.
+
+??? note "NFS configuration"
+    For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
+    Note that these configurations may change depending on the OS.
 
 ??? info "If you are unable to maintain a shared file system"
 
@@ -258,8 +266,8 @@ enabled = true
 If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
 configure API-M Analytics. If not, you can **skip this step**.
 
-Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
-[Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
+Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
+[Configuring API-M Analytics - Standard Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) 
 to configure API-M Analytics in a production setup.
 
 ## Step 11 - Configure Production Hardening
@@ -278,12 +286,12 @@ Start the WSO2 API-M servers using the standard start-up script. For more inform
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/
-sh wso2server.sh
+sh api-manager.sh
 ```
 
 ```tab="Windows"
 cd <API-M_HOME>\bin\
-wso2server.bat --run 
+api-manager.bat --run 
 ```
 
 !!! info

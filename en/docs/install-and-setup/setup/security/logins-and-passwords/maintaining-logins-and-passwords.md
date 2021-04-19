@@ -24,7 +24,7 @@ Follow the instructions below to change the default admin password:
         For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:    
 
     -   The above credentials are applied to the `jndi.properties` file.
-        -   **It is not possible to use the `@` symbol in the username or password**.
+        -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
         -   **It is also not possible to use the percentage (%) sign in the password**. When building the connection URL, the URL with credentials is parsed.
         This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in`.
         For a list of possible URL parsing patterns, see [URL encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp).
@@ -42,6 +42,17 @@ Follow the instructions below to change the default admin password:
     password = "your-encoded-password"        
     ```
 
+    ??? info "sample deployment.toml configs"
+        ```
+        [super_admin]
+        username = "foo_admin"
+        password = "<![CDATA[~^&*#`43d:3;]]>"
+        
+        [apim.throttling.jms]
+        username = "foo_admin"
+        password = "~%5E%26*%23%6043d%3A3%3B"
+        ```
+            
 !!! note
 
     Note that the above password is written to the primary user store when the server starts for the first time.
@@ -81,6 +92,24 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     [apim.throttling.jms]
     username="admin!wso2.com!carbon.super"
     password = "$ref{super_admin.password}"
+    ```
+3.  Optionally, follow the instructions below if you have enabled regular expression to validate usernames in the step 1.
+ 
+    You need to manually create a default user with a valid email username instead of the default `apim_reserved_user` user for each tenant.
+
+    This user is an internal user created to handle cross tenant subscription validations. 
+    Therefore, if you have enabled cross tenant subscription validation feature you need to configure the above created username in the 
+    deployment.toml for the `default_reserved_username` field, instead of the `apim_reserved_user` default user as shown below.
+
+    ``` toml
+    [user_store]
+    type = "database_unique_id"
+    username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}'
+    username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'
+        
+    [apim.devportal]  
+    enable_cross_tenant_subscriptions = true
+    default_reserved_username = "apim_reserved_user"
     ```
 
     <html>
@@ -144,13 +173,13 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     type = "database_unique_id"
     username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
     username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+    
+    [apim.devportal]  
+    enable_cross_tenant_subscriptions = true
+    default_reserved_username = "default@wso2.com"
     ```   
 
 ## Developer Portal
-
-### Sign in via multiple user attributes
-
-For instructions under [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation to set up the sign-in process via multiple user attributes in API Manager.
 
 ### Setup a social media login
 

@@ -113,7 +113,7 @@ Start the Gateway Manager and then the Gateway Worker nodes
     Start the Gateway Manager by typing the following command in the command prompt.
     
     ``` java
-        sh <API-M_GATEWAY_MANAGER_HOME>/bin/wso2server.sh
+        sh <API-M_GATEWAY_MANAGER_HOME>/bin/api-manager.sh
     ```
     
     #### Step 5.2 - Start the Gateway Worker
@@ -123,7 +123,7 @@ Start the Gateway Manager and then the Gateway Worker nodes
     Start the Gateway Worker by typing the following command in the command prompt.
     
     ``` java
-        sh <GATEWAY_WORKER_HOME>/bin/wso2server.sh -Dprofile=gateway-worker
+        sh <GATEWAY_WORKER_HOME>/bin/api-manager.sh -Dprofile=gateway-worker
     ```
     
     The additional `-Dprofile=gateway-worker` argument indicates that this is a worker node specific to the Gateway. You need to use this parameter to make a server read-only. Changes (i.e., writing or making modifications to the deployment repository, etc.) can not be made in the Gateway worker nodes. Furthermore, starting a node as a Gateway worker ensures that the Developer Portal and Publisher related functions are disabled in the respective node. This parameter also ensures that the node starts in the worker profile, where the UI bundles are not activated and only the backend bundles are activated when the server starts up. For more information on the various product profiles available in WSO2 API Manager, see [API Manager product profiles](../product-profiles/) .
