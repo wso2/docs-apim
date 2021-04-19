@@ -1,6 +1,6 @@
 # Upgrading API Manager from 2.0.0 to 4.0.0
 
-The following information describes how to upgrade your API Manager server **from API-M 2.0.0 to API-M 4.0.0**.
+The following information describes how to upgrade your API Manager server **from APIM 2.0.0 to 4.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
@@ -14,7 +14,7 @@ The following information describes how to upgrade your API Manager server **fro
     ALTER USER <user> WITH SUPERUSER;
     ```
 !!! note "If you are using Oracle"
-    Commit the changes after running the scripts given below.
+    Please commit the changes after running the scripts given below.
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 4.0.0**.
 
@@ -3453,11 +3453,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5. Update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
     
-         ```
-             [user_store]
-             type = "database"
-         ```   
-
+           ```
+           [user_store]
+           type = "database"
+           ```
+             
     6.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
         !!! note

@@ -1499,11 +1499,10 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
                 This step is only required if the user store type in previous version is set to "database" instead of default "database_unique_id".
         
-       ```
-        [user_store]
-        type = "database"
-        ```
-    
+           ```
+           [user_store]
+           type = "database"
+           ```
     6.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
         !!! note
@@ -1673,4 +1672,6 @@ This concludes the upgrade process.
    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+     
+   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)    
     
