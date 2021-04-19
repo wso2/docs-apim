@@ -15,7 +15,7 @@ To publish analytics data to analytics cloud, you need to follow below steps.
     ```toml
     [apim.analytics]
     enable = true
-    config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+    config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
     auth_token = “<use token that you generate>”
     ```
 
@@ -45,7 +45,7 @@ This property denotes the number of threads that are publishing analytics data i
 ```toml
 [apim.analytics]
 enable = true
-config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
 auth_token = “<use token that you generate>”
 properties.'worker.thread.count' = 2
 ```    
@@ -60,7 +60,7 @@ This property denotes the number of analytics events Gateway keeps in-memory and
 ```toml
 [apim.analytics]
 enable = true
-config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
 auth_token = “<use token that you generate>”
 properties.'queue.size' = 10000
 ```
@@ -75,7 +75,7 @@ This property denotes the guaranteed frequency analytics events will be publishe
 ```toml
 [apim.analytics]
 enable = true
-config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
 auth_token = “<use token that you generate>”
 properties.'client.flushing.delay' = 15000
 ```
