@@ -64,7 +64,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 #### Key changes
 
-- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer to [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions on how to start the server.
+- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
 
 ---
 
