@@ -1374,6 +1374,11 @@ nav:
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
                         - Managing Log Growth: install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md
                         - Masking Sensitive Information in Logs : install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md
+                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Load Balancer and Proxy Server:
+                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
+                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
@@ -1396,30 +1401,19 @@ nav:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploying the API-M Runtime:
                 - All-In-One Deployment:
-                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                    - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                    - All-in-One Deployment - Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                    - Configuring a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Configuring an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                    - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                    - Distributed Deployment - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
+                - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                - Deploy on a Virtual Machine:
-                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
-                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
-                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
-                - Deployment Best Practices:
-                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
-                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
-                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
-                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
-                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
-                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
                 - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
@@ -1428,11 +1422,11 @@ nav:
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Deployment Best Practices:
+                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - CI/CD:
@@ -1440,11 +1434,6 @@ nav:
                     - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
                     - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
                     - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
-        - Reference:
-            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
-            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
@@ -1486,7 +1475,7 @@ nav:
               - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
               - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
               - Manage APIs:
-                  - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
               - Manage Integrations:
                 - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                 - Integration Deployment Samples:
@@ -1520,7 +1509,12 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md      
+                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md 
+        - Reference:
+            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
