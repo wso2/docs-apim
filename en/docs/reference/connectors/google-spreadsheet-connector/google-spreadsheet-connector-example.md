@@ -1,6 +1,6 @@
 # Google Spreadsheet Connector Example
 
-The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the Google Spreadsheet [API Version v4](https://developers.google.com/sheets/api/guides/concepts) through WSO2 EI. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection. It has the ability to do spreadsheet operations and spreadsheet data operations. 
+The Google Sheets API lets users to read and modify any aspect of a spreadsheet. The WSO2 Google Spreadsheet Connector allows you to access the Google Spreadsheet [API Version v4](https://developers.google.com/sheets/api/guides/concepts) from an integration sequence. It allows users to read/write any aspect of the spreadsheet via the spreadsheets collection. It has the ability to do spreadsheet operations and spreadsheet data operations. 
 
 ## What you'll build
 
@@ -8,7 +8,7 @@ This example explains how to use Google Spreadsheet Connector to create a Google
 
 It will have three HTTP API resources, which are `insert`, `read` and `edit`. 
 
-* `/insert `: The user sends the request payload, which includes the name of the spreadsheet, the sheet names, and what data should be inserted to which sheet and which range of cells.  This request is sent to WSO2 EI by invoking the Spreadsheet API. It creates a spreadsheet with specified data in the specified cell range. 
+* `/insert `: The user sends the request payload, which includes the name of the spreadsheet, the sheet names, and what data should be inserted to which sheet and which range of cells.  This request is sent to the integration runtime by invoking the Spreadsheet API. It creates a spreadsheet with specified data in the specified cell range. 
 
     <img src="{{base_path}}/assets/img/integrate/connectors/sheet-insert.png" title="Calling insert operation" width="800" alt="Calling insert operation"/> 
 
@@ -232,7 +232,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 

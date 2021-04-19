@@ -12,7 +12,7 @@ In order to save streaming data with errors in a MySQL store, complete the follo
    
 - Start the SI server by navigating to the `<SI_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
 
-    - For Windows: `streaming-integrator.bat`
+    - For Windows: `server.bat --run`
     - For Linux:  `sh server.sh`
 
   The following log appears in the Streaming Integrator console once you have successfully started the server.
@@ -88,9 +88,9 @@ To create and deploy a Siddhi application, follow the steps below:
 
 1. Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
 
-    - For Windows: `streaming-integrator-tooling.bat`
+    - For Windows: `tooling.bat`
 
-    - For Linux: `./streaming-integrator-tooling.sh`
+    - For Linux: `./tooling.sh`
     
     Then access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
     
@@ -217,9 +217,9 @@ To connect the Error Store Explorer to the SI server, follow the procedure below
 
 1. Start the Streaming Integrator Tooling server by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
                                                  
-     - For Windows: `streaming-integrator-tooling.bat`
+     - For Windows: `tooling.bat`
     
-     - For Linux: `./streaming-integrator-tooling.sh`
+     - For Linux: `./tooling.sh`
      
     Then Access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
        

@@ -117,7 +117,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
      For more information, see [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
     !!! tip
-        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 2. Export the latest revision of the API from the lower environment using the `export api` command.
 
@@ -173,26 +173,34 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
     !!! example
         ```bash
         environments: 
-          - name: dev 
-            configs:
-              endpoints: 
-                production: 
-                  url: 'http://dev.wso2.com' 
-                sandbox:
-                  url: 'http://dev.sandbox.wso2.com' 
-              deploymentEnvironments:
-                - deploymentEnvironment: Production and Sandbox
-                - deploymentEnvironment: Label1
-          - name: prod
-            configs:
-              endpoints:
-                production:
-                  url: 'http://prod.wso2.com'
-                sandbox:
-                  url: 'http://prod.sandbox.wso2.com'
-              deploymentEnvironments:
-                - deploymentEnvironment: FoodGateway
-                - deploymentEnvironment: Label3
+            - name: dev 
+                configs:
+                    endpoints: 
+                        production: 
+                            url: 'http://dev.wso2.com' 
+                        sandbox:
+                            url: 'http://dev.sandbox.wso2.com' 
+                    deploymentEnvironments:
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Default
+                          deploymentVhost : localhost
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label1
+                          deploymentVhost : us.wso2.com 
+            - name: prod
+                configs:
+                    endpoints:
+                        production:
+                            url: 'http://prod.wso2.com'
+                        sandbox:
+                            url: 'http://prod.sandbox.wso2.com'
+                    deploymentEnvironments:
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label2
+                          deploymentVhost : localhost
+                        - displayOnDevportal: true
+                          deploymentEnvironment: Label3
+                          deploymentVhost : us.wso2.com 
         ```  
 
      [![]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)        
@@ -372,10 +380,10 @@ You can use the following alternative approach to promote a single API via CI/CD
 <a name="G"></a>
 ### (G.) - Get keys for an API/API Product
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl:
 
 !!! tip
-    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
+    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
     - You should log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
 Run any of the following apictl commands to get keys for the API/API Product.
@@ -424,7 +432,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
 ### (H.) - Extending a CI/CD pipeline to support API Products
 
-For example, let us consider there is an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
+For example, let us consider there is an [API Product]({{base_path}}/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
 1.  Export the API Product using `export api-product` command from the development environment (dev).
 

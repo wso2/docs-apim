@@ -1,6 +1,6 @@
 # AmazonSQS Connector Example
 
-The WSO2 Amazon SQS connector allows you to access the exposed Amazon SQS API through the WSO2 EI.
+The WSO2 Amazon SQS connector allows you to access the exposed Amazon SQS API from an integration sequence.
 
 ## What you'll build
 
@@ -8,7 +8,7 @@ This example explains how to use Amazon SQS Connector to create a queue in the A
 
 It has a single HTTP API resource, which is `sendToQueue`. 
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/amazonsqs-connector.png" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazonsqs-connector.png" title="AmazonSQS-Connector" width="800" alt="AmazonSQS-Connector"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -16,17 +16,18 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 1. Please follow the steps mentioned in the [Setting up the Amazon S3 Environment ]({{base_path}}/reference/connectors/amazonsqs-connector/amazonsqs-connector-config) document in order to create a Amazon account and obtain access key id and secret access key. Keep them saved to be used in the next steps.  
 
-2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the WSO2 EI service. 
+2. In this example we will be using XPath 2.0 which needs to be enabled in the product as shown below before starting the integration service. 
 
-    If you are using EI7, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport).
+    If you are using the Micro Integrator of **EI 7** or **APIM 4.0.0**, you need to enable this property by adding the following to the PRODUCT-HOME/conf/deployment.toml file. You can further refer to the [Product Configurations]({{base_path}}/reference/config-catalog/#http-transport).
+    
       ```
         [mediation]
         synapse.enable_xpath_dom_failover="true"
       ```
 
-    If you are using EI 6, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
+    If you are using **EI 6**, you can enable this property by uncommenting **synapse.xpath.dom.failover.enabled=true** property in PRODUCT-HOME/conf/synapse.properties file. 
 
-3. In this example we use SimpleStockQuote Service backend. Therefore SimpleStockQuote service needs to be started. 
+3. In this example we use the SimpleStockQuote service backend. Therefore, the SimpleStockQuote service needs to be started. 
 
 ## Configure the connector in WSO2 Integration Studio
 
@@ -172,7 +173,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 
@@ -189,27 +190,30 @@ Follow these steps to deploy the exported CApp in the Enterprise Integrator Runt
     ```
     curl -H "Content-Type: application/json" --request POST --data @body.json http://localhost:8290/sqs/sendToQueue
     ```
+
 **Expected Response**: 
+
 You should get the following response with the 'sys_id' and keep it saved. 
+
 ```
-    <ns:getQuoteResponse xmlns:ns="http://services.samples">
-      <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
-          <ax21:change>4.233604086603518</ax21:change>
-          <ax21:earnings>-8.707965767387106</ax21:earnings>
-          <ax21:high>-150.5908765590026</ax21:high>
-          <ax21:last>153.98353327622493</ax21:last>
-          <ax21:lastTradeTimestamp>Wed Apr 08 10:38:56 IST 2020</ax21:lastTradeTimestamp>
-          <ax21:low>158.9975778178183</ax21:low>
-          <ax21:marketCap>-565228.6001002677</ax21:marketCap>
-          <ax21:name>WSO2 Company</ax21:name>
-          <ax21:open>-151.38099715271312</ax21:open>
-          <ax21:peRatio>23.761940918708092</ax21:peRatio>
-          <ax21:percentageChange>-2.8310759126772127</ax21:percentageChange>
-          <ax21:prevClose>-149.5404650806414</ax21:prevClose>
-          <ax21:symbol>WSO2</ax21:symbol>
-          <ax21:volume>9834</ax21:volume>
-      </ns:return>
-  </ns:getQuoteResponse>
+<ns:getQuoteResponse xmlns:ns="http://services.samples">
+    <ns:return xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:GetQuoteResponse">
+        <ax21:change>4.233604086603518</ax21:change>
+        <ax21:earnings>-8.707965767387106</ax21:earnings>
+        <ax21:high>-150.5908765590026</ax21:high>
+        <ax21:last>153.98353327622493</ax21:last>
+        <ax21:lastTradeTimestamp>Wed Apr 08 10:38:56 IST 2020</ax21:lastTradeTimestamp>
+        <ax21:low>158.9975778178183</ax21:low>
+        <ax21:marketCap>-565228.6001002677</ax21:marketCap>
+        <ax21:name>WSO2 Company</ax21:name>
+        <ax21:open>-151.38099715271312</ax21:open>
+        <ax21:peRatio>23.761940918708092</ax21:peRatio>
+        <ax21:percentageChange>-2.8310759126772127</ax21:percentageChange>
+        <ax21:prevClose>-149.5404650806414</ax21:prevClose>
+        <ax21:symbol>WSO2</ax21:symbol>
+        <ax21:volume>9834</ax21:volume>
+    </ns:return>
+</ns:getQuoteResponse>
 ```
 
 ## What's Next

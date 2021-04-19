@@ -39,7 +39,7 @@ This application demonstrates how to use the Kafka transport in Siddhi to receiv
         ```
         8. Start the server using following command .
         ```bash
-        sh streaming-integrator-tooling.sh
+        sh tooling.sh
         ```
 2. Save this sample.
 

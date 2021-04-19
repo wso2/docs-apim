@@ -2,7 +2,7 @@
 
 ServiceNow is an application platform as a service, which is a cloud-based computing model that provides the infrastructure needed to develop, run, and manage applications. It offers activities of an organization such as data collection, storage, workflow automation, and reporting through a single user interface. This software as a service (SaaS) platform contains a number of modular applications that can vary by instance and user. It focuses on service-orientation toward the tasks, activities, and processes.
 
-The WSO2 ServiceNow connector allows you to access the ServiceNow REST API through WSO2 EI. Using ServiceNow connector you can work with Aggregate API, Import Set API and Table API in ServiceNow. You can further read about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).
+The WSO2 ServiceNow connector allows you to access the ServiceNow REST API from an integration sequence. Using ServiceNow connector you can work with Aggregate API, Import Set API and Table API in ServiceNow. You can further read about ServiceNow REST APIs from [here](https://developer.servicenow.com/dev.do#!/reference/api/orlando/rest/c_TableAPI).
 
 To see the available ServiceNow connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "ServiceNow".
 
@@ -10,9 +10,9 @@ To see the available ServiceNow connector, navigate to the [connector store](htt
 
 ## Compatibility
 
-| Connector version | Supported WSO2 EI version |
+| Connector version | Supported product versions |
 | ------------- |------------- |
-|  1.0.2        |  EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+|  1.0.2        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 

@@ -1,6 +1,6 @@
 # Gmail Connector Example
 
-The Gmail Connector allows you to access the [Gmail REST API](https://developers.google.com/gmail/api/v1/reference) through WSO2 EI. 
+The Gmail Connector allows you to access the [Gmail REST API](https://developers.google.com/gmail/api/v1/reference) from an integration sequence. 
 
 ## What you'll build
 
@@ -103,7 +103,7 @@ You can download the ZIP file and extract the contents to get the project code.
     You may need to update the value of the access token and make other such changes before deploying and running this project.
 
 ## Deployment
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime.<br>
+Follow these steps to deploy the exported CApp in the integration runtime.<br>
 
 {!reference/connectors/deploy-capp.md!}
 

@@ -16,17 +16,17 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 1.  Download [WSO2 Identity Server](http://wso2.com/products/identity-server/) and extract it.
 
-2.  [Run the server](https://is.docs.wso2.com/en/next/setup/running-the-product/) by executing `/bin/wso2server.sh` if on a Unix-based systems, or `/bin/wso2server.bat` if on Windows.
+2.  [Run the server](https://is.docs.wso2.com/en/next/setup/running-the-product/) by executing `/bin/api-manager.sh` if on a Unix-based systems, or `/bin/api-manager.bat` if on Windows.
 
 3.  On the [management console](https://is.docs.wso2.com/en/next/setup/running-the-product/#accessing-the-management-console), click **Add** under **Service Providers** in the **Main** menu.
 
 4.  Enter `publisher` as the **Service Provider Name** in the form that appears and click **Register**.
 
-    ![Add new service provider](../../../assets/img/learn/add-new-service-provider.png)
+    ![Add new service provider]({{base_path}}/assets/img/learn/add-new-service-provider.png)
 
 5.  In the page that appears next, expand the **Inbound Authentication Configuration** section and the **SAML2 Web SSO Configuration** section. Click **Configure** . The **Register New Service Provider** page appears.
 
-    ![Configure saml sso](../../../assets/img/learn/configure-saml-sso.png)
+    ![Configure saml sso]({{base_path}}/assets/img/learn/configure-saml-sso.png)
     
     Configure the following details for publisher.
 
@@ -38,7 +38,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
     -   Select Enable Single Logout
 
-    ![Register new service provider](../../../assets/img/learn/register-new-service-provider.png)
+    ![Register new service provider]({{base_path}}/assets/img/learn/register-new-service-provider.png)
 
 6.  Repeat steps 1 to 5 and configure the following details for Developer Portal.
 
@@ -52,7 +52,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 7.  When attempting to login with SAML from WSO2 Identity Server in Publisher and Developer Portal, you can see the following default page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp          `
 
-    ![Identity Server Login Page](../../../assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](/administer/product-security/saml2-sso/configuring-identity-server-as-idp-for-sso/) .
+    ![Identity Server Login Page]({{base_path}}/assets/img/learn/identity-server-login-page.png) For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](/administer/product-security/saml2-sso/configuring-identity-server-as-idp-for-sso/) .
 
 #### Configuring the login page
 
@@ -78,7 +78,7 @@ By default it points to a location inside the Identity Server itself, thus the r
 
 The following is the structure of this web app.
 
-![Authentication Endpoint Web App Structure](../../../assets/img/learn/authentication-endpoint-webapp-structure.png)
+![Authentication Endpoint Web App Structure]({{base_path}}/assets/img/learn/authentication-endpoint-webapp-structure.png)
 
 The **authenticationendpoint** web application uses a carbon component called `org.wso2.carbon.identity.application.authentication.endpoint.util.` This bundle includes a filter called the `org.wso2.carbon.identity.application.authentication.endpoint.util.filter.AuthenticationEndpointFilter` , which acts as the Front Controller.
 
@@ -99,10 +99,12 @@ When a request comes to the default login page, you can see several parameters b
 When customizing the pages, ensure that the following is applied.
 
 1.  Form submissions should happen to the **commonauth** servlet as a POST.
-`<form id="form" name="form" action="../../commonauth" method="POST">          `
+
+    `<form id="form" name="form" action="../../commonauth" method="POST">`
 
 2.  Make sure to send back the **sessionDataKey** with the form submission, by using a hidden input field.
-`<input type="hidden" name="sessionDataKey" value="<%=request.getParameter("sessionDataKey")%>"/>          `
+
+    `<input type="hidden" name="sessionDataKey" value="<%=request.getParameter("sessionDataKey")%>"/>`
 
 ##### Using a JSP to redirect to SP relevant pages
 
@@ -132,7 +134,7 @@ When customizing the pages, ensure that the following is applied.
 
 4.  Log in to the publisher web app again. You are presented with a different page.
 
-    ![Modified login page sso](../../../assets/img/learn/modified-login-page-sso.png)
+    ![Modified login page sso]({{base_path}}/assets/img/learn/modified-login-page-sso.png)
 
 5.  Follow steps 1 to 4 to configure the custom login page to the Developer Portal web app.
 

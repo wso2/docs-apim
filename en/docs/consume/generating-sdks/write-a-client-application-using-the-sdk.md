@@ -9,7 +9,7 @@
         <p>Once the keys are generated, copy the access token. You can use this token to invoke APIs that you subscribe to using the same application.</p>
     </div>
 
-2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/learn/consume-api/generating-sdks/generate-sdks-in-dev-portal/). 
+2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/consume/generating-sdks/generate-sdks-in-dev-portal/). 
 
 ![Default SDKs in Developer Portal]({{base_path}}/assets/img/learn/default-sdks.png)
 

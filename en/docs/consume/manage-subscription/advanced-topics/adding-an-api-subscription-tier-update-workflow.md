@@ -1,6 +1,6 @@
 # Adding an API Subscription Tier Update Workflow
 
-[Subscription Tier update]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) will provide the capability to change the subscription tier of an already existing subscription. Attaching a custom workflow to the API subscription update, enables an admin to approve/reject the subscription tier change request made for an active subscription. Note that only an admin is able to approve/reject a subscription tier change request.
+[Subscription Tier update]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) will provide the capability to change the subscription tier of an already existing subscription. Attaching a custom workflow to the API subscription update, enables an admin to approve/reject the subscription tier change request made for an active subscription. Note that only an admin is able to approve/reject a subscription tier change request.
 
 When the API subscription update workflow is enabled, when the subscription tier change request is made, the subscription status is changed to the `TIER_UPDATE_PENDING` state. In this state, a consumer can still invoke the API with the same subscription (with the previous existing subscription tier), using its production or sandbox keys, until the subscription update to a new tier is approved. Once the subscription status change request is approved the subscription status is updated to the `UNBLOCKED` state.
 

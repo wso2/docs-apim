@@ -116,7 +116,7 @@ request.onload = function() {
        * Appending versions to the version selector dropdown 
        */
       if (dropdown){
-          data.list.sort().forEach(function(key, index){
+          data.list.forEach(function(key, index){
               var versionData = data.all[key];
               
               if(versionData) {

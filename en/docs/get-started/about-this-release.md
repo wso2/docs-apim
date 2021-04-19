@@ -4,17 +4,15 @@ The WSO2 API Manager is a platform for building and managing APIs. It helps deve
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 4.0.0 documentation]({{base_path}}/getting-started/overview/).
 
-## What is new in this release
-
-The **WSO2 API Manager 4.0.0-Alpha** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
 
 ---
 
-### API Manager 
+## API Manager 
 
 The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
 
-It is now available to download from [here](https://github.com/wso2/product-apim/releases/download/v4.0.0-alpha/wso2am-4.0.0-alpha.zip).
+It is now available to download from [here](https://github.com/wso2/product-apim/releases/).
 
 #### New features
 
@@ -25,7 +23,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. These revisions cannot be edited and you can even **restore** your API to a specific revision if you want to discard the latest changes.
 
 - **[Swagger/GraphqL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
-    [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
+    [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
 
 - **[Support for Forgerock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)** 
     WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to Forgerock as a third-party Key Manager.
@@ -56,9 +54,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Defaulting code and configs to do with event based
 -->
 
-#### What has changed in this release
-
-##### Removed features and functionalities
+#### Removed features and functionalities
 
 - Microgateway Labels
 
@@ -66,23 +62,19 @@ It is now available to download from [here](https://github.com/wso2/product-apim
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
-#### Fixed Issues
+#### Key changes
 
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
 
 ---
 
-### Micro Integrator
+## Micro Integrator
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems.
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to API Manager 4.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/download/v4.0.0-m8/wso2mi-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
 
 #### New features
 
@@ -107,21 +99,270 @@ It is now available to download from [here](https://github.com/wso2/micro-integr
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
     WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
 
-#### Fixed Issues
+#### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/23?closed=1).
+The Micro Integrator is the integration runtime of WSO2 API-M 4.0.0 as well WSO2 EI 7.x versions.
 
-#### Known Issues
+The **new features** introduced with the Micro Integrator of API-M 4.0.0 are listed above. In addition, note the following significant changes:
 
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/micro-integrator/issues).
+- The CLI tool of EI 7.x is replaced with the [API Controller (CLI)]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) of API-M 4.0.0.
+- The EI Kubernetes Operator of EI 7.x is merged with the [API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview) of API-M 4.0.0.
+
+
+
+#### Compare this release with previous ESBs
+
+Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 ESB runtimes. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 ESB runtime.
+
+If you are migrating from a previous ESB, this comparison will help you understand the important changes in the Micro Integrator that will impact your migration.
+
+!!! Note
+	The following comparison is applicable to the following versions of the WSO2 ESB runtime:
+	
+	-	[WSO2 ESB 5.0](https://docs.wso2.com/display/ESB500/WSO2+Enterprise+Service+Bus+Documentation)
+	-	[ESB profile of WSO2 EI 6.x.x series](https://docs.wso2.com/display/EI660/WSO2+Enterprise+Integrator+Documentation)
+
+**Feature comparison**
+
+The following table explains the availability of the most critical features in the ESB runtime and Micro Integrator runtime of API-M 4.0.0. In addition to the following list, the Micro Integrator runtime also contains [new and improved features](#micro-integrator) listed above.
+
+<table>
+	<tr>
+		<th></th>
+		<th>WSO2 ESB Runtime</th>
+		<th>Micro Integrator Runtime</th>
+	</tr>
+	<tr>
+		<td>
+			Startup Time
+		</td>
+		<td>
+			40s
+		</td>
+		<td>
+			5s
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Distribution Size
+		</td>
+		<td>
+			~600 MB
+		</td>
+		<td>
+			~150 MB
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Product configuration model
+		</td>
+		<td>
+			XML-based configurations
+		</td>
+		<td>
+			<a href="{{base_path}}/reference/config-catalog-mi">TOML-based configurations</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Mediation (ESB) Features
+		</td>
+		<td>
+			Available
+		</td>
+		<td>
+			Available
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Data Integration Features
+		</td>
+		<td>
+			Available
+		</td>
+		<td>
+			Available
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Task Coordination 
+		</td>
+		<td>
+			Hazelcast based
+		</td>
+		<td>
+			RDBMS based 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Tooling
+		</td>
+		<td>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a>
+		</td>
+		<td>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Runtime monitoring and management
+		</td>
+		<td>
+			Managemement Console
+		</td>
+		<td>
+			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
+			<a href="{{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl">API Controller (CLI)</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			CAR Deployment
+		</td>
+		<td>
+			Available
+		</td>
+		<td>
+			Available
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Registry
+		</td>
+		<td>
+			RDBMS-based Registry
+		</td>
+		<td>
+			<a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">File system based Registry</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Hot deployment
+		</td>
+		<td>
+			Available
+		</td>
+		<td>
+			Available
+		</td>
+	</tr>
+</table>
+
+**Features removed**
+
+The following features, which are available in ESB runtimes, are removed from the Micro Integrator of API-M 4.0.0 because they are not frequently used.
+
+<table>
+	<tr>
+		<th>
+			Feature
+		</th>
+		<th>
+			Description
+		</th>
+		<th>
+			Alternative
+		</th>
+	</tr>
+	<tr>
+		<td>
+			Management Console
+		</td>
+		<td>
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="{{base_path}}/administer-and-observe/working-with-monitoring-dashboard">Micro Integrator dashboard</a>.
+		</td>
+		<td>
+			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Multitenancy
+		</td>
+		<td>
+			This is not a widely used feature in the ESB profile. Multitenancy does not suit the world of microservices or micro integrations.
+		</td>
+		<td>
+			-
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Svn based Dep-sync
+		</td>
+		<td>
+			This is not a widely used feature in the ESB profile, and is not recommended for use.
+		</td>
+		<td>
+			Third-party offering like <b>rsync</b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			RDBMS-based Registry
+		</td>
+		<td>
+			-
+		</td>
+		<td>
+			<a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">File system based Registry</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Rule Mediator
+		</td>
+		<td>
+			The rule mediator has been removed as it is not widely used.
+		</td>
+		<td>
+			-
+		</td>
+	</tr>
+	<tr>
+		<td>
+			HL7 Message Store
+		</td>
+		<td>
+			In previous ESBs, an HL7 Message Store could be configured using the custom message store implementation. Due to limited capabilities and tight coupling with the Hl7 console (which was previously available in the management console), this functionality is not available in API-M 4.0.0. 
+		</td>
+		<td>
+			-
+		</td>
+	</tr>
+</table>
+
+**Mediators and artifacts removed (After ESB 5.0.0)**
+
+The following mediators and artifacts are removed from the ESB runtime in all versions after ESB 5.0.0. If you are migrating from ESB 5.0.0 to the Micro Integrator of API-M 4.0.0, note that these artifacts are no longer supported.
+
+-	Priority Executors
+-	Enqueue Mediator
+-	Bean Mediator
+-	POJO Command Mediator
+-	Spring Mediator
+-	Conditional Router Mediator
+-	In, Out Mediators
+-	Event Mediator
+-	In memory Topics
+-	Router Mediator
+-	Publish Event Mediator
 
 ---
 
-### Streaming Integrator
+## Streaming Integrator
 
-Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform.
+Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/download/v4.0.0-m8/wso2si-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/).
 
 #### New features
 
@@ -130,19 +371,11 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 - Make regex matching dynamic in copy function
 - Add SSE source functionality
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/13?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator/issues).
-
 ---
 
-### API Controller
+## API Controller
 
-WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. 
+WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. The Micro Integrator operations are newly added in for API Manager 4.0.0.
 
 It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha).
 
@@ -160,17 +393,9 @@ It is now available to download from [here](https://github.com/wso2/product-apim
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
-
 ---
 
-### WSO2 Integration Studio
+## WSO2 Integration Studio
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
@@ -181,21 +406,13 @@ It is now available to download from [here](https://github.com/wso2/integration-
 - Added Cassandra data source support for DSS
 - Added Registry Resource Properties support
 
-#### Fixed Issues
-
-See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/7?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
-
 ---
 
-### Streaming Integrator tooling
+## Streaming Integrator tooling
 
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/download/v4.0.0-m8/wso2si-tooling-4.0.0-m8.zip).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
 #### New features
 
@@ -203,37 +420,68 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 - Make regex matching dynamic in copy function
 - Add SSE source functionality
 
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/12?closed=1).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
-
 ---
 
-### Kubernetes API operator
+## Kubernetes API operator
 
-The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. 
+The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. The Micro Integrator Kubernetes Operator is merged with the API Operator of API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/tag/v2.0.0-alpha). K8s API Operator M3 is compatible with API Manager M4.
+It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/). K8s API Operator M3 is compatible with API Manager M4.
 
 #### New features
 
+- New Micro Integrator Kubernetes operations added
 - Deploy APIs to Microgateway
 - Deploy APIs to API Manager
-
-#### Fixed Issues
-
-See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0-alpha+is%3Aclosed).
-
-#### Known Issues
-
-All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
 
 ---
 
 ## Compatible WSO2 product versions
 
-WSO2 API Manager 4.0.0-Alpha is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+
+---
+
+## Fixed and known issues
+
+**API Manager**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+
+**Micro Integrator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/23?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/micro-integrator/issues).
+
+**Streaming Integrator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/13?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator/issues).
+
+**API Controller**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
+
+**Integration Studio**
+
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/7?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
+
+**Streaming Integrator Tooling**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/12?closed=1).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
+
+**Kubernetes API Operator**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0-alpha+is%3Aclosed).
+
+- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).

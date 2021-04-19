@@ -55,8 +55,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     
      Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     
-     - On Windows: `wso2server.bat --run`
-     - On Linux/Mac OS: `sh wso2server.sh` 
+     - On Windows: `api-manager.bat --run`
+     - On Linux/Mac OS: `sh api-manager.sh` 
     
     !!! info
         If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
@@ -270,7 +270,7 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
         ALTER DATABASE <DB-NAME> COLLATE SQL_Latin1_General_CP1_CS_AS ;
         ```
   
-  - The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment. 
+  - The Worker supports an Active-Active deployment and an Active-Passive deployment. 
   - As the dashboard is used only to render the data there is no active-active or active-passive concept. However, based on the High-availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the `loadbalance` configuration.
   
 #### System requirements
@@ -461,7 +461,7 @@ In the SSL handshake between the API Manager and the API Manager Analytics serve
 - If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. 
 - To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-1-generating-a-ca-signed-certificate).
 
-For more information, see [Configuring Keystores in API-M Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/#configuring-keystores-in-api-m-analytics).
+For more information, see [Configuring Keystores in API-M Analytics]({{base_path}}/observe/api-manager-analytics/configuring-keystores-in-apim-analytics/#configuring-keystores-in-api-m-analytics).
 
 ### Step 7 - Configure the User-Agent Parser
 

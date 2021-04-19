@@ -1,12 +1,12 @@
 # Salesforce Inbound Endpoint Example
 
-The Salesforce streaming Inbound Endpoint allows you to perform various operations on Salesforce streaming data via WSO2 EI.
+The Salesforce streaming Inbound Endpoint allows you to perform various operations on Salesforce streaming data.
 
 The [Salesforce streaming API](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/intro_stream.htm) receives notifications based on the changes that happen to Salesforce data with respect to an SQQL (Salesforce Object Query Language) query you define, in a secured and scalable way. For more information, navigate to [Salesforce streaming documentation](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_streaming.meta/api_streaming/quick_start_workbench.htm).
 
 ## What you'll build
 
-The Salesforce inbound endpoint supported via the WSO2 EI is a listening inbound endpoint that can consume messages from Salesforce. This injects messages to a sequence in WSO2 EI. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [EI mediators]({{base_path}}/reference/mediators/about-mediators/). 
+The Salesforce inbound endpoint is a listening inbound endpoint that can consume messages from Salesforce. This injects messages to an integration sequence. However, for simplicity of this example, we will just log the message. You can extend the sample as required using WSO2 [mediators]({{base_path}}/reference/mediators/about-mediators/). 
 
 In this exmple we can trigger the notifications to the Salesforce Inbound Endpoint via creating the `Platform events` or `PushTopic` methods. Please note that our example configurations are based on creating the `PushTopic` method. You can use the instructions given in the [sf-rest inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest inbound endpoint configuration/) documentation.
 
@@ -14,7 +14,7 @@ The following diagram illustrates all the required functionality of the Salesfor
 
 For example, we are building an integrated example driven through the [Salesforce connector]({{base_path}}/reference/salesforce-connectors/sf-rest-connector-example/) and Salesforce Inbound Endpoint. The user calls the Salesforce REST API. It invokes the **create** sequence and creates a new account in Salesforce. Then, through the **retrieve** sequence, it displays all the existing account details to the user. 
 
-Now that you have configured the Salesforce Inbound Endpoint, use the following Inbound Endpoint configuration to retrieve account details from your Salesforce account. The Salesforce inbound endpoint of WSO2 EI acts as a message receiver. You can inject that message into the mediation flow for getting the required output.
+Now that you have configured the Salesforce Inbound Endpoint, use the following Inbound Endpoint configuration to retrieve account details from your Salesforce account. The Salesforce inbound endpoint acts as a message receiver. You can inject that message into the mediation flow for getting the required output.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-example.png" title="Salesforce Inbound Endpoint" width="800" alt="Salesforce Inbound Endpoint"/>
 
@@ -71,7 +71,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    
 ## Exporting Integration Logic as a CApp
 
-**CApp (Carbon Application)** is the deployable artefact on the Enterprise Integrator runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
+**CApp (Carbon Application)** is the deployable artefact on the integration runtime. Let us see how we can export integration logic we developed into a CApp. To export the `Solution Project` as a CApp, a `Composite Application Project` needs to be created. Usually, when a solution project is created, this project is automatically created by Integration Studio. If not, you can specifically create it by navigating to  **File** -> **New** -> **Other** -> **WSO2** -> **Distribution** -> **Composite Application Project**. 
 
 1. Right click on Composite Application Project and click on **Export Composite Application Project**.</br> 
   <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="300" alt="Export as a Carbon Application" />
@@ -86,7 +86,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 2. Copy the exported carbon application to the <PRODUCT-HOME>/repository/deployment/server/carbonapps folder. 
 
-4. Start the WSO2 EI server. 
+4. Start the integration server. 
 
 ## Testing  
 
@@ -109,7 +109,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
    ```
    curl -X POST -d @data.json http://localhost:8280/salesforcerest --header "Content-Type:application/json"
    ```
-   You will get a set of account names and the respective IDs as the output. At the same time, in the WSO2 EI console you can see the following message.
+   You will get a set of account names and the respective IDs as the output. At the same time, in the server console, you can see the following message.
    
    **Expected respons**
    

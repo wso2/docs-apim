@@ -18,6 +18,8 @@ Follow the instructions below to create a REST API using an Open API definition 
 
 2. Click **CREATE API** and then click **I have an existing REST API**.
 
+    [![Create an API]({{base_path}}/assets/img/learn/import-open-api.png)]({{base_path}}/assets/img/learn/import-open-api.png)
+
 3. Select one of the following options:
 
 	* **OpenAPI URL** - If you select this option, you need to provide an endpoint URL.
@@ -76,10 +78,6 @@ Follow the instructions below to create a REST API using an Open API definition 
    
 Click **Resources** to navigate to the resources page. 
 
-<html>
-<img src="{{base_path}}/assets/img/learn/resources-menu.png" width="200">
-</html>
-
 You will notice that all the API resources are created automatically when the OpenAPI URL is specified.
    
 [![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)
@@ -123,7 +121,7 @@ You will notice that all the API resources are created automatically when the Op
      
      [![]({{base_path}}/assets/img/learn/update-content-pet-store.png)]({{base_path}}/assets/img/learn/update-content-pet-store.png)
 
-### Enpoints
+### Endpoints
 
 1. Navigate to the **Endpoints** page.
 
@@ -145,7 +143,7 @@ You will notice that all the API resources are created automatically when the Op
 
 ### Runtime Configuration
 
-Click **Runtime Configuration** to navigate to the runtime configurations that correspond to the API.
+Click **Runtime** to navigate to the runtime configurations that correspond to the API.
      
 The Transport Level Security defines the transport protocol on which the API is exposed.
      
@@ -197,4 +195,4 @@ The Transport Level Security defines the transport protocol on which the API is 
 
 Now, a REST API from an Open API Definition has been created and configured successfully. 
 
-Next, publish the API, for more information, see [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+Next, publish the API, for more information, see [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).

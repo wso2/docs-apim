@@ -62,18 +62,19 @@ nav:
             - Create a New API:
                     - Create a REST API: design/create-api/create-a-rest-api.md
                     - Create a REST API from an OpenAPI Definition: design/create-api/create-a-rest-api-from-an-openapi-definition.md
+                    - Create a REST API from an Integration Service: design/create-api/create-api-from-service.md
                     - Create a GraphQL API: design/create-api/create-a-graphql-api.md
                     - Create a Streaming API:
-                        - Streaming APIs Overview: design/create-api/create-streaming-api/streaming-api-overview.md
+                        - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
                         - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                        - Create a WebSub/Webhook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                        - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
                         - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-                    - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                    - Build APIs in Integration Studio: design/create-api/api-integration-studio.md
+                        - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                        - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
+                    #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
                     - Expose a SOAP Service as a REST API: design/create-api/expose-a-soap-service-as-a-rest-api.md
                     - Generate REST API from SOAP Backend: design/create-api/generate-rest-api-from-soap-backend.md
                     - Test a REST API: design/create-api/test-a-rest-api.md
-                    - Test a WebSub/Webhook Streaming API: design/create-api/test-a-websub-api.md
             - Create API Revisions: design/create-api/create-api-revisions.md
             - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
             - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
@@ -108,7 +109,7 @@ nav:
                     - Add API Documentation: design/api-documentation/add-api-documentation.md
                     - Search Documentation:
                             - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
-            - API Collaboration: 
+            - API Collaboration:
                     - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
                     - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
             - API Security:
@@ -119,7 +120,6 @@ nav:
                             - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                             - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                             - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                            - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                             - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                     - Authorization:
                             - Overview: design/api-security/authorization/api-authorization.md
@@ -184,15 +184,14 @@ nav:
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Deploy and Publish:
         - Deploy on Gateway:
-            - Deploying APIs in API Gateway vs API Microgateway: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-api-microgateway.md
+            - Deploying APIs in API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
                 - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-                - Deploy an API to a Cloud Cluster in PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-                - Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
+                #- Publish APIs Overview: deploy-and-publish/deploy-on-gateway/publish-api-overview.md
                 - Message Mediation:
                     - Changing the Default Mediation Flow of API Requests: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                     - Creating and Uploading using Integration Studio: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
@@ -203,7 +202,7 @@ nav:
                     - Disabling Message Chunking: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking.md
                     - Transforming API Message Payload: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload.md
                     - Adding a Non-Blocking Send Operation: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
-                    - Adding a Class Mediator:  deploy/api-gateway/message-mediation/adding-a-class-mediator.md
+                    - Adding a Class Mediator:  deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator.md
                     - Configuring message builders and formatters: deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Message Tracing: deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md
@@ -217,58 +216,67 @@ nav:
                 - Advanced Topics:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-            - API Microgateway:
+            - Choreo Connect:
                 - Getting Started:
-                    - Microgateway Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/api-microgateway-overview.md
+                    - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
                     - Quick start Guide:
-                        - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-overview.md
-                        - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker.md
-                        - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
-                        - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/api-microgateway/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                        - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
+                        - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
+                        - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
+                        - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
                 - Concepts:
-                    - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/apim-as-control-plane.md
-                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/as-a-standalone-gateway.md
-                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/concepts/event-hub-subscription-validation.md
-                - Import API:
-                    - Using an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/import-api/using-an-openapi-definition.md
+                    - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
+                    - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
+                    - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
+                    - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                - Deploy an API:
+                    - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
+                - Configurations:
+                    - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
+                    - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md
+                    - Main Configurations:
+                        - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
+                        - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
+                        - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
+                        - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
+                        - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                 - Endpoints:
-                    - Endpoint Types: design/endpoints/endpoint-types.md
-                    - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-endpoints-in-an-openapi-definition.md
-                    - Overriding Endpoint Information:
-                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.
-                        - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
-                    - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/api-microgateway/endpoints/defining-a-backend-security-scheme.md
-                - HTTP 2.0: deploy-and-publish/deploy-on-gateway/api-microgateway/http-2.0.md
+                    - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
+                    - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
+                    - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
+                    - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
+                - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
-                    - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/api-microgateway/rate-limiting/distributed-throttling.md
-                - Service Discovery: deploy-and-publish/deploy-on-gateway/api-microgateway/service-discovery.md
+                    - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
+                - Service Discovery: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery.md
                 - Security:
                     - Authentication:
-                        - API Authentication: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/api-authentication.md
+                        - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
-                            - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
-                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
-                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/security/api-authentication/mutual-ssl-authentication.md
-                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/security/api-authentication/configuring-an-external-key-manager.md
-                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/security/api-authentication/making-application-security-optional.md
-                        - Disabling Security: deploy-and-publish/deploy-on-gateway/security/api-authentication/disabling-security.md
+                            - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
+                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
+                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
+                        - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
+                        - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/making-application-security-optional.md
+                        - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
                     - Authorization:
-                        - Scope Validation: deploy-and-publish/deploy-on-gateway/api-microgateway/security/api-authorization/scope-validation.md
-                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/security/api-authorization/subscription-validation.md
-                    - Transport Security: deploy-and-publish/deploy-on-gateway/security/transport-security.md
-                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/security/enabling-cors.md
-                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/security/use-a-custom-authorization-header.md
-                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/security/rejecting-revoked-tokens.md
-                    - Importing Certificates to the API Microgateway Truststore: deploy-and-publish/deploy-on-gateway/security/importing-certificates-to-the-api-microgateway-truststore.md
-                    - Define Security Using Extension: deploy-and-publish/eploy-on-gatewaydsecurity/define-security-using-extension.md
-                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/api-microgateway/security/generate-a-test-jwt.md
-                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/file-upload-via-multipart-requests.md
-                - Configure Caching: deploy-and-publish/deploy-on-gateway/configure-caching.md
-                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway.md
-                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/support-custom-claims-mapping.md
+                        - Scope Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/scope-validation.md
+                        - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authorization/subscription-validation.md
+                    - Transport Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/transport-security.md
+                    - Enabling CORS: deploy-and-publish/deploy-on-gateway/choreo-connect/security/enabling-cors.md
+                    - Use a Custom Authorization Header: deploy-and-publish/deploy-on-gateway/choreo-connect/security/use-a-custom-authorization-header.md
+                    - Rejecting Revoked Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/rejecting-revoked-tokens.md
+                    - Importing Certificates to the Choreo Connect Truststore: deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore.md
+                    - Define Security Using Extension: deploy-and-publish/deploy-on-gateway/choreo-connect/security/define-security-using-extension.md
+                    - Generate a Test JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md
+                - File Upload via Multipart Requests: deploy-and-publish/deploy-on-gateway/choreo-connect/file-upload-via-multipart-requests.md
+                - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
+                - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
+                - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
-            - Publish to Multiple External API Developer Portals: deploy-and-publish/deploy-on-gateway/deploy-api/publish-to-multiple-external-api-stores.md
+            - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
     - Consume:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -320,6 +328,7 @@ nav:
     - Integrate:
         - Integration Overview: integrate/integration-overview.md
         - Integration Concepts: integrate/integration-key-concepts.md
+        - API-led Integration: integrate/api-led-integration.md
         - Integration Use Cases:
             - Message Routing and Transformation: integrate/integration-use-case/message-routing-overview.md
             - Service Orchestration: integrate/integration-use-case/service-orchestration-overview.md
@@ -338,8 +347,7 @@ nav:
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
             - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
-            - Service Catalog:
-                - Working with Service Catalog: integrate/develop/working-with-service-catalog.md
+            - Publish Integrations to the Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
                 - Creating Data Service Configs: integrate/develop/create-data-services-configs.md
@@ -540,6 +548,13 @@ nav:
           - Streaming Key Concepts: streaming/streaming-key-concepts.md
           - Streaming Use Cases:
                 - Streaming Integrator Usecase Overview: use-cases/streaming-usecase/use-cases.md
+                - Creating a Streaming API:
+                    - Streaming API Overview: use-cases/streaming-usecase/create-streaming-api/streaming-api-overview.md
+                    - Create a WebSocket API: use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api.md
+                    - Create a WebSub/WebHook API: use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api.md
+                    - Create a SSE API: use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api.md
+                    - Create a Streaming API from an AsyncAPI Definition: use-cases/streaming-usecase/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                    - Test a WebSub/WebHook Streaming API: use-cases/streaming-usecase/create-streaming-api/test-a-websub-api.md
                 - Extracting Data from static Sources in Real Time: use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time.md
                 - Receiving Data in Transit: use-cases/streaming-usecase/receiving-data-in-transit.md
                 - Loading and Writing Data: use-cases/streaming-usecase/loading-and-writing-date.md
@@ -554,7 +569,7 @@ nav:
                 - Handling Errors: use-cases/streaming-usecase/handling-errors.md
                 - Performing ETL Operations: use-cases/streaming-usecase/performing-etl-tasks.md
                 - Triggering Integration Flows: use-cases/streaming-usecase/triggering-integration-flows.md
-                - Exposing Stream as Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalogue.md
+                - Exposing a Stream as a Managed API: use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog.md
           #- Quick Start: get-started/quick-start-guide/streaming-qsg.md
           - Develop Streaming Solutions:
                 - Developing Streaming Integrator Solutions: develop/streaming-apps/developing-streaming-integration-solutions.md
@@ -702,19 +717,36 @@ nav:
         - API Manager Observability:
             - API Manager Analytics:
                 - Overview of API Analytics: observe/api-manager-analytics/overview-of-api-analytics.md
-                - Publishing Events to Analytics Cloud: observe/api-manager-analytics/publishing-events-to-analytics-cloud.md
-                - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                - Configuring APIM Analytics:
+                    - Registering for APIM Analytics: observe/api-manager-analytics/configure-analytics/register-for-analytics.md
+                    - Configuring Gateway:
+                        - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
+                        - Configuring Synapse Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
+                - Viewing APIM analytics:
+                    - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
+                    - Pages:
+                        - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
+                        - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
+                        - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
+                        - Cache Page: observe/api-manager-analytics/analytics-pages/analytics-pages-cache.md
+                        - Devices Page: observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md
+                        - Alerts Page: observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md
+                    - Usecases:
+                        - Finding Faulty APIs: observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md
+                - Quality of Service: observe/api-manager-analytics/analytics-qos.md
+                - Querying APIM analytics: observe/api-manager-analytics/querying-apim-analytics.md
+                - Troubleshooting Analytics: observe/api-manager-analytics/troubleshooting-analytics.md
             - Monitoring Logs:
-                - Setting up logging: observe/logging-and-monitoring/logging/setting-up-logging.md
-                - Monitoring HTTP access logs: observe/logging-and-monitoring/logging/monitoring-http-access-logs.md
-                - Monitoring audit Logs: observe/logging-and-monitoring/logging/monitoring-audit-logs.md
-                - Managing log growth: observe/logging-and-monitoring/logging/managing-log-growth.md
-                - Masking sensitive information in logs: observe/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-            - Working with Observability: observe/logging-and-monitoring/monitoring/working-with-observability.md
-            - Enabling Tracing with OpenTracing: observe/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
-            - JMX-Based Monitoring: observe/logging-and-monitoring/monitoring/jmx-based-monitoring.md
-            - Monitoring TCP-Based Messages: observe/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
-            - Monitoring Server Health: observe/logging-and-monitoring/monitoring/monitoring-server-health.md
+                - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
+                - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
+                - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
+                - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+                - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+            - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
+            - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
+            - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+            - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+            - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Micro Integrator Observability:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
@@ -1169,7 +1201,7 @@ nav:
               - Managing Users: administer/managing-users-and-roles/managing-users.md
               - Managing Role Permissions: administer/managing-users-and-roles/managing-permissions.md
               - Managing Users for Admin Portal: administer/managing-users-and-roles/managing-users-for-admin-portal.md
-            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/managing-users.md
+            - Managing Users for Micro Integrator: install-and-setup/setup/mi-setup/user_stores/managing_users.md
             - Managing Users for the Streaming Integrator: install-and-setup/setup/si-setup/user-management.md
         - Managing User Stores:
             - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
@@ -1340,6 +1372,11 @@ nav:
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
                         - Managing Log Growth: install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md
                         - Masking Sensitive Information in Logs : install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md
+                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Load Balancer and Proxy Server:
+                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
+                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
@@ -1360,39 +1397,21 @@ nav:
                 - Enabling Logs for Received Event Count: install-and-setup/setup/si-setup/monitoring-received-events-count-via-logs.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - All-In-One Deployment:
-                - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-            - Distributed Deployment:
-                - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-            - Deploying Micro Integrator:
+            - Deploying the API-M Runtime:
+                - All-In-One Deployment:
+                    - All-in-One Deployment - Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                    - Configuring a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Configuring an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                - Distributed Deployment:
+                    - Distributed Deployment - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+            - Deploying the Micro Integrator:
+                - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                    - K8s Pipeline:
-                        - Overview: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/overview.md
-                        - Pipeline Quick Start Guide: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/pipeline-quick-start-guide.md
-                        - Testing the Pipeline Environment: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/testing-the-pipeline-environment.md
-                        - Deploy Your Own Artifact: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/deploy-your-own-artifact.md
-                        - Adding Testcases: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/adding-test-cases.md
-                        - Modifying Product Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-product-configurations.md
-                        #- Modifying Pipeline Configurations: install-and-setup/setup/mi-setup/deployment/k8s-pipeline/modifying-pipeline-configurations.md
-                - Deploy on a Virtual Machine:
-                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
-                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
-                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
-                - Deployment Best Practices:
-                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
-                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
-                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
-                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
-                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
-                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
                 - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
@@ -1400,56 +1419,68 @@ nav:
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
-            - Deploying Analytics for High Availability:
-                - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
-                - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
-                - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
             - Deployment Best Practices:
+                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-        - Reference:
-            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
-            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
-        - Upgrading WSO2 API Manager:
-            - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-            - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
-            - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
-            - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
-            - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
-            - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
-            - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
-            - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
-            - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
-            - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
-            - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
-            - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
-        - Upgrading WSO2 IS as KM:
-            - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
-            - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
-            - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
-            - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
-            - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
-            - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
-            - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
-            - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
-            - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
-            - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
+                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+            - CI/CD:
+                - Building a Jenkins CI/CD Pipeline for Micro Integrator:
+                    - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
+                    - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
+                    - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+        - Upgrade:
+            - Upgrading WSO2 API Manager:
+                - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
+                - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-320-to-400.md
+                - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-400.md
+                - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-400.md
+                - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-400.md
+                - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-400.md
+                - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-400.md
+                - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-400.md
+                - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-400.md
+                - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-400.md
+                - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-400.md
+                - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+            - Upgrading WSO2 IS as KM:
+                - 3.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-5100-to-is-5110.md
+                - 3.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110.md
+                - 3.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-is-5110.md
+                - 2.6.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-is-5110.md
+                - 2.5.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-is-5110.md
+                - 2.2.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-is-5110.md
+                - 2.1.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110.md
+                - 2.0.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110.md
+                - 1.10.0 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110.md
+                - 1.8.0/1.9.0/1.9.1 to 4.0.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110.md
+            -  Upgrading from WSO2 EI:
+                - EI 7.1.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.1.x.md
+                - EI 7.0.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-7.0.x.md
+                - EI 6.6.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.6.x.md
+                - EI 6.5.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.5.x.md
+                - EI 6.4.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.4.x.md
+                - EI 6.3.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.3.x.md
+                - EI 6.2.x to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.2.x.md
+                - EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
+                - EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
+            -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
         - Kubernetes Operators:
           - K8s API Operator:
-              - K8s API Operator Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
-              - Manage Integration:
-                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integration/integration-deployments.md
+              - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
+              - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
+              - Manage APIs:
+                - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+              - Manage Integrations:
+                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                 - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/mi-setup/deployment/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/mi-setup/deployment/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/mi-setup/deployment/integration-samples/jms-sender-receiver.md
-              - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
+                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
+              - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
             - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
@@ -1464,7 +1495,7 @@ nav:
                 - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                 - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
             - Managing APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
-            - Managing Microgateways: install-and-setup/setup/api-controller/managing-microgateways/managing-microgateways-with-ctl.md
+            - Managing Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
             - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
             - Managing Integrations:
@@ -1477,6 +1508,12 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
+                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md 
+        - Reference:
+            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
@@ -1485,7 +1522,7 @@ nav:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
-                - Create and Publish a WebSub/Webhook API: tutorials/streaming-api/create-and-publish-websub-api.md
+                - Create and Publish a WebSub/WebHook API: tutorials/streaming-api/create-and-publish-websub-api.md
                 - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
             - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
@@ -1510,6 +1547,7 @@ nav:
               #- Integrating with SAP: tutorials/integration-tutorials/sap-integration.md
           - Streaming Tutorials:
               - Tutorials Overview: use-cases/streaming-tutorials/tutorials-overview.md
+              - Exposing a Kafka Topic as a Managed WebSocket API: use-cases/streaming-tutorials/expose-a-kafka-topic-as-a-managed-websocket-api.md
               - Performing Real-time ETL with MySQL: use-cases/streaming-tutorials/performing-real-time-etl-with-mysql.md
               - Performing Real-time ETL with Files: use-cases/streaming-tutorials/performing-real-time-etl-with-files.md
               - Creating an ETL Application via Wizard: use-cases/streaming-tutorials/creating-etl-application-via-tooling.md
@@ -1689,9 +1727,11 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'deploy/api-microgateway/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/api-microgateway/get-started-with-kubernetes-for-microgateway/'
+              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
+              'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
+              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/test-a-websub-api/'
 
     # Extra
 extra_css:

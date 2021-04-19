@@ -105,4 +105,4 @@ The following are Advanced Endpoint Configurations that you can configure for bo
     </tbody>
 </table>
 
-For more information on endpoints and how to add, edit, or delete them, go to the [WSO2 Enterprise Integrator (EI) documentation](https://docs.wso2.com/display/EI650/Working+with+Endpoints).
+For more information on endpoints and how to add, edit, or delete them, see [Endpoint Properties]({{base_path}}/reference/synapse-properties/endpoint-properties).

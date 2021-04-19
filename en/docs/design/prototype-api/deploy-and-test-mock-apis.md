@@ -6,10 +6,10 @@ You would need to create an API prototype for the purpose of early promotion and
 
 !!! note
 
-    The example described in the following steps uses the `PizzaShackAPI 2.0.0` API. For more information on creating this API, see 
-    [Create a New API Version]({{base_path}}/learn/design-api/api-versioning/create-a-new-api-version/).
+    The example described in the following steps uses the `PizzaShackAPI 1.0.0` API. For more information on creating this API, see 
+    [Create a New API Version]({{base_path}}/design/api-versioning/create-a-new-api-version/).
 
-1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 2.0.0`) that you want to prototype.
+1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 1.0.0`) that you want to prototype.
      
      [![PizzaShack API in the Publisher]({{base_path}}/assets/img/learn/prototype-api-pizza-shack-publisher.png)]({{base_path}}/assets/img/learn/prototype-api-pizza-shack-publisher.png)
 
@@ -17,45 +17,36 @@ You would need to create an API prototype for the purpose of early promotion and
 
      [![Select endpoint]({{base_path}}/assets/img/learn/prototype-api-select-endpoint-type.png)]({{base_path}}/assets/img/learn/prototype-api-select-endpoint-type.png)
 
-3. Click **PROCEED**.
+3. Save and then click **PROCEED**.
     
      <img src="{{base_path}}/assets/img/learn/prototype-api-change-endpoint-confirmation.png" width="400px" />
  
-4.  Enter the prototype endpoint for the API. 
+4.  Enter the prototype endpoint for the API.
 
-     Let's use the same endpoint in this example.
-
-     
-5. Click **SAVE**, after the endpoint is added, to save the API.
+     Let's use the same Production/Sandbox endpoint in this example: `https://localhost:9443/am/sample/pizzashack/v1/api/`
 
      [![Add endpoint]({{base_path}}/assets/img/learn/prototype-api-endpoint-added.png)]({{base_path}}/assets/img/learn/prototype-api-endpoint-added.png)
-    
 
-6.  Click **Lifecycle** and click **Deploy as Prototype**.
+5. Click **SAVE** after the endpoint is added.    
+
+6.  Click **Lifecycle** and click **Deploy as a Prototype**.
 
      [![Deploy API as a prototype in the lifecycle]({{base_path}}/assets/img/learn/prototype-api-deploy-as-prototype.png)]({{base_path}}/assets/img/learn/prototype-api-deploy-as-prototype.png)
 
     !!! note
         After creating a new version, you typically deploy it as a prototype for the purpose of testing and early promotion.
-   
-    
-    !!! tip
-        -   Leave the **Requires Re-Subscription** check box cleared if you want all users who are subscribed to the older version of the API to be automatically subscribed to the new version. If not, they need to subscribe to the new version again.
-        -   You can choose to deprecate old versions of this API at this stage by selecting the **Deprecate Old Versions** check box.
-
 
 4.  Click **View in Dev Portal** in the API Publisher to navigate to the Developer Portal.
 
      [![View in Dev Portal]({{base_path}}/assets/img/learn/prototype-api-view-in-dev-portal.png)]({{base_path}}/assets/img/learn/prototype-api-view-in-dev-portal.png)
     
     !!! note
-        It is not necessary to sign in to the Developer Portal to invoke prototyped APIs.
-
-    [![Prototyped API in Developer Portal]({{base_path}}/assets/img/learn/prototype-api-in-dev-portal.png)]({{base_path}}/assets/img/learn/prototype-api-in-dev-portal.png)
+        - It is not necessary to sign in to the Developer Portal to invoke prototyped APIs.
+        - Subscriptions are not allowed for prototype API.
     
-    The **Overview** page of the API appears. Note that the Subscriptions are not allowed for this API.
+    The **Overview** page of the API appears.
 
-    [![View overview of PizzaShackAPI 2.0.0]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)
+    [![View overview of PizzaShackAPI 1.0.0]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)]({{base_path}}/assets/img/learn/prototype-api-subscriptions-not-allowed.png)
 
 5.  Click **Try Out** to invoke the Prototyped API. 
    
@@ -85,7 +76,7 @@ Follow the instructions below to publish a prototyped API with proper production
     
      [![]({{base_path}}/assets/img/learn/prototype-api-click-on-api.png)]({{base_path}}/assets/img/learn/prototype-api-click-on-api.png)
     
-2. Click **Lifecycle** and click **DEMOTE TO CREATED**.
+2. Click **Lifecycle** and click **Demote to Created**.
 
      [![]({{base_path}}/assets/img/learn/prototype-api-demote-to-created.png)]({{base_path}}/assets/img/learn/prototype-api-demote-to-created.png)
 
@@ -108,7 +99,7 @@ Follow the instructions below to publish a prototyped API with proper production
 
      [![]({{base_path}}/assets/img/learn/prototype-api-select-http-endpoint.png)]({{base_path}}/assets/img/learn/prototype-api-select-http-endpoint.png)
 
-6. Check the Production/Sandbox check boxes, add the corresponding endpoint, and click **SAVE** to save the API.
+6. Check the Production/Sandbox check boxes, add the endpoint URL, and click **SAVE** to save the API.
 
      [![]({{base_path}}/assets/img/learn/prototype-api-to-publish-add-endpoint.png)]({{base_path}}/assets/img/learn/prototype-api-to-publish-add-endpoint.png)
    

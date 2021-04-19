@@ -8,7 +8,7 @@ Error page allows users to identify faulty and erroneous API(s) and isolate the 
 
 ### Top Error Summary
 
-A pie chart is dedicated to each of the error types namely, 4xx, 5xx, faulty, and throttled count to represent the top APIs or Applications along with the error hit percentage out of total hits. Here you can toggle between APIs and Applications using the selection panel. Also, you can limit the number of APIs or Applications, adjusting the limit selector. Clicking on the APIs or Applications share on the pie chart will navigate to the [Error Summary]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#error-summary) widget.
+A pie chart is dedicated to each of the error types namely, 4xx, 5xx, faulty, and throttled count to represent the top APIs or Applications along with the error hit percentage out of total hits. Here you can toggle between APIs and Applications using the selection panel. Also, you can limit the number of APIs or Applications, adjusting the limit selector. Clicking on the APIs or Applications share on the pie chart will navigate to the [Error Summary]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard/#error-summary) widget.
 
 The following image shows the information can be found from this widget.
 
@@ -23,7 +23,7 @@ Provides the break down of total hits into each of the error types namely 4xx, 5
 
 Once you set the required options you have to select the values for the above option keys. For example, if you select API View, Percentage, and Resource in the selection panels above then you have to select a specific API, Version, and Operation in the corresponding drop-down. Also, you can limit the number of results by adjusting the limit selector.
 
-As a default, this table shows the results per API. When you click on an API, the table would render the statistics for available versions of that API, thereafter when you click on a version, the table would render the statistics for available resources of that specific API version. Finally, when you click on one of the resources, you would be navigated to the [Error Summary Over Time]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#error-summary-over-time) widget where you can find the historical variation of error count for that particular resource.
+As a default, this table shows the results per API. When you click on an API, the table would render the statistics for available versions of that API, thereafter when you click on a version, the table would render the statistics for available resources of that specific API version. Finally, when you click on one of the resources, you would be navigated to the [Error Summary Over Time]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard/#error-summary-over-time) widget where you can find the historical variation of error count for that particular resource.
 
 The following image shows the information can be found from this widget.
 
@@ -45,7 +45,7 @@ Latency page allows users to identify slow APIs and isolate the cause for their 
 
 A stacked bar chart showing the latencies of the slowest resources arranged in descending order. Different latencies of a single API call like backend latency, security latency, Throttling latency, Mediation latencies, are shown in bars with different colors. Using the interactive legend, users can select the Latency components they need to compare.
 
-For example, disabling one Backend Latency would reveal the finer variation between other types of Latencies. The input filters can be used to limit the bars according to the APIs, Versions, and Resources. The limit selector can be used to change the number of bars being displayed. Clicking on a bar would take to the [API Latency Over Time]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#api-latency-over-time) chart.
+For example, disabling one Backend Latency would reveal the finer variation between other types of Latencies. The input filters can be used to limit the bars according to the APIs, Versions, and Resources. The limit selector can be used to change the number of bars being displayed. Clicking on a bar would take to the [API Latency Over Time]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/monitoring-dashboard/#api-latency-over-time) chart.
 
 The following image shows the information can be found from this widget.
 
@@ -96,10 +96,10 @@ Widgets in this section are mainly focusing on the API Health and System related
 ### API availability summary
 
 !!! note
-    In order to view statistics of API Availability widget, it is required to enable alerts as described in [Configuring Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/).
+    In order to view statistics of API Availability widget, it is required to enable alerts as described in [Configuring Alerts]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts/).
 
 API availability summary widget provides an overall look on the availability of the APIs. It shows whether the API is available(which means API is in good health), whether the Response time of the API is high or whether a server error occurred when accessing the API as percentages for the APIs of the logged in user's tenant. 
-The availability of API statistics are directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
+The availability of API statistics are directly related to the [Availability of APIs (health monitoring)]({{base_path}}/observe/api-manager-analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
 Moreover, once the user clicks on one of the available three status for the API availability, it drills down to the API availability widget and shows details of the APIs which have the selected status.
 
 !!! note

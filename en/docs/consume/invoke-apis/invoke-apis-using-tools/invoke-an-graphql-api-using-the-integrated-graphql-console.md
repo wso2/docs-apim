@@ -7,14 +7,14 @@ WSO2 API Manager (WSO2 API-M) has an integrated GraphiQL UI for the GraphQL APIs
 GraphiQL UI supports full GraphQL Language Specification (Queries, Mutations, Subscriptions, Fragments, Unions, directives, multiple operations per query, etc.) and it provides interactive schema documentation, real-time error highlighting and reporting for queries and variables, automatic query and variables completion, it automatically adds the required fields to the queries, and also queries the history using local storage.
 
 !!! note "Try out using Postman"
-    If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
+    If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
 
 Let's see how to use the GraphQL Console in the Developer Portal to invoke a GraphQL API.
 
 !!! Note
     You can only try out HTTPS based APIs via the GraphQL Console because the API Store runs on HTTPS.
 
-The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/learn/design-api/create-api/create-a-graphql-api/).
+The examples here use the `StarWarsAPI` GraphQL API, which was created in [Create a GraphQL API]({{base_path}}/design/create-api/create-a-graphql-api/).
 
 1. Sign in to the WSO2 Developer Portal and click on an API (e.g., `StarWarsAPI`).
 
@@ -32,7 +32,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
     !!! tip "Production and Sandbox Tokens"
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip "JWT vs OAuth tokens"
 
