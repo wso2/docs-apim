@@ -1399,11 +1399,11 @@ nav:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploying the API-M Runtime:
                 - All-In-One Deployment:
-                    - All-in-One Deployment - Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                     - Configuring a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
                     - Configuring an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Distributed Deployment - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
@@ -1413,7 +1413,7 @@ nav:
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Streaming Integrator Deployment Overview: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
                 - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
@@ -1425,6 +1425,7 @@ nav:
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - CI/CD:
