@@ -7,7 +7,7 @@ Example:
 Deploy Consul using the [official Helm Chart](https://helm.releases.hashicorp.com/).<br>
 For more instructions, see the [Consul official documentation](https://www.consul.io/docs/k8s).
 ## Step 2 - Modify Choreo Connect k8s artifacts 
-Add the `'consul.hashicorp.com/connect-inject': 'true'` annotation to Adapter's deployment spec
+Add the `'consul.hashicorp.com/connect-inject': 'true'` annotation to the Adapter's deployment specification (adapter-deployment.yaml in k8s-artifacts directory). 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
