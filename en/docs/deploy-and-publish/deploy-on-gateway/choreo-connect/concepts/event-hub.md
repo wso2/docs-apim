@@ -48,7 +48,7 @@ Sample configuration for `eventListeningEndpoints` for JMS reciever can be defin
 
 ``` toml
 # Control plane's eventHub details
-[controlPlane.eventHub]
+[controlPlane]
   enabled = true
   serviceUrl = "https://apim:9443/"
   username="admin"
