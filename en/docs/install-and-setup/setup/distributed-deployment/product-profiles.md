@@ -36,7 +36,7 @@ The following are the different profiles available in WSO2 API Manager.
     </tr>
     <tr>
         <td>
-            Core Profile
+            Control Plane Profile
         </td>
         <td><pre><code></code></pre></td>
         <td>
@@ -60,15 +60,6 @@ You can start an API Manager profile in the following methods, based on your req
 
 -   [Method 1 - Optimizing before starting the server](#method-1-optimizing-before-starting-the-server)
 -   [Method 2 - Optimizing while starting the server](#method-2-optimizing-while-starting-the-server)
-
-!!! note
-    It is recommended to start the components in the following order: 
-
-    1. Traffic Manager
-    2. Key Manager
-    3. Publisher
-    4. Developer Portal
-    5. Gateway
     
 ### Method 1- Optimizing before starting the server
 

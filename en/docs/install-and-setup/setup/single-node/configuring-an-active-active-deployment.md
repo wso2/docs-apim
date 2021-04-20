@@ -263,9 +263,9 @@ enabled = true
 
 ## Step 10 - Configure API-M Analytics
 
-API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway needs to publish analytics data into the cloud.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-See the instructions on [configuring the synapse Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
+See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 11 - Configure Production Hardening
 

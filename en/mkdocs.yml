@@ -57,7 +57,7 @@ nav:
                 - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
                 - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
-    - Design:
+    - Design APIs:
             - Design APIs Overview: design/design-api-overview.md
             - Create a New API:
                     - Create a REST API: design/create-api/create-a-rest-api.md
@@ -182,7 +182,7 @@ nav:
                 - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-    - Deploy and Publish:
+    - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploying APIs in API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
             - Deploy API:
@@ -277,7 +277,7 @@ nav:
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
-    - Consume:
+    - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
