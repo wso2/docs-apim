@@ -25,7 +25,7 @@ spec:
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
 ```
-In the config.toml config map, go to the \[adapter.consul] section and update it's `url` with k8s node ip.
+In the config-toml-configmap.yaml file, go to the \[adapter.consul] section and update the `url` with the IP address of the Kubernetes node.
 <!-- TODO  How to find the node-ip? -->
 <!-- TODO  How to find the acl token? -->
 <!-- TODO  How to find the initial certs? -->
