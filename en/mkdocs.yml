@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.0.0-dev/
+site_url: https://apim.docs.wso2.com/en/4.0.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -1753,4 +1753,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.0.0-dev
+    base_path: https://apim.docs.wso2.com/en/4.0.0
