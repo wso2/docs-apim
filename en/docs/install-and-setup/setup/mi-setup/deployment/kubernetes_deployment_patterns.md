@@ -8,7 +8,7 @@ When you deploy your integrations, the main concern is to ensure high availabili
 
 The following diagram depicts a single worker node deployment, which contains a single pod (single replica).
 
-<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-single-pod.png">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-single-pod.png" width="300">
 
 A single worker node will reduce your management overheads when you build an on-premise cluster (does not apply to cloud instances). Also, there will be lower costs and resource requirements when compared to a multiple node cluster.
 
@@ -27,7 +27,7 @@ The following diagram depicts a kubernetes cluster with multiple replicas of an 
 !!! Note
 	In this example, one node only carries one replica of a pod. However, depending on the capacity of your worker node, you can maintain multiple pod replicas in a single worker node.
 
-<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers-single-pod.png">
+<img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers-single-pod.png" width="700">
 
 When you have multiple instances of an application, you need a way to distribute the traffic to all of them. Therefore, the cluster should be fronted by an <b>Ingress</b> or an <b>external load balancer service</b> (given that your Kubernetes environment supports external load balancers) that will distribute network traffic to all pods of the exposed deployment.
 

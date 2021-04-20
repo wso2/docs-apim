@@ -928,7 +928,8 @@ html .md-footer-meta.md-typeset a,
 
 .card {
    height: 110px;
-   width: 325px;
+   flex-basis: 0;
+   flex-grow: 1;
    color: #404040;
    margin: 10px;
    background: #f8f8f8;
@@ -948,6 +949,12 @@ html .md-footer-meta.md-typeset a,
    transition: all 0.6s ease;
    padding: 10px;
 }
+
+.card.img {
+    flex-direction: column;
+    height: 200px;
+}
+
 .card:hover {
     border-left: 4px solid #ff5003;
 }
@@ -969,7 +976,6 @@ html .md-footer-meta.md-typeset a,
 }
 
 .card-icon {
-    width: 50px;
     height: 88px;
     max-width: 80px;
     border-radius: 0%;

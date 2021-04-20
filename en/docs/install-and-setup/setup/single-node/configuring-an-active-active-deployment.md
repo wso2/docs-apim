@@ -2,7 +2,7 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each has all the components of the API-M together in one instance (all-in-one instance).
 
-[![Active active deployment]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)]({{base_path}}/assets/img/setup-and-install/active-active-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active apim deployment"></a>
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
@@ -263,12 +263,9 @@ enabled = true
 
 ## Step 10 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
-configure API-M Analytics. If not, you can **skip this step**.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
-[Configuring API-M Analytics - Standard Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) 
-to configure API-M Analytics in a production setup.
+See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 11 - Configure Production Hardening
 

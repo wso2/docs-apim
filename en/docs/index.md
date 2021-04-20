@@ -126,26 +126,17 @@ template: templates/single-column.html
         <div class="DeploymentWrapper">
             <div class="Deploymentlinks">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'>Deploy API Manager Runtime</a></li>
                 </ul>
             </div>
             <div class="Deploymentlinks middle">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'>Deploy the Micro Integrator</a></li>
                 </ul>
             </div>
             <div class="Deploymentlinks last">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'>Deploy the Streaming Integrator</a></li>
                 </ul>
             </div>
         </div>

@@ -1,4 +1,4 @@
-# Deploying WSO2 API-M in a Distributed Setup
+# Configuring a Distributed API-M Deployment
 
 Follow the instructions below to deploy WSO2 API Manager's five main components (Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager) in a distributed environment.
 
@@ -37,10 +37,11 @@ Create an SSL certificate for each of the WSO2 API-M nodes (i.e., Publisher, Dev
 
 When maintaining high availability (HA) in the WSO2 API-M distributed set up, you need to create and import an SSL certificate for each of the WSO2 API-M HA nodes.
 
-
 ## Step 5 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure WSO2 API-M Analytics. Follow the [standard setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
+
+See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 6 - Configure the connections among the components and start the servers
 
