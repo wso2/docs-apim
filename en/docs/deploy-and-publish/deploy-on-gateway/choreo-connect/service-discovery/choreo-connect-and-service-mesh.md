@@ -57,4 +57,4 @@ Add the `caCertFile`, `certFile`, and `keyFile` you generated from the previous 
 Then start Choreo Connect.
 
 ## Step 4 - Deploy the API
-You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints](../service-discovery/#how-to-define-the-endpoints) guide.
+You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/#how-to-define-the-endpoints) guide.
