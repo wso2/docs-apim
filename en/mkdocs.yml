@@ -19,7 +19,7 @@
 site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.0.0-dev/
+site_url: https://apim.docs.wso2.com/en/4.0.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -57,7 +57,7 @@ nav:
                 - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
                 - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
-    - Design:
+    - Design APIs:
             - Design APIs Overview: design/design-api-overview.md
             - Create a New API:
                     - Create a REST API: design/create-api/create-a-rest-api.md
@@ -120,7 +120,6 @@ nav:
                             - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                             - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                             - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                            - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                             - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                     - Authorization:
                             - Overview: design/api-security/authorization/api-authorization.md
@@ -183,13 +182,12 @@ nav:
                 - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-    - Deploy and Publish:
+    - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploying APIs in API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
                 - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-                - Deploy an API to a Cloud Cluster inapi-integration-studio.md PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
@@ -229,7 +227,8 @@ nav:
                 - Concepts:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
-                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
+                    - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
+                    - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                 - Configurations:
@@ -242,11 +241,9 @@ nav:
                         - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                 - Endpoints:
-                    - Endpoint Types: design/endpoints/endpoint-types.md
+                    - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
-                    - Overriding Endpoint Information:
-                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.md
-                        - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                    - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
@@ -255,6 +252,7 @@ nav:
                 - Security:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                             - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
@@ -279,7 +277,7 @@ nav:
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
-    - Consume:
+    - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
             - Search: consume/discover-apis/search.md
@@ -1375,6 +1373,11 @@ nav:
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
                         - Managing Log Growth: install-and-setup/setup/mi-setup/observability/logs/managing_log_growth.md
                         - Masking Sensitive Information in Logs : install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs.md
+                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Load Balancer and Proxy Server:
+                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
+                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
@@ -1398,42 +1401,32 @@ nav:
             - Deploying the API-M Runtime:
                 - All-In-One Deployment:
                     - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                    - Configuring a Single Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Configuring an Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                    - Configuring a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Configuring an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                    - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                    - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
+                - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deploy on Kubernetes:
                     - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
-                - Deploy on a Virtual Machine:
-                    - Clustered Deployment: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                    - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
-                    - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
-                    - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
-                - Deployment Best Practices:
-                    - Production Deployment Guidelines: install-and-setup/setup/mi-setup/deployment/deployment_checklist.md
-                    - Health Check: install-and-setup/setup/mi-setup/deployment/health_check.md
-                    - Changing Default Ports: install-and-setup/setup/mi-setup/changing_default_ports.md
-                    - Backup and Recovery: install-and-setup/setup/mi-setup/deployment/backup_recovery.md
-                - Troubleshooting a Production Deployment: install-and-setup/setup/mi-setup/deployment/troubleshooting_deployment.md
-                - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
+                - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment Guide: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Streaming Integrator Deployment Overview: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
                 - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Deployment Best Practices:
+                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
                 - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - CI/CD:
@@ -1441,11 +1434,6 @@ nav:
                     - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
                     - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
                     - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
-        - Reference:
-            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
-            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
@@ -1487,14 +1475,13 @@ nav:
               - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
               - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
               - Manage APIs:
-                  - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
               - Manage Integrations:
                 - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                 - Integration Deployment Samples:
                   - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                   - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
                   - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
-              - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
               - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
@@ -1521,7 +1508,12 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md      
+                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md 
+        - Reference:
+            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
@@ -1762,4 +1754,4 @@ extra:
           link: https://www.linkedin.com/company/wso2
     site_version: 4.0.0
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.0.0-dev
+    base_path: https://apim.docs.wso2.com/en/4.0.0

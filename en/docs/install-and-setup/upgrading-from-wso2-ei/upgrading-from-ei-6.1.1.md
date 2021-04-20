@@ -1056,10 +1056,74 @@ Follow the instructions given below if you have used a **custom log4j component*
 
 ### Migrating encrypted passwords
 
-To migrate the encrypted passwords from EI 6.1.1, you need to first obtain the plain-text passwords. Once you have them, follow the normal procedure of encrypting secrets in the Micro Integrator. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
+To migrate the encrypted passwords from EI 6.1.1, you need to first re-encrypt (using OAEP) all the encrypted information 
+in the database. Then, you can obtain the plain-text passwords by following the normal procedure of encrypting secrets 
+in the Micro Integrator. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) 
+for instructions.
 
-In case you need to obtain the plain-text passwords by decrypting the encrypted passwords in the EI 6.1.1,
-you can use the [password decryption tool](https://github.com/wso2-docs/WSO2_EI/tree/master/migration-client).
+!!! Info 
+
+    API-M 4.0.0 uses OAEP for data encryption in addition to the RSA algorithm 
+    (which is used in the ESB profile of EI 6.1.1). Therefore, the internally-encrypted data in your current databases (such as 
+    datasource configurations, syslog passwords, user store configurations, keystore registry entries, service security policies, 
+    event publisher configurations, event receiver configurations, and event sink configurations), as well as data encrypted using 
+    secure vault (such as plain text passwords in configuration files and synapse configurations) should be re-encrypted using OAEP.
+
+#### Step 1: Re-encrypt all internally-encrypted data using OAEP
+
+First, let's re-encrypt all the internally-encrypted data by using OAEP.
+
+1. Get the latest update (later than the update level released on 18/04/2018) for your existing EI 6.1.1 by using [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/). This will give you a new EI distribution with the latest updates.
+
+	!!! Info
+		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment.
+		
+2. Connect the WUM-updated EI distribution to your existing databases (which are used for registry data and user management data):
+
+	??? note "Connecting to the database"
+	
+		a. Open the `master-datasources.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/datasources/` directory) and update the parameters given below.
+		
+		   By default, registry and user management data are stored in one database and is configured in the `master-datasources.xml` file. If you have separate databases for registry and user management data, you may have separate datasource configurations.
+		   
+		   | Element          | Description   |
+		   | ---------------- | ------------- |
+		   | driverClassName  | The class name of the database driver. |
+		   | url  | The URL of the database. |
+		   | username and password  | The name and password of the database user. |
+
+		   
+		b. Open the `registry.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf` directory) and specify the datasource name.
+
+		   ```xml
+		   <dbConfig name="wso2registry">   
+               <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+           </dbConfig>
+           ```
+        
+        c. If a JDBC user store is used in your ESB, open the `user-mgt.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/` directory), and update the following database connection parameters under the `<UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">` section.   
+           
+		   | Element          | Description   |
+		   | ---------------- | ------------- |
+		   | driverClassName  | The class name of the database driver. |
+		   | url  | The URL of the database. |
+		   | username and password  | The name and password of the database user. |
+
+           Further, update the system administrator configurations and the datasource name in the `user-mgt.xml` file. See [Configuring a JDBC user store](https://docs.wso2.com/display/EI660/Configuring+a+JDBC+User+Store) for instructions.
+           
+        d. [Encrypt the plain text passwords](https://docs.wso2.com/display/EI660/Encrypting+Passwords+with+Cipher+Tool) that you added to the configuration files (master-datasources.xml, user-mgt.xml, etc.).   
+
+3. Be sure that the [carbon.properties]({{base_path}}/assets/attachments/migration/micro-integrator/carbon.properties) file is included in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/` directory with the following parameter:
+
+    ```text
+    org.wso2.CipherTransformation=RSA/ECB/OAEPwithSHA1andMGF1Padding
+    ```
+
+4. Start the WUM-updated ESB server of EI 6.1.1. This will re-encrypt the data in the databases.
+
+#### Step 2: Run the migration tool
+
+Now, let's run the [password decryption tool](https://github.com/wso2-docs/WSO2_EI/tree/master/migration-client) from EI 6.1.1 to obtain the plain-text passwords by decrypting the encrypted passwords in the EI 6.1.1.
 
 Follow the instructions given below to use the password decryption tool.
 
@@ -1089,6 +1153,8 @@ Follow the instructions given below to use the password decryption tool.
 		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<EI_HOME>/migration/secure-vault-decrypted.properties` file and the `<EI_HOME>/migration/cipher-text-decrypted.properties` file in EI 6.1.1.
 
 The encrypted passwords are now decrypted and you have access to the plain-text password values.
+
+6.	Use the plain-text passwords and follow the normal procedure of encrypting secrets in the Micro Integrator of API-M 4.0.0. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 ### Migrating the Hl7 Transport
 
