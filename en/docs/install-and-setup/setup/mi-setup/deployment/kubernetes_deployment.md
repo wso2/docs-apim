@@ -13,4 +13,4 @@ See [Deploying Integrations on Kubernetes]({{base_path}}/install-and-setup/setup
 
 ## Use Kubernetes resources
 
-Integration developers can directly generate the kubernetes artifacts that are required for a kubernetes deployment using WSO2 Integration Studio. Once these resources are generated, you can set a Kubernetes deployment by following the Kubernetes documentation.
+Integration developers can directly generate the Kubernetes artifacts that are required for a Kubernetes deployment using WSO2 Integration Studio. Once these resources are generated, you can set a Kubernetes deployment by following the Kubernetes documentation.
