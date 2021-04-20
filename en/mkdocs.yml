@@ -1730,13 +1730,13 @@ plugins:
               'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
               'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
-              'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
-              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/test-a-websub-api/'
-              'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api/'
-              'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
-              'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
-              'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
-              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/test-a-rest-api/'
+              'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
+              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/test-a-websub-api/'
+              'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'
+              'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
+              'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
+              'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
+              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
 
     # Extra
 extra_css:
