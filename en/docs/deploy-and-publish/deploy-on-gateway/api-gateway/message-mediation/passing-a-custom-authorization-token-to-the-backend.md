@@ -26,7 +26,7 @@ Here's a summary:
         </sequence>
         ```
 
-2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api/).
+2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample value         |
     |---------------|----------------------|
