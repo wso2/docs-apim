@@ -1,4 +1,4 @@
-# Configure Synapse Gateway
+# Configure API Gateway
 As explained in the [overview section]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics/), API Manager Analytics is delivered via API Manager Analytics cloud. Hence, API
  Manager Gateway needs to be configured to publish analytics data into the cloud.
  
