@@ -120,7 +120,6 @@ nav:
                             - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                             - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                             - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                            - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                             - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                     - Authorization:
                             - Overview: design/api-security/authorization/api-authorization.md
@@ -189,7 +188,6 @@ nav:
             - Deploy API:
                 - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
                 - Exposing APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-                - Deploy an API to a Cloud Cluster inapi-integration-studio.md PrivateJet Mode: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                 - Deploy through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
             - API Gateway:
                 - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
@@ -229,7 +227,8 @@ nav:
                 - Concepts:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
-                    - Event Hub Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub-subscription-validation.md
+                    - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
+                    - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                 - Configurations:
@@ -242,11 +241,9 @@ nav:
                         - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                 - Endpoints:
-                    - Endpoint Types: design/endpoints/endpoint-types.md
+                    - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
-                    - Overriding Endpoint Information:
-                        - Overriding Endpoints for Developer-centric Approach APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-developer-centric-approach-apis.md
-                        - Overriding Endpoints for Imported APIs: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoint-information/overriding-endpoints-for-imported-apis.md
+                    - Overriding Endpoint Information: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/overriding-endpoints-for-imported-apis.md
                     - Defining a Backend Security Scheme: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-a-backend-security-scheme.md
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
@@ -255,6 +252,7 @@ nav:
                 - Security:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
+                        - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
                             - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
@@ -1401,11 +1399,11 @@ nav:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploying the API-M Runtime:
                 - All-In-One Deployment:
-                    - All-in-One Deployment - Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
+                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                     - Configuring a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
                     - Configuring an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Distributed Deployment - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
@@ -1415,7 +1413,7 @@ nav:
                     - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
-                - Streaming Integrator Deployment - Overview: install-and-setup/setup/si-deployment/deployment-guide.md
+                - Streaming Integrator Deployment Overview: install-and-setup/setup/si-deployment/deployment-guide.md
                 - Single Node Deployment: install-and-setup/setup/si-deployment/deploying-si-as-a-single-deployment.md
                 - Minimum HA Cluster: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster.md
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
@@ -1483,7 +1481,6 @@ nav:
                   - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                   - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
                   - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
-              - Enabling PrivateJet Mode to Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
               - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
           - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - API Controller:
