@@ -721,7 +721,7 @@ nav:
                     - Registering for APIM Analytics: observe/api-manager-analytics/configure-analytics/register-for-analytics.md
                     - Configuring Gateway:
                         - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
-                        - Configuring Synapse Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
+                        - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
                 - Viewing APIM analytics:
                     - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
                     - Pages:
