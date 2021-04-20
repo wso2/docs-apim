@@ -58,131 +58,132 @@ nav:
                 - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
-            - Design APIs Overview: design/design-api-overview.md
-            - Create a New API:
-                - Create a REST API:
-                    - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
-                    - Create a REST API from an OpenAPI Definition: design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
-                    - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
-                    - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
-                    - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
-                - Create a GraphQL API: design/create-api/create-a-graphql-api.md
-                - Create a Streaming API:
-                    - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
-                    - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                    - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-                    - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-                    - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                    - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
-                - Create an API using a Service: design/create-api/create-an-api-using-a-service.md
-                #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
-            - Create API Revisions: design/create-api/create-api-revisions.md
-            - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
-            - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
-            - Prototype APIs:
-                    - Create a Prototype API with an Inline Script: design/prototype-api/create-a-mock-api-with-an-inline-script.md
-                    - Deploy and Test Prototype APIs: design/prototype-api/deploy-and-test-mock-apis.md
-            - Create API Product:
-                    - API Product Overview: design/create-api-product/api-product-overview.md
-                    - Create an API Product: design/create-api-product/create-api-product.md
-            - Endpoints:
-                - Endpoint Types: design/endpoints/endpoint-types.md
-                - Security:
-                    - Secure Endpoint with Basic Auth: design/endpoints/endpoint-security/basic-auth.md
-                    - Secure Endpoint with Digest Auth: design/endpoints/endpoint-security/digest-auth.md
-                    - Secure Endpoint with OAuth 2.0: design/endpoints/endpoint-security/oauth-2.0.md
-                - High Availability for Endpoints: design/endpoints/high-availability-for-endpoints.md
-                - Resiliency:
-                    - Endpoint Timeouts: design/endpoints/resiliency/endpoint-timeouts.md
-                    - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
-                    - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
-                - Manage Certificates: design/endpoints/certificates.md
-                - Lifecycle Managament:
-                    - API Lifecycle: design/lifecycle-management/api-lifecycle.md
-                    - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
-                    - Extending the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
-                - API Versioning:
-                    - Create a New API Version: design/api-versioning/create-a-new-api-version.md
-                    - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
-                    - Backward Compatibility: design/api-versioning/backward-compatibility.md
-                    - Enabling Notifications: design/api-versioning/enabling-notifications.md
-            - API Documentation:
-                    - Add API Documentation: design/api-documentation/add-api-documentation.md
-                    - Search Documentation:
-                            - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
-            - API Collaboration:
-                    - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
-                    - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
-            - API Security:
-                    - Authentication:
-                            - Overview: design/api-security/api-authentication/api-authentication-overview.md
-                            - Secure APIs using OAuth2 Access Tokens: design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
-                            - Secure APIs using API Keys: design/api-security/api-authentication/secure-apis-using-api-keys.md
-                            - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                            - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
-                            - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                            - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
-                    - Authorization:
-                            - Overview: design/api-security/authorization/api-authorization.md
-                            - Role-Based Access Control using Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                            - Role-Based Access Control using XACML: design/api-security/authorization/role-based-access-control-using-xacml.md
-                    - Securing APIs by Auditing API Definitions: design/api-security/configuring-api-security-audit.md
-                    - Request-Response Schema Validation:
-                            - JSON Schema Validator: design/api-security/api-request-response-schema-validation/json-schema-validator.md
-                    - OAuth2:
-                            - Token types:
-                                    - JWT Access Tokens: design/api-security/oauth2/access-token-types/jwt-tokens.md
-                            - OAuth2 Scopes:
-                                    - Role-Based Access Control with OAuth Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                                    - Scope Whitelisting: design/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
-                            - Grant Types:
-                                    - Overview: design/api-security/oauth2/grant-types/overview.md
-                                    - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
-                                    - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
-                                    - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                                    - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
-                                    - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
-                                    - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                                    - Kerberos OAuth2 Grant: design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
-                                    - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
-                            - Token Revocation: design/api-security/oauth2/token-revocation.md
-                            - Token Expiration: design/api-security/oauth2/token-expiration.md
-                            - Token Persistence: design/api-security/oauth2/token-persistence.md
-                            - Encrypting OAuth2 Tokens: design/api-security/oauth2/encrypting-oauth2-tokens.md
-                            - Hashing OAuth Keys: design/api-security/oauth2/hashing-oauth-keys.md
-                            - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
-                            - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
-                    - Threat Protection:
-                            - Bot Detection: design/api-security/threat-protection/bot-detection.md
-                            - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
-                            - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                            - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                            - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                    - OpenID Connect:
-                            - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-            - Rate Limiting:
-                    - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
-                    - Adding New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
-                    - Setting Throttling Limits: design/rate-limiting/setting-throttling-limits.md
-                    - Access Control: design/rate-limiting/access-control.md
-                    - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
-                    - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                    - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
-                    - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
-                    - Query Limits for GraphQL:
-                            - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
-                            - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
-                            - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
-                    - Advanced Topics:
-                            - Custom Throttling: design/rate-limiting/advanced-topics/custom-throttling.md
-            - API Monetization:
-                - Monetizing an API: design/api-monetization/monetizing-an-api.md
-            - Advanced Topics:
-                - Enable Publisher Access Control: design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
-                - Control API Visibility and Subscription Availability in the Developer Portal: design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
-                - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
-                - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
-                - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
+        - Design APIs Overview: design/design-api-overview.md
+        - Create a New API:
+            - Create a REST API:
+                - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
+                - Create a REST API from an OpenAPI Definition: design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+                - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
+                - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
+                - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
+            - Create a GraphQL API: design/create-api/create-a-graphql-api.md
+            - Create a Streaming API:
+                - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
+                - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+                - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+                - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                - Test a WebSub/WebHook API: design/create-api/create-streaming-api/test-a-websub-api.md
+            - Create an API using a Service: design/create-api/create-an-api-using-a-service.md
+            #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
+        - Create API Revisions: design/create-api/create-api-revisions.md
+        - Adding Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
+        - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
+        - Prototype APIs:
+                - Create a Prototype API with an Inline Script: design/prototype-api/create-a-mock-api-with-an-inline-script.md
+                - Deploy and Test Prototype APIs: design/prototype-api/deploy-and-test-mock-apis.md
+        - Create API Product:
+                - API Product Overview: design/create-api-product/api-product-overview.md
+                - Create an API Product: design/create-api-product/create-api-product.md
+        - Endpoints:
+            - Endpoint Types: design/endpoints/endpoint-types.md
+            - Security:
+                - Secure Endpoint with Basic Auth: design/endpoints/endpoint-security/basic-auth.md
+                - Secure Endpoint with Digest Auth: design/endpoints/endpoint-security/digest-auth.md
+                - Secure Endpoint with OAuth 2.0: design/endpoints/endpoint-security/oauth-2.0.md
+            - High Availability for Endpoints: design/endpoints/high-availability-for-endpoints.md
+            - Resiliency:
+                - Endpoint Timeouts: design/endpoints/resiliency/endpoint-timeouts.md
+                - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
+                - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
+            - Manage Certificates: design/endpoints/certificates.md
+            - Lifecycle Managament:
+                - API Lifecycle: design/lifecycle-management/api-lifecycle.md
+                - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
+                - Extending the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
+            - API Versioning:
+                - Create a New API Version: design/api-versioning/create-a-new-api-version.md
+                - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
+                - Backward Compatibility: design/api-versioning/backward-compatibility.md
+                - Enabling Notifications: design/api-versioning/enabling-notifications.md
+        - API Documentation:
+                - Add API Documentation: design/api-documentation/add-api-documentation.md
+                - Search Documentation:
+                        - Add a New Search Keyword: design/api-documentation/search-documentation/add-new-search-keyword.md
+        - API Collaboration:
+                - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
+                - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
+        - API Security:
+                - Authentication:
+                        - Overview: design/api-security/api-authentication/api-authentication-overview.md
+                        - Secure APIs using OAuth2 Access Tokens: design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
+                        - Secure APIs using API Keys: design/api-security/api-authentication/secure-apis-using-api-keys.md
+                        - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
+                        - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                        - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+                        - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
+                        - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
+                - Authorization:
+                        - Overview: design/api-security/authorization/api-authorization.md
+                        - Role-Based Access Control using Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                        - Role-Based Access Control using XACML: design/api-security/authorization/role-based-access-control-using-xacml.md
+                - Securing APIs by Auditing API Definitions: design/api-security/configuring-api-security-audit.md
+                - Request-Response Schema Validation:
+                        - JSON Schema Validator: design/api-security/api-request-response-schema-validation/json-schema-validator.md
+                - OAuth2:
+                        - Token types:
+                                - JWT Access Tokens: design/api-security/oauth2/access-token-types/jwt-tokens.md
+                        - OAuth2 Scopes:
+                                - Role-Based Access Control with OAuth Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                                - Scope Whitelisting: design/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                        - Grant Types:
+                                - Overview: design/api-security/oauth2/grant-types/overview.md
+                                - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
+                                - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
+                                - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
+                                - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
+                                - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
+                                - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
+                                - Kerberos OAuth2 Grant: design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                                - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
+                        - Token Revocation: design/api-security/oauth2/token-revocation.md
+                        - Token Expiration: design/api-security/oauth2/token-expiration.md
+                        - Token Persistence: design/api-security/oauth2/token-persistence.md
+                        - Encrypting OAuth2 Tokens: design/api-security/oauth2/encrypting-oauth2-tokens.md
+                        - Hashing OAuth Keys: design/api-security/oauth2/hashing-oauth-keys.md
+                        - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
+                        - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
+                - Threat Protection:
+                        - Bot Detection: design/api-security/threat-protection/bot-detection.md
+                        - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
+                        - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                        - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                        - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - OpenID Connect:
+                        - Obtaining User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+        - Rate Limiting:
+                - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
+                - Adding New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
+                - Setting Throttling Limits: design/rate-limiting/setting-throttling-limits.md
+                - Access Control: design/rate-limiting/access-control.md
+                - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
+                - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
+                - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
+                - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
+                - Query Limits for GraphQL:
+                        - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
+                        - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
+                        - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
+                - Advanced Topics:
+                        - Custom Throttling: design/rate-limiting/advanced-topics/custom-throttling.md
+        - API Monetization:
+            - Monetizing an API: design/api-monetization/monetizing-an-api.md
+        - Advanced Topics:
+            - Enable Publisher Access Control: design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
+            - Control API Visibility and Subscription Availability in the Developer Portal: design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
+            - Enabling CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
+            - Adding an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
+            - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploying APIs in API Gateway vs Choreo Connect: deploy-and-publish/deploy-on-gateway/deploying-apis-in-api-gateway-vs-choreo-connect.md
@@ -1719,7 +1720,6 @@ plugins:
               'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
-              'design/create-api/create-rest-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/design/create-api/create-rest-api/create-a-rest-api-from-a-openapi-definition/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/alert-types.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/alert-types/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/configuring-alerts/'
               'observe/api-manager-analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/observe/api-manager-analytics/subscribing-for-alert/'
@@ -1732,11 +1732,11 @@ plugins:
               'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
               'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
               'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-streaming-api/test-a-websub-api/'
-              'design/create-api/create-rest-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api/'
-              'design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
+              'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api/'
+              'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
               'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
               'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
-              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/test-a-rest-api.md'
+              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0-dev/design/create-api/create-rest-api/test-a-rest-api/'
 
     # Extra
 extra_css:
