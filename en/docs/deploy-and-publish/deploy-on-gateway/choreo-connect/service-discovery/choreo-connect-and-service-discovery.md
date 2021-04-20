@@ -1,6 +1,6 @@
 # Configure Choreo Connect with Consul Discovery (without service mesh)
 
-![service discovery](../../../../assets/img/deploy/consul-reference-discovery.png)
+![service discovery]({{base_path}}/assets/img/deploy/consul-reference-discovery.png)
 
 ## Step 1 - Setup Consul
 Set up Consul securely.<br>
@@ -27,4 +27,4 @@ Add the `caCertFile`, `certFile`, and `keyFile` you generated from the previous 
 Then start Choreo Connect.
 
 ## Step 3 - Deploy the API
-You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints](../service-discovery/#how-to-define-the-endpoints) guide.
+You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/#how-to-define-the-endpoints) guide.

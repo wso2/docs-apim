@@ -1,7 +1,7 @@
 # Configure Choreo Connect with Consul service mesh deployed on Kubernetes
 Example:
 
-![service discovery](../../../../assets/img/deploy/consul-reference-k8s.png)
+![service discovery]({{base_path}}/assets/img/deploy/consul-reference-k8s.png)
 
 ## Step 1 - Deploy Consul on K8s
 Deploy Consul using the [official Helm Chart](https://helm.releases.hashicorp.com/).<br>

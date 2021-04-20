@@ -1,7 +1,7 @@
 # Configure Choreo Connect with Consul service mesh
 Example:
 
-![service discovery](../../../../assets/img/deploy/consul-reference-with-mesh.png)
+![service discovery]({{base_path}}/assets/img/deploy/consul-reference-with-mesh.png)
 
 ## Step 1 - Setup Consul
 Set up Consul securely.<br>
