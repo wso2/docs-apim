@@ -1017,11 +1017,13 @@ in the database. Then, you can obtain the plain-text passwords by following the 
 in the Micro Integrator. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) 
 for instructions.
 
-!!! Info API-M 4.0.0 uses OAEP for data encryption in addition to the RSA algorithm 
-(which is used in the ESB profile of EI 6.1.0). Therefore, the internally-encrypted data in your current databases (such as 
-datasource configurations, syslog passwords, user store configurations, keystore registry entries, service security policies, 
-event publisher configurations, event receiver configurations, and event sink configurations), as well as data encrypted using 
-secure vault (such as plain text passwords in configuration files and synapse configurations) should be re-encrypted using OAEP.
+!!! Info 
+
+    API-M 4.0.0 uses OAEP for data encryption in addition to the RSA algorithm 
+    (which is used in the ESB profile of EI 6.1.0). Therefore, the internally-encrypted data in your current databases (such as 
+    datasource configurations, syslog passwords, user store configurations, keystore registry entries, service security policies, 
+    event publisher configurations, event receiver configurations, and event sink configurations), as well as data encrypted using 
+    secure vault (such as plain text passwords in configuration files and synapse configurations) should be re-encrypted using OAEP.
 
 #### Step 1: Re-encrypt all internally-encrypted data using OAEP
 
@@ -1069,9 +1071,9 @@ First, let's re-encrypt all the internally-encrypted data by using OAEP.
 
 3. Be sure that the [carbon.properties]({{base_path}}/assets/attachments/migration/micro-integrator/carbon.properties) file is included in the `<WUM_UPDATED_EI_6.1.0_HOME>/conf/` directory with the following parameter:
 
-```text
-org.wso2.CipherTransformation=RSA/ECB/OAEPwithSHA1andMGF1Padding
-```
+    ```text
+    org.wso2.CipherTransformation=RSA/ECB/OAEPwithSHA1andMGF1Padding
+    ```
 
 4. Start the WUM-updated ESB server of EI 6.1.0. This will re-encrypt the data in the databases.
 
