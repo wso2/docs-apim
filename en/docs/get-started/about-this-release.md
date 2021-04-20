@@ -62,6 +62,10 @@ It is now available to download from [here](https://github.com/wso2/product-apim
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
+#### Key changes
+
+- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
+
 ---
 
 ## Micro Integrator

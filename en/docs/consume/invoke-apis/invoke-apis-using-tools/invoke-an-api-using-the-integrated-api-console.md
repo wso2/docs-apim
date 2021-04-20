@@ -57,46 +57,6 @@ Note the successful response for the API invocation.
 [![API response]({{base_path}}/assets/img/learn/api-response.png)]({{base_path}}/assets/img/learn/api-response.png)
 
 You have now successfully invoked an API using the Open API Console
-
-## Invoke an API deployed on a cloud cluster
-
-!!! Attention "Before You Begin"
-    You need to have an API published to a cloud cluster in order to invoke the API as follows. For instructions on how to publish an API to a cloud cluster in PrivateJet Mode, see [Publish an API to a Cloud Cluster in PrivateJet Mode]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/).
-
-1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click on the API that you deployed on a cloud cluster. 
-
-    !!! Note
-        You can find the accessURL that corresponds the API under **Gateway Environments**.
-   
-    [![Developer Portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
-   
-2. Subscribe to the API using an application and an available throttling policy.
-
-    [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
-
-3.  Click **Applications**, click on the application that you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
-
-    [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
-
-    !!! tip
-        **Production and Sandbox Tokens**
-
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
-
-    !!! tip
-        **JWT tokens**
-
-        As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
-    
-4. Click **Try Out** to navigate to the API Console.
-    
-5. Select the Gateway as **configured container management cluster**.
-    
-    [![Developer Portal - Try Out gateway selection]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)
-    
-6. Expand a method and click **Try it out**. Click **Execute**.
-    
-    [![API console execute]({{base_path}}/assets/img/learn/api-console-execute.png)]({{base_path}}/assets/img/learn/api-console-execute.png)
         
 ## Get a test key to invoke an API
 
