@@ -11,7 +11,7 @@ Let's get started with the integration capabilities and concepts of the Micro In
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+        <div class="card img" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='{{base_path}}/assets/img/integrate/quick-start.png' alt="integration quick start" />
@@ -23,10 +23,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
             <div class="line"></div>
             <div class="card-icon">
-                <img src='{{base_path}}/assets/img/integrate/first-service.png' alt="develop first integration" width="50"/>
+                <img src='{{base_path}}/assets/img/integrate/first-service.png' alt="develop first integration" />
             </div>
             <div class="card-content">
                 <p class="title">Develop your First Integration</p>
@@ -35,7 +35,7 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
             <div class="line"></div>
             <div class="card-icon">
                 <img src='{{base_path}}/assets/img/integrate/key-concepts.png' alt="integration key concepts" />
