@@ -30,7 +30,7 @@ For enterprises and companies who want to use Analytics Portal collaboratively c
 
 - This process will send an email to the user and once he/she click in the activation link, he/she will be added to the
  respective organization.
-- Once all required users are added please continue on to this [documentation]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics)  
+- Once all required users are added, continue to follow this [documentation]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics)  
 to complete registration.
 
 ## Modifying/Viewing Settings of Invited Organizations
