@@ -75,7 +75,7 @@ Usage of this command is quite simple. Two mandatory flags are associated with t
     Project initialized
     Open README file to learn more
     ```
-### How the `aws init` command works.
+### How the **aws init** command works.
 
 The `aws init` command will be using the AWS CLI in the background to get a list of all the APIs from the AWS API gateway. It will then look for the ID of the API name provided by the user when the `aws init` command was executed, to download the OAS of that API. After making the necessary adjustments to the APIs version, tags, endpoints etc, an API project will be initialized and the downloaded OAS will be deleted.
 
@@ -98,19 +98,19 @@ After successfully importing the API, it will appear in the publisher as shown b
 
 [![]({{base_path}}/assets/img/publish/aws-api-publisher.png)]({{base_path}}/assets/img/publish/aws-api-publisher.png)
 
-To publish the API, go to `Lifecycle` under `Publish` and click on `PUBLISH`.
+To publish the API, go to `Lifecycle` under `Publish` and click on `Publish`.
 
 [![]({{base_path}}/assets/img/publish/publish-aws-api.png)]({{base_path}}/assets/img/publish/publish-aws-api.png)
 
 To learn more about importing an API project refer to [import-api-project](https://apim.docs.wso2.com/en/latest/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).
 
-The initial state of the API will be set to `CREATED` so the user will be able to make changes to the API if necessary in the publisher portal before publishing the API in the developer portal.
+The initial state of the API will be set to `CREATED` so the user will be able to make changes to the API if necessary in the publisher portal, before publishing the API on the developer portal.
 
 ## Troubleshooting errors
 
 If any errors are being printed and if the problem is not clear, execute the `aws init` command with the `--verbose` flag to get a more detailed output.
 
-### Unable to find an API with the name `<api-name-provided>`
+### Unable to find an API with the name `<api-name>`
 
 After making sure the user has provided the correct API name and that the API is in the AWS API gateway, if the problem persists, it is possible that the user has disabled AWS CLI pagination which will cause the AWS CLI to output only a limited number of APIs. In such cases, the API the user is looking for might not be in the APIs list provided by the AWS CLI. Enable AWS CLI pagination and try again. 
 
