@@ -78,7 +78,7 @@ An application can be used to support environment restrictions. For e.g., if the
 For more information on application-level throttling tiers, see [application-level Throttling tiers](https://apim.docs.wso2.com/en/latest/learn/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-throttling-tier).
 
 
-##Revoked Tokens
+## Revoked Tokens
 
 Choreo Connect is required to be notified when a token is revoked by the Security Token Service (STS).
 When Choreo Connect is working with JWT formatted self-contained access tokens, it does not communicate with the STS for checking the validity of the token. It considers any token with a trusted signature as valid as long as the token is not expired. 
@@ -106,4 +106,4 @@ For more information on how to enable and work with this feature, check [How to 
 
 ## Third party Key Managers
 
-Choreo Connect connects with the event hub to receive key manager events when actions such as add, update, delete happens in API Manager. Also during the startup, it pulls the key manager configuration details of third party keymanagers which are resided on API Manager admin portal in order to get the events that has happened before starting the Choreo Connect.
+Third Party Key Managers can be registered at APIM Admin Portal. The issuer data are used for JWT token validation in Choreo Connect. During the Choreo Connect startup, it is  connected with the event hub and pull the list of existing Key Managers. The data are stored in issuer data store at Enforcer. If the same token service has found at `config.toml` file, the configuration data in that issuer will be overridden with Key Manager Configurations comes from APIM Admin Portal. Whenever a Key Manager event (add, update, delete) receives to Choreo Connect, issuer data store will be updated accordingly. But if it still persists in `config.toml`, delete events will not be proceed.

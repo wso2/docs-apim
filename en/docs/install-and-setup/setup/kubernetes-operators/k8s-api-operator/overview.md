@@ -11,7 +11,7 @@ The API operator for Kubernetes provides first-class support for Micro Integrato
 ecosystem. It uses the Integration custom resource (integration_cr.yaml file) that is available in the Kubernetes
 project (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
 
-[![With and without K8s API Operator]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-withou-k8s-api-operator.png)]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-withou-k8s-api-operator.png)
+[![With and without K8s API Operator]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-without-k8s-api-operator.png)]({{base_path}}/assets/img/learn/kubernetes-operators/with-and-without-k8s-api-operator.png)
 
 
 ## How API Operator Works

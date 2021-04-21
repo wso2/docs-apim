@@ -346,7 +346,7 @@
         <td>Contains the endpoint certificates for endpoint security enabled APIs.</td>
         </tr>
         <tr class="odd">
-        <td><Image</td>
+        <td>Image</td>
         <td>Contains the thumbnail image of the API.</td>
         </tr>
         </tbody>
@@ -382,7 +382,6 @@
             name : SampleAPI
             version: 1.0.0
             context: /sampleapi
-            enableStore: true
             endpointConfig:
                 endpoint_type: http
                 production_endpoints:
@@ -434,13 +433,12 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--file` or `-f` : The file path of the API project to import.  
             `--environment` or `-e` : Environment to which the API should be imported.   
         -   Optional :  
-            `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.
-            `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API. 
-            `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`. 
-            `--update` : Update an existing API or create a new API in the importing environment.  
-            `--params` : Provide a API Manager environment params file.   
-            For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).  
-            `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.  
+            `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
+            `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API.   
+            `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`.   
+            `--update` : Update an existing API or create a new API in the importing environment.    
+            `--params` : Provide a API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
+            `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.    
 
     !!! example
         ```bash

@@ -2,7 +2,7 @@
 
 This page walks you through how to manually configure and deploy WSO2 API Manager in a single standalone instance, without using a distributed or HA deployment patterns. 
 
-[![Single node deployment]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment"></a>
 
 Follow the instructions below to configure and deploy API-M using a single node:
 
@@ -107,12 +107,9 @@ In this case, let's use `api.am.wso2.com` as the hostname:
 
 ## Step 6 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
-configure API-M Analytics. If not, you can **skip this step**.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
-[Configuring API-M Analytics - Standard Setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) 
-to configure API-M Analytics in a production setup.
+See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 7 - Configure Production Hardening
 
@@ -133,10 +130,10 @@ Start the WSO2 API-M servers using the standard start-up script. For more inform
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/
-sh wso2server.sh
+sh api-manager.sh
 ```
 
 ```tab="Windows"
 cd <API-M_HOME>\bin\
-wso2server.bat --run 
+api-manager.bat --run 
 ```

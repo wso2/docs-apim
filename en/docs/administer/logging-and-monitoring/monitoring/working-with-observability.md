@@ -23,12 +23,12 @@ Enabling observability is simple in the new API Manager. All that needs to be do
     
     Linux/Mac OS
     ```java
-    sh wso2server.sh -DenableCorrelationLogs=true start
+    sh api-manager.sh -DenableCorrelationLogs=true start
     ```
 
     Windows
     ```java
-    wso2server.bat --run -DenableCorrelationLogs=true start
+    api-manager.bat --run -DenableCorrelationLogs=true start
     ```
 
 !!! note
@@ -572,7 +572,7 @@ Enable observability with WSO2 API-M and start the WSO2 API-M server as explain
 
 If you don't have an API to access, follow the following links: 
 
-1. [Creating an API]({{base_path}}/design/create-api/create-a-rest-api)
+1. [Creating an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api)
 
 2. [Publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api)
 

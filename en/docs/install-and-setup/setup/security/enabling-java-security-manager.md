@@ -13,7 +13,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
 
 1.  Download the WSO2 product to any location (e.g., `<HOME>/user/<product-pack>` folder).
 
-2. Run the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`. Once the product is up and running, shutdown the server.
+2. Run the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `api-manager.sh`. Once the product is up and running, shutdown the server.
 
 3.  To sign the JARs in your product, you need a key. You can generate a new keystore (with a new key) by executing the keytool command given below. Note that the new keystore is created in the directory from which you execute the keytool command.
 
@@ -104,7 +104,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     !!! tip
         Every time you add an external JAR to the WSO2 product, sign them manually using the above instructions for the Java Security Manager to be effective. You add external JARs to the server when extending the product, applying patches etc.
 
-7.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
+7.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `api-manager.sh`.
 8.  Add the following system properties to the startup script and save the file. Add them before the `org.wso2.carbon.bootstrap.Bootstrap $*` line.
 
     ``` java

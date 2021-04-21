@@ -4454,11 +4454,11 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) section before moving to the next step.
 
         ```tab="Linux / Mac OS"
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-        wso2server.bat -Dmigrate -Dcomponent=identity
+        api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
@@ -4496,7 +4496,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `api-manager.bat` file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -4514,11 +4514,11 @@ Follow the instructions below to move all the existing API Manager configuration
      
         1. Migrate registry resources from 1.10 to 2.0 as follows.
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            sh api-manager.sh -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
     
             ``` tab="Windows"
-            wso2server.bat -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            api-manager.bat -DmigrateReg=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
             
         2. Migrate file system from 1.10 to 2.0. 
@@ -4526,11 +4526,11 @@ Follow the instructions below to move all the existing API Manager configuration
              This migrates the Synapse config files such as APIs that reside in the file system. Therefore, you must run this command on the Gateway node/s of a distributed WSO2 API Manager setup.
 
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            sh api-manager.sh -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
     
             ``` tab="Windows"
-            wso2server.bat -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
+            api-manager.bat -DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0
             ```
         
         3. Migrate to the new throttling engine and generate throttle policies. 
@@ -4538,21 +4538,21 @@ Follow the instructions below to move all the existing API Manager configuration
              This migrates Synapse config files, the API-M database with new throttle policies and generates throttle policies in the `<API-M_3.2.0_HOME>/executionplans` directory. Therefore, you must run this command against a node that has Synapse config files and the `AM_DB`. After the migration, copy the `<API-M_3.2.0_HOME>/executionplans` directory to the `<API-M_3.2.0_HOME>/repository/deployment/server/executionplans` directory of the Traffic Manager node.
 
             ``` tab="Linux / Mac OS"
-            sh wso2server.sh -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
+            sh api-manager.sh -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
             ```
     
             ``` tab="Windows"
-            wso2server.bat -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
+            api-manager.bat -Dcomponent=apim -DmigrateFromVersion=1.10.0 -Doptions=migrateThrottling
             ```
             
     4. Start the API-M server as follows to migrate API Manager artifacts from 2.0 to 3.2.
     
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=2.0.0
+        sh api-manager.sh -DmigrateFromVersion=2.0.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.0.0
+        api-manager.bat -DmigrateFromVersion=2.0.0
         ```
 
     4. Shutdown the API-M server.
