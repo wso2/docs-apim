@@ -45,7 +45,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI 
+                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI 
                 ```  
 
         -   **Response**
@@ -61,8 +61,9 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use combined modifiers.  
-                **Example:**
+                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command.  
+                
+                **Examples:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
                 -  `'provider:"wso2"'` will match an API if the provider of the API is exactly `wso2`.
@@ -109,7 +110,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 
+                apictl get api-products --environment production --query provider:Alice --query name:PizzaShackAPI --limit 25 
                 ```  
 
         -   **Response**
@@ -388,7 +389,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
             apictl undeploy api -n <API name> -v <API version> --rev <Revision number> -e <environment>
             ```
             ``` bash
-            apictl undeploy api --n <API name> --v <API version> --rev <Revision number> --g <gateway environment> --e <environment> 
+            apictl undeploy api -n <API name> -v <API version> --rev <Revision number> -g <gateway environment> -e <environment> 
             ```
             ``` bash
             apictl undeploy api --name <API name> --version <API version> --rev <Revision number> --environment <environment> --provider <API provider> 
@@ -408,13 +409,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
     
             !!! example
                 ```bash
-                apictl undeploy api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev 
+                apictl undeploy api -n PizzaShackAPI -v 1.0.0 --rev 1 -e dev 
                 ```
                 ```bash
-                apictl undeploy api --n PizzaShackAPI --v 1.0.0 --rev 2 -g Label1 Label2 Label3 --e production 
+                apictl undeploy api -n PizzaShackAPI -v 1.0.0 --rev 2 -g Label1 -g Label2 -g Label3 -e production 
                 ```    
                 ```go
-                apictl undeploy api --name PizzaShackAPI --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 "Default"  --environment production 
+                apictl undeploy api --name PizzaShackAPI --version 1.0.0 --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default --environment production 
                 ```  
     
         -   **Response**
@@ -430,7 +431,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
                 apictl undeploy api-product -n <API Product name> --rev <Revision number> -e <environment>
                 ```
                 ``` bash
-                apictl undeploy api-product --n <API Product name> --rev <Revision number> --g <gateway environment> --e <environment> 
+                apictl undeploy api-product -n <API Product name> --rev <Revision number> -g <gateway environment> -e <environment> 
                 ```
                 ``` bash
                 apictl undeploy api-product --name <API Product name> --rev <Revision number> --environment <environment> --provider <API Product provider>   
@@ -449,13 +450,13 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
            
             !!! example
                 ```bash
-                apictl undeploy api-product -n LeasingAPIProduct -e dev 
+                apictl undeploy api-product -n LeasingAPIProduct --rev 1 -e dev 
                 ```
                 ```bash
-                apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 Label2 Label3 --e production 
+                apictl undeploy api-product -n PizzaProduct --rev 2 -g Label1 -g Label2 -g Label3 -e production 
                 ```    
                 ```go
-                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 "Default"  --environment production 
+                apictl undeploy api-product --name ShopProduct --provider Alice --rev 3 --gateway-env Label1 --gateway-env Default  -environment production 
                 ```  
          
             -   **Response**
@@ -466,5 +467,5 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
     !!! Info
         - If ```--gateway-env``` or ```-g``` flag not provided, revision will be undeployed from all the gateway environments it is already deployed.
-        - If there are multiple gateway environments, provide them one by one separated with a space. If a label has more than one words,
+        - If there are multiple gateway environments, provide them one by one by specifying the flag ```--gateway-env``` or ```-g```. If a label has more than one words,
         wrap the entire label name with quotes.
