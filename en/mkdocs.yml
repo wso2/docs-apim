@@ -1509,7 +1509,6 @@ nav:
                 - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
                 - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md 
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
