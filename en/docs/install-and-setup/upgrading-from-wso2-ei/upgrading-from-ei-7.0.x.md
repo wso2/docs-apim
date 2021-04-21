@@ -17,11 +17,15 @@ This guide explains the recommended strategy for upgrading from the Micro Integr
 
 ### Migrating the user store
 
-If you are using LDAP user store with the Micro Integrator of EI 7.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file.
+If you are using an **LDAP user store** with EI 7.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
 
-If you are using a JDBC user store with the Micro Integrator of EI 7.0.0, you can use the same databases with APIM 4.0.0. However, you need to apply the following updates.
+If you are using a **JDBC user store** with EI 7.0.0, you need to first update the database before connecting the same to APIM 4.0.0.
 
-#### Update the database structure
+Follow the steps given below.
+
+#### Step 1 - Update the database structure
+
+This step is applicable only if your user store is JDBC. 
 
 There are changes in the database structure (schema) that is used in EI 7.0.0. To update the database schema:
 
@@ -31,9 +35,11 @@ There are changes in the database structure (schema) that is used in EI 7.0.0. T
 
 3. Connect to the database and run the script.
 
-Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file as given below.
+Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
 
-Follow the links given below for instructions.
+#### Step 2 - Connect to the user store
+
+To connect the Micro Integrator to the primary user store:
 
 -	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
 -	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.
