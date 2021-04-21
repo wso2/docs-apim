@@ -201,7 +201,7 @@ Follow the instructions below to disable anonymous access to the Developer Porta
 
     !!! note
         To disable anonymous access globally, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
-        ```javascript
+        ```toml
         [apim.devportal]
         enable_anonymous_mode=false
         ```
