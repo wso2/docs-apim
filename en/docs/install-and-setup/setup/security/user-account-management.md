@@ -199,6 +199,13 @@ Follow the instructions below to disable anonymous access to the Developer Porta
 
     [![Disabling Developer Portal Anonymous Mode]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)
 
+    !!! note
+        To disable anonymous access globally, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+        ```toml
+        [apim.devportal]
+        enable_anonymous_mode=false
+        ```
+
 5. Restart the server or wait for 15 mins until the registry cache expires.
 
 6. Navigate to the Developer Portal.
