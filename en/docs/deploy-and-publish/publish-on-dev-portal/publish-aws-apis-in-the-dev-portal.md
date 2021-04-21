@@ -1,21 +1,10 @@
 # Importing APIs from AWS API Gateway to the WSO2 API Manager  
 
-This feature helps publish an API a user has in the AWS API gateway, in the WSO2 developer portal by downloading the OAS of the AWS API from the AWS API gateway and initializing a WSO2 API Manager project using the downloaded OAS. After the initialization of the project, the project can be imported and published on the developer portal. These APIs will not be deployed into the WSO2 API gateway and will not be managed by the WSO2 API gateway.
-
-### Publishing an AWS API in the developer portal.
-
-#### Step 1 
-Execute `aws init` command which is a WSO2 API Controller command to download the OAS of a specific AWS API from the AWS API gateway and initialize a WSO2 APIM project.
-
-#### Step 2
-Execute the `import api` command to import the initialized API project to the WSO2 publisher portal.
-
-#### Step 3
-Make the necessary changes to the API in the publisher portal if there are any, and then click on `PUBLISH` to publish the API in the developer portal.
+This feature helps publish an API a user has in the AWS API gateway, on the WSO2 developer portal. These APIs will not be deployed into the WSO2 API gateway and will not be managed by the WSO2 API gateway.
 
 ## Prerequisites 
 
-1. As mentioned above two WSO2 API Controller commands are needed for this task. Hence the user needs to have the APICTL downloaded and configured. The apictl is a command line interface similar to the AWS CLI. [Getting started with the API Controller](https://apim.docs.wso2.com/en/latest/learn/api-controller/getting-started-with-wso2-api-controller/)
+1. Two WSO2 API Controller commands are needed for this task. Hence the user needs to have the APICTL downloaded and configured. The apictl is a command line interface similar to the AWS CLI. [Getting started with the API Controller](https://apim.docs.wso2.com/en/latest/learn/api-controller/getting-started-with-wso2-api-controller/)
 
 2. The `aws init` command will be using the AWS CLI in the background. Hence the user needs to download and install the AWS CLI before using the `aws init` command. Refer [how to download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 
@@ -30,7 +19,7 @@ For more information, refer [here](https://docs.aws.amazon.com/cli/latest/usergu
 
 ## Importing an API from AWS API gateway to the WSO2 API Manager  
 
-Usage of this command is quite simple. Two mandatory flags are associated with the `aws init` command, `name` and `stage`. `name` will be the name of the API that is in the AWS API gateway that the user wants to import and publish in the developer portal and `stage` will be the specific stage of that API.
+Usage of the `aws init` command is quite simple. Two mandatory flags are associated with the `aws init` command, `name` and `stage`. `name` will be the name of the API that is in the AWS API gateway that the user wants to import and publish in the developer portal and `stage` will be the specific stage of that API.
 
 -   **Command**
 
