@@ -1,7 +1,7 @@
 # Working with Organizations
 
 Enterprises and companies who want to use the Analytics Portal collaboratively can utilize the organization
- concept in Choreo. In essence organization is a collection of users belonging to the same logical team. A given user
+ concept in Choreo. In essence, the organization is a collection of users belonging to the same logical team. A given user
   can be a part of multiple organizations. When a user first signup for Choreo, an organization will be created by
    default with user's name. Then that same user, acting as the administrator for the group can invite other
     registered users. This documentation will outline features required by analytics users and if you need further
