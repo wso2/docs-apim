@@ -1058,9 +1058,9 @@ Follow the instructions given below to use the password decryption tool.
 
 2. Copy the `org.wso2.mi.migration-1.2.0.jar` into the `EI_HOME/dropins` folder in the server.
 
-3. Create a directory named migration in `EI_HOME`.
+3. Create a directory named `migration` in `EI_HOME`.
 
-4. Copy the [migration-conf.properties](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/migration-conf.properties) file into the migration directory and update the following property.
+4. Copy the [migration-conf.properties](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/migration-conf.properties) file into the `migration` directory and update the following property.
 
 	| Property         | Description   |
 	| ---------------- | ------------- |
@@ -1080,6 +1080,8 @@ Follow the instructions given below to use the password decryption tool.
 		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<EI_HOME>/migration/secure-vault-decrypted.properties` file and the `<EI_HOME>/migration/cipher-text-decrypted.properties` file in EI 6.5.0.
 
 The encrypted passwords are now decrypted and you have access to the plain-text password values.
+
+6.	Use the plain-text passwords and follow the normal procedure of encrypting secrets in the Micro Integrator of API-M 4.0.0. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 ### Migrating the Hl7 Transport
 

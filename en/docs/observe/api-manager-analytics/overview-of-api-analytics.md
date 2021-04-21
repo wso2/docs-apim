@@ -14,7 +14,7 @@ With the API Manager 4.0.0 release, API Analytics was completely revamped and of
 With all new API Manager 4.0.0 cloud-based analytics model setting up analytics is as easy as it had ever been. You just follow below two steps to setup analytics and get it working.
 
  - [Register for API Manager Analytics]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics)
- - [Configure Synapse Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) or [Choreo Connect Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-microgateway)
+ - [Configure API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) or [Choreo Connect Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-microgateway)
 
 These are the only two steps that are needed to setup analytics with the new solution.
 

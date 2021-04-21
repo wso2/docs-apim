@@ -18,6 +18,6 @@ Please follow below steps to register your on-premise environment.
 - You will be provided with a key in the next step. Copy that key before closing the dialog box.
 - Now you can use this key to configure the Gateway to publish stats into the Analytics cloud. Follow [this
  document]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) if you are using
-  Synapse Gateway and follow 
+  API Gateway and follow 
   [this document]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-microgateway) 
   if you are using Choreo Connect Gateway.
