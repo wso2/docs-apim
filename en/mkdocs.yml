@@ -1430,11 +1430,11 @@ nav:
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
-        - CI/CD:
-            - Building a Jenkins CI/CD Pipeline for Micro Integrator:
-                - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
-                - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
-                - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+            - CI/CD:
+                - Building a Jenkins CI/CD Pipeline for Micro Integrator:
+                    - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
+                    - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
+                    - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
