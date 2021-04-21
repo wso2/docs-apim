@@ -16,6 +16,7 @@ The following is a sample Choreo Connect adapter configurations.
 ``` java
 [adapter]
 [adapter.server]
+  enabled = true
   host = "0.0.0.0"
   port = "9843"
   tokenTTL = "1h"
@@ -23,6 +24,11 @@ The following is a sample Choreo Connect adapter configurations.
   [[adapter.server.users]]
     username = "admin"
     password = "$env{adapter_admin_pwd}"
+
+# default vhosts mapping for standalone mode
+[[adapter.vhostMapping]]
+  environment = "Default"
+  vhost = "localhost"
 
 [adapter.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"
@@ -42,5 +48,4 @@ The following is a sample Choreo Connect adapter configurations.
   caCertFile = "/home/wso2/security/truststore/consul/consul-agent-ca.pem"
   certFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem"
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
-
 ```

@@ -7,7 +7,7 @@ WSO2 API Manager's Publisher offers an integrated API Console that allows API cr
 Follow the instructions below to use the Publisher test console to test an API:
 
 !!! note
-    Create the `PizzaShack` REST API or an API of your choice before following the instructions below. For more information, see [Create a REST API.]({{base_path}}/design/create-api/create-a-rest-api)
+    Create the `PizzaShack` REST API or an API of your choice before following the instructions below. For more information, see [Create a REST API.]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api)
 
 1.  {!includes/sign-in-publisher.md!}
 

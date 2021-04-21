@@ -1412,20 +1412,29 @@ html .md-footer-meta.md-typeset a,
     cursor: pointer;
     flex-basis: 0;
     flex-grow: 1;
+    position: relative;
 }
 
-.linkSet2:hover img {
-    animation: roll 3s;
+.linkSet2:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 
-@keyframes roll {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+.linkSet2:hover:before {
+    right: 0;
+}
 
 .section03 {
     background: #EBEBEB;
@@ -1455,7 +1464,7 @@ html .md-footer-meta.md-typeset a,
     list-style: square outside url("../img/home/bullet.svg") 
 }
 
-.section03 a:hover {
+.section03 .linkSet2:hover a {
     text-decoration: underline;
 	text-decoration-style: wavy;
 	text-decoration-color: #3f51b5;

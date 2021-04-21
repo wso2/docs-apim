@@ -38,7 +38,7 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 
 1.  You can copy the above mediation sequence into a **XML** file.
 2.  Log in to the **API Publisher Portal**.
-3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api/).
+3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
 5.  Click [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** section.  
 *You can do this for Request, Response and/or Fault message flows.*     
