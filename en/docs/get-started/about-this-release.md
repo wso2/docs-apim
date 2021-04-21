@@ -373,25 +373,93 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ---
 
-## API Controller
+## API Controller (apictl)
 
-WSO2 API Controller is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, API Controller can be used as a developer CLI tool for API Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line. The Micro Integrator operations are newly added in for API Manager 4.0.0.
+WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
 It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha).
 
 #### New features
 
-- **[API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
-    This includes the following features and improvements:
-    - Merge Micro Integrator cli commands with APICTL
-    - Support import/export revisioning of APIs- Adding proxy environment variables support for APICTL
-    - Alias for APICTL commands ([)APICTL)
-    - Resolve parameters at server side while importing an API project
-    - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
-    - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the params file
-    - Support TLS renegotiation configuration
-    - Support APICTL bundle command (archives an API Project) 
+- [API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
+- [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
+- Support import/export revisioning of APIs and API Products
+- [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl/)
+- Resolve parameters at server side while importing an API/API Product project
+- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product/)
+- Introducing new schemas for apictl API/API Product/Application project artifacts
+- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api/)
+- [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode/)
+- [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import/)
+- [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory/)
+- Support endpoint security separately for Production and Sandbox endpoints via params file
+- VCS support for both the deployment and source repositories
+- Support for import/export Async APIs
+- Introducing "apictl aws init" command to extract APIs from AWS API and to initialize an apictl API project
+- Standardized the apictl flags with a common convention
+- Deprecated few old apictl commands and introduced new improved commands
+    <table>
+        <tr class="odd">
+            <th>Deprecated Command</th>
+            <th>New Command</th>
+        </tr>
+        <tr class="even">
+            <td>apictl import-api [flags]</td>
+            <td>apictl import api [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl import-app [flags]</td>
+            <td>apictl import app [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl export-api [flags]</td>
+            <td>apictl export api [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl export-apis [flags]</td>
+            <td>apictl export apis [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl export-app [flags]</td>
+            <td>apictl export app [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl list apis [flags]</td>
+            <td>apictl get apis [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl list api-products [flags]</td>
+            <td>apictl get api-products [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl list apps [flags]</td>
+            <td>apictl get apps [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl list envs [flags]</td>
+            <td>apictl get envs [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl get-keys [flags]</td>
+            <td>apictl get keys [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl delete api [flags]</td>
+            <td>apictl delete api [flags] <br> apictl k8s delete api [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl add api [flags]</td>
+            <td>apictl k8s add api [flags]</td>
+        </tr>
+        <tr class="even">
+            <td>apictl update api [flags]</td>
+            <td>apictl k8s update api [flags]</td>
+        </tr>
+        <tr class="odd">
+            <td>apictl add-env [flags]</td>
+            <td>apictl k8s update api [flags]</td>
+        </tr>
+    </table>
 
 ---
 
