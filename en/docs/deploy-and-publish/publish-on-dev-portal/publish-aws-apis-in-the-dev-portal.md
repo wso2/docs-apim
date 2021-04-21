@@ -1,6 +1,6 @@
 # Importing APIs from AWS API Gateway to the WSO2 API Manager  
 
-This feature helps publish an API a user has in the AWS API gateway, in the WSO2 developer portal by downloading the OAS of the AWS API from the AWS API gateway and initializing a WSO2 API Manager project using the downloaded OAS. After the initialization of the prpoject, the project can be imported and published in the developer portal. These APIs will not be deployed into the WSO2 API gateway and will not be managed by the WSO2 API gateway.
+This feature helps publish an API a user has in the AWS API gateway, in the WSO2 developer portal by downloading the OAS of the AWS API from the AWS API gateway and initializing a WSO2 API Manager project using the downloaded OAS. After the initialization of the project, the project can be imported and published on the developer portal. These APIs will not be deployed into the WSO2 API gateway and will not be managed by the WSO2 API gateway.
 
 ### Publishing an AWS API in the developer portal.
 
@@ -11,7 +11,7 @@ Execute `aws init` command which is a WSO2 API Controller command to download th
 Execute the `import api` command to import the initialized API project to the WSO2 publisher portal.
 
 #### Step 3
-Make the nessasary changes to the API in the publisher portal if there are any, and then click on `PUBLISH` to publish the API in the developer portal.
+Make the necessary changes to the API in the publisher portal if there are any, and then click on `PUBLISH` to publish the API in the developer portal.
 
 ## Prerequisites 
 
@@ -26,9 +26,9 @@ For more information, refer [here](https://docs.aws.amazon.com/cli/latest/usergu
 
 5. The API Manager server needs to be up and running to import the API project to the APIM successfully.
 
-6. An active internet connection is also required to download the OAS of the AWS API to innitialize the API project.
+6. An active internet connection is also required to download the OAS of the AWS API to initialize the API project.
 
-## Importing an API from AWS Apigateway to the WSO2 API Manager  
+## Importing an API from AWS API gateway to the WSO2 API Manager  
 
 Usage of this command is quite simple. Two mandatory flags are associated with the `aws init` command, `name` and `stage`. `name` will be the name of the API that is in the AWS API gateway that the user wants to import and publish in the developer portal and `stage` will be the specific stage of that API.
 
@@ -77,11 +77,11 @@ Usage of this command is quite simple. Two mandatory flags are associated with t
     ```
 ### How the `aws init` command works.
 
-The `aws init` command will be using the AWS CLI in the background to get a list of all the APIs from the AWS API gateway. It will then look for the ID of the API name provided by the user when the `aws init` command was executed, to download the OAS of that API. After making the nessasary adjustments to the APIs version, tags, endpoints etc, an API project will be initialized and the downloaded OAS will be deleted.
+The `aws init` command will be using the AWS CLI in the background to get a list of all the APIs from the AWS API gateway. It will then look for the ID of the API name provided by the user when the `aws init` command was executed, to download the OAS of that API. After making the necessary adjustments to the APIs version, tags, endpoints etc, an API project will be initialized and the downloaded OAS will be deleted.
 
 ### Importing the initialized API project to the WSO2 API Manager as an API
 
-Upon successfull initialization of the project, execute the following command to import that API project to the WSO2 publisher portal as an API. 
+Upon successful initialization of the project, execute the following command to import that API project to the WSO2 publisher portal as an API. 
 
 -   **Command**
 
@@ -104,7 +104,7 @@ To publish the API, go to `Lifecycle` under `Publish` and click on `PUBLISH`.
 
 To learn more about importing an API project refer to [import-api-project](https://apim.docs.wso2.com/en/latest/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).
 
-The initial state of the API will be set to `CREATED` so the user will be able to make changes to the API if nessasary in the publisher portal before publishing the API in the developer poratl.
+The initial state of the API will be set to `CREATED` so the user will be able to make changes to the API if necessary in the publisher portal before publishing the API in the developer portal.
 
 ## Troubleshooting errors
 
@@ -112,7 +112,7 @@ If any errors are being printed and if the problem is not clear, execute the `aw
 
 ### Unable to find an API with the name `<api-name-provided>`
 
-After making sure the user has provided the correct API name and that the API is in the AWS API gateway, if the problem persists, it is possible that the user has disabled AWS CLI pagnination which will cause the AWS CLI to output only a limited number of APIs. In such cases, the API the user is looking for might not be in the APIs list provided by the AWS CLI. Enable AWS CLI pagination and try again. 
+After making sure the user has provided the correct API name and that the API is in the AWS API gateway, if the problem persists, it is possible that the user has disabled AWS CLI pagination which will cause the AWS CLI to output only a limited number of APIs. In such cases, the API the user is looking for might not be in the APIs list provided by the AWS CLI. Enable AWS CLI pagination and try again. 
 
 ### Error code 255
 
