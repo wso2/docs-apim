@@ -232,9 +232,17 @@ Rate limiting is set to unlimited, and thereby disabled by default.
 
     WSO2 API Manager checks all the operation related rate limiting policies when determining the overall rate limit. When the requests exceed the minimum rate limit, which corresponds to the operations in the query, they will be throttled out.
    
+## See Also
 
-<div class="admonition note">
-<p class="admonition-title">What's Next?</p>
+Learn more on the concepts that you need to know when creating a GraphQL API:
 
-<p>Learn more by trying out the tutorial on <a href="{{base_path}}/tutorials/create-and-publish-a-graphql-api">Creating and Publishing a GrapQL API</a>.</p>
-</div> 
+-   [Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
+-   [API Security]({{base_path}}/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
+-   [Rate Limiting]({{base_path}}/design/rate-limiting/graphql-api/overview-query-limits-for-graphql/)
+-   [Life Cycle Management]({{base_path}}/design/lifecycle-management/api-lifecycle/)
+-   [API Monetization]({{base_path}}/design/api-monetization/monetizing-an-api/)
+-   [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+-   [API Documentation]({{base_path}}/design/api-documentation/add-api-documentation/)
+-   [Custom Properties]({{base_path}}/design/create-api/adding-custom-properties-to-apis/)
+
+- Try out the tutorial on <a href="{{base_path}}/tutorials/create-and-publish-a-graphql-api">Creating and Publishing a GraphQL API</a>.

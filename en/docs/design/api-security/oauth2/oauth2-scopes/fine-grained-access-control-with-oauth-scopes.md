@@ -99,7 +99,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
 1. Login to API Publisher (https://localhost:9443/publisher) 
 
-2. Start creating an API as described [here]({{base_path}}/design/create-api/create-a-rest-api/).
+2. Start creating an API as described [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 3. Navigate to **Scopes** section and click on **CREATE SCOPES** button.
 

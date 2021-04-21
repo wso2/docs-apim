@@ -75,7 +75,7 @@ window.
 
 17. Click **CREATE API** and then design a new REST API to create an API.
 
-     For more information, see [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api/).
+     For more information, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 18. Click on the created API and click **Runtime Configurations**.
 

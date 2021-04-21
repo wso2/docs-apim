@@ -20,6 +20,8 @@ The following is a sample router configurations.
   securedListenerHost = "0.0.0.0"
   securedListenerPort = 9095
   clusterTimeoutInSeconds = 20
+  # system hostname for system API resources (eg: /testkey and /health)
+  systemHost = "localhost"
 
 [router.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"
