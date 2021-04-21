@@ -2,7 +2,7 @@
 
 ## Design Your First API
 
-This section is a step-by-step guide to create, publish, and invoke an API using the WSO2 API Manager's publisher and store user interfaces.
+This section is a step-by-step guide to create, publish, and invoke an API using the WSO2 API Manager's publisher and DevPortal user interfaces.
 
 ### Before you begin...
 
