@@ -38,7 +38,7 @@ When you are part of multiple organizations you are allowed to modify/view setti
  organizations based on the privileges given to you by the group administrator. To modify you should be invited added
   to the **Admin** group upon sending you the invitation. 
   
-Once you log into Choreo console your current organization will be shown in the top left-hand side corner. 
+Once you log into Choreo console, your current organization will be shown in the top left-hand side corner. 
 
 ![Invite Page]({{base_path}}/assets/img/observe/organization-selector.png)
 
