@@ -35,7 +35,7 @@ to complete registration.
 
 ## Modifying/Viewing Settings of Invited Organizations
 When you are part of multiple organizations you are allowed to modify/view settings related to both
- organizations based on the privileges given to you by the group administrator. To modify you should be invited added
+ organizations based on the privileges given to you by the group administrator. To modify the settings, you should be invited and added
   to the **Admin** group upon sending you the invitation. 
   
 Once you log into Choreo console, your current organization will be shown in the top left-hand side corner. 
