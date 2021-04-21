@@ -42,5 +42,5 @@ Once you log into Choreo console your current organization will be shown in the 
 
 ![Invite Page]({{base_path}}/assets/img/observe/organization-selector.png)
 
-When you visit settings page, it will reflect setting related to the organization that is currently selected in
+When you visit the settings page, it will reflect settings related to the organization that is currently selected in
   the organization selector. Using this selector you can modify/view settings of multiple organizations.
