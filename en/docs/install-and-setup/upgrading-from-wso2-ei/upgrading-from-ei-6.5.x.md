@@ -1,8 +1,5 @@
 # Migrating from WSO2 EI 6.5.x to WSO2 API-M 4.0.0
 
-!!! Info
-	**The contents of this page are currently under review**
-
 This guide provides the recommended strategy for upgrading from the ESB profile of WSO2 EI 6.5.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
 {!includes/integration/pull-content-migration-esb-mi.md!}
@@ -30,30 +27,33 @@ Follow the instructions below to start the migration!
 
 ### Migrating the user store
 
-If you are using LDAP user store with EI 6.5.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file.
-
-If you are using a JDBC user store with EI 6.5.0, you can use the same databases with APIM 4.0.0. However, you need to apply the following updates.
-
-#### Update the database structure
-
-There are changes in the database structure (schema) that is used in EI 6.5.0. To update the database schema:
-
-1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-EI65X_to_APIM400.zip).
-
-2. Unzip the downloaded file and select the script relevant to your database type.
-
-3. Connect to the database and run the script.
-
-Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file as given below.
-
-Note that **secondary** user stores are currently not supported in the Micro Integrator.
-
 !!! info "Before you begin"
 	Read about [users and roles in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) and about how they function. Note the following important facts:
 
 	- Users in the Micro Intgrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
 	- All admin users in your existing EI 6.5.0 user store will function as admin users in the Micro integrator.
 	- Tenant admins are no longer valid because the Micro Integrator does not support multitenancy.
+	- **Secondary** user stores are currently not supported in the Micro Integrator.
+
+If you are using an **LDAP user store** with EI 6.5.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
+
+If you are using a **JDBC user store** with EI 6.5.0, you need to first update the database before connecting the same to APIM 4.0.0.
+
+Follow the steps given below.
+
+#### Step 1 - Update the database structure
+
+There are changes in the database structure (schema) that is used in EI 6.5.0. To update the database schema:
+
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-ei6.5.x-to-apim4.0.0.zip).
+
+2. Unzip the downloaded file and select the script relevant to your database type.
+
+3. Connect to the database and run the script.
+
+Your database schema is now updated for APIM 4.0.0. Now you can update the configuration details in the Micro Integrator's `deployment.toml` file.
+
+#### Step 2 - Connect to the user store
 
 To connect the Micro Integrator to the primary user store:
 
@@ -65,50 +65,10 @@ To connect the Micro Integrator to the primary user store:
 	type = "read_only_ldap"
 	```
 
-3.	Update the `[user_store]` section and other configurations as given below.
+3.	See the instructions in the following sections:
 
-	```toml tab='RDBMS User Store'
-	[user_store]
-	type = "database"
-	read_only = "false"
-
-	[[datasource]]
-	id = "WSO2_USER_DB"
-	url= "jdbc:mysql://localhost:3306/userdb"
-	username="root"
-	password="root"
-	driver="com.mysql.jdbc.Driver"
-
-	[realm_manager]
-	data_source = "WSO2_USER_DB"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Only LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_only_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
-
-	```toml tab='Read-Write LDAP User Store'
-	[user_store]
-	connection_url = "ldap://localhost:10389"  
-	connection_name = "uid=admin,ou=system"
-	connection_password = "admin"  
-	user_search_base = "ou=Users,dc=wso2,dc=org"
-	type = "read_write_ldap"
-
-	[internal_apis.file_user_store]
-	enable = false
-	```
+	-	[configuring an LDAP user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) for the Micro Integrator in API-M 4.0.0.
+	-	[configuring an RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) for the Micro Integrator in API-M 4.0.0.	
 
 4.	If your user store is an RDBMS, be sure to add the client JAR of your RDBMS to the `<MI_HOME>/lib` folder.
 
@@ -1058,9 +1018,9 @@ Follow the instructions given below to use the password decryption tool.
 
 2. Copy the `org.wso2.mi.migration-1.2.0.jar` into the `EI_HOME/dropins` folder in the server.
 
-3. Create a directory named migration in `EI_HOME`.
+3. Create a directory named `migration` in `EI_HOME`.
 
-4. Copy the [migration-conf.properties](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/migration-conf.properties) file into the migration directory and update the following property.
+4. Copy the [migration-conf.properties](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/migration-conf.properties) file into the `migration` directory and update the following property.
 
 	| Property         | Description   |
 	| ---------------- | ------------- |
@@ -1080,6 +1040,8 @@ Follow the instructions given below to use the password decryption tool.
 		Upon successful execution, the decrypted (plain-text) values in the `secure-vault.properties` and `cipher-text.properties` files will be written respectively to the `<EI_HOME>/migration/secure-vault-decrypted.properties` file and the `<EI_HOME>/migration/cipher-text-decrypted.properties` file in EI 6.5.0.
 
 The encrypted passwords are now decrypted and you have access to the plain-text password values.
+
+6.	Use the plain-text passwords and follow the normal procedure of encrypting secrets in the Micro Integrator of API-M 4.0.0. See [Encrypting Secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) for instructions.
 
 ### Migrating the Hl7 Transport
 

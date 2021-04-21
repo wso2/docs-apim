@@ -1,12 +1,11 @@
 # API-M Profiles
 
-When a WSO2 product starts, it starts all components, features and related artifacts bundled with it. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
+When the API-M runtime is started, all components, features and related artifacts bundled with it are started. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
 
-!!! tip
+!!! Tip
     Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-devportal` for example, you can still access the API Publisher web application.
-
-!!! OSGI Bundle
-    OSGI bundle is a tightly coupled, dynamically loadable collection of classes, jars, and configuration files that explicitly declare their external dependencies (if any). In OSGi, a bundle is the primary deployment format. Bundles are applications that are packaged in JARs, and can be installed, started, stopped, updated, and removed.
+    
+    An **OSGI Bundle** is a tightly coupled, dynamically loadable collection of classes, jars, and configuration files that explicitly declare their external dependencies (if any). In OSGi, a bundle is the primary deployment format. Bundles are applications that are packaged in JARs, and can be installed, started, stopped, updated, and removed.
 
 
 ## API-M Profiles
@@ -32,16 +31,16 @@ The following are the different profiles available in WSO2 API Manager.
         <td><pre><code>-Dprofile=gateway-worker   </code></pre></td>
         <td>
             <p>Only starts the components related to the API Gateway.</p>
-<p>You use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
+<p>Use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
         </td>
     </tr>
     <tr>
         <td>
-            Core Profile
+            Control Plane Profile
         </td>
         <td><pre><code></code></pre></td>
         <td>
-            Consists of all API-M components exclusing the Gateway.
+            Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal) excluding the Gateway.
         </td>
     </tr>
     <tr>
@@ -50,7 +49,7 @@ The following are the different profiles available in WSO2 API Manager.
         </td>
         <td><pre><code></code></pre></td>
         <td>
-            Consists of all the API-M components.
+            Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal, and the Gateway).
         </td>
     </tr>
 </table>
@@ -61,15 +60,6 @@ You can start an API Manager profile in the following methods, based on your req
 
 -   [Method 1 - Optimizing before starting the server](#method-1-optimizing-before-starting-the-server)
 -   [Method 2 - Optimizing while starting the server](#method-2-optimizing-while-starting-the-server)
-
-!!! note
-    It is recommended to start the components in the following order: 
-
-    1. Traffic Manager
-    2. Key Manager
-    3. Publisher
-    4. Developer Portal
-    5. Gateway
     
 ### Method 1- Optimizing before starting the server
 
@@ -123,8 +113,8 @@ Create an optimized distribution for a particular API-M profile.
 
 5.  Start the server with the specified profile.
 
-    The pack in place is updated after the initial optimization, and the product pack would have fetched irrelevant files for this profile. The `--optimize` option is used to optimize the pack again.
-    
+    If the product pack is "in-place updated" using the "WSO2 in-place updates tool" after the initial profile optimization, it would have fetched irrelevant files for this profile. With the `--optimize` option, the pack will be profile-optimized again and it will make sure that the pack will be in a correctly optimized state. 
+       
     Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
     
     ``` tab="Sample Format"
@@ -141,67 +131,66 @@ Create an optimized distribution for a particular API-M profile.
 
 ### Method 2 - Optimizing while starting the server
 
-1.  Start the server using the script based on your operating system, using the command given below.
+Start the server using the script based on your operating system, using the command given below.
 
-    ``` tab="Sample Format"
-    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
-    ```
-    
-    ``` tab="Example:Linux/Solaris/MacOS"
-    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher
-    ```
-    
-    ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher
-    ```  
-    
+``` tab="Sample Format"
+sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
+```
 
-    ??? info "Click here to see the sample output when you optimize the server for Publisher profile while starting in Publisher profile."
+``` tab="Example:Linux/Solaris/MacOS"
+sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher
+```
 
-        ``` java
-        [2020-02-26 11:50:39] INFO - Starting to optimize API Manager for the API Publisher profile
-        [2020-02-26 11:50:39] INFO - Starting to optimize configs in deployment.toml
-        [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/conf/deployment.toml file as deployment.toml
-                    .backup
-        [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/resources/conf/deployment-templates/api-publisher.toml file as deployment.toml
-        [2020-02-26 11:50:39] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-        [2020-02-26 11:50:39] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-        [2020-02-26 11:50:39] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the api#am#store#v0.16.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the api#am#store.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the api#identity#recovery#v0.9.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the api#identity#user#v1.0.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the api#identity#oauth2#dcr#v1.1.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
-        [2020-02-26 11:50:39] INFO - Removed devportal directory from ../repository/deployment/server/jaggeryapps
-        Finished the optimizations
-        Starting the server...
-        JAVA_HOME environment variable is set to /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home
-        CARBON_HOME environment variable is set to /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
-        Using Java memory options: -Xms256m -Xmx1024m
-        [2020-02-26 11:50:41,936]  INFO {org.wso2.config.mapper.ConfigParser} - Applying Configurations upon new Templates
-        [2020-02-26 11:50:41,938]  WARN {org.wso2.config.mapper.ConfigParser} - Overriding files in configuration directory /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
-        [2020-02-26 11:50:42,759]  INFO {org.wso2.config.mapper.ConfigParser} - Writing Metadata Entries...
-        [2020-02-26 11:50:47,604]  INFO - CarbonCoreActivator Starting WSO2 Carbon...
-        [2020-02-26 11:50:47,612]  INFO - CarbonCoreActivator Operating System : Mac OS X 10.14.6, x86_64
-        [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Home        : /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
-        [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Version     : 1.8.0_152
-        ```
-    
-    ``` tab="Sample Format"
-    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+``` tab="Example:Windows"
+<PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher
+```  
+
+
+??? info "Click here to see the sample output when you optimize the server for Publisher profile while starting in Publisher profile."
+
+    ``` java
+    [2020-02-26 11:50:39] INFO - Starting to optimize API Manager for the API Publisher profile
+    [2020-02-26 11:50:39] INFO - Starting to optimize configs in deployment.toml
+    [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/conf/deployment.toml file as deployment.toml
+                .backup
+    [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/resources/conf/deployment-templates/api-publisher.toml file as deployment.toml
+    [2020-02-26 11:50:39] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+    [2020-02-26 11:50:39] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+    [2020-02-26 11:50:39] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the api#am#store#v0.16.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the api#am#store.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the api#identity#recovery#v0.9.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the api#identity#user#v1.0.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the api#identity#oauth2#dcr#v1.1.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
+    [2020-02-26 11:50:39] INFO - Removed devportal directory from ../repository/deployment/server/jaggeryapps
+    Finished the optimizations
+    Starting the server...
+    JAVA_HOME environment variable is set to /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home
+    CARBON_HOME environment variable is set to /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
+    Using Java memory options: -Xms256m -Xmx1024m
+    [2020-02-26 11:50:41,936]  INFO {org.wso2.config.mapper.ConfigParser} - Applying Configurations upon new Templates
+    [2020-02-26 11:50:41,938]  WARN {org.wso2.config.mapper.ConfigParser} - Overriding files in configuration directory /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
+    [2020-02-26 11:50:42,759]  INFO {org.wso2.config.mapper.ConfigParser} - Writing Metadata Entries...
+    [2020-02-26 11:50:47,604]  INFO - CarbonCoreActivator Starting WSO2 Carbon...
+    [2020-02-26 11:50:47,612]  INFO - CarbonCoreActivator Operating System : Mac OS X 10.14.6, x86_64
+    [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Home        : /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
+    [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Version     : 1.8.0_152
     ```
-    
-    ``` tab="Example:Linux/Solaris/MacOS"
-    sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
-    ```
-    
-    ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
-    
-    ```  
+
+``` tab="Sample Format"
+sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+```
+
+``` tab="Example:Linux/Solaris/MacOS"
+sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
+```
+
+``` tab="Example:Windows"
+<PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
+```  
         
 Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
 changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.

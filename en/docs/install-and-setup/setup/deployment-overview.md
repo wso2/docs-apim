@@ -91,7 +91,7 @@ The API-M layer of this deployment consists of two clusters of API-M components 
             Control Plane Cluster
         </th>
         <td>
-            The APIM control plane consists of two nodes of the <b>Core</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
+            The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
         </td>
     </tr>
     <tr>
@@ -118,4 +118,3 @@ The integration cluster consist of a minimum of two ndes of the integration runt
         <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
     </li>
 </ul>
-

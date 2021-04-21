@@ -18,9 +18,9 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
     2. Copy the required JAR files.
 
-        1. Create a directory named `Source` in a preferred location in your machine.
+         1. Create a directory named `Source` in a preferred location in your machine.
         
-        2. Navigate to the `<KAFKA_HOME>/libs` directory and copy the following JARs to the `Source` directory.
+         2. Navigate to the `<KAFKA_HOME>/libs` directory and copy the following JARs to the `Source` directory.
 
             - `kafka_2.12-2.3.0.jar`
 
@@ -38,15 +38,15 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
     4. Convert the Kafka JARS into OSGi bundles.
 
-        Execute the following command to convert the Kafka JARS, which are in the `Source` directory.
+         Execute the following command to convert the Kafka JARS, which are in the `Source` directory.
 
-        ``` bash tab="Windows"
-        <SI_HOME>/bin/jartobundle.bat <source-directory-path> <destination-directory-path>
-        ```
+         ``` bash tab="Windows"
+         <SI_HOME>/bin/jartobundle.bat <source-directory-path> <destination-directory-path>
+         ```
 
-        ``` bash tab="Linux"
-        sh <SI_HOME>/bin/jartobundle.sh <source-directory-path> <destination-directory-path>
-        ```
+         ``` bash tab="Linux"
+         sh <SI_HOME>/bin/jartobundle.sh <source-directory-path> <destination-directory-path>
+         ```
 
     5. Add the **OSGi converted Kafka libs** from the `Destination` directory to the `<SI_HOME>/lib` directory.
 
@@ -54,7 +54,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
 ??? note "2. Start Kafka"
 
-    1.Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
+    1. Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
 
         ```
         sh bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -82,9 +82,9 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
      The following log appears on the SI console when the server is started successfully.
 
-    ```
-    INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Integrator started in 4.240 sec
-    ```
+     ```
+     INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Integrator started in 4.240 sec
+     ```
 
 ## Step 3 - Create a Streaming Backend
 
@@ -237,7 +237,7 @@ Follow the instructions below to create an API from the deployed managed service
 
 3. Click **Create API**.
 
-    [![Create API from Service]({{base_path}}/assets/img/integrate/service-catalog/create-api-from-service.png)]({{base_path}}/assets/img/integrate/service-catalog/create-api-from-service.png)
+    [![Create API from Service]({{base_path}}/assets/img/common/service-catalog/create-api-from-service.png)]({{base_path}}/assets/img/common/service-catalog/create-api-from-service.png)
 
      The API overview page appears.
 

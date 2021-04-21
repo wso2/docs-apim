@@ -186,12 +186,12 @@ For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/des
 <ul>
           <li> <a href="{{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api">Create and Publish an API</a></li>
 
-          <li> <a href="{{base_path}}/design/create-api/create-a-rest-api">Create and Publish an API</a> </li>
+          <li> <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api">Create and Publish an API</a> </li>
     </ul>
     <li>
     <a href="{{base_path}}/design/create-api/create-a-websocket-api">Create a WebSocket API </a>
 </li>
 <li>
-    <a href="{{base_path}}/design/create-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
+    <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
   </p>
   </div>

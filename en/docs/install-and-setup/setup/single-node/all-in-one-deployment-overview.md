@@ -1,11 +1,6 @@
 # All-in-One Deployment Overview
 
-In a typical production deployment, API Manager is deployed as components (Publisher, Developer Portal, Gateway, 
-Key Manager, and Traffic Manager). While this provides very high performance and a high-level of scalability, it may be too 
-complex if you want to run API Manager as a small to medium scale API Management solution. A WSO2 API-M single node 
-deployment, which has all the API-M components in one instance, would be simple to set up and requires less resources
- when compared with a distributed deployment. It is ideal for any organization that wants to start small and 
- iteratively build up a robust API Management Platform.
+An all-in-one deployment contains all the API-M components in one runtime instance. This is easy to set up and requires less resources when compared with a distributed deployment. Although a distributed deployment provides high performance and a high level of scalability, it may be too complex if you want to a small to medium scale API management solution. The all-in-one deployment is ideal if you want to start small and iteratively build up a robust API management platform.
 
 -   [Single Node Deployment](#single-node-deployment)
 -   [Active - Active Deployment](#active-active-deployment)

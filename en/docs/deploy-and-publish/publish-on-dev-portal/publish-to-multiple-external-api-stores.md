@@ -188,7 +188,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 8.  Click **Save Content**.
 
-9.  Sign in to the Publisher of the first instance as `admin`/`admin` and if you do not have any APIs that are in the published state created, [create an API]({{base_path}}/design/create-api/create-a-rest-api.md).
+9.  Sign in to the Publisher of the first instance as `admin`/`admin` and if you do not have any APIs that are in the published state created, [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api.md).
 
     !!! tip
             In a multi-tenant environment, sign in to the API Publisher using your tenant's credentials.

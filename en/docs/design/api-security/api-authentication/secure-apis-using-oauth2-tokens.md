@@ -211,7 +211,7 @@ Follow the instructions below to add a customized authorization header for an AP
 
 1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher).
 `https://<server-host>:9443/publisher         `
-2.  When [creating]({{base_path}}/design/create-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
+2.  When [creating]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 
     [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
 
