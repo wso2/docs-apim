@@ -26,7 +26,7 @@ Enterprises and companies who want to use the Analytics Portal collaboratively c
 - Click on **Invite Members** and fill in the dialog box. You can select an appropriate group as explained above and
  then provide the registered email address of the user you want to invite. Once all details are added, click **Invite**.
 
-  ![Invite Page]({{base_path}}/assets/img/observe/invite-dialogue-box.png)
+  <img src="{{base_path}}/assets/img/observe/invite-dialogue-box.png" title="Invite dialog box" width="380"/>
 
 - This process will send an email to the user and once he/she clicks the activation link, he/she will be added to the
  respective organization.
