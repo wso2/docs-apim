@@ -1,6 +1,6 @@
 # Upgrading API Manager from 2.0.0 to 4.0.0
 
-The following information describes how to upgrade your API Manager server **from APIM 2.0.0 to 4.0.0**.
+The following information describes how to upgrade your API Manager server **from API-M 2.0.0 to 4.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
@@ -3566,34 +3566,36 @@ Follow the instructions below to move all the existing API Manager configuration
 
         - Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-    5. Execute below db script in the respective AM database.    
-    ??? info "DB Scripts"
-        ```tab="DB2"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
+    5. Execute the following DB script in the respective AM database.    
     
-        ```
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
         
-        ```tab="MySQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="MSSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ``` 
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
 
-        ```tab="PostgreSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="Oracle"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
-   
-        ```
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
+    
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
