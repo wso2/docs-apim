@@ -32,7 +32,7 @@ This step is applicable only if your user store is JDBC.
 
 There are changes in the database structure (schema) that is used in EI 7.1.0. To update the database schema:
 
-1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-EI71X_to_APIM400.zip).
+1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-ei7.1.x-to-apim4.0.0.zip).
 
 2. Unzip the downloaded file and select the script relevant to your database type.
 
