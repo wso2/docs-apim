@@ -42,7 +42,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition tip"> 
          <p class="admonition-title">Tip</p>
-         <p>For more information, see [Create and Publish an API]({{base_path}}/design/create-api/create-a-rest-api/).</p>
+         <p>For more information, see [Create and Publish an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).</p>
          </div>
          </html>
          

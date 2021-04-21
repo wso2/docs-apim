@@ -116,7 +116,7 @@ First, enable the API state change workflow.
 
 4.  Sign in to the API Publisher (`https://<Server Host>:9443/publisher`) and publish an API. 
 
-     For more information, see [Create a REST API]({{base_path}}/design/create-api/create-a-rest-api/) and [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/). 
+     For more information, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) and [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/). 
      
 5. Click **Lifecycle**.
 
