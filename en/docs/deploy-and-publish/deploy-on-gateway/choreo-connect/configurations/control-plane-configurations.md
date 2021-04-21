@@ -13,17 +13,15 @@ For more information follow the [Event Hub]({{base_path}}/deploy-and-publish/dep
 The following is a sample security configurations.
 
 ``` java
-
 [controlPlane]
-[controlPlane.eventHub]
   enabled = false
   serviceUrl = "https://apim:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
-  environmentLabels = ["Production and Sandbox"]
+  environmentLabels = ["Default"]
   retryInterval = 5
   skipSSLVerification=true
   # Message broker connection URL of the control plane
-  [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+    [controlPlane.jmsConnectionParameters]
+        eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
 ```
