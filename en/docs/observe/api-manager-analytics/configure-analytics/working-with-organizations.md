@@ -24,7 +24,7 @@ For enterprises and companies who want to use Analytics Portal collaboratively c
    -only access to the organization where you can see the organization members and analytics information available
     under that organization
 - Click on **Invite Members** and fill in the dialog box. You can select an appropriate group as explained above and
- then provide registered email address of the user you want to invite. Once all details are added, click **Invite**.
+ then provide the registered email address of the user you want to invite. Once all details are added, click **Invite**.
 
   ![Invite Page]({{base_path}}/assets/img/observe/invite-dialogue-box.png)
 
