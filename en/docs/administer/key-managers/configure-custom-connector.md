@@ -114,7 +114,7 @@ You need to write a custom Key Manager connector as explained below.
 
      1. Click **Key Managers** and then click **Add Key Manager**.
 
-           [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager)]({{base_path}}/assets/img/administer/add-key-manager.png)
+           [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
 
      2. Add the following Key Manager configurations.
 
