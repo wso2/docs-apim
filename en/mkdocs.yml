@@ -121,7 +121,6 @@ nav:
                         - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                         - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                         - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                        - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                         - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
                         - Overview: design/api-security/authorization/api-authorization.md
@@ -724,6 +723,7 @@ nav:
                     - Configuring Gateway:
                         - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
                         - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
+                    - Working with Organizations: observe/api-manager-analytics/configure-analytics/working-with-organizations.md
                 - Viewing APIM analytics:
                     - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
                     - Pages:
