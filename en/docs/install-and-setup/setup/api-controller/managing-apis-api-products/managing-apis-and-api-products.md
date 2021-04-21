@@ -45,7 +45,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get apis --environment production --limit 15 
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI 
+                apictl get apis --environment production --query provider:Alice --query name:PizzaShackAPI 
                 ```  
 
         -   **Response**
@@ -61,8 +61,9 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use combined modifiers.  
-                **Example:**
+                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command.  
+                
+                **Examples:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
                 -  `'provider:"wso2"'` will match an API if the provider of the API is exactly `wso2`.
@@ -109,7 +110,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 apictl get api-products --environment production 
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 
+                apictl get api-products --environment production --query provider:Alice --query name:PizzaShackAPI --limit 25 
                 ```  
 
         -   **Response**
