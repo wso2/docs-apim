@@ -2384,34 +2384,36 @@ Follow the instructions below to move all the existing API Manager configuration
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
        
-    5. Execute below db script in the respective AM database.    
-    ??? info "DB Scripts"
-        ```tab="DB2"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
-    
-        ```
-        
-        ```tab="MySQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="MSSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ``` 
+    5. Execute the following DB script in the respective AM database.
 
-        ```tab="PostgreSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="Oracle"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
-   
-        ```
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+        
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
+
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
+
 7.  Re-index the artifacts in the registry.
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -2476,5 +2478,4 @@ This concludes the upgrade process.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
      
-   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)    
-    
+   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)
