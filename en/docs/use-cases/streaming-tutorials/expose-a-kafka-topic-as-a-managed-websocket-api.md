@@ -347,8 +347,8 @@ Let's execute the following Kafka client producer sample to pass the streaming e
  
 ## Step 11 - Results evaluation
 
-     As SI server is already running as explained in above steps, Once the kafka client sends the events they will be cosumed be the source in SI server and pushed to websocket server. As ws client command listens to these events,
-     below type of events will be printed in the terminal which ws client ran.
+As SI server is already running as explained in above steps, Once the kafka client sends the events they will be consumed by the source in SI server and pushed to websocket server. 
+As WS client command listens to these events, below type of events will be printed in the terminal which WS client ran.
     
      [![Results]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-results.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-results.png)
 
