@@ -69,7 +69,7 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
 
      [![oauth-2-add-parameter]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png)]({{base_path}}/assets/img/learn/oauth-2-add-parameter.png)
 
-6. Click **Submit** to confirm the details of the respective endpoint, and then click **Save** in the **Endpoints** page to save all the changes.
+6. Click **Submit** to confirm the details of the respective endpoint, and then click **Save and deploy** in the **Endpoints** page to save all the changes.
 
      [![oauth-2-submit-button]({{base_path}}/assets/img/learn/oauth-2-submit-button.png)]({{base_path}}/assets/img/learn/oauth-2-submit-button.png)
 

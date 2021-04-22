@@ -27,7 +27,7 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
      [![digest-auth-dropdown]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)
 
-4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save** in the Endpoints page to save all the changes made in the **Endpoints** page.
+4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save and deploy** in the Endpoints page to save all the changes made in the **Endpoints** page.
 
       [![digest-auth-submit-button]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)
 
