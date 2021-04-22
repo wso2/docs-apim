@@ -1,7 +1,5 @@
 # Template Patterns for Swagger Definitions¶
 
-Swagger/ OpenAPI allows you to define paths templated in segments. However Ballerina recommends using only the basic path template pattern - /{code} and the dot suffix improvement.
-
 The following is a list of sample patterns currently supported in Choreo Connect.
 
 |Pattern| Sample request path |
