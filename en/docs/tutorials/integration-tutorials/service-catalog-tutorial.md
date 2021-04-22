@@ -351,6 +351,7 @@ The artifacts are deployed in the embedded Micro Integrator and the Micro Integr
 Successfully updated the service catalog
 ```
 
+
 ### Step 7: Create and Deploy the API
 
 **Create the API**
@@ -362,24 +363,15 @@ Let's expose the integration service as a managed API.
     !!! Tip
         Use `admin` as the user name and password.
 
-2.  Open the **Service Catalog** from the view shown below.
+2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag" width="400">
 
-    !!! Tip
-        You can also click the **hamburger** icon on the upper-left and click **Service Catalog**. 
-
-        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/select-service-catalog.png" width="200">
-
-3.  See that the healthcare integration service is listed.
-
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/services-listing-page-publisher.png" alt="service catalog listings">
-
-4.  Open the HealthcareAPI
+3.  Open HealthcareAPI from the above list.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/new-service-api-view.png" alt="API created from service catalog">
 
-5.  Click **Create API** in the above screen to open the **Create API** dialog box.
+4.  Click **Create API** in the above screen to open the **Create API** dialog box.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-api-from-service.png" alt="create api dialog box">
 
