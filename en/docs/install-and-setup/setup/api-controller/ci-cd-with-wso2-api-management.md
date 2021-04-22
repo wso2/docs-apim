@@ -226,7 +226,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
 
 #### a. Promoting APIs in a Git repository to upper environments via CI/CD
 
-The repository that you committed the project in the above step <a href="#E">E</a> needs to be cloned into the instance that is executing the CI/CD process. From 3.2.0 onwards, **apictl** has the inbuilt support to integrate with a Git based version control system. It gives a unified command `vcs deploy` to deploy any type of project (e.g., APIs, API Products, and Apps).
+The repository that you committed the project in the above step <a href="#E">E</a> needs to be cloned into the instance that is executing the CI/CD process. The API controller (**apictl**) has inbuilt support for integrating with a Git-based version control system. It gives a unified command `vcs deploy` to deploy any type of project (e.g., APIs, API Products, and Apps).
 
 1.  Navigate to the directory that has the cloned Git repository.
     ```bash

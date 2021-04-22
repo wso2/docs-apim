@@ -24,7 +24,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
     enable = true
     allow_origins = "*"
     allow_methods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
-    allow_headers = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey","testkey"]
+    allow_headers = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey","Internal-Key"]
     allow_credentials = false
     ```
 
@@ -41,7 +41,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
 1.  Sign in to API Publisher and [create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api).
 
-2. Click **Runtime Configurations**.
+2.  Go to **API Configurations** from the left menu and click **Runtime**.
 
 3.  Enable the switch under **CORS Configuration** to enable CORS for the API.
 
@@ -65,6 +65,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
                     - "Content-Type"
                     - "SOAPAction"
                     - "apikey"
+                    - "Internal-Key"
                 accessControlAllowMethods: 
                     - "GET"
                     - "PUT"
@@ -81,7 +82,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
     | **Header**                           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Sample** values                                                        |
     |----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
     | Access-Control-Allow-Origin      | Determines whether a resource can be shared with the resource of a given origin. The API Gateway validates the origin request header value against the list of origins defined under the Access Control Allow Origins configuration (this can be `All Allow Origins` or a specific value like `localhost`). If the host is in the allowed origin list, it will be set as the Access-Control-Allow-Origin response header in the response. | All Allow Origins(\*), localhost                                     |
-    | Access-Control-Allow-Headers     | Determines, as part of the response to a preflight request (a request that checks to see if the CORS protocol is understood), which header field names can be used during the actual request. The Gateway will set the header values defined under Access Control Allow Headers configurations.                                                                                                                                                                                               | authorization, Access-Control-Allow-Origin, Content-type, SOAPAction, apikey, testkey |
+    | Access-Control-Allow-Headers     | Determines, as part of the response to a preflight request (a request that checks to see if the CORS protocol is understood), which header field names can be used during the actual request. The Gateway will set the header values defined under Access Control Allow Headers configurations.                                                                                                                                                                                               | authorization, Access-Control-Allow-Origin, Content-type, SOAPAction, apikey, Internal-Key |
     | Access-Control-Allow-Methods     | This header specifies the method(s) allowed when accessing the resource in response to a preflight request. Required methods can be defined under the Access Control Allow Method configuration.                                                                                                                                                                                                                                                                                                    | GET, PUT, POST, DELETE, PATCH, OPTIONS                               |
     | Access-Control-Allow-Credentials | Determines whether or not the response to the request can be exposed to the page. It can be exposed when the header value is true. The header value can be set to true/false by enabling/disabling the Access Control Allow Credentials configuration.                                                                                                                                                                                                                                              | true, false                                                          |
 

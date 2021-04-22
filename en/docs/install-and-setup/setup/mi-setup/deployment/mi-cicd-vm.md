@@ -1,8 +1,6 @@
-[![VM based CI/CD for Micro Integrator]({{base_path}}/assets/img/deploy/mi-cicd-VM.png)]({{base_path}}/assets/img/deploy/mi-cicd-VM.png)
-
-#### Overview
-
 There are two kinds of jobs in Jenkins that we need to maintain. One for the Integration project repositories. Another kind is for the Deployment Descriptor repositories. 
+
+[![VM based CI/CD for Micro Integrator]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)]({{base_path}}/assets/img/deploy/mi-cicd-vm.png)
 
 #### Integration Project Build Job
 - We need to maintain one Jenkins job per Integration Project repository.
