@@ -68,14 +68,14 @@ To configure the API-M Analytics nodes to deploy them as an active-active cluste
         siddhi:
           properties:
             partitionById: true
-            shardId: wso2-sp-analytics-1
+            shardId: wso2-am-analytics-1
         ```
     - For node 2:
     ``` yaml
     siddhi:
       properties:
         partitionById: true
-        shardId: wso2-sp-analytics-2
+        shardId: wso2-am-analytics-2
     ```
     
     !!! note 
