@@ -263,4 +263,4 @@ There are three types of endpoints supported in Choreo Connect.
         -   [Defining a Backend Security Scheme]({{base_path}}/deploy-and-publish/choreo-connect/endpoints/defining-a-backend-security-scheme/)
         You may have to protect your backend using BasicAuth Authentication. The above link provides information on how to setup Choreo Connect to support BasicAuth Authentication.
         -   [Service Discovery]({{base_path}}/deploy-and-publish/choreo-connect/service-discovery/)
-        The API developer can have endpoints that change dynamically over time. In such situations, you can use Service Discovery with etcd to make sure that Choreo Connect is aware of the latest endpoint.
+        The API developer can have endpoints that change dynamically over time. In such situations, you can use Service Discovery with Consul service registry to make sure that Choreo Connect is aware of the latest endpoint.
