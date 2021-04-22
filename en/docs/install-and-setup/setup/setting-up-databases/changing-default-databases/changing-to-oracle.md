@@ -69,7 +69,7 @@ Follow the instructions below to set up an Oracle database.
     ERROR ApplicationRegistry org.wso2.andes.kernel.AndesException: Connecting to database failed with jndi lookup : WSO2MBStoreDB. data source username : wso2carbon. SQL Error message : General error: java.lang.ArrayIndexOutOfBoundsException
     ```
 
-     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M 3.2.0 pack.
+     1. Replace the MB store database with the default H2 MB store database from a fresh WSO2 API-M pack.
 
      2. Restart the server.
 

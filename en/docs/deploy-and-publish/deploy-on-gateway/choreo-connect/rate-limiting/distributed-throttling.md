@@ -146,8 +146,7 @@
       </tbody>
     </table>
 
-8.  If you are using API Manager 3.2.0 or later version, you need to configure the API Manager Eventhub. This step is 
-    not required if you need to do only the resource level throttling or API level throttling.
+8.  You need to configure the API Manager Eventhub. This step is not required if you need to do only the resource level throttling or API level throttling.
     <!---TODO:@VirajSalaka Add the Event hub configuration guide URL--->
     
 9.  Finally, the added configurations in `micro-gw.conf` would look like this. 

@@ -49,7 +49,7 @@ public String getJWTValidator() {
 
 ## Extending the KeyValidationHandler Interface
 
-If you are still using reference tokens and you need to extend the key validation similar to the way it was implemented before API-M 3.2.0, you can do so by implementing `org.wso2.carbon.apimgt.keymgt.handlers.KeyValidationHandler`.
+If you are still using reference tokens and you need to extend the key validation similar to the way it was implemented before API-M 4.0.0, you can do so by implementing `org.wso2.carbon.apimgt.keymgt.handlers.KeyValidationHandler`.
 
 After validating the token, the API Gateway receives the `APIKeyValidationInforDTO` as the response, and the API Gateway uses it to perform the rest of the operations.
 
