@@ -34,11 +34,11 @@ Usage of the `aws init` command is quite simple. Two mandatory flags are associa
 !!! info
     **Flags:**   
     -    Required :  
-        `--name` or `-n` : Name of the API to get from the AWS API Gateway
-        `--stage` or `-s` : API stage to get 
-    -   Optional :
-        `--force` or `-f` : To force create an API project
-        `--verbose` or `-v` : To execute the command in verbose mode
+        `--name` or `-n` : Name of the API to get from the AWS API Gateway  
+        `--stage` or `-s` : API stage to get   
+    -   Optional :  
+        `--force` or `-f` : To force create an API project  
+        `--verbose` or `-v` : To execute the command in verbose mode  
 
 !!! tip
     The API project will be initialized in the same location where the command was executed from. 
@@ -84,7 +84,6 @@ To publish the API, go to `Lifecycle` under `Publish` and click on `Publish`.
 [![]({{base_path}}/assets/img/publish/publish-aws-api.png)]({{base_path}}/assets/img/publish/publish-aws-api.png)
 
 To learn more about importing an API project refer to [import-api-project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
-({{base_path}}/learn/api-controller/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project)
 
 The initial state of the API will be set to `CREATED` so the user will be able to make changes to the API if necessary in the publisher portal, before publishing the API on the developer portal.
 
