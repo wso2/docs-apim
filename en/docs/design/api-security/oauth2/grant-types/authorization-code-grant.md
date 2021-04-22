@@ -119,7 +119,7 @@ The steps below show how access tokens are generated for the authorization code 
 
     [![]({{base_path}}/assets/img/learn/login-page.png)]({{base_path}}/assets/img/learn/login-page.png)
 
-8.  Select **Approve Once** or **Approve Always** to provide access to your profile information.
+8.  Select **Remember my consent** to remember the access to your profile information.
 
     [![]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)   
     
