@@ -1,17 +1,17 @@
 # Integration Quick Start Guide
 
-Let's get started with WSO2 API Manager by running a simple integration use case in your local environment. 
+Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment. 
 
 ## Before you begin
 
-1. Go to the [website](https://wso2.com/api-management/) to download WSO2 API Manager and WSO2 Integration Studio. 
+1. Go to the [website](https://wso2.com/api-management/) to download WSO2 Micro Integrator and WSO2 Integration Studio. 
 
     When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
 
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
+2. Download the [sample files]({{base_path}}/assets/attachments/tutorial/MI_QSG_HOME.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
 3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
 ## What you'll build
@@ -62,7 +62,7 @@ To set up the integration workspace for this quick start guide, we will use an i
 
 Go to the `<MI_QSG_HOME>` directory. The following project files and executable back-end services are available.
 
-- **HealthcareConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
+- **HealthcareIntegrationProject/HealthcareIntegrationProjectConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
 
       <img src="{{base_path}}/assets/img/integrate/quick-start-guide/qsg-api.png">
 
@@ -112,8 +112,37 @@ Go to the `<MI_QSG_HOME>` directory. The following project files and executable 
             </api>
     	    ```    
       </details>
+      
+      
+      It also contains the following two files in the metadata folder.
+      
+      
+    !!! Tip
+        This data is used later in this guide by the API management runtime to generate the managed API proxy.
+  
+      
+      <table>
+          <tr>
+              <th>
+                  HealthcareAPI_metadata.yaml
+              </th>
+              <td>
+                  This file contains the metadata of the integration service you created in the previous step. 
+                  The default **serviceUrl** is configured as `https://localhost:8290/healthcare`.
+                  If you are running Micro Integrator on a different host and port, you may have to change these values.
+              </td>
+          </tr>
+          <tr>
+              <th>
+                  HealthcareAPI_swagger.yaml
+              </th>
+              <td>
+                  This Swagger file contains the OpenAPI definition of the integration service.
+              </td>
+          </tr>
+      </table>
 
-- **HealthcareCompositeExporter**: This is the Composite Application Project folder, which contains the packaged CAR file of the healthcare service.
+- **HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter**: This is the Composite Application Project folder, which contains the packaged CAR file of the healthcare service.
 
 - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
@@ -133,7 +162,7 @@ java -jar DoctorInfo-JDK11.jar
 
 #### Deploy the healthcare service
 
-Copy the CAR file of the healthcare service (HealthcareCompositeExporter_1.0.0.car) from the `<MI_QSG_HOME>/HealthcareCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+Copy the CAR file of the healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<MI_QSG_HOME>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
 !!! Note
     If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#accessing-the-home-directory) is specific to your OS.
@@ -206,11 +235,37 @@ Upon invocation, you should be able to observe the following response:
 ]
 ```
 
-## Step 3 - Discover services
+## Step 3 - Exposing an Integration Service as a Managed API
 
-When you deploy your C-App it becomes an integration service and you can view your service in a Service Catalog. 
+After developing your Integration using WSO2 Micro Integrator, you can choose to expose it as a Managed API using WSO2 API Manager.
 
 Integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+
+For this part of the tutorial you need WSO2 API Manager.
+
+1.  Download and set up [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
+2.  Start WSO2 API Manager by navigating to the /bin directory using the command-line and execute the following command `api-manager.bat --run` (for Windows) or `sh api-manager.sh` (for Linux/Mac)
+
+You need to add the following configuration to `<MI_HOME>/conf/deployment.toml` file.
+
+!!! Tip
+    The default username and password for connecting to the API gateway is `admin`.
+
+
+```toml
+[[service_catalog]]
+apim_host = "https://localhost:9443"
+enable = true
+username = "admin"
+password = "admin"
+```
+    
+Now if you restart Micro Integrator, you can observe that API will be added to the Service Catalog of API Manager.
+You will see the following in the server start up log.
+
+```bash
+Successfully updated the service catalog
+```
 
 Once you have services deployed, you can view the list of available services by accessing the Service Catalog menu in WSO2 API Manager. 
 
@@ -219,9 +274,10 @@ Once you have services deployed, you can view the list of available services by 
 
 Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
 
-![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-listing.png)
+![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-qsg.png)
 
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/integrate/develop/integration-development-kickstart).
 - Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/integration-overview/).
+- Try out the entire developer guide on [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/).
