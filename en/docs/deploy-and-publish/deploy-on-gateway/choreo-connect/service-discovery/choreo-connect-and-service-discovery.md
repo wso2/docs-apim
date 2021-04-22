@@ -1,7 +1,12 @@
 # Configure Choreo Connect with Consul Discovery (without service mesh)
 
-Consul's features such as service discovery, health checks, and tagging system can be used individually as needed without building a full service mesh.
-In the case you have a Consul set up as a service discovery mechanism, and need to let 3rd parties and end-users consume those services, you can use Choreo Connect as the API management solution.
+As the number of services grows within your organization, you may have multiple nodes running the same service.
+You might spin up new nodes as traffic increases to service and take down some nodes as traffic decreases.
+Then nodes that want to communicate with other nodes require a mechanism to discover how many nodes are up and running and how to connect to them(service discovery).
+Further, they need to know which nodes are healthy to send traffic to(health checks).
+You might have different versions of the same service running dedicated for multiple purposes such as production, development, and testing(tagging).
+Consul's features such as service discovery, health checks, and tagging system can be used as needed without building a full service mesh.
+In this case, if you need to let end-users consume your services, you can use Choreo Connect as the API gateway.
 This part of the document describes how to set up Choreo Connect with Consul for service discovery.
 
 ![service discovery]({{base_path}}/assets/img/deploy/consul-reference-discovery.png)
