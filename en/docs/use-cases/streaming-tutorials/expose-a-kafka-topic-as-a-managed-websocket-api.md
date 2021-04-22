@@ -2,7 +2,8 @@
 
 The Streaming Integrator (SI) component in WSO2 API Manager (WSO2 API-M) can consume events from a third-party streaming provider topic (e.g., Kafka topic) and publish those events to a Streaming Backend (e.g., WebSocket Streaming Backend) in a streaming manner. When a stream of events are received by the third-party streaming provider source (e.g., Kafka source), they are published to the Streaming Backend simultaneously. 
 
-In this tutorial, let's use the Streaming Integrator Tooling component in WSO2 API-M to receive events to the stream named `SweetProductionStream` via the Kafka transport in XML format. Thereafter, let's send the sweet production events via the WebSocket transport in XML format and log the events in the stream named `LowProductionAlertStream` to the output console. Thereafter, let's generate AsyncAPI definition for the WebSocket Streaming API and publish it to the WSO2 API Manager Service Catalog. Using the service in the Service Catalog, let's create a Streaming API, publish it, and invoke the API.
+Streaming integrator is one of the WSO2 API-M components that has the capability to connect with multiple external sources / sinks. Streaming Integration Tooling is another component which provides developer friendly tools. In this tutorial, Streaming integrator is used as the integration point with Kafka. Then the events received from Kafka (`SweetProductionStream`) are exposed via a web socket server using a sink in Streaming integrator. 
+Once we have the relevant sinks defined we can use the AsyncAPI generation functionality in Steaming Integration Tooling to generate the relevant AsyncAPI definition and then finally deploy it as a service in WSO2 API Manager Services. API Manager service will have the capability to create an API out of it and allowed to invoke it as a managed API. Finally the messages coming to Kafka topics will be able to received via the Streaming API. 
 
 Follow the instructions below to expose a third-party Service Provider stream as a managed API:
 
@@ -16,45 +17,44 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
         Let's refer to this directory as `<KAFKA_HOME>`.
 
-    2. Copy the required JAR files.
+    2. Install relevant kafka client libraries in SI using extension installer.
 
-         1. Create a directory named `Source` in a preferred location in your machine.
+    3. Configure the basic details needed to publish siddhi application with AsyncAPI definition to the services in API Manager.
+    
+        1. Open the `<SI_HOME>/conf/server/deployment.yaml` file.
         
-         2. Navigate to the `<KAFKA_HOME>/libs` directory and copy the following JARs to the `Source` directory.
+        2. Update the `service.catalog.configs:` section as follows:
+        
+                ```
+                service.catalog.configs:
+                    enabled: true
+                    hostname: localhost
+                    port: 9448
+                    username: admin
+                    password: admin
+                ```
+                 In the above configuration -
+                 
+                   - You are enabling the AsyncAPI generation functionality by setting the `enabled` parameter to `true`. 
+                    
+                   - You are specifying `9448` as the port because you configured a port offset of 5 in the previous step. The default port of the API Manager is `9443`.
+        
+??? note " 2. Configure the API Manager port"
 
-            - `kafka_2.12-2.3.0.jar`
+    You have to define the port to which the Streaming Integrator publishes the AsyncAPI definition.
+    
+     1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-            - `kafka-clients-2.3.0.jar`
+     2. Uncomment `offset` in the `[server]` section and set it to `5` as shown below.
 
-            - `metrics-core-2.2.0.jar`
-
-            - `scala-library-2.12.8.jar`
-
-            - `zkclient-0.11.jar`
-
-            - `zookeeper-3.4.14.jar`
-
-    3. Create another directory named `Destination` in a preferred location in your machine.
-
-    4. Convert the Kafka JARS into OSGi bundles.
-
-         Execute the following command to convert the Kafka JARS, which are in the `Source` directory.
-
-         ``` bash tab="Windows"
-         <SI_HOME>/bin/jartobundle.bat <source-directory-path> <destination-directory-path>
          ```
+         [server]
+         offset=5
+         ```        
 
-         ``` bash tab="Linux"
-         sh <SI_HOME>/bin/jartobundle.sh <source-directory-path> <destination-directory-path>
-         ```
+??? note "3. Start Kafka"
 
-    5. Add the **OSGi converted Kafka libs** from the `Destination` directory to the `<SI_HOME>/lib` directory.
-
-    6. Add the **original Kafka libs** from `Source` to the `<SI_HOME>/samples/sample-clients/lib` directory.
-
-??? note "2. Start Kafka"
-
-    1. Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
+    1.Navigate to the `<KAFKA_HOME>` directory and start a Zookeeper node.
 
         ```
         sh bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -66,13 +66,22 @@ Follow the instructions below to expose a third-party Service Provider stream as
         sh bin/kafka-server-start.sh config/server.properties
         ```
 
-??? note "3. Install Apache Ant"
+??? note "4. Install Apache Ant"
 
     Download and install [Apache Ant](https://ant.apache.org/).
 
-## Step 1 - Enable publishing to the service catalog
+## Step 1 - Start the API Manager
 
-{!includes/streaming/enable-publishing.md!}
+1. Navigate to the `<APIM_HOME>/bin` directory 
+
+2. [Start the API_Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/).
+
+     The following log appears on the API Manager console when the server is started successfully.
+
+    ```
+    [2021-04-20 15:51:00,036]  INFO - StartupFinalizerServiceComponent Server           :  WSO2 API Manager-4.0.0
+    [2021-04-20 15:51:00,038]  INFO - StartupFinalizerServiceComponent WSO2 Carbon started in 77 sec
+    ```
 
 ## Step 2 - Start the Streaming Integrator
 
@@ -82,11 +91,11 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
      The following log appears on the SI console when the server is started successfully.
 
-     ```
-     INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Integrator started in 4.240 sec
-     ```
+    ```
+    INFO {org.wso2.carbon.kernel.internal.CarbonStartupHandler} - WSO2 Streaming Integrator started in 4.240 sec
+    ```
 
-## Step 3 - Create a Streaming Backend
+## Step 3 - Start and Create a Streaming Backend in Streaming Integrator Tooling
 
 The default Streaming Integrator component is powered by [Siddhi](https://siddhi.io/). Therefore, you need to create a Siddhi application as the Streaming Backend.
      
@@ -101,7 +110,7 @@ Follow the instructions below to create a Streaming Backend server:
 3. Define your Siddhi application.
 
     ```
-        @App:name("RecieveKafkaPublishWebSocket")
+        @App:name("KafkaToWebSocketSample")
         @App:description("Description of the plan")
 
         @source(type='kafka',
@@ -113,15 +122,14 @@ Follow the instructions below to create a Streaming Backend server:
         @map(type='xml'))
         define stream SweetProductionStream(name string, amount double);
 
-        @sink(type='websocket-server', 
-        url='ws://localhost:8025/abc',
+        @sink(type='websocket-server', host='localhost',port='8025',
         @map(type='xml'))
-        define stream LowProductionAlertStream (name string, amount double);
+        define stream TotalCountStream (totalCount long);
 
         @info(name='query1')
         from SweetProductionStream
-        select *
-        insert into LowProductionAlertStream;
+        select count() as totalCount
+        insert into TotalCountStream;
     ```
 
 4. Save the file. 
@@ -129,7 +137,7 @@ Follow the instructions below to create a Streaming Backend server:
      If there is no syntax error in the Siddhi application, the following message appears in the console:
 
      ```
-     Siddhi App RecieveKafkaPublishWebSocket.siddhi successfully deployed. 
+     Siddhi App KafkaToWebSocketSample.siddhi successfully deployed. 
      ```
 
 ## Step 4 - Generate an AsyncAPI Definition
@@ -154,7 +162,7 @@ Follow the instructions below to generate an AsyncAPI Definition via the Streami
      | **Version**                                          | `1.0.0`                               |
      | **Description**                                      | `Consumes events of sweets production` |
      | **Select Source or Sink type to Generate Async API** | Select **websocket-server**           |
-     | **Sources**                                          | Select **SweetProductionStream**      |
+     | **Sources**                                          | Select **TotalCountStream**      |
 
      [![Design View of Async API]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-form.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-form.png)
 
@@ -172,11 +180,11 @@ Follow the instructions below to generate an AsyncAPI Definition via the Streami
 
      <a href="{{base_path}}/assets/img/streaming/working-with-async-api/add-async-api-button.png"><img src="{{base_path}}/assets/img/streaming/working-with-async-api/add-async-api-button.png" width="20%" alt="Add Async API"></a>
 
-3. Click **Code View** to view the Siddhi application with the AsyncAPI definition that was generated and to edit it if required.
+3. Click **Code View** to view the Siddhi application with the AsyncAPI definition that was generated and save it so that it can be deployed on SI server.
 
 ## Step 5 - Publish the AsyncAPI definition
 
-You need to deploy your Streaming backend, which contains the AsycAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the service catalog in WSO2 API Manager.
+You need to deploy your Streaming backend, which contains the AsyncAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the services in WSO2 API Manager.
 
 Follow the instructions below to publish the AsyncAPI definition to the service catalog:
 
@@ -186,7 +194,7 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
 
      This opens the **Deploy Siddhi Apps to Server** dialog box. 
 
-2. Select the relevant check box for your Siddhi application, which contains the AsyncAPI definition, and for the server in which you want to deploy it. 
+2. Add the SI server host and port(default 9443) and select the relevant check box for your Siddhi application, which contains the AsyncAPI definition, and for the server in which you want to deploy it. 
 
 3. Click **Deploy**.
 
@@ -195,8 +203,8 @@ Follow the instructions below to publish the AsyncAPI definition to the service 
      After the Siddhi application is successfully deployed, the following log messages appear in the Streaming Integrator and API Manager server logs to indicate that the AsyncAPI definition is successfully published in the Service Catalog.
 
     ```bash tab="Streaming Integrator server logs"
-    Siddhi App AsyncAPIDef deployed successfully
-    Async API: SweetProdApp-1.0.0 uploaded to the service catalogue
+    Siddhi App KafkaToWebSocketSample deployed successfully
+    Async API: SweetProdApp-1.0.0 uploaded to the service catalog
     ```
 
     ```bash tab="API Manager server logs"
@@ -215,7 +223,7 @@ Follow the instructions below to view the service catalog entry in WSO2 API Mana
 
      [![Open Service Catalog]({{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)]({{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)
      
-2. Click **Service Catalog**.
+2. Click **Services**.
 
      The services, which include the `SweetProdApp` service, appear.
 
@@ -237,7 +245,7 @@ Follow the instructions below to create an API from the deployed managed service
 
 3. Click **Create API**.
 
-    [![Create API from Service]({{base_path}}/assets/img/common/service-catalog/create-api-from-service.png)]({{base_path}}/assets/img/common/service-catalog/create-api-from-service.png)
+    [![Create API from Service]({{base_path}}/assets/img/streaming/working-with-async-api/create-api-from-service.png)]({{base_path}}/assets/img/streaming/working-with-async-api/create-api-from-service.png)
 
      The API overview page appears.
 
@@ -290,11 +298,11 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
      2. Invoke the API by using an authorization header by executing the following command.
         
          ``` java tab="WS"
-         wscat -c ws://localhost:9099/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+         wscat -c ws://localhost:9104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]" 
          ```
 
          ``` java tab="WSS"
-         wscat -n -c wss://localhost:8099/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
+         wscat -n -c wss://localhost:8104/sweetProdApp/1.0.0 -H "Authorization: Bearer [accesstoken]"
          ```
 
         <html>
@@ -304,11 +312,11 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
         There are clients (especially browsers) that do not allow to add headers. In such cases, you can send the access token for the API invocation as a query parameter named `access_token` by using the command below:</p>
            
         ``` java tab="WS"
-        wscat -c "ws://localhost:9099/sweetProdApp/1.0.0?access_token=[accesstoken]" 
+        wscat -c "ws://localhost:9104/sweetProdApp/1.0.0?access_token=[accesstoken]" 
         ```
 
         ``` java tab="WSS"
-        wscat -n -c "wss://localhost:8099/sweetProdApp/1.0.0?access_token=[accesstoken]"
+        wscat -n -c "wss://localhost:8104/sweetProdApp/1.0.0?access_token=[accesstoken]"
         ```
 
         </div>
@@ -318,9 +326,11 @@ Follow the instructions below to publish the API via the WSO2 API Manager Publis
 
 Let's execute the following Kafka client producer sample to pass the streaming event to Kafka.
 
-1. Open a terminal and navigate to `<SI_HOME>/samples/sample-clients/kafka-producer` file.
+1. If needed please copy `org.wso2.carbon.si.metrics.core_` jar from `<SI_HOME>/wso2/lib/plugins` to `<SI_HOME>/samples/sample-clients/lib/` before running the kafka-producer client.
 
-2. Receive XML events via Kafka.
+2. Open a terminal and navigate to `<SI_HOME>/samples/sample-clients/kafka-producer` file.
+
+3. Receive XML events via Kafka.
 
      Execute the following Apache Ant command.
 
@@ -335,24 +345,14 @@ Let's execute the following Kafka client producer sample to pass the streaming e
          ant -Dtype=xml -DnoOfEventsToSend=5 -DtopicName=kafka_sample_topic
          ```
  
-5. Start the Streaming Backend.
+## Step 11 - Results evaluation
 
-     Click **Run** in the Streaming Integrator Tooling component to start the Siddhi application, which is the Streaming Backend.
+     As SI server is already running as explained in above steps, Once the kafka client sends the events they will be cosumed be the source in SI server and pushed to websocket server. As ws client command listens to these events,
+     below type of events will be printed in the terminal which ws client ran.
+    
+     [![Results]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-results.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-results.png)
 
-     [![Run menu]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/run-menu-option.png)]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/run-menu-option.png)
 
-     If the Siddhi application starts successfully, the following messages appear on the console.
-        
-    ```
-    * RecieveKafkaPublishWebSocket.siddhi -  Started Successfully!
-    ```
+Now, you have successfully created and published the API that corresponds to the WebSocket service in the Services. In addition, you have subscribed to it, obtained an access token for testing, and tested the API with the access token generated with the Kafka client which sends streaming events.
 
-    !!! note
-        If you edit the Siddhi application while it is running, stop the application, save it, and start the application.
 
-Now, you have successfully created and published the API that corresponds to the WebSocket service in the Service Catalog. In addition, you have subscribed to it, obtained an access token for testing, and tested the API with the access token generated.
-
-!!! note
-
-    - Stop this Siddhi application after you are done with the execution.
-    - Stop Kafka server and Zookeeper server individually by executing Ctrl+C.
