@@ -123,7 +123,7 @@ Blocking can be done at two levels:
          </div>
          </html>
 
-         Note that you can invoke `PizzaShackAPI` again, but when you invoke `PhoneVerification` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
+         Note that you can invoke `PizzaShackAPI` again, but when you invoke `PhoneVerification`, it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
 
          <html>
          <div class="admonition warning">
