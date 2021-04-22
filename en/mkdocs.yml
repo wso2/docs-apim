@@ -1435,7 +1435,6 @@ nav:
                 - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - CI/CD:
                 - Building a Jenkins CI/CD Pipeline for Micro Integrator:
                     - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
@@ -1519,6 +1518,7 @@ nav:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
