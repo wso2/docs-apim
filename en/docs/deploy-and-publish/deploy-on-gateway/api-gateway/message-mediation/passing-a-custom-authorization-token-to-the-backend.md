@@ -39,7 +39,7 @@ Here's a summary:
 3.  Navigate to the **API Configurations** --> **Runtime** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
+    [![Uploading Token Exchange Sequence ]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
       
 4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
 
