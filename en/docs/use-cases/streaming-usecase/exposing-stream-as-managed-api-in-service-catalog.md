@@ -2,9 +2,9 @@
 
 Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Streaming backend for a [Streaming API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview), generate an AsyncAPI definition for the corresponding Streaming API, and then publish the AsyncAPI definition in the WSO2 API Manager Service Catalog. 
 
-This involves enabling the AsyncAPI functionality in the Streaming Integrator component. As a result, when you deploy a Siddhi application with an AsyncAPI definition in the Streaming Integrator server, the Streaming Integrator exposes it as an API in WSO2 API Manager's service catalog.
+This involves enabling the AsyncAPI functionality in the Streaming Integrator component. As a result, when you deploy a Siddhi application with an AsyncAPI definition in the Streaming Integrator server, the Streaming Integrator exposes it as an API in WSO2 API Manager's services.
 
-## Step 1 - Enable publishing to the service catalog
+## Step 1 - Enable publishing to the services
 
 {!includes/streaming/enable-publishing.md!}
    
@@ -22,7 +22,7 @@ The Streaming Integrator component in WSO2 API Manager is powered by [Siddhi](ht
 @App:name('AsyncAPIDef')
 @App:description('Receive events via WebSockettransport in XML format')
 
-@source(type='websocket-server',host = "localhost",port = "8025",keystore.path = "/user/foo/wso2carbon.jks",
+@source(type='websocket-server',host = "localhost",port = "8025",
   @map(type='xml'))
 define stream SweetProductionStream (name string,amount double);
 
@@ -89,7 +89,7 @@ components:
 
 ## Step 5 - Publish the AsyncAPI definition 
 
-You need to deploy your Streaming backend, which contains the AsycAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the service catalog in WSO2 API Manager.
+You need to deploy your Streaming backend, which contains the AsycAPI definition, to the Streaming Integrator server in order to export the AsyncAPI definition that you generated to the services in WSO2 API Manager.
 
 Follow the instructions below to publish the AsyncAPI definition to the service catalog:
 
@@ -97,7 +97,7 @@ Let's deploy the `AsyncAPIDef` Siddhi application, which is the Streaming backen
 
 1. Click **Deploy**, and then click **Deploy to Server** in Streaming Integrator Tooling. 
 
-     [![Deploy To Server]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy-to-server.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-deploy-to-server.png)
+     [![Deploy To Server]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-deploy-to-server.png)]({{base_path}}/assets/img/streaming/working-with-async-api/async-api-websocket-deploy-to-server.png)
 
      This opens the **Deploy Siddhi Apps to Server** dialog box. 
 
@@ -130,7 +130,7 @@ Follow the instructions below to view the service catalog entry in WSO2 API Mana
 
      [![Open Service Catalog]({{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)]({{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)
      
-2. Click the hamburger icon and then click **Service Catalog**.
+2. Click the hamburger icon and then click **Services**.
 
      The services, which includes the `SweetProdApp` service, appears.
 
