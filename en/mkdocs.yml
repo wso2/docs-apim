@@ -1521,8 +1521,23 @@ nav:
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
-          - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
+          - Scenario Tutorials:
+            - Scenario Overview: tutorials/scenarios/scenario-overview.md
+            - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
+            - Scenario 2 - Access Control: tutorials/scenarios/scenario2-access-control.md
+            - Scenario 3 - Implementing an API: tutorials/scenarios/scenario3-implementing-an-api.md
+            - Scenario 4 - User Signup Approval Flow: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+            - Scenario 5 - Developer Comminity Feature: tutorials/scenarios/scenario5-developer-community-feature.md
+            - Scenario 6 - Integrating with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
+            - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
+            - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
+            - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
+            - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
+            - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
+            - Scenario 12 - Gauranteed Message Delivery: tutorials/scenarios/scenario12- message-delivery.md
+            - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
+            - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
