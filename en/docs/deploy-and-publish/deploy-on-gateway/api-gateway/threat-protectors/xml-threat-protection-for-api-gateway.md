@@ -102,7 +102,7 @@ in sequence.
 
 -   Select `xml_validator` from the drop-down menu for Common Policies.
 
-    ![]({{base_path}}/assets/img/learn/mediation-xml_validator.png)
+    ![]({{base_path}}/assets/img/learn/mediation-xml-validator.png)
     
 -   Scroll down the page and click **Save** to save the changes.
 
