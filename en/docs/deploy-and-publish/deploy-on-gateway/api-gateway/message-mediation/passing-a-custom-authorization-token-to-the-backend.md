@@ -36,7 +36,7 @@ Here's a summary:
     | Business Plan | Gold                 |
     | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
 
-3.  Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
+3.  Navigate to the **API Configurations** --> **Runtime** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
