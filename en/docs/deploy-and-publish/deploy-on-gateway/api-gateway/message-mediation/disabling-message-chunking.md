@@ -4,7 +4,7 @@ When processing large messages, message chunking facilitates sending the message
 Message chunking is set using the `Transfer-Encoding: chunked` header. However, some legacy backends might not support 
 chunked messages. To disable sending chunked messages to the backend for a specific API, follow the steps below:
 
-1.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
+1.  Go to the created API and from the Left Menu, go to **API Configurations** --> **Runtime**.
 2.  Click [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** under the **Request** section.      
   
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)  
