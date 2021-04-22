@@ -78,4 +78,4 @@ Once you have created the integration service and deployed it in the Micro Integ
 
 Once the servers are started and the services are published, you can sign in to the **Publisher** of WSO2 API-M, access the **Service Catalog**, and then create an API for the service.
 
-See [Creating a API using a integration service]({{base_path}}/design/create-api/create-an-api-using-a-service).
+See the instructions on [creating an API using a service]({{base_path}}/design/create-api/create-an-api-using-a-service).
