@@ -140,7 +140,7 @@ urls:
 type: #optional
 ```
 
- The purpose of URLs field is to include the backend service URLs. If multiple URLs are provided without assigning the type field, Choreo Connect will act as a load balancer. If multiple endpoints are provided and the type field is defined as `failover` , the endpoints are considered as failover endpoints. For more details, see [supported endpoint types]({{base_path}}/deploy-and-publish/choreo-connect/endpoints/defining-a-backend-security-scheme/#supported-endpoint-types) .
+ The purpose of URLs field is to include the backend service URLs. .
 
  If you have added resource level endpoints and you have repeated the same endpoint in multiple resources, it will cause data duplication in the OpenAPI definition. Therefore, in order to avoid the latter mentioned error, you need to provide the endpoints under the reference model. In addition, if you need to override endpoints or use Basic Auth protected backend services, you need to define the endpoints in the following manner.
 
