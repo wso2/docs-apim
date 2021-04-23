@@ -32,34 +32,24 @@ curl -v http://localhost:9763/services/Version
 
 ## Micro Integrator health check
 
-See the instructions given below to run health checks on your Micro Integrator deployment.
-
-!!! Note
-    If you are running the server instance with a different port offset other than the default, which is 10, the health
-    check API will serve at 9191 + offset. 
-
-### Health checking in a VM environment
-
 WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
 balancer prior to routing traffic to a particular server node.
 
 The health check API has two behaviors depending on whether the deployment is mutable or immutable. If the deployment 
-is mutable (which is mostly the configuration in centralized deployments), the probe will give a **ready** status when the 
-server starts successfully. If the deployment is immutable, the probe will give a **ready** status only if all the CApps 
-are deployed successfully during server startup. If there are faulty CApps, the probe will return the list of faulty CApps. The health check API serves at:
+is mutable (which is mostly the configuration in centralized deployments), the probe gives a **ready** status when the 
+server starts successfully. If the deployment is immutable, the probe gives a **ready** status only if all the CApps 
+are deployed successfully during server startup. If there are faulty CApps, the probe returns the list of faulty CApps. The health check API serves at:
 
 `http://localhost:9201/healthz`
 
 !!! Note
-    If you are running the server instance with a different port offset other than the default, which is 10, the heath
-    check API will serve at 9191 + offset.  
-
-### Health checking in Kubernetes
+    If you are running the server instance with a different port offset other than the default (which is 10), the heath
+    check API serves at 9191 + offset.  
 
 #### Readiness Probe
 
 The readiness probe is a vital configuration for deployments in Kubernetes as it governs the routing logic. The requests 
-will not be routed to a pod that is not ready.
+are not routed to a pod that is not ready.
 
 Add the following configurations to your `deployment.yaml` file in order to configure the readiness probe for
 the server. **Initial delay** and the **period** has to be fine-tuned according to your deployment.
@@ -81,7 +71,7 @@ be restarted so that the Micro Integrator instances serve the requests flawlessl
 Integrator can be used to health check for liveness.
 
 Add the following configurations to your `deployment.yaml` file in order to configure the liveness probe for
-the server. **Initial delay** and the **period** will have to be fine-tuned according to your deployment.
+the server. **Initial delay** and the **period** have to be fine-tuned according to your deployment.
 
 ```yaml
 livenessProbe:
