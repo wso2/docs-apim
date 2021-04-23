@@ -14,7 +14,7 @@ The API Gateway architecture model, which solves the API management problem, com
 -   The applications that consume the APIs in the API Gateway
 -   The users of the applications
 
-[![throttling types]({{base_path}}/assets/img/learn/throttling-types.png)]({{base_path}}/assets/img/learn/throttling-types.png)
+[![Throttling types]({{base_path}}/assets/img/learn/throttling-types.png)]({{base_path}}/assets/img/learn/throttling-types.png)
 
 The following sections describe the type of throttling policy applicable to each of the above areas and why the relevant stakeholders must consider each of them carefully.
 
