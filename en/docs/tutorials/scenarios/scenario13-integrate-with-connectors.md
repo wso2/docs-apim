@@ -20,7 +20,7 @@ Here, for simplicity, the service is already created and exported as a Composite
 the connector. Before adding the service to the system, you need to do the following.
 
 1. Create a temporary directory in your machine and create three sub directories inside it called **in**, **out** & **error**.
-2. Uncomment the volume section under _mi-runtime_  in docker-compose.yml and provide the temporary directory location replacing the &lt;SourceLocation> tag.
+2. Uncomment the volume section under _mi-runtime_  in docker-compose.yml and provide the temporary directory location replacing the `<SourceLocation>` tag.
 
     ```
     # volumes:
@@ -43,7 +43,7 @@ the connector. Before adding the service to the system, you need to do the follo
     ```
 
 
-4. After that, we need to add the EmailService CApp to the Micro Integrator in the setup. To do that uncomment the following line in the Dockerfile found inside _&lt;REPO_HOME>/dockerfiles/micro-integrator/._
+4. After that, we need to add the EmailService CApp to the Micro Integrator in the setup. To do that uncomment the following line in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
 
     ```
     # # Uncomment when trying out Guaranteed Message Delivery Scenario
@@ -55,6 +55,6 @@ the connector. Before adding the service to the system, you need to do the follo
 
 	`docker-compose up -d --build mi-runtime`
 
-Once restarted, you can place the csv file into the `**in`** directory inside your temporary location. You can use the train-entry-sample.csv file found inside `_&lt;REPO_HOME>/resources`_ for this purpose. 
+Once restarted, you can place the csv file into the `**in`** directory inside your temporary location. You can use the train-entry-sample.csv file found inside `<REPO_HOME>/resources`_ for this purpose. 
 
 Once added, the file will be picked by Micro Integrator and sent as an Email to the address which is configured above. 

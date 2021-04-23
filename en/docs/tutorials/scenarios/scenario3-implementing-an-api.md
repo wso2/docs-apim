@@ -27,10 +27,9 @@ Here, for simplicity, the service is already created and exported as a Composite
 curl -X GET 'http://localhost:8290/metrics' 
 ```
 
-
 If the service catalog is enabled in Micro Integrator, it will automatically push the API artifacts, Swagger definition to the API Manager during startup, which you can view in the API Manager Service Catalog.
 
-To enable the service catalog, uncomment the following section in the Dockerfile found inside _&lt;REPO_HOME>/dockerfiles/micro-integrator/._
+To enable the service catalog, uncomment the following section in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
 
 `COPY deployment.toml ${WSO2_SERVER_HOME}/conf/`
 
