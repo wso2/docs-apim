@@ -26,7 +26,7 @@ API-M nodes in a distributed deployment:
             Control Plane Nodes
         </td>
         <td>
-            Two API-M nodes running the Control Plane profile. The control plan includes the Traffic Manager, Key Manager, Publisher, and Developer Portal components.
+            Two API-M nodes running the Control Plane profile. The Control Plane includes the Traffic Manager, Key Manager, Publisher, and Developer Portal components.
         </td>
     </tr>
     <tr>
