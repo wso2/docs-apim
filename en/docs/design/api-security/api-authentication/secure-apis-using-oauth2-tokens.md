@@ -91,7 +91,7 @@ Each tenant can define their name for the authorization header by following the 
 
 2.  Click **Main**, then click **Browse** which is under **Resources**.
 
-     [![]({{base_path}}/assets/img/learn/registry-browse.png)]({{base_path}}/assets/img/learn/registry-browse.png)
+     [![Registry Browse]({{base_path}}/assets/img/learn/registry-browse.png)]({{base_path}}/assets/img/learn/registry-browse.png)
 
 3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
 4.  Click **Edit as text** to be able to edit the JSON file.
@@ -213,7 +213,7 @@ Follow the instructions below to add a customized authorization header for an AP
 `https://<server-host>:9443/publisher         `
 2.  When [creating]({{base_path}}/design/create-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime** tab under **Develop -> API Configurations**.
 
-    [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
+    [![Custom Auth Header]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
 
 3.  Save and Deploy the API.
 
@@ -256,4 +256,4 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![]({{base_path}}/assets/img/learn//auth_header.png)]({{base_path}}/assets/img/learn//auth_header.png)
+[![Customized Auth Header]({{base_path}}/assets/img/learn//auth_header.png)]({{base_path}}/assets/img/learn//auth_header.png)
