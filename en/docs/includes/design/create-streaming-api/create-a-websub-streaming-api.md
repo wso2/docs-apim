@@ -68,7 +68,7 @@ Follow the instructions below to create a WebHook API using the basic flow:
 
      The overview page of the created WebSub/WebHook API appears.
 
-     [![Overview of WebSub API](../../../../assets/img/tutorials/streaming-api/websub-api-overview.png)](../../../../assets/img/tutorials/streaming-api/websub-api-overview.png)
+     [![Overview of WebSub API](../../../assets/img/tutorials/streaming-api/websub-api-overview.png)](../../../assets/img/tutorials/streaming-api/websub-api-overview.png)
 
 
 ### Step 2 - Configure the Topics
