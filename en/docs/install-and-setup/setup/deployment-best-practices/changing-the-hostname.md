@@ -47,8 +47,8 @@ Follow the steps given below.
 
 Follow the steps given below.
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file 
-2.  Define the `hostname` attribute under server configurations as shown below.
+1.  Open the `<MI-HOME>/conf/deployment.toml` file 
+2.  Define the `hostname` attribute under server configuration as shown below.
 
     ``` format tab="Format"
     [server]
@@ -60,7 +60,7 @@ Follow the steps given below.
     hostname="localhost"
     ```
 
-To configure hostnames for WSDLs and endpoints, users are recommended to add the following parameter for the transport listener in the deployment.toml file. Note: This is only applicable to the Micro Integrator runtime.
+To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
 
 ```toml
 [transport.http]
