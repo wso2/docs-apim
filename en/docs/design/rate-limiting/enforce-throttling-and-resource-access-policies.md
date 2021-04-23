@@ -12,7 +12,7 @@ After you created, published, and subscribed to the API, let's see how the API G
 
 1.  Sign in to the Developer portal and select the PizzaShack API.
     Go to the subscriptions tab and make sure we have subscribed to an application or if not subscribe.
-    [![Isapplication subscribed]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)
+    [![Subscribed Applications]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)
 
 2.  Go to the Applications tab and go in to the Default Application, click the **Production Keys** tab and generate an access token. If you already have an access token for the application, you have to regenerate it after 1 hour. Copy the access token after it has been generated.
     [![Generate-keys]({{base_path}}/assets/img/learn/learn-throttling-generate-keys.png)]({{base_path}}/assets/img/learn/learn-throttling-generate-keys.png)
