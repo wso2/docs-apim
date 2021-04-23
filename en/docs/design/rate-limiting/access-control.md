@@ -82,7 +82,7 @@ To deny a request,
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Deny Policies** under the **Rate Limiting Policies** section and click **Add Policy**.
 
-    [![Add-denied-policy]({{base_path}}/assets/img/learn/add-denied-policy.png)]({{base_path}}/assets/img/learn/add-denied-policy.png)
+    [![Add denied policy]({{base_path}}/assets/img/learn/add-denied-policy.png)]({{base_path}}/assets/img/learn/add-denied-policy.png)
 
 Select the item to deny, enter a value and click **Deny**.
 
