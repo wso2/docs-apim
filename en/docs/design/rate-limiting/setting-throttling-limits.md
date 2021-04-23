@@ -85,7 +85,7 @@ Advanced throttling policies are applied when you are Publishing an API. It can 
 
 API level policies can be engaged via the resources section of an API in the Publisher portal by selecting **API Level** under **Rate limitting level** as shown below.
 
-[![Api level advanced policy]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)
+[![API level advanced policy]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)
 
 #### **Resource level(Operation level) Throttling**
 
