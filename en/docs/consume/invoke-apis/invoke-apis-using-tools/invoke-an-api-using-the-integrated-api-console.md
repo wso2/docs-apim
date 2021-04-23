@@ -44,7 +44,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
 7.  Enter the copied access token in the **Authorization** field.
 
-     [![]({{base_path}}/assets/img/learn/copy-access-token.png)]({{base_path}}/assets/img/learn/copy-access-token.png)
+     [![Copy Access Token]({{base_path}}/assets/img/learn/copy-access-token.png)]({{base_path}}/assets/img/learn/copy-access-token.png)
 
 8. Expand the GET method and click **Try it out**. Click **Execute**.
  
