@@ -1,6 +1,6 @@
 # Defining Endpoints in an OpenAPI Definition
 
-You can use Choreo Connect for your OpenAPI definition, using the Choreo Connect Toolkit. In the latter mentioned process, you need to provide the endpoints for the resources that you included in the OpenAPI definition, so that the inbound request of Choreo Connect can be routed to the corresponding backend service. You, as a developer, can state the endpoint URLs for the whole API or a particular resource depending on the requirement. In addition, you can state the corresponding environment (i.e., production or sandbox) as well.
+You can use your OpenAPI definition and create an API project using APICTL and deploy that project directly in to Choreo Connect. In the latter mentioned process, you need to provide the endpoints for the resources that you included in the OpenAPI definition, so that the inbound request of Choreo Connect can be routed to the corresponding backend service. You, as a developer, can state the endpoint URLs for the whole API or a particular resource depending on the requirement. In addition, you can state the corresponding environment (i.e., production or sandbox) as well.
 
 ### API level endpoints
 
@@ -140,7 +140,7 @@ urls:
 type: #optional
 ```
 
- The purpose of URLs field is to include the backend service URLs. If multiple URLs are provided without assigning the type field, Choreo Connect will act as a load balancer. If multiple endpoints are provided and the type field is defined as `failover` , the endpoints are considered as failover endpoints. For more details, see [supported endpoint types]({{base_path}}/deploy-and-publish/choreo-connect/endpoints/defining-a-backend-security-scheme/#supported-endpoint-types) .
+ The purpose of URLs field is to include the backend service URLs. .
 
  If you have added resource level endpoints and you have repeated the same endpoint in multiple resources, it will cause data duplication in the OpenAPI definition. Therefore, in order to avoid the latter mentioned error, you need to provide the endpoints under the reference model. In addition, if you need to override endpoints or use Basic Auth protected backend services, you need to define the endpoints in the following manner.
 
@@ -263,5 +263,4 @@ There are three types of endpoints supported in Choreo Connect.
         -   [Defining a Backend Security Scheme]({{base_path}}/deploy-and-publish/choreo-connect/endpoints/defining-a-backend-security-scheme/)
         You may have to protect your backend using BasicAuth Authentication. The above link provides information on how to setup Choreo Connect to support BasicAuth Authentication.
         -   [Service Discovery]({{base_path}}/deploy-and-publish/choreo-connect/service-discovery/)
-        The API developer can have endpoints that change dynamically over time. In such situations, you can use Service Discovery with etcd to make sure that Choreo Connect is aware of the latest endpoint.
-
+        The API developer can have endpoints that change dynamically over time. In such situations, you can use Service Discovery with Consul service registry to make sure that Choreo Connect is aware of the latest endpoint.
