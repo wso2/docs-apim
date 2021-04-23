@@ -18,7 +18,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 2.  Under the **Rate Limiting Policies** tab and navigate to **Advanced Policies.**
 3.  Click Add New Policy to add a new Rate Limit tier.
 
-    [![Allowed-ip-add-policy]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)
+    [![Allowed IP add policy]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)
 
 4.  Fill the details as below and click **Add Conditional Group**.
 
