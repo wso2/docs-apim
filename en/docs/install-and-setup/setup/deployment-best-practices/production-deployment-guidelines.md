@@ -565,6 +565,6 @@ The following steps include how to recover your setup using the backups:
 
 1.  Recover the hot-deployment artifacts by replacing the `<PRODUCT_HOME>/repository` directory with the backed up copy.
 2.  Recover the entire WSO2 product by directly replacing the existing WSO2 server directory in the production setup with the backup server directory. This will ensure that all the files, logs, and configurations made to the product do not need to be redone.
-3.  To recover the databases, follow the recovery strategy recommended by the databases you are using. For information on supported and tested databases, see [Tested Database Management Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs) .
+3.  To recover the databases, follow the recovery strategy recommended by the databases you are using. For information on supported and tested databases, see [Tested Database Management Systems]({{base_path}}/install-and-setup/setup/reference/product-compatibility) .
 
 
