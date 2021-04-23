@@ -5,7 +5,7 @@
 !!! note
     This tutorial uses the `PizzaShack` API, which has  GET and POST methods to access it and a throttling policy enforced.
 
-    **Before you begin** , follow the [Create and Publish an API](../../create-api/create-rest-api/create-a-rest-api/) to create and publish the `PizzaShack` API and then the [Subscribe to an API](../../../consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) to subscribe to the API using the `Bronze` throttling tier.
+    **Before you begin** , follow the [Create and Publish an API]({{base_path}}/create-api/create-rest-api/create-a-rest-api/) to create and publish the `PizzaShack` API and then the [Subscribe to an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) to subscribe to the API using the `Bronze` throttling tier.
 
 
 After you created, published, and subscribed to the API, let's see how the API Gateway enforces throttling and resource access policies to the API.
