@@ -140,7 +140,7 @@ The above configuration includes the following important information:
 
     The state transition events that occur in the default API life cycle is shown in the following diagram:
 
-    ![]({{base_path}}/assets/img/learn/lifecycle_tab.png)
+    ![]({{base_path}}/assets/img/learn/lifecycle-tab-publisher.png)
 
 The **Lifecycle** tab in the Publisher, shows the current state of an API, the target events defined in the API life cycle for that state, and the set of checklist items.
 

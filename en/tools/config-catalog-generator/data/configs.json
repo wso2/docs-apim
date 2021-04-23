@@ -1717,7 +1717,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "(Only applicable if the Microgateway is used)If set to FALSE, works as persistent."
+                            "description": "(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent."
                         },
                         {
                             "name": "enable_persistent_notifier",
@@ -1725,7 +1725,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway."
+                            "description": "Notifications will be persisted to etcd. When Choreo Connect starts up, the etcd will be queried by Choreo Connect."
                         },
                         {
                             "name": "realtime_notifier.ttl",
