@@ -8,7 +8,7 @@ Make sure to install and set up [Docker](https://www.docker.com).
 
 ### Step 1 - Download and setup Choreo Connect distribution zip
 
-Latest Choreo Connect distribution can be downloaded from the [page.](https://wso2.com/api-management/api-microgateway/) Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
+Latest Choreo Connect distribution can be downloaded from the [page](https://wso2.com/api-management/api-microgateway/). Extract the Choreo Connect distribution zip. Extracted folder will be called as `CC_HOME` hereafter.
 
 ### Step 2 - Configure Choreo Connect to Connect to API Manager
 

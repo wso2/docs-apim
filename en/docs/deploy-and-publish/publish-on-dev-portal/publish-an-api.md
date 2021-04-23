@@ -26,12 +26,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
     [![Publish API requirements]({{base_path}}/assets/img/learn/publish-api-requirements.png)]({{base_path}}/assets/img/learn/publish-api-requirements.png)
 
     
-4.  If the latter mentioned requirements are satisfied, click **PUBLISH** to push the API. 
-    
-     If required, you can select the following options when publishing the API. 
-
-     -   **Require re-subscription when publish the API** : If selected, it invalidates the current user subscriptions and forces the users to subscribe again. 
-     -   **Deprecate old versions after publish the API** : If selected, all prior versions of the API that are published will be set to the DEPRECATED state automatically.
+4.  If the latter mentioned requirements are satisfied, click **PUBLISH** to push the API.
 
      [![Publish API]({{base_path}}/assets/img/learn/publish-api.png)]({{base_path}}/assets/img/learn/publish-api.png) 
         

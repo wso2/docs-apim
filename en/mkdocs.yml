@@ -167,7 +167,6 @@ nav:
                 - Access Control: design/rate-limiting/access-control.md
                 - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
                 - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
                 - Query Limits for GraphQL:
                         - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
@@ -230,6 +229,7 @@ nav:
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                    - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                 - Configurations:
@@ -1426,14 +1426,14 @@ nav:
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Deployment Best Practices:
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
             - CI/CD:
                 - Building a Jenkins CI/CD Pipeline for Micro Integrator:
                     - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
@@ -1517,11 +1517,27 @@ nav:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
-          - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
+          - Scenario Tutorials:
+            - Scenario Overview: tutorials/scenarios/scenario-overview.md
+            - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
+            - Scenario 2 - Access Control: tutorials/scenarios/scenario2-access-control.md
+            - Scenario 3 - Implementing an API: tutorials/scenarios/scenario3-implementing-an-api.md
+            - Scenario 4 - User Signup Approval Flow: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+            - Scenario 5 - Developer Comminity Feature: tutorials/scenarios/scenario5-developer-community-feature.md
+            - Scenario 6 - Integrating with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
+            - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
+            - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
+            - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
+            - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
+            - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
+            - Scenario 12 - Gauranteed Message Delivery: tutorials/scenarios/scenario12- message-delivery.md
+            - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
+            - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:

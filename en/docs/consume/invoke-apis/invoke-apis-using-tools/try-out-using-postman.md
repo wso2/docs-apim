@@ -18,7 +18,7 @@ Follow the instructions below to download an OpenAPI as a Postman collection:
 
      `https://<hostname>:9443/devportal`
 
-2. Click an API (e.g., `Pizza`) to go to the API overview.
+2. Click an API (e.g., `PizzaShackAPI`) to go to the API overview.
 
     [![API overview]({{base_path}}/assets/img/learn/postman_api_overview.png)]({{base_path}}/assets/img/learn/postman_api_overview.png)
 

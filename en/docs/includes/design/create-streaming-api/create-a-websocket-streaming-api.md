@@ -18,7 +18,7 @@ The WebSocket server can send messages to the WebSocket client, or vice-versa, o
 ## Example usage
 
 For example, chat room applications use WebSocket API so that messages can be sent in a bi-directional manner from the server to the client and vise versa.
- 
+
 ## Basic flow
 
 Follow the instructions below to create a WebSocket API using the basic flow:
@@ -36,9 +36,9 @@ Follow the instructions below to create a WebSocket API using the basic flow:
     </html>
 
     [![Design New Streaming API](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
-    
-3.  Enter the API details. 
-    
+
+3.  Enter the API details.
+
      <table>
         <colgroup>
              <col/>
@@ -48,7 +48,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
         <tbody>
              <tr>
                  <th colspan="2"><b>Field</b></th>
-                 <th ><b>Sample 
+                 <th ><b>Sample
           value</b></th>
              </tr>
              <tr>
@@ -64,17 +64,17 @@ Follow the instructions below to create a WebSocket API using the basic flow:
                          </p>
                          <div>
                              <div class="confluence-information-macro-body">
-                                 <p>The API context is used by the Gateway to identify the API. 
-          Therefore, the API context must be unique. This context is the API's root context when invoking the API through 
+                                 <p>The API context is used by the Gateway to identify the API.
+          Therefore, the API context must be unique. This context is the API's root context when invoking the API through
           the Gateway.</p>
                              </div>
                              <div class="confluence-information-macro confluence-information-macro-tip">
                                  <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
                                  <div class="confluence-information-macro-body">
-                                     <p>You can define the API's version as a parameter of its context by 
+                                     <p>You can define the API's version as a parameter of its context by
           adding the <code>{version}</code> into the context. For example, <code>{version}/websocket</code>. The WSO2 API-M
-          assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, 
-                                         <code>ws://localhost:9099/1.0.0/websocket</code>. Note that the version appears before the context, allowing you to 
+          assigns the actual version of the API to the <code>{version}</code> parameter internally. For example,
+                                         <code>ws://localhost:9099/1.0.0/websocket</code>. Note that the version appears before the context, allowing you to
           group your APIs based on the versions.</p>
                                  </div>
                              </div>
@@ -95,9 +95,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
              <tr>
                  <td colspan="2" class="confluenceTd">Endpoint</td>
                  <td colspan="1" class="confluenceTd">
-                    <p>
-                    Use one of the following endpoints. 
-                    
+                    <p>Use one of the following endpoints.</p>
                     <ul>
                         <li>ws://echo.websocket.org:80</li>
                         <li>wss://echo.websocket.org:443</li>
@@ -106,13 +104,13 @@ Follow the instructions below to create a WebSocket API using the basic flow:
              </tr>
          </tbody>
      </table>
-             
+
       <a href="../../../../assets/img/design/create-api/streaming-api/create-websocket-streaming-api-form.png"><img src="../../../../assets/img/design/create-api/streaming-api/create-websocket-streaming-api-form.png" width="80%" alt="Create WebSocket API Form"></a>
 
 4.  Click **CREATE** to create the API.
 
-     The overview page of the newly created API appears. 
-    
+     The overview page of the newly created API appears.
+
     [![WebSocket API Overview Page](../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-overview-page.png)](../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-overview-page.png)
 
 
@@ -120,7 +118,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
 
 Topics of a WebSocket API are always **Subscribe (sub) and Publish (pub)**, where the flow of events can be either from the server (backend) to the clients or from the client to the server. By default, the WebSocket API will have a topic with the name `/*`.
 
-1. Click **Topics** and navigate to the **Topics** page.
+1. Click **Topics** under **API Configurations** and navigate to the **Topics** page.
 
 2. Modify the topics as follows and click **Save** to update them.
 
@@ -129,9 +127,9 @@ Topics of a WebSocket API are always **Subscribe (sub) and Publish (pub)**, wher
         <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-delete-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-delete-topic.png" width="80%" alt="WebSocket API Delete Topic"></a>
 
     2. Select the **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
-         
+
         <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-add-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-add-topic.png" width="80%" alt="WebSocket API Add Topic"></a>
-      
+
         The newly added topic is displayed as follows.
 
         <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-newly-added-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-newly-added-topic.png" width="80%" alt="WebSocket API Newly Added Topic"></a>
@@ -139,17 +137,17 @@ Topics of a WebSocket API are always **Subscribe (sub) and Publish (pub)**, wher
     3. Optionally, provide a URL Mapping to the topic.
 
          The provided URL Mapping will be appended to the WebSocket endpoint URL that you provided when creating the API, and the traffic via this topic will be sent to the resulting URL.
-          
+
          Expand the created topic, provide a URL Mapping and click **Save**.
 
         <a href="../../../../assets/img/design/create-api/streaming-api/wesocket-streaming-api-add-topic-url-mapping.png"><img src="../../../../assets/img/design/create-api/streaming-api/wesocket-streaming-api-add-topic-url-mapping.png" width="80%" alt="WebSocket API Topic URL Mapping"></a>
 
 ### Step 3 - View the AsyncAPI Definition
 
-Click **AsyncAPI Definition** under **API Configurations**. 
+Click **AsyncAPI Definition** under **API Configurations**.
 
 The AsyncAPI definition of the streaming API, which you just created, appears.
-    
+
    <a href="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-asyncapi.png"><img src="../../../../assets/img/design/create-api/streaming-api/websocket-streaming-api-asyncapi.png" width="80%" alt="WebSocket API AsyncAPI Definition"></a>
 
 Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API](../../../../deploy-and-publish/publish-on-dev-portal/publish-an-api).
