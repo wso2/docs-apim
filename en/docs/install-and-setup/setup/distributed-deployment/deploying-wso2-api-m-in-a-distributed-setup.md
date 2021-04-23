@@ -34,7 +34,7 @@ API-M nodes in a distributed deployment:
             Traffic Manager Node (Optional)
         </td>
         <td>
-            If required you can configure a separate API-M node as to run the Traffic Manager component. That is, the control plane nodes will run the Key Manager, Publisher, and Developer Portal, while the Traffic Manager runs on a separate node.
+            If required you can configure a separate API-M node to run the Traffic Manager component. That is, the Control Plane nodes will run the Key Manager, Publisher, and Developer Portal, while the Traffic Manager runs on a separate node.
         </td>
     </tr>
 </table>
