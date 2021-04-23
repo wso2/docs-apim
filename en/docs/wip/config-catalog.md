@@ -4252,7 +4252,7 @@ persistent_notifier.password = "root"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>(Only applicable if the Microgateway is used)If set to FALSE, works as
+                                        <p>(Only applicable if Choreo Connect is used). If set to FALSE, works as
                                             persistent.</p>
                                     </div>
                                 </div>
@@ -4273,8 +4273,8 @@ persistent_notifier.password = "root"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Notifications will be persisted to etcd. At the microgateway server startup,
-                                            the etcd will be queried by the microgateway.</p>
+                                        <p>Notifications will be persisted to etcd. At the Choreo Connect startup,
+                                            the etcd will be queried by Choreo Connect.</p>
                                     </div>
                                 </div>
                             </div>

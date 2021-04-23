@@ -1,6 +1,6 @@
 # Configure Caching
 
-The following section describes how you can enable caching in the Microgateway.
+The following section describes how you can enable caching in Choreo Connect.
 
 ### Enabling Response Caching for an API
 
@@ -16,12 +16,12 @@ x-wso2-response-cache:
 
 | Sub extension         | Description                                                                    |
 |-----------------------|--------------------------------------------------------------------------------|
-| enabled               | This defines whether the response cache is enabled or not in the Microgateway. |
+| enabled               | This defines whether the response cache is enabled or not in Choreo Connect. |
 | cacheTimeoutInSeconds | Expiry time of the cache in seconds.                                           |
 
 ### Configuring OAuth Cache
 
-The OAuth token is enabled by default in the Microgateway. Adding the following section to the `micro-gw.conf` file which is located in the `<MGW-RUNTIME-HOME>/conf ` directory , you can change the configurations in the OAuth cache.
+The OAuth token is enabled by default in the Choreo Connect. Adding the following section to the `micro-gw.conf` file which is located in the `<MGW-RUNTIME-HOME>/conf ` directory , you can change the configurations in the OAuth cache.
 
 #### OAuth caching
 
