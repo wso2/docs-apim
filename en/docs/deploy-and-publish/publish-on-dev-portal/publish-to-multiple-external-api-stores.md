@@ -220,6 +220,5 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 12. Sign in to the external API Developer Portal (in this case, `http://localhost:9444/devportal`) and click on the API that you just published.
 
     A link appears as **Visit Publisher Developer Portal** which directs you to the original publisher’s Developer Portal (in this case, `http://localhost:9443/devportal`) through which you can subscribe to the API.
-    [![]({{base_path}}/assets/img/learn/external-dev-portals.png)]({{base_path}}/assets/img/learn/external-dev-portals.png)
 
 You have successfully added multiple external Developer Portals to your registry and published your APIs to them.
