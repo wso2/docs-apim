@@ -93,7 +93,6 @@ When an application developer subscribes their application to an API, they selec
 The following diagram shows how throttle policies are applied at different levels.
 
 
-[![throttling levels]({{base_path}}/assets/img/learn/throttling-levels.png)]({{base_path}}/assets/img/learn/throttling-levels.png)
+[![Throttling levels]({{base_path}}/assets/img/learn/throttling-levels.png)]({{base_path}}/assets/img/learn/throttling-levels.png)
 
 If [advanced throttling](#advanced-throttling-policies-api-publisher) policies are added and engaged to a specific API or API resource, it will also be applied here. i.e. Requests will be allowed/rejected based on the conditions specified in advanced throttling policies as well.
-
