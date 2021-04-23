@@ -80,7 +80,7 @@ The following image shows an example for configuring JWT claim condition by cons
 
 Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `category` as a query parameter, you can have different limits for searching different categories.
 
-[![new advanced throttling query condition]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)
+[![New advanced throttling query condition]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)
 Eg : 'sales' category can be allocated with more requests than 'hr' category
 
 ### Implications on applications that consume APIs
@@ -96,5 +96,4 @@ The following diagram shows how throttle policies are applied at different level
 [![throttling levels]({{base_path}}/assets/img/learn/throttling-levels.png)]({{base_path}}/assets/img/learn/throttling-levels.png)
 
 If [advanced throttling](#advanced-throttling-policies-api-publisher) policies are added and engaged to a specific API or API resource, it will also be applied here. i.e. Requests will be allowed/rejected based on the conditions specified in advanced throttling policies as well.
-
 
