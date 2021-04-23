@@ -45,7 +45,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
     You can allow a range of IPs as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range as follows.</p>
     </div>
 
-    [![New-allowed-ip-range]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
+    [![New allowed IP range]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
 
 6.  Click **Save**.
        
