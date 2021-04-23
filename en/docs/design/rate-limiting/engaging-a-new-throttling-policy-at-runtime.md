@@ -1,6 +1,6 @@
 # Engaging a new Throttling Policy at Runtime
 
-WSO2 API Manager allows you to control the number of successful requests to your API during a given period. You can enable for APis in the CREATED and PUBLISHED state and also for published APIs at runtime. This feature protects your APIs, regulates traffic and access to the resources.
+WSO2 API Manager allows you to control the number of successful requests to your API during a given period. You can enable for APIs in the CREATED and PUBLISHED state and also for published APIs at runtime. This feature protects your APIs, regulates traffic and access to the resources.
 
 The steps below show how to engage a throttling policy to an API at runtime.
 
