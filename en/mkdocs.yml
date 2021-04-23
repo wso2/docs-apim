@@ -807,6 +807,7 @@ nav:
             - API-M Config Catalog: reference/config-catalog.md
             - MI Config Catalog: reference/config-catalog-mi.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
+        - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
             - Connectors Overview: reference/connectors/connectors-overview.md
             - When to Use Connectors: reference/connectors/why-connectors.md
