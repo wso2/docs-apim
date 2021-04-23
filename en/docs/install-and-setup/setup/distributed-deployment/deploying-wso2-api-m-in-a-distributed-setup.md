@@ -18,7 +18,7 @@ API-M nodes in a distributed deployment:
             Gateway Worker Nodes
         </td>
         <td>
-            Two API-M nodes runnig the Gateway profile.
+            Two API-M nodes running the Gateway profile.
         </td>
     </tr>
     <tr>
