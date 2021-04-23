@@ -75,7 +75,7 @@ A JWT claim contains meta information of an API request. It can include applicat
 
 The following image shows an example for configuring JWT claim condition by considering the version of the API (http://wso2.org/claims/subscribe).
 
-[![new jwt condition regex]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)
+[![New JWT condition regex]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)]({{base_path}}/assets/img/learn/new-jwt-condition-regex.png)
 ##### Query parameters
 
 Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `category` as a query parameter, you can have different limits for searching different categories.
