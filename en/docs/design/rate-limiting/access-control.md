@@ -92,7 +92,7 @@ Select the item to deny, enter a value and click **Deny**.
 <p>You can temporary switch on/off the denied condition by enabling/disabling the <b>Condition status</b> that is auto enabled when a denied condition is created. </p>
 </div>
 
-[![Denied-condition-status]({{base_path}}/assets/img/learn/denied-condition-status.png)]({{base_path}}/assets/img/learn/denied-condition-status.png)
+[![Denied condition status]({{base_path}}/assets/img/learn/denied-condition-status.png)]({{base_path}}/assets/img/learn/denied-condition-status.png)
 
 ##### Denying PhoneVerification API
 
