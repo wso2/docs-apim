@@ -78,7 +78,7 @@ Follow the instructions below to add documentation to an API:
         <tbody>
         <tr class="odd">
         <td>Name</td>
-        <td>API Forum</td>
+        <td>APIForum</td>
         </tr>
         <tr class="even">
         <td>Summary</td>
@@ -110,7 +110,7 @@ Follow the instructions below to add documentation to an API:
         <tbody>
         <tr class="odd">
         <td>Name</td>
-        <td>PizzaShack Wiki</td>
+        <td>PizzaShackWiki</td>
         </tr>
         <tr class="even">
         <td>Summary</td>
@@ -148,7 +148,7 @@ Follow the instructions below to add documentation to an API:
 
         |         |                                                                                                                                                                                                                                                                                                                              |
         |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
+        | Name    | APIManagerSamples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
         | Source  | You can provide only these file formats.(`.pdf` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
@@ -167,7 +167,7 @@ Follow the instructions below to add documentation to an API:
 
         |         |                                      |
         |---------|--------------------------------------|
-        | Name    | PizzaShackAPI Documentation                    |
+        | Name    | PizzaShackAPIDocumentation                    |
         | Summary | This is the official documentation for the PizzaShack API |
         | Type    | How To                               |
         | Source  | Markdown                              |
