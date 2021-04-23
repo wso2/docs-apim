@@ -29,16 +29,16 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
 
 3.  Go to the API Devportal credentials page and subscribe to an API. If the approval workflow is enabled then after subscribing you will see the subscription status as **ON_HOLD**.
 
-     ![]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)
+     [![Subscription Creation]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)
 
 4.  Sign in to the Admin Portal ( `https://<Server Host>:9443/admin` ), list all the tasks for API subscription from **Tasks** --> **Subscription Creation** and click on  approve or reject to approve or reject workflow pending request.
 
-    ![]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)
+    [![Subscription Creation Tasks]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)
 
     After approving go back to the API Devportal credentials page, the application status will be **UNBLOCKED**.
      
-    ![]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
+    [![Subscription Creation Unblocked]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
 
 5.  Go back to the API Devportal and see that the user is now subscribed to the API.
 
-For instructions on how to customize workflow extensions, see [Customizing a Workflow Extension]({{base_path}}/develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension/)
+For instructions on how to customize workflow extensions, see [Customizing a Workflow Extension]({{base_path}}/reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension/).
