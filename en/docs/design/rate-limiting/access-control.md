@@ -56,7 +56,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 1.  Login to API Publisher https://:9443/publisher.
 2.  Select the API and go to the <b>Resources</b> menu.
 3.  Enable **API level** under **Operational Configuration** and select the newly created Throttling policy.
-    [![Apply-allowlist-to-api]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)
+    [![Apply allowlist to API]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)
     
 4.  Save and Publish the API.
     Now the API will be accessible only by the IP specified in the throttling policy.
