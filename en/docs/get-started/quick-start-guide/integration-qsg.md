@@ -11,7 +11,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-2. Download the [sample files]({{base_path}}/assets/attachments/tutorial/mi_qsg_home.zip). From this point onwards, let's refer to this folder as `<mi_qsg_home>`.
+2. Download the [sample files]({{base_path}}/assets/attachments/tutorial/mi-qsg-home.zip). From this point onwards, let's refer to this folder as `<mi-qsg-home>`.
 3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
 ## What you'll build
@@ -60,7 +60,7 @@ Let’s implement a simple integration solution that can be used to query the av
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
-Go to the `<mi_qsg_home>` directory. The following project files and executable back-end services are available.
+Go to the `<mi-qsg-home>` directory. The following project files and executable back-end services are available.
 
 - **HealthcareIntegrationProject/HealthcareIntegrationProjectConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
 
@@ -152,9 +152,9 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
 #### Start back-end services
 
-Two mock hospital information services are available in the `DoctorInfo-JDK11.jar` file located in the `<mi_qsg_home>/Backend/` directory. 
+Two mock hospital information services are available in the `DoctorInfo-JDK11.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
 
-Open a terminal window, navigate to the `<mi_qsg_home>/Backend/` folder and use the following command to start the services:
+Open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder and use the following command to start the services:
 
 ```bash
 java -jar DoctorInfo-JDK11.jar
@@ -162,7 +162,7 @@ java -jar DoctorInfo-JDK11.jar
 
 #### Deploy the healthcare service
 
-Copy the CAR file of the healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi_qsg_home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+Copy the CAR file of the healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
 !!! Note
     If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#accessing-the-home-directory) is specific to your OS.
