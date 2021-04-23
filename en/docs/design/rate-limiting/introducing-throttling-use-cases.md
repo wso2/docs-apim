@@ -68,7 +68,7 @@ Advanced policies allow you to apply limits to APIs by filtering requests based 
 
 Here is a sample for configuring a header condition by considering the "Content-Type" header.
 
-[![new header condition regex]({{base_path}}/assets/img/learn/new-header-condition-regex.png)]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
+[![New header condition regex]({{base_path}}/assets/img/learn/new-header-condition-regex.png)]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
 ##### JWT claims
 
 A JWT claim contains meta information of an API request. It can include application details, API details, user claims, etc. Advanced throttling policies based on JWT claims allow you to filter requests by JWT claim values and apply limits for requests. For example, if you need to allow special limits for users in a specific user role, you can create an advanced policy that checks for a particular regular expression on the role claim of the user and apply special limits for the ones that match.
