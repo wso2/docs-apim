@@ -513,7 +513,7 @@ Let's use the
 4. Configure WSO2 API Manager to work with Choreo Analytics
 
     These configurations required only if you are intending to create dynamic plans(usage-based plans) where consumers are charged based on the usage of the API. So analytics is required to record and retrieve the usage of
-    a particular API. In order to support dynamic plans we need analytics to store and retrieve API usage.
+    monetized APIs. 
     
     a. Enable analytics
     
