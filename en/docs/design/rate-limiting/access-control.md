@@ -86,7 +86,7 @@ To deny a request,
 
 Select the item to deny, enter a value and click **Deny**.
 
-[![Select-denied-condition]({{base_path}}/assets/img/learn/select-denied-condition.png)]({{base_path}}/assets/img/learn/select-denied-condition.png)
+[![Select denied condition]({{base_path}}/assets/img/learn/select-denied-condition.png)]({{base_path}}/assets/img/learn/select-denied-condition.png)
 <div class="admonition info">
     <p class="admonition-title">Note</p>
 <p>You can temporary switch on/off the denied condition by enabling/disabling the <b>Condition status</b> that is auto enabled when a denied condition is created. </p>
