@@ -13,7 +13,7 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
 
 3.  Click the **Applications** menu, open the default application using which you subscribed to the API, and navigate to **OAuth2 Tokens** under **Production Keys**.
     
-    ![]({{base_path}}/assets/img/learn/oauth2-phone-verification.png)
+    [![oauth2 phone verification]({{base_path}}/assets/img/learn/oauth2-phone-verification.png)]({{base_path}}/assets/img/learn/oauth2-phone-verification.png)
     
 4.  Scroll down and generate a production key
 
@@ -84,5 +84,4 @@ You have now successfully invoked an API using a SOAP client.
     3.  Publish the app with a scope protecting access - use the admin role for your scope.
 
     Admins can then subscribe to the app and invoke it using OAUTH2.0 security.
-
 
