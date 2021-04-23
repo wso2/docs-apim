@@ -93,23 +93,8 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
 You have successfully enabled CORS for a specific API.
 
-## Enabling CORS for OAuth Token related APIs
+## Enabling CORS for OAuth Token related Endpoints
 
-Enabling CORS configuration via the `api-manager.xml` file is only valid for APIs created via the WSO2 API manager Publisher application. Therefore, you can enable CORS for OAuth token related APIs ( **/authorize, /revoke, /token, /userinfo** ) as follows.
+Enabling CORS configuration via the `api-manager.xml` file is valid for APIs created via the WSO2 API manager Publisher application. Since **API-M 4.0.0** token related endpints are not proxied you can enable CORS for OAuth token related Endpoints ( **/authorize, /revoke, /token, /userinfo** ) by following the respective Identity Provider documentation.
 
-Based on the API that you need to enable CORS, add the following handler configuration to the relevant API's Synapse file, which is in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api/` directory. Make sure to add the latter mentioned configuration within the `<handlers>` parent element.
-
-``` java
-<handler class="org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler">
-    <property name="apiImplementationType" value="ENDPOINT"/>
-</handler>
-```
-
-The following are the mappings of the Synapse files corresponding to the OAuth token related APIs.
-
-| **Endpoint**   | **Synapse configuration**                         |
-|------------|-----------------------------------------------|
-| /authorize | `_AuthorizeAPI_.xml` |
-| /revoke    | `_RevokeAPI_.xml`|
-| /token     | `_TokenAPI_.xml`|
-| /userinfo  | `_UserInfoAPI_.xml`|
+For WSO2 Identity Server you may refer [cors](https://is.docs.wso2.com/en/latest/learn/cors/)
