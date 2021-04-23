@@ -22,7 +22,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
 4.  Fill the details as below and click **Add Conditional Group**.
 
-    [![Allowed-ip-add-conditional-group]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
+    [![Allowed IP add conditional group]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
 
 5.  Open the Conditional Group added and fill the details.
 
