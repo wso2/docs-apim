@@ -6,7 +6,7 @@ When the API subscription update workflow is enabled, when the subscription tier
 
 #### Engaging the Approval Workflow Executor in the API Manager
 
-1.  Sign in to API Manager Management Console ( `https://<Server Host>:9443/carbon` ) and go to **Browse** under **Resources** .
+1.  Sign in to API Manager Management Console (`https://<Server Host>:9443/carbon`) and go to **Browse** under **Resources**.
 
     [![Workflow Extensions Browse]({{base_path}}/assets/img/learn/wf-extensions-browse.png)]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
 
