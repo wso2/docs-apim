@@ -37,7 +37,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
     [![New allow specific IP]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)
     
-    [![Save-allow-specific-ip]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
+    [![Save allow specific IP]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
