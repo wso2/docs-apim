@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-## Design Your First API
+## Design your first API
 
 This section is a step-by-step guide to create, publish, and invoke an API using the **WSO2 API Manager (WSO2 API-M)** Publisher and Developer portals.
 
@@ -200,13 +200,13 @@ Follow the instructions below to invoke the previously created API with the gene
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.
  
-## Automate API Development and Deployment
+## Automate API development and deployment
 
 Let's look at how you can use **WSO2 API Controller (apictl)** which is the command-line tool to move APIs, 
 API Products, and Applications across WSO2 API-M environments and to perform CI/CD operations. 
 (For more information, see [Getting Started with WSO2 API Controller (apictl)]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/))
 
-### Before you Begin...
+### Before you begin...
 
 1. Download the apictl version 4.0.0 (or the latest of the 4.x family) based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/) from under the **Dev-Ops Tooling** section.
 
