@@ -29,7 +29,7 @@ Let's take a look at the different levels of throttling:
 
 ### Subscription-level throttling (API publisher)
 
-Subscription-level throttling tiers can be applied for an API when creating APIs using the API Publisher portal.
+Subscription-level throttling tiers can be applied for an API by navigating to the **Subscriptions** tab under **Portal Configurations** using the API Publisher portal.
 
 ![]({{base_path}}/assets/img/learn/available-subscription-tiers-publisher.png)
 ##### Subscription-level Throttling tiers
