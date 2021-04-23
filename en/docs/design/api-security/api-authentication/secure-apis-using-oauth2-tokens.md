@@ -257,4 +257,4 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![Customized Auth Header]({{base_path}}/assets/img/learn//auth_header.png)]({{base_path}}/assets/img/learn//auth_header.png)
+[![Customized Auth Header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
