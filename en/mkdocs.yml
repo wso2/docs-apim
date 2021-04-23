@@ -167,7 +167,6 @@ nav:
                 - Access Control: design/rate-limiting/access-control.md
                 - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
                 - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
                 - Query Limits for GraphQL:
                         - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
@@ -1429,13 +1428,14 @@ nav:
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
             - Deployment Best Practices:
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+                - Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
                 - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
         - CI/CD:
             - CI/CD - Integrations:
@@ -1521,6 +1521,7 @@ nav:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md

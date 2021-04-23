@@ -4599,7 +4599,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(Only applicable if the Microgateway is used)If set to FALSE, works as persistent.</p>
+                                        <p>(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4618,7 +4618,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway.</p>
+                                        <p>Notifications will be persisted to etcd. At the Choreo Connect startup, the etcd will be queried by Choreo Connect.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
