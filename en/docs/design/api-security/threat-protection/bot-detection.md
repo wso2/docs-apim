@@ -102,8 +102,8 @@ Follow the instructions below to enable email notifications for bot detection:
   
     Navigate to the  `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
-    - On Windows:  `wso2server.bat --run`
-    - On Linux/Mac OS:  `sh wso2server.sh`
+    - On Windows:  `api-manager.bat --run`
+    - On Linux/Mac OS:  `sh api-manager.sh`
     
 
 7. Sign in to the API Manager Admin Portal.
@@ -203,8 +203,8 @@ Follow the instructions below to view the bot detection data for the unauthorize
   
     Navigate to the  `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
-    - On Windows:  `wso2server.bat --run`
-    - On Linux/Mac OS:  `sh wso2server.sh`
+    - On Windows:  `api-manager.bat --run`
+    - On Linux/Mac OS:  `sh api-manager.sh`
     
 
 7. Sign in to the API Manager Admin Portal.

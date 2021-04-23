@@ -1,17 +1,13 @@
 # Create and Publish a WebSocket API
 
-This tutorial will guide you to implement a websocket based chat application using the WSO2 API Manager.
+This tutorial will guide you to implement a WebSocket based chat application using the WSO2 API Manager.
 Follow the instructions in this tutorial to design and publish API via a WebSocket backend, and thereafter 
-invoke it using the **wscat** WebSocket client.
+invoke the [WebSocket API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api) using the **wscat** WebSocket client.
 
 This will demonstrate a simple command line based chat room which has two channels: **rooms**, and **notifications**.
 
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api">Create a WebSocket API</a>.</p>
-</div> 
-</html>
+!!! note
+    When you create a WebSocket Streaming API it's exposed via both <code>ws</code> and <code>wss</code> protocols. By default, the <code>ws</code> transport uses port 9099, and the <code>wss</code> transport uses port 8099.
 
 ### Step 1 - Design a WebSocket API
 
@@ -63,7 +59,11 @@ This will demonstrate a simple command line based chat room which has two channe
     <html>
      <div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p>
+     <ul>
+     <li>When you create a WebSocket Streaming API it's exposed via both ws and wss protocols. By default, ws transport uses port 9099, and wss transport uses port 8099.
+     </li>
+     <li><p>For non-secured WebSockets enter the protocol as <code>ws://</code> in the endpoint, or for secured WebSockets enter the protocol as <code>wss://</code></p></li>
+     </ul>
      </div>
      </html>
 
@@ -122,12 +122,18 @@ Now, you have created and configured the WebSocket API successfully.
 
 ### Step 3 - Start the WebSocket Server
 
-1. Download the sample WebSocket server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim).
+1. Download the sample WebSocket server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim/tree/master/streaming-api-backends/websocket-backend).
 
-2. Go to the `ws-chat-server` directory and start it.
+2. Go to the `streaming-api-backends/websocket-backend` directory, and install the required dependencies.
 
      ```sh
-     node index.js
+     npm install
+     ```
+
+3. Start the server.
+
+     ```sh
+     npm start
      ```
 
 ### Step 4 - Invoke the WebSocket API
@@ -165,27 +171,7 @@ Now, you have created and configured the WebSocket API successfully.
            npm install -g wscat
            ```
 
-      2.  Invoke the API's `/rooms/{roomID}` topic with an authorization header by executing the following command.
-
-           ``` bash tab="WS"
-           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
-           ```
-
-           ``` bash tab="WSS"
-           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
-           ```
-
-           When the connection is successful, the WebSocket server will send:
-
-           ```bash
-           You joined room1!
-           ```
-
-           The `{roomID}` provided to this topic was `room1`. You can also specify `room2` instead.
-          
-           As WebSocket topics allow both publishing and subscribing, you can send a message to the server as well.
-
-      3.  Similarly, invoke the API's `/notifications` topic with an authorization header by executing the following command.
+      2.  Invoke the API's `/notifications` topic with an authorization header by executing the following command.
         
            ``` bash tab="WS"
            wscat -c ws://localhost:9099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]" 
@@ -195,12 +181,46 @@ Now, you have created and configured the WebSocket API successfully.
            wscat -n -c wss://localhost:8099/chats/1.0.0/notifications -H "Authorization: Bearer [accesstoken]"
            ```
           
-          When the connection is successful, the WebSocket server will send:
-
+          When the connection is successful, the WebSocket server will send: 
            ```bash
            Subscribed to notifications!
            ```
+
+      3.  In a separate terminal, invoke the API's `/rooms/{roomID}` topic with an authorization header by executing the following command.
+
+           ``` bash tab="WS"
+           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+           ```
+
+           ``` bash tab="WSS"
+           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+           ```
+
+          When the connection is successful, the WebSocket server will send:
+           ```bash
+           You joined room1!
+           ```
+          This denotes that the first user has connected to `room1`.
+
+          Additionally, the following message will be shown in the terminal where you invoked the `/notifications` topic. This denotes the notification for the above event.
+           ```bash
+           Someone joined room1!
+           ```
           
+      4.  In another terminal, invoke the API's `/rooms/{roomID}` topic again. This denotes the second user, who will be connecting to `room1`.
+      
+           ``` bash tab="WS"
+           wscat -c ws://localhost:9099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]" 
+           ```
+
+           ``` bash tab="WSS"
+           wscat -n -c wss://localhost:8099/chats/1.0.0/rooms/room1 -H "Authorization: Bearer [accesstoken]"
+           ```
+          
+          You will receive the message: `You joined room1!` in this terminal, along with the corresponding notification in the `notifications` terminal.
+          
+          As there are two users connected to `room1`, both of them can send and receive chats via `room1`. Try sending messages from both of these terminals back and forth.
+
           <html>
           <div class="admonition note">
           <p class="admonition-title">Note</p>
@@ -216,7 +236,14 @@ Now, you have created and configured the WebSocket API successfully.
            ``` bash tab="WSS"
            wscat -n -c "wss://localhost:8099/chats/1.0.0/notifications?access_token=[accesstoken]"
            ```
-          
+
           </div>
+
+          <html>
+          <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>
+          `BasicAuth` and `API Key` do not work for the security of WebSocket APIs.</p>
+          </div></html>
 
 You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.

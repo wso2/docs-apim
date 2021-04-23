@@ -11,7 +11,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
      For more information on User Roles, see [Managing Users and Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/).
 
-2.  [Create a new API]({{base_path}}/design/create-api/create-a-rest-api/). 
+2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/). 
 
 3. Click **Design Configurations**. 
 
@@ -29,7 +29,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
      <head>
      </head>
      <body>
-     <img src="{{base_path}}/assets/img/learn/save-api.png" alt="Save API" title="Save API" width="250" height="50"/>
+     <img src="{{base_path}}/assets/img/learn/save-api-publisher.png" alt="Save API" title="Save API" width="250" height="50"/>
      </body>
      </html>
 

@@ -1,6 +1,6 @@
 # Router configurations in config.toml
 
-The following are the configurations with regard to Router. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `<CHOREO_CONNECT_HOME>/resources/conf` directory.
+The following are the configurations with regard to Router. The configuration file ( `config.toml` ) for the Choreo Connect is located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf` directory.
 
 |Heading|Description|
 |-----------|-----------|
@@ -20,6 +20,8 @@ The following is a sample router configurations.
   securedListenerHost = "0.0.0.0"
   securedListenerPort = 9095
   clusterTimeoutInSeconds = 20
+  # system hostname for system API resources (eg: /testkey and /health)
+  systemHost = "localhost"
 
 [router.keystore]
   certPath = "/home/wso2/security/keystore/mg.pem"

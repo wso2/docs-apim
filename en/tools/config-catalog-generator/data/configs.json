@@ -1248,6 +1248,38 @@
                             "default": "true",
                             "possible": "true, false",
                             "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
+                        },
+                        {
+                            "name": "enable_data_publishing",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable publishing of request and throttling data."
+                        },
+                        {
+                            "name": "enable_policy_deploy",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable deploying of throttling policies."
+                        },
+                        {
+                            "name": "enable_blacklist_condition",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable blocking conditions from the admin portal."
+                        },
+                        {
+                            "name": "enable_persistence",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Enable persisting current counter state of the TM."
                         }
                     ]
                 }
@@ -1685,7 +1717,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "(Only applicable if the Microgateway is used)If set to FALSE, works as persistent."
+                            "description": "(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent."
                         },
                         {
                             "name": "enable_persistent_notifier",
@@ -1693,7 +1725,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway."
+                            "description": "Notifications will be persisted to etcd. When Choreo Connect starts up, the etcd will be queried by Choreo Connect."
                         },
                         {
                             "name": "realtime_notifier.ttl",

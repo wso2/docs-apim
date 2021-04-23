@@ -17,7 +17,7 @@ There are two ways to add an API to the Choreo Connect.
 
     - Make sure you have installed Docker and Docker Compose on your machine.
 
-    - Download the latest [Choreo Connect 1.0.0 release](https://github.com/wso2/product-microgateway/releases)and extract it to a folder of your choice. The extracted folder will be referred to as `MG_HOME` here onwards.
+    - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases)and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
 
     - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
 
@@ -27,7 +27,7 @@ In order to tell Choreo Connect where API Manager (APIM) is located, find out th
 
 ### Step 2 - Update the Choreo Connect Config File
 
-Open the `<MGW_HOME>/resources/conf/config.toml` file in a text editor and update it as follows.
+Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file in a text editor and update it as follows.
 
 In the `[controlPlane.eventHub]` section,
 
@@ -56,7 +56,7 @@ In the `[controlPlane.eventHub]` section,
 
 ### Step 3 - Start the Choreo Connect
 
-Now, let's start the Choreo Connect. Navigate to `MG_HOME` and execute the following command.
+Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
     
 ``` bash
 docker-compose up -d
@@ -64,7 +64,7 @@ docker-compose up -d
 
 ### Step 4 - Create an API in API Manager
 
-Follow the steps [here]({{base_path}}/design/create-api/create-a-rest-api/).
+Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 ### Step 5 - Deploy the API in API Manager
 

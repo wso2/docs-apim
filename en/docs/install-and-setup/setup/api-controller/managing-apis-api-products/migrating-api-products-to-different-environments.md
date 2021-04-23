@@ -131,7 +131,7 @@ version: v4.0.0
 data:
  -
    displayOnDevportal: true
-   deploymentEnvironment: Production and Sandbox
+   deploymentEnvironment: Default
  -
    displayOnDevportal: true  
    deploymentEnvironment: Label1  

@@ -23,19 +23,18 @@ Let's get started...
 
 1. Download the Choreo Connect v4.0.0-alpha from
     [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-alpha) assets and extract them
-    to a folder of your choice. We will refer to this folder as the `MG_HOME`.
+    to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
 
 2. Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.
 
     ```bash
-    kubectl apply -Rf <MG_HOME>/resources/k8s-artifacts
+    kubectl apply -Rf <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/choreo-connect
     ```
 
 3. Let's create a namespace and install K8s API Operator by executing the following command.
 
     ```bash
-    kubectl create ns wso2-system;
-    kubectl apply -n wso2-system -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-beta/api-operator-configs.yaml
+    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-rc1/api-operator-configs.yaml
     ```
 
 ### Step 2 - Create and deploy an API project
@@ -53,7 +52,7 @@ Let's create our first project with the name "petstore" by adding the
         You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
 
     Download the api controller (apictl) from the 
-        [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-beta) assets and 
+        [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-rc1) assets and 
         extract them to a folder of your choice.
 
     ```bash
@@ -89,7 +88,7 @@ Let's create our first project with the name "petstore" by adding the
     Or else execute the following command
 
     ```bash
-    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-beta/scenarios/scenario-2/petstore-api.yaml
+    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-rc1/scenarios/scenario-2/petstore-api.yaml
     ```
 
 ### Step 3 - Invoke the API

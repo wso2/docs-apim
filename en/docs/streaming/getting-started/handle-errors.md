@@ -121,9 +121,9 @@ For testing purposes, let's generate an error with a mapping error as follows:
     
 2. If you have not already started the Streaming Integrator Tooling server, start it by navigating to the `<SI_TOOLING_HOME>/bin` directory and issuing one of the following commands as appropriate, based on your operating system:
                                                  
-     - For Windows: `streaming-integrator-tooling.bat`
+     - For Windows: `tooling.bat`
     
-     - For Linux: `./streaming-integrator-tooling.sh`
+     - For Linux: `./tooling.sh`
      
     Then Access the Streaming Integrator Tooling via the URL that appears in the start up log with the text `Editor Started on:`.
     

@@ -28,7 +28,7 @@ When a JWT is used as an access token, Choreo Connect validates the following at
     certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 ```
 
-The `certificateFilePath`, `issuer` of the above configuration will be used to validate the signature, iss claim of the JWT respectively. This configuration should be added to the `config.toml` file located in `<MG_DISTRIBUTION_HOME>/resources/conf/`.
+The `certificateFilePath`, `issuer` of the above configuration will be used to validate the signature, iss claim of the JWT respectively. This configuration should be added to the `config.toml` file located in `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/`.
 
 The JWT signature can be validated either by the certificate (which the alias is defined in certificateAlias) or using the issuer's JWKS endpoint. When configured both properties, if the JWT contains the kid, the token will be validated through the JWKS endpoint.
 

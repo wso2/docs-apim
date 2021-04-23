@@ -11,10 +11,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+        <div class="card img" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/quick-start.png' alt="integration quick start" />
             </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Integration</p>
@@ -23,10 +23,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/develop/integration-development-kickstart';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/first-service.png' alt="develop first integration" />
             </div>
             <div class="card-content">
                 <p class="title">Develop your First Integration</p>
@@ -35,10 +35,10 @@ Let's get started with the integration capabilities and concepts of the Micro In
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
+        <div class="card img" onclick="location.href='{{base_path}}/integrate/integration-key-concepts';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/key-concepts.png' alt="integration key concepts" />
             </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Integration</p>
@@ -55,11 +55,9 @@ You can now leverage the integration capabilities as well as the API management 
 
 ### API-led Integration
 
-WSO2 API Manager enables you to build integration services from the ground up using [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/) and publish them as managed APIs. WSO2 Integration Studio is used to develop and test these integration services, after which, they can be registered in the **Service Catalog** of the API management layer at the time of deployment.
+WSO2 API Manager consists of an API management layer as well as an integration layer, which enables API-led integration through a single platform. The integration layer (Micro Integrator) is used for running the integration APIs, which are developed using WSO2 Integration Studio. The API management layer is used for converting the integration APIs into experience APIs and making them discoverable to developers. 
 
-<img src="{{base_path}}/assets/img/integrate/intro/api-led-integration-2.png" width="500">
-
-Integrations are building blocks that enables connectivity with SaaS applications, services and microservices, databases, files, message brokers, and also propriety and legacy systems.
+See <a href="{{base_path}}/integrate/api-led-integration">API-led Integration</a> for more information.
 
 ### Microservices Integration
 

@@ -22,8 +22,8 @@ The instructions on this page explain how you can set the passwords of system us
 
 3.  Start the server to apply the changes.
 
-      * On Linux: `./wso2server.sh`
-      * On Windows: `./wso2server.bat`
+      * On Linux: `./api-manager.sh`
+      * On Windows: `./api-manager.bat`
  
 ## Set passwords using system properties
  
@@ -47,10 +47,10 @@ The instructions on this page explain how you can set the passwords of system us
 
      -   During the server startup time
 
-        * On Linux: `./wso2server.sh -Dadmin.password=admin`
-        * On Windows: `./wso2server.bat -Dadmin.password=admin`
+        * On Linux: `./api-manager.sh -Dadmin.password=admin`
+        * On Windows: `./api-manager.bat -Dadmin.password=admin`
       
-     -   Configure the system property in the `<APIM_HOME>/bin/wso2server.sh` file.
+     -   Configure the system property in the `<APIM_HOME>/bin/api-manager.sh` file.
         
         ```bash
         -Dadmin.password=admin \

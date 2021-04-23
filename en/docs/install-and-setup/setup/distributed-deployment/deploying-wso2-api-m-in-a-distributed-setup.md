@@ -1,4 +1,4 @@
-# Deploying WSO2 API-M in a Distributed Setup
+# Configuring a Distributed API-M Deployment
 
 Follow the instructions below to deploy WSO2 API Manager's five main components (Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager) in a distributed environment.
 
@@ -37,10 +37,11 @@ Create an SSL certificate for each of the WSO2 API-M nodes (i.e., Publisher, Dev
 
 When maintaining high availability (HA) in the WSO2 API-M distributed set up, you need to create and import an SSL certificate for each of the WSO2 API-M HA nodes.
 
-
 ## Step 5 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure WSO2 API-M Analytics. Follow the [standard setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
+
+See the instructions on [configuring the API Gateway]({{base_path}}/observe/api-manager-analytics/configure-analytics/configure-synapse-gateway) with the cloud-based analytics solution.
 
 ## Step 6 - Configure the connections among the components and start the servers
 
@@ -131,12 +132,12 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-key-manager
+    sh api-manager.sh -Dprofile=api-key-manager
     ```
 
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-key-manager
+    api-manager.bat --run -Dprofile=api-key-manager
     ```
 
 ??? info "Sample configuration for the Key Manager"
@@ -269,12 +270,12 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=traffic-manager
+    sh api-manager.sh -Dprofile=traffic-manager
     ```
 
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=traffic-manager
+    api-manager.bat --run -Dprofile=traffic-manager
     ```
 
 ??? info "Sample configuration for the Traffic Manager"
@@ -428,12 +429,12 @@ This section involves setting up the API Publisher node and enabling it to work 
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-publisher
+    sh api-manager.sh -Dprofile=api-publisher
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-publisher
+    api-manager.bat --run -Dprofile=api-publisher
     ```
 
 ??? info "Sample configuration for the Publisher"
@@ -608,12 +609,12 @@ This section involves setting up the Developer Portal node and enabling it to wo
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=api-devportal
+    sh api-manager.sh -Dprofile=api-devportal
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=api-devportal
+    api-manager.bat --run -Dprofile=api-devportal
     ```
 
     ??? info "Sample configuration for the Developer Portal"
@@ -814,12 +815,12 @@ This section involves setting up the Gateway node and enabling it to work with t
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
-    sh wso2server.sh -Dprofile=gateway-worker
+    sh api-manager.sh -Dprofile=gateway-worker
     ```
     
     ``` java tab="Windows"
     cd <API-M_HOME>\bin\
-    wso2server.bat --run -Dprofile=gateway-worker
+    api-manager.bat --run -Dprofile=gateway-worker
     ```
 
     ??? info "Sample configuration for the Gateway"

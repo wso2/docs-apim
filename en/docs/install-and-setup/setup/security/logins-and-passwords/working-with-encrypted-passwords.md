@@ -136,10 +136,10 @@ Follow the instructions below to secure the endpoint's password that is given in
     
 5.  Restart the server. 
 
-     * On Linux/Mac OS: `./wso2server.sh`
-     * On Windows: `./wso2server.bat`
+     * On Linux/Mac OS: `./api-manager.sh`
+     * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written in the API Gateway configuration file, which can be found in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
+After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
 
 Example:
 
@@ -211,8 +211,8 @@ Follow the instructions below to change any password that you have already encry
 
 1.  Start the server by running the product start up script from the `<APIM_HOME>/bin` directory as shown below.
 
-    * On Linux: `./wso2server.sh`
-    * On Windows: `./wso2server.bat`
+    * On Linux: `./api-manager.sh`
+    * On Windows: `./api-manager.bat`
     
     When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
@@ -247,8 +247,8 @@ If you start the WSO2 API Manager as a background job, you will not be able to p
 
 3. Start the server as a background process by running the following command.
 
-    * On Linux: `./wso2server.sh start`
-    * On Windows: `./wso2server.bat start`
+    * On Linux: `./api-manager.sh start`
+    * On Windows: `./api-manager.bat start`
    
    
  
