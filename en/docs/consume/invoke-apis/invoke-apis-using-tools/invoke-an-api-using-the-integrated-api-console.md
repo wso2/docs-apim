@@ -12,38 +12,41 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
 1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack`).
 
-2. Subscribe to the API (e.g., `PizzaShack` 1.0.0) using an application and an available throttling policy.
+2. Subscribe to the API (e.g., `PizzaShackAPI` 1.0.0) using an application and an available throttling policy.
 
     [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
-3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and click **Generate keys** to generate a production key.
+3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and navigate to **OAuth2 Tokens**.
+   
+    [![Navigate to OAuth Tokens]({{base_path}}/assets/img/learn/navigate-to-oauth-tokens-api-console.png)]({{base_path}}/assets/img/learn/navigate-to-oauth-tokens-api-console.png)
 
-     [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
-
+4. Scroll down and generate a production key
+   
+    [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
+   
     !!! tip
-        **Production and Sandbox Tokens**
-
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
-
+            **Production and Sandbox Tokens**
+    
+            To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+    
     !!! tip
-        **JWT tokens**
+            **JWT tokens**
+    
+            As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step.
 
-        As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
+5. Click **APIs**, and click on the API that you need to invoke.
 
-
-4. Click **APIs**, and click on the API that you need to invoke. 
-
-5. Click **Test** under the resources section of the API.
-
-    [![API console test button]({{base_path}}/assets/img/learn/api-console-test-button.png)]({{base_path}}/assets/img/learn/api-console-test-button.png)
+6. Click **Try Out** in API Overview tab.
+   
+    [![API console test button]({{base_path}}/assets/img/learn/api-console-try-button.png)]({{base_path}}/assets/img/learn/api-console-try-button.png)
 
     The OpenAPI UI (API Console) to test the PizzaShack API appears.
 
-6.  Enter the copied access token in the **Authorization** field.
+7.  Enter the copied access token in the **Authorization** field.
 
-     [![]({{base_path}}/assets/img/learn/copy-access-token.png)]({{base_path}}/assets/img/learn/copy-access-token.png)
+     [![Copy Access Token]({{base_path}}/assets/img/learn/copy-access-token.png)]({{base_path}}/assets/img/learn/copy-access-token.png)
 
-7. Expand the GET method and click **Try it out**. Click **Execute**.
+8. Expand the GET method and click **Try it out**. Click **Execute**.
  
      [![API console execute]({{base_path}}/assets/img/learn/api-console-execute.png)]({{base_path}}/assets/img/learn/api-console-execute.png)
 
@@ -53,7 +56,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
         If WSO2 API Manager has a **certificate signed by a Certificate Authority** (CA), the HTTPS endpoints should work out-of-the-box.
 
 Note the successful response for the API invocation.
-
+        
 [![API response]({{base_path}}/assets/img/learn/api-response.png)]({{base_path}}/assets/img/learn/api-response.png)
 
 You have now successfully invoked an API using the Open API Console
