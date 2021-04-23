@@ -1,6 +1,6 @@
 # Customizing API Template
 
-When an API is [published]({base_path}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) and [deployed]({base_path}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) in the Gateway, corresponding API is generated and deployed in the gateway in-memory. 
+When an API is [published]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) and [deployed]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) in the Gateway, corresponding API is generated and deployed in the gateway in-memory. 
  
 An API's gateway configuration file(Synapse configuration) content contains API metadata, API resource information, properties etc and it is generated based on the API template file which can be found in `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` location. You can modify the default API template definition in order to customize the synapse configurations of the API.
 
