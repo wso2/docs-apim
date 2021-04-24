@@ -18,7 +18,7 @@ Follow the instructions below to create a new version of an existing API:
      
      Create and publish an API. For more information, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) and [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
 
-2.  Navigate to the API listing page, and click on the API for which you want to create a new version (e.g., `PhoneVerification 2.0.0`). 
+2.  Navigate to the API listing page, and click on the API for which you want to create a new version (e.g., `PizzaShackAPI 2.0.0`). 
                                         
 3.  Click **Create New Version**.
      

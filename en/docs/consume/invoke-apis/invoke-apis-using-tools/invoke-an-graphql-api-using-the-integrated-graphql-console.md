@@ -22,36 +22,40 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
 
 2. Subscribe to the GraphQL API (e.g., `StarWarsAPI` 1.0.0) using an application and an available throttling policy.
 
-     [![Subscribe to the GraphQL API]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)
+    [![Subscribe to the GraphQL API]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)]({{base_path}}/assets/img/learn/subscribe-to-graphql-api.png)
 
 3. Click **Applications** and open the application that you used to subscribe to the API.
 
-4. Click **Production Keys** and click **Generate keys** to generate a production key.
+4. Click **Production Keys** and navigate to **OAuth2 Tokens**.[![Navigate to OAuth Token]({{base_path}}/assets/img/learn/navigate-to-oauth-tokens-graphql-console.png)]({{base_path}}/assets/img/learn/navigate-to-oauth-tokens-graphql-console.png)
 
-     [![Generate production key]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)
+5. Scroll down and generate a production key
+   
+    [![Generate production key]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)]({{base_path}}/assets/img/learn/graphql-generate-keys-production.png)
 
-    !!! tip "Production and Sandbox Tokens"
+    !!! tip
+         **Production and Sandbox Tokens**
+            
+         To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+    !!! tip 
+         **JWT vs OAuth tokens**
 
-    !!! tip "JWT vs OAuth tokens"
+         If the application you are using for this example is self-contained (JWT), then **copy the generated access token** before proceeding to the next step. If the application is of OAuth type, then the GraphQL console will be automatically populated with the generated token in the authorization field.
 
-        If the application you are using for this example is self-contained (JWT), then **copy the generated access token** before proceeding to the next step. If the application is of OAuth type, then the GraphQL console will be automatically populated with the generated token in the authorization field.
+6. Click **APIs** to navigate to the APIs and select the GraphQL API that you want to invoke. 
 
-5. Click **APIs** to navigate to the APIs and select the GraphQL API that you want to invoke. 
+7. Click **Try Out** in the  **Overview** tab.
 
-6. Click **Test** under the **operations** section.
-
-    [![Test GraphQL API]({{base_path}}/assets/img/learn/graphql-console-test-button.png)]({{base_path}}/assets/img/learn/graphql-console-test-button.png)
+    [![Test GraphQL API]({{base_path}}/assets/img/learn/graphql-console-try-button.png)]({{base_path}}/assets/img/learn/graphql-console-try-button.png)
 
     This opens the GraphiQL UI (GraphQL Console) to test the StarWarsAPI.
 
-7. Copy the generated access token to the Authorization field as shown below.
+8. Copy the generated access token to the Authorization field as shown below.
 
     [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
 
-8. Enter the following sample query.
+9. Enter the following sample query.
 
     ```
     query{
@@ -70,7 +74,7 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
           
     ```
  
-9. Click **Execute**.
+10. Click **Execute**.
 
      [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute-query.png)]({{base_path}}/assets/img/learn/graphql-console-execute-quey.png)
 

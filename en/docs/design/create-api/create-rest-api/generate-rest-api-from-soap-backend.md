@@ -38,7 +38,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
     | Version | 1.0.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
 
-    [![]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
+    [![Create REST API using WSDL]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
 
 4. Click **CREATE**.
     
