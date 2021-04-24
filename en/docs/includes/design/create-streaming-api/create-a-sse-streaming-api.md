@@ -6,7 +6,7 @@ A Server-Sent Events (SSE) API is a streaming API in WSO2 API Manager (WSO2 API-
 
 You can create an SSE API from scratch in WSO2 API-M and export the SSE APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../../../../use-cases/streaming-usecase/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition).
 
-This section guides you through the process of creating an API from scratch, which will expose a SSE backend via WSO2 API Manager. After an SSE API is created, you will be able to add different topics and each topic can be mapped to different paths of the backend and can be used to manage them. 
+This section guides you through the process of creating an API from scratch, which will expose a SSE backend via WSO2 API Manager. After an SSE API is created, you will be able to add different topics and each topic can be mapped to different paths of the backend and can be used to manage them.
 
 ## How it works
 
@@ -33,9 +33,9 @@ Follow the instructions below to create the API using the basic flow.
     </html>
 
     [![Design New Streaming API](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
-    
-3.  Enter API details. 
-    
+
+3.  Enter API details.
+
      <table>
          <colgroup>
              <col/>
@@ -45,7 +45,7 @@ Follow the instructions below to create the API using the basic flow.
          <tbody>
              <tr>
                  <th colspan="2"><b>Field</b></th>
-                 <th ><b>Sample 
+                 <th ><b>Sample
           value</b></th>
              </tr>
              <tr>
@@ -61,17 +61,17 @@ Follow the instructions below to create the API using the basic flow.
                          </p>
                          <div>
                              <div class="confluence-information-macro-body">
-                                 <p>The API context is used by the Gateway to identify the API. 
-          Therefore, the API context must be unique. This context is the API's root context when invoking the API through 
+                                 <p>The API context is used by the Gateway to identify the API.
+          Therefore, the API context must be unique. This context is the API's root context when invoking the API through
           the Gateway.</p>
                              </div>
                              <div class="confluence-information-macro confluence-information-macro-tip">
                                  <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
                                  <div class="confluence-information-macro-body">
-                                     <p>You can define the API's version as a parameter of its context by 
-          adding the <code>{version}</code> into the context. For example, <code>{version}/event</code>. The API Manager 
-          assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, 
-                                         <code>https://localhost:8243/1.0.0/event</code>. Note that the version appears before the context, allowing you to 
+                                     <p>You can define the API's version as a parameter of its context by
+          adding the <code>{version}</code> into the context. For example, <code>{version}/event</code>. The API Manager
+          assigns the actual version of the API to the <code>{version}</code> parameter internally. For example,
+                                         <code>https://localhost:8243/1.0.0/event</code>. Note that the version appears before the context, allowing you to
           group your APIs based on the versions.</p>
                                  </div>
                              </div>
@@ -98,13 +98,13 @@ Follow the instructions below to create the API using the basic flow.
              </tr>
          </tbody>
      </table>
-             
+
      <a href="../../../../assets/img/design/create-api/streaming-api/create-sse-api-form.png"><img src="../../../../assets/img/design/create-api/streaming-api/create-sse-api-form.png" width="80%" alt="SE Create API Page"></a>
 
-4.  Click **CREATE** to create the API. 
+4.  Click **CREATE** to create the API.
 
-     The overview page of the newly created API appears. 
-    
+     The overview page of the newly created API appears.
+
     [![SSE API overview page](../../../assets/img/design/create-api/streaming-api/sse-api-overview-page.png)](../../../assets/img/design/create-api/streaming-api/sse-api-overview-page.png)
 
 
@@ -112,7 +112,7 @@ Follow the instructions below to create the API using the basic flow.
 
 Topics of an SSE API are always **Subscribe only**, where the flow of events will be from the server (backend) to the client. By default, an SSE API will have a topic with the name `/*`.
 
-1. Click **Topics** to navigate to the **Topics** page.
+1. Click **Topics** under **API Configurations** to navigate to the **Topics** page.
 
 2. Modify the topics as follows and click **Save** to update them.
 
@@ -121,7 +121,7 @@ Topics of an SSE API are always **Subscribe only**, where the flow of events wil
          <a href="../../../../assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png" width="80%" alt="SSE API Delete Existing Topic"></a>
 
     2. Select **sub** under **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
-            
+
          <a href="../../../../assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png" width="80%" alt="SSE API Add Topic"></a>
 
          The newly added topic is displayed as follows.
@@ -138,9 +138,9 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
 ### Step 4 - Configure the Runtime Configurations
 
-1. Click **Runtime** under **API Configurations**. 
+1. Click **Runtime** under **API Configurations**.
 
-    Transport Level Security defines the transport protocol on which the API is exposed.  
+    Transport Level Security defines the transport protocol on which the API is exposed.
 
     [![SSE API Runtime Configurations Page](../../../assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)](../../../assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)
 
@@ -157,4 +157,4 @@ Learn more by trying out an end-to-end tutorial on <a href="../../../../tutorial
 ## See Also
 
 {!includes/design/stream-more-links.md!}
-       
+

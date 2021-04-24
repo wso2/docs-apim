@@ -405,12 +405,12 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! Attention
         If there is a error similar to this when running the db script for ***mssql***
         ``` java
-            SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
+        SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
         ```
         Use the ID mentioned in the error to run the sql statement below. This will drop a default constraint created by the database
         ```java
-            ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
-            DROP CONSTRAINT <SOME_ID>;
+        ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
+        DROP CONSTRAINT <SOME_ID>;
         ```
 
     ??? info "DB Scripts"
@@ -3334,7 +3334,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
   
-        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
 
@@ -3426,23 +3426,25 @@ Follow the instructions below to move all the existing API Manager configuration
             ```
            
             ??? info "DB Scripts"
-            ```tab="MySQL"
-            DROP PROCEDURE IF EXISTS ALTER_UM_USER;
-            DELIMITER $$
-            CREATE PROCEDURE ALTER_UM_USER()
-            BEGIN
-                IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
-                    IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
-                        ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
-                        UPDATE UM_USER SET UM_USER_ID = UUID();
-                        ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
-                    END IF;
-                END IF;
-            END $$
-            DELIMITER ;
-            CALL ALTER_UM_USER();
 
-        Once it is done, re-run the command above.
+                ```mysql tab="MySQL"
+                DROP PROCEDURE IF EXISTS ALTER_UM_USER;
+                DELIMITER $$
+                CREATE PROCEDURE ALTER_UM_USER()
+                BEGIN
+                    IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
+                        IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
+                            ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
+                            UPDATE UM_USER SET UM_USER_ID = UUID();
+                            ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+                        END IF;
+                    END IF;
+                END $$
+                DELIMITER ;
+                CALL ALTER_UM_USER();
+                ```
+
+                Once it is done, re-run the command above.
             
     8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
@@ -3479,6 +3481,36 @@ Follow the instructions below to move all the existing API Manager configuration
        -   Remove the `org.wso2.carbon.apimgt.migrate.client-4.0.0.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
+
+    5. Execute the following DB script in the respective AM database.
+
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+        
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
+
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
 
 8.  Re-index the artifacts in the registry.
 
@@ -3531,19 +3563,22 @@ This concludes the upgrade process.
 !!! note
    - If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 4.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
     You can consume the migrated API via an OAuth2 application without an issue.
-    
-   - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
-  
-   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
 
-   - Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-   
-     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-     
-     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+    - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
+
+    - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
+
+    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+
+        All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+        
+        For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
 
    - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the fault messages have been changed from XML to JSON in API-M 4.0.0.  
 
    - Prior to WSO2 API Manager 4.0.0, the distributed deployment consisted of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+     
+   - **API-M 4.0.0** Server startup script has renamed as <code>api-manager.sh</code> (for Linux) and <code>api-manager.bat</code> (for Windows)    
+    
