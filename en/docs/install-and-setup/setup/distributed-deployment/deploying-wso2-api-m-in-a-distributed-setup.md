@@ -273,47 +273,34 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the Control Plane node.
 2.  Add the following configurations to the `deployment.toml` file.
     
-    -   Configuring the Publisher component of the Control Plane with the Gateway cluster: 
-    
-        !!! Info
-            This configuration is used for publishing APIs to the Gateway cluster.
+    !!! Info
+        This configuration is used for publishing APIs to the Gateway and for connecting the Developer Portal component to the Gateway.
+        
+    ``` toml tab="Gateway with HA"
+    [[apim.gateway.environment]]
+    name = "Production and Sandbox"
+    type = "hybrid"
+    display_in_api_console = true
+    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+    show_as_token_endpoint_url = true
+    ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
+    wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
+    http_endpoint = "http://[API-Gateway-LB-Host]"
+    https_endpoint = "https://[API-Gateway-LB]"
+    ```
 
-        ``` toml
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        ```
-
-    -   Configuring the Developer Portal component of the Control Plane with the Gateway cluster: 
-           
-        ``` toml tab="Gateway with HA"
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
-        wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
-        http_endpoint = "http://[API-Gateway-LB-Host]"
-        https_endpoint = "https://[API-Gateway-LB]"
-        ```
-
-        ``` toml tab="Single Gateway"
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        ws_endpoint = "ws://[API-Gateway-host-or-IP]:9099"
-        wss_endpoint = "wss://[API-Gateway-host-or-IP]:8099"
-        http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
-        https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
-        ```
+    ``` toml tab="Single Gateway"
+    [[apim.gateway.environment]]
+    name = "Production and Sandbox"
+    type = "hybrid"
+    display_in_api_console = true
+    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+    show_as_token_endpoint_url = true
+    ws_endpoint = "ws://[API-Gateway-host-or-IP]:9099"
+    wss_endpoint = "wss://[API-Gateway-host-or-IP]:8099"
+    http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
+    https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
+    ```
 
 3.  Optionally, add the following configuration to enable distributed cache invalidation within the nodes.
 
