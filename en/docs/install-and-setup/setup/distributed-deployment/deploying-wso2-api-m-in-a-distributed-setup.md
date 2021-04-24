@@ -569,7 +569,7 @@ Follow the steps given below.
         domain = "control-plane-domain"
         ```
 
-## Start the API-M nodes
+## Step 7 - Start the API-M nodes
 
 Once you have successfully configured all the API-M nodes in the deployment, you can start the servers.
 
