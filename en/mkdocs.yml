@@ -807,6 +807,7 @@ nav:
             - API-M Config Catalog: reference/config-catalog.md
             - MI Config Catalog: reference/config-catalog-mi.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
+        - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
             - Connectors Overview: reference/connectors/connectors-overview.md
             - When to Use Connectors: reference/connectors/why-connectors.md
@@ -1242,7 +1243,6 @@ nav:
                     - Installing on Windows: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows.md
                     - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service.md
                     - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md
-                    - Deploying on Kubernetes: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Installing Micro Integrator:
                 - Installing via the Installer: install-and-setup/install/installing-the-product/install-mi-in-vm-installer.md
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
@@ -1416,9 +1416,6 @@ nav:
                     - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
                 - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                - Deploy on Kubernetes:
-                    - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
                 - Streaming Integrator Deployment Overview: install-and-setup/setup/si-deployment/deployment-guide.md
@@ -1427,6 +1424,22 @@ nav:
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
+            - Deploying on Kubernetes:
+                - API-M on K8s:
+                    - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
+                - Micro Integrator on K8s:
+                    - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
+                    - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                - APIs and Integrations on K8s:
+                    - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
+                    - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
+                    - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                    - Integration Deployment Samples:
+                        - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                        - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -1503,20 +1516,6 @@ nav:
                 - EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
                 - EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
             -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
-        - Kubernetes Operators:
-          - K8s API Operator:
-              - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
-              - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
-              - Manage APIs:
-                - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
-              - Manage Integrations:
-                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
-                - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
-              - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
-          - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
