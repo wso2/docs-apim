@@ -25,11 +25,9 @@ Each handler performs a specific task as mentioned in the table below. Note that
 
 | Handler                              | Inflow                                                              | Outflow                                                         |
 |--------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------|
-| APIMgtLatencyStatsHandler            | Publish request and response latencies, if analytics is enabled     | Publish request and response latencies, if analytics is enabled |
 | CORSRequestHandler                   | Set CORS Headers                                                    | Set CORS Headers                                                |
 | APIAuthenticationHandler             | Request authentication                                              | N/A                                                             |
 | ThrottleHandler                      | Request throttling                                                  | N/A                                                             |
-| APIMgtUsageHandler                   | Publish request data, if analytics is enabled                       | N/A                                                             |
 | APIMgtGoogleAnalyticsTrackingHandler | Publish data to Google Analytics, if Google Analytics is configured | N/A                                                             |
 | APIManagerExtensionHandler           | Execute custom mediation sequences at inflow                        | Execute custom mediation sequences at outflow                   |
 

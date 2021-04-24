@@ -1,6 +1,6 @@
 # Managing Users for Admin Portal
 
-A user with an admin role is the API management controller who hosts and manages the gateway, responsible for creating users in the system, assigning roles to them, managing databases and security, etc. That user can access  WSO2 Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) and perform the operations of defining workflow tasks and throttling policies, managing analytics configurations, adding gateway labels, etc.
+A user with an admin role is the API management controller who hosts and manages the gateway, responsible for creating users in the system, assigning roles to them, managing databases and security, etc. That user can access  WSO2 Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) and perform the operations of defining workflow tasks and throttling policies, adding gateway labels, etc.
 
 However, there are situations where you need to limit a user to access the Admin Portal only and restrict that user to perform other tasks that require admin permissions. Therefore, the admin role which has all the admin-related permissions cannot be assigned to a user who needs Admin Portal access.
 
