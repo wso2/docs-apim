@@ -1,4 +1,4 @@
-# Deploy on Kubernetes
+# Deploying the Micro Integrator on Kubernetes
 
 You can set up a Kubernetes cluster for the Micro Integrator in two ways: 
 

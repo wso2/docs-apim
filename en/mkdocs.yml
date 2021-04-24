@@ -1427,15 +1427,15 @@ nav:
             - Deploying on Kubernetes:
                 - API-M on K8s:
                     - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-                    - Deploy API-M on K8s using Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
+                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
                 - Micro Integrator on K8s:
-                    - MI Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - Deploying MI on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                    - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
+                    - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - APIs and Integrations on K8s:
                     - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
-                    - Install the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
-                    - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
-                    - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                    - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
+                    - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                     - Integration Deployment Samples:
                         - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                         - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
