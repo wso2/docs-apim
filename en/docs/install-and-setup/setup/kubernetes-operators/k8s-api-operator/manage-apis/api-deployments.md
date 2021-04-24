@@ -1,4 +1,4 @@
-# Deploying APIs
+# Deploying APIs using the Operator
 
 The Kubernetes API operator provides first-class support for APIs in the Kubernetes ecosystem. It uses the 
 **API custom resource** which defined as follows.
