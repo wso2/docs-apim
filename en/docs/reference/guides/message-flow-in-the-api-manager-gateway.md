@@ -13,11 +13,9 @@ The Gateway of an API Manager deployment is responsible for the main business fu
 
 The handlers are request and response interceptors. The list of API handlers in WSO2 API-M are as follows:
 
--   APIMgtLatencyStatsHandler
 -   CORSRequestHandler
 -   APIAuthenticationHandler
 -   ThrottleHandler
--   APIMgtUsageHandler
 -   APIMgtGoogleAnalyticsTrackingHandler
 -   APIManagerExtensionHandler
 
