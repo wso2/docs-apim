@@ -1,8 +1,6 @@
-# Scenario 8 - Throttle out API requests
+# Scenario 8 - Rate Limiting
 
-## User Story
-
-**While analyzing the traffic patterns and data, GOGO devops team noticed that their backend is getting a high number of requests and due to these high demand, their latency numbers also increased. devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce throttling limits to their free users.**
+While analyzing the traffic patterns and data, GOGO devops team noticed that their backend is getting a high number of requests and due to these high demand, their latency numbers also increased. devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce throttling limits to their free users.
 
 **_Time to Complete : 5 mins_**
 
@@ -12,17 +10,17 @@ WSO2 API Manager provides various levels of throttling. For this case let’s ap
 
 To Create Subscription Rate Limiting Policy
 
-1. Log in to admin portal [https://localhost:9443/admin](https://localhost:9443/admin) using admin credentials (admin:admin). 
+1. Log in to Admin Portal [https://localhost:9443/admin](https://localhost:9443/admin) using `admin` and password `admin`.
 2. Navigate to Rate Limiting **Policies → Subscription** Policies and create a new policy. Following is a sample policy.
 
     ![Sample policy]({{base_path}}/assets/img/tutorials/scenarios/sample-policy.png)
 
-3. Once policy is created, to apply this to the API, log in to the publisher portal using apiprovider with the password user123 and go to **Develop → Portal Configuration → Subscriptions** section.
+3. Once policy is created, to apply this to the API, log in to the Publisher Portal using `apiprovider` with the password `user123` and go to **Develop → Portal Configuration → Subscriptions** section.
 4. Apply the policy to the **PassengerInfoAPI** and save the API.
 
     ![Apply policy]({{base_path}}/assets/img/tutorials/scenarios/apply-policy.png)
 
-5. Now log in to the dev portal and create, application and try to subscribe to the API. You will notice that it has the newly created policy. 
+5. Now log in to the Developer Portal and create, application and try to subscribe to the API. You will notice that it has the newly created policy. 
 6. Subscribe to the API using this policy and invoke the API using the generated token. 
 
     ![Subscribe]({{base_path}}/assets/img/tutorials/scenarios/subscribe-policy-api.png)
@@ -37,7 +35,7 @@ To Create Subscription Rate Limiting Policy
 
 You could define a maximum throughput for the backend to protect the backend from high request load. For that
 
-1. Log in to the publisher portal and select the API and navigate to **Develop → API Configurations → Runtime section**.
+1. Log in to the Publisher Portal and select the API and navigate to **Develop → API Configurations → Runtime section**.
 2. Under the **Backend** section, you could define the maximum TPS for the backend. For this demo, to see the results quickly, lets set it to 1 TPS and save the API
 
     ![Maximum throughput]({{base_path}}/assets/img/tutorials/scenarios/max-throughput.png)

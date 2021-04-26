@@ -1,8 +1,6 @@
 # Scenario 7 - Analytics
 
-## User Story
-
-**GOGO Transit has identified a new business opportunity; since the train arrival data contain the number of passengers in each arrival, it could be used to predict the crowd in the station for a certain time period. Therefore, the services built around the station such as stores in mall and cab services could use this data to optimize the number of employees they require for the services for each day. Thus, the GOGO decides to provide the passenger details API to the public with the subscription capability that generates revenue based on the number of successful requests completed within a time period.**
+GOGO Transit has identified a new business opportunity; since the train arrival data contains the number of passengers in each arrival, it could be used to predict the crowd in the station for a certain time period. Therefore, the services built around the station such as stores in the mall and cab services could use this data to optimize the number of employees they require for the services for each day. Thus, GOGO Transit decides to provide the passenger details API to the public with the subscription capability that generates revenue based on the number of successful requests completed within a time period.
 
 **_Time to Complete : 5 mins_**
 
@@ -12,7 +10,7 @@ Choreo API-M Analytics can be used to fulfil the stats and analytics needs of th
 
 To configure analytics, 
 
-1. Signup to [https://console.choreo.dev/login/ ](https://console.choreo.dev/login/ )
+1. Sign up to [https://console.choreo.dev/login/](https://console.choreo.dev/login/).
 2. Go to [https://console.choreo.dev/user-settings/onpremkeys](https://console.choreo.dev/user-settings/onpremkeys) and generate a key
 3. Open the `/dockerfiles/conf/apim/repository/conf/deployment.toml` file and update the `[apim.analytics]` configuration similar to the following.
 ```
@@ -21,7 +19,7 @@ enable = true
 config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
 auth_token = "<on prem key>"
 ```
-4. Restart the api-manager container by using following.
+4. Restart the api-manager container using the following command.
 
     ```
     docker-compose restart api-manager
@@ -32,7 +30,7 @@ auth_token = "<on prem key>"
 Let’s generate some traffic. We have deployed an API (**PassengerInfoAPI**) in super tenant domain. 
 
 1. Go to the [https://localhost:9443/devportal/](https://localhost:9443/devportal/) and select carbon.super tenant domain.
-2. Login using peter with password user123 and subscribe to **PassengerInfoAPI** api and generate an access token.
+2. Log on using `peter` with password `user123` and subscribe to **PassengerInfoAPI** API and generate an access token.
 3. Invoke the API using the token.
 
 ```

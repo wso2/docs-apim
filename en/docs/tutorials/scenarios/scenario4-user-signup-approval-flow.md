@@ -8,19 +8,19 @@
 
 ![Signup description]({{base_path}}/assets/img/tutorials/scenarios/signup-desc.png)
 
-WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. Out of the box WSO2 API Manager ships with simple approval workflow. 
+WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. By default, WSO2 API Manager comes with a simple approval workflow. 
 
-This demo setup already comes with self-signup and signup workflow enabled for the Qantis tenant domain. If you need to check how to configure this check [enabling self-signup](https://apim.docs.wso2.com/en/latest/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/) and [enabling signup workflow](https://apim.docs.wso2.com/en/latest/develop/customizations/adding-a-user-signup-workflow/) documentation. 
+This demo setup already comes with self-signup and signup workflow enabled for the Qantis tenant domain. If you need to check how to configure this check [enabling self-signup]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup) and [enabling signup workflow]({{base_path}}/reference/customize-product/customizations/adding-a-user-signup-workflow) documentation. 
 
 !!! Note
-    You could see **UserSignUpApprovalWorkflowExecutor** is now engaged if you login to the [https://localhost:9443/carbon](https://localhost:9443/carbon) portal using Qantis admin credentials (admin@qantis.com:admin) and navigate to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location
+    You could see **UserSignUpApprovalWorkflowExecutor** is now engaged if you login to the [https://localhost:9443/carbon](https://localhost:9443/carbon) using Qantis admin credentials (admin@qantis.com:admin) and navigate to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location.
 
     ![Signup config]({{base_path}}/assets/img/tutorials/scenarios/signup-config.png)
 
 
 To try this out,
 
-1. Go to the Dev portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) and select Qantis tenant domain.
+1. Go to the Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) and select Qantis tenant domain.
 2. Select Sign In button on the top right corner. This will show a signup page.
 3. Select **Create Account** Link.
 4. Add the desired username (with the tenant domain) and proceed to self register.
@@ -28,45 +28,15 @@ To try this out,
     ![Signup config]({{base_path}}/assets/img/tutorials/scenarios/signup-start-pg.png)
 
 5. Fill the required fields and proceed with the registration.
-6. If you try to login using this credentials, you will be shown an unauthorized-access page
+6. If you try to login using this credentials, you will be shown an unauthorized-access page.
    
     ![Not allowed]({{base_path}}/assets/img/tutorials/scenarios/login-forbidden.png)
 
 
 To approve the signup request, 
 
-1. Log in to the [https://localhost:9443/admin/](https://localhost:9443/admin/) admin portal using admin@quantis.com and password _admin_
+1. Log in to the [https://localhost:9443/admin/](https://localhost:9443/admin/) Admin Portal using `admin@quantis.com` and password `admin`.
 2. Under the **Task → User Creation** you will notice a pending task. Approve it.
 
     ![Approve]({{base_path}}/assets/img/tutorials/scenarios/approve.png)
-3. Now you will be able to login to the dev portal using **raj@quantis.com** user and his credentials.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+3. Now you will be able to log on to the Developer Portal using `raj@quantis.com` user and his password.

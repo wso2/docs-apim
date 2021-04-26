@@ -1,12 +1,10 @@
 # Scenario 2 - Engage Access control to the API
 
-## User Story
-
-**ColTrain has a separate API to manage schedules for their internal staff. This API needs to have more elevated permission levels to access than their public API. All the employees in the ColTrain company have access to the end-user application where they can view the train schedule details using this API.  All the staff in the ColTrain should be able to check the available schedules whereas only the staff with admin privileges can add, edit or remove the existing schedule. Any other registered or public user should not be able to view this API since it is there for internal tasks. Coltrain wants to have a clear separation on who can view and access their APIs. They have identified that it would be a cumbersome task If they are to implement this from scratch to their backend APIs directly. Since now they are using an API Management platform, they wanted to move all these authentication and authorization tasks out of their internal APIs. This would be beneficial for their internal teams because they only have to pay attention to their APIs business logic only.** 
+ColTrain has a separate API to manage schedules for their internal staff. This API needs to have more elevated permission levels to access than their public API. All the employees in the ColTrain company have access to the end-user application where they can view the train schedule details using this API.  All the staff in the ColTrain should be able to check the available schedules whereas only the staff with admin privileges can add, edit or remove the existing schedule. Any other registered or public user should not be able to view this API since it is there for internal tasks. Coltrain wants to have a clear separation on who can view and access their APIs. They have identified that it would be a cumbersome task If they are to implement this from scratch to their backend APIs directly. Since now they are using an API Management platform, they wanted to move all these authentication and authorization tasks out of their internal APIs. This would be beneficial for their internal teams because they only have to pay attention to their APIs business logic only.
 
 **_Time to Complete : 7 mins_**
 
-We could configure the API to be visible for a set of users. For example, This API should be visible for only dev portal users with **coltrain_employee** role only.
+We could configure the API to be visible for a set of users. For example, This API should be visible for only Developer Portal users with **coltrain_employee** role only.
 
 ![Throttling description]({{base_path}}/assets/img/tutorials/scenarios/throttling-description.png)
 
@@ -19,8 +17,8 @@ Note: This setup contains roles **schedule_admin**  and **coltrain_employee** al
 
 Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and set the visibility of that API based on roles. 
 
-1. Log in to the publisher portal again `https://localhost:9443/publisher/` . Use user as _apiprovider@coltrain.com_ and password as _user123_
-2. Create a new API using the OpenAPI definition **coltrain-openapi.yaml** provided in the _resources_ location. Lets use _/coltrain-schedule_ as the context. Use the endpoint provided in the file as it is.
+1. Log in to the Publisher Portal again `https://localhost:9443/publisher/` . Use user as `apiprovider@coltrain.com` and password as `user123`.
+2. Create a new API using the OpenAPI definition **coltrain-openapi.yaml** provided in the `/resources` location. Lets use _/coltrain-schedule_ as the context. Use the endpoint provided in the file as it is.
 
     ![Create API]({{base_path}}/assets/img/tutorials/scenarios/coltrain-internal-api-create.png)
 
@@ -29,7 +27,7 @@ Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and s
     ![Set visibility]({{base_path}}/assets/img/tutorials/scenarios/set-visibility.png)
 
 
-Developer portal visibility is set to the API. Users with **coltrain_employee** roles can now view the API in the developer portal. 
+Developer Portal visibility is set to the API. Users with **coltrain_employee** roles can now view the API in the Developer Portal. 
 
 Next task is to set the access control for the resources. For that follow these steps
 
@@ -45,11 +43,11 @@ Next task is to set the access control for the resources. For that follow these 
 4. Define a business plan for the API. For that, go to **Develop → Portal Configurations → Subscriptions** and select a business plan. (ex: Unlimited).
 5. Publish the API using Publish → Lifecycle option.
    
-Now go to the dev portal and go to the ColTrain’s domain. You would not be able to not see the **ColTrainInternalTimeTableAPI** api.
+Now go to the Developer Portal and go to the ColTrain’s domain. You would not be able to not see the **ColTrainInternalTimeTableAPI** api.
 
 ![Not visible]({{base_path}}/assets/img/tutorials/scenarios/not-visible.png)
 
-Lets login using jenny@coltrain.com. Use user123 as the password. Now you should be able to see the API. 
+Lets login using `jenny@coltrain.com`. Use `user123` as the password. Now you should be able to see the API. 
 
 ![Visible]({{base_path}}/assets/img/tutorials/scenarios/visible.png)
 
@@ -59,7 +57,7 @@ Jenny has **coltrain_employee** role and as a result she can view the API.
 
 Now lets try out the API.
 
-1. Login to the dev portal using user **jenny@coltrain.com** and password user123
+1. Login to the Developer Portal using user `jenny@coltrain.com` and password `user123`.
 2. Go to **Applications → Add new Application** and create an application and generate keys.
 3. Copy the key and the secret. Secret can be viewed by clicking the icon next the Consumer Secret section.
 
@@ -92,7 +90,7 @@ curl -X POST "https://localhost:8243/t/coltrain.com/coltrain-schedule/1.0.0/sche
 ```
 
 
-You would see that you could access the resource using jenny@coltrain.com user’s token and you would get an error message for george’s token
+You would see that you could access the resource using jenny@coltrain.com user’s token and you would get an error message for george’s token.
 
 ```
 {"code":"900910","message":"The access token does not allow you to access the requested resource","description":"User is NOT authorized to access the Resource: /schedules. Scope validation failed."}

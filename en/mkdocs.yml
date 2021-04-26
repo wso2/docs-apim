@@ -1525,13 +1525,13 @@ nav:
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
-            - Scenario 2 - Engage Access control to the API: tutorials/scenarios/scenario2-access-control.md
+            - Scenario 2 - Engage Access Control to the API: tutorials/scenarios/scenario2-access-control.md
             - Scenario 3 - Implementing an API: tutorials/scenarios/scenario3-implementing-an-api.md
-            - Scenario 4 - Signing up a new user: tutorials/scenarios/scenario4-user-signup-approval-flow.md
-            - Scenario 5 - Getting the developer community involved: tutorials/scenarios/scenario5-developer-community-feature.md
+            - Scenario 4 - Signing Up a New User: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+            - Scenario 5 - Getting the Developer Community Involved: tutorials/scenarios/scenario5-developer-community-feature.md
             - Scenario 6 - Integrating with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
             - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
-            - Scenario 8 - Throttle out API requests: tutorials/scenarios/scenario8-rate-limiting.md
+            - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
             - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
             - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
             - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
