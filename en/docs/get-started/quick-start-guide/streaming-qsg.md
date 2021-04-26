@@ -13,7 +13,7 @@ The following is the outline of this quick start guide.
 !!! tip "Before you begin:"
     - Download the Streaming Integrator distribution from [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract it to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>`.<br/><br/>
     - Download the Kafka broker from [the Apache site](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.3.0/kafka_2.12-2.3.0.tgz) and extract it. This directory is referred to as `<KAFKA_HOME>` from here on.
-    
+
 ## Step 1: Start the Streaming Integrator
 
 To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
@@ -38,31 +38,31 @@ Let's create a simple Siddhi application that reads data from a CSV file, does a
     ```
     @App:name('ManageProductionStats')
     @App:description('Receive events via file and publish to Kafka topic')
-    
+
     @source(type = 'file', mode = "LINE", file.uri = "file:/Users/foo/productions.csv", tailing = "true",
         @map(type = 'csv'))
     define stream SweetProductionStream (name string, amount double);
-    
+
     @sink(type = 'kafka', bootstrap.servers = "localhost:9092", topic = "total_production", is.binary.message = "false", partition.no = "0",
         @map(type = 'json'))
     define stream TotalProductionStream (name string, amount double);
-    
+
     -- Simple Siddhi query to calculate production totals.
     @info(name = 'query1')
-    from SweetProductionStream 
-    select name, sum(amount) as amount 
+    from SweetProductionStream
+    select name, sum(amount) as amount
     group by name
     insert into TotalProductionStream;
     ```
 
-    The above Siddhi application reads input data from a file named `production.csv` in the CSV format, processes it and publishes the resulting output in a Kafka topic named `total_production`. As a result, any application that cannot read streaming data, but is capable of subscribing to a Kafka topic can access the output. The each input event reports the amount of a specific sweet produced in a production run. The Streaming Integrator calculates the total produced of each sweet with each event. Therefore, each output event reports the total amount produced for a sweet from the time you started running the Siddhi application. 
+    The above Siddhi application reads input data from a file named `production.csv` in the CSV format, processes it and publishes the resulting output in a Kafka topic named `total_production`. As a result, any application that cannot read streaming data, but is capable of subscribing to a Kafka topic can access the output. The each input event reports the amount of a specific sweet produced in a production run. The Streaming Integrator calculates the total produced of each sweet with each event. Therefore, each output event reports the total amount produced for a sweet from the time you started running the Siddhi application.
 
 3. Save this file as `ManageProductionStats.siddhi` in the `<SI_HOME>/wso2/server/deployment/siddhi-files` directory.
 
     This deploys the `ManageProductionStats` in the Streaming Integrator. The following message appears to indicate that the Siddhi application is successfully installed.
 
     `INFO {org.wso2.carbon.siddhi.editor.core.internal.WorkspaceDeployer} - Siddhi App ManageProductionStats.siddhi successfully deployed.`
-    
+
 ## Step 3: Install the required extensions
 
 The `ManageProductionStats` Siddhi application uses a Kafka sink. However, the Siddhi extension for Kafka is not installed by default. To install it so that the Siddi application can integrate with Kafka as expected, follow the steps below:
@@ -71,12 +71,20 @@ The `ManageProductionStats` Siddhi application uses a Kafka sink. However, the S
 
     - **For Linux**: `./extension-installer.sh install`
     - **For Windows**: `extension-installer.bat install`
-    
+
     As a result, a message appears in the terminal with a list of extensions used in your Siddhi application that are not completely installed, and requests you to confirm whether the system should proceed to install them
-    
-    
-2. Enter `Y` in the terminal to confirm that you want to proceed to install the required extensions, and then press the return key. Then the following message is displayed to indicate that the extension isinstalled.
-    
+
+
+2. Enter `Y` in the terminal to confirm that you want to proceed to install the required extensions, and then press the return key. Then the following message is displayed to indicate that the extension is installed.
+
+    ```text
+    Installing kafka ...
+    Installation completed with status: INSTALLED.
+
+    Installed missing extension 1 of 1.
+    Please restart the server.
+    ```
+
 3. Restart the WSO2 Streaming Integrator server as instructed.
 
 
@@ -93,18 +101,18 @@ To start Kafka:
 2. Navigate to the `<KAFKA_HOME>` directory and start Kafka server node by issuing the following command.
 
     `sh bin/kafka-server-start.sh config/server.properties`
-    
+
 To create a Kafka topic named `total_production`:
 
 1. Navigate to `<KAFKA_HOME>` directory and issue the following command:
 
     `bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic total_production`
-    
+
 
 ## Step 5: Test your Siddhi application
 
 To test the `ManageProductionStats` Siddhi application you created, follow the steps below.
- 
+
 1. Open the `/Users/foo/productions.csv` file and add five rows in it as follows:
 
     `Toffee,40.0`<br/><br/>
@@ -112,15 +120,15 @@ To test the `ManageProductionStats` Siddhi application you created, follow the s
     `Baked alaska, 30.0`<br/><br/>
     `Toffee, 60.0`<br/><br/>
     `Baked alaska, 20.0`
-    
+
     Save your changes.
-    
+
 2. To observe the messages in the `total_production` topic, navigate to the `<KAFKA_HOME>` directory and issue the following command:
 
     `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic total_production --from-beginning`
-    
-    
-You can see the following message in the Kafka Consumer log. 
+
+
+You can see the following message in the Kafka Consumer log.
 
 ```text
 {"event":{"name":"Almond cookie","amount":100.0}}
@@ -133,7 +141,7 @@ You can see the following message in the Kafka Consumer log.
 
 !!! tip "What's Next?"
     Once you try out this quick start guide, you can proceed to one of the following sections.
-    
+
     - Learn more about the Streaming Integrator by trying out [Streaming Integrator Tutorials]({{base_path}}/use-cases/streaming-tutorials/tutorials-overview).
     - Start using the Streaming Integrator. For more information and instructions about Streaming Integration functionality, see [Streaming Integrator Use Cases]({{base_path}}/use-cases/streaming-usecase/use-cases).
     - Manage and expose streaming backends via [Streaming APIs]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview).

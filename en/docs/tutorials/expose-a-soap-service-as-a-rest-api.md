@@ -24,7 +24,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
      </html>
 
      This example uses the WSDL `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        ![]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)
+        ![Create SOAP Pass Through API]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)
 
 3.  Click **NEXT** button to proceed to the next phase and Provide the information in the table below and click **CREATE** button.
 
@@ -35,13 +35,13 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     | Version | 1.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
 
-    ![]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
+    ![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
 
 4.  The created API appears in the publisher as follows.
-    ![]({{base_path}}/assets/img/learn/created-soap-api.jpg)
+    ![SOAP API overview]({{base_path}}/assets/img/learn/created-soap-api.jpg)
 
 5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
-     [![]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
+     [![SOAP API Definition]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
     <p>
@@ -50,7 +50,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
             </p>
         </div></html>   
 
-    ![]({{base_path}}/assets/img/learn/add-scope-for-passthrough-soap-api.jpg)
+    ![Add scopes for Pass Through API]({{base_path}}/assets/img/learn/add-scope-for-passthrough-soap-api.jpg)
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p> Note that when creating this API, the default option of **Rate limiting level** , was selected to **API Level**. For more information on setting advanced throttling policies,

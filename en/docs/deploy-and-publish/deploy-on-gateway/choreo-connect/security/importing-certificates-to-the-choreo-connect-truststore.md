@@ -8,7 +8,7 @@ For signature validation of JWTs, you need to add the public certificate of the 
     openssl x509 -inform der -in public_certificate.cert -out certificate.pem
     ```
 
-2.  Import the certificate to the truststore. The `           ballerinaTruststore.p12          ` resides in the generated distribution of the API Microgateway runtime and toolkit in the following locations.
+2.  Import the certificate to the truststore. The `ballerinaTruststore.p12` resides in the generated distribution of the API Microgateway runtime and toolkit in the following locations.
 
     ``` java
     keytool -import -keystore <MGW_TOOLKIT_HOME>/lib/platform/bre/security/ballerinaTruststore.p12 -alias wso2carbonjwt -file certificate.pem

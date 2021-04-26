@@ -14,7 +14,7 @@ In WSO2 Microgateway subscription validation can be done in two ways.
 
 2. Event Hub based subscription validation
 
-    For opaque/reference tokens and JWTs issued by API Manager 3.2.0 onwards, to enable subscription validation it requires the Event Hub to fetch Application and Subscription data from WSO2 API Manager.
+    For opaque/reference tokens and JWTs issued by API Manager, to enable subscription validation it requires the Event Hub to fetch Application and Subscription data from WSO2 API Manager.
     
     The latest versions of API manager do not include the `subscribedAPIs` claim in the JWT, instead, subscription validation is done using the `[eventhub]`. Refer documentation on [Event Hub and Subscription Validation Model]({{base_path}}/concepts/event-hub-and-subscription-validation/) to understand how WSO2 Microgateway validates subscriptions using Event Hub.   
 

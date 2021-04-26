@@ -36,7 +36,7 @@ Follow the instructions below to use API key Authentication in WSO2 API Manager.
 
 ### Step 1 - Create and publish an API
 
-Create and publish an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
+Create, publish and deploy an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
 
 1. Sign in to the Publisher.  
     
@@ -44,9 +44,9 @@ Create and publish an API that is secured with the API key security scheme as th
 
 2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
-3. Click **Runtime Configurations** and select **Application Level Security**.
+3. Click **Develop -> API Configurations -> Runtime** and select **Application Level Security**.
 
-4. Select **API Key** and click **SAVE**.
+4. Select **API Key** and click **Save and Deploy**.
 
      [![Configure API key authentication]({{base_path}}/assets/img/learn/api-key-option.png)]({{base_path}}/assets/img/learn/api-key-option.png)
 

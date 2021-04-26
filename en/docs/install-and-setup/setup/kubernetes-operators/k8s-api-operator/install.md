@@ -1,4 +1,4 @@
-# Install K8s API Operator
+# Installing the API K8s Operator
 
 ### Before you begin...
 
