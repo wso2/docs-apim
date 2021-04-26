@@ -51,3 +51,55 @@ Tenant Picker will be enabled if your selected environment uses multi-tenancy. I
  , data will only be show in per tenant basis. If you want to view cumulative analytics data for all tenants, Then
   you have to select **carbon.super** as the tenant which is the default super tenant name. All tenant data will be
    aggregated and show under super tenant.
+   
+## Pages
+
+### Overview Page
+This is the welcome page of the analytics portal. This page will mainly display a quick overview of the whole
+ deployment. This page is targeted towards providing business users with a quick overview. For more information
+  please refer [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-overview) 
+  documentation.
+  
+### Traffic Page
+This page displays all traffic related information available in the system such as API Usage, Application Usage
+, Resource Usage and etc. For more information please refer 
+[this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic) documentation.
+
+### Errors Page
+Error page displays analytics stats related to erroneous API calls happened within the system. It will include error
+ categorization based on the error type and then further drill down into sub types. This page can be used as the
+  starting point for debugging API errors. For more information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-erros) documentation.
+  
+### Latency Page 
+This page illustrates API latency related information such as slowest APIs, latency by category, etc. This page is a
+ good starting point if you are investigating about slowness of the system of any particular API. For more
+  information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-latency) documentation.
+  
+### Cache Page
+This page visualizes details API caching functionality including cache hit rate, hit percentage, etc. You can use
+ this page to decide the effectiveness of API caching and also as additional information then investigating API
+  slowness. For more information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-cache) documentation.
+  
+### Devices Page
+
+This page displays information about OS platforms and HTTP Agents end users are using to invoke the APIs. You can use
+ this page to get and idea of the distribution of your user-base and improve your APIs to match the audience. For
+  more information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-devices) documentation.
+  
+### Alerts Page
+
+This page illustrated information related to alerts issued by the system. You can use this page as health monitoring
+ dashboard and make visible to whole team. Using the page you can get more information about issues alerts. This page
+  will serve as the starting point for all issued alerts. For more information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts) documentation.
+  
+### Reports Page
+
+This page allows you to download monthly usage reports for your system. There are pre-configured reports to get
+ system wide stats and a custom report generator to generate reports based on a subset of APIs/applications. For more
+  information please refer 
+  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-report) documentation.
