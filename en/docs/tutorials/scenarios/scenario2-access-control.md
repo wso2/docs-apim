@@ -8,11 +8,12 @@ We could configure the API to be visible for a set of users. For example, This A
 
 ![Throttling description]({{base_path}}/assets/img/tutorials/scenarios/throttling-description.png)
 
-Also WSO2 API manager provides capability to provide access control to the resources of the API by using oauth2 scopes. Requests containing access tokens with the correct scope will be able to access these resources. 
+Also WSO2 API Manager provides capability to provide access control to the resources of the API by using OAuth2 scopes. Requests containing access tokens with the correct scope will be able to access these resources. 
 
 ![Access control description]({{base_path}}/assets/img/tutorials/scenarios/acl-description.png)
 
-Note: This setup contains roles **schedule_admin**  and **coltrain_employee** already created in the ColTrain tenant domain. **schedule_admin** and **coltrain_employee** roles are assigned to the user **jenny@coltrain.com** and only **coltrain_employee** role is assigned to **george@coltrain.com** . 
+!!! Note 
+    This setup contains roles **schedule_admin**  and **coltrain_employee** already created in the ColTrain tenant domain. **schedule_admin** and **coltrain_employee** roles are assigned to the user **jenny@coltrain.com** and only **coltrain_employee** role is assigned to **george@coltrain.com** . 
 
 
 Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and set the visibility of that API based on roles. 
