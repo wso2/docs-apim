@@ -1,4 +1,4 @@
-# Scenario 2 - Engage Access control to the API
+# Scenario 2 - Engage Access Control to the API
 
 ColTrain has a separate API to manage schedules for their internal staff. This API needs to have more elevated permission levels to access than their public API. All the employees in the ColTrain company have access to the end-user application where they can view the train schedule details using this API.  All the staff in the ColTrain should be able to check the available schedules whereas only the staff with admin privileges can add, edit or remove the existing schedule. Any other registered or public user should not be able to view this API since it is there for internal tasks. Coltrain wants to have a clear separation on who can view and access their APIs. They have identified that it would be a cumbersome task If they are to implement this from scratch to their backend APIs directly. Since now they are using an API Management platform, they wanted to move all these authentication and authorization tasks out of their internal APIs. This would be beneficial for their internal teams because they only have to pay attention to their APIs business logic only.
 
