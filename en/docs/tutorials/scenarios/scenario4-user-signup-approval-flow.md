@@ -33,7 +33,7 @@ To try this out,
 
 To approve the signup request, 
 
-1. Log in to the [https://localhost:9443/admin/](https://localhost:9443/admin/) Admin Portal using `admin@quantis.com` and password `admin`.
+1. Log on to the [https://localhost:9443/admin/](https://localhost:9443/admin/) Admin Portal using `admin@quantis.com` and password `admin`.
 2. Under the **Task → User Creation** you will notice a pending task. Approve it.
 
     ![Approve]({{base_path}}/assets/img/tutorials/scenarios/approve.png)

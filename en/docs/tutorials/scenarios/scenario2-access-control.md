@@ -4,7 +4,7 @@ ColTrain has a separate API to manage schedules for their internal staff. This A
 
 **_Time to Complete : 7 mins_**
 
-We could configure the API to be visible for a set of users. For example, This API should be visible for only Developer Portal users with **coltrain_employee** role only.
+We could configure the API to be visible for a set of users. For example, this API should be visible for only Developer Portal users with **coltrain_employee** role only.
 
 ![Throttling description]({{base_path}}/assets/img/tutorials/scenarios/throttling-description.png)
 
@@ -18,7 +18,7 @@ Also WSO2 API Manager provides capability to provide access control to the resou
 
 Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and set the visibility of that API based on roles. 
 
-1. Log in to the Publisher Portal again `https://localhost:9443/publisher/` . Use user as `apiprovider@coltrain.com` and password as `user123`.
+1. Log on to the Publisher Portal again `https://localhost:9443/publisher/` . Use user credentials as `apiprovider@coltrain.com` and password as `user123`.
 2. Create a new API using the OpenAPI definition **coltrain-openapi.yaml** provided in the `/resources` location. Lets use _/coltrain-schedule_ as the context. Use the endpoint provided in the file as it is.
 
     ![Create API]({{base_path}}/assets/img/tutorials/scenarios/coltrain-internal-api-create.png)
@@ -28,7 +28,7 @@ Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and s
     ![Set visibility]({{base_path}}/assets/img/tutorials/scenarios/set-visibility.png)
 
 
-Developer Portal visibility is set to the API. Users with **coltrain_employee** roles can now view the API in the Developer Portal. 
+Developer Portal visibility is set to the API. Users with the **coltrain_employee** role can now view the API in the Developer Portal. 
 
 Next task is to set the access control for the resources. For that follow these steps
 
