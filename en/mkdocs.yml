@@ -728,6 +728,7 @@ nav:
                 - Viewing APIM analytics:
                     - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
                     - Pages:
+                        - Introduction: observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md
                         - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
                         - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
                         - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
