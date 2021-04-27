@@ -8,7 +8,7 @@ use API Manager Analytics
 You need to be a registered Choreo user in order to utilize Analytics Cloud.
 If you are a standalone user trying out the product, please signup to Choreo by visiting
 [https://console.choreo.dev](https://console.choreo.dev). If you are signing up on behalf of an enterprise and need to share the Analytics Cloud among a group of people, please follow [this]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations)
-document to signup and create a group which is formally referred as an organization.
+document to signup and create a group that is formally referred as an organization.
 
 ## Register On-premise Environment
 
