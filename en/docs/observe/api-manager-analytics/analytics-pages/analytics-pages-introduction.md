@@ -1,5 +1,5 @@
 # Analytics Pages Introduction
-New cloud analytics portal consists of several pages where pages are divided based on different stats(Ex: traffic
+The new cloud analytics portal consists of several pages where pages are divided based on different stats (e.g., traffic
 , latency). There are set of common controls which will govern the data shown in pages. Each page will refer these
  common controls and page specific controls to visualize the information requested by the user.
  
