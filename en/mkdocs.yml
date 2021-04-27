@@ -1540,7 +1540,7 @@ nav:
             - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
             - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
             - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
-            - Scenario 12 - Gauranteed Message Delivery: tutorials/scenarios/scenario12- message-delivery.md
+            - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
             - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
             - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
