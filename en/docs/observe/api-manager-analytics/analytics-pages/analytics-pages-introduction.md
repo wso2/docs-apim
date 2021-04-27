@@ -92,7 +92,7 @@ This page displays information about OS platforms and HTTP Agents end users are 
   
 ### Alerts Page
 
-This page illustrated information related to alerts issued by the system. You can use this page as health monitoring
+This page illustrates information related to alerts issued by the system. You can use this page as a health monitoring
  dashboard and make visible to whole team. Using the page you can get more information about issues alerts. This page
   will serve as the starting point for all issued alerts. For more information please refer 
   [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts) documentation.
