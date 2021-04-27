@@ -67,7 +67,7 @@ This page displays all traffic related information available in the system such 
 
 ### Errors Page
 The error page displays analytics stats related to erroneous API calls that happened within the system. It will include error
- categorization based on the error type and then further drill down into sub types. This page can be used as the
+ categorization based on the error type and then further drills down into sub types. This page can be used as the
   starting point for debugging API errors. For more information please refer 
   [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-erros) documentation.
   
