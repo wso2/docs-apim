@@ -90,7 +90,7 @@ template: templates/single-column.html
                 ![]({{base_path}}/assets/img/home/streaming.svg)
                 <h4>Implementing an API</h4>
                 <p>
-                    With Micro Integrator and Integration Studio, you can implement the business logic to call three backends that provide metrics, aggregate the response, and present it to the client as one response.
+                    You can implement the business logic to call three backends that provide metrics, aggregate the response, and present it to the client as one response.
                 </p>
             </div>
         </div>
@@ -99,14 +99,14 @@ template: templates/single-column.html
                 ![]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Signing up a New User</h4>
                 <p>
-                    WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. By default, WSO2 API Manager comes with a simple approval workflow. 
+                    WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature.md';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Getting the Developer Community Involved</h4>
                 <p>
-                    WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published like SDK generation for APIs, documentation for APIs, ratings and comments, and an API console to try out the API.
+                    WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario6-integrating-with-data-sources';">
@@ -122,7 +122,7 @@ template: templates/single-column.html
                 ![]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Analytics</h4>
                 <p>
-                    Choreo API Manager Analytics can be used to fulfil the stats and analytics needs of the API Manager. It is a cloud analytics offering for the Choreo API Manager and On-Prem API Manager deployments. 
+                    Choreo API Manager Analytics can be used to fulfil the stats and analytics needs of the API Manager. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario8-rate-limiting';">
@@ -159,7 +159,7 @@ template: templates/single-column.html
                 ![]({{base_path}}/assets/img/home/streaming.svg)
                 <h4>Guaranteed Message Delivery</h4>
                 <p>
-                    Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store and available for future reference.
+                    Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store.
                 </p>
             </div>
         </div>
@@ -168,14 +168,14 @@ template: templates/single-column.html
                 ![]({{base_path}}/assets/img/home/intigration.svg)
                 <h4>Integrate with Services via Connectors</h4>
                 <p>
-                    When you integrate the systems in your organization, it is also necessary to integrate with third-party systems and its capabilities to enhance your services. WSO2 Micro Integrator uses Connectors for the purpose of referring to the APIs of third-party systems. 
+                    When you integrate systems in your organization, it is also necessary to integrate with third-party systems to enhance your services. This is possible via Connectors. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario14-external-key-manager';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>External Key Manager Support</h4>
                 <p>
-                    WSO2 API Manager comes with out-of-the-box external key manager connectors to various Identity providers such as Okta, Auth0, Keycloak, etc. Additionally, it has provided interfaces to write custom Key Manager implementation to plug any external third-party Key Manager solution.
+                    WSO2 API Manager comes with external key manager connectors to various identity providers such as Okta, Auth0, Keycloak, etc. Additionally, you can write a custom Key Manager implementation.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
