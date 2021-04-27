@@ -12,6 +12,6 @@ Follow the steps given below to import the certificate.
 
 !!! note
     For signature validation of JWTs, you need to add the public certificate of the Identity Provider to the truststore of the API Choreo Connect. 
-    Therefore add public certificate of identity provider in PEM format to `<choreo-connect-home>/docker-compose/resources/enforcer/security/truststore` directory.
+    Therefore add public certificate of identity provider in PEM format to `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore` directory.
     
 3.  Restart the component.
