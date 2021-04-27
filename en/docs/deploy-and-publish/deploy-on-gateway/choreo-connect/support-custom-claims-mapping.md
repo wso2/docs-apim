@@ -17,7 +17,7 @@ The following instructions are based on the [above example](#example). Let's cha
 
 If the key of the remote claim is different from the custom claim, you can configure claim mapping as follows:
 
-1. Navigate to the `<MG_HOME>/resources/conf/config.toml` file.
+1. Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect-with-apim OR choreo-connect>/conf/config.toml` file.
 
 2. Add the following configuration under the `enforcer.jwtTokenConfig` tag.
 
@@ -39,7 +39,7 @@ If the key of the remote claim is different from the custom claim, you can confi
         [[enforcer.security.tokenService.claimMapping]]
             remoteClaim = "scp"
             localClaim = "scope"
-    ```      
+    ```
 
 ## Configuring claim values
 
