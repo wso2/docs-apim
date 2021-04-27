@@ -3,7 +3,7 @@
 ## User Story
 
 **Railco wants to partner up with a Catering service to provide food to their first class passengers. 
-For each registration they want to send an entry to the Catering service system. But they have noticed that 
+For each registration they want to send an entry to the Catering service system. However, they have noticed that 
 the Catering service system becomes unavailable from time to time. To make sure that the entries reach the 
 Catering system, they are planning to implement a Guaranteed Message Delivery system.**
 
@@ -62,13 +62,13 @@ If you check the Micro Integrator logs, you can see that the Backend invocation 
 “Message processor [CateringServiceForwardingProcessor] failed to forward message 4 times. 
 Moved failed message to fail-messages-store and continue”
 
-After sometime, the Micro Integrator will again try to send the message to the Backend. 
+After some time, the Micro Integrator will again try to send the message to the Backend. 
 This process will continue until the message is successfully delivered to the backend.
 
 To make the delivery successful, you can provide a working endpoint and restart the Micro Integrator. 
 This will send the above message to that backend. 
 
-To test you can create a new endpoint in [https://hookbin.com/](https://hookbin.com/) and provide 
+To test this flow you can create a new endpoint in [https://hookbin.com/](https://hookbin.com/) and provide 
 the endpoint in the docker-compose.yml file under _‘CATERING_SERVICE_EP_’. 
 
 Restart Micro-Integrator runtime.
