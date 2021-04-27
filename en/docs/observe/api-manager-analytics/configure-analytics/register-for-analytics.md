@@ -38,7 +38,7 @@ Please follow below steps to register your on-premise environment.
   if you are using Choreo Connect Gateway.
   
     !!! info
-        **Free users** without a valid subscription for Choreo, will be limited to generate only 3 keys which will be valid 
+        **Free users** without a valid subscription for Choreo, will be limited to generate only 3 keys that will be valid 
         for **2 weeks**. The validity of the keys can be temporarily extended by visiting
          [contact sales](https://wso2.com/contact/) and submitting a request.
         
