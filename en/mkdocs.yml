@@ -1260,7 +1260,7 @@ nav:
             - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Setting up API Manager:
-                - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
+                - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
                 - Setting up a Key Manager:
                     - Setting up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Setting up WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -1297,34 +1297,33 @@ nav:
                     - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
                 - Configuring Userstores:
-                    - Managing User Stores:
-                        - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                        - Configuring Primary User Stores:
-                            - Configuring Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-                            - Configuring a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-                            - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-                            - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-                            - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
-                    - SSO:
-                        - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
-                        - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
-                        - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
-                        - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-                    - Advanced Configuration:
-                        - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
-                        - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
-                        - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
+                    - Configuring Primary User Stores:
+                        - Configuring Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
+                        - Configuring a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
+                        - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
+                        - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
+                        - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+                - SSO:
+                    - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
+                    - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
+                    - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
+                - Advanced Configurations:
+                    - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
+                    - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
+                    - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
             - Setting up Micro Integrator:
-                - Applying WSO2 Updates: install-and-setup/setup/mi-setup/updating-mi.md
+                - Updating WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
                     - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
-                    - Databases:
+                    - Configuring Databases:
                         - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
                         - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
                         - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
                         - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
                         - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
-                    - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
+                    - Configuring the File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
                 - Security:
                     - Setting up Keystores:
                         - Creating New Keystores: install-and-setup/setup/mi-setup/security/creating_keystores.md
@@ -1339,15 +1338,6 @@ nav:
                         - Using Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
                         - Using Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
                     - Securing the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
-                - Performance:
-                    - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
-                    - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
-                    - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
-                    - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
-                    - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
-                    - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
-                    - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
-                    - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
                 - Message Brokers:
                     - AMQP (RabbitMQ):
                         - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
@@ -1388,7 +1378,7 @@ nav:
                     - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
-                - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
+                - Updating WSO2 Streaming Integrator: install-and-setup/setup/si-setup/updating-si.md
                 - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
                 - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
                 - Configuring Business Rules Deployment: install-and-setup/setup/si-setup/configuring-business-rules-deployment.md
@@ -1448,8 +1438,17 @@ nav:
                 - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
                 - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Performance Tuning: 
+                    -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+                    -   Micro Integrator Performance Tuning: 
+                        - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
+                        - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
+                        - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
+                        - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
+                        - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
+                        - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
+                        - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
+                        - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
         - CI/CD:
             - CI/CD - Integrations:
                 - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
