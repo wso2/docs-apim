@@ -48,7 +48,7 @@ at the On-Prem Key generation step, you are required to provide a 'Key Name'. Th
 
 Tenant Picker will be enabled if your selected environment uses multi-tenancy. If multi-tenancy is enabled then using
  this picker you have to select the tenant that you need to observe analytics data. When tenancy is enabled
- , data will only be show in per tenant basis. If you want to view cumulative analytics data for all tenants, Then
+ , data will only be shown per tenant basis. If you want to view cumulative analytics data for all tenants,
   you have to select **carbon.super** as the tenant which is the default super tenant name. All tenant data will be
    aggregated and show under super tenant.
    
