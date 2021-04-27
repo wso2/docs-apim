@@ -1448,7 +1448,9 @@ nav:
                 - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Performance Test Results:
+                    - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                    - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
         - CI/CD:
             - CI/CD - Integrations:
                 - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
