@@ -89,7 +89,7 @@ Carry out the following steps to configure the load balancer to front multiple 
     <td>The Gateway Manager nodes require Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass-through ports in the Gateway (8243, 8280).</td>
     </tr>
     <tr class="odd">
-    <td>Developer Portal, Publisher, and Key Manager</td>
+    <td>Control Plane node running the Developer Portal, Publisher, and Key Manager</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
     <td>Requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
     </tr>
@@ -134,22 +134,10 @@ Carry out the following steps to configure the load balancer to front multiple 
     -   If you are using multiple Gateway Managers when using a shared file system (e.g., NFS), then you need to enable sticky sessions.
     ```
 
-    ```tab="HA for Publisher"
-    -   The placeholders {publisher-1-ip-address} and {publisher-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Publishers are running.
-    -   In the sample configuration given below, the hostname publisher.am.wso2.com is used to access publisher portal. Only HTTPS is allowed.
+    ```tab="HA for Control Plane"
+    -   The placeholders {controlplane-1-ip-address} and {controlplane-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Control Planes are running.
+    -   In the sample configuration given below, the hostname controlplane.am.wso2.com is used to access the Control Plane. Only HTTPS is allowed.
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the ip_hash method instead.
-    ```
-
-    ```tab="HA for Developer Portal"
-    -   The placeholders {devportal-1-ip-address} and {devportal-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Developer Portals are running.
-    -   In the sample configuration given below, the hostname devportal.am.wso2.com is used to access Publisher portal. Only HTTPS is allowed.
-    -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
-    ```
-
-    ```tab="HA for Key Manager"
-    -   The placeholders {km-1-ip-address} and {km-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Key Managers are running.
-    -   In the sample configuration given below, the hostname km.am.wso2.com is used to access Key Manager. Only HTTPS is allowed.
-    -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
     ```
 
     ```tab="HA for Traffic Manager"
@@ -335,10 +323,10 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     ```
 
-    ```tab="HA for Publisher"
-    upstream publisher.am.wso2.com {
-        server {publisher-1-ip-address}:9443;
-        server {publisher-2-ip-address}:9443;
+    ```tab="HA for Control Plane"
+    upstream controlplane.am.wso2.com {
+        server {controlplane-1-ip-address}:9443;
+        server {controlplane-2-ip-address}:9443;
         #ip_hash;
         sticky learn create=$upstream_cookie_jsessionid
             lookup=$cookie_jsessionid
@@ -347,13 +335,13 @@ Carry out the following steps to configure the load balancer to front multiple 
     
     server {
         listen 80;
-        server_name publisher.am.wso2.com;
+        server_name controlplane.am.wso2.com;
         rewrite ^/(.*) https://publisher.am.wso2.com/$1 permanent;
     }
     
     server {
         listen 443 ssl;
-        server_name publisher.am.wso2.com;
+        server_name controlplane.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
@@ -369,80 +357,6 @@ Carry out the following steps to configure the load balancer to front multiple 
     
             access_log /etc/nginx/log/publisher/https/access.log;
             error_log /etc/nginx/log/publisher/https/error.log;
-    }
-    ```
-
-    ```tab="HA for Developer Portal"
-    upstream devportal.am.wso2.com {
-        server {devportal-1-ip-address}:9443;
-        server {devportal-2-ip-address}:9443;
-        #ip_hash;
-        sticky learn create=$upstream_cookie_jsessionid
-            lookup=$cookie_jsessionid
-        zone=client_sessions:1m;
-    }
-    
-    server {
-        listen 80;
-        server_name devportal.am.wso2.com;
-        rewrite ^/(.*) https://devportal.am.wso2.com/$1 permanent;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name devportal.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://devportal.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/devportal/https/access.log;
-            error_log /etc/nginx/logs/devportal/https/error.log;
-    }
-    ```
-
-    ```tab="HA for Key Manager"
-    upstream km.am.wso2.com {
-        server {km-1-ip-address}:9443;
-        server {km-2-ip-address}:9443;
-        #ip_hash;
-        sticky learn create=$upstream_cookie_jsessionid
-            lookup=$cookie_jsessionid
-        zone=client_sessions:1m;
-    }
-    
-    server {
-        listen 80;
-        server_name km.am.wso2.com;
-        rewrite ^/(.*) https://km.am.wso2.com/$1 permanent;
-    }
-    
-    server {
-        listen 443 ssl;
-        server_name km.am.wso2.com;
-        proxy_set_header X-Forwarded-Port 443;
-        ssl_certificate /etc/nginx/ssl/{cert_name};
-        ssl_certificate_key /etc/nginx/ssl/{key_name};
-        location / {
-                proxy_set_header X-Forwarded-Host $host;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header Host $http_host;
-                proxy_read_timeout 5m;
-                proxy_send_timeout 5m;
-                proxy_pass https://km.am.wso2.com;
-            }
-    
-            access_log /etc/nginx/log/km/https/access.log;
-            error_log /etc/nginx/log/km/https/error.log;
     }
     ```
 
