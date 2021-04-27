@@ -1432,7 +1432,6 @@ nav:
                     - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - APIs and Integrations on K8s:
-                    - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
                     - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
                     - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
                     - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
