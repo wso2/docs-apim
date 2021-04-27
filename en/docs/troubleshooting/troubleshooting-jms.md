@@ -100,7 +100,7 @@ When one backend fails, the following state appears for all the threads as they 
 
 Once the backend is available again, the threads do not become active again
 
-This is because in WSO2 EI JMS transport, all the threads that use the same JMS session for communication are synchronized for thread safety.
+This is because in the JMS transport, all the threads that use the same JMS session for communication are synchronized for thread safety.
 Therefore, if one thread obtains the shared JMS session object and waits to obtain another resource (i.e., a reconnection to IBM MQ), this results in a set of threads waiting on this monitor. This results in all the synapse threads being blocked. When all the threads are blocked in the connection pool, WSO2 MI stops responding to requests.
 
 In order to make sure that WSO2 MI recovers after the backend is fixed, specify a connection timeout by following the steps below.

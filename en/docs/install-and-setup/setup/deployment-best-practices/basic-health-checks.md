@@ -1,27 +1,22 @@
 # Basic Health Checks
 
-Both API Manager and APIM Analytics support basic health checking by exposing health check APIs for available profiles.
+WSO2 API-M exposes health check APIs as explained below.
 
-## API Manager Profiles
+## API-M runtime health checks
 
-Basic health checks can be performed on an API Manager node by connecting to relevant ports. See the following table for the ports that can be used for health checks in a fully distributed deployment.
+Basic health checks can be performed on an API Manager node by connecting to relevant ports. Listed below are the ports that can be used for health checks in the available API-M profiles.
 
 | API Manager Profile | Ports that can be used for health checks |
 |---------------------|------------------------------------------|
-| Gateway Manager     | 9763 (HTTP), 9443 (HTTPS)                |
-| Gateway Worker      | 8280 (HTTP), 8243 (HTTPS)                |
-| API Dev Portal      | 9673 (HTTP), 9443 (HTTPS)                |
-| API Publisher       | 9673 (HTTP), 9443 (HTTPS)                |
+| Gateway             | 9763 (HTTP), 9443 (HTTPS)                |
 | Traffic Manager     | 5672 (TCP), 9611 (TCP)       |
 | Key Manager         | 9673 (HTTP), 9443 (HTTPS)                |
 
 For more information on each profile, see [API Manager Profiles]({{base_path}}//install-and-setup/setup/distributed-deployment/product-profiles).
 
-There can be scenarios where even though the ports are responding, the Services are not properly started. It is advisable to use Service level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version`. This service returns the version of the API Manager instance that is running currently.
+There can be scenarios where even though the ports are responding, the services are not properly started. It is advisable to use service-level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version`. This service returns the version of the API Manager instance that is running currently.
 
 A sample cURL command and the response from the `Version` service are given below.
-
-cURL command:
 
 ``` java tab="Format"
 curl -v http://<HOSTNAME>:<PORT>/services/Version
@@ -34,44 +29,56 @@ curl -v http://localhost:9763/services/Version
 ``` java tab="Response"
 <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
 ```
-## APIM Analytics Profiles
 
-Basic health checks can be performed on APIM analytics profiles by connecting to relevant ports. 
+## Micro Integrator health checks
 
-APIM Analytics by default is shipped with the simple service named `health`, and that is available in port number 9091 for Worker profile.
- 
-The following configuration should be added to the `<ANALYTICS_HOME>/conf/dashboard/deployment.yaml` in order to expose the service in the dashboard profile.
+WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
+balancer prior to routing traffic to a particular server node.
+
+### Health Check API
+
+The health check API has two behaviors depending on whether the deployment is mutable or immutable. If the deployment 
+is mutable (which is mostly the configuration in centralized deployments), the probe gives a **ready** status when the 
+server starts successfully. If the deployment is immutable, the probe gives a **ready** status only if all the CApps 
+are deployed successfully during server startup. If there are faulty CApps, the probe returns the list of faulty CApps. The health check API serves at:
+
+`http://localhost:9201/healthz`
+
+!!! Note
+    If you are running the server instance with a different port offset other than the default (which is 10), the heath
+    check API serves at 9191 + offset.  
+
+### Readiness Probe
+
+The readiness probe is a vital configuration for deployments in Kubernetes as it governs the routing logic. The requests 
+are not routed to a pod that is not ready.
+
+Add the following configurations to your `deployment.yaml` file in order to configure the readiness probe for
+the server. **Initial delay** and the **period** has to be fine-tuned according to your deployment.
 
 ```yaml
-wso2.transport.http:
-    listenerConfigurations:
-        - id: "default"
-        host: "0.0.0.0"
-        port: 9092
-```
-This service returns the status as a json string as `{"status":"healthy"}`.
-
-See the following table for the ports that can be used for health checks.
-
-| APIM Analytics Profile | Ports that can be used for health checks |
-|------------------------|------------------------------------------|
-| Analytics Worker       | 9091 (HTTP), 9444 (HTTPS)                |
-| Analytics Dashboard    | 9092 (HTTP), 9643 (HTTPS)                |
-
-APIM Analytics by default is shipped with the simple service named `health`, and that is available in port number 9091 for Worker profile and 9092 for Dashboard profile. This service returns the status as a json string as `{"status":"healthy"}`.
-
-The cURL command format, a sample cURL command and the response from the `health` service are given below.
-
-cURL command:
-
-``` java tab="Format"
-curl -X GET http://<HOSTNAME>:<PORT>/health
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 9201
+  initialDelaySeconds: 3
+  periodSeconds: 1
 ```
 
-``` java tab="Example"
-curl -X GET http://localhost:9091/health
-```
+### Liveness Probe
 
-``` java tab="Response"
-{"status":"healthy"}
+The liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
+example, if the server stops serving requests on the http port, even though the server is alive, the container needs to 
+be restarted so that the Micro Integrator instances serve the requests flawlessly. The default http socket of WSO2 Micro 
+Integrator can be used to health check for liveness.
+
+Add the following configurations to your `deployment.yaml` file in order to configure the liveness probe for
+the server. **Initial delay** and the **period** have to be fine-tuned according to your deployment.
+
+```yaml
+livenessProbe:
+  tcpSocket:
+    port: 8290
+  initialDelaySeconds: 15
+  periodSeconds: 5
 ```

@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 # Streaming Overview
 
 The Streaming Integrator component integrates streaming data from different sources such streaming applications, data publishers, databases, files, cloud-based applications, message brokers, etc., processes them in real time using a range of stream processing techniques, and exposes the results as managed APIs in the API marketplace. This allows API consumers to consume streaming data asynchronously.
@@ -9,6 +11,9 @@ The Streaming Integrator component integrates streaming data from different sour
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Streaming</p>
                 <p class="hint">Try out a simple streaming integration solution with the Streaming Integrator.</p>
@@ -18,15 +23,21 @@ The Streaming Integrator component integrates streaming data from different sour
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/streaming/getting-started/getting-started-guide-overview';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
-                <p class="title">Develop your First Streaming Solution</p>
-                <p class="hint">Build a simple streaming scenario using WSO2 streaming Integrator Tooling.</p>
+                <p class="title">Develop your First Solution</p>
+                <p class="hint">Build a simple streaming scenario using WSO2 Streaming Integrator Tooling.</p>
             </div>
         </div>
         <!-- end card -->
         <!-- card -->
         <div class="card" onclick="location.href='{{base_path}}/streaming/streaming-key-concepts';">
             <div class="line"></div>
+            <div class="card-icon">
+                <i class="material-icons md-36">timer</i>
+            </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Streaming</p>
                 <p class="hint">Explore the key concepts used by the Streaming Integrator.</p>
@@ -39,6 +50,14 @@ The Streaming Integrator component integrates streaming data from different sour
 ## Streaming APIs
 
 The Streaming Integrator component consumes APIs via transports such as Websocket, Webhooks, and SSE, and exposes the requests in a streaming manner to make that data available to applications that cannot consume APIs. Similarly, it uses the same transports to publish streaming data via APIs in an asynchronous manner.
+
+<table>
+    <tr>
+        <td>
+            <a href="{{base_path}}/use-cases/streaming-usecase/create-streaming-api/streaming-api-overview">WebSocket, SSE, and WebSub/WebHook APIs</a>
+        </td>
+    </tr>
+</table>
 
 ## Learn Integration
 
@@ -123,4 +142,4 @@ The streaming tutorials walk you through the main capabilities and features of W
         </td>
     </tr>
 </table>
-</tr>
+

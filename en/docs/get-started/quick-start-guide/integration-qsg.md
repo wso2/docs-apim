@@ -9,7 +9,7 @@ Let's get started with WSO2 API Manager by running a simple integration use case
     When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
 
     !!! Info
-        For more information, see the [installation instructions]({{base_path}}/install-and-setup//install/installing-the-product/).
+        For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
 2. Download the [sample files](https://github.com/wso2/docs-ei/blob/master/en/micro-integrator/docs/assets/attach/quick-start-guide/MI_QSG_HOME-JDK11.zip). From this point onwards, let's refer to this folder as `<MI_QSG_HOME>`.
 3. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
@@ -224,4 +224,4 @@ Here you will not see an onboarding page but a listing of the deployed services 
 ## What's next?
 
 - [Develop your first integration solution]({{base_path}}/integrate/develop/integration-development-kickstart).
-- Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/learn-overview/#integration-use-cases).
+- Try out the **examples** available in the [Integrate section of our documentation]({{base_path}}/integrate/integration-overview/).

@@ -38,25 +38,25 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 
 1.  You can copy the above mediation sequence into a **XML** file.
 2.  Log in to the **API Publisher Portal**.
-3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
-4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
-5.  Click [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** section.  
+3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
+4.  Go to the created API and from the Left Menu, go to **API Configurations** --> **Runtime**.
+5.  Click [![Edit]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** section.  
 *You can do this for Request, Response and/or Fault message flows.*     
   
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)  
+    [![Select Mediation policy]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)  
 
-6.  In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation as a XML file.  
-
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)
+6.  In the **Select a Mediation Policy** popup you can select the **Custom Policies** radio button and upload the above-created mediation as an XML file.  
+    
+    [![Upload Custom Mediation Policy]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)
 
 7.  Once the file is uploaded, save the API.
 
-9.  If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
+9.  If the API is not in the `PUBLISHED` state, go to the **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
 
 10. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
     !!! tip
-        Follow the instructions in [here]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) to invoke the API using the integrated API console. 
+        Follow the instructions in [here]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) to invoke the API using the integrated API console. 
 
 8.  When you invoke the API using a valid subscription, you can see the following trace log in wso2carbon server logs.
 
@@ -66,20 +66,20 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 
 #### Attaching Common Policies
 
-There are set of default common policies which are predefined and stored in registry which you can upload from the 
+There are a set of default common policies which are predefined and stored in the registry which you can upload from the
 Publisher UI as well.
 
-[![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/common-policies.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/common-policies.png)
+[![Select Common Policies]({{base_path}}/assets/img/learn/api-gateway/message-mediation/common-policies.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/common-policies.png)
 
 #### Editing a Mediation Policy
 
 If you want to edit an already attached mediation policy,
 
-1.  Click [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** section. 
+1.  Click [![Edit Mediation Policy]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** section. 
 
 2.  Click the download icon next to the selected mediation policy, as shown below.  
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/download-and-edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/download-and-edit-mediation.png)
+    [![Download and Edit Mediation Policy]({{base_path}}/assets/img/learn/api-gateway/message-mediation/download-and-edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/download-and-edit-mediation.png)
     
 2.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
 
@@ -90,7 +90,7 @@ You can do this for Request, Response and/or Fault message flows.
 
 2.  Select **None** as the mediation policy and save the API.
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)
+    [![Dis-engage Mediation Policy]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)
 
 ### Creating Manually and Saving in the File System
 
@@ -100,10 +100,10 @@ Alternatively, you can name the mediation XML file in the pattern `<API_NAME>:v<
 -   In the **multi-tenant mode** , save the XML file in the tenant's synapse sequence folder.   
 For example, if tenant id is 1, then save it in `<API-M_HOME>/repository/tenants/1/synapse-configs/default/sequences` folder.
 
-In the naming pattern, the `<DIRECTION>` can be `In` or `Out`. When it is `In` , the extension is triggered on the in-flow (request path) and when it is `Out` , the extension is triggered on the out-flow (response path). To change the default fault sequence, you can either modify the default fault sequence or write a custom fault sequence and engage it to APIs through the API Publisher.
+In the naming pattern, the `<DIRECTION>` can be `In` or `Out`. When it is `In`, the extension is triggered on the in-flow (request path) and when it is `Out`, the extension is triggered on the out-flow (response path). To change the default fault sequence, you can either modify the default fault sequence or write a custom fault sequence and engage it to APIs through the API Publisher.
 
 !!! tip
-    If you are having a distributed setup, do the changes in **Gateway** node.
+    If you are having a distributed setup, do the changes in the **Gateway** node.
 
 An example synapse configuration of a per-API extension sequence created for the API `admin--TwitterSearch` version 1.0.0 is given below.
 
@@ -123,7 +123,7 @@ The above sequence prints a log message in the wso2carbon logs whenever the `Twi
 ### Creating and Uploading using WSO2 Integration Studio
 
 You can design the custom mediation policy using the tooling support provided by WSO2 Integration Studio and directly upload it
-to the registry in WSO2 API Manager. Visit [Creating and Uploading using WSO2 Integration Studio]({{base_path}}/learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio).
+to the registry in WSO2 API Manager. Visit [Creating and Uploading using WSO2 Integration Studio]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio).
 
 ## Creating Global Extensions
 
@@ -145,17 +145,17 @@ This custom sequence adds a trace log which is getting printed when you invoke a
 You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
 !!! tip
-    If you are having a distributed setup, do the changes in **Gateway** node.
+    If you are having a distributed setup, do the changes in the **Gateway** node.
 
 ## Sample Message Mediation Policies
 
 Following are some sample mediation policies which you can upload as per API or global policies based on your requirement.
 
--   [Adding Dynamic Endpoints]({{base_path}}/learn/api-gateway/message-mediation/adding-dynamic-endpoints)
--   [Removing Specific Request Headers From Response]({{base_path}}/learn/api-gateway/message-mediation/removing-specific-request-headers-from-response)
--   [Passing a Custom Authorization Token to the Backend]({{base_path}}/learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend)
--   [URL Mapping]({{base_path}}/learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls)
--   [Disabling Message Chunking]({{base_path}}/learn/api-gateway/message-mediation/disabling-message-chunking)
--   [Transforming API Message Payload]({{base_path}}/learn/api-gateway/message-mediation/transforming-api-message-payload)
--   [Adding a Non-Blocking Send Operation]({{base_path}}/learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation)
--   [Adding a Class Mediator]({{base_path}}/learn/api-gateway/message-mediation/adding-a-class-mediator)
+-   [Adding Dynamic Endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints)
+-   [Removing Specific Request Headers From Response]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response)
+-   [Passing a Custom Authorization Token to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend)
+-   [URL Mapping]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls)
+-   [Disabling Message Chunking]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking)
+-   [Transforming API Message Payload]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload)
+-   [Adding a Non-Blocking Send Operation]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation)
+-   [Adding a Class Mediator]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator)

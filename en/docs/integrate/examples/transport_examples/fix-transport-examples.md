@@ -31,7 +31,7 @@ Banzai.
 ## Build and run
 
 -   You will need the two sample FIX applications that come with
-    Quickfix/J (Banzai and Executor). [Configure the two applications](../../../../setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) to
+    Quickfix/J (Banzai and Executor). [Configure the two applications]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) to
     establish sessions with the Micro Integrator and enable the FIX transport in the Micro-Integrator.
 -   Start the Micro-Integrator.
 -   Be sure that the

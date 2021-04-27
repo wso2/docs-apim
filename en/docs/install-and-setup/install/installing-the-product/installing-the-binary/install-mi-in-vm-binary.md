@@ -1,6 +1,6 @@
 # Installing via the Binary
 
-Follow the steps given below to install the WSO2 Micro Integrator runtime and its monitoring Dashboard by using the <b>binary distribution</b> of WSO2 Enterprise Integrator.
+Follow the steps given below to install the WSO2 Micro Integrator runtime and its monitoring dashboard by using the <b>binary distribution</b>.
 
 ## Download and install
 
@@ -8,8 +8,7 @@ You can refer to the following video to get a quick understanding of how this is
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FxJApHXU63E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-Go to the WSO2 Enterprise Integrator [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+Go to the [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
 
 Extract the download ZIP file to a location on your computer. 
 
@@ -18,7 +17,7 @@ Extract the download ZIP file to a location on your computer.
 
 ## Prerequisites
 
-**Setting the Java_Home**: Set up a [JDK that is compatible with WSO2 Enterprise Integrator](../install_prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance.
+**Setting the Java_Home**: Set up a [JDK that is compatible with the Micro Integrator](../install_prerequisites/#environment-compatibility) and point the `java_home` variable to your JDK instance.
 
 ## Running the MI server
 
@@ -69,7 +68,7 @@ https://localhost:9743/dashboard
      - In a non-production environment (with the self-signed certificate), you have to add the certificate of the micro integrator instance to the browser as a trusted source. For example, direct the browser to `https://localhost:9164/management` and add the site as trusted. This step will not be required with a custom production certificate.
      - We have identified issues with the Microsoft Edge browser, which prompts trusting the management URL (with the self-signed certificate) in a loop. Please try trusting the management URL in the same tab if you face this issue. If the issue still persists, consider switching the browser.
 
-See the [Micro Integrator Dashboard](../../../administer-and-observe/working-with-monitoring-dashboard) documentation for information on how to sign in and use the dashboard.
+See the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard) documentation for information on how to sign in and use the dashboard.
 
 ### Stopping the dashboard server
 

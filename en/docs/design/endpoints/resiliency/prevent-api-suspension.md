@@ -35,7 +35,7 @@ Follow the instructions below to prevent or turn off API suspension:
 
 5.  Click **Save** and re-publish the API.
 
-     For more details on creating and publishing an API, see [Create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api) and [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api).
+     For more details on creating and publishing an API, see [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api) and [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 !!! info
     To avoid backend endpoint suspension:

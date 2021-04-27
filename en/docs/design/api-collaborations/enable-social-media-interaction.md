@@ -13,14 +13,14 @@ Follow the instructions below to enable API Consumers to be able to share the AP
 
 ### Step 1 - Enable the community links option 
 
-1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` configuration file in the WSO2 API Manager server.
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` configuration file in the WSO2 API Manager server.
 
     <html>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
     <ul>
     <li>
-    The default configuration comes with an empty configuration object declaration. You can override the default configuration in the <code>defaultTheme.js</code> file.
+    The default configuration comes with an empty configuration object declaration. You can override the default configuration in the <code>userTheme.js</code> file.
     </li>
     <li>
     <p>For more information on the content that is in the default configuration, see <a href="{{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#content-of-defaultthemejs">Overriding the Developer Portal theme</a>.</p>

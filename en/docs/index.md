@@ -24,21 +24,21 @@ template: templates/single-column.html
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/quick-start-guide/quick-start-guide';">
-                ![Integration service icon]({{base_path}}/assets/img/home/intigration.svg)
-                <h4>Write your first Integration Service</h4>
-                <p>
-                    Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
-                </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
-                ![Proxies icon]({{base_path}}/assets/img/home/proxies.svg)
+                <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
                 <h4>Design and implement APIs</h4>
                 <p>
                     Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
                 </p>
             </div>
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/quick-start-guide/integration-qsg';">
+                <img src="{{base_path}}/assets/img/home/landing-page/write-your-first-integration-service.svg" title="Integration Service" width="75" alt="Integration Service"/>
+                <h4>Write your first Integration Service</h4>
+                <p>
+                    Create an integration service and expose it as a managed API. Let's get started by running a simple use case. 
+                </p>
+            </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
-                ![Streaming icon]({{base_path}}/assets/img/home/streaming.svg)
+                <img src="{{base_path}}/assets/img/home/landing-page/write-a-streaming-integration.svg" title="Streaming Integration" width="75" alt="Streaming Integration"/>
                 <h4>Write a Streaming Integration</h4>
                 <p>
                     Create and deploy a Siddhi application in 5 minutes and expose it as a Streaming API. Let's get started by running a simple use case.
@@ -47,14 +47,21 @@ template: templates/single-column.html
         </div>
     </div>
     <div class="section03">
-        <div class="section03Card">
+        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/key-concepts';">
+            <h3>Overview</h3>
+            <p>
+                Introduces WSO2 API Manager and quickly describes what it can do.
+            </p>
+            <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
+        </div>
+        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
             <h3>Concepts</h3>
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
             </p>
             <a href='{{base_path}}/get-started/key-concepts'><h4>Understand the Concepts</h4></a>
         </div>
-        <div class="section03Card last">
+        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/architecture';">
             <h3>Architecture</h3>
             <p>
                 The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
@@ -119,61 +126,17 @@ template: templates/single-column.html
         <div class="DeploymentWrapper">
             <div class="Deploymentlinks">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'>Deploy API Manager Runtime</a></li>
                 </ul>
             </div>
             <div class="Deploymentlinks middle">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'>Deploy the Micro Integrator</a></li>
                 </ul>
             </div>
             <div class="Deploymentlinks last">
                 <ul>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                    <li><a href='#'>To be added</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="section06">
-        <h3>Tutorials</h3>
-        <p>
-            These tutorials will walk you through the main capabilities and features of WSO2 API Manager, and help you understand how to build API Management, integration, and streaming solutions.
-        </p>
-        <div class="DeploymentWrapper">
-            <div class="Deploymentlinks">
-                <h4>API Management </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks middle">
-                <h4>Integration </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
-                </ul>
-            </div>
-            <div class="Deploymentlinks last">
-                <h4>Streaming Integration </h4>
-                <ul>
-                    <li><a href='#'>Message Routing and Transformation</a></li>
-                    <li><a href='#'>Service Orchestration</a></li>
-                    <li><a href='#'>Asynchronous Message Processing</a></li>
-                    <li><a href='#'>SaaS and B2B Connectivity</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'>Deploy the Streaming Integrator</a></li>
                 </ul>
             </div>
         </div>

@@ -1,6 +1,6 @@
 # Creating Geo Location Data Set
 
-Follow the procedure below in order to create a Geo Location dataset to use when [Configuring Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/).
+Follow the procedure below in order to create a Geo Location dataset to use when [Configuring Geolocation Based Statistics]({{base_path}}/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/).
 
 1.  Create an account in [www.maxmind.com](https://www.maxmind.com/) and download the **GeoLite2 City: CSV Format** as a ZIP file.
 2.  Download the geoip-2-csv-converter from <https://github.com/maxmind/geoip2-csv-converter/releases> according to your operating system.
@@ -39,4 +39,4 @@ Follow the procedure below in order to create a Geo Location dataset to use when
         ** merge csv files
         ```
 
-3.  The created `final.csv` file and the `GeoLite2-City-Locations-en.csv` file (located in the downloaded latest CSV zip file) will be used in the [next step]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/).
+3.  The created `final.csv` file and the `GeoLite2-City-Locations-en.csv` file (located in the downloaded latest CSV zip file) will be used in the [next step]({{base_path}}/observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/).

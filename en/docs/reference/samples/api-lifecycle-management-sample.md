@@ -53,7 +53,7 @@ Separate APIs are required for the following scenario:
 
 -   API developers must get notifications when a specific API is promoted to published state. This point is by subscribing to the lifecycle state change notification. How to subscribe will be explained below.
 
-For details on how to enable notifications, see [Enabling Notifications]({{base_path}}/learn/design-api/api-versioning/enabling-notifications).
+For details on how to enable notifications, see [Enabling Notifications]({{base_path}}/design/api-versioning/enabling-notifications).
 
 Follow the steps below to configure API lifecycle state notifications.
 

@@ -2,7 +2,7 @@
 
 !!! info
       Similar to the other dashboards, the Application Analytics Dashboard can be viewed by admin users and users who have the `internal/subscriber` role. By default, the dashboard cannot be viewed by users having the `internal/analytics` role. 
-      However, these permissions can be changed based on your preferences using the **Settings** option in the dashboard. For more information, see [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/).
+      However, these permissions can be changed based on your preferences using the **Settings** option in the dashboard. For more information, see [Managing Analytics Dashboard Permissions]({{base_path}}/observe/api-manager-analytics/managing-dashboard-permissions/).
 
 
 Log into the analytics-dashboard application and access application analytics dashboard (ex: [https://localhost:9643/analytics-dashboard/dashboards/application](https://localhost:9643/analytics-dashboard/dashboards/application)) dashboard from there.
@@ -38,7 +38,7 @@ You also can limit the number of users that needs to be listed by changing the l
 
 The statistics for this widget takes the number of users shared across each application in to consideration. 
 
-To enable application sharing among users within the same organization, see [Sharing Applications]({{base_path}}/learn/consume-api/manage-application/sharing-applications/sharing-applications/).
+To enable application sharing among users within the same organization, see [Sharing Applications]({{base_path}}/consume/manage-application/sharing-applications/sharing-applications/).
 
 <html>
 <body>

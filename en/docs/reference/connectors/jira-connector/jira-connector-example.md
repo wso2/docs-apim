@@ -1,6 +1,6 @@
 # Jira Connector Example
 
-The Jira REST API enables you to interact with Jira programmatically. The WSO2 JIRA Connector allows you to access the REST resources available in Jira Cloud [API Version v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/) through WSO2 EI.
+The Jira REST API enables you to interact with Jira programmatically. The WSO2 JIRA Connector allows you to access the REST resources available in Jira Cloud [API Version v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/) from an integration sequence.
 
 ## What you'll build
 
@@ -10,7 +10,7 @@ You will use two HTTP API resources, which are `createIssue` and `getIssue`.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/jira.png" title="Calling insert operation" width="800" alt="Calling insert operation"/>
 
-* `/createIssue `: The user sends the request payload with the issue details (the project info, summary, description and the issue type).  This request is sent to WSO2 EI by invoking the Jira API. It creates the issue in the corresponding Jira account.
+* `/createIssue `: The user sends the request payload with the issue details (the project info, summary, description and the issue type).  This request is sent to the integration runtime by invoking the Jira API. It creates the issue in the corresponding Jira account.
 
 * `/getIssue `: The user sends the request payload, which includes the issue id or key (that should be obtained from the `createIssue` API resource) and other parameters (**fields** and **expand**).
 
@@ -78,7 +78,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
 

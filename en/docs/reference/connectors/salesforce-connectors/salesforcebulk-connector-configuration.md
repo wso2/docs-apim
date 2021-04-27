@@ -1,6 +1,6 @@
 # Setting up the SalesforceBulk Environment  
 
-The SalesforceBulk connector allows you to access the [SalesforceBulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) through WSO2 EI. SalesforceBulk is a RESTful API that allows you to either quickly load large sets of your organisation’s data into Salesforce or delete large sets of your organisation’s data from Salesforce.
+The SalesforceBulk connector allows you to access the [SalesforceBulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/) from an integration sequence. SalesforceBulk is a RESTful API that allows you to either quickly load large sets of your organisation’s data into Salesforce or delete large sets of your organisation’s data from Salesforce.
 
 > **Note**: To work with the Salesforce Bulk connector, you need to have a Salesforce account. If you do not have a Salesforce account, go to [https://developer.salesforce.com/signup](https://developer.salesforce.com/signup) and create a Salesforce developer account.
 

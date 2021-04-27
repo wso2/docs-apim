@@ -32,10 +32,9 @@ However, when your solutions are ready to be moved to your production environmen
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-mi-port-settings.png" width="500">
 
     !!! Note
-		If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
-
-    !!! Note
-        If you are already running another server on these ports, give unused ports. See [Default ports](../../setup/changing_default_ports) of the Micro Integrator for more information.
+    
+		-   If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
+        -   If you are already running another server on these ports, give unused ports. See [Default ports](../../setup/changing_default_ports) of the Micro Integrator for more information.
 
 ## Deploy and run artifacts in a remote instance
 

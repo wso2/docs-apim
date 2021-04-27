@@ -5,7 +5,7 @@ An API publisher can **block subscription** to an API as a way of disabling acce
 You can block APIs by subscription by blocking access to a respective user to access a specific API that they had subscribed to using a particular application. If a user has subscribed to two APIs, using the same application, and you block access to only one of the APIs, the respective user can continue to invoke the other API that they had previously subscribed to using the same application. In addition, the user can continue to access the same API subscribed to using different applications.
 
 !!! info
-    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request denylisting]({{base_path}}/learn/rate-limiting/access-control/#denying-requests).
+    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request denylisting]({{base_path}}/design/rate-limiting/access-control/#denying-requests).
 
 
 Blocking can be done at two levels:
@@ -31,9 +31,9 @@ Blocking can be done at two levels:
   </html>
 
 1.  Create two APIs.
-     1.  Sign in to the WSO2 API Publisher.
+     1.  Sign in to WSO2 API Publisher.
 
-     2.  Create two APIs and publish them to the WSO2 API Developer Portal.
+     2.  Create two APIs and publish them to WSO2 API Developer Portal.
 
          `https://<hostname>:9443/devportal` 
 
@@ -42,14 +42,14 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition tip"> 
          <p class="admonition-title">Tip</p>
-         <p>For more information, see [Create and Publish an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).</p>
+         <p>For more information, see [Create and Publish an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).</p>
          </div>
          </html>
          
          [![Block subscription for two APIs]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)
 
 2.  Subscribe to both the APIs.
-     1.  Sign in to the WSO2 API Developer Portal and click **APIs**.
+     1.  Sign in to WSO2 API Developer Portal and click **APIs**.
 
          Note that the two APIs are visible in the APIs page.
 
@@ -70,21 +70,21 @@ Blocking can be done at two levels:
       <html>
       <div class="admonition tip"> 
       <p class="admonition-title">Tip</p>
-      <p>For more information, see  [Consume an API]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).</p>
+      <p>For more information, see  [Consume an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).</p>
       </div>
       </html>
 
      [![Response when you have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)
 
-     The following is the [cURL](http://curl.haxx.se/download.html) command format for phoneverify2 API.
+     The following is the [cURL](http://curl.haxx.se/download.html) command format for PhoneVerification API.
      
      **Command**
  
      ``` java
-     curl -X POST "https://localhost:8243/phoneverify2/1.0/checkPhoneNumber" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer 1b4cde76-3951-32bb-9ace-f530bc478490" -d "{ \"CheckPhoneNumber\": { \"PhoneNumber\": \"18006785432\", \"LicenseKey\": \"0\" }}"
+     curl -X GET "https://localhost:8243/phoneverify/1.0.0/CheckPhoneNumber?PhoneNumber=18006785432&LicenseKey=0" -H "accept: application/json" -H "Authorization: Bearer <access-token>"
      ```
 
-     You can invoke the **PhoneVerification** API with the same token.
+     You can invoke the **PizzaShackAPI** with the same token.
      You have subscribed to two APIs and invoked them successfully. Let's block one subscription and see the outcome.
 
 4.  Block an API.
@@ -93,9 +93,9 @@ Blocking can be done at two levels:
 
      2.  Click **API** and click on the API that you need to block.
 
-         In this case, click on the `PhoneVerify2` API.
+         In this case, click on the `PhoneVerification` API.
 
-     3.  Click **Subscriptions** to navigate to the managed subscription section.
+     3.  Go to **Portal Configurations** and click **Subscriptions** to navigate to the managed subscription section.
 
          <a href="{{base_path}}/assets/img/learn/subscriptions-menu.png" alt="subscriptions menu"><img src="{{base_path}}/assets/img/learn/subscriptions-menu.png" width=250></a>
 
@@ -114,16 +114,16 @@ Blocking can be done at two levels:
 
     1. Sign in to the Developer Portal.
 
-    2. Invoke the two APIs (`PhoneVerify2` and `PhoneVerification`) again.
+    2. Invoke the two APIs (`PizzaShackAPI` and `PhoneVerification`) again.
 
          <html>
          <div class="admonition tip">
          <p class="admonition-title">tip</p>
-         <p>If the access token expiration time (1 hour by default) has passed since the last time you generated it, you might have to <b>regenerate the access token</b> for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)`. </p>
+         <p>If the access token expiration time (1 hour by default) has passed since the last time you generated it, you might have to <b>regenerate the access token</b> for the respective application that you subscribed the APIs to (for example in this case it will be `NewApplication)`. </p>
          </div>
          </html>
 
-         Note that you can invoke `PhoneVerification` again, but when you invoke `PhoneVerify2` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
+         Note that you can invoke `PizzaShackAPI` again, but when you invoke `PhoneVerification`, it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
 
          <html>
          <div class="admonition warning">
@@ -133,14 +133,14 @@ Blocking can be done at two levels:
          </html>
 
 
-        **Response when invoking PhoneVerify2**
+        **Response when invoking PhoneVerification**
 
-        ``` java
-        <ams:fault xmlns:ams="http://wso2.org/apimanager/security">
-            <ams:code>900907</ams:code>
-            <ams:message>The requested API is temporarily blocked</ams:message>
-            <ams:description>Access failure for API: /TestAPI1/1.0.0, version: 1.0.0 status: (900907) - The requested API is temporarily blocked</ams:description>
-        </ams:fault>
+        ``` json
+        {
+            "code": "900907",
+            "message": "The requested API is temporarily blocked",
+            "description": "User is NOT authorized to access the Resource. API Subscription validation failed."
+        }
         ```
 
         [![Have the same application for two APIs and block response]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
@@ -159,13 +159,13 @@ Blocking can be done at two levels:
 
      2.  Click on the respective API.
 
-         In this case, click `PhoneVerify2`.
+         In this case, click `PhoneVerification`.
 
-     3.  Click **Subscriptions** and click **Unblock** corresponding to the respective subscription.
+     3.  Go to **Portal Configurations** and click on **Subscriptions** and click **Unblock** corresponding to the respective subscription.
 
          Make sure to click on the subscription that corresponds to the correct application.
 
-         If you invoke `PhoneVerify2` again, you will notice that you can invoke the API as usual.
+         If you invoke `PhoneVerification` again, you will notice that you can invoke the API as usual.
 
          <html>
          <div class="admonition warning">

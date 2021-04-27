@@ -13,10 +13,13 @@ The instructions below explain how plain text passwords in configuration files c
 
 1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-2.  Add the `[secrets]` configuration section to the **bottom** of the `deployment.toml` file and include the passwords
- which you need to protect. Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
-   
-       
+2.  Add the `[secrets]` configuration section at the **bottom** of the `deployment.toml` file and include the passwords that you need to protect. 
+
+    !!! warning "Important"
+        The `[secrets]` configuration section should be added at the very end of the `deployment.toml` file or else this will cause errors in server startup.
+
+     Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
+
        ``` tab="Format"
        [secrets]
        <password_1_alias> = "[<password_1>]"
@@ -29,11 +32,7 @@ The instructions below explain how plain text passwords in configuration files c
        keystore_password = "[wso2carbon]"
        key_password = "[wso2carbon]"
        truststrore_password = "[wso2carbon]"
-       ```    
-
-    !!! Note
-        The `[secrets]` element must be added only at the bottom of the `deployment.toml` file or else this will
-         cause errors in server startup.
+       ```
     
 3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret(<alias>)` in order to refer to the encrypted password instead of the plain text password. 
 
@@ -105,7 +104,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend, which is secured with [Digest]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
 Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
 
@@ -137,10 +136,10 @@ Follow the instructions below to secure the endpoint's password that is given in
     
 5.  Restart the server. 
 
-     * On Linux/Mac OS: `./wso2server.sh`
-     * On Windows: `./wso2server.bat`
+     * On Linux/Mac OS: `./api-manager.sh`
+     * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written in the API Gateway configuration file, which can be found in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
+After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
 
 Example:
 
@@ -212,8 +211,8 @@ Follow the instructions below to change any password that you have already encry
 
 1.  Start the server by running the product start up script from the `<APIM_HOME>/bin` directory as shown below.
 
-    * On Linux: `./wso2server.sh`
-    * On Windows: `./wso2server.bat`
+    * On Linux: `./api-manager.sh`
+    * On Windows: `./api-manager.bat`
     
     When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
@@ -248,8 +247,8 @@ If you start the WSO2 API Manager as a background job, you will not be able to p
 
 3. Start the server as a background process by running the following command.
 
-    * On Linux: `./wso2server.sh start`
-    * On Windows: `./wso2server.bat start`
+    * On Linux: `./api-manager.sh start`
+    * On Windows: `./api-manager.bat start`
    
    
  

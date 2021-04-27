@@ -26,7 +26,7 @@ Here's a summary:
         </sequence>
         ```
 
-2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
+2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample value         |
     |---------------|----------------------|
@@ -36,10 +36,10 @@ Here's a summary:
     | Business Plan | Gold                 |
     | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
 
-3.  Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
+3.  Navigate to the **API Configurations** --> **Runtime** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
+    [![Uploading Token Exchange Sequence ]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
       
 4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
 

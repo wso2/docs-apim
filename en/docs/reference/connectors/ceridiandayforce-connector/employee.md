@@ -19,6 +19,7 @@ If the employee is not already in Dayforce, you can add them.
 This section provides more details on each of the operations.
 
 #### Retrieving a list of Employees
+
 We can use GET Employees operation with required parameters to search and find the required employees.
 
 **GET Employees**

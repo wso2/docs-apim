@@ -17,7 +17,7 @@ info:
   title: WSO2 API Manager - Admin
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - **Admin Portal**.
-    Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
+    Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/master/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -27,7 +27,7 @@ info:
     in the payload. A sample payload is shown below.
     ```
       {
-      "callbackUrl":"www.google.lk",
+      "callbackUrl":"www.example.com",
       "clientName":"rest_api_admin",
       "owner":"admin",
       "grantType":"client_credentials password refresh_token",
@@ -51,11 +51,11 @@ info:
     {
     "clientId": "fOCi4vNJ59PpHucC2CAYfYuADdMa",
     "clientName": "rest_api_admin",
-    "callBackURL": "www.google.lk",
+    "callBackURL": "www.example.com",
     "clientSecret": "a4FwHlq0iCIKVs2MPIIDnepZnYMa",
     "isSaasApplication": true,
     "appOwner": "admin",
-    "jsonString": "{\"grant_types\":\"client_credentials password refresh_token\",\"redirect_uris\":\"www.google.lk\",\"client_name\":\"rest_api_admin\"}",
+    "jsonString": "{\"grant_types\":\"client_credentials password refresh_token\",\"redirect_uris\":\"www.example.com\",\"client_name\":\"rest_api_admin\"}",
     "jsonAppAttribute": "{}",
     "tokenType": null
     }
@@ -120,25 +120,12 @@ paths:
         Retrieves all existing application throttling policies.
       parameters:
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policies returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -148,11 +135,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApplicationThrottlePolicyList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -187,12 +169,6 @@ paths:
             Successful response with the newly created object as entity in the body.
             Location header contains URL of newly created entity.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 Location of the newly created Policy object.
@@ -213,6 +189,7 @@ paths:
                 displayName: 20PerMin
                 description: Allows 20 request per minute
                 isDeployed: true
+                type: ApplicationThrottlePolicy
                 defaultLimit:
                   type: REQUESTCOUNTLIMIT
                   requestCount:
@@ -223,10 +200,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
-        409:
-          $ref: '#/components/responses/Conflict'
-        500:
-          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
@@ -248,26 +221,12 @@ paths:
         Retrieves an application throttling policy.
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policy returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -283,17 +242,13 @@ paths:
                 displayName: 20PerMin
                 description: Allows 20 request per minute
                 isDeployed: true
+                type: ApplicationThrottlePolicy
                 defaultLimit:
                   type: REQUESTCOUNTLIMIT
                   requestCount:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -316,8 +271,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Policy object that needs to be modified
@@ -332,18 +285,6 @@ paths:
             OK.
             Policy updated.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional request.
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional reuquests.
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the newly created resource.
@@ -364,6 +305,7 @@ paths:
                 displayName: 20PerMin
                 description: Allows 20 request per minute
                 isDeployed: true
+                type: ApplicationThrottlePolicy
                 defaultLimit:
                   type: REQUESTCOUNTLIMIT
                   requestCount:
@@ -374,8 +316,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -393,8 +333,6 @@ paths:
         Deletes an application level throttling policy.
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -403,8 +341,6 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -434,18 +370,12 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
       responses:
         200:
           description: |
             OK.
             List of mediation policies is returned.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: The content type of the body.
               schema:
@@ -454,11 +384,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/mediationList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -478,8 +403,6 @@ paths:
         This operation can be used to add a new global mediation policy.
       parameters:
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: mediation policy to upload
         content:
@@ -493,18 +416,6 @@ paths:
             OK.
             Mediation policy added successfully.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the uploaded thumbnail image of the API.
@@ -523,8 +434,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -547,26 +456,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/mediationPolicyId'
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Mediation Policy returned.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -576,11 +471,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Mediation'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -603,8 +493,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/mediationPolicyId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Mediation policy object that needs to be updated
@@ -619,17 +507,6 @@ paths:
             OK.
             Successful response with updated mediation policy object
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the newly created resource.
@@ -650,8 +527,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -669,8 +544,6 @@ paths:
         This operation can be used to delete an existing global mediation policy providing the Id of the mediation policy.
       parameters:
         - $ref: '#/components/parameters/mediationPolicyId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -681,8 +554,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -704,26 +575,12 @@ paths:
         This operation can be used to retrieve all Subscription level throttling policies.
       parameters:
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policies returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -733,11 +590,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SubscriptionThrottlePolicyList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -772,12 +624,6 @@ paths:
             Successful response with the newly created object as entity in the body.
             Location header contains URL of newly created entity.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 Location of the newly created Policy object.
@@ -814,10 +660,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         415:
           $ref: '#/components/responses/UnsupportedMediaType'
-        409:
-          $ref: '#/components/responses/Conflict'
-        500:
-          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
@@ -839,26 +681,12 @@ paths:
         This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path paramter
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policy returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -886,11 +714,6 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -913,8 +736,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Policy object that needs to be modified
@@ -929,18 +750,6 @@ paths:
             OK.
             Policy updated.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the newly created resource.
@@ -977,8 +786,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -996,8 +803,6 @@ paths:
         This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path paramter.
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -1006,8 +811,6 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1032,26 +835,12 @@ paths:
         * Only super tenant users are allowed for this operation.
       parameters:
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policies returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1061,11 +850,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomRuleList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -1103,12 +887,6 @@ paths:
             Successful response with the newly created object as entity in the body.
             Location header contains URL of newly created entity.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 Location of the newly created resource.
@@ -1163,26 +941,12 @@ paths:
         * Only super tenant users are allowed for this operation.
       parameters:
         - $ref: '#/components/parameters/ruleId'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policy returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1204,11 +968,6 @@ paths:
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -1234,8 +993,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ruleId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Policy object that needs to be modified
@@ -1250,18 +1007,6 @@ paths:
             OK.
             Policy updated.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the newly created resource.
@@ -1292,8 +1037,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1314,8 +1057,6 @@ paths:
         * Only super tenant users are allowed for this operation.
       parameters:
         - $ref: '#/components/parameters/ruleId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -1324,8 +1065,6 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1347,26 +1086,12 @@ paths:
         Retrieves all existing advanced throttling policies.
       parameters:
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policies returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1376,11 +1101,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AdvancedThrottlePolicyList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -1415,12 +1135,6 @@ paths:
             Successful response with the newly created object as entity in the body.
             Location header contains URL of newly created entity.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 Location of the newly created Advanced Throttling Policy.
@@ -1473,26 +1187,12 @@ paths:
         Retrieves an advanced throttling policy.
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Policy returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1515,11 +1215,6 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -1542,8 +1237,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Policy object that needs to be modified
@@ -1558,18 +1251,6 @@ paths:
             OK.
             Policy updated.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 The URL of the newly created resource.
@@ -1601,8 +1282,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1620,8 +1299,6 @@ paths:
         Deletes an advanced throttling policy.
       parameters:
         - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -1630,8 +1307,6 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1653,26 +1328,12 @@ paths:
         Retrieves all existing deny policies.
       parameters:
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Deny Policies returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1682,11 +1343,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingConditionList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
       security:
@@ -1721,12 +1377,6 @@ paths:
             Successful response with the newly created object as entity in the body.
             Location header contains URL of newly created entity.
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Location:
               description: |
                 Location of the newly created resource.
@@ -1766,26 +1416,12 @@ paths:
         Retrieves a Deny policy providing the condition Id
       parameters:
         - $ref: '#/components/parameters/conditionId'
-        - $ref: '#/components/parameters/If-None-Match'
-        - $ref: '#/components/parameters/If-Modified-Since'
       responses:
         200:
           description: |
             OK.
             Condition returned
           headers:
-            ETag:
-              description: |
-                Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
-            Last-Modified:
-              description: |
-                Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
-              schema:
-                type: string
             Content-Type:
               description: |
                 The content type of the body.
@@ -1795,11 +1431,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingCondition'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         404:
           $ref: '#/components/responses/NotFound'
         406:
@@ -1821,8 +1452,6 @@ paths:
         Deletes an existing deny policy
       parameters:
         - $ref: '#/components/parameters/conditionId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -1831,8 +1460,6 @@ paths:
           content: {}
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -1851,8 +1478,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/conditionId'
         - $ref: '#/components/parameters/Content-Type'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       requestBody:
         description: |
           Blocking condition with updated status
@@ -1893,14 +1518,13 @@ paths:
       summary: |
         Retrieve/Search Applications
       description: |
-        This operation can be used to retrieve list of applications that is belonged to the given user, If no user 
-        query is provided, the application(s) for the user associated with the Authorization Header will be returned
+        This operation can be used to retrieve list of applications owned by the given user, If no user
+        is provided, the applications owned by the user associated with the provided access token will be returned.
       parameters:
         - $ref: '#/components/parameters/user'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
         - name: name
           in: query
           description: |
@@ -1931,11 +1555,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApplicationList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         400:
           $ref: '#/components/responses/BadRequest'
         406:
@@ -1963,7 +1582,6 @@ paths:
         This operation can be used to delete an application by specifying its id.
       parameters:
         - $ref: '#/components/parameters/applicationId'
-        - $ref: '#/components/parameters/If-Match'
       responses:
         200:
           description: |
@@ -1986,8 +1604,6 @@ paths:
                 $ref: '#/components/schemas/WorkflowResponse'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -2022,8 +1638,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        412:
-          $ref: '#/components/responses/PreconditionFailed'
       security:
         - OAuth2Security:
             - apim:admin
@@ -2032,433 +1646,6 @@ paths:
         - lang: Shell
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/admin/v2/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b/change-owner?owner=admin"'
-
-  ######################################################
-  # Export Resource API
-  ######################################################
-  /export/applications:
-    get:
-      tags:
-        - Application (Individual)
-      summary: Export an Application
-      description: |
-        This operation can be used to export the details of a particular application as a zip file.
-      parameters:
-        - name: appName
-          in: query
-          description: |
-            Application Name
-          required: true
-          schema:
-            type: string
-        - name: appOwner
-          in: query
-          description: |
-            Owner of the Application
-          required: true
-          schema:
-            type: string
-        - name: withKeys
-          in: query
-          description: |
-            Export application keys
-          schema:
-            type: boolean
-      responses:
-        200:
-          description: |
-            OK.
-            Export Successful.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                type: string
-                format: binary
-            application/zip:
-              schema:
-                type: string
-                format: binary
-        400:
-          $ref: '#/components/responses/BadRequest'
-        404:
-          $ref: '#/components/responses/NotFound'
-        406:
-          $ref: '#/components/responses/NotAcceptable'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:app_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/export/applications?appName=sampleApp&appOwner=admin&withKeys=true"
-          > exported-application.zip'
-
-  /export/api:
-    get:
-      tags:
-        - API (Individual)
-      summary: Export an API
-      description: |
-        This operation can be used to export the details of a particular API as a zip file.
-      parameters:
-        - name: name
-          in: query
-          description: |
-            API Name
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          description: |
-            Version of the API
-          required: true
-          schema:
-            type: string
-        - name: providerName
-          in: query
-          description: |
-            Provider name of the API
-          schema:
-            type: string
-        - name: format
-          in: query
-          description: |
-            Format of output documents. Can be YAML or JSON.
-          schema:
-            type: string
-            enum:
-              - JSON
-              - YAML
-        - name: preserveStatus
-          in: query
-          description: |
-            Preserve API Status on export
-          schema:
-            type: boolean
-      responses:
-        200:
-          description: |
-            OK.
-            Export Successful.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/zip:
-              schema:
-                type: string
-                format: binary
-        404:
-          $ref: '#/components/responses/NotFound'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:api_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/export/api?name=PizzaShackAPI&version=1.0.0&providerName=admin&format=YAML&preserveStatus=true"
-          > exportAPI.zip'
-
-  /export/api-product:
-    get:
-      tags:
-        - API Product (Individual)
-      summary: Export an API Product
-      description: |
-        This operation can be used to export the details of a particular API Product as a zip file.
-      parameters:
-        - name: name
-          in: query
-          description: |
-            API Product Name
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          description: |
-            Version of the API Product
-          required: true
-          schema:
-            type: string
-        - name: providerName
-          in: query
-          description: |
-            Provider name of the API Product
-          schema:
-            type: string
-        - name: format
-          in: query
-          description: |
-            Format of output documents. Can be YAML or JSON.
-          schema:
-            type: string
-            enum:
-              - JSON
-              - YAML
-        - name: preserveStatus
-          in: query
-          description: |
-            Preserve API Product Status on export
-          schema:
-            type: boolean
-      responses:
-        200:
-          description: |
-            OK.
-            Export Successful.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/zip:
-              schema:
-                type: string
-                format: binary
-        404:
-          $ref: '#/components/responses/NotFound'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:api_product_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/export/api-product?name=PizzaShackAPIProduct&version=1.0.0&providerName=admin&format=YAML&preserveStatus=true"
-          > exportAPIProduct.zip'
-
-  ######################################################
-  # Import Resource API
-  ######################################################
-  /import/applications:
-    post:
-      tags:
-        - Application (Individual)
-      summary: Import an Application
-      description: |
-        This operation can be used to import an application.
-      parameters:
-        - name: preserveOwner
-          in: query
-          description: |
-            Preserve Original Creator of the Application
-          schema:
-            type: boolean
-        - name: skipSubscriptions
-          in: query
-          description: |
-            Skip importing Subscriptions of the Application
-          schema:
-            type: boolean
-        - name: appOwner
-          in: query
-          description: |
-            Expected Owner of the Application in the Import Environment
-          schema:
-            type: string
-        - name: skipApplicationKeys
-          in: query
-          description: |
-            Skip importing Keys of the Application
-          schema:
-            type: boolean
-        - name: update
-          in: query
-          description: |
-            Update if application exists
-          schema:
-            type: boolean
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              required:
-                - file
-              properties:
-                file:
-                  type: string
-                  description: |
-                    Zip archive consisting of exported Application Configuration.
-                  format: binary
-        required: true
-      responses:
-        200:
-          description: |
-            OK.
-            Successful response with the updated object information as entity in the body.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApplicationInfo'
-        207:
-          description: |
-            Multi Status.
-            Partially successful response with skipped APIs information object as entity in the body.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/APIInfoList'
-        400:
-          $ref: '#/components/responses/BadRequest'
-        406:
-          $ref: '#/components/responses/NotAcceptable'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:app_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=@exported-application.zip "https://127.0.0.1:9443/api/am/admin/v2/import/applications?preserveOwner=true&skipSubscriptions=false&appOwner=admin&skipApplicationKeys=false&update=true"'
-
-  /import/api:
-    post:
-      tags:
-        - API (Individual)
-      summary: Import an API
-      description: |
-        This operation can be used to import an API.
-      parameters:
-        - name: preserveProvider
-          in: query
-          description: |
-            Preserve Original Provider of the API. This is the user choice to keep or replace the API provider.
-          schema:
-            type: boolean
-        - name: overwrite
-          in: query
-          description: |
-            Whether to update the API or not. This is used when updating already existing APIs.
-          schema:
-            type: boolean
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              required:
-                - file
-              properties:
-                file:
-                  type: string
-                  description: |
-                    Zip archive consisting on exported api configuration
-                  format: binary
-        required: true
-      responses:
-        200:
-          description: |
-            Created.
-            API Imported Successfully.
-          content: {}
-        403:
-          $ref: '#/components/responses/Forbidden'
-        404:
-          $ref: '#/components/responses/NotFound'
-        409:
-          $ref: '#/components/responses/Conflict'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:api_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=@admin-PizzaShackAPI-1.0.0.zip "https://127.0.0.1:9443/api/am/admin/v2/import/api?preserveProvider=false&overwrite=false"'
-
-  /import/api-product:
-    post:
-      tags:
-        - API Product (Individual)
-      summary: Import an API Product
-      description: |
-        This operation can be used to import an API Product.
-      parameters:
-        - name: preserveProvider
-          in: query
-          description: |
-            Preserve Original Provider of the API Product. This is the user choice to keep or replace the API Product provider.
-          schema:
-            type: boolean
-        - name: importAPIs
-          in: query
-          description: |
-            Whether to import the dependent APIs or not.
-          schema:
-            type: boolean
-        - name: overwriteAPIProduct
-          in: query
-          description: |
-            Whether to update the API Product or not. This is used when updating already existing API Products.
-          schema:
-            type: boolean
-        - name: overwriteAPIs
-          in: query
-          description: |
-            Whether to update the dependent APIs or not. This is used when updating already existing dependent APIs of an API Product.
-          schema:
-            type: boolean
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              required:
-                - file
-              properties:
-                file:
-                  type: string
-                  description: |
-                    Zip archive consisting on exported API Product configuration
-                  format: binary
-        required: true
-      responses:
-        200:
-          description: |
-            Created.
-            API Product Imported Successfully.
-          content: {}
-        403:
-          $ref: '#/components/responses/Forbidden'
-        404:
-          $ref: '#/components/responses/NotFound'
-        409:
-          $ref: '#/components/responses/Conflict'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:admin
-            - apim:api_product_import_export
-      x-code-samples:
-        - lang: Shell
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=@exportAPIProduct.zip "https://127.0.0.1:9443/api/am/admin/v2/import/api-product?preserveProvider=false&overwriteAPIProduct=false&overwriteAPIs=false&importAPIs=false"'
 
   ######################################################
   # The "Label" resource API
@@ -2572,8 +1759,6 @@ paths:
         Delete a Label by label Id
       parameters:
         - $ref: '#/components/parameters/labelId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -2590,6 +1775,135 @@ paths:
         - lang: Shell
           source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/admin/v2/labels/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+
+  ######################################################
+  # The "Environment" resource API
+  ######################################################
+  /environments:
+    get:
+      tags:
+        - Environment Collection
+      summary: Get all registered Environments
+      description: |
+        Get all Registered Environments
+      responses:
+        200:
+          description: |
+            OK.
+            Environments returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentList'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:environment_read
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v2/environments"'
+
+    post:
+      tags:
+        - Environment
+      summary: Add an Environment
+      description: |
+        Add a new geteway environment
+      requestBody:
+        description: |
+          Environment object that should to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Environment'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:environment_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v2/environments"'
+
+  ######################################################
+  # The "Individual Environment" resource APIs
+  ######################################################
+  /environments/{environmentId}:
+    put:
+      tags:
+        - Environment
+      summary: Update an Environment
+      description: |
+        Update a gateway Environment by environment Id
+      parameters:
+        - $ref: '#/components/parameters/environmentId'
+      requestBody:
+        description: |
+          Environment object with updated information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Environment'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Environment updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Environment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:environment_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v2/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+
+    delete:
+      tags:
+        - Environment
+      summary: Delete an Environment
+      description: |
+        Delete a Environment by Environment Id
+      parameters:
+        - $ref: '#/components/parameters/environmentId'
+      responses:
+        200:
+          description: |
+            OK.
+            Environment successfully deleted.
+          content: {}
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:environment_manage
+      x-code-samples:
+        - lang: Shell
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v2/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"'
 
   ######################################################
   # The Bot Detection Data API resources
@@ -2705,7 +2019,6 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/If-None-Match'
         - name: workflowType
           in: query
           description: |
@@ -2737,11 +2050,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkflowList'
-        304:
-          description: |
-            Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
-          content: {}
         400:
           $ref: '#/components/responses/BadRequest'
         404:
@@ -2773,7 +2081,6 @@ paths:
           required: true
           schema:
             type: string
-        - $ref: '#/components/parameters/If-None-Match'
       responses:
         200:
           description: |
@@ -3055,8 +2362,6 @@ paths:
         Delete an API Category by API Category Id
       parameters:
         - $ref: '#/components/parameters/apiCategoryId'
-        - $ref: '#/components/parameters/If-Match'
-        - $ref: '#/components/parameters/If-Unmodified-Since'
       responses:
         200:
           description: |
@@ -3557,6 +2862,36 @@ paths:
           -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v2/system-scopes/role-aliases"'
 
   ######################################################
+  # Roles resource APIs
+  ######################################################
+  /roles/{roleId}:
+    head:
+      tags:
+        - Roles
+      summary: Check Whether Given Role Name already Exist
+      description: |
+        Using this operation, user can check a given role name exists or not.
+      operationId: validateSystemRole
+      parameters:
+        - $ref: '#/components/parameters/roleId'
+      responses:
+        200:
+          description: OK. Requested role name exists.
+          content: {}
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:role_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/admin/v2/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"'
+
+  ######################################################
   # The Tenant Theme resource APIs
   ######################################################
   /tenant-theme:
@@ -4004,6 +3339,10 @@ components:
               type: string
               description: Burst control time unit
               example: min
+            subscriberCount:
+              type: integer
+              description: Number of subscriptions allowed
+              example: 10
             customAttributes:
               type: array
               description: |
@@ -4285,10 +3624,13 @@ components:
           enum:
             - REQUESTCOUNTLIMIT
             - BANDWIDTHLIMIT
+            - EVENTCOUNTLIMIT
         requestCount:
           $ref: '#/components/schemas/RequestCountLimit'
         bandwidth:
           $ref: '#/components/schemas/BandwidthLimit'
+        eventCount:
+          $ref: '#/components/schemas/EventCountLimit'
     MonetizationInfo:
       title: API monetization details object
       required:
@@ -4340,6 +3682,19 @@ components:
               description: Maximum number of requests allowed
               format: int64
               example: 30
+    EventCountLimit:
+      title: Event Count Limit object
+      allOf:
+        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - required:
+            - eventCount
+          type: object
+          properties:
+            eventCount:
+              type: integer
+              description: Maximum number of events allowed
+              format: int64
+              example: 3000
     BlockingCondition:
       title: Blocking Conditions
       required:
@@ -4350,11 +3705,10 @@ components:
         conditionId:
           type: string
           description: Id of the blocking condition
-          readOnly: true    
           example: b513eb68-69e8-4c32-92cf-852c101363cf
         conditionType:
           type: string
-          description: Type of the blocking condition (IP Address, IP Range, API Context, Application, User)
+          description: Type of the blocking condition
           example: IP
           enum:
             - API
@@ -4366,32 +3720,6 @@ components:
           type: object
           properties: {}
           description: Value of the blocking condition
-
-
-                    `IP Address type condition`
-
-                      {"conditionType":"IP","conditionValue":{"invert":false,"fixedIp":"127.0.0.2"},"conditionStatus":true}
-
-
-                    `IP Range type condition`
-
-                      {"conditionType":"IPRANGE","conditionValue":{"endingIp":"127.9.9.2","startingIp":"127.9.9.1","invert":false},"conditionStatus":true}
-
-
-                    `Application type condition`
-
-                      {"conditionType":"APPLICATION","conditionValue":"admin:DefaultApplication","conditionStatus":true}
-
-
-                    `API Context type condition`
-
-                      {"conditionType":"API","conditionValue":"/pizzashack/1.0.0","conditionStatus":true}
-
-
-                    `User type condition`
-
-                      {"conditionType":"USER","conditionValue":"admin","conditionStatus":true}
-
           example:
             fixedIp: 192.168.1.1
             invert: false
@@ -4626,6 +3954,86 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
+    Environment:
+      title: Environment
+      required:
+        - name
+        - vhosts
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+        name:
+          maxLength: 255
+          minLength: 1
+          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+]*$)'
+          type: string
+          example: us-region
+        displayName:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: US Region
+        description:
+          maxLength: 1023
+          type: string
+          example: Gateway environment in US Region
+        isReadOnly:
+          type: boolean
+          readOnly: true
+          example: false
+        vhosts:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/VHost'
+    EnvironmentList:
+      title: Environment List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of Environments returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/Environment'
+    VHost:
+      title: Virtual Host
+      required:
+        - host
+      type: object
+      properties:
+        host:
+          maxLength: 255
+          minLength: 1
+          # hostname regex as per RFC 1123 (http://tools.ietf.org/html/rfc1123) and appended *
+          pattern: '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$'
+          type: string
+          example: mg.wso2.com
+        httpContext:
+          maxLength: 255
+          minLength: 0
+          # TODO (renuka) check this regex: not allowed: (_ .) and allowed: (- /)
+          pattern: '^\/?([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])*$'
+          type: string
+          example: pets
+        httpPort:
+          type: integer
+          example: 80
+        httpsPort:
+          type: integer
+          example: 443
+        wsPort:
+          type: integer
+          example: 9099
+        wssPort:
+          type: integer
+          example: 8099
     PublishStatus:
       title: Usage publish status
       type: object
@@ -5461,6 +4869,14 @@ components:
       required: true
       schema:
         type: string
+    environmentId:
+      name: environmentId
+      in: path
+      description: |
+        Environment UUID (or Environment name defined in config)
+      required: true
+      schema:
+        type: string
     policyId:
       name: policyId
       in: path
@@ -5510,36 +4926,6 @@ components:
       schema:
         type: string
         default: application/json
-    If-None-Match:
-      name: If-None-Match
-      in: header
-      description: |
-        Validator for conditional requests; based on the ETag of the formerly retrieved
-        variant of the resource (Will be supported in future).
-      schema:
-        type: string
-    If-Modified-Since:
-      name: If-Modified-Since
-      in: header
-      description: |
-        Validator for conditional requests; based on Last Modified header of the
-        formerly retrieved variant of the resource (Will be supported in future).
-      schema:
-        type: string
-    If-Match:
-      name: If-Match
-      in: header
-      description: |
-        Validator for conditional requests; based on ETag (Will be supported in future).
-      schema:
-        type: string
-    If-Unmodified-Since:
-      name: If-Unmodified-Since
-      in: header
-      description: |
-        Validator for conditional requests; based on Last Modified header (Will be supported in future).
-      schema:
-        type: string
     limit:
       name: limit
       in: query
@@ -5595,6 +4981,16 @@ components:
       required: true
       schema:
         type: string
+    roleId:
+      name: roleId
+      in: path
+      description: |
+        The Base 64 URL encoded role name with domain. If the given role is in PRIMARY user-store, role ID should be
+        derived as Base64URLEncode(role-name). If the given role is in secondary user-store, role ID should be
+        derived as Base64URLEncode({user-store-name}/{role-name}).
+      required: true
+      schema:
+        type: string
   securitySchemes:
     OAuth2Security:
       type: oauth2
@@ -5617,6 +5013,8 @@ components:
               operations
             apim:label_manage: Manage microgateway labels
             apim:label_read: Retrieve microgateway labels
+            apim:environment_manage: Manage gateway environments
+            apim:environment_read: Retrieve gateway environments
             apim:monetization_usage_publish: Retrieve and publish Monetization related
               usage records
             apim:api_workflow_approve: Manage workflows
@@ -5629,3 +5027,4 @@ components:
             apim:admin_alert_manage: Manage admin alerts
             apim:api_workflow_view: Retrive workflow requests
             apim:scope_manage: Manage system scopes
+            apim:role_manage: Manage system roles

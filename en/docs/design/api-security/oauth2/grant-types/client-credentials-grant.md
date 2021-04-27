@@ -59,7 +59,7 @@ The client can request an access token using only its client credentials with th
 
 
 !!! tip
-    We use the Client Credentials grant type to generate access tokens for an application through the API Developer Portal. Therefore, you should enable this grant type to the application. To do that, go to the API Developer Portal, click the application name from under the **APPLICATIONS** tab, click the **Production Keys** tab, and select the **Client Credentials** check box under **Grant Types** in **Key Configurations**.
+    We use the Client Credentials grant type to generate access tokens for an application through the API Developer Portal. Therefore, you should enable this grant type to the application. To do that, go to the API Developer Portal, click the application name from under the **APPLICATIONS** tab, click the **OAuth2 Tokens** under **Production Keys** tab, and select the **Client Credentials** check box under **Grant Types** in **Key Configurations**.
 
     ![]({{base_path}}/assets/img/learn/client-credentials.png)
 

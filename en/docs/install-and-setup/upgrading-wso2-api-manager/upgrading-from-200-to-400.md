@@ -1,12 +1,12 @@
 # Upgrading API Manager from 2.0.0 to 4.0.0
 
-The following information describes how to upgrade your API Manager server **from API-M 2.0.0 to API-M 4.0.0**.
+The following information describes how to upgrade your API Manager server **from API-M 2.0.0 to 4.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100) instead of the following steps.    
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-is-5110) instead of the following steps.
 
 !!! note "If you are using PostgreSQL"
     The DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
@@ -775,7 +775,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255) /
         ALTER TABLE AM_API ADD STATUS VARCHAR(30) /
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL /
-        
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0 /
+
         CREATE TABLE AM_REVISION (
                     ID INTEGER NOT NULL,
                     API_UUID VARCHAR(256) NOT NULL,
@@ -786,6 +787,13 @@ Follow the instructions below to move all the existing API Manager configuration
                     PRIMARY KEY (ID, API_UUID),
                     UNIQUE(REVISION_UUID))
         /
+        
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        )/
         
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
                     NAME VARCHAR(255) NOT NULL,
@@ -965,7 +973,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
         /
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20) DEFAULT 'DEVPORTAL'
         /
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
         /
@@ -1353,6 +1361,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE VARBINARY(MAX) DEFAULT NULL;
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
+
         
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVISION]') AND TYPE IN (N'U'))
         CREATE TABLE AM_REVISION (
@@ -1366,6 +1376,16 @@ Follow the instructions below to move all the existing API Manager configuration
           UNIQUE(REVISION_UUID)
         );
         
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_REVISION_METADATA]') AND TYPE IN (N'U'))
+        
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        );
+        
+
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_DEPLOYMENT_REVISION_MAPPING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
           NAME VARCHAR(255) NOT NULL,
@@ -1525,7 +1545,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXEC sp_rename 'AM_API_COMMENTS.DATE_COMMENTED', 'CREATED_TIME', 'COLUMN';
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME DATETIME;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);      
         ```
@@ -1846,6 +1866,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL;
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
         
         CREATE TABLE IF NOT EXISTS AM_REVISION (
           ID INTEGER NOT NULL,
@@ -1856,6 +1877,13 @@ Follow the instructions below to move all the existing API Manager configuration
           CREATED_BY VARCHAR(255),
           PRIMARY KEY (ID, API_UUID),
           UNIQUE(REVISION_UUID)
+        )ENGINE INNODB;
+        
+        CREATE TABLE IF NOT EXISTS AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
         )ENGINE INNODB;
         
         CREATE TABLE IF NOT EXISTS AM_DEPLOYMENT_REVISION_MAPPING (
@@ -2007,7 +2035,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS CHANGE DATE_COMMENTED CREATED_TIME TIMESTAMP NOT NULL;
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(64) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);        
         ```
@@ -2464,7 +2492,8 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BLOB DEFAULT NULL
         /
-        
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0
+        /
         CREATE TABLE AM_REVISION (
                     ID INTEGER NOT NULL,
                     API_UUID VARCHAR(256) NOT NULL,
@@ -2474,6 +2503,14 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     PRIMARY KEY (ID, API_UUID),
                     UNIQUE(REVISION_UUID))
+        /
+        
+        CREATE TABLE AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
+        )
         /
         
         CREATE TABLE AM_DEPLOYMENT_REVISION_MAPPING (
@@ -2658,7 +2695,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR2(255) DEFAULT NULL
         /
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20)
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR2(20) DEFAULT 'DEVPORTAL'
         /
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR2(20) DEFAULT 'general'
         /
@@ -3066,6 +3103,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API ADD API_UUID VARCHAR(255);
         ALTER TABLE AM_API ADD STATUS VARCHAR(30);
         ALTER TABLE AM_CERTIFICATE_METADATA ADD CERTIFICATE BYTEA DEFAULT NULL;
+        ALTER TABLE AM_API ADD REVISIONS_CREATED INTEGER DEFAULT 0;
         
         DROP TABLE IF EXISTS AM_REVISION;
         CREATE TABLE IF NOT EXISTS AM_REVISION (
@@ -3077,6 +3115,14 @@ Follow the instructions below to move all the existing API Manager configuration
                     CREATED_BY VARCHAR(255),
                     PRIMARY KEY (ID, API_UUID),
                     UNIQUE(REVISION_UUID)
+        );
+        
+        DROP TABLE IF EXISTS AM_API_REVISION_METADATA;
+        CREATE TABLE IF NOT EXISTS AM_API_REVISION_METADATA (
+            API_UUID VARCHAR(64),
+            REVISION_UUID VARCHAR(64),
+            API_TIER VARCHAR(128),
+            UNIQUE (API_UUID,REVISION_UUID)
         );
         
         DROP TABLE IF EXISTS AM_DEPLOYMENT_REVISION_MAPPING;
@@ -3245,7 +3291,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_API_COMMENTS RENAME COLUMN DATE_COMMENTED TO CREATED_TIME;
         ALTER TABLE AM_API_COMMENTS ADD UPDATED_TIME TIMESTAMP;
         ALTER TABLE AM_API_COMMENTS ADD PARENT_COMMENT_ID VARCHAR(255) DEFAULT NULL;
-        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20);
+        ALTER TABLE AM_API_COMMENTS ADD ENTRY_POINT VARCHAR(20) DEFAULT 'DEVPORTAL';
         ALTER TABLE AM_API_COMMENTS ADD CATEGORY VARCHAR(20) DEFAULT 'general';
         ALTER TABLE AM_API_COMMENTS ADD FOREIGN KEY(PARENT_COMMENT_ID) REFERENCES AM_API_COMMENTS(COMMENT_ID);
         ```
@@ -3257,14 +3303,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ``` java
         [keystore.tls]
-        file_name = "wso2carbon.jks"
+        file_name = "internal.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
         key_password = "wso2carbon"
                 
         [keystore.primary]
-        file_name = "wso2carbon.jks"
+        file_name = "primary.jks"
         type = "JKS"
         password = "wso2carbon"
         alias = "wso2carbon"
@@ -3289,7 +3335,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-    - In order to work with the [API Security Audit Feature]({{base_path}}/learn/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
+    - In order to work with the [API Security Audit Feature]({{base_path}}/design/api-security/configuring-api-security-audit/) you need to have the public certificate of the [42crunch](https://42crunch.com/) in the client-truststore. Follow the guidelines given in [Importing Certificates to the Truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
     
 6.  Configure the [SymmetricKeyInternalCryptoProvider](https://is.docs.wso2.com/en/5.11.0/administer/symmetric-overview/) as the default internal cryptor provider.
     Generate your own secret key using a tool like OpenSSL.
@@ -3365,7 +3411,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
         
-         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
+         Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
 
@@ -3407,26 +3453,26 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5. Update `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
     
-         ```
-             [user_store]
-             type = "database"
-         ```   
-
+           ```
+           [user_store]
+           type = "database"
+           ```
+             
     6.  Start WSO2 API Manager 4.0.0 as follows to carry out the complete Identity component migration.
         
         !!! note
             If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) section before moving to the next step.
 
         ```tab="Linux / Mac OS"
-            sh wso2server.sh -Dmigrate -Dcomponent=identity
+            sh api-manager.sh -Dmigrate -Dcomponent=identity
         ```
 
         ```tab="Windows"
-            wso2server.bat -Dmigrate -Dcomponent=identity
+            api-manager.bat -Dmigrate -Dcomponent=identity
         ```
 
         !!! note
-            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finishes completely and the server starts.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server starts.
         
         !!! note
             Note that if you want to use the latest user store, you need to update the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file as follows after the identity migration:
@@ -3437,7 +3483,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ``` 
 
         !!! warning "Troubleshooting"
-            When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
+            When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
         The following is a sample stack trace that contains the exception.
             
@@ -3453,14 +3499,42 @@ Follow the instructions below to move all the existing API Manager configuration
             2. Re-run the command above.
 
             **Make sure to revert the change done in <a href="#stepT1">Step 1</a>, after the migration is complete.**
-    
+
+            If you encounter the following error when executing the given DB script against the shared_db:  
+            
+            
+            Sample exception stack trace is given below.
+            ```
+            ERROR - UserIDMigrator Error occurred while updating user id for the user. user id updating process stopped at the offset 0 in domain PRIMARY in tenant carbon.super
+            com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'UM_USER_ID' in 'field list'
+            ```
+           
+            ??? info "DB Scripts"
+            ```tab="MySQL"
+            DROP PROCEDURE IF EXISTS ALTER_UM_USER;
+            DELIMITER $$
+            CREATE PROCEDURE ALTER_UM_USER()
+            BEGIN
+                IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER') THEN
+                    IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='UM_USER' AND COLUMN_NAME='UM_USER_ID') THEN
+                        ALTER TABLE `UM_USER` ADD COLUMN `UM_USER_ID` CHAR(36) NOT NULL DEFAULT 'NONE';
+                        UPDATE UM_USER SET UM_USER_ID = UUID();
+                        ALTER TABLE `UM_USER` ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+                    END IF;
+                END IF;
+            END $$
+            DELIMITER ;
+            CALL ALTER_UM_USER();
+
+        Once it is done, re-run the command above.
+                   
     7.  After you have successfully completed the migration, stop the server, and remove the following files and folders.
 
         -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (`CMD_LINE_ARGS`) of the `wso2server.bat` file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (`CMD_LINE_ARGS`) of the `api-manager.bat` file.
 
             ```
             -Dmigrate -Dcomponent=identity
@@ -3479,11 +3553,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server.
 
          ``` tab="Linux / Mac OS"
-         sh wso2server.sh -DmigrateFromVersion=2.0.0
+         sh api-manager.sh -DmigrateFromVersion=2.0.0
          ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.0.0
+        api-manager.bat -DmigrateFromVersion=2.0.0
         ```
 
     4. Shutdown the API-M server.
@@ -3492,6 +3566,36 @@ Follow the instructions below to move all the existing API Manager configuration
 
         - Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
+    5. Execute the following DB script in the respective AM database.    
+    
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+        
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
+
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
+    
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
@@ -3504,7 +3608,7 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Please note that depending on the number of records in the `REG_LOG` table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
+            Note that depending on the number of records in the `REG_LOG` table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to the `<API-M_4.0.0_HOME>/repository/components/dropins` directory.
 
@@ -3535,11 +3639,11 @@ Follow the instructions below to move all the existing API Manager configuration
 Restart the WSO2 API-M server.
 
 ```tab="Linux / Mac OS"
-sh wso2server.sh
+sh api-manager.sh
 ```
 
 ```tab="Windows"
-wso2server.bat
+api-manager.bat
 ```
 
 This concludes the upgrade process.
@@ -3553,6 +3657,21 @@ This concludes the upgrade process.
     
    - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
   
+
+   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.
+
+   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+   
+     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+     
+     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
+   - If you have done any customizations to the **default sequences** that ship with product, you may merge the customizations. Also note that the the fault messages have been changed from XML to JSON in API-M 4.0.0.  
+
+   - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+     All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+     For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
    - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
 
         

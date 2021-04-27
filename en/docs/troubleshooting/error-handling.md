@@ -9,7 +9,7 @@ type of errors that occur. You must select the correct file.
 
 For example, to change the message type of authorization errors, open
 the
-`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml                 `
+`<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml`
 file and change `application/xml` to something like
 **`application/json`** .
 

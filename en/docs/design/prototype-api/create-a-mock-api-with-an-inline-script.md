@@ -8,31 +8,25 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 ## Step 1 - Create a prototype API with mock response payloads
 
-1. Click **CREATE NEW API**, and click **I Have an Existing REST API**.
+1. Click **CREATE API** and click **Import Open API**.
 
-     [![Create API options]({{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png)]({{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png)
+    <a href="{{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png"><img src="{{base_path}}/assets/img/learn/create-api-existing-rest-api-link.png" alt="importing open api"></a>
 
-2. Upload the OpenAPI URL or OpenAPI File and click **NEXT**.
+2. Upload the OpenAPI URL or OpenAPI File and click **Next**.
 
-     [![Filled create api form for existing]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)
+    <a href="{{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png"><img src="{{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png" alt="create api form for existing api"></a>
     
-3. Provide the API name, context, and version. Thereafter, click **CREATE**.
+3. Provide the API name, context, and version. Thereafter, click **Create**.
 
-     [![Filled create api form]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)
+    <a href="{{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png"><img src="{{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png" alt="provide api details"></a>
          
-      Now you will be directed to the API overview page.
+    Now you will be directed to the API overview page.
 
-4. Click **Endpoints** to navigate to the Endpoints page.
+4. Click **Endpoints** to navigate to the Endpoints page and select **Prototype Implementation** as the endpoint type.
 
-5. Select **Prototype Implementation** as the endpoint type, and click **ADD**.
+    <a href="{{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png" alt="select prototype implementation"></a>
 
-     [![Selecting Prototype Implementation to add]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-add-swagger-petstore.png)
-
-     The Endpoints page appears.
-    
-     [![List of endpoints in Inline script page]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-page-swagger-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-endpoint-page-swagger-petstore.png)
-
-6. Click and expand any of the methods that contain a sample/mock payload to view the inline script that has been generated.
+5. Click and expand any of the methods that contain a sample/mock payload to view the inline script that has been generated.
 
      [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
 
@@ -58,7 +52,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
       ```
     
-7. Modify the inline script for `/pet/{petId}`.
+6. Modify the inline script for `/pet/{petId}`.
 
      Set a path parameter entered by the user to a variable that will satisfy a condition and set a response accordingly.
 
@@ -114,35 +108,34 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       ```
     
     ### Inline Script Methods  
-        
+          
     The following table lists down the `mc.` methods that you can use to invoke functions in the inline script. You can use these functions to access the Synapse predefined in a script variable named `mc`. The `mc` variable represents an implementation of the `MessageContext`, named `ScriptMessageContext.java`, which contains the following methods, that you can access within the script as `mc.methodName`.
-        
-    | **Return?** | **Method Name**                        | **Description**                                                                                                                                                    |
-    |---------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Yes     | getPayloadXML()                    | This gets an XML representation of SOAP body payload.                                                                                                          |
-    | No      | setPayloadXML(payload)             | This sets the SOAP body payload from XML.                                                                                                                      |
-    | Yes     | getEnvelopeXML()                   | This gets the XML representation of the complete SOAP envelope.                                                                                                |
-    | No      | setTo(reference)                   | This is used to set the value that specifies the receiver of the message.                                                                                     |
-    | Yes     | setFaultTo(reference)              | This is used to set the value that specifies the receiver of the faults relating to the message.                                                              |
-    | No      | setFrom(reference)                 | This is used to set the value that specifies the sender of the message.                                                                                       |
-    | No      | setReplyTo(reference)              | This is used to set the value that specifies the receiver of the replies to the message.                                                                      |
-    | Yes     | getPayloadJSON()                   | This gets the JSON representation of a SOAP Body payload.                                                                                                      |
-    | No      | setPayloadJSON( payload )          | This sets the JSON representation of a payload obtained via the `             getPayloadJSON()            ` method and sets it in the current message context. |
-    | Yes     | getProperty(name)                  | This gets a property from the current message context.                                                                                                         |
-    | No      | setProperty(key, value)            | This is used to set a property in the current message context. The previously set property values are replaced by this method.                                 |
+          
+      | **Return?** | **Method Name**                        | **Description**                                                                                                                                                    |
+      |---------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+      | Yes     | getPayloadXML()                    | This gets an XML representation of SOAP body payload.                                                                                                          |
+      | No      | setPayloadXML(payload)             | This sets the SOAP body payload from XML.                                                                                                                      |
+      | Yes     | getEnvelopeXML()                   | This gets the XML representation of the complete SOAP envelope.                                                                                                |
+      | No      | setTo(reference)                   | This is used to set the value that specifies the receiver of the message.                                                                                     |
+      | Yes     | setFaultTo(reference)              | This is used to set the value that specifies the receiver of the faults relating to the message.                                                              |
+      | No      | setFrom(reference)                 | This is used to set the value that specifies the sender of the message.                                                                                       |
+      | No      | setReplyTo(reference)              | This is used to set the value that specifies the receiver of the replies to the message.                                                                      |
+      | Yes     | getPayloadJSON()                   | This gets the JSON representation of a SOAP Body payload.                                                                                                      |
+      | No      | setPayloadJSON( payload )          | This sets the JSON representation of a payload obtained via the `             getPayloadJSON()            ` method and sets it in the current message context. |
+      | Yes     | getProperty(name)                  | This gets a property from the current message context.                                                                                                         |
+      | No      | setProperty(key, value)            | This is used to set a property in the current message context. The previously set property values are replaced by this method.                                 |
       
-      
-  8. Click **SAVE** to save the API.
+7. Click **SAVE** to save the API.
 
-    [![Save button Inline scripts page]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)
+     <a href="{{base_path}}/assets/img/learn/create-api-prototype-click-save.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-click-save.png" alt="save inline scripts page"></a>
 
 ## Step 2 - Deploy the API as a prototype
 
-  1. Click **Lifecycle** to navigate to the Lifecycle page.
+1. Click **Lifecycle** to navigate to the Lifecycle page.
 
-  2. Click **DEPLOY AS A PROTOTYPE** to deploy the API as a prototype.
+2. Click **Deploy as a Prototype** to deploy the API as a prototype.
 
-      [![Lifecycle page]({{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png)
+    <a href="{{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-lc-page-petstore.png" alt="deploy as prototype"></a>
 
 ## Step 3 - Invoke the API
 
@@ -150,7 +143,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 2. Click **Try Out** to navigate to the API Console.
 
-     [![Devportal overview]({{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png)]({{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png)
+     <a href="{{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png"><img src="{{base_path}}/assets/img/learn/create-api-prototype-dev-portal-overview-petstore.png" alt="try out prototype"></a>
 
 3. Expand any method and click **Try it out**.
 
@@ -182,7 +175,7 @@ You have successfully created an API with an inline script, deployed it as a pro
 
 An API can also be prototyped by moving the API to the `PROTOTYPED` state by changing the API lifecycle state and providing the prototype endpoints.
 
-For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/learn/design-api/mock-api/deploy-and-test-mock-apis) tutorial.
+For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/design/prototype-api/deploy-and-test-mock-apis) tutorial.
 
 <div class="admonition info">
 <p class="admonition-title">Related Guides</p>
@@ -191,14 +184,14 @@ For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/lea
     <ul>
     <li>Create and Publish an API
 <ul>
-          <li> <a href="{{base_path}}/learn/design-api/publish-api/publish-an-api">Create and Publish an API</a></li>
+          <li> <a href="{{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api">Create and Publish an API</a></li>
 
-          <li> <a href="{{base_path}}/learn/design-api/create-api/create-a-rest-api">Create and Publish an API</a> </li>
+          <li> <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api">Create and Publish an API</a> </li>
     </ul>
     <li>
-    <a href="{{base_path}}/learn/design-api/create-api/create-a-websocket-api">Create a WebSocket API </a>
+    <a href="{{base_path}}/design/create-api/create-a-websocket-api">Create a WebSocket API </a>
 </li>
 <li>
-    <a href="{{base_path}}/learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
+    <a href="{{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
   </p>
   </div>

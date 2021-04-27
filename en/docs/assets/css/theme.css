@@ -96,7 +96,7 @@
 
 @media only screen and (min-width: 76.25em) {
     [data-md-color-primary=deep-orange] .md-tabs {
-        background-color: #fff;
+        background-color: #f5f5f5;
         box-shadow: none;
     }
 
@@ -561,13 +561,14 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .quick_links {
-    float: right;
-    height: 53px;
+    position: absolute;
+    right: 60px;
+    top: 55px;
 }
 
 .md-tabs__list {
     display: inline-block;
-    width: calc(100% - 55px);
+    width: 100%;
     overflow: hidden;
 }
 
@@ -799,7 +800,7 @@ html .md-footer-meta.md-typeset a,
 }
 
 .md-tabs__link {
-    margin-top: .4rem
+    margin-top: .6rem
 }
 
 .md-tabs[data-md-state=hidden] {
@@ -915,7 +916,7 @@ html .md-footer-meta.md-typeset a,
    width: 100%;
    margin: 0 auto;
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
 }
 
@@ -926,8 +927,9 @@ html .md-footer-meta.md-typeset a,
 }
 
 .card {
-   width: 350px;
    height: 110px;
+   flex-basis: 0;
+   flex-grow: 1;
    color: #404040;
    margin: 10px;
    background: #f8f8f8;
@@ -940,12 +942,19 @@ html .md-footer-meta.md-typeset a,
    transition: all 0.3s ease;
    position: relative;
    display: flex;
-   justify-content: center;
+   justify-content: left;
    align-items: center;
    flex-direction: row;
    cursor: pointer;
    transition: all 0.6s ease;
+   padding: 10px;
 }
+
+.card.img {
+    flex-direction: column;
+    height: 200px;
+}
+
 .card:hover {
     border-left: 4px solid #ff5003;
 }
@@ -957,18 +966,16 @@ html .md-footer-meta.md-typeset a,
 }
 .card-content {
     justify-content: center;
-    width: 225px;
     height: 88px;
     display: flex;
-    align-items: center;
-    text-align: center;
+    align-items: left;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding: 10px;
 }
 
 .card-icon {
-    width: 50px;
     height: 88px;
     max-width: 80px;
     border-radius: 0%;
@@ -984,7 +991,6 @@ html .md-footer-meta.md-typeset a,
 .material-icons.md-48 { font-size: 48px; }
 
 .card .title {
-   width: 225px;
    font-family: Montserrat, sans-serif;
    font-style: normal;
    font-size: 14px;
@@ -1406,20 +1412,29 @@ html .md-footer-meta.md-typeset a,
     cursor: pointer;
     flex-basis: 0;
     flex-grow: 1;
+    position: relative;
 }
 
-.linkSet2:hover img {
-    animation: roll 3s;
+.linkSet2:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 
-@keyframes roll {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+.linkSet2:hover:before {
+    right: 0;
+}
 
 .section03 {
     background: #EBEBEB;
@@ -1449,11 +1464,21 @@ html .md-footer-meta.md-typeset a,
     list-style: square outside url("../img/home/bullet.svg") 
 }
 
-.section03Card a:hover {
+.section03 .linkSet2:hover a {
     text-decoration: underline;
 	text-decoration-style: wavy;
 	text-decoration-color: #3f51b5;
     animation: wavy-slide 3s linear infinite;
+}
+
+.section03 .linkSet2 p {
+    margin: 1em 0;
+}
+
+.section05 {
+    margin: 0 -60px;
+    padding: 45px 60px;
+    background: #ebebeb;
 }
 
 @keyframes wavy-slide {
@@ -1578,11 +1603,7 @@ html .md-footer-meta.md-typeset a,
   }
  .floatRight {
      float: right;
-     padding-top: 5px;
  }
  .floatRight .md-tabs__item{
      padding-right: 0;
- }
- .externalLink {
-     margin-right: 20px;
  }

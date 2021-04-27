@@ -14,16 +14,16 @@ from the message. As with message builders, the message formatter is selected ba
     Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API 
     Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's 
     synapse configuration directly. The recommended way to extend an API's mediation flow is by 
-    [engaging <code>In/Out</code> sequences]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
+    [engaging <code>In/Out</code> sequences]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 
 !!! info
-    Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through which API messages are transformed:
+    Also see the following sections in the documentation. The integration runtime is used to implement the API Gateway through which API messages are transformed:
 
-    -   [Accessing content from JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#accessing-content-from-json-payloads)
-    -   [Logging JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#logging-json-payloads)
-    -   [Constructing and transforming JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#constructing-and-transforming-json-payloads)
-    -   [Troubleshooting, debugging, and logging](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#troubleshooting-debugging-and-logging)
+    -   [Accessing content from JSON payloads]({{base_path}}/integrate/examples/json_examples/json-examples/#accessing-content-from-json-payloads)
+    -   [Logging JSON payloads]({{base_path}}/integrate/examples/json_examples/json-examples/#logging-json-payloads)
+    -   [Constructing and transforming JSON payloads]({{base_path}}/integrate/examples/json_examples/json-examples/#constructing-and-transforming-json-payloads)
+    -   [Troubleshooting, debugging, and logging]({{base_path}}/integrate/examples/json_examples/json-examples/#troubleshooting-debugging-and-logging)
 
 ### JSON message builders and formatters
 
@@ -452,8 +452,7 @@ The response payload will look like this:
 
 Note that we have used the Property mediator to mark the outgoing payload to be formatted as JSON. For more information 
 about the Property Mediator, see the 
-[Property Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-Mediator/) page 
-on WSO2 EI documentation.
+[Property Mediator]({{base_path}}/reference/mediators/property-mediator) page.
 
 ``` xml
 <property name="messageType" value="application/json" scope="axis2"/>

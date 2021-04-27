@@ -80,13 +80,13 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
     | host IP of the Gateway                   | port where the Gateway is running in the dedicated machine or VM |
 
     ```java
-    ./wso2server.sh -Dhost=<ip_of_backend_environment> -Dport=<port_of_backend_environment>
+    ./api-manager.sh -Dhost=<ip_of_backend_environment> -Dport=<port_of_backend_environment>
     ```
 
     !!! note
         If you have used the class mediator to configure API Gateways in step 4, use the command given below instead of the one above.
         ```java
-        ./wso2server.sh -Denvironment.host=<ip_of_backend_environment> -Denvironment.port=<port_of_backend_environment>
+        ./api-manager.sh -Denvironment.host=<ip_of_backend_environment> -Denvironment.port=<port_of_backend_environment>
         ```
     Now the Gateways have started with the dedicated backend host/port combinations.
 

@@ -2,13 +2,13 @@
 
 ## Design Your First API
 
-This section is a step-by-step guide to create, publish, and invoke an API using the WSO2 API Manager's publisher and store user interfaces.
+This section is a step-by-step guide to create, publish, and invoke an API using the WSO2 API Manager's publisher and DevPortal user interfaces.
 
 ### Before you begin...
 
 <p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11 or 1.8 and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
-<li><a href="https://wso2.com/api-management/">Download the version 3.2.0 of WSO2 API Manager</a>.</li>
-<li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
+<li><a href="https://wso2.com/api-management/">Download the version 4.0.0 of WSO2 API Manager</a>.</li>
+<li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>api-manager.bat --run</code> (for Windows) or <code>sh api-manager.sh</code> (for Linux.)</li></ol>
 </p>
 
 ### What you'll build
@@ -268,7 +268,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
             `--devportal` : DevPortal endpoint for the environment
    
     !!!note
-        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. For further information please refer [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).  
+        `apictl add-env` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. For further information please refer [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).  
 
      On successfully executing this command, you should see the following message.
      
@@ -281,7 +281,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/3.2.0/assets/attachments/get_started/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/4.0.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
@@ -337,7 +337,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      ```
 
     !!!note
-        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above. For further information please refer [Import an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).  
+        `apictl import-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above. For further information please refer [Import an API Project]({{base_path}}/install-and-setup/setup/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).  
 
      You should now see your API deployed successfully on WSO2 API Manager.
 
@@ -364,3 +364,4 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     </div> 
 
    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
+   

@@ -8,7 +8,6 @@ This section describes some recommended performance tuning configurations to opt
 !!! info
     The values that WSO2 discusses here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. WSO2 recommends that you carry out load tests on your environment to tune the API Manager accordingly.
 
-
 ## OS-level settings
 
 When it comes to performance, the OS that the server runs plays an important role.
@@ -65,7 +64,7 @@ Following are the configurations that can be applied to optimize the OS-level pe
 
 When an XML element has a large number of sub-elements and the system tries to process all the sub-elements, the system can become unstable due to a memory overhead. This is a security risk.
 
-To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
+To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/api-manager.bat` file (for Windows) or the `<API-M_HOME>/bin/api-manager.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
 -DentityExpansionLimit=10000
@@ -109,7 +108,7 @@ The following diagram shows the communication/network paths that occur when an A
 
 -   **Client call API Gateway + API Gateway call Backend**
 
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport). Add the following section to the `deployment.toml` file to configure the Socket timeout value.
             ``` java
                 [passthru_http]
                 http.socket.timeout=180000
@@ -134,7 +133,7 @@ Some general API-M-level recommendations are listed below:
 <tr class="odd">
 <td>API Gateway nodes</td>
 <td><div class="content-wrapper">
-<p>Increase memory allocated by modifying the <code>/bin/wso2server.sh</code>  file with the following setting:</p>
+<p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
 <ul>
 <li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
 </ul>

@@ -1,10 +1,10 @@
 # ISO8583 Connector Example
 
-Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connector sends an ISO8583 message to financial networks using WSO2 Enterprise Integrator.
+Given below is a sample scenario that demonstrates how the WSO2 ISO8583 Connector sends an ISO8583 message to financial networks using the integration runtime of WSO2.
 
 ## What you'll build
 
-This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here WSO2 EI acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we used Test mock server.
+This example demonstrates how to expose core banking system functionality working with ISO8583 protocol as an API. Here, the integration runtime acts as ISO8583 terminal for the banking network. In this scenario to mock the banking network we used Test mock server.
 
 Given below is a sample API that illustrates how you can configure ISO8583 with the `init` operation and then use the `iso8583.sendMessage` operation to send an ISO8583 message for the financial transactions.
 
@@ -49,7 +49,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
    ```
 Now we can export the imported connector and the API into a single CAR application. CAR application is the one we are going to deploy to server runtime. 
    
-{!/reference/connectors/exporting-artifacts.md!}
+{!reference/connectors/exporting-artifacts.md!}
 
 ## Get the project
 
@@ -61,7 +61,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}
     

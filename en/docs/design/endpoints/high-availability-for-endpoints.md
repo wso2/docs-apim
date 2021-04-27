@@ -4,7 +4,7 @@
 
 When using WSO2 API Manager, you can configure load balancing endpoints via the API Publisher.
 
-1. When you [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api), to configure load balancing endpoints go to the edit view of the API, click **Endpoint** to view the Endpoint page.
+1. When you [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api), to configure load balancing endpoints go to the edit view of the API, click **Endpoint** to view the Endpoint page.
 
 2. Expand **Load balance and Failover Configurations**.
 
@@ -69,7 +69,7 @@ When using WSO2 API Manager, you can configure load balancing endpoints via the 
 ## Configuring Failover Group of Endpoints
 When using WSO2 API Manager, you can configure failover group endpoints via the API Publisher.
 
-1. When you [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api), to configure failover endpoints go to the edit view of the API, click **Endpoint** to view the Endpoint page.
+1. When you [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api), to configure failover endpoints go to the edit view of the API, click **Endpoint** to view the Endpoint page.
 
 2. Expand **Load balance and Failover Configurations**.
 

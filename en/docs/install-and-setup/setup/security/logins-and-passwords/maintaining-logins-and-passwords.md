@@ -93,6 +93,24 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     username="admin!wso2.com!carbon.super"
     password = "$ref{super_admin.password}"
     ```
+3.  Optionally, follow the instructions below if you have enabled regular expression to validate usernames in the step 1.
+ 
+    You need to manually create a default user with a valid email username instead of the default `apim_reserved_user` user for each tenant.
+
+    This user is an internal user created to handle cross tenant subscription validations. 
+    Therefore, if you have enabled cross tenant subscription validation feature you need to configure the above created username in the 
+    deployment.toml for the `default_reserved_username` field, instead of the `apim_reserved_user` default user as shown below.
+
+    ``` toml
+    [user_store]
+    type = "database_unique_id"
+    username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}'
+    username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'
+        
+    [apim.devportal]  
+    enable_cross_tenant_subscriptions = true
+    default_reserved_username = "apim_reserved_user"
+    ```
 
     <html>
     <table>
@@ -155,6 +173,10 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     type = "database_unique_id"
     username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
     username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+    
+    [apim.devportal]  
+    enable_cross_tenant_subscriptions = true
+    default_reserved_username = "default@wso2.com"
     ```   
 
 ## Developer Portal

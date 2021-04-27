@@ -1,6 +1,6 @@
 # Salesforce SOAP Connector Configuration
 
-The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm?search_text=SOAP%20API%20Developer%20Guide) through WSO2 EI. 
+The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm?search_text=SOAP%20API%20Developer%20Guide) from an integration sequence. 
 
 ## Setting up the Salesforce account
 
@@ -14,7 +14,7 @@ The Salesforce SOAP connector allows you to access the [Salesforce SOAP API](htt
 
 To use the Salesforce connector, add the `<salesforce.init>` element to your configuration before carrying out any other Salesforce operations.
 
-Before you start configuring the connector, import the **Salesforce certificate** to your WSO2 Enterprise Integrator (EI) **client keystore**.
+Before you start configuring the connector, import the **Salesforce certificate** to your integration runtime's **client keystore**.
 
 Follow the steps below to import the Salesforce certificate into the EI client keystore:
 
@@ -24,7 +24,7 @@ Follow the steps below to import the Salesforce certificate into the EI client k
    <img src="{{base_path}}/assets/img/integrate/connectors/salesforcesoap-certificste-and-key-management.png" title="salesforcesoap-certificste-and-key-management" width="600" alt="salesforcesoap-certificste-and-key-management"/>  
     
 3. Export the certificate to the file system.
-4. Import the certificate to the EI client keystore using either the following [command](../../../../setup/security/importing_ssl_certificate/) or the EI Management Console.
+4. Import the certificate to the EI client keystore using either the following [command](../{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate/) or the EI Management Console.
 
     ```
     keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "Salesforce"

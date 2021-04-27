@@ -28,7 +28,7 @@ Follow the steps below to enable OAuth2 token encryption
     
 3.  [Start the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server). 
 
-4.  Follow the [Generate Application Keys]({{base_path}}/learn/consume-api/manage-application/generate-keys/generate-api-keys) guide to create a new application, generate application consumer keys, and to obtain an access token.
+4.  Follow the [Generate Application Keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys) guide to create a new application, generate application consumer keys, and to obtain an access token.
 
     !!! tip
 

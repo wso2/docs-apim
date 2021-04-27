@@ -109,7 +109,7 @@ Setting up the API Manager component involves performing the following tasks.
  	</tr>
  	<tr>
  		<th>
- 			<a>">Setting up a Key Manager</a>
+ 			<a>Setting up a Key Manager</a>
  		</th>
  		<td>
  			The key manager of the API Manager handles all clients, security, and access token-related operations. This section covers the following topics:
@@ -151,7 +151,7 @@ Setting up the API Manager component involves performing the following tasks.
  			<a>Securing the API Manager</a>
  		</th>
  		<td>
- 			Covers the different ways in which you can secure the API Manager and the data it handles. The topic covered are as follows:
+ 			Covers the different ways in which you can secure the API Manager and the data it handles. The topics covered are as follows:
             <ul>
                 <li>
                     <a>Logins and Passwords</a>
@@ -597,16 +597,16 @@ Setting up the Micro Integrator component involves performing the following task
  			    <a>Configuring Logs</a>
  			</li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/configuring_log4j_properties">Configuring Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/managing_log_growth">Managing Log Growth</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
                 </li>
                 <li>
-                    <a href="{{base_path}}/administer-and-observe/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                    <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
                 </li>                                                 		 						 			
  		</td>
  	</tr>
@@ -663,14 +663,6 @@ To install and run the Streaming Integrator, see the following topics.
  		</th>
  		<td>
  			Explains how to install the Streaming Integrator component as a Windows service.
- 		</td>
- 	</tr>
- 	<tr>
- 		<th>
- 			<a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-as-linux-service">Installing as a Linux Service</a>
- 		</th>
- 		<td>
- 			Explains how to install the Streaming Integrator component as a Linux service.
  		</td>
  	</tr>
  	<tr>

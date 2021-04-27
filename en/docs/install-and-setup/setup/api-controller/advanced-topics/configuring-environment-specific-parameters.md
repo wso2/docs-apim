@@ -167,7 +167,8 @@ environments:
                   password: <endpoint_password_for_sandbox_endpoint>
           deploymentEnvironments:
               - displayOnDevportal: <boolean>
-	            deploymentEnvironment: <environment_name>        
+	            deploymentEnvironment: <environment_name>
+                deploymentVhost : <vhost_name>        
           certs:
               - hostName: <endpoint_url>
                 alias: <certificate_alias>
@@ -204,8 +205,10 @@ The following code snippet contains sample configuration of the params file of a
             deploymentEnvironments:
                 - displayOnDevportal: true
                   deploymentEnvironment: Label1
+                  deploymentVhost : localhost
                 - displayOnDevportal: true
-                  deploymentEnvironment: Label2  
+                  deploymentEnvironment: Label2
+                  deploymentVhost : us.wso2.com 
             policies:
                 - Gold
                 - Silver 
@@ -297,7 +300,8 @@ environments:
                               password: <endpoint_password_for_sandbox_endpoint_for_api_1>
                       deploymentEnvironments:
                           - displayOnDevportal: <boolean_for_api_1>
-                            deploymentEnvironment: <environment_name_for_api_1>        
+                            deploymentEnvironment: <environment_name_for_api_1>
+                            deploymentVhost : <vhost_name_for_api_1>        
                       certs:
                           - hostName: <endpoint_url_for_api_1>
                             alias: <certificate_alias_for_api_1>
@@ -312,45 +316,47 @@ environments:
               <api_2_name>-<api_2_version>:
                       endpoints:
                           production:
-                              url: <production_endpoint_url_for_api_1>
+                              url: <production_endpoint_url_for_api_2>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
-                                  retryDelay: <retry_delay_in_ms_for_api_1>
-                                  factor: <suspension_factor_for_api_1>
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_2>
+                                  retryDelay: <retry_delay_in_ms_for_api_2>
+                                  factor: <suspension_factor_for_api_2>
                           sandbox:
-                              url: <sandbox_endpoint_url_for_api_1>
+                              url: <sandbox_endpoint_url_for_api_2>
                               config:
-                                  retryTimeOut: <no_of_retries_before_suspension_for_api_1>
-                                  retryDelay: <retry_delay_in_ms_for_api_1>
-                                  factor: <suspension_factor_for_api_1>
+                                  retryTimeOut: <no_of_retries_before_suspension_for_api_2>
+                                  retryDelay: <retry_delay_in_ms_for_api_2>
+                                  factor: <suspension_factor_for_api_2>
                       security:
                           production:
-                              enabled: <whether_security_is_enabled_for_production_endpoint_for_api_1>
-                              type: <endpoint_authentication_type_basic_or_digest_for_production_endpoint_for_api_1>
-                              username: <endpoint_username_for_production_endpoint_for_api_1>
-                              password: <endpoint_password_for_production_endpoint_for_api_1>
+                              enabled: <whether_security_is_enabled_for_production_endpoint_for_api_2>
+                              type: <endpoint_authentication_type_basic_or_digest_for_production_endpoint_for_api_2>
+                              username: <endpoint_username_for_production_endpoint_for_api_2>
+                              password: <endpoint_password_for_production_endpoint_for_api_2>
                           sandbox:
-                              enabled: <whether_security_is_enabled_for_sandbox_endpoint_for_api_1>
-                              type: <endpoint_authentication_type_basic_or_digest_for_sandbox_endpoint_for_api_1>
-                              username: <endpoint_username_for_sandbox_endpoint_for_api_1>
-                              password: <endpoint_password_for_sandbox_endpoint_for_api_1>
+                              enabled: <whether_security_is_enabled_for_sandbox_endpoint_for_api_2>
+                              type: <endpoint_authentication_type_basic_or_digest_for_sandbox_endpoint_for_api_2>
+                              username: <endpoint_username_for_sandbox_endpoint_for_api_2>
+                              password: <endpoint_password_for_sandbox_endpoint_for_api_2>
                       deploymentEnvironments:
-                          - displayOnDevportal: <boolean_for_api_1>
-                            deploymentEnvironment: <environment_name_for_api_1>        
+                          - displayOnDevportal: <boolean_for_api_2>
+                            deploymentEnvironment: <environment_name_for_api_2>  
+                            deploymentVhost : <vhost_name_for_api_2>      
                       certs:
-                          - hostName: <endpoint_url_for_api_1>
-                            alias: <certificate_alias_for_api_1>
-                            path: <certificate_name_for_api_1>
+                          - hostName: <endpoint_url_for_api_2>
+                            alias: <certificate_alias_for_api_2>
+                            path: <certificate_name_for_api_2>
                       mutualSslCerts:
-                          - tierName: <subscription_tier_name_for_api_1>
-                            alias: <certificate_alias_for_api_1>
-                            path: <certificate_name_for_api_1>
+                          - tierName: <subscription_tier_name_for_api_2>
+                            alias: <certificate_alias_for_api_2>
+                            path: <certificate_name_for_api_2>
                       policies: 
-                          - <subscription_policy_1_name_for_api_1>
-                          - <subscription_policy_2_name_for_api_1>
+                          - <subscription_policy_1_name_for_api_2>
+                          - <subscription_policy_2_name_for_api_2>
           deploymentEnvironments:
               - displayOnDevportal: <boolean>
 	            deploymentEnvironment: <environment_name>
+                deploymentVhost : <vhost_name>
 	      mutualSslCerts:
               - tierName: <subscription_tier_name>
                 alias: <certificate_alias>
@@ -416,8 +422,10 @@ The following code snippet contains sample configuration of the params file of a
               deploymentEnvironments:
                   - displayOnDevportal: true
                     deploymentEnvironment: Label1
+                    deploymentVhost : localhost
                   - displayOnDevportal: true
-                    deploymentEnvironment: Label2  
+                    deploymentEnvironment: Label2
+                    deploymentVhost : us.wso2.com  
               policies:
                   - Gold
                   - Silver 
@@ -432,7 +440,8 @@ The following code snippet contains sample configuration of the params file of a
           configs:
               deploymentEnvironments:
                   - displayOnDevportal: true
-                    deploymentEnvironment: Production and Sandbox
+                    deploymentEnvironment: Default
+                    deploymentVhost : localhost
               mutualSslCerts:
                   - tierName: Unlimited
                     alias: Prod1

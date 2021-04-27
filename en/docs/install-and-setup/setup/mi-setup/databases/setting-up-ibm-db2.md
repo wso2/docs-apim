@@ -125,6 +125,6 @@ data_source = "WSO2_TRANSACTION_DB"
 update_interval = 2
 ```
 
-{!setup/pull/PULL-CONTENT-user-store-db-id.md!}
+{!includes/integration/pull-content-user-store-db-id.md!}
 
 See the descriptions of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection).

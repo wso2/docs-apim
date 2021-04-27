@@ -13,9 +13,9 @@ This demonstrates how the integration components and API management components o
 1. An **Integration Developer** creates the service using WSO2 Integration Studio and deploys it in the Micro Integrator runtime.
 
     !!! Note
-        The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specialisations.
+        The integration service is designed to communicate with a back-end service (representing a Hospital) and get details of available doctors for various specializations.
 
-2. An **API Creator** converts the integration service to a managed API (apply security, etc.).
+2. An **API Creator** converts the integration service to a managed API (apply security, rate limiting, etc.).
 3. An **API Publisher** publishes the API to the API marketplace (Developer Portal).
 4. An **API Consumer** (application developer) discovers and uses this API from the Developer Portal.
 
@@ -32,7 +32,7 @@ The following concepts and artifacts are used in this tutorial:
 
 ## Let's get started!
 
-Follow the steps given below build this use case and try it out.
+Follow the steps given below to build this use case and try it out.
 
 ### Step 1: Develop the integration service
 
@@ -55,10 +55,10 @@ Follow the instructions given in this section to create and configure the requir
 
     You can see the projects listed in the **Project Explorer** as shown below:
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.PNG">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/project-explorer-service-catalog.png">
 
     !!! Note
-        A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the swagger and metadata YAML files. These YAML files will be uploaded to the service catalog in upcoming steps.   
+        A **resources** folder is created in the `ServiceCatalogSampleConfigs` project. This folder holds the Swagger and metadata YAML files. These YAML files will be uploaded to the service catalog later in this tutorial.   
 
 6.  Create an **Endpoint** artifact. 
 
@@ -128,7 +128,7 @@ Follow the instructions given in this section to create and configure the requir
             <td>Context</td>
             <td><code>/healthcare </code></td>
             <td>
-            Here you are anchoring the API in the <code>/healthcare </code> context. This will become part of the name of the generated URL used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API will only handle HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
+            This anchors the API in the <code>/healthcare </code> context. The context becomes part of the name of the API's URL, which will be used by the client when sending requests to the Healthcare service. For example, setting the context to /healthcare means that the API only handles HTTP requests where the URL path starts with <code>http://host:port/healthcare<code>.
             </td>
         </tr>
         <tr>
@@ -185,12 +185,12 @@ When the **HealthcareAPI** is created, the following two new files are created i
             HealthcareAPI_swagger.yaml
         </th>
         <td>
-            This swagger file contains the OpenAPI definition of the integration service.
+            This Swagger file contains the OpenAPI definition of the integration service.
         </td>
     </tr>
 </table>
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.PNG" width="400">
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="400">
 
 ### Step 2: Configure service metadata
 
@@ -216,7 +216,7 @@ Let's update the metadata of the integration service.
                 description
             </td>
             <td>
-                API to fetch doctors for a given category
+                <code>API to fetch doctors for a given category</code>
             </td>
             <td>
                 Explain the purpose of the API.
@@ -235,7 +235,7 @@ Let's update the metadata of the integration service.
                 <ul>
                     <li>
                         Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
-                        Let's use this option for this tutorial.
+                        <b>Let's use this option for this tutorial.</b>
                     </li>
                     <li>
                         Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
@@ -271,11 +271,11 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     [[service_catalog]]
     apim_host = "https://localhost:9443"
     enable = true
-    username = "$secret{username}"
-    password = "$secret{password}"
+    username = "admin"
+    password = "admin"
     ```
 
-3.  Optionaly, you can encrypt the username and password for better security. 
+3.  **Optionally**, you can encrypt the username and password for better security:
 
     1.  Update the configuration as shown below. 
 
@@ -338,7 +338,7 @@ Let's deploy the [packaged artifacts](#step-3-package-the-artifacts) in the embe
     When you do this step: 
 
     1.  The Micro Integrator first reads the metadata files. 
-    2.  Then, it replaces the placeholders with environment variable values and creates a ZIP file.
+    2.  If you used placeholders in the metadata file, theey are replaced with environment variable values and a ZIP file is created.
     3.  Finally, it uploads the metadata to the API management runtime.
 
 1.  Right-click the composite exporter module and click **Export Project Artifacts and Run**.
@@ -351,6 +351,7 @@ The artifacts are deployed in the embedded Micro Integrator and the Micro Integr
 Successfully updated the service catalog
 ```
 
+
 ### Step 7: Create and Deploy the API
 
 **Create the API**
@@ -362,17 +363,17 @@ Let's expose the integration service as a managed API.
     !!! Tip
         Use `admin` as the user name and password.
 
-2.  Click the **hamburger** icon on the upper-left and click **Service Catalog**. 
+2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/select-service-catalog.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" alt="open service catalag" width="400">
 
-3.  See that the healthcare integration service is listed.
+3.  Open HealthcareAPI from the above list.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/services-listing-page-publisher.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/new-service-api-view.png" alt="API created from service catalog">
 
-4.  Click **Create API** to open the **Create API** dialog box.
+4.  Click **Create API** in the above screen to open the **Create API** dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-api-from-service.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-api-from-service.png" alt="create api dialog box">
 
 5.  Specify an API name, context, and version, and then click **Create API**.
 
@@ -381,12 +382,12 @@ Let's expose the integration service as a managed API.
 
 You can now see the new API's overview page.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png">
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" alt="new api view">
 
 !!! Note
     -   You can use the left-hand navigation to explore the new API.
     -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the Micro Integrator as the endpoint (backend).
-        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png">
+        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view">
 
 **Select business plans**
 
@@ -394,63 +395,37 @@ Let's allocate some business plans for the API.
 
 1.  Go to the API overview and click **Business Plan**.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan">
 
 3.  Select atleast one business plan for the API and save.
  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api">
 
-**Deploy API in Gateway**
+**Deploy API in the Gateway**
 
 Let's deploy the API in a gateway environment.
 
-1.  Go to the API overview and click **Deployments**.
+1.  Go to the API overview and click **Deploy**.
     
     !!! Tip
         This opens the **Deployment** tab in the left-hand navigator.
     
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" alt="open the deployment options">
 
-2.  Click **Create New Revision** to start the deployment.
+2.  Click **Default** to specify the gateway environment and host.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png">
+    !!! Tip
+        This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways).
 
-3.  Specify the following values.
+    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment">
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-details.png">
-
-    <table>
-        <tr>
-            <th>
-                Description
-            </th>
-            <td>
-                Give a description for the API revision.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Production and Sandbox
-            </th>
-            <td>
-                Select this option to specify the gateway environments in which the API should be deployed. By default, this option will deploy in Production as well as Sandbox gateways.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Host
-            </th>
-            <td>
-                Let's select `localhost` as the host.
-            </td>
-        </tr>
-    </table>
+3.  **Optionally**, you can add a description.
 
 4.  Click **Deploy**. 
 
-You will see the deployment details as shown below.
+You will now see the deployment as the first revision of the API:
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png">
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision">
 
 ### Step 8: Publish the API
 
@@ -520,7 +495,7 @@ When you consume an API from the marketplace, your access to the API is authenti
 
 **Try out the service**
 
-Now, Let's test the use case by sending a simple client request that invokes the service.
+Now, let's test the use case by sending a simple client request that invokes the service.
 
 1.  Click **Try Out** for the `HealthcareAPI` in the **Developer** portal as shown below.
 
@@ -566,12 +541,12 @@ Now, Let's test the use case by sending a simple client request that invokes the
                 Gateway
             </th>
             <td>
-                Select <b>Production and Sandbox</b> as the gateway.
+                Select <b>Default</b> as the gateway.
             </td>
         </tr>
     </table>
 
-3.  Expand the **/querydoctor/{category}** resource and click **Try It**.
+3.  Expand the **/querydoctor/{category}** resource and click **Try it out**.
 4.  Let's specify 'surgery' as the doctor category.
 5.  Click **Execute**.
 

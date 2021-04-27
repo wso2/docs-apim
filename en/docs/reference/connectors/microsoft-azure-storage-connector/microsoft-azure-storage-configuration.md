@@ -74,7 +74,7 @@ Follow the steps below to obtain the access credentials from Microsoft Azure Sto
   
 ## Setting up the Microsoft Azure Storage Connector
 
-Before you start configuring the Microsoft Azure Storage Connector, you also need WSO2 EI and we refer to that location as <PRODUCT_HOME>.
+Before you start configuring the Microsoft Azure Storage Connector, you also need the WSO2 integration runtime and we refer to that location as <PRODUCT_HOME>.
 
 In order to use the Microsoft Azure Storage connector, you need to download the following .jar file and move it to the `<PRODUCT_HOME>/lib directory`.  
 

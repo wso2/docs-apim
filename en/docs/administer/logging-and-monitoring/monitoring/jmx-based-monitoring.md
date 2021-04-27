@@ -67,7 +67,7 @@ Jconsole is a JMX-compliant monitoring tool, which comes with the Java Developme
 First, start the WSO2 product:
 
 1.  Open a command prompt and navigate to the `<PRODUCT_HOME>/bin` directory.
-2.  Execute the product startup script (`wso2server.sh` for Linux and `wso2server.bat` for Windows) to start the server.
+2.  Execute the product startup script (`api-manager.sh` for Linux and `api-manager.bat` for Windows) to start the server.
 
     !!! info
         If [JMX is enabled](#configuring-jmx-in-a-wso2-product), the **JMX server URL** will be published on the console when the server starts as shown below.
@@ -89,7 +89,7 @@ Once the product server is started, you can start the jConsole tool as follows:
      1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#starting-the-wso2-product-with-jmx).
 
         !!! info
-            If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `<PRODUCT_HOME>/bin` directory (`wso2server.sh` for Linux and `wso2server.bat` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole).
+            If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `<PRODUCT_HOME>/bin` directory (`api-manager.sh` for Linux and `api-manager.bat` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole).
 
         ``` java
         -Djava.rmi.server.hostname=<IP_ADDRESS_WHICH_YOU_USE_TO_CONNECT_TO_SERVER>
@@ -254,7 +254,7 @@ Follow the steps below to use Jolokia to monitor a WSO2 product.
 2.  Add it to the `<PRODUCT-HOME>/repository/components/dropins/` directory.
 
     !!! tip
-        In WSO2 EI, add it to the `<EI-HOME>/dropins/` directory.
+        In the Micro Integrator, add it to the `<MI-HOME>/dropins/` directory.
 
 
 3.  Start the WSO2 product server.

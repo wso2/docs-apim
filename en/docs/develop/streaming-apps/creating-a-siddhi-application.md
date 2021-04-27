@@ -48,9 +48,9 @@ To create a Siddhi application via the source view of the Streaming Integrator T
 
 1. Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issue one of the following commands:
 
-    - For Windows: `streaming-integrator-tooling.bat`
+    - For Windows: `tooling.bat`
 
-    - For Linux: `./streaming-integrator-tooling.sh`
+    - For Linux: `./tooling.sh`
 
  The Streaming Integrator Tooling opens as shown below.
 
@@ -239,8 +239,8 @@ To create a Siddhi application via the design view of the Streaming Integrator T
 
 1.  Start the Streaming Integrator Tooling by navigating to the `<SI_TOOLING_HOME>/bin` directory and issue one of the following commands:
 
-    - For Windows: `streaming-integrator-tooling.bat`
-    - For Linux: `./streaming-integrator-tooling.sh`
+    - For Windows: `tooling.bat`
+    - For Linux: `./tooling.sh`
 
     Streaming Integrator Tooling opens as shown below.
     ![Welcome Page]({{base_path}}/assets/img/streaming/creating-siddhi-applications/welcome-page.png)

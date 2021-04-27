@@ -37,7 +37,7 @@ First, enable the application registration workflow.
 
 
     !!! note
-        If you do not have an API already created and an Application subscribed to it, follow [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/), [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api/), and [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) to create an API and subscribe to it.
+        If you do not have an API already created and an Application subscribed to it, follow [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/), [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/), and [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) to create an API and subscribe to it.
 
 5.  Select **Production Keys** or **Sandbox Keys** from the side navbar and click on **GENERATE KEYS**.
     
