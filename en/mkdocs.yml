@@ -1528,10 +1528,10 @@ nav:
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
-            - Scenario 2 - Access Control: tutorials/scenarios/scenario2-access-control.md
+            - Scenario 2 - Engage Access Control to the API: tutorials/scenarios/scenario2-access-control.md
             - Scenario 3 - Implementing an API: tutorials/scenarios/scenario3-implementing-an-api.md
-            - Scenario 4 - User Signup Approval Flow: tutorials/scenarios/scenario4-user-signup-approval-flow.md
-            - Scenario 5 - Developer Comminity Feature: tutorials/scenarios/scenario5-developer-community-feature.md
+            - Scenario 4 - Signing Up a New User: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+            - Scenario 5 - Getting the Developer Community Involved: tutorials/scenarios/scenario5-developer-community-feature.md
             - Scenario 6 - Integrating with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
             - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
             - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
