@@ -24,7 +24,7 @@ Time picker is located in the top left hand corner of the analytics dashboard. O
 ![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-custom.png)
 
 In the custom picker first you have to select the granularity that you need to view the data. Then from the calendar
- widget you can select the date range and if applicable clock widget will be also enabled to select the time. However,
+ widget you can select the date range and if applicable the clock widget will be also enabled to select the time. However,
   there are certain restrictions applied on the range that you can view based on the selected granularity
   . Restrictions are based on the length of the selected range and time from current date to starting date of
    selected range. Time picker will automatically apply these restrictions. If you need to look at the restrictions
