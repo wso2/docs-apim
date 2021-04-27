@@ -4,6 +4,8 @@
 
 From time to time GoGo transit provides notifications to the Train companies. (For e.g., platform unavailability, revised fees, etc.). GoGo transit is planning to provide this information as webhooks so that the Train companies can subscribe to these notifications without continuously polling.
 
+**_Time to Complete : 5 mins_**
+
 WebHooks only allow one-way communication, from a caller web app to caller web app. The client who intends 
 to receive the events from the server/web app/publisher has to register its URL against the interesting events 
 in the publisher. When an event occurs, if a client is registered for that event, the publisher will make an 
@@ -21,7 +23,7 @@ You can publish notifications under different topics.
 To subscribe to the API, you need to go to the Developer Portal.
 
 1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **Carbon.super** tenant domain. This will redirect you to the super tenant Developer Portal.
-2. Sign in with a Super tenant, developer portal user. (peter)
+2. Sign in with a Super tenant, Developer Portal user. Use user as `peter` and password as `user123`.
 3. Click on NotificationAPI and click subscribe using a policy and generate the access token.
 4. To receive notifications, we need to register a service that will be called for each event. We can use [https://webhook.site/](https://webhook.site/) for this purpose. You can use the webhook site unique URL to subscribe yourself to the **general** topic. 
 5. Go to **Try out** tab and enter the following details under **general** topic.

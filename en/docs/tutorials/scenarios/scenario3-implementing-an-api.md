@@ -4,7 +4,7 @@
 
 RailCo has a partnership with Telecom companies to sell their train tickets as value added services. Currently RailCo has partnerships with three such companies (Nexus, Wishque, and Tenet). RailCo has a requirement to gather the stats of bookings on a daily basis from these companies. All 3 companies are exposing this data but they are exposing it in different formats. RailCo wants to develop a service that aggregates all this data and exposes it as a single API. They first decided to create their own backend to call each of these APIs internally and write the logic to consume each service to generate the required outcome. However, they quickly understood the complexity of development tasks they have to undergo. For example, each of these external services use different protocols and message formats. This would require special skills for their development teams and would increase the maintenance overhead as well.  RailCo identified that using WSO2 API Manager and WSO2 Micro Integrator, they could do this integration in no time and expose the API with additional QoS features.
 
-**_Time to Complete : ? mins_**
+**_Time to Complete : 8 mins_**
 
 There are three different sample backends implemented that provide the metrics in different formats. When you invoke them directly, you can view metrics related to one Telecom company. 
 
@@ -51,8 +51,8 @@ You can view the API entry in the API Manager by visiting the following URL. Log
 
 In this setup, the API is already deployed from the Publisher and you can view it in the Developer Portal. 
 
-1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Dev portal and select **RailCo** tenant domain. This will redirect you to RailCo’s developer portal.
-2. Sign in with a RailCo tenant, developer portal user. (tom@railco.com)
+1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
+2. Sign in with a RailCo tenant, Developer Portal user. Use user as `tom@railco.com` and password as `user123`.
 3. Click on TelecomMetricsAPI and go to Subscribe tab and subscribe using the Default application and generate the access token.
 4. Once you generate an access token, you can try out the following Curl Request.
 

@@ -1,6 +1,8 @@
 # Scenario 13 - Integrate with Services via Connectors
 
-**RailCo is maintaining a Railway yard for their routine maintenance checkups for their trains. When a train comes into the yard, an entry file is created in CSV format. RailCo wants to generate an email out of this file, and they are planning to use Micro Integrator and its Email connector to achieve this.**
+RailCo is maintaining a Railway yard for their routine maintenance checkups for their trains. When a train comes into the yard, an entry file is created in CSV format. RailCo wants to generate an email out of this file, and they are planning to use Micro Integrator and its Email connector to achieve this.
+
+**_Time to Complete : 10 mins_**
 
 When you integrate the systems in your organization, it is also necessary to integrate with third-party 
 systems and its capabilities to enhance your services. WSO2 Micro Integrator uses Connectors for the purpose of referring to the APIs of third-party systems.
@@ -14,7 +16,7 @@ and process it. Inbound Endpoints support various protocols such as HTTP, JMS, R
 While developing you can try it out in the Embedded Micro Integrator inside the Studio. Once the development 
 is complete you can export it as a Compose Application and add it to the Micro Integrator runtime.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_connectors.png" alt="Integration Studio" title="Integration Studio" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_connectors.png" alt="Integration Studio" title="Integration Studio" width="70%" />
 
 Here, for simplicity, the service is already created and exported as a Composite Application along with 
 the connector. Before adding the service to the system, you need to do the following.
@@ -55,6 +57,6 @@ the connector. Before adding the service to the system, you need to do the follo
 
 	`docker-compose up -d --build mi-runtime`
 
-Once restarted, you can place the .csv file into the `**in`** directory inside your temporary location. You can use the `train-entry-sample.csv` file found inside `<REPO_HOME>/resources` directory for this purpose. 
+6. Once restarted, you can place the .csv file into the `**in`** directory inside your temporary location. You can use the `train-entry-sample.csv` file found inside `<REPO_HOME>/resources` directory for this purpose. 
 
-Once added, the file will be picked by Micro Integrator and sent as an Email to the address which is configured above. 
+    Once added, the file will be picked by Micro Integrator and sent as an Email to the address which is configured above. 

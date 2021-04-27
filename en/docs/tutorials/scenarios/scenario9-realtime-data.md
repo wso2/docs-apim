@@ -6,6 +6,8 @@ Quantis wants to provide real time location of their trains to their customers. 
 be providing real time events and Quantis wants to convert it to websockets and expose it as a Streaming API 
 so that the client mobile applications can subscribe to it and receive real time events.
 
+**_Time to Complete : 5 mins_**
+
 <img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_real_time_notifications.png" alt="Realtime Notifications" title="Realtime Notifications" width="60%" />
 
 WSO2 Streaming Integrator(SI) is a streaming data processing server that integrates streaming data and takes 
@@ -25,15 +27,15 @@ wscat -c ws://localhost:8025/
 
 ```
 
-Once you expose the events via a Websocket Server, you can expose the websockets with API Manager as you do with other APIs where you can provide **secure access, Rate limiting, Throttling, Monetization, Analytics** etc. The API is already published to the portal. To invoke the API, you can follow the below steps.
+Once you expose the events via a Websocket Server, you can expose the websockets with API Manager as you do with other APIs where you can provide **secure access, Rate limiting, Throttling, Monetization, Analytics** etc. The API is already published to the Developer Portal. To invoke the API, you can follow the below steps.
 
 1. To subscribe to the websocket API, go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **Quantis** tenant domain. (You need to log out from your previous tenant). This will redirect you to the Quantis Developer Portal.
-2. Sign in with a Quantis, developer portal user. (bob@quantis.com)
+2. Sign in with a Quantis, Developer Portal user. Use user as `bob@quantis.com` and password as `user123`.
 3. Click on `TrainRealLocationAPI` and click subscribe using a policy and generate the access token.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/realtime_api_devportal.png" alt="Devportal View" title="Devportal View" width="60%" />
-
-<img src="{{base_path}}/assets/img/tutorials/scenarios/realtime_api_subscriptions.png" alt="Subscription View" title="Subscription View" width="60%" />
+    <img src="{{base_path}}/assets/img/tutorials/scenarios/realtime_api_devportal.png" alt="Devportal View" title="Devportal View" width="60%" />
+    
+    <img src="{{base_path}}/assets/img/tutorials/scenarios/realtime_api_subscriptions.png" alt="Subscription View" title="Subscription View" width="60%" />
 
 
 4. You can use the above fetched access token to subscribe to the location of the train 456 (Topic : loc-train-qnt-456), using a websocket client. For example you can use wscat tool, subscribe as below.
