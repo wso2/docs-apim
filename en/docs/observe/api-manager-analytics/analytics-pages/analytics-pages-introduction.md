@@ -40,7 +40,7 @@ at the On-Prem Key generation step, you are required to provide a 'Key Name'. Th
 . Suppose you have two different environments for two different business units of your organization. In such a case
  you can generate two On-Premise Keys and add them to respective Gateways of each deployment. Once that is done
   'Environment Picker' will show two options and based on the selection dashboards will only show statistics relevant
-   to selected environment.
+   to the selected environment.
    
 ### Tenant Picker
 
