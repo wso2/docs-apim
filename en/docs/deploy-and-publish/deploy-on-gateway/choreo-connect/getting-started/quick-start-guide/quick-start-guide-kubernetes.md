@@ -21,8 +21,8 @@ Let's get started...
 
 ### Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
 
-1. Download the Choreo Connect v4.0.0-alpha from
-    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v4.0.0-alpha) assets and extract them
+1. Download the Choreo Connect v0.9.0 from
+    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
     to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
 
 2. Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.
@@ -31,10 +31,10 @@ Let's get started...
     kubectl apply -Rf <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect/choreo-connect
     ```
 
-3. Let's create a namespace and install K8s API Operator by executing the following command.
+3. Let's install K8s API Operator by executing the following command.
 
     ```bash
-    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-rc1/api-operator-configs.yaml
+    kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
     ```
 
 ### Step 2 - Create and deploy an API project
@@ -51,26 +51,26 @@ Let's create our first project with the name "petstore" by adding the
     !!! note
         You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
 
-    Download the api controller (apictl) from the 
-        [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-rc1) assets and 
-        extract them to a folder of your choice.
-
-    ```bash
+        Download the api controller (apictl) from the 
+            [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
+            extract them to a folder of your choice.
+    
+        ```bash
          export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
-    ```
-
-    ```bash
+        ```
+    
+        ```bash
         apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
-    ```
-
-    The project is now initialized. You should notice a directory with the name "petstore" being created in the location where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
-
-    You can also use this Kubernetes configmap to deploy APIs.
-
-    ```bash
+        ```
+    
+        The project is now initialized. You should notice a directory with the name "petstore" being created in the location where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
+    
+        You can also use this Kubernetes configmap to deploy APIs.
+    
+        ```bash
         zip -r petstore.zip petstore/
         kubectl create cm petstore-cm --from-file petstore.zip
-    ```
+        ```
 
 2. Now let's deploy our first API by creating an API resource in Kubernetes.
 
@@ -88,7 +88,7 @@ Let's create our first project with the name "petstore" by adding the
     Or else execute the following command
 
     ```bash
-    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0-rc1/scenarios/scenario-2/petstore-api.yaml
+    kubectl apply -f https://raw.githubusercontent.com/wso2/k8s-api-operator/v2.0.0/scenarios/scenario-2/petstore-api.yaml
     ```
 
 ### Step 3 - Invoke the API
@@ -96,16 +96,12 @@ Let's create our first project with the name "petstore" by adding the
 1. The next step would be to invoke the API using a REST tool. Since APIs on the Choreo Connect are by default secured, 
     we need a valid token in order to invoke the API.
     Use the following sample token accepted by the Choreo Connect to access the API. 
-    Lets set the token to the command line as a variable.
+    Lets set the token to the command line as a variable. Replace `<NODE_IP>` with one of Kubernetes worker nodes before
+    executing the command.
 
     ```bash
-    TOKEN=eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ==.eyJhdWQiOiJBT2syNFF6WndRXzYyb2QyNDdXQnVtd0VFZndhIiwic3ViIjoiYWRtaW5AY2FyYm9uLnN1cGVyIiwibmJmIjoxNTk2MDA5NTU2LCJhenAiOiJBT2syNFF6WndRXzYyb2QyNDdXQnVtd0VFZndhIiwic2NvcGUiOiJhbV9hcHBsaWNhdGlvbl9zY29wZSBkZWZhdWx0IiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0My9vYXV0aDIvdG9rZW4iLCJrZXl0eXBlIjoiUFJPRFVDVElPTiIsImV4cCI6MTYyNzU0NTU1NiwiaWF0IjoxNTk2MDA5NTU2LCJqdGkiOiIyN2ZkMWY4Ny01ZTI1LTQ1NjktYTJkYi04MDA3MTFlZTJjZWMifQ==.otDREOsUUmXuSbIVII7FR59HAWqtXh6WWCSX6NDylVIFfED3GbLkopo6rwCh2EX6yiP-vGTqX8sB9Zfn784cIfD3jz2hCZqOqNzSUrzamZrWui4hlYC6qt4YviMbR9LNtxxu7uQD7QMbpZQiJ5owslaASWQvFTJgBmss5t7cnurrfkatj5AkzVdKOTGxcZZPX8WrV_Mo2-rLbYMslgb2jCptgvi29VMPo9GlAFecoMsSwywL8sMyf7AJ3y4XW5Uzq7vDGxojDam7jI5W8uLVVolZPDstqqZYzxpPJ2hBFC_OZgWG3LqhUgsYNReDKKeWUIEieK7QPgjetOZ5Geb1mA==
+    TOKEN=$(curl -X POST "https://<NODE_IP>:30201/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
     ```
-
-    !!! note
-        You can use the above token to test the API. Follow the documentation
-        [Secure APIs using JWT (Self Contained) Access Token]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens)
-        if you want to generate an access token.
 
 2. We can now invoke the API running on the Choreo Connect using cURL as below. Replace `<NODE_IP>` with one of Kubernetes worker nodes before
     executing the command.
