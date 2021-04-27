@@ -2,7 +2,7 @@
 
 WSO2 API-M exposes health check APIs as explained below.
 
-## API Manager Profiles
+## API-M runtime health checks
 
 Basic health checks can be performed on an API Manager node by connecting to relevant ports. Listed below are the ports that can be used for health checks in the available API-M profiles.
 
@@ -30,10 +30,12 @@ curl -v http://localhost:9763/services/Version
 <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
 ```
 
-## Micro Integrator health check
+## Micro Integrator health checks
 
 WSO2 Micro Integrator provides a dedicated API for checking the health of the server. This can be used by a load 
 balancer prior to routing traffic to a particular server node.
+
+### Health Check API
 
 The health check API has two behaviors depending on whether the deployment is mutable or immutable. If the deployment 
 is mutable (which is mostly the configuration in centralized deployments), the probe gives a **ready** status when the 
@@ -46,7 +48,7 @@ are deployed successfully during server startup. If there are faulty CApps, the 
     If you are running the server instance with a different port offset other than the default (which is 10), the heath
     check API serves at 9191 + offset.  
 
-#### Readiness Probe
+### Readiness Probe
 
 The readiness probe is a vital configuration for deployments in Kubernetes as it governs the routing logic. The requests 
 are not routed to a pod that is not ready.
@@ -63,7 +65,7 @@ readinessProbe:
   periodSeconds: 1
 ```
 
-#### Liveness Probe
+### Liveness Probe
 
 The liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
 example, if the server stops serving requests on the http port, even though the server is alive, the container needs to 
