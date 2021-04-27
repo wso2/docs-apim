@@ -133,6 +133,7 @@ Follow the steps below to add a certificate to an endpoint:
    [![Click on Add Certificate]({{base_path}}/assets/img/learn/click-add-certificate.png)]({{base_path}}/assets/img/learn/click-add-certificate.png)
    
     The Upload Certificate dialog box appears.
+
     [![Upload Certificate Dialog]({{base_path}}/assets/img/learn/upload-certificate-open.png)]({{base_path}}/assets/img/learn/upload-certificate-open.png)
 
     *  Enter the following information and click **Save**.

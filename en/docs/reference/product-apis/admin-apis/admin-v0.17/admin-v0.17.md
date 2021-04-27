@@ -4,7 +4,7 @@ template: templates/swagger.html
 
 !!! warning
     - The Admin v0.17 REST APIs will be deprecated in the next WSO2 API Manager release.
-    - **[WSO2 recommends that you use the Admin v1 REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1)** as it is up to date and has support for the latest WSO2 API Manager 3.2.0 features with regard to the Admin Portal.
+    - **[WSO2 recommends that you use the Admin v1 REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1)** as it is up to date and has support for the latest WSO2 API Manager features with regard to the Admin Portal.
 
 ??? Info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager

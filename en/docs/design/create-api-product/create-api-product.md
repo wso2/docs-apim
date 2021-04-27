@@ -50,7 +50,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
      </div> 
      </html>
 
-3. Click **API Products**, and then click **CREATE AN API PRODUCT**.
+3. Click **API Products** on the left menu, and then click on **API Product**.
 
     [![Create API Product Menu]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)
 
@@ -74,14 +74,6 @@ the attached OpenAPI definition (a.k.a Swagger definition) files.
      </td>
      <td>
      customer-leasing
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Business plan(s)
-     </td>
-     <td>
-     Bronze
      </td>
      </tr>
      </table>

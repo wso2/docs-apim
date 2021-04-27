@@ -14,7 +14,7 @@ You can add advanced throttling policies to both APIs and resources.
 2.  Click **Advanced Throttling** under the **Rate Limiting Policies** section to see the set of existing throttling tiers.
 3.  To add a new tier, click **Add New Policy**.
     
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/new-advanced-throttling-tier.png)]({{base_path}}/assets/img/learn/new-advanced-throttling-tier.png)
+    [![Add advanced policy page]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
     
 4.  Fill in the required details and click **Add**.
     
@@ -121,7 +121,7 @@ Application-level throttling policies are applicable per access token generated 
 2.  Click **Application Policies** under the **Rate Limiting Policies** section to see the set of existing throttling tiers.
 3.  To add a new tier, click **Add Policy**.
 
-    [![Add application policy page]({{base_path}}/assets/img/learn/new-application-policy.png)]({{base_path}}/assets/img/learn/new-application-policy.png)
+    [![Add application policy page]({{base_path}}/assets/img/learn/add-new-application-policy.png)]({{base_path}}/assets/img/learn/add-new-application-policy.png)
 
 4.  Fill in the required details and click **Save**.
 

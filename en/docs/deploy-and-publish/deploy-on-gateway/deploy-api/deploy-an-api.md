@@ -13,7 +13,7 @@ Follow the steps below to deploy an API using WSO2 API Manager.
      [https://localhost:9443/publisher](https://localhost:9443/publisher)
 
 2.  Click **Deployments**.
-3.  Click **Create a new revision**.
+3.  Click **+**.
 
      [![Create a new revision button]({{base_path}}/assets/img/design/revision/create-new-revision-button.png)]({{base_path}}/assets/img/design/revision/create-new-revision-button.png)
 

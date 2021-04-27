@@ -29,7 +29,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
      <head>
      </head>
      <body>
-     <img src="{{base_path}}/assets/img/learn/save-api.png" alt="Save API" title="Save API" width="250" height="50"/>
+     <img src="{{base_path}}/assets/img/learn/save-api-publisher.png" alt="Save API" title="Save API" width="250" height="50"/>
      </body>
      </html>
 

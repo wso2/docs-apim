@@ -14,7 +14,7 @@ Configure the Advanced Endpoint Configurations as follows:
 
 2. Click on an API in the API Publisher Portal listing page.
 
-3. Click **Endpoint**.
+3. Click **Endpoints** under **API Configurations**.
      
 4. Click on the cogwheel, which is inline with the endpoint that you need to configure, and update the endpoint related configurations as required. 
  
@@ -22,7 +22,7 @@ Configure the Advanced Endpoint Configurations as follows:
 
      The Advanced Endpoint Configurations page appears.
 
-     [![Advanced endpoint configurations]({{base_path}}/assets/img/learn/advance-config-dialog.png)]({{base_path}}/assets/img/learn/advance-config-dialog.png)
+    <a href="{{base_path}}/assets/img/learn/advance-config-dialog.png"/><img src="{{base_path}}/assets/img/learn/advance-config-dialog.png" alt="Advanced endpoint configurations" width="650"/>
 
 The following are Advanced Endpoint Configurations that you can configure for both the production and sandbox endpoints.
 <table>

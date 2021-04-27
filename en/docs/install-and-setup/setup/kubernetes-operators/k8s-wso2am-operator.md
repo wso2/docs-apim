@@ -1,4 +1,4 @@
-# Kubernetes WSO2 API Manager Operator
+# Deploying API-M on Kubernetes using the Operator
 
 With WSO2 API Manager Operator, it makes easy to deploy WSO2 API Manager in Kubernetes through a simple command. Also it supports deploying recommended deployment patterns in Kubernetes. Introducing a new Custom Resource Definition called APIManager to efficiently and easily deploy patterns, and custom patterns in Kubernetes.
 ![WSO2 API Manager Operator CRDs workflow]({{base_path}}/assets/img/learn/kubernetes-operators/wso2am-operator-crds-workflow.png)
