@@ -9,9 +9,9 @@ systems and its capabilities to enhance your services. WSO2 Micro Integrator use
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_integrate_connectors.png" alt="Integrating with Connectors" title="Integrating with Connectors" width="60%" />
 
-To develop the service we can use Integration Studio, where we can import and package the connector 
-with the Composite application. To listen for a file, we can use an Inbound Endpoint, which will be listening 
-to a particular location which we provide. Once a file is added to that location it will pick up the file 
+To develop the service you can use Integration Studio, where you can import and package the connector 
+with the Composite application. To listen for a file, you can use an Inbound Endpoint, which will be listening 
+to a particular location which you provide. Once a file is added to that location it will pick up the file 
 and process it. Inbound Endpoints support various protocols such as HTTP, JMS, RabbitMQ, Websocket etc, 
 While developing you can try it out in the Embedded Micro Integrator inside the Studio. Once the development 
 is complete you can export it as a Compose Application and add it to the Micro Integrator runtime.
@@ -45,7 +45,7 @@ the connector. Before adding the service to the system, you need to do the follo
     ```
 
 
-4. After that, we need to add the EmailService CApp to the Micro Integrator in the setup. To do that uncomment the following line in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
+4. After that, you need to add the EmailService CApp to the Micro Integrator in the setup. To do that uncomment the following line in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
 
     ```
     # # Uncomment when trying out Guaranteed Message Delivery Scenario

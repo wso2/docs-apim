@@ -13,7 +13,7 @@ curl -X GET 'http://localhost:8082/telecom-rest-service/nexus/v1/metrics'
 
 ```
 
-With Micro Integrator and Integration Studio, we can implement the business logic to call these three backends, aggregate the response, and present it to the client as one response.
+With Micro Integrator and Integration Studio, you can implement the business logic to call these three backends, aggregate the response, and present it to the client as one response.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_implement_api.png" alt="Implement API" title="Implement API" width="60%" />
 
