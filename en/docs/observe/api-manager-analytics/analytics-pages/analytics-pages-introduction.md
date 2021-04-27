@@ -11,7 +11,7 @@ Time picker is located in the top left hand corner of the analytics dashboard. O
 , all dashboards will use that time range when you move between different pages. However, if you reload the page then
  the time picker will revert to the default setting, which is 'Past 24 Hours'.
  
- Time picker consist of several pre-defined time intervals. Below image illustrates those predefined time intervals.
+ The time picker consists of several pre-defined time intervals. The following image illustrates those predefined time intervals.
  
  ![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-list.png)
  
