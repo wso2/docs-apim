@@ -62,7 +62,7 @@ This is the welcome page of the analytics portal. This page will mainly display 
   
 ### Traffic Page
 This page displays all traffic related information available in the system such as API Usage, Application Usage
-, Resource Usage and etc. For more information please refer 
+, Resource Usage, etc. For more information please refer 
 [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic) documentation.
 
 ### Errors Page
