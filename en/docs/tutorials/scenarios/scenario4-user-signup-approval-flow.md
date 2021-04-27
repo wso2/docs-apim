@@ -21,7 +21,7 @@ To try this out,
 1. Go to the Developer Portal [https://localhost:9443/devportal/](https://localhost:9443/devportal/) and select Qantis tenant domain.
 2. Select Sign In button on the top right corner. This will show a signup page.
 3. Select **Create Account** Link.
-4. Add the desired username (with the tenant domain) and proceed to self register.
+4. Add the desired username (with the tenant domain) and proceed to self register. Let's say `raj@quantis.com`.
 
     ![Signup config]({{base_path}}/assets/img/tutorials/scenarios/signup-start-pg.png)
 
