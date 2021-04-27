@@ -9,7 +9,7 @@ The new cloud analytics portal consists of several pages where pages are divided
 
 Time picker is located in the top left hand corner of the analytics dashboard. Once you choose a given time frame
 , all dashboards will use that time range when you move between different pages. However if you reload the page then
- time picker will be reverted to the default setting which is 'Past 24 Hours'.
+ the time picker will revert to the default setting, which is 'Past 24 Hours'.
  
  Time picker consist of several pre-defined time intervals. Below image illustrates those predefined time intervals.
  
