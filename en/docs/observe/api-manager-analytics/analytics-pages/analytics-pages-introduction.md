@@ -86,7 +86,7 @@ This page visualizes details on API caching functionality including cache hit ra
 ### Devices Page
 
 This page displays information about OS platforms and HTTP Agents end users are using to invoke the APIs. You can use
- this page to get and idea of the distribution of your user-base and improve your APIs to match the audience. For
+ this page to get an idea of the distribution of your user-base and improve your APIs to match the audience. For
   more information please refer 
   [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-devices) documentation.
   
