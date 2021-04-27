@@ -1438,9 +1438,9 @@ nav:
                 - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
                 - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Performance Tuning: 
+                - Performance Tuning:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                    -   Micro Integrator Performance Tuning: 
+                    -   Micro Integrator Performance Tuning:
                         - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
                         - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
                         - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
@@ -1519,7 +1519,9 @@ nav:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+            - Performance Test Results:
+                - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
