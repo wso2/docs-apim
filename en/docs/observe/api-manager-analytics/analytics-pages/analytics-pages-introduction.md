@@ -79,7 +79,7 @@ This page illustrates API latency related information such as slowest APIs, late
   
 ### Cache Page
 This page visualizes details on API caching functionality including cache hit rate, hit percentage, etc. You can use
- this page to decide the effectiveness of API caching and also as additional information then investigating API
+ this page to decide the effectiveness of API caching and also as additional information when investigating API
   slowness. For more information please refer 
   [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-cache) documentation.
   
