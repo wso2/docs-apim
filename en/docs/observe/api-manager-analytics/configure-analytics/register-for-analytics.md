@@ -20,7 +20,7 @@ Please follow below steps to register your on-premise environment.
 ![Settings Menu]({{base_path}}/assets/img/observe/settings-menu.png)
 
 - If you are a member of multiple organizations select the appropriate organization from the top left-hand corner. For
-  more information on handling organizations please visit [here]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations).
+  more information on handling organizations, see [here]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations).
 
 ![Org Selector]({{base_path}}/assets/img/observe/organization-selector.png)
 
