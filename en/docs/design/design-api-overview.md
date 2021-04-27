@@ -16,14 +16,14 @@ There are multiple options available to API designers to create an API in WSO2 A
 
 You have two options to create a REST API via the API Publisher in WSO2 API Manager.
 
-- [Create a REST API through the API Publisher]({{base_path}}/design/create-api/create-a-rest-api) - You can directly create your API in the API Publisher by linking your existing backend API implementation.
-- [Create a REST API from an Open API Definition]({{base_path}}/design/create-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
+- [Create a REST API through the API Publisher]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api) - You can directly create your API in the API Publisher by linking your existing backend API implementation.
+- [Create a REST API from an Open API Definition]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
 
-Additionally, you can also convert existing SOAP services or backends to REST APIs. Refer to [Expose a SOAP Service as a REST API]({{base_path}}/design/create-api/expose-a-soap-service-as-a-rest-api) or [Generate REST API from SOAP Backend]({{base_path}}/design/create-api/generate-rest-api-from-soap-backend) for more information.
+Additionally, you can also convert existing SOAP services or backends to REST APIs. Refer to [Expose a SOAP Service as a REST API]({{base_path}}/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api) or [Generate REST API from SOAP Backend]({{base_path}}/design/create-api/create-rest-api/generate-rest-api-from-soap-backend) for more information.
 
-**Create a Managed API based on an Integration Service**
+**Create an API based on a Service**
 
-You can create an integration service using WSO2 Integration Studio (or a similar integration development tool) and expose it as a managed API to the API marketplace. API consumers then discover the API from the marketplace, subscribe to it, and use it for application development. Refer to the [documentation on Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial/)
+You can create services and publish it to WSO2 API Manager, such as you can create an integration service using WSO2 Integration Studio or a streaming integration service using the Streaming Integration Tooling. Refer to the [documentation on Creating an API Using a Service]({{base_path}}/design/create-api/create-an-api-using-a-service).
 
 **Create a GraphQL API**
 

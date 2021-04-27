@@ -1,6 +1,6 @@
 # Configure WSO2 IS as a Key Manager
 
-WSO2 API Manager 3.2.0 supports multiple Key Managers. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager and it has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager.
+WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager and it has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a third-party Key Manager.
 
 Follow the steps given below to configure WSO2 IS as a third-party Key Manager component:
 

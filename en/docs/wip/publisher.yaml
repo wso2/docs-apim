@@ -137,7 +137,6 @@ paths:
             "provider:wso2" will match an API if the provider of the API contains "wso2".
             "provider:"wso2"" will match an API if the provider of the API is exactly "wso2".
             "status:PUBLISHED" will match an API if the API is in PUBLISHED state.
-            "label:external" will match an API if it contains a Microgateway label called "external".
 
             Also you can use combined modifiers
             Eg.

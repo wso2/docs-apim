@@ -64,7 +64,7 @@ docker-compose up -d
 
 ### Step 4 - Create an API in API Manager
 
-Follow the steps [here]({{base_path}}/design/create-api/create-a-rest-api/).
+Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 ### Step 5 - Deploy the API in API Manager
 

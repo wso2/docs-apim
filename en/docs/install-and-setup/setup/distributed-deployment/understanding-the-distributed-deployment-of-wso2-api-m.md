@@ -6,15 +6,58 @@ Before understanding how to deploy WSO2 API Manager (WSO2 API-M), let's understa
 
 WSO2 API Manager uses the following main components:
 
-|                     |                                                                                                                                                       |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Publisher**       | Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage. |
-| **Developer Portal**           | Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.                   |
-| **Key Manager**     | Responsible for all security and key-related operations.                                                                                              |
-| **Gateway**         | Responsible for securing, protecting, managing, and scaling API calls.                                                                                |
-| **Traffic Manager** | Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.                                                                                                               |
+<a href="{{base_path}}/assets/img/setup-and-install/api-m-components.png"><img src="{{base_path}}/assets/img/setup-and-install/api-m-components.png" alt="api-m components"></a>
 
-For more information on the above, see the main components of a distributed system.
+<table>
+    <tr>
+        <th>
+            Component
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Gateway
+        </td>
+        <td>
+            Responsible for securing, protecting, managing, and scaling API calls.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Key Manager
+        </td>
+        <td>
+            Responsible for all security and key-related operations.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Traffic Manager
+        </td>
+        <td>
+            Used to make a decision on throttling. It also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Publisher
+        </td>
+        <td>
+            Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Developer Portal
+        </td>
+        <td>
+            Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.
+        </td>
+    </tr>
+</table>
 
 ## Databases for API-M components
 
