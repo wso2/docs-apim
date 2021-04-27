@@ -4,7 +4,7 @@ RailCo has users in their internal identity management system. They do not want 
 
 **_Time to Complete : 5 mins_**
 
-WSO2 API Manager comes with out-of-the-box external key manager connectors to various Identity providers such as Okta, Auth0, Keycloak, etc. Additionally, it has provided interfaces to write custom Key Manager implementation to plug any external third-party Key Manager solution.. 
+WSO2 API Manager comes with out-of-the-box external key manager connectors to various Identity providers such as Okta, Auth0, Keycloak, etc. Additionally, it has provided interfaces to write custom Key Manager implementation to plug any external third-party Key Manager solution. 
 
 For this scenario, we assume Railco has Keycloak IDP as their internal identity provider. Following are the steps to configure Keycloak idp as the external keymanager for RailCo.
 

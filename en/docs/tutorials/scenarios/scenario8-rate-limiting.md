@@ -1,12 +1,12 @@
 # Scenario 8 - Rate Limiting
 
-While analyzing the traffic patterns and data, GOGO devops team noticed that their backend is getting a high number of requests and due to these high demand, their latency numbers also increased. devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce throttling limits to their free users.
+While analyzing the traffic patterns and data, the GOGO DevOps team noticed that their backend is receiving a high number of requests and due to these high demand, their latency numbers also increased. The devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce rate limiting to manage their free users.
 
 **_Time to Complete : 5 mins_**
 
 ![Throttle description]({{base_path}}/assets/img/tutorials/scenarios/throttle-desc.png)
 
-WSO2 API Manager provides various levels of throttling. For this case let’s apply Subscription Rate Limiting Policy and Maximum Throughput for the backend for **PassengerInfoAPI**.
+WSO2 API Manager provides various levels of rate limiting. For this case let’s apply Subscription Rate Limiting Policy and Maximum Throughput for the backend for **PassengerInfoAPI**.
 
 To Create Subscription Rate Limiting Policy
 
