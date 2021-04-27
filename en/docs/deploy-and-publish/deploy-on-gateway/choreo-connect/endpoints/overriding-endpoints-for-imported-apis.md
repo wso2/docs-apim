@@ -13,7 +13,7 @@ You can define endpoint details as the Adapter environment variables at docker-c
     <API-ID>_<endpoint-type>_endpoint_<endpoint-index>="<endpoint-URL>" 
     ```
     
-    - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>:<vHost>)` ID generated for the imported API. Sample name would be `api_30e623704c5c5479b7c0d9ab78e965df02c1610401e37cbd557e6353e3191c76`.
+    - `<API-ID>` - `api_SHA1(<apiName>:<apiVersion>)` ID generated for the imported API. Sample name would be `api_30e623704c5c5479b7c0d9ab78e965df02c1610401e37cbd557e6353e3191c76`.
     - `<endpoint-type>` - Use one of the following values based on the type of endpoint.
         - `prod` - Use this for a production endpoint.
         - `sand` - Use this for a sandbox endpoint.

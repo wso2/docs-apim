@@ -33,7 +33,7 @@ When running the Choreo Connect, you can provide the username, password as adapt
 <API-ID>_<endpoint-type>_basic_password=<password>
 ```
 
-- API-ID : `api_SHA1(<apiName>:<apiVersion>:<vHost>)`
+- API-ID : `api_SHA1(<apiName>:<apiVersion>)`
 - endpoint-type: prod or sand.
 - username : basic auth username
 - password : basic auth username
