@@ -70,8 +70,8 @@ sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
 For example,
 
 ``` java
-In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.2.0/ -pid 5151
-In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.2.0\ -pid 5151
+In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-4.0.0/ -pid 5151
+In Windows: carbondump.bat -carbonHome c:\wso2carbon-4.0.0\ -pid 5151
 ```
 The tool captures the following information about the system:
 

@@ -1,11 +1,8 @@
-# Manage Integrations
+# Deploying Integrations using the Operator
 
 The Kubernetes API operator (**k8s-api-operator**) provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the **Integration custom resource** (`integration_cr.yaml` file) that is available in the Kubernetes exporter module (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
 
-The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP/HTTPS protocols. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to update ingress controller configurations. Also, you can use the same file to disable ingress controller creation when applying the operator if you plan to use a custom ingress controller.
-                                                                                                                                                                                                                                                    
-
-
+The operator is configured with an NGINX Ingress controller by default, which exposes the deployed integration through HTTP/HTTPS protocols. If required, you can use the operator's configuration mapper (`integration_controller_conf.yaml` file) to update ingress controller configurations. Also, you can use the same file to disable ingress controller creation when applying the operator if you plan to use a custom ingress controller.                                                                                                                                                                                                                                           
 ##  Prerequisites (system requirements)
 
 Listed below are the system requirements for deploying integration solutions in Kubernetes using the K8s API Operator.

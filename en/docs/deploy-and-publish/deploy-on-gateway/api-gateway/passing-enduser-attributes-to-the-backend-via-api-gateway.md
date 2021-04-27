@@ -255,4 +255,4 @@ custom claims into JWT when invocation token in opaque mode.
 
 ## See Also
 
-If you want to learn how you can pass end user attributes to the backend when working with WSO2 API Microgateway, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-microgateway/passing-enduser-attributes-to-the-backend-via-api-microgateway), which is under the WSO2 API Microgateway documentation section.
+If you want to learn how you can pass end user attributes to the backend when working with Choreo Connect, see [Passing Enduser Attributes to the Backend]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect), which is under the Choreo Connect documentation section.
