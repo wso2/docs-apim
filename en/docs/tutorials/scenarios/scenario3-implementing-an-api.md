@@ -2,18 +2,18 @@
 
 ## User Story
 
-**RailCo has a partnership with Telecom companies to sell their train tickets as Value added services. Currently RailCo has partnerships with three such companies (Nexus, Wishque & Tenet). RailCo has a requirement to gather the stats of bookings on a daily basis from these companies. All 3 companies are exposing this data but they are exposing it in different formats. RailCo wants to develop a service which aggregates all this data and exposes it as a single API. _They first decided to create their own backend to call each of these APIs internally and write the logic to consume each service to generate the required outcome. But quickly understood the complexity of development tasks they have to undergo. For example, each of these external services uses different protocols and message formats. This would require special skills for their development teams and would increase the maintenance overhead as well.  _RailCo identified that using WSO2 API Manager and WSO2 Micro Integrator, they could do this integration in no time and expose the API with additional QoS features.**
+RailCo has a partnership with Telecom companies to sell their train tickets as value added services. Currently RailCo has partnerships with three such companies (Nexus, Wishque, and Tenet). RailCo has a requirement to gather the stats of bookings on a daily basis from these companies. All 3 companies are exposing this data but they are exposing it in different formats. RailCo wants to develop a service that aggregates all this data and exposes it as a single API. They first decided to create their own backend to call each of these APIs internally and write the logic to consume each service to generate the required outcome. However, they quickly understood the complexity of development tasks they have to undergo. For example, each of these external services use different protocols and message formats. This would require special skills for their development teams and would increase the maintenance overhead as well.  RailCo identified that using WSO2 API Manager and WSO2 Micro Integrator, they could do this integration in no time and expose the API with additional QoS features.
 
 **_Time to Complete : ? mins_**
 
-There are three different sample backends implemented which provide the metrics in different formats. When you invoke them directly, you can view metrics related to one Telecom company. 
+There are three different sample backends implemented that provide the metrics in different formats. When you invoke them directly, you can view metrics related to one Telecom company. 
 
 ```
 curl -X GET 'http://localhost:8082/telecom-rest-service/nexus/v1/metrics' 
 
 ```
 
-With Micro Integrator and Integration Studio, we can implement the business logic to call these three backends, aggregate the response and present it to the client as one response.
+With Micro Integrator and Integration Studio, we can implement the business logic to call these three backends, aggregate the response, and present it to the client as one response.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_implement_api.png" alt="Implement API" title="Implement API" width="60%" />
 
@@ -41,7 +41,7 @@ Once started, you can observe the following log in Micro Integrator.
 
 `{ServiceCatalogUtils} - Successfully updated the service catalog`
 
-You can view the API entry in the API manager by visiting the following URL. (Login as jill@railco.com)
+You can view the API entry in the API Manager by visiting the following URL. Log on as jill@railco.com.
 
 [https://localhost:9443/publisher/service-catalog](https://localhost:9443/publisher/service-catalog)
 
@@ -49,7 +49,7 @@ You can view the API entry in the API manager by visiting the following URL. (Lo
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/service_catalog_detail_view.png" alt="Service Detailed View" title="Service Detailed View" width="60%" />
 
-In this setup, the API is already deployed from the publisher and you can view in the DevPortal. 
+In this setup, the API is already deployed from the Publisher and you can view it in the Developer Portal. 
 
 1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Dev portal and select **RailCo** tenant domain. This will redirect you to RailCo’s developer portal.
 2. Sign in with a RailCo tenant, developer portal user. (tom@railco.com)

@@ -2,10 +2,10 @@
 
 ## User Story
 
-**RailCo HR department is planning to develop an HR system dashboard. Therefore, Railco wants to create REST APIS to expose their 
-Employee Database as a service where users can add, delete, update and view employee details.**
+RailCo HR department is planning to develop an HR system dashboard. Therefore, Railco wants to create REST APIs to expose their 
+Employee Database as a service where users can add, delete, update and view employee details.
 
-With WSO2 Micro Integrator Data Services, users can Integrate with different Data Sources and decouple the data from its infrastructure. 
+With WSO2 Micro Integrator Data Services, users can integrate with different Data Sources and decouple the data from its infrastructure. 
 In other words, when you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) 
 can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting 
 with the original source of the data.
@@ -23,14 +23,14 @@ developed and added in the API manager. A database has been created with dummy E
 
 To invoke the API from API Manager,
 
-1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Dev portal and select **RailCo** tenant domain. This will redirect you to RailCo’s developer portal.
+1. Go to [https://localhost:9443/devportal/](https://localhost:9443/devportal/) Developer Portal and select **RailCo** tenant domain. This will redirect you to RailCo’s Developer Portal.
 2. Sign in with a RailCo tenant, developer portal user. (tom@railco.com)
 3. Click on RailCoEmployeeAPI and click subscribe using a policy and generate the access token.
 4. After that you can try out the CRUD operations on the EmployeeAPI.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/employee_resources_apim.png" alt="Employee API resources" title="Employee API resources" width="60%" />
 
-For eg, you can try out the following Curl request.
+For e.g., you can try out the following Curl request.
 
 ```
 curl -k -X GET 'https://localhost:8243/t/railco.com/operations/data/employees/1.0.0/employees/2' \
