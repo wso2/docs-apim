@@ -50,7 +50,7 @@ Tenant Picker will be enabled if your selected environment uses multi-tenancy. I
  this picker you have to select the tenant that you need to observe analytics data. When tenancy is enabled
  , data will only be shown per tenant basis. If you want to view cumulative analytics data for all tenants,
   you have to select **carbon.super** as the tenant, which is the default super tenant name. All tenant data will be
-   aggregated and show under super tenant.
+   aggregated and shown under super tenant.
    
 ## Pages
 
