@@ -84,4 +84,4 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 - [https://github.com/wso2/performance-common](https://github.com/wso2/performance-common)
 
-- [https://github.com/wso2/performance-ei](https://github.com/wso2/performance-ei
+- [https://github.com/wso2/performance-ei](https://github.com/wso2/performance-ei)
