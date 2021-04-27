@@ -1,4 +1,4 @@
-# Kubernetes Deployment Patterns
+# Micro Integrator Deployment Patterns on Kubernetes
 
 These are the deployment patterns you can use when deploying your WSO2 Micro Integrator-based integration solutions in a Kubernetes environment.
 
