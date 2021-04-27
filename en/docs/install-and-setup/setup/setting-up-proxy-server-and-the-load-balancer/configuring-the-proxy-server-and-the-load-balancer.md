@@ -114,36 +114,37 @@ Carry out the following steps to configure the load balancer to front multiple 
     -   The directories used for access and error logs should be created if they do not exist.
 
 !!! info
-    ```tab="Single node"
-    -   The placeholder {node-ip-address} corresponds to the IP address of the backend node in which the WSO2 API-M server is running.
-    -   In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (Publisher, Developer Portal, Admin, and Carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
-    ```
 
-    ```tab="Active-Active"
+    **Single node**:
+
+    -   The placeholder {node-ip-address} corresponds to the IP address of the backend node in which the WSO2 API-M server is running.
+    -   In the sample configuration given below, the hostname api.am.wso2.com is used to access an all-in-one instance of the API-M runtime and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+
+    **Active-Active**
+
     - The placeholders {node-1-ip-address} and {node-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM servers are running.
-    - In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (Publisher, Developer Portal, Admin, and Carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+    - In the sample configuration given below, the hostname api.am.wso2.com is used to access an all-in-one instance of the API-M runtime and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
     - This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
 
-    - In an Active-Active deployment, it is mandatory to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Developer Portal**, and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.
-    - However, authentication via session ID fails when s ticky sessions are disabled in the load balancers of Publisher and Developer Portal.
-    ```
+    - In an Active-Active deployment, it is mandatory to set up sticky sessions (session affinity) in the load balancers for the **Publisher** and **Developer Portal** components of the API-M runtime. However, sticky sessions are not required for the **Key Manager** and **Gateway** components.
+    - However, authentication via session ID fails when sticky sessions are disabled in the load balancers (for the Publisher and Developer Portal).
 
-    ```tab="HA for Gateway"
+    **HA for Gateway**
+
     -   The placeholder {gwm-ip-address} corresponds to the IP addresses of the backend nodes in which Gateway Manager server is running. Similarly, {gw-1-ip-address} and {gw-2-ip-address} are the nodes in which Gateway Workers are running.
-    -   In the sample configuration given below, the hostname mgtgw.am.wso2.com is used to access management console of the Gateway Manager and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+    -   In the sample configuration given below, the mgtgw.am.wso2.com hostname is used to access management console of the Gateway Manager and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
     -   If you are using multiple Gateway Managers when using a shared file system (e.g., NFS), then you need to enable sticky sessions.
-    ```
 
-    ```tab="HA for Control Plane"
-    -   The placeholders {controlplane-1-ip-address} and {controlplane-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Control Planes are running.
-    -   In the sample configuration given below, the hostname controlplane.am.wso2.com is used to access the Control Plane. Only HTTPS is allowed.
+    **HA for Control Plane**
+
+    -   The placeholders {controlplane-1-ip-address} and {controlplane-2-ip-address} correspond to the IP addresses of the backend nodes in which API-M Control Planes are running.
+    -   In the sample configuration given below, the hostname cp.am.wso2.com is used to access the Control Plane. Only HTTPS is allowed.
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the ip_hash method instead.
-    ```
 
-    ```tab="HA for Traffic Manager"
-    -   The placeholders {tm-1-ip-address} and {tm-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Traffic-Managers are running.
-    -   In the sample configuration given below, the hostname tm.am.wso2.com is used to access Traffic-Manager. Only HTTPS is allowed.  
-    ```
+    **HA for Traffic Manager**
+
+    -   The placeholders {tm-1-ip-address} and {tm-2-ip-address} correspond to the IP addresses of the back-end nodes in which APIM Traffic Managers are running.
+
 
 !!! configurations
     ```tab="Single node"
@@ -324,9 +325,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     ```
 
     ```tab="HA for Control Plane"
-    upstream controlplane.am.wso2.com {
-        server {controlplane-1-ip-address}:9443;
-        server {controlplane-2-ip-address}:9443;
+    upstream cp.am.wso2.com {
+        server {cp-1-ip-address}:9443;
+        server {cp-2-ip-address}:9443;
         #ip_hash;
         sticky learn create=$upstream_cookie_jsessionid
             lookup=$cookie_jsessionid
@@ -335,13 +336,13 @@ Carry out the following steps to configure the load balancer to front multiple 
     
     server {
         listen 80;
-        server_name controlplane.am.wso2.com;
-        rewrite ^/(.*) https://publisher.am.wso2.com/$1 permanent;
+        server_name cp.am.wso2.com;
+        rewrite ^/(.*) https://cp.am.wso2.com/$1 permanent;
     }
     
     server {
         listen 443 ssl;
-        server_name controlplane.am.wso2.com;
+        server_name cp.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
@@ -352,7 +353,7 @@ Carry out the following steps to configure the load balancer to front multiple 
                 proxy_set_header Host $http_host;
                 proxy_read_timeout 5m;
                 proxy_send_timeout 5m;
-                proxy_pass https://publisher.am.wso2.com;
+                proxy_pass https://cp.am.wso2.com;
             }
     
             access_log /etc/nginx/log/publisher/https/access.log;
@@ -466,4 +467,3 @@ The following instructions are optional if you do not have a custom URL configur
 
     !!! Note
         New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.
-    
