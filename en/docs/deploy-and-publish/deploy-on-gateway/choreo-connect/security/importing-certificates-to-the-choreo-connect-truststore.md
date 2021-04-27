@@ -8,11 +8,10 @@ Follow the steps given below to import the certificate.
     openssl x509 -inform der -in public_certificate.cert -out certificate.pem
     ```
 
-2.  Add the certificate to the relevant components resource folder `<choreo-connect-home>/docker-compose/resources/<component>/security/truststore` directory.
+2.  Add the certificate to the relevant components resource folder `<CHOREO-CONNECT_HOME>/docker-compose/resources/<component>/security/truststore` directory.
 
 !!! note
     For signature validation of JWTs, you need to add the public certificate of the Identity Provider to the truststore of the API Choreo Connect. 
     Therefore add public certificate of identity provider in PEM format to `<choreo-connect-home>/docker-compose/resources/enforcer/security/truststore` directory.
     
 3.  Restart the server.
-
