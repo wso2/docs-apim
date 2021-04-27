@@ -36,7 +36,7 @@ In the custom picker first you have to select the granularity that you need to v
 
 This widget allows you to select the environment you need to view statistics for. When you are 
 [Registering for Analytics]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics) 
-at the On-Prem Key generation step, you are required to provide an 'Key Name'. This serves as your environment name
+at the On-Prem Key generation step, you are required to provide a 'Key Name'. This serves as your environment name
 . Suppose you have two different environments for two different business units of your organization. In such a case
  you can generate two On-Premise Keys and add them to respective Gateways of each deployment. Once that is done
   'Environment Picker' will show two options and based on the selection dashboards will only show statistics relevant
