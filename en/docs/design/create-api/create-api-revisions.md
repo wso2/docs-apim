@@ -111,6 +111,14 @@ If you need to delete a specific revision, click on the **Delete** button in the
 
 ## Restore a revision
 
-If you need to restore a specific revision, click on the **Restore** button in the revision list as shown below. This will restore the revision in to the working copy.
+When you are updating the API from the publisher console, you are updating the working copy of the API. A change in a mediation policy, 
+a change in security configurations, a change to a documentation or simply changing the description of the API will deviate 
+the working copy of the API from the latest revision. If the API is in published state, working copy of the API is 
+displayed at the Devportal. If you need to revert these changes and restore a specific revision, click on the **Restore** 
+button in the revision list as shown below. This will restore the revision in to the working copy overriding the changes done in the working copy.
+Restore will only effect the Publisher portal and Devportal. It doesn't have an affect on the deployed revisions. 
 
 [![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)]({{base_path}}/assets/img/design/revision/restore-revision.png)
+
+!!!note
+        If you haven't made a revision of the latest changes before restoring a previous revision, changes in the working copy will be lost. 
