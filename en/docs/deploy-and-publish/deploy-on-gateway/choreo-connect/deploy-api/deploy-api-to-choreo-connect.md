@@ -12,61 +12,15 @@ There are two ways to add an API to the Choreo Connect.
 
 ## Via API Manager
 
-!!! info
-    **Before you begin**
+### Step 1 - Configure Choreo Connect with API Manager
 
-    - Make sure you have installed Docker and Docker Compose on your machine.
+Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/configure-choreo-connect-with-api-manager).
 
-    - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases)and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
-
-    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
-
-### Step 1 - Find the APIM IP Address
-
-In order to tell Choreo Connect where API Manager (APIM) is located, find out the IP that can be used to access the API Manager instance. If you are trying out WSO2 API Manager locally, the private IP retrived using `hostname -I` or `ipconfig` would do.
-
-### Step 2 - Update the Choreo Connect Config File
-
-Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file in a text editor and update it as follows.
-
-In the `[controlPlane.eventHub]` section,
-
- - set `enabled` to true
- - update `serviceUrl` with the IP and the port of API Manager
- - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the default value `"Production and Sandbox"` as it is.
-
- Example
- ``` yaml
- [controlPlane.eventHub]
-  enabled = true
-  serviceUrl = "https://192.168.1.94:9443/"
-  username="admin"
-  password="$env{cp_admin_pwd}"
-  environmentLabels = ["Production and Sandbox"]
-  retryInterval = 5
-  skipSSLVerification=true
-  # Message broker connection URL of the control plane
-  [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
- ``` 
-
-!!! tip
-
-    In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab.
-
-### Step 3 - Start the Choreo Connect
-
-Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
-    
-``` bash
-docker-compose up -d
-```
-
-### Step 4 - Create an API in API Manager
+### Step 2 - Create an API in API Manager
 
 Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
-### Step 5 - Deploy the API in API Manager
+### Step 3 - Deploy the API in API Manager
 
  The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you could easily deploy the API you just created.
 
