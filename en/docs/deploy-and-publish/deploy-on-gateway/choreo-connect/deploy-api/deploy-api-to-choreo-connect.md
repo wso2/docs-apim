@@ -14,7 +14,7 @@ There are two ways to add an API to the Choreo Connect.
 
 ### Step 1 - Configure Choreo Connect with API Manager
 
-Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/configure-choreo-connect-with-api-manager).
+Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
 
 ### Step 2 - Create an API in API Manager
 
