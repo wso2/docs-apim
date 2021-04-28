@@ -116,7 +116,7 @@ a change in security configurations, a change to a documentation or simply chang
 the working copy of the API from the latest revision. If the API is in published state, working copy of the API is 
 displayed at the Devportal. If you need to revert these changes and restore a specific revision, click on the **Restore** 
 button in the revision list as shown below. This will restore the revision in to the working copy overriding the changes done in the working copy.
-Restore will only effect the Publisher portal and Devportal. It doesn't have an affect on the deployed revisions. 
+Since restore will only update the working copy in the the Publisher and Devportal, it doesn't have any effect on the deployed revisions. 
 
 [![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)]({{base_path}}/assets/img/design/revision/restore-revision.png)
 
