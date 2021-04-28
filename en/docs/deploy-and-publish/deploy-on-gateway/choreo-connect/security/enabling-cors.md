@@ -44,6 +44,8 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
       allowCredentials = false
   ```
 
-!!! note 
-    Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
+!!! info 
+    Global CORS Configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
 
+!!! note 
+    If CORS for a certain API is disabled from API Level Configurations, the default global Configurations will apply.
