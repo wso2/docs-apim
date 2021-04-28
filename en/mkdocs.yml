@@ -219,6 +219,7 @@ nav:
             - Choreo Connect:
                 - Getting Started:
                     - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
+                    - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
@@ -229,6 +230,7 @@ nav:
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                    - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
@@ -1538,7 +1540,7 @@ nav:
             - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
             - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
             - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
-            - Scenario 12 - Gauranteed Message Delivery: tutorials/scenarios/scenario12- message-delivery.md
+            - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
             - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
             - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
