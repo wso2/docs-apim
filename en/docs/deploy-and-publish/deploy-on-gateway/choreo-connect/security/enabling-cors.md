@@ -23,7 +23,7 @@ x-wso2-cors:
   accessControlAllowCredentials: true
 ```
 
-If you are following the [Deploy API via APIM](https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [APIM cors ](https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI)
+If you are following the [Deploy API via APIM](https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [APIM](https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI)
 
 ### Enable CORS configurations globally
 
@@ -45,5 +45,5 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
   ```
 
   !!! note
-          CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
+    CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
 
