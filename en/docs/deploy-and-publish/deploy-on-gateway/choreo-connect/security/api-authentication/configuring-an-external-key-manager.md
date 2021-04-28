@@ -1,14 +1,14 @@
 # Configuring an External Key Manager
 
-WSO2 Choreo Connect provides the capability to configure external key managers through APIM admin portal. The issuer data is retrieved from the event hub at the startup and updated as the changes are made from the admin portal.
+Choreo Connect provides the capability to configure external key managers through APIM admin portal. The issuer data is retrieved from the event hub at the startup and updated as the changes are made from the admin portal.
 
 ### Step 1 - Configure Choreo Connect with API Manager
 
-Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
+Please refer [Configure Choreo Connect with API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
 
 ### Step 2 - Add the external key manager to API Manager
 
-Please refer [here]({{base_path}}/administer/key-managers/overview) to configure the desired key manager. 
+Please refer [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/administer/key-managers/overview) to configure the desired key manager. 
 
 !!! note
     Please note that Choreo Connect only supports self-validation of JWT tokens from key managers. (JWT tokens will be validated against the issuer data.)
