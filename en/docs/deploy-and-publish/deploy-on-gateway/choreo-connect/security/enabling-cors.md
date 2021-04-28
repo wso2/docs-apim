@@ -1,8 +1,8 @@
 # Enabling CORS
 
-#### Enable CORS configuration for API resources (API level)
+### Enable CORS configuration for API resources (API level)
 
-If you are following the dev-first approach ([Deploy API via CLI tool](https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-the-cli-tool-apictl))You can add CrossOrigin Resource Sharing ( **CORS** ) configurations for each API (at API level) using the OpenAPI vendor extension **x-wso2-cors** in the API definition. The following code snippet depicts the usage of the `         x-wso2-cors        ` extension. For more information, see the [detailed sample OpenAPI definition with CORS level configuration](https://github.com/wso2/product-microgateway/blob/master/samples/cors_sample.yaml) .
+If you are following the dev-first approach ([Deploy API via CLI tool]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-the-cli-tool-apictl))You can add CrossOrigin Resource Sharing ( **CORS** ) configurations for each API (at API level) using the OpenAPI vendor extension **x-wso2-cors** in the API definition. The following code snippet depicts the usage of the `x-wso2-cors` extension. For more information, see the [detailed sample OpenAPI definition with CORS level configuration](https://github.com/wso2/product-microgateway/blob/master/samples/cors_sample.yaml) .
 
 ``` java
 x-wso2-basePath: /petstore/v1
@@ -23,7 +23,7 @@ x-wso2-cors:
   accessControlAllowCredentials: true
 ```
 
-If you are following the [Deploy API via APIM](https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [APIM](https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI)
+If you are following the [Deploy API via APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [APIM]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI).
 
 ### Enable CORS configurations globally
 
@@ -44,6 +44,6 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
       allowCredentials = false
   ```
 
-  !!! note
-    CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
+!!! note 
+    Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
 
