@@ -223,7 +223,8 @@ nav:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
                         - Quick Start Guide with APIM-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim.md
-                        - Quick Started Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                        - Quick Start Guide-Kubernetes: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md
+                        - Quick Start Guide with APIM-Kubernetes: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes-with-apim.md
                 - Concepts:
                     - API Manager as Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane.md
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md

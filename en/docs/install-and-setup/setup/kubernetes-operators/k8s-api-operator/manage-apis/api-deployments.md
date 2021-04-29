@@ -16,4 +16,4 @@ When it comes to managing APIs, users are able to deploy APIs in Kubernetes with
 Follow the quick start guides below to get started with managing APIs in Kubernetes
 
 - [With the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md)
-- [Without the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes.md)
+- [Without the Control Plane]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-kubernetes)
