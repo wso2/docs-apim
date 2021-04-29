@@ -121,13 +121,13 @@ Based on the selected tier, a subscriber will be throttled out upon reaching the
 
 #### Application-level throttling (application developer)
 
-Application-level throttling tiers are defined at the time an application is created in the API Developer Portal as shown [here](https://apim.docs.wso2.com/en/latest/learn/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer). The limits are restricted per token for a specific application.
+Application-level throttling tiers are defined at the time an application is created in the API Developer Portal as shown [here]({{base_path}}/design/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer). The limits are restricted per token for a specific application.
 
 An application is a logical collection of one or more APIs. An API is subscribed to an application. A single access token generated for an application can be used to invoke all the APIs subscribed to that application.
 
 An application can be used to support environment restrictions. For e.g., if there is an infrastructure limitation to serve a maximum number of requests at a given time, a throttling tier can be set to an application to avoid the system being overloaded.
 
-For more information on application-level throttling tiers, see [application-level Throttling tiers](https://apim.docs.wso2.com/en/latest/learn/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-throttling-tier).
+For more information on application-level throttling tiers, see [Application-Level Throttling tiers]({{base_path}}/design/rate-limiting/setting-throttling-limits/#application-level-throttling-application-developer).
 
 
 ## Revoked Tokens

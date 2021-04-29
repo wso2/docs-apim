@@ -14,7 +14,6 @@ Note that you cannot define two resources in the same service with only a path t
     /echo/{abc}/bar
     /echo/{xyz}/bar
 
-
 ## Resource Ordering
 
 Choreo Connect router is backed by Envoy. All the resource paths defined in the OpenAPI/ Swagger definition are applied through a single Envoy configuration as routes.
