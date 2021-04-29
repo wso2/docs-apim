@@ -10,6 +10,9 @@ The following are the configurations with regard to Enforcer. The configuration 
 |`jwtGenerator` | The configuration of the backend jwt generation in the Choreo Connect. |
 |`jwtIssuer`  | The issuer configuration required to generate token at Choreo Connect.|
 |`throttling` | The throttling related configurations to publish events to Traffic Manager.|
+|`security` | The configurations required for enforcer to apply API management security. |
+|`security.authHeader` | The configurations required for enforcer to provide API authorization security for Choreo Connect and the backend. By default `enableOutboundAuthHeader` is false which removes the authorization header from the backend request.  `authorizationHeader` configuration defines the authorization header expected by the Choreo Connect. It can be overridden at API level using the `x-auth-header` extension. |
+|`security.tokenService` | Defines the configuration required to JWT token authorization. You can provide multiple JWT issuers. When the Choreo Connect connects with WSO2 API Manager, the tokenService configurations defined at `config.toml` are overridden by the Key Manager configurations received from API Manager if the same issuer persists in both sides and store at issuer data store. Whenever a Key Manager is deleted by API Manager Admin Portal, it is not getting removed from issuer data store, if it is configured as a token service. For more information refer, [Configuring and external key manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager) |
 
 ### Sample
 
@@ -127,4 +130,46 @@ The following is a sample enforcer configurations in Choreo Connect.
       secureMaxIdleConnections = 250
       secureEvictionTimePeriod = 5500
       secureMinIdleTimeInPool = 5000
+
+[enforcer.security]
+
+[enforcer.security.authHeader]
+  enableOutboundAuthHeader = false
+  authorizationHeader = "authorization"
+
+# JWT token authorization configurations. You can provide multiple JWT issuers
+# Issuer 1
+[[enforcer.security.tokenService]]
+  name="Resident Key Manager"
+  issuer = "https://localhost:9443/oauth2/token"
+  certificateAlias = "wso2carbon"
+  # URL of the JWKs endpoint
+  jwksURL = ""
+  # Validate subscribed APIs
+  validateSubscription = false
+  # The claim in which the consumer key of the application is coming
+  consumerKeyClaim = "azp"
+  # Certificate Filepath within enforcer
+  certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+
+# Issuer 2
+[[enforcer.security.tokenService]]
+    name="MGW"
+    issuer = "https://localhost:9095/testkey"
+    certificateAlias = "mgw"
+    # URL of the JWKs endpoint
+    jwksURL = ""
+    # Validate subscribed APIs
+    validateSubscription = false
+    # The claim in which the consumer key of the application is coming
+    consumerKeyClaim = ""
+    # Certificate Filepath within enforcer
+    certificateFilePath = "/home/wso2/security/truststore/mg.pem"
+
+# Issuer 3
+[[enforcer.security.tokenService]]
+  name="APIM Publisher"
+  issuer = "https://localhost:9443/publisher"
+  certificateAlias = ""
+  certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 ```

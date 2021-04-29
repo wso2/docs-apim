@@ -219,6 +219,7 @@ nav:
             - Choreo Connect:
                 - Getting Started:
                     - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
+                    - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
@@ -229,6 +230,7 @@ nav:
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                    - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
@@ -239,7 +241,6 @@ nav:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
                         - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
-                        - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
@@ -729,7 +730,6 @@ nav:
                         - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
                     - Working with Organizations: observe/api-manager-analytics/configure-analytics/working-with-organizations.md
                 - Viewing APIM analytics:
-                    - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
                     - Pages:
                         - Introduction: observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md
                         - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
@@ -1438,9 +1438,9 @@ nav:
                 - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
                 - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Performance Tuning: 
+                - Performance Tuning:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                    -   Micro Integrator Performance Tuning: 
+                    -   Micro Integrator Performance Tuning:
                         - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
                         - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
                         - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
@@ -1519,7 +1519,9 @@ nav:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+            - Performance Test Results:
+                - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
@@ -1537,7 +1539,7 @@ nav:
             - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
             - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
             - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
-            - Scenario 12 - Gauranteed Message Delivery: tutorials/scenarios/scenario12- message-delivery.md
+            - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
             - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
             - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
