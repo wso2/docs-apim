@@ -49,34 +49,43 @@ Let's get started...
 Let's create our first project with the name "petstore" by adding the
 [open API definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  First we need to create a Kubernetes ConfigMap with the swagger definition.
+1.  First we need to create a Kubernetes ConfigMap with the API-CTL project.
+    Download the api controller (apictl) from the 
+    [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
+    extract them to a folder of your choice.
 
     ```bash
-    kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
+    export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
     ```
 
-    !!! note
-        You can also create a Kubernetes configmap with a zipped apictl project to deploy an API.
+    ```bash
+    apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
+    ```
 
-        Download the api controller (apictl) from the 
-            [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
-            extract them to a folder of your choice.
+    The project is now initialized. You should notice a directory with the name "petstore" being created in the location
+    where you executed the command.
     
+    Let's update endpoints as `https://petstore.swagger.io/v2` of the API by editing the `petstore/api.yaml` file.
+    ```yaml
+    endpointConfig:
+      endpoint_type: http
+      production_endpoints:
+        url: https://petstore.swagger.io/v2
+      sandbox_endpoints:
+        url: https://petstore.swagger.io/v2
+    ```
+    
+    Let's zip the created "petstore"` directory and create a Kubernetes Config Map.
+    ```bash
+    zip -r petstore.zip petstore/
+    kubectl create cm petstore-cm --from-file petstore.zip
+    ```
+
+    !!! info
+        You can also create a Kubernetes configmap directly from the swagger definition.
+        
         ```bash
-        export PATH=$PATH:<CLI_TOOL_EXTRACTED_LOCATION>
-        ```
-    
-        ```bash
-        apictl init petstore --oas https://petstore.swagger.io/v2/swagger.json
-        ```
-    
-        The project is now initialized. You should notice a directory with the name "petstore" being created in the location where you executed the command. Let's zip the created "petstore"` directory and create a Kubernetes condfigmap.
-    
-        You can also use this Kubernetes configmap to deploy APIs.
-    
-        ```bash
-        zip -r petstore.zip petstore/
-        kubectl create cm petstore-cm --from-file petstore.zip
+        kubectl create cm petstore-cm --from-literal=swagger="$(curl -k https://petstore.swagger.io/v2/swagger.json)"
         ```
 
 2.  Now let's deploy our first API by creating an API resource in Kubernetes.
