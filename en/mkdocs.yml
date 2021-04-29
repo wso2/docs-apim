@@ -526,7 +526,7 @@ nav:
       - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
       - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
       - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-      - Removing Unused Tokens from the Database: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
+      - Managing Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
 
 # Extensions
 markdown_extensions:
