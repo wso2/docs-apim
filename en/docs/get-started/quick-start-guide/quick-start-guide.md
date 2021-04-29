@@ -218,7 +218,7 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
     !!!warn
         If you have previously used an apictl old version, 
-        backup and remove `/home/<user>/.wso2apictl` directory 
+        backup and remove the `/home/<user>/.wso2apictl` directory 
         and reconfigure the environments using the commands as explained below.
         
      Execute the following command to view the available operations.
