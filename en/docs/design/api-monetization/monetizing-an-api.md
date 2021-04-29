@@ -73,16 +73,15 @@ Let's use the
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
-        ```
-        https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>&state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
+         ```
+         https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>& state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
         ```
  
-      The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
+         The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-        [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
+         [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
-    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
-    
+    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
 
 #### (B) - Configure WSO2 API Manager
 
@@ -510,53 +509,54 @@ Let's use the
  
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.
 
-4. Configure WSO2 API Manager to work with Choreo Analytics
+4. Optionally, configure WSO2 API Manager to work with Choreo Analytics.
 
-    These configurations required only if you are intending to create dynamic plans(usage-based plans) where consumers are charged based on the usage of the API. So analytics is required to record and retrieve the usage of
-    monetized APIs. 
+     These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
     
-    a. Enable analytics
+    1. Enable analytics.
     
-      ``` java tab="Format"
-      [apim.analytics]
-      enable = <true/false>
-      config_endpoint = "<Choeo config endpoint>"
-      auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-      ```
-  
-      ``` java tab="Example"
-      [apim.analytics]
-      enable = true
-      config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
-      auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-      ```    
+        ``` java tab="Format"
+         [apim.analytics]
+         enable = <true/false>
+         config_endpoint = "<Choeo config endpoint>"
+         auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ```
+     
+        ``` java tab="Example"
+         [apim.analytics]
+         enable = true
+         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ```    
    
-    b. Define the Query API endpoint of Choreo Analytics under monetization configuration.
+    2. Define the Query API endpoint of Choreo Analytics under the monetization configuration.
     
-      ``` java tab="Format"
-      [apim.monetization]
-      analytics_query_api_endpoint= "<Endpoint of the query API>"
-      ```
-  
-      ``` java tab="Example"
-      [apim.monetization]
-      analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
-      ```     
+         ``` java tab="Format"
+         [apim.monetization]
+         analytics_query_api_endpoint= "<Endpoint of the query API>"
+         ```
+
+         ``` java tab="Example"
+         [apim.monetization]
+         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         ```     
    
-    c. Define the Access token required to access the above Query API. The same access token which is configured under
-    analytcts configuration in step 1 can be configured here.
+    3. Define the Access Token required to access the above Query API. 
+    
+         The same access token which is configured under analytcts configuration in step 1 can be configured here.
    
-      ``` java tab="Format"
-      [apim.monetization]
-      analytics_access_token == "<Token to access the Choreo query API>"
-      ```
-  
-      ``` java tab="Example"
-      [apim.monetization]
-      analytics_access_token == "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-      ```     
+         ``` java tab="Format"
+         [apim.monetization]
+         analytics_access_token == "<Token to access the Choreo query API>"
+         ```
+
+         ``` java tab="Example"
+         [apim.monetization]
+         analytics_access_token == "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+         ```     
    
-4.  Configure the Tenant Admin on WSO2 API Manager.
+5.  Configure the Tenant Admin on WSO2 API Manager.
+
     1.  Start the WSO2 API Manager server.
 
     2.  Sign in to the WSO2 API-M Management Console.
@@ -569,7 +569,7 @@ Let's use the
 
          `/_system/config/apimgt/applicationdata/tenant-conf.json`
 
-         ![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)
+         [![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)]({{base_path}}/assets/img/learn/tenant-config.png)
     
     5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
 
@@ -589,7 +589,7 @@ Let's use the
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-5.  Configure the workflows.
+6.  Configure the workflows.
 
     !!! note
         It is mandatory to comment out or delete the existing default workflow executors.
