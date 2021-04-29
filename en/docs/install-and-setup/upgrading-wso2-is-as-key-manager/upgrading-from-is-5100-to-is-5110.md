@@ -82,11 +82,12 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         custom_webapps = ["/keymanager-operations/"]
         ```
         
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
-    -   wso2is.key.manager.core-1.0.x
-    -   wso2is.notification.event.handlers_1.0.x
+
+     - `wso2is.key.manager.core-1.2.10.jar`
+     - `wso2is.notification.event.handlers_1.2.10.jar`
 
 5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
