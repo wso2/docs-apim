@@ -2,6 +2,8 @@
 
 **Union Station** is a major multimodal railway transportation hub. It is one of the busiest stations in the country and serves thousands of passengers a day. The train shed, platforms, and tracks are owned by **GOGO transit**, and they operate the station. Trains are owned by the companies named **Quantis**, **ColTrain**, and **RailCo**. To provide a digital ecosystem, all four companies are planning to develop their day to day business operations with WSO2 technology. These development ranges from providing different kinds of APIs to external/internal users, providing real time notifications, stream data processing, integrating with partners/external systems etc.
 
+![Scenario Overview]({{base_path}}/assets/img/tutorials/scenario-tutorials/scenario-overview.png)
+
 These tutorials will demonstrate how WSO2 technology can be used to cater to their different requirements.
 
 ## Prerequisites
@@ -20,6 +22,8 @@ Docker and Docker compose need to be installed. Please refer [https://docs.docke
 
 ## Deployment
 
+![Scenario Overview]({{base_path}}/assets/img/tutorials/scenario-tutorials/scenario-deployment.png)
+
 A basic infrastructure has already been created for you to try out the scenarios. To run the setup please follow these steps.
 
 1. Clone https://github.com/wso2/samples-apim/tree/master/apim-tutorial 
@@ -34,6 +38,8 @@ A basic infrastructure has already been created for you to try out the scenarios
 ### API Manager Setup
 
 The API Manager setup consists of 3 tenants for Quantis, ColTrain, and RailCo and Gogo Transit uses the super tenant domain. Tenants, Users, and APIs will be created automatically when Docker compose starts.
+
+![Scenario Overview]({{base_path}}/assets/img/tutorials/scenario-tutorials/scenario-tenants.png)
 
 You can log in to the Publisher Portal and Developer Portal using each tenant's credentials. 
 
