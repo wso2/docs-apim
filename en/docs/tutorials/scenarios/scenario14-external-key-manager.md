@@ -8,7 +8,7 @@ WSO2 API Manager comes with out-of-the-box external key manager connectors to va
 
 For this scenario, we assume Railco has Keycloak IDP as their internal identity provider. Following are the steps to configure Keycloak idp as the external keymanager for RailCo.
 
-![KM description]({{base_path}}/assets/img/tutorials/scenarios/km-desc.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario14.png" title="Key Manager Description" width="630"/>
 
 Detailed steps on how to configure Keycloak can be found in [WSO2 Documentation]({{base_path}}/administer/key-managers/configure-keycloak-connector/). Additionally, you could refer to the screencast done on this in [here](https://www.youtube.com/watch?v=xuZ6DPhXNX8). Following are the simplified steps for this setup.
 

@@ -7,7 +7,8 @@ By exposing this API through WSO2 API Manager, Coltrain expects to get the full 
 **_Time to Complete : 10 mins_**
 
 WSO2 API manager provides capability to import OAS definitions and create the API using that. 
-    ![Import OAS definition to API-M]({{base_path}}/assets/img/tutorials/scenarios/oas-def-import.png)
+
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario1.png" title="Import OAS definition to API-M" width="630"/>
     
 Let's first test the backend. You could do following curl command and you will get a response with schedule items.
 

@@ -7,7 +7,7 @@ RailCo is maintaining a Railway yard for their routine maintenance checkups for 
 When you integrate the systems in your organization, it is also necessary to integrate with third-party 
 systems and its capabilities to enhance your services. WSO2 Micro Integrator uses Connectors for the purpose of referring to the APIs of third-party systems.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_integrate_connectors.png" alt="Integrating with Connectors" title="Integrating with Connectors" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario13.png" alt="Integrating with Connectors" title="Integrating with Connectors" width="60%" />
 
 To develop the service you can use Integration Studio, where you can import and package the connector 
 with the Composite application. To listen for a file, you can use an Inbound Endpoint, which will be listening 

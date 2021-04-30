@@ -15,7 +15,7 @@ curl -X GET 'http://localhost:8082/telecom-rest-service/nexus/v1/metrics'
 
 With Micro Integrator and Integration Studio, you can implement the business logic to call these three backends, aggregate the response, and present it to the client as one response.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_implement_api.png" alt="Implement API" title="Implement API" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario3.png" alt="Implement API" title="Implement API" width="60%" />
 
 To develop a service in Micro Integrator, you need to use Integration Studio. While developing you can try it out in the Embedded Micro Integrator inside the Studio. Once the development is complete you can export it as a Compose Application and add it to the Micro Integrator runtime.
 

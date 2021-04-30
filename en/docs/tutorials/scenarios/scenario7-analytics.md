@@ -6,7 +6,7 @@ GOGO Transit has identified a new business opportunity; since the train arrival 
 
 Choreo API-M Analytics can be used to fulfil the stats and analytics needs of the API Manager. It is a cloud analytics offering for the Choreo API Manager and On-Prem API Manager deployments. 
 
-![Analytics description]({{base_path}}/assets/img/tutorials/scenarios/analytics-desc.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario7.png" title="Analytics Description" width="630"/>
 
 To configure analytics, 
 
