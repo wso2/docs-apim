@@ -6,11 +6,11 @@ ColTrain has a separate API to manage schedules for their internal staff. This A
 
 We could configure the API to be visible for a set of users. For example, this API should be visible for only Developer Portal users with **coltrain_employee** role only.
 
-![Throttling description]({{base_path}}/assets/img/tutorials/scenarios/throttling-description.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario2.png" title="Rate limiting" width="630"/>
 
 Also WSO2 API Manager provides capability to provide access control to the resources of the API by using OAuth2 scopes. Requests containing access tokens with the correct scope will be able to access these resources. 
 
-![Access control description]({{base_path}}/assets/img/tutorials/scenarios/acl-description.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario2a.png" title="Rate limiting" width="630"/>
 
 !!! Note 
     This setup contains roles **schedule_admin**  and **coltrain_employee** already created in the ColTrain tenant domain. **schedule_admin** and **coltrain_employee** roles are assigned to the user **jenny@coltrain.com** and only **coltrain_employee** role is assigned to **george@coltrain.com** . 

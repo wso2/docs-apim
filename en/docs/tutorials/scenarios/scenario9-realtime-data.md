@@ -8,7 +8,7 @@ so that the client mobile applications can subscribe to it and receive real time
 
 **_Time to Complete : 5 mins_**
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_real_time_notifications.png" alt="Realtime Notifications" title="Realtime Notifications" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario9.png" alt="Realtime Notifications" title="Realtime Notifications" width="60%" />
 
 WSO2 Streaming Integrator(SI) is a streaming data processing server that integrates streaming data and takes 
 action based on streaming data. Quantis is planning to use Streaming Integrator to process the real time event data.

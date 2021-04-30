@@ -12,7 +12,7 @@ In other words, when you create a data service in WSO2 Micro Integrator, the dat
 can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting 
 with the original source of the data.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_exposing_datasource.png" alt="Expose Datasource" title="Expose Datasource" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario6.png" alt="Expose Datasource" title="Expose Datasource" width="60%" />
 
 To develop a service in Micro Integrator, you can use WSO2 Integration Studio. 
 

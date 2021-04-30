@@ -4,7 +4,7 @@ Quantis allows external users to access their APIs. To take the full benefit out
 
 **_Time to Complete : 3 mins_**
 
-![Signup description]({{base_path}}/assets/img/tutorials/scenarios/signup-desc.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario4.png" title="Signup Description" width="630"/>
 
 WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. By default, WSO2 API Manager comes with a simple approval workflow. 
 

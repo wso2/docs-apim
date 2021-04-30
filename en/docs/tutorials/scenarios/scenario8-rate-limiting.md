@@ -4,7 +4,7 @@ While analyzing the traffic patterns and data, the GOGO DevOps team noticed that
 
 **_Time to Complete : 5 mins_**
 
-![Throttle description]({{base_path}}/assets/img/tutorials/scenarios/throttle-desc.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario8.png" title="Rate Limiting Description" width="630"/>
 
 WSO2 API Manager provides various levels of rate limiting. For this case let’s apply Subscription Rate Limiting Policy and Maximum Throughput for the backend for **PassengerInfoAPI**.
 

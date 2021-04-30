@@ -11,7 +11,7 @@ to receive the events from the server/web app/publisher has to register its URL 
 in the publisher. When an event occurs, if a client is registered for that event, the publisher will make an 
 HTTP POST request to the registered URL of the client to notify the event.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_notification_api.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario10.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
 
 You can view the Webhook API created in WSO2 API Manager by going to the publisher 
 (Super tenant - admin). [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis) 

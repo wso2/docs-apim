@@ -4,7 +4,7 @@ Quantis is more focused on providing more capability to the developer community.
 
 **_Time to Complete : 5 mins_**
 
-![GraphQL description]({{base_path}}/assets/img/tutorials/scenarios/graphql-schema-import.png)
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario11.png" title="GraphQL Description" width="630"/>
 
 WSO2 API Manager supports creating GraphQL APIs using the GraphQL schema. Following steps can be used to create a sample API.
 

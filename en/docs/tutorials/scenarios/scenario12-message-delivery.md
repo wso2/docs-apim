@@ -15,7 +15,7 @@ lost since they are stored in the message store and available for future referen
 This will be implemented with Message Store and Message Processor in Micro Integrator. Whenever the 
 catering system is down, the messages will be stored in the Message Store. When the system becomes available again, the stored messages will be sent to the Catering system.
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/scenario_guaranteed_message_delivery.png" alt="Guaranteed Message Delivery" title="Guaranteed Message Delivery" width="60%" />
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario12.png" alt="Guaranteed Message Delivery" title="Guaranteed Message Delivery" width="60%" />
 
 If you look at the docker-compose.yml file, you can see that ``CATERING_SERVICE_EP`` is defined as 
 ‘<code>[http://www.urldoesnotexist.com](http://www.urldoesnotexist.com)</code>’ under mi-runtime service. 
