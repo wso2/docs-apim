@@ -187,7 +187,7 @@ Learn how to set up the development environment and build integration solutions.
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_bath}}/integrate/develop/installing-wso2-integration-studio';">
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/installing-wso2-integration-studio';">
             <div class="line"></div>
             <div class="card-content" >
                 <p class="title">Install WSO2 Integration Studio</p>
