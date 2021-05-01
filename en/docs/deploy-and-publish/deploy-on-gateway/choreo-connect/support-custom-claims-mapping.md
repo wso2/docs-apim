@@ -17,14 +17,14 @@ The following instructions are based on the [above example](#example). Let's cha
 
 If the key of the remote claim is different from the custom claim, you can configure claim mapping as follows:
 
-1. Navigate to the `<MG_HOME>/resources/conf/config.toml` file.
+1. Navigate to the `<CHOREO-CONNECT_HOME>/docker-compose/<choreo-connect-with-apim OR choreo-connect>/conf/config.toml` file.
 
 2. Add the following configuration under the `enforcer.jwtTokenConfig` tag.
 
      You need to add the claim mapping configurations under the respective JWT issuer that the claim mapping should be applied to. You can define multiple keys of the remote claims and local claims.
 
     ```toml
-    [[security.enforcer.tokenService]]
+    [[enforcer.security.tokenService]]
         name="Resident Key Manager"
         issuer = "https://localhost:9443/oauth2/token"
         certificateAlias = "wso2carbon"
@@ -36,10 +36,10 @@ If the key of the remote claim is different from the custom claim, you can confi
         consumerKeyClaim = "azp"
         # Certificate Filepath within enforcer
         certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
-        [[security.enforcer.tokenService.claimMapping]]
+        [[enforcer.security.tokenService.claimMapping]]
             remoteClaim = "scp"
             localClaim = "scope"
-    ```      
+    ```
 
 ## Configuring claim values
 

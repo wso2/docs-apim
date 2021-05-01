@@ -6,25 +6,27 @@ The Streaming Integrator component integrates streaming data from different sour
 
 ## Get Started with Streaming
 
+Let's get started with the streaminig capabilities and concepts of the Streaming Integrator of WSO2 API Manager.
+
 <div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
+        <div class="card img" onclick="location.href='{{base_path}}/get-started/quick-start-guide/streaming-qsg';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/quick-start.png' alt="streming quick start" />
             </div>
             <div class="card-content" >
                 <p class="title">Quick Start with Streaming</p>
-                <p class="hint">Try out a simple streaming integration solution with the Streaming Integrator.</p>
+                <p class="hint">Try out a simple streaming solution using the Streaming Integrator.</p>
             </div>
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/streaming/getting-started/getting-started-guide-overview';">
+        <div class="card img" onclick="location.href='{{base_path}}/streaming/getting-started/getting-started-guide-overview';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/first-service.png' alt="develop first streaming solution" />
             </div>
             <div class="card-content">
                 <p class="title">Develop your First Solution</p>
@@ -33,10 +35,10 @@ The Streaming Integrator component integrates streaming data from different sour
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/streaming/streaming-key-concepts';">
+        <div class="card img" onclick="location.href='{{base_path}}/streaming/streaming-key-concepts';">
             <div class="line"></div>
             <div class="card-icon">
-                <i class="material-icons md-36">timer</i>
+                <img src='{{base_path}}/assets/img/integrate/key-concepts.png' alt="streaming key concepts" />
             </div>
             <div class="card-content">
                 <p class="title">Key Concepts of Streaming</p>
@@ -68,7 +70,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/use-cases/streaming-usecase/message-routing-overview">Extracting Data from Static Sources in Real Time</a>
+            <a href="{{base_path}}/use-cases/streaming-usecase/extracting-data-from-static-sources-in-real-time">Extracting Data from Static Sources in Real Time</a>
         </td>
         <td>
             <a href="{{base_path}}/use-cases/streaming-usecase/receiving-data-in-transit">Receiving Data in Transit</a>

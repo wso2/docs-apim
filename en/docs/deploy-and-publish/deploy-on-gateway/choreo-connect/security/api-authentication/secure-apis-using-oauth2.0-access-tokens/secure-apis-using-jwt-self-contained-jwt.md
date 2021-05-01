@@ -4,33 +4,34 @@ Choreo Connect can accept JWTs issued by a **trusted** key manager as a valid to
 
 When a JWT is used as an access token, Choreo Connect validates the following attributes/claims of the JWT.
 
--   **Signature** - after validating the signature, Choreo Connect checks whether the JWT is issued by a trusted key manager, and JWT has not tampered in the middle. This signature validation is done by using the public certificate of the key manager who issued the JWT. Importing the public certificate into the Choreo Connect trust store and configuring the certificate alias in the JWT validation config section is explained in the [importing certificates to the Choreo Connect truststore]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore/)
+-   **Signature** - After validating the signature, Choreo Connect checks whether the JWT is issued by a trusted key manager, and JWT has not tampered in the middle. This signature validation is done by using the public certificate of the key manager who issued the JWT. 
 -   **Issuer(iss)** - The issuer claim is a mandatory claim when JWT is used as a security token. Choreo Connect validates the **iss** claim present in the JWT against the issuer provided in the **jwtTokenConfig** section of the configuration.
 -   **Subject(sub)** - The subject claim is also a mandatory claim in a token. Choreo Connect uses the value of the **sub** claim as the user of the secured API.
 -   **Expiry time(exp)** - "exp" claim is also a mandatory claim. Choreo Connect validates the validity period of the token using the **exp** claim
 
-**Jwt token validation config**
+**JWT validation config**
 
 ``` toml
-# JWT token authorization configurations. You can provide multiple JWT issuers
 # Issuer 1
-[[enforcer.jwtTokenConfig]]
-    name="Resident Key Manager"
-    issuer = "https://localhost:9443/oauth2/token"
-    certificateAlias = "wso2carbon"
-    # URL of the JWKs endpoint
-    jwksURL = ""
-    # Validate subscribed APIs
-    validateSubscription = false
-    # The claim in which the consumer key of the application is coming
-    consumerKeyClaim = "azp"
-    # Certificate Filepath within enforcer
-    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+[[enforcer.security.tokenService]]
+  name="Resident Key Manager"
+  issuer = "https://localhost:9443/oauth2/token"
+  certificateAlias = "wso2carbon"
+  # URL of the JWKs endpoint
+  jwksURL = ""
+  # Validate subscribed APIs
+  validateSubscription = false
+  # The claim in which the consumer key of the application is coming
+  consumerKeyClaim = "azp"
+  # Certificate Filepath within enforcer
+  certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
 ```
+This configuration should be added to the `config.toml` file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
 
-The `certificateFilePath`, `issuer` of the above configuration will be used to validate the signature, iss claim of the JWT respectively. This configuration should be added to the `config.toml` file located in `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/`.
+The `issuer` of the above configuration will be used to validate the "iss" claim of the JWT. 
 
-The JWT signature can be validated either by the certificate (which the alias is defined in certificateAlias) or using the issuer's JWKS endpoint. When configured both properties, if the JWT contains the kid, the token will be validated through the JWKS endpoint.
+The JWT signature can be validated either by the certificate in `certificateFilePath` (which the alias is defined in `certificateAlias`) or using the issuer's `jwksURL` endpoint. When configured both properties, if the JWT contains the kid, the token will be validated through the JWKS endpoint.
+Importing the public certificate into the Choreo Connect trust store and configuring the certificate alias in the JWT validation config section is explained in the [importing certificates to the Choreo Connect truststore]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/importing-certificates-to-the-choreo-connect-truststore/).
 
 To enable [subscription validation](#subscription-validation), enable `validateSubscription` and set `consumerKeyClaim` to the name of the claim in JWT which contains the consumer key of the application.
 
@@ -48,31 +49,31 @@ For information on the subscription model and configuration steps, please refer 
  **Multiple JWT Issuers**
 
 ``` toml
-# JWT token authorization configurations. You can provide multiple JWT issuers
 # Issuer 1
-[[enforcer.jwtTokenConfig]]
-    name="Resident Key Manager"
-    issuer = "https://localhost:9443/oauth2/token"
-    certificateAlias = "wso2carbon"
-    # URL of the JWKs endpoint
-    jwksURL = ""
-    # Validate subscribed APIs
-    validateSubscription = false
-    # The claim in which the consumer key of the application is coming
-    consumerKeyClaim = "azp"
-    # Certificate Filepath within enforcer
-    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+[[enforcer.security.tokenService]]
+  name="Resident Key Manager"
+  issuer = "https://localhost:9443/oauth2/token"
+  certificateAlias = "wso2carbon"
+  # URL of the JWKs endpoint
+  jwksURL = "https://apim:9443/t/wso2.com/oauth2/jwks"
+  # Validate subscribed APIs
+  validateSubscription = false
+  # The claim in which the consumer key of the application is coming
+  consumerKeyClaim = "azp"
+  # Certificate Filepath within enforcer
+  certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+
 # Issuer 2
-[[enforcer.jwtTokenConfig]]
-    name="External Key Manager"
-    issuer = "https://<EXTERNAL_KM_URL>/token"
-    certificateAlias = "wso2carbon"
+[[enforcer.security.tokenService]]
+    name="MGW"
+    issuer = "https://localhost:9095/testkey"
+    certificateAlias = "mgw"
     # URL of the JWKs endpoint
     jwksURL = ""
     # Validate subscribed APIs
     validateSubscription = false
     # The claim in which the consumer key of the application is coming
-    consumerKeyClaim = "azp"
+    consumerKeyClaim = ""
     # Certificate Filepath within enforcer
-    certificateFilePath = "/home/wso2/security/truststore/wso2carbon.pem"
+    certificateFilePath = "/home/wso2/security/truststore/mg.pem"
 ```

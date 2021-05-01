@@ -72,48 +72,117 @@ template: templates/single-column.html
     <div class="section04">
         <h3>APIM Scenarios</h3>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario1-create-rest-api';">
                 ![]({{base_path}}/assets/img/home/intigration.svg)
-                <h4>Easily and securely expose APIs to internal and external consumers</h4>
+                <h4>Create REST API from an OpenAPI Definition</h4>
                 <p>
-                    Centrally control access and traffic flows to your APIs, ensuring only the right people get the right information at the right time. 
+                    Create an API in WSO2 API Manager that maps to an OpenAPI definition. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario2-access-control';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
-                <h4>Enable design and runtime governance for the entire API lifecycle</h4>
+                <h4>Engage Access Control to the API</h4>
                 <p>
-                    Build APIs from existing services, manage APIs from internally built applications and from third-party providers, and monitor their usage and performance from inception to retirement.
+                    Configure your API so that it is visible only to selected users.
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario3-implementing-an-api';">
                 ![]({{base_path}}/assets/img/home/streaming.svg)
-                <h4>Provide enhanced API security and policy enforcement</h4>
+                <h4>Implementing an API</h4>
                 <p>
-                    Implement industry-standard authorization flows such as OAuth, OpenID Connect, and JWTs out of the box, and integrate with your existing identity access or key management tools.
+                    You can implement the business logic to call three backends that provide metrics, aggregate the response, and present it to the client as one response.
                 </p>
             </div>
         </div>
         <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario4-user-signup-approval-flow';">
                 ![]({{base_path}}/assets/img/home/intigration.svg)
-                <h4>Get business insights and intelligence through APIs</h4>
+                <h4>Signing up a New User</h4>
                 <p>
-                    Provide real-time access to API usage and performance statistics to decision-makers to optimize your developer support, continuously improve your services, and drive further adoption to reach your business goals. 
+                    WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature.md';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
-                <h4>Flexible deployment models and seamless service discovery</h4>
+                <h4>Getting the Developer Community Involved</h4>
                 <p>
-                    Deploy in the cloud, in your private data centers, or anywhere in between, while cataloging your services in a single location to make it easy for your developers to find what they need to efficiently build their applications.
+                    WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published.
                 </p>
             </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/user-scenario';">
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario6-integrating-with-data-sources';">
                 ![]({{base_path}}/assets/img/home/streaming.svg)
-                <h4>Support modern services and integrate API workflows with your CI/CD pipeline</h4>
+                <h4>Integrating with Data Sources</h4>
                 <p>
-                    Strategically adopt modern service delivery and development paradigms including REST, GraphQL, and Async API, without leaving behind the legacy systems that made you successful in the first place.
+                    When you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service.
+                </p>
+            </div>
+        </div>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario7-analytics';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Analytics</h4>
+                <p>
+                    Choreo API Manager Analytics can be used to fulfil the stats and analytics needs of the API Manager. 
+                </p>
+            </div>
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario8-rate-limiting';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>Rate limiting</h4>
+                <p>
+                    WSO2 API Manager provides various levels of rate limiting to control the number of transactions at any given time.
+                </p>
+            </div>
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario9-realtime-data';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Realtime Data with WebSocket API</h4>
+                <p>
+                    WSO2 Streaming Integrator(SI) is a streaming data processing server that integrates realtime streaming data and takes action based on the streaming data.
+                </p>
+            </div>
+        </div>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario10-notifications-webhooks';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Notifications Using Webhooks</h4>
+                <p>
+                    The API Manager enables you to provide information as webhooks so that companies can subscribe to these notifications without continuously polling. 
+                </p>
+            </div>
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario11-graphql';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>GraphQL Support</h4>
+                <p>
+                    WSO2 API Manager supports creating GraphQL APIs using the GraphQL schema.
+                </p>
+            </div>
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario12-message-delivery';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Guaranteed Message Delivery</h4>
+                <p>
+                    Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store.
+                </p>
+            </div>
+        </div>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario13-integrate-with-connectors';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Integrate with Services via Connectors</h4>
+                <p>
+                    When you integrate systems in your organization, it is also necessary to integrate with third-party systems to enhance your services. This is possible via Connectors. 
+                </p>
+            </div>
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario14-external-key-manager';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>External Key Manager Support</h4>
+                <p>
+                    WSO2 API Manager comes with external key manager connectors to various identity providers such as Okta, Auth0, Keycloak, etc. Additionally, you can write a custom Key Manager implementation.
+                </p>
+            </div>
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Other</h4>
+                <p>
+                    Look through the available tutorials for more product capabilities.
                 </p>
             </div>
         </div>

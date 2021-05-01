@@ -81,11 +81,12 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         custom_webapps = ["/keymanager-operations/"]
         ```
         
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
-    -   wso2is.key.manager.core-1.0.x
-    -   wso2is.notification.event.handlers_1.0.x
+
+     - `wso2is.key.manager.core-1.2.10.jar`
+     - `wso2is.notification.event.handlers_1.2.10.jar`
 
 5. Add `keymanager-operations.war` from the extracted distribution to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -214,8 +215,3 @@ Follow the steps mentioned in [Upgrading API-M from 2.2.0 to 4.0.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
-
-!!! note
-    Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
-    All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
-    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).

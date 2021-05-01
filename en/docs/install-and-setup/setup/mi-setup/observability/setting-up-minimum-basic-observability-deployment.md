@@ -320,6 +320,12 @@ Once you have successfully set up the [minimum deployment](#setting-up-the-minim
 
 Download and install [Jaeger](https://www.jaegertracing.io/download/).
 
+!!! Note
+
+    - There are some limitations in the Jaeger client, which by default uses a UDP sender as mentioned in [the Jaeger documentation](https://www.jaegertracing.io/docs/1.22/client-libraries/). If the payload size exceeds 65 KB, spans might get lost in the Jaeger console. 
+    - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.
+    - In general, before including tracing in production deployments it is essential to look into performance tests and scaling requirements. Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
+
 ### Setting up the Micro Integrator
 
 To configure the Micro Integrator to publish tracing information, follow steps given below:
@@ -347,7 +353,14 @@ To configure the Micro Integrator to publish tracing information, follow steps g
     "opentracing.manager_host": "synapse_properties.'jaeger.sampler.manager.host'",
     "opentracing.agent_host": "synapse_properties.'jaeger.sender.agent.host'"
     ```
-   
+!!! note
+    The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
+    as shown below.
+    ```
+    export SERVICE_NAME=customServiceName
+    ```
+    `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
+
 ### Configuring Grafana to visualize tracing data
 
 In order to configure Grafana to display tracing information, follow the steps given below.
