@@ -1,9 +1,9 @@
 # Data Service Call Mediator
 
-The **Data Service Call Mediator** is used to invoke data service operations. It automatically creates payload, sets up necessary headers to invoke the data service. Also, it improves the performance by directly calling the data service (without HTTP transport).
+The **Data Service Call Mediator** is used to invoke data service operations. It automatically creates a payload and sets up the necessary headers to invoke the data service. Also, it improves the performance by directly calling the data service (without HTTP transport).
 
 !!! Info
-    - You need to first have a [Data Service Project]({{base_path}}/integrate/develop/creating-artifacts/data-services/#creating-data-services) to use Data Service Call Mediator.
+    - You need to first have a [Data Service Project]({{base_path}}/integrate/develop/creating-artifacts/data-services/#creating-data-services) to use the Data Service Call mediator.
     - The Data Service Call mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators)  mediator.
 
 ## Syntax
@@ -34,16 +34,16 @@ The <strong>Source Configuration</strong> properties of the Data Service Call Me
 <tbody>
 <tr class="odd">
 <td><strong>Type</strong></td>
-<td><p>By setting the type, the source for the payload required for relevant data service call is defined. By default the source type is set to ‘body’. The available values are as follows,</p>
+<td><p>The type defines the source for the payload that is required for the data service call. By default, the source type is set to ‘body’. The available values are as follows:</p>
 <ul>
-<li><strong>INLINE</strong> - The payload should be configured within the mediator configuration</li>
-<li><strong>BODY</strong> - The body of the original message is passed as payload to the data service.</li>
+<li><strong>INLINE</strong> - The payload should be configured within the mediator configuration.</li>
+<li><strong>BODY</strong> - The body of the original message is passed as the payload to the data service.</li>
 </ul></td>
 </tr>
 </tbody>
 </table>
 
-The <strong>Operations Configuration</strong> for the Data Source Call Mediator are as follows:
+The <strong>Operation Configurations</strong> for the Data Source Call mediator are as follows:
 
 <table>
 <thead>
@@ -61,13 +61,13 @@ The <strong>Operations Configuration</strong> for the Data Source Call Mediator 
 <td><strong>Params Configuration</strong></td>
 <td><p>The possible values for this parameter are as follows:</p>
 <ul>
-<li><strong>Name</strong>: Defines the name of the parameter
-<li><strong>Evaluator</strong> Only required for json param expression (json)</li>
-<li><p><strong>Value/Expression</strong>: Value of the parameter. If expression is configured, the parameter value will be determined during mediation by evaluating an expression. Expression should be entered in the Expression parameter.
+<li><strong>Name</strong>: Defines the name of the parameter.
+<li><strong>Evaluator</strong>: Only required for json param expressions (json).</li>
+<li><p><strong>Value/Expression</strong>: Value of the parameter. If the expression is configured, the parameter value is determined during message mediation by evaluating an expression. The expression should be specified for the Expression parameter.
 </tbody>
 </table>
 
-The <strong>Target Configuration</strong> properties of the Data Service Call Mediator are as follows:
+The <strong>Target Configuration</strong> properties of the Data Service Call mediator are as follows:
 
 <table>
 <thead>
@@ -79,17 +79,18 @@ The <strong>Target Configuration</strong> properties of the Data Service Call Me
 <tbody>
 <tr class="odd">
 <td><strong>Type</strong></td>
-<td><p>By setting the target type the response payload of the data service call can be stored in the body or a property. By default the target type is set to ‘body’. The available values are,</p>
+<td><p>By setting the target type, the response payload of the data service call can be stored in the body or a property. By default, the target type is set to ‘body’. The available values are as follows:</p>
 <ul>
-<li><strong>BODY</strong> - The response payload is stored in the message body</li>
-<li><strong>PROPERTY</strong> - the response payload will be stored in the defined property
-body - the response payload is stored in the message body
-.</li></tr>
+<li><strong>BODY</strong>: The response payload is stored in the message body.</li>
+<li><strong>PROPERTY</strong>: The response payload is stored in the defined property.</li>
+</td>
+</tr>
 <tr class="even">
 <td><strong>Name</strong></td>
 <td>Specifies the property name.
 
-Dynamic property name support is available when target type is defined as property,
+You can define dynamic property names when the target type is defined as a property:
+
 ```java
 <property name="{get-property('propertyName')}" />
 <property name="{$ctx:propertyName}" />
@@ -101,13 +102,13 @@ Dynamic property name support is available when target type is defined as proper
 </tbody>
 </table>
 
-
 ## Examples
-Use the following Data Source to try out the Data Service Call mediator. Create a new data service project and then copy the content as the source for the data service named as ```DSSCallMediatorTest```
 
-**Sample DSS service to invoke using Data Service Call Mediator**
+Use the following datasource to try out the Data Service Call mediator. Create a new data service configuration and then copy the following content to define the `DSSCallMediatorTest` data service:
 
-```
+**Sample data service to invoke using the Data Service Call mediator**
+
+```xml
 <data disableLegacyBoxcarringMode="true" enableBatchRequests="true" enableBoxcarring="true" name="DSSCallMediatorTest" transports="http https local">
    <config enableOData="false" id="01">
       <property name="driverClassName">com.mysql.jdbc.Driver</property>
@@ -163,15 +164,15 @@ Use the following Data Source to try out the Data Service Call mediator. Create 
       </call-query>
    </resource>
 </data>
-
 ```
 
 ### Example 1: Inline single request operation
 
-In this example, an inline single request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline single request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorInlineSingleRequestProxy"
        transports="http https"
@@ -200,19 +201,25 @@ In this example, an inline single request is configured and sent to the DSSCallM
 
 **Sample Request**
 
-Invoke the dssCallMediatorInlineSingleRequestProxy proxy service http://localhost:8290/services/dssCallMediatorInlineSingleRequestProxy
+Invoke the `dssCallMediatorInlineSingleRequestProxy` proxy service:
+
+```bash
+http://localhost:8290/services/dssCallMediatorInlineSingleRequestProxy
+```
 
 **Response**
+
 ```
 <axis2ns3:REQUEST_STATUS xmlns:axis2ns3="http://ws.wso2.org/dataservice">SUCCESSFUL</axis2ns3:REQUEST_STATUS>
 ```
 
 ### Example 2: Inline batch request operation
 
-In this example, an inline batch request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline batch request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorInlineBatchRequestProxy"
        transports="http https"
@@ -220,8 +227,6 @@ In this example, an inline batch request is configured and sent to the DSSCallMe
     <description/>
     <target>
         <inSequence>
-
-
             <dataServiceCall serviceName="DSSCallMediatorTest">
                 <source type="inline"/>
                 <operations type="batch">
@@ -246,24 +251,29 @@ In this example, an inline batch request is configured and sent to the DSSCallMe
         </inSequence>
     </target>
 </proxy>
-
 ```
 
 **Sample Request**
 
-Invoke the dssCallMediatorInlineBatchRequestProxy proxy service http://localhost:8290/services/dssCallMediatorInlineBatchRequestProxy
+Invoke the `dssCallMediatorInlineBatchRequestProxy` proxy service:
+
+```bash
+http://localhost:8290/services/dssCallMediatorInlineBatchRequestProxy
+```
 
 **Response**
+
 ```
 <axis2ns3:REQUEST_STATUS xmlns:axis2ns3="http://ws.wso2.org/dataservice">SUCCESSFUL</axis2ns3:REQUEST_STATUS>
 ```
 
 ### Example 3: Inline request box operation
 
-In this example, an inline batch request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline batch request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorInlineRequestBoxProxy"
        transports="http https"
@@ -295,19 +305,25 @@ In this example, an inline batch request is configured and sent to the DSSCallMe
 
 **Sample Request**
 
-Invoke the dssCallMediatorInlineRequestBoxProxy proxy service http://localhost:8290/services/dssCallMediatorInlineRequestBoxProxy
+Invoke the `dssCallMediatorInlineRequestBoxProxy` proxy service:
+
+```
+http://localhost:8290/services/dssCallMediatorInlineRequestBoxProxy
+```
 
 **Response**
+
 ```
 <axis2ns4:DATA_SERVICE_REQUEST_BOX_RESPONSE xmlns:axis2ns4="http://ws.wso2.org/dataservice"><Entries xmlns="http://ws.wso2.org/dataservice"><Entry><EmployeeNumber>444</EmployeeNumber><FirstName>Ellie</FirstName><LastName>Dina</LastName><Email>dina@wso2.com</Email><Salary>4000</Salary></Entry></Entries></axis2ns4:DATA_SERVICE_REQUEST_BOX_RESPONSE>
 ```
 
-### Example 4: Single request operation when source type is set to body
+### Example 4: Single request operation when the source type is set to body
 
-In this example, an inline single request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline single request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml 
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorSourceTypeBodyProxy"
        transports="http https"
@@ -327,7 +343,12 @@ In this example, an inline single request is configured and sent to the DSSCallM
 
 **Sample Request**
 
-Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy with the following payload
+Invoke the `dssCallMediatorSourceTypeBodyProxy` proxy service with the given payload:
+
+```bash
+http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy
+```
+
 ```xml
 <addEmployee>
     <EmployeeNumber>555</EmployeeNumber>
@@ -339,16 +360,18 @@ Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:829
 ```
 
 **Response**
+
 ```
 <axis2ns3:REQUEST_STATUS xmlns:axis2ns3="http://ws.wso2.org/dataservice">SUCCESSFUL</axis2ns3:REQUEST_STATUS>
 ```
 
 ### Example 5: Batch request operation when source type is set to body
 
-In this example, an inline batch request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline batch request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorSourceTypeBodyProxy"
        transports="http https"
@@ -368,7 +391,12 @@ In this example, an inline batch request is configured and sent to the DSSCallMe
 
 **Sample Request**
 
-Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy with the following payload
+Invoke the `dssCallMediatorSourceTypeBodyProxy` proxy service with the given payload.
+
+```bash
+http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy 
+```
+
 ```xml
 <addEmployee_batch_req>
     <addEmployee>
@@ -386,7 +414,6 @@ Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:829
         <Salary>1500</Salary>
     </addEmployee>
 </addEmployee_batch_req>
-
 ```
 
 **Response**
@@ -396,10 +423,11 @@ Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:829
 
 ### Example 6: Request box operation when source type is set to body
 
-In this example, an inline request box request is configured and sent to the DSSCallMediatorTest service.
+In this example, an inline request box request is configured and sent to the `DSSCallMediatorTest` service.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="dssCallMediatorSourceTypeBodyProxy"
        transports="http https"
@@ -419,7 +447,12 @@ In this example, an inline request box request is configured and sent to the DSS
 
 **Sample Request**
 
-Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy with the following payload
+Invoke the `dssCallMediatorSourceTypeBodyProxy` proxy service with the given payload.
+
+```bash
+http://localhost:8290/services/dssCallMediatorSourceTypeBodyProxy
+``` 
+
 ```xml
 <<request_box>
    <addEmployee>
@@ -433,10 +466,10 @@ Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:829
       <EmployeeNumber>888</EmployeeNumber>
    </getEmployeeByNumber>
 </request_box>
-
 ```
 
 **Response**
+
 ```
 <axis2ns1:DATA_SERVICE_REQUEST_BOX_RESPONSE xmlns:axis2ns1="http://ws.wso2.org/dataservice">
     <Entries xmlns="http://ws.wso2.org/dataservice">
@@ -453,10 +486,11 @@ Invoke the dssCallMediatorSourceTypeBodyProxy proxy service http://localhost:829
 
 ### Example 7: Inline single request operation when the target type is set to the property
 
-In this example, an inline single request is configured and sent to the DSSCallMediatorTest service and gets the response to a property.
+In this example, an inline single request is configured and sent to the `DSSCallMediatorTest` service and gets the response to a property.
 
 **Synapse Configuration**
-``` 
+
+```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse"
        name="testDSSResposeTarget"
        transports="http https"
@@ -488,11 +522,16 @@ In this example, an inline single request is configured and sent to the DSSCallM
 
 **Sample Request**
 
-Invoke the testDSSResposeTarget proxy service http://localhost:8290/services/testDSSResposeTarget with the following payload
+Invoke the `testDSSResposeTarget` proxy service with the given payload.
 
+```bash
+http://localhost:8290/services/testDSSResposeTarget
+```
 
 **Response**
-The following log will appear in the server console,
-```
+
+The following log will appear in the server console:
+
+```bash
 INFO {LogMediator} - {proxy:test} reponseValue = SUCCESSFUL
 ```
