@@ -1,22 +1,20 @@
 # Scenario 9 - Realtime Data with WebSocket API
 
-## User Story
-
-Quantis wants to provide real time location of their trains to their customers. The sensors in the train will 
-be providing real time events and Quantis wants to convert it to websockets and expose it as a Streaming API 
-so that the client mobile applications can subscribe to it and receive real time events.
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to work with realtime data with a WebSocket API. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
 **_Time to Complete : 5 mins_**
 
+## User Story
+
+Quantis wants to provide real time location of their trains to their customers. The sensors in the train will be providing real time events and Quantis wants to convert it to websockets and expose it as a Streaming API so that the client mobile applications can subscribe to it and receive real time events.
+
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario9.png" alt="Realtime Notifications" title="Realtime Notifications" width="60%" />
 
-WSO2 Streaming Integrator(SI) is a streaming data processing server that integrates streaming data and takes 
-action based on streaming data. Quantis is planning to use Streaming Integrator to process the real time event data.
+WSO2 Streaming Integrator(SI) is a streaming data processing server that integrates streaming data and takes action based on streaming data. Quantis is planning to use Streaming Integrator to process the real time event data.
 
-To develop a service in Streaming Integrator, you need to use Streaming Integrator tooling. Siddhi is the 
-Event Processing Engine that is used inside the Streaming Integrator. To process the websockets you can write 
-the service in SIddhi Query Language. You can test the service in the tooling itself. Once the development is 
-complete you can export it as a Siddhi app and add it to the Streaming Integrator runtime.
+## Step 1: Develop a service in Streaming Integrator
+
+To develop a service in Streaming Integrator, you need to use Streaming Integrator tooling. Siddhi is the Event Processing Engine that is used inside the Streaming Integrator. To process the websockets you can write the service in SIddhi Query Language. You can test the service in the tooling itself. Once the development is complete you can export it as a Siddhi app and add it to the Streaming Integrator runtime.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/streaming_api_tooling.png" alt="Streaming Integrator Tooling" title="Streaming Integrator Tooling" width="60%" />
 
@@ -26,6 +24,8 @@ Here, for simplicity, the service is already created and exported as a SiddhiApp
 wscat -c ws://localhost:8025/ 
 
 ```
+
+## Step 2: Expose the websocket via API Manager
 
 Once you expose the events via a Websocket Server, you can expose the websockets with API Manager as you do with other APIs where you can provide **secure access, Rate limiting, Throttling, Monetization, Analytics** etc. The API is already published to the Developer Portal. To invoke the API, you can follow the below steps.
 
@@ -40,7 +40,11 @@ Once you expose the events via a Websocket Server, you can expose the websockets
 
 4. You can use the above fetched access token to subscribe to the location of the train 456 (Topic : loc-train-qnt-456), using a websocket client. For example you can use wscat tool, subscribe as below.
 
-```
-wscat -c ws://localhost:9099/t/quantis.com/train/location/1.0.0/loc-train-qnt-456/ -H "Authorization: Bearer <Access Token>"
+    ```
+    wscat -c ws://localhost:9099/t/quantis.com/train/location/1.0.0/loc-train-qnt-456/ -H "Authorization: Bearer <Access Token>"
 
-```
+    ```
+
+## What's next
+
+Try out the next scenario in the series, [Notifications Using Webhooks]({{base_path}}/tutorials/scenarios/scenario10-notifications-webhooks).

@@ -1,8 +1,12 @@
 # Scenario 5 - Getting the Developer Community Involved
 
-Quantis allows random users to access their APIs. Since they have now enabled the Developer Portal for external users to register to their system, they now expect the developer community to interact with them on building their own applications using their services. Quantis wants to provide a place where application developers can communicate with the Quantis API developers with their API related queries. This way application developers and external users can understand more about Quantis APIs and they could have a better developer experience.
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to involve the developer community. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
 **_Time to Complete : 4 mins_**
+
+## User Story
+
+Quantis allows random users to access their APIs. Since they have now enabled the Developer Portal for external users to register to their system, they now expect the developer community to interact with them on building their own applications using their services. Quantis wants to provide a place where application developers can communicate with the Quantis API developers with their API related queries. This way application developers and external users can understand more about Quantis APIs and they could have a better developer experience.
 
 WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published. For example:
 
@@ -10,6 +14,8 @@ WSO2 API Manager Developer Portal provides many features to assist developers to
 - Documentation for APIs
 - Ratings and Comments
 - API console to try out the API
+
+## Step 1: Set up and try out developer community features
 
 This demo setup contains a sample API to demonstrate these features. Log in to the Quantis Developer Portal using Quantis user `sindy@quantis.com` with the password `user123` and check the **QuantisTrainAPI**.
 
@@ -43,3 +49,7 @@ java -jar sdk-demo-1.0.0.jar <access_token>
 
     ```
     Sample code on invoking the API using this SDK can be found in `resources/sdk-demo/src/main/java/org/wso2/carbon/apimgt/tutorial/App.java`.
+
+## What's next
+
+Try out the next scenario in the series, [Integrating with Data Sources]({{base_path}}/tutorials/scenarios/scenario6-integrating-with-data-sources).
