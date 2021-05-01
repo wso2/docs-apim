@@ -21,10 +21,6 @@ WSO2 Integration Studio provides a comprehensive development experience for buil
 
 ### Install and run WSO2 Integration Studio
 
-You can refer to the following video to get a quick understanding of how this is done.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jS47WsycaII" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Follow the steps given below.
 
 1.  Download the [distribution](https://wso2.com/integration/integration-studio/) for your operating system.
@@ -45,7 +41,7 @@ If you have already installed and set up WSO2 Integration Studio, you can get th
 1.  Open WSO2 Integration Studio on your computer.
 2.  Go to **Help** -> **Check for Updates**.
 
-    <img src="{{base_path}}/assets/img/integrate/get-tooling-updates.png" alt="get tooling updates" width="300">
+    <a href="{{base_path}}/assets/img/integrate/get-tooling-updates.png"><img src="{{base_path}}/assets/img/integrate/get-tooling-updates.png" alt="get tooling updates" width="300"></a>
 
 3.  Once the update check is completed, you can select all the available updates and install.
 
