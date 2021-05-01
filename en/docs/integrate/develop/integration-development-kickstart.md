@@ -451,75 +451,75 @@ There are two ways to invoke the service:
 
 - **Option 1: Using WSO2 Integration Studio**
 
-  Let's invoke the API from the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
+    Let's invoke the API from the embedded <b>HTTP Client</b> of WSO2 Integration Studio as follows:
 
-  1.  Open the <b>HTTP Client</b> of WSO2 Integration Studio.
+    1.  Open the <b>HTTP Client</b> of WSO2 Integration Studio.
 
-      !!! Tip
-          If you don't see the <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client tab.
+        !!! Tip
+            If you don't see the <b>HTTP Client</b> tab, go to <b>Window -> Show View - Other</b> and select <b>HTTP Client</b> to enable the client tab.
 
-      <img src="{{base_path}}/assets/img/integrate/developing-first-integration/http4e-client-empty.png" width="800">
-      
-  2.  Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
-      
-      <table>
-          <tr>
-              <th>Method</th>
-              <td>
-                <code>GET</code> 
-              </td>
-          </tr>
-          <tr>
-              <th>URL</th>
-              <td>
-                  <code>http://localhost:8290/healthcare/doctor/Ophthalmologist</code></br></br>
-              </td>
-          </tr>
-      </table>
-      
-  The response is printed in the **HTTP Response** section.
+        <img src="{{base_path}}/assets/img/integrate/developing-first-integration/http4e-client-empty.png" width="800">
+        
+    2.  Enter the request information as given below and click the <b>Send</b> icon (<img src="{{base_path}}/assets/img/integrate/tutorials/common/play-head-icon.png" width="20">).
+        
+        <table>
+            <tr>
+                <th>Method</th>
+                <td>
+                  <code>GET</code> 
+                </td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>
+                    <code>http://localhost:8290/healthcare/doctor/Ophthalmologist</code></br></br>
+                </td>
+            </tr>
+        </table>
+        
+    The response is printed in the **HTTP Response** section.
 
 - **Option 2: Using your terminal**
 
-  If you want to send the client request from your terminal:
+    If you want to send the client request from your terminal:
 
-  1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
-  2.  Open a terminal and execute the following curl command to invoke the service:
+    1.  Install and set up [cURL](https://curl.haxx.se/) as your REST client.
+    2.  Open a terminal and execute the following curl command to invoke the service:
 
-      ```bash
-      curl -v http://localhost:8290/healthcare/doctor/Ophthalmologist
-      ```
+        ```bash
+        curl -v http://localhost:8290/healthcare/doctor/Ophthalmologist
+        ```
 
-  You will receive the following response:
+    You will receive the following response:
 
-  ```bash
-  [
-      [
-          {
-              "name": "John Mathew",
-              "time": "03:30 PM",
-              "hospital": "Grand Oak"
-          },
-          {
-              "name": "Allan Silvester",
-              "time": "04:30 PM",
-              "hospital": "Grand Oak"
-          }
-      ],
-      [
-          {
-              "name": "John Mathew",
-              "time": "07:30 AM",
-              "hospital": "pineValley"
-          },
-          {
-              "name": "Roma Katherine",
-              "time": "04:30 PM",
-              "hospital": "pineValley"
-          }
-      ]
-  ]
-  ```
+    ```bash
+    [
+        [
+            {
+                "name": "John Mathew",
+                "time": "03:30 PM",
+                "hospital": "Grand Oak"
+            },
+            {
+                "name": "Allan Silvester",
+                "time": "04:30 PM",
+                "hospital": "Grand Oak"
+            }
+        ],
+        [
+            {
+                "name": "John Mathew",
+                "time": "07:30 AM",
+                "hospital": "pineValley"
+            },
+            {
+                "name": "Roma Katherine",
+                "time": "04:30 PM",
+                "hospital": "pineValley"
+            }
+        ]
+    ]
+    ```
 
 ## What's Next?
 
