@@ -13,7 +13,7 @@ Test scenarios use a Netty based back-end service which echoes back any request
 posted to it after a specified period of time. (All the tests were executed with a 0ms
 backend delay)
 
-Tests were done using 100, 200, 500, and 2000 concurrent users. Concurrent Users mean that it consists of multiple users 
+Tests were done using 100, 200, 500, and 1000 concurrent users. Concurrent Users mean that it consists of multiple users 
 sending requests at the same time. Different Message Sizes (Payloads) were used for the tests : 500B, 1kB, 10kB, and 100kB.
 
 
@@ -22,15 +22,19 @@ Two key performance metrics were used to measure the performance of each test.
 - Throughput: The number of requests that the WSO2 Micro Integrator processes during a specific time interval (e.g. per second).. 
 - Response Time: The end-to-end latency for an operation of invoking a service in WSO2 Micro Integrator. The complete distribution of response times was recorded.
 
-All the performance results were done on the default Micro Integrator distribution. The
-following performance results may become invalid if configurations are changed. For
-example, the default passthru io_buffer_size is 16KB. Hence the throughput significantly
-decreases for payload sizes above 16KB. If the buffer size is increased, the throughput
-might differ. Similarly when worker pool thread counts are changed, the performance of
-Micro Integrator changes significantly. Hence, for accurate results doing a performance
-test with the exact configuration and scenarios is a must.
+!!! Note
+    
+    All the performance results were done on the default Micro Integrator distribution. The
+    following performance results may become invalid if configurations are changed. For
+    example, the default passthru io_buffer_size is 16KB. Hence the throughput significantly
+    decreases for payload sizes above 16KB. If the buffer size is increased, the throughput
+    might differ. Similarly when worker pool thread counts are changed, the performance of
+    Micro Integrator changes significantly. Hence, for accurate results doing a performance
+    test with the exact configuration and scenarios is a must.
 
 ## Deployment used for the test
+
+[![MI performance test all-in-one deployment]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi_performance_test_all_in_one_deployment.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi_performance_test_all_in_one_deployment.png)
 
 <table>
 <thead>
@@ -85,3 +89,43 @@ All scripts used to run the performance tests and analyze results are in the fol
 - [https://github.com/wso2/performance-common](https://github.com/wso2/performance-common)
 
 - [https://github.com/wso2/performance-ei](https://github.com/wso2/performance-ei)
+
+## Results
+
+The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/b06581ed31fceaa32c01a03a63a107141a68cb2b/performance/benchmarks/summary.md).
+
+#### Throughput (requests/sec) vs. concurrent users
+
+##### Direct Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" />
+
+##### Direct API
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png" alt="Direct API Throughput" title="Direct API Throughput" width="70%" />
+
+##### CBR Transport Header Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/cbr-transport-header-proxy-tp.png" alt="CBR Transport Header Proxy Throughput" title="CBR Transport Header Proxy Throughput" width="70%" />
+
+##### XSLT Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/xslt-proxy-tp.png" alt="XSLT Proxy Throughput" title="XSLT Proxy Throughput" width="70%" />
+
+#### Average response time (ms) vs. concurrent users
+
+##### Direct Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-rt.png" alt="Direct Proxy Response Time" title="Direct Proxy Response Time" width="70%" />
+
+##### Direct API
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-rt.png" alt="Direct API Response Time" title="Direct API Response Time" width="70%" />
+
+##### CBR Transport Header Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/cbr-transport-header-proxy-rt.png" alt="CBR Transport Header Proxy Response Time" title="CBR Transport Header Proxy Response Time" width="70%" />
+
+##### XSLT Proxy
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/xslt-proxy-rt.png" alt="XSLT Proxy Response Time" title="XSLT Proxy Response Time" width="70%" />
