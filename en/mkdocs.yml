@@ -1032,6 +1032,7 @@ nav:
                 - Data Mapping:
                     - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
                     - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+                - Data Service Call Mediator: reference/mediators/dss-mediator.md
                 - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
                 - DB Report Mediator: reference/mediators/db-report-mediator.md
                 - Drop Mediator: reference/mediators/drop-mediator.md

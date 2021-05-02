@@ -1,8 +1,12 @@
 # Scenario 2 - Engage Access Control to the API
 
-ColTrain has a separate API to manage schedules for their internal staff. This API needs to have more elevated permission levels to access than their public API. All the employees in the ColTrain company have access to the end-user application where they can view the train schedule details using this API.  All the staff in the ColTrain should be able to check the available schedules whereas only the staff with admin privileges can add, edit or remove the existing schedule. Any other registered or public user should not be able to view this API since it is there for internal tasks. Coltrain wants to have a clear separation on who can view and access their APIs. They have identified that it would be a cumbersome task If they are to implement this from scratch to their backend APIs directly. Since now they are using an API Management platform, they wanted to move all these authentication and authorization tasks out of their internal APIs. This would be beneficial for their internal teams because they only have to pay attention to their APIs business logic only.
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to control access to the API. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
 **_Time to Complete : 7 mins_**
+
+## User Story
+
+ColTrain has a separate API to manage schedules for their internal staff. This API needs to have more elevated permission levels to access than their public API. All the employees in the ColTrain company have access to the end-user application where they can view the train schedule details using this API.  All the staff in the ColTrain should be able to check the available schedules whereas only the staff with admin privileges can add, edit or remove the existing schedule. Any other registered or public user should not be able to view this API since it is there for internal tasks. Coltrain wants to have a clear separation on who can view and access their APIs. They have identified that it would be a cumbersome task If they are to implement this from scratch to their backend APIs directly. Since now they are using an API Management platform, they wanted to move all these authentication and authorization tasks out of their internal APIs. This would be beneficial for their internal teams because they only have to pay attention to their APIs business logic only.
 
 We could configure the API to be visible for a set of users. For example, this API should be visible for only Developer Portal users with **coltrain_employee** role only.
 
@@ -15,10 +19,11 @@ Also WSO2 API Manager provides capability to provide access control to the resou
 !!! Note 
     This setup contains roles **schedule_admin**  and **coltrain_employee** already created in the ColTrain tenant domain. **schedule_admin** and **coltrain_employee** roles are assigned to the user **jenny@coltrain.com** and only **coltrain_employee** role is assigned to **george@coltrain.com** . 
 
+## Step 1: Create an API with role restrictions
 
 Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and set the visibility of that API based on roles. 
 
-1. Log on to the Publisher Portal again `https://localhost:9443/publisher/` . Use user credentials as `apiprovider@coltrain.com` and password as `user123`.
+1. Log on to the Publisher Portal again `https://localhost:9443/publisher/`. Use user credentials as `apiprovider@coltrain.com` and password as `user123`.
 2. Create a new API using the OpenAPI definition **coltrain-openapi.yaml** provided in the `/resources` location. Lets use _/coltrain-schedule_ as the context. Use the endpoint provided in the file as it is.
 
     ![Create API]({{base_path}}/assets/img/tutorials/scenarios/coltrain-internal-api-create.png)
@@ -27,10 +32,11 @@ Lets create a separate API named **ColTrainInternalTimeTableAPI** for this and s
 
     ![Set visibility]({{base_path}}/assets/img/tutorials/scenarios/set-visibility.png)
 
-
 Developer Portal visibility is set to the API. Users with the **coltrain_employee** role can now view the API in the Developer Portal. 
 
-Next task is to set the access control for the resources. For that follow these steps
+## Step 2: Set access control for resources
+
+Next task is to set the access control for the resources. To do that, follow these steps.
 
 1. Create a scope by selecting the **Develop → API Configurations → Local Scopes** and create a scope using the below details. Use **schedule_admin** as the role.
 
@@ -52,15 +58,15 @@ Lets login using `jenny@coltrain.com`. Use `user123` as the password. Now you sh
 
 ![Visible]({{base_path}}/assets/img/tutorials/scenarios/visible.png)
 
-
 Jenny has **coltrain_employee** role and as a result she can view the API. 
 
+## Step 3: Try out the API
 
 Now lets try out the API.
 
-1. Login to the Developer Portal using user `jenny@coltrain.com` and password `user123`.
+1. Log on to the Developer Portal using user `jenny@coltrain.com` and password `user123`.
 2. Go to **Applications → Add new Application** and create an application and generate keys.
-3. Copy the key and the secret. Secret can be viewed by clicking the icon next the Consumer Secret section.
+3. Copy the key and the secret. Secret can be viewed by clicking the icon next the **Consumer Secret** section.
 
     ![Generate keys]({{base_path}}/assets/img/tutorials/scenarios/gen-keys.png)
 
@@ -70,16 +76,15 @@ Now we will try to access this API using two different access tokens generated b
 
 Since the _POST /schedule_ resource is protected using scope **schedule_admin** scope, lets create access tokens with this scope using the previously generated clientid and secret. Use the following commands.
 
-For Jenny
+For Jenny:
 ```
 curl -k -X POST https://localhost:9443/oauth2/token -d "grant_type=password&username=jenny@coltrain.com&password=user123&scope=schedule_admin" -H "Authorization: Basic Base64(consumer-key:consumer-secret)"
 ```
 
-For george
+For George:
 ```
 curl -k -X POST https://localhost:9443/oauth2/token -d "grant_type=password&username=george@coltrain.com&password=user123&scope=schedule_admin" -H "Authorization: Basic Base64(consumer-key:consumer-secret)"
 ```
-
 
 If you check the responses of the above two requests, you would see that for the first response, there will be a scope **schedule_admin** in the response payload.
 
@@ -90,19 +95,16 @@ Invoke the POST resource using each token.
 curl -X POST "https://localhost:8243/t/coltrain.com/coltrain-schedule/1.0.0/schedules" -H  "Content-Type: application/json" -H  "Authorization: Bearer <token>" -d "{\"entryId\":\"10\",\"startTime\":\"18:30\",\"endTime\":\"20.30\",\"from\":\"London\",\"to\":\"Oxford\",\"trainType\":\"Standard\"}" -v
 ```
 
-
 You would see that you could access the resource using jenny@coltrain.com user’s token and you would get an error message for george’s token.
 
 ```
 {"code":"900910","message":"The access token does not allow you to access the requested resource","description":"User is NOT authorized to access the Resource: /schedules. Scope validation failed."}
 ```
 
-
 You could tryout the same commands using the Postman collection provided in the **resources/Access_Control_Demo.postman_collection.json** location as well. You need to add the client_id and client_secret under the variable section to use this.
 
 ![Postman configuration]({{base_path}}/assets/img/tutorials/scenarios/postman.png)
 
+## What's next
 
-
-
-
+Try out the next scenario in the series, [Implementing an API]({{base_path}}/tutorials/scenarios/scenario3-implementing-an-api).

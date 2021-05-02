@@ -1,27 +1,30 @@
 # Scenario 6 - Integrating with Data Sources
 
-## User Story
-
-RailCo HR department is planning to develop an HR system dashboard. Therefore, Railco wants to create REST APIs to expose their 
-Employee Database as a service where users can add, delete, update and view employee details.
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to integrate with Data Sources. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
 **_Time to Complete : 5 mins_**
 
-With WSO2 Micro Integrator Data Services, users can integrate with different Data Sources and decouple the data from its infrastructure. 
-In other words, when you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) 
-can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting 
-with the original source of the data.
+## User story
+
+RailCo HR department is planning to develop an HR system dashboard. Therefore, Railco wants to create REST APIs to expose their Employee Database as a service where users can add, delete, update and view employee details.
+
+With WSO2 Micro Integrator Data Services, users can integrate with different Data Sources and decouple the data from its infrastructure. In other words, when you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service. This allows users (that may be any application or system) to access the data without interacting with the original source of the data.
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario6.png" alt="Expose Datasource" title="Expose Datasource" width="60%" />
+
+## Step 1: Develop a service in Micro Integrator
 
 To develop a service in Micro Integrator, you can use WSO2 Integration Studio. 
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_dataservice.png" alt="Integration Studio Dataservice View" title="Integration Studio Dataservice View" width="80%" />
 
-Once developed, you can expose the data via API manager for secure access. For simplicity, the Dataservice is already 
-developed and added in the API manager. A database has been created with dummy Employee Data which you can query and modify.
+## Step 2: Expose data via API Manager
+
+Once developed, you can expose the data via API manager for secure access. For simplicity, the Dataservice is already developed and added in the API manager. A database has been created with dummy Employee Data that you can query and modify.
 
 <img src="{{base_path}}/assets/img/tutorials/scenarios/employee_database.png" alt="Employee Database" title="Employee Database" width="60%" />
+
+## Step 3: Invoke the API
 
 To invoke the API from API Manager,
 
@@ -40,3 +43,7 @@ To invoke the API from API Manager,
     --header 'Authorization: Bearer <Access Token>'
     
     ```
+
+## What's next
+
+Try out the next scenario in the series, [Analytics]({{base_path}}/tutorials/scenarios/scenario7-analytics).
