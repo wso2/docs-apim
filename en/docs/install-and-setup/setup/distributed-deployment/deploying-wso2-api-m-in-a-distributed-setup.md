@@ -96,14 +96,14 @@ Follow the steps given below.
 
         ``` toml tab="Control Plane with HA"
         [apim.key_manager]
-        service_url = "https://[Key-Manager-LB-host]/services/"
+        service_url = "https://[control-plane-LB-host]/services/"
         username = "$ref{super_admin.username}"
         password = "$ref{super_admin.password}"                
         ```
         
         ``` toml tab="Single Control Plane"
         [apim.key_manager]
-        service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
+        service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
         username = "$ref{super_admin.username}"
         password = "$ref{super_admin.password}"
         ```
@@ -112,26 +112,26 @@ Follow the steps given below.
 
         ``` toml tab="Control Plane with HA"
         [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+        traffic_manager_urls = ["tcp://control-plane-1-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-1-host:9711"]
         
         [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+        traffic_manager_urls = ["tcp://control-plane-2-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
         
         [apim.throttling]
         service_url = "https://[Traffic-Manager-LB-Host]/services/"
-        throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
+        throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
         ```
         
         ``` toml tab="Single Control Plane"
         [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
+        traffic_manager_urls = ["tcp://control-plane-host:9611"]
+        traffic_manager_auth_urls = ["ssl://control-plane-host:9711"]
         
         [apim.throttling]
-        service_url = "https://Traffic-Manager-host:${mgt.transport.https.port}/services/"
-        throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
+        service_url = "https://control-plane-host:${mgt.transport.https.port}/services/"
+        throttle_decision_endpoints = ["tcp://control-plane-host:5672"]
         ```     
 
 3.  Add the following configurations to the `deployment.toml` file to configure the Gateway environment.
@@ -574,7 +574,7 @@ Once you have successfully configured all the API-M nodes in the deployment, you
     api-manager.bat --run -Dprofile=gateway-worker
     ```
 
--   Start the Control PLane nodes
+-   Start the Control Plane nodes
 
     Open a terminal, navigate to the `<API-M-CONTROL-PLANE-HOME>/bin` folder, and execute the following command:
 
