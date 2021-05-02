@@ -8,7 +8,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 1.  Right-click the **Config** project in the project explorer and go to **New → REST API**.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="700">
 
 2.  In the dialog box that opens, select one of the given options for creating the API artifact:
 
@@ -146,7 +146,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
     -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
     -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="400">
 
 ### Designing the integration
 
@@ -164,7 +164,7 @@ You can also use the [**Source** view](#using-the-source-view) or the [**Swagger
 
 When you create the API, an API resource is created by default. If you want to add a new resource, click **API Resource** in the **Pallet** and simply drag and drop the resource to the REST API.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="700">
 
 !!! Info
     **About the default API Resource**
@@ -194,7 +194,7 @@ When you create the API, an API resource is created by default. If you want to a
 
 When you create the API artifact from WSO2 Integration Studio, a **resources** folder with metadata files is created as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="400">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-meta-data-folder.png" width="350">
 
 The service's metadata is used by the API management runtime to generate the API proxy for the integration service (which is this API).
 
