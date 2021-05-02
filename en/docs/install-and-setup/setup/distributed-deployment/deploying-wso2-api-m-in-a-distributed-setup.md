@@ -94,14 +94,14 @@ Follow the steps given below.
 
     -   Connecting the Gateway to the Key Manager component in the Control Plane:
 
-        ``` toml tab="Key Managers with HA"
+        ``` toml tab="Control Plane with HA"
         [apim.key_manager]
         service_url = "https://[Key-Manager-LB-host]/services/"
         username = "$ref{super_admin.username}"
         password = "$ref{super_admin.password}"                
         ```
         
-        ``` toml tab="Single Key Manager"
+        ``` toml tab="Single Control Plane"
         [apim.key_manager]
         service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
         username = "$ref{super_admin.username}"
@@ -110,7 +110,7 @@ Follow the steps given below.
 
     -   Connecting the Gateway to the Traffic Manager component in the Control Plane:
 
-        ``` toml tab="Traffic Manager with HA"
+        ``` toml tab="Control Plane with HA"
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
         traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
@@ -124,7 +124,7 @@ Follow the steps given below.
         throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
         ```
         
-        ``` toml tab="Single Traffic Manager"
+        ``` toml tab="Single Control Plane"
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
         traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
@@ -136,7 +136,7 @@ Follow the steps given below.
 
 3.  Add the following configurations to the `deployment.toml` file to configure the Gateway environment.
    
-     ``` toml tab="Single Traffic Manager"
+     ```toml
      [apim.sync_runtime_artifacts.gateway]
      gateway_labels =["Production and Sandbox"]
      ```  
@@ -161,7 +161,7 @@ Follow the steps given below.
     1.  Create a copy of the API-M Gateway node that you just configured. This is the second node of the API-M Gateway cluster.
     2.  Configure a load balancer fronting the two Gateway nodes in your deployment.
                 
-        For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
+        For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
         !!! Note
         
@@ -315,7 +315,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     1.  Create a copy of the API-M Control Plane node that you just configured. This is the second node of the API-M Control Plane cluster.
     2.  Configure a load balancer fronting the two Control Plane nodes in your deployment.
                 
-        For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
+        For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
 ### Configure separate Traffic Manager nodes (Optional)
 
@@ -336,16 +336,16 @@ Follow the steps given below.
 
         -   Connecting the Traffic Manager to the Key Manager component of the Control Plane:
 
-            ``` toml tab="Key Manager with HA"
+            ``` toml tab="Control Plane with HA"
             [apim.key_manager]
-            service_url = "https://[Key-Manager-LB-host]/services/"
+            service_url = "https://[control-plane-LB-host]/services/"
             username = "$ref{super_admin.username}"
             password = "$ref{super_admin.password}"
             ```
                 
             ``` toml tab="Single Key Manager"
             [apim.key_manager]
-            service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
+            service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
             username = "$ref{super_admin.username}"
             password = "$ref{super_admin.password}"
             ```
