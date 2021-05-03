@@ -1425,6 +1425,9 @@ nav:
                 - APIs and Integrations on K8s:
                     - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
                     - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - API Deployment Samples:
+                        - Sample 1 - Target Endpoint: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-1-target-endpoint.md
+                        - Sample 2 - Deployment Params and Certs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-2-deployment-params-and-certs.md
                     - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                     - Integration Deployment Samples:
                         - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
