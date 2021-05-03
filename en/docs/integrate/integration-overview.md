@@ -474,7 +474,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 </li>
                 <li>Proxy Services 
                     <ul>
-                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services">Using a Simple Proxy Service</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-proxy-services">Using a Simple Proxy Service</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl">Publishing a Custom WSDL</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound">Exposing a Proxy Service via Inbound Endpoints</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services">Securing a Proxy Service</a></li>
@@ -550,7 +550,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                     <ul>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/tcp-transport-examples">Using the TCP Transport</a></li>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/fix-transport-examples">Using the FIX Transport</a></li>
-                        <li><a href="{{base_path}}/integrate/examples/transport_examples/Pub_Sub_using_MQTT">Using the MQTT Transport</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/transport_examples/pub-sub-using-mqtt">Using the MQTT Transport</a></li>
                     </ul>
                 </li>
             </ul>
