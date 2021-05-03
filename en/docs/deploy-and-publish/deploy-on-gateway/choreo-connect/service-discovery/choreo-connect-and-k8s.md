@@ -1,4 +1,9 @@
 # Configure Choreo Connect with Consul service mesh deployed on Kubernetes
+Consul service mesh supports first-class integrations between Consul and Kubernetes.
+You can also [sync Kubernetes services](https://www.consul.io/docs/k8s/service-sync) with non-Kubernetes services using Consul.
+Read more on how Consul works with Kubernetes on [Consul official documentation](https://www.consul.io/docs/k8s). <br>
+This part of the document describes how to set up Choreo Connect with Consul service mesh in Kubernetes.<br>
+
 Example:
 
 ![service discovery]({{base_path}}/assets/img/deploy/consul-reference-k8s.png)
