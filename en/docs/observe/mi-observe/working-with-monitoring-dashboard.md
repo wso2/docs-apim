@@ -36,7 +36,7 @@ You can use the dashboard to perform the following administration tasks related 
 
 -   <b>View, update, and add loggers</b>
 
-    This page can be accessed by users with admin rights only. You can view log config information of each instance and update the log level. You can update the log levels on a single node or apply the change on entire cluster/group as well. Furthermore you can add new loggers, which will be applied to entire cluster/group.
+    This page can be accessed by users with admin rights only. You can view log configurations of each instance and update the log level. You can update the log levels on a single node or apply the change to the entire cluster/group as well. Furthermore, you can add new loggers, which will be applied to the entire cluster/group.
 
 -   <b>Manage users</b>
 
@@ -67,7 +67,7 @@ See the following topics to install the MI server and dashboard.
         </td>
 <!--
         <td>
-            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashabord.
+            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
         </td>
 -->
     </tr>
@@ -128,9 +128,9 @@ Follow the steps given below to configure the MI servers to publish data to the 
     !!! Tip
         Note the following about your user store configurations.
 
-        -	The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-        -	[User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-        -	If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
+        -   The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
+        -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
 ### Step 3 - Starting the MI
 
@@ -201,7 +201,7 @@ Follow the steps given below.
     
     <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000">
 
-Now you can view details of artifacts, update artifact, and perform various other administration tasks. Select the required option from the left-hand navigator.
+Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300">
 
@@ -268,7 +268,7 @@ You can view details and update <b>tracing</b> for each API as shown below.
 
 ### Templates
 
-Select this option to manage templates artifacts deployed in the Micro Integrator instance.
+Select this option to manage template artifacts deployed in the Micro Integrator instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-1.png">
 
