@@ -487,7 +487,7 @@ nav:
                     - Publishing a Custom Swagger Document: integrate/examples/rest_api_examples/publishing-a-swagger-api.md
                     - Special Cases: integrate/examples/rest_api_examples/special-cases.md
                 - Proxy Services:
-                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/Introduction-to-proxy-services.md
+                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/introduction-to-proxy-services.md
                     - Publishing a Custom WSDL: integrate/examples/proxy_service_examples/publishing-a-custom-wsdl.md
                     #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
                     - Exposing a Proxy Service via Inbound Endpoints: integrate/examples/proxy_service_examples/exposing-proxy-via-inbound.md
