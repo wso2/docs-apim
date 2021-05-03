@@ -46,7 +46,7 @@ You can use the dashboard to perform the following administration tasks related 
 
 Follow the steps given below to get started with the Micro Integrator Dashboard.
 
-### Step 1 - Downloading the MI Dashboard
+### Step 1 - Download the MI Dashboard
 
 See the following topics to install the MI server and dashboard.
 
@@ -73,7 +73,7 @@ See the following topics to install the MI server and dashboard.
     </tr>
 </table>
 
-### Step 2 - Configuring the MI servers
+### Step 2 - Configure the MI servers
 
 Follow the steps given below to configure the MI servers to publish data to the dashboard.
 
@@ -132,7 +132,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
         -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
         -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-### Step 3 - Starting the MI
+### Step 3 - Start the MI servers
 
 [Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
 
@@ -140,7 +140,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 [Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 
-### Step 5 - Signing in to the Dashboard
+### Step 5 - Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
 
@@ -183,7 +183,7 @@ You are redirected to the home page of the Micro Integrator dashboard.
      
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000">
 
-### Step 6 - Monitoring MI artifacts and logs
+### Step 6 - Monitor MI artifacts and logs
 
 Follow the steps given below.
 
