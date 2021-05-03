@@ -45,4 +45,4 @@ Apply the k8s artifacts for Choreo Connect.
 
 ## Step 3 - Deploy the API
 Deploy WSO2 API Manger on Kubernetes.<br>
-Using the API Manager, deploy your API as described in [how to define the endpoints](../service-discovery/service-discovery-overview/#how-to-define-the-endpoints) guide.
+Using the API Manager, deploy your API as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview/#how-to-define-the-endpoints) guide.
