@@ -1,6 +1,6 @@
 # Rejecting Revoked Tokens
 
-After issuing an access token, a user or admin can revoke it in any reason like security violation. Choreo Connect will be rejecting the revoked tokens.
+After issuing an access token, a user or admin can revoke it due to any reason, such as security violation. If a revoked token is used to invoke an API, Choreo Connect will reject the invocation by returning an Unauthenticated response.
 
 !!! note
     Revoking the access token can only be done by enabling the Control Plane Event hub. So you need to follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) as initial setup to enable Control Plane.
@@ -14,7 +14,7 @@ After issuing an access token, a user or admin can revoke it in any reason like 
 Here are the steps to revoking an Access Token.
 
 !!! info 
-    Before you begin make sure you have enabled the Control Plane with Choreo Connect
+    Before you begin, make sure you have enabled the Control Plane with Choreo Connect
 
 1. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager).
 
@@ -60,7 +60,7 @@ Here are the steps to revoking an Access Token.
     ```
 
     !!! info
-        Once the token is revoked, if you check the logs in `adapter`, you will be able to see the following appeared there, which means the `adapter` has received the token revocation data from the control plane.
+        Once the token is revoked, if you check the logs in `adapter`, you will be able to see the following logs appeared there, which means the `adapter` has received the token revocation data from the control plane.
         ```
         2021-05-01 07:20:57 INFO [revoked_token_listener.go:36] - [messaging.handleTokenRevocation] [-] RevokedToken: 4e330dbd-75c6-4ab5-a749-b9497aa3521a, Token Type: JWT
         2021-05-01 07:20:57 INFO [server.go:827] - [xds.UpdateEnforcerRevokedTokens] [-] New Revoked token cache update for the label: commonEnforcerLabel version: 652374093
