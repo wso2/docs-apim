@@ -40,4 +40,4 @@ For more instructions, see the [Consul official documentation](https://www.consu
 </ol>
 
 ## Step 3 - Deploy the API
-You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/#how-to-define-the-endpoints) guide.
+You can use either WSO2 API Manager or APICTL to deploy APIs as described in [how to define the endpoints]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview/#how-to-define-the-endpoints) guide.
