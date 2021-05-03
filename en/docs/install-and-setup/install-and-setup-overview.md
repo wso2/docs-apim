@@ -607,7 +607,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning">Tuning the JMS Transport</a>
         </li>
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport">Tuning the VFS Transport</a>
+            <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport">Tuning the VFS Transport</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning">Tuning the RabbitMQ Transport</a>
