@@ -3,7 +3,7 @@
 The **Data Service Call Mediator** is used to invoke data service operations. It automatically creates a payload and sets up the necessary headers to invoke the data service. Also, it improves the performance by directly calling the data service (without HTTP transport).
 
 !!! Info
-    - You need to first have a [Data Service Project]({{base_path}}/integrate/develop/creating-artifacts/data-services/#creating-data-services) to use the Data Service Call mediator.
+    - You need to first have a [Data Service Project]({{base_path}}/integrate/develop/creating-artifacts/data-services/creating-data-services) to use the Data Service Call mediator.
     - The Data Service Call mediator is a [content-aware]({{base_path}}/reference/mediators/about-mediators/#classification-of-mediators)  mediator.
 
 ## Syntax
