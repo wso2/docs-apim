@@ -111,3 +111,60 @@ this will settle out when the events are delivered.
 !!! note
     10 000 concurrent users mean a lot, and it is not very common. It is recommended to scale horizontally or 
     vertically to support more concurrent users with acceptable response times. When scaling horizontally, two or more Gateway nodes need to be used with a load balancer. Another load test must be carried out to measure the performance after scaling.
+
+## WebSocket
+
+Test for WebSocket API was done by using a WebSocket server, which sends back the reversed message that was received from the client. The ramp up period, error rate, concurrent connections, and CPU and memory usages were recorded at that time.
+
+The following graph depicts the ramp up period with error rate.
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/ws-streaming-api-ramp-up-vs-error-rate.png" alt="websocket_ramp_up_period_vs_error_rate" width="1000"/>
+
+The following table shows the number of concurrent connections with error rate. A 500 bytes string payload was used as the message. Size of the payload was reduced when non-zero error rates were observed without any failed connections.
+
+| Events/second  | Message Size | Attempted Concurrent Connections | Failed Connections | Error Rate |
+|----------------|--------------|----------------------------------|--------------------|------------|
+| 1              | 500 bytes    | 100                              | 0                  | 0%         |
+|                |              | 200                              | 0                  | 0%         |
+|                |              | 300                              | 0                  | 0%         |
+|                |              | 400                              | 0                  | 0%         |
+|                |              | 600                              | 48                 | 0%         |
+|                |              | 800                              | 78                 | 0%         |
+|                |              | 1000                             | 74                 | 0%         |
+| 5              | 500 bytes    | 100                              | 0                  | 0%         |
+|                |              | 200                              | 0                  | 0%         |
+|                |              | 300                              | 0                  | 0%         |
+|                |              | 400                              | 0                  | 0%         |
+|                |              | 600                              | 42                 | 32.90%     |
+|                |              | 800                              | 64                 | 65.25%     |
+|                |              | 1000                             | 62                 | 70.14%     |
+| 10             | 500 bytes    | 100                              | 0                  | 0%         |
+|                |              | 200                              | 0                  | 0%         |
+|                |              | 300                              | 0                  | 46.10%     |
+|                | 250 bytes    | 300                              | 0                  | 14.29%     |
+|                | 125 bytes    | 300                              | 0                  | 12.70%     |
+|                | 60 bytes     | 300                              | 0                  | 29.12%     |
+|                |              | 400                              | 4                  | 62.17%     |
+|                |              | 600                              | 56                 | 85.14%     |
+
+**Key observations:**
+
+- Four hundred concurrent connections can be made with zero error rate and without any failed connections, at five events per second.
+- Two hundred concurrent connections can be made with zero error rate and without any failed connections, at ten events per second.
+
+The following graphs depict the variation of CPU and Memory % with concurrent connections.
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/100connections.png" alt="100_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/200connections.png" alt="200_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/300connections.png" alt="300_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/400connections.png" alt="400_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/600connections.png" alt="600_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/800connections.png" alt="800_connections" width="500"/>
+
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/websocket-cpu-mem-graphs/1000connections.png" alt="1000_connections" width="500"/>
+
