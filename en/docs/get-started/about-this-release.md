@@ -66,6 +66,95 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
 
+- Below mentioned endpoints previously worked through gateway. In API-M 4.0.0 we have moved them separately as follows.
+    
+<table>
+	<tr>
+		<th>Until 3.2.0</th>
+		<th>In 4.0.0</th>
+	</tr>
+    <tr>
+        <td>
+            https://GATEWAY-HOST/token
+        </td>
+        <td>
+            https://KEYMANAGER-HOST/oauth2/token
+        </td>
+    </tr>
+    <tr>
+        <td>
+            https://GATEWAY-HOST/revoke
+        </td>
+        <td>
+            https://KEYMANAGER-HOST/oauth2/revoke
+        </td>
+    </tr> 
+    <tr>
+        <td>
+            https://GATEWAY-HOST/authorize
+        </td>
+        <td>
+            https://KEYMANAGER-HOST/oauth2/authorize
+        </td>
+    </tr> 
+    <tr>
+        <td>
+            https://GATEWAY-HOST/userInfo
+        </td>
+        <td>
+            https://KEYMANAGER-HOST/oauth2/userInfo
+        </td>
+    </tr>                 
+</table>
+
+- Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards. 
+
+<table>
+	<tr>
+		<th>Profile</th>
+		<th>Description</th>
+		<th>Startup argument</th>
+	</tr>
+	<tr>
+		<td>
+			Control Plane
+		</td>
+		<td>
+			Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>
+			If someone wants to use traffic manager profile separately they can use it as -Dprofile=traffic-manager and point to that.
+		</td>
+		<td>
+		    -Dprofile=control-plane
+		</td>
+	</tr>
+    <tr>
+        <td>
+            Gateway
+        </td>
+        <td>
+            API Gateway profiles
+        </td>
+        <td>
+            -Dprofile=gateway
+        </td>
+    </tr>    
+    <tr>
+        <td>
+            Traffic Manager
+        </td>
+        <td>
+            Traffic manager profile
+        </td>
+        <td>
+            -Dprofile=traffic-manager
+        </td>
+    </tr>
+</table>	
+
+- API related Synapse artifacts were moved from file system to in memory. Hence, there will be no synapse artifacts were store in APIM_HOME/repository/deployment/server/synapse-configs/default/api directory.
+  They were stored in the database and loaded to memory when the server starts up and when a new api revision is deployed and published.
+
+- To publish an API with the inclusion of revision feature, the API needs have a revision deployed in a gateway.
 ---
 
 ## Micro Integrator
@@ -381,6 +470,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 #### New features
 
+<<<<<<< Updated upstream
 - [API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
@@ -460,6 +550,19 @@ It is now available to download from [here](https://github.com/wso2/product-apim
             <td>apictl k8s update api [flags]</td>
         </tr>
     </table>
+
+- **[API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
+    This includes the following features and improvements:
+    - Merge Micro Integrator cli commands with APICTL
+    - Support import/export revisioning of APIs- Adding proxy environment variables support for APICTL
+    - Alias for APICTL commands ([)APICTL)
+    - Resolve parameters at server side while importing an API project
+    - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
+    - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
+    - Support to override subscription policies of an API using the params file
+    - Support TLS renegotiation configuration
+    - Support APICTL bundle command (archives an API Project) 
+    - Cross tenant subscriptions feature is broght back
 
 ---
 
