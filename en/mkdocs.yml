@@ -217,9 +217,9 @@ nav:
                     - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
             - Choreo Connect:
+                - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
+                - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md    
                 - Getting Started:
-                    - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
-                    - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
@@ -233,7 +233,8 @@ nav:
                     - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                 - Deploy an API:
-                    - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
+                    - Deploy an API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
+                    - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md
@@ -261,8 +262,7 @@ nav:
                         - Internal Key Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/internal-key-authentication.md
                         - Secure APIs Using OAuth2.0 Access Tokens:
                             - Secure APIs using JWT - Self Contained JWT: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-jwt-self-contained-jwt.md
-                            - Secure APIs Using Opaque Tokens: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/secure-apis-using-oauth2.0-access-tokens/secure-apis-using-opaque-tokens.md
-                        - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
+                        # - Mutual SSL Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/mutual-ssl-authentication.md
                         - Configuring an External Key Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/configuring-an-external-key-manager.md
                         - Making Application Security Optional: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/making-application-security-optional.md
                         - Disabling Security: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/disabling-security.md
