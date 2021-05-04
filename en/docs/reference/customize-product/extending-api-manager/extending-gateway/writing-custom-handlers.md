@@ -107,8 +107,8 @@ before `</Handlers>`.
     loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
-    !!! note
-        The logger name `log-msg-handler` can be replaced by any logger-name.
+        !!! note
+            The logger name `log-msg-handler` can be replaced by any logger-name.
         
 3.  Restart API Manager.
 
