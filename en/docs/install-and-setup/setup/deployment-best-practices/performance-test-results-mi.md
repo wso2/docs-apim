@@ -82,7 +82,7 @@ Two key performance metrics were used to measure the performance of each test.
 - The operating system is Ubuntu 18.04.5 LTS
 - Java version is JDK 8
 
-### Performance test scripts
+## Performance test scripts
 
 All scripts used to run the performance tests and analyze results are in the following repositories.
 
