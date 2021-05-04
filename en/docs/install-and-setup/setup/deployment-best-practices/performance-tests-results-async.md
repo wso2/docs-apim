@@ -1,7 +1,7 @@
 # Performance Test Results
 
-The performance tests were conducted for streaming APIs of WSO2 API Manager. Tests were conducted for following three
- protocols and the following sections will present the results and key observations.
+The performance tests were conducted for streaming APIs of WSO2 API Manager. Tests were conducted for the three
+ protocols listed below and the subsequent sections present the results and key observations.
  
  1. Server Sent Event APIs (SSE)
  2. WebSub / WebHook APIs
@@ -77,44 +77,44 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Server Sent Events
 
-Test for SSE API was done by using an SSE back end which emitted events in different frequency. The error rate with 
+Test for SSE API was done by using an SSE back end which emitted events in different frequencies. The error rate with 
 concurrent users and the CPU and memory percentage consumed was recorded at that time.
 
 The following graph depicts the Error %, CPU % and Memory % variation in the server during the time in which the 
 request was processed.
 
-[![sse_perf_test_results]({{base_path}}/assets/img/setup-and-install/performance-test-results/sse_perf_test_results.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/sse_perf_test_results.png)
+[![Server Sent Events Test Results]({{base_path}}/assets/img/setup-and-install/performance-test-results/sse_perf_test_results.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/sse_perf_test_results.png)
 
 **Key observations:**
 
-- Five thousand (5000) concurrent connections can we handled with zero error with an event rate of 10Events/sec (Average size of an Event used was 82B)
+- Five thousand (5000) concurrent connections can be handled with zero errors, with an event rate of 10 Event/sec (Average size of an Event used was 82B)
 
-- CPU spike is expected during the processing time, however it will settle out once the requests are served.
+- CPU spike is expected during the processing time, however it will settle once the requests are served.
 
 ## WebSub 
 
-Test for WebSub API was done varying the number of subscribers and measuring the associated error, CPU and Memory % 
+Test for WebSub API was done for varying number of subscribers and measuring the associated error, CPU and Memory % 
 consumed.
 
 The following graph depicts the variation of Error, CPU and Memory % with concurrent users.
 
-[![websub_sse_perf_test_results]({{base_path}}/assets/img/setup-and-install/performance-test-results/websub_sse_perf_test_results.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/websub_sse_perf_test_results.png)
+[![WebSub Test Results]({{base_path}}/assets/img/setup-and-install/performance-test-results/websub_sse_perf_test_results.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/websub_sse_perf_test_results.png)
 
 **Key observations:**
 
-- Ten thousand subscribers can be handled with zero error rate serving a payload of average size of 8kB.
+- 10,000 subscribers can be handled with zero error rate serving a payload of average size of 8kB.
 
 - CPU spike is expected during the processing time as higher number of requests are server simultaneously, however 
-this will settle out when the events are delivered.
+this will settle when the events are delivered.
 
 
 !!! note
-    10 000 concurrent users mean a lot, and it is not very common. It is recommended to scale horizontally or 
+    10,000 concurrent users mean a lot, and it is not very common. It is recommended to scale horizontally or 
     vertically to support more concurrent users with acceptable response times. When scaling horizontally, two or more Gateway nodes need to be used with a load balancer. Another load test must be carried out to measure the performance after scaling.
 
 ## WebSocket
 
-Test for WebSocket API was done by using a WebSocket server, which sends back the reversed message that was received from the client. The ramp up period, error rate, concurrent connections, and CPU and memory usages were recorded at that time.
+Test for WebSocket API was done using a WebSocket server, which sends back the reversed message received from the client. The ramp up period, error rate, concurrent connections, and CPU and memory usages were recorded during that time.
 
 The following graph depicts the ramp up period with error rate.
 
@@ -149,8 +149,8 @@ The following table shows the number of concurrent connections with error rate. 
 
 **Key observations:**
 
-- Four hundred concurrent connections can be made with zero error rate and without any failed connections, at five events per second.
-- Two hundred concurrent connections can be made with zero error rate and without any failed connections, at ten events per second.
+- 400 concurrent connections can be made with zero error rate and without any failed connections, at five events per second.
+- 200 concurrent connections can be made with zero error rate and without any failed connections, at ten events per second.
 
 The following graphs depict the variation of CPU and Memory % with concurrent connections.
 
