@@ -1,6 +1,6 @@
 # About this Release
 
-The WSO2 API Manager is a platform for building and managing APIs. It helps developers implement APIs by integrating different types of systems and APIs to manage them using its API governance and lifecycle management capabilities. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
+The WSO2 API Manager is a platform for building and managing APIs. It helps developers implement APIs by integrating different types of systems and APIs so that the APIs can be managed by using its API governance and lifecycle management capabilities. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -8,7 +8,7 @@ The **WSO2 API Manager 4.0.0** is the latest **WSO2 API Manager release** and
 
 ## **API Manager**
 
-The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
+The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager, and Traffic Manager.
 
 It is now available to download from [here](https://wso2.com/api-management/#).
 
@@ -20,7 +20,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[API and API Product revision support]({{base_path}}/design/create-api/create-api-revisions/)**
     
-	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. These revisions cannot be edited and you can even **restore** your API to a specific revision if you want to discard the latest changes.
+	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
 
 - **[OpenAPI or GraphQL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
 
@@ -36,11 +36,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[Support for Auth0 Key Manager]({{base_path}}/administer/key-managers/configure-auth0-connector/)**
 
-    It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
+    It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that WSO2 API Manager requires. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
 
 - **[Streaming API support in API Gateway]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview)**
 
-    Streaming APIs refer to APIs that have AsyncAPI definitions and use the **WebSocket**, **WebSub (WebHook)** and **Server Sent Events (SSE)** protocols. Streaming APIs are popular in the Event Driven Architecture (EDA). With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (WebHook)** and **Server Sent Events (SSE)** backends in WSO2 API Manager.
+    Streaming APIs refer to APIs that have AsyncAPI definitions and use the **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events (SSE)** protocols. Streaming APIs are popular in the Event-driven architecture (EDA). With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events** backends in WSO2 API Manager.
 
 - **[Streaming API creation using AsyncAPI Definitions]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
 
@@ -86,11 +86,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
       
     | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
-    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager and Traffic Manager components. </br>If you need to use the Traffic Manager profile separately, you need to disable the Traffic Manager component in the Control Plane and use the </br> `-Dprofile=traffic-manager` startup argument to start the Traffic Manager profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
+    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager components. </br>If you need to use the Traffic Manager profile separately, you need to disable the Traffic Manager component in the Control Plane and use the </br> `-Dprofile=traffic-manager` startup argument to start the Traffic Manager profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
     | Gateway profile      | The API Gateway profile.      |   `-Dprofile=gateway` |
     | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
-- API related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
+- API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
 
 - It is required to have the API revision deployed in a Gateway to be able to publish an API that includes an API revision.
 
@@ -98,7 +98,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 ## **Micro Integrator**
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to WSO2 API Manager 4.0.0.
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration-based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to WSO2 API Manager 4.0.0.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
@@ -124,7 +124,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[OAuth endpoint](reference/synapse-properties/endpoint-properties/)**
     
-	A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front-end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc. along with the settings needed for the connection.
+	A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front-end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection.
 
 - **[Call mediator improvement]({{base_path}}/reference/mediators/call-mediator/)**
     
@@ -249,7 +249,7 @@ The following table explains the availability of the most critical features in t
 			Runtime monitoring and management
 		</td>
 		<td>
-			Managemement Console
+			Management Console
 		</td>
 		<td>
 			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
@@ -331,7 +331,7 @@ The following features, which are available in ESB runtimes, are removed from th
 	</tr>
 	<tr>
 		<td>
-			SVN based DepSync
+			SVN-based DepSync
 		</td>
 		<td>
 			This is not a widely used feature in the ESB profile, and is not recommended for use.
@@ -395,14 +395,14 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 
 ## **Streaming Integrator**
 
-Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
+Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
 
 It is now available to download from [here](https://wso2.com/api-management/#).
 
 ### New features
 
 - [Deploy AsyncAPI definitions to the WSO2 API-M Service Catalog]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)
-- Support to capture multiple operations from single CDC source
+- Support to capture multiple operations from a single CDC source
 - RegEx matching dynamic in copy function
 - SSE source functionality
 
@@ -410,7 +410,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 ## **API Controller (apictl)**
 
-WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
+WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Choreo Connect. Furthermore, it can perform Micro Integrator server-specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
 It is now available to download from [here](https://wso2.com/api-management/tooling/).
 
@@ -420,7 +420,7 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
 - [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl/)
-- Resolve parameters at server side while importing an API/API Product project
+- Resolve parameters at server-side while importing an API/API Product project
 - [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product/)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
 - [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api/)
@@ -435,7 +435,7 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 	 The `apictl aws init` command was introduced for this purpose.
 
 - Standardized the apictl flags with a common convention
-- Deprecated some old apictl commands and introduced new improved commands
+- Introduced new improved commands while deprecating some old apictl commands 
     <table>
         <tr class="odd">
             <th><b>Deprecated Command</b></th>
@@ -507,7 +507,7 @@ It is now available to download from [here](https://wso2.com/api-management/tool
     - Support import/export revisioning of APIs
     - Adding proxy environment variables support for APICTL
     - Alias for APICTL commands
-    - Resolve parameters at server side while importing an API project
+    - Resolve parameters at server-side while importing an API project
     - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
     - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
     - Support to override subscription policies of an API using the params file
@@ -538,7 +538,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
-- Support to capture multiple operations from single CDC source
+- Support to capture multiple operations from a single CDC source
 - RegEx matching dynamic in copy function
 - SSE source functionality
 
@@ -552,8 +552,8 @@ It is now available to download from [here](https://github.com/wso2/k8s-api-oper
 
 ### New features
 
-- New Micro Integrator Kubernetes operations added
-- Deploy APIs to Microgateway
+- Added new Micro Integrator Kubernetes operations
+- Support to deploy APIs to Choreo Connect
 - Deploy APIs to API Manager
 
 <hr style="border:8px solid gray"> </hr>
