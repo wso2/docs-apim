@@ -10,7 +10,7 @@ Create and publish your integration service or streaming integration service to 
 
 More information:
 
-- For information on creating and publishing a REST API based on an integration service, see [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial).
+- For information on creating and publishing a REST API based on an integration service, see [Exposing an Integration Service as a Managed API]({{base_path}}/integrate/develop/working-with-service-catalog).
 
 - For information on creating and publishing a Streaming API based on a streaming integration service, see [Exposing a Stream as a Managed API]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
 
