@@ -283,6 +283,7 @@ nav:
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
+            - Importing APIs from AWS API-Gateway to the WSO2 APIM: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
