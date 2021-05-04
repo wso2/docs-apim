@@ -121,7 +121,6 @@ nav:
                         - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                         - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
                         - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                        - Securing APIs Deployed in Cloud Clusters: design/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                         - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
                         - Overview: design/api-security/authorization/api-authorization.md
@@ -168,7 +167,6 @@ nav:
                 - Access Control: design/rate-limiting/access-control.md
                 - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Engaging a New Throttling Policy at Runtime: design/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
                 - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
                 - Query Limits for GraphQL:
                         - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
@@ -221,6 +219,7 @@ nav:
             - Choreo Connect:
                 - Getting Started:
                     - Choreo Connect Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview.md
+                    - Supported Features : deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features.md
                     - Quick start Guide:
                         - Quick Start Guide Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-overview.md
                         - Quick Start Guide-Docker: deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker.md
@@ -231,6 +230,8 @@ nav:
                     - As a Standalone Gateway: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway.md
                     - Event Hub: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/event-hub.md
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
+                    - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
+                    - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
                 - Deploy an API:
                     - Deploy an API to Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                 - Configurations:
@@ -240,7 +241,6 @@ nav:
                         - Adapter: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/adapter-configurations.md
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
                         - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
-                        - Security: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/security-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
@@ -250,7 +250,11 @@ nav:
                 - HTTP 2.0: deploy-and-publish/deploy-on-gateway/choreo-connect/http-2.0.md
                 - Rate Limiting:
                     - Enabling distributed throttling: deploy-and-publish/deploy-on-gateway/choreo-connect/rate-limiting/distributed-throttling.md
-                - Service Discovery: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery.md
+                - Service Discovery:
+                    - Configure Choreo Connect with Consul: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/service-discovery-overview.md
+                    - Service Discovery:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-discovery.md
+                    - Service Mesh: deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-service-mesh.md
+                    - Service Mesh in Kubernetes:  deploy-and-publish/deploy-on-gateway/choreo-connect/service-discovery/choreo-connect-and-k8s.md
                 - Security:
                     - Authentication:
                         - API Authentication: deploy-and-publish/deploy-on-gateway/choreo-connect/security/api-authentication/api-authentication.md
@@ -348,7 +352,7 @@ nav:
                 - Installing WSO2 Integration Studio: integrate/develop/installing-wso2-integration-studio.md
                 - Working with WSO2 Integration Studio: integrate/develop/working-with-wso2-integration-studio.md
                 - Troubleshooting WSO2 Integration Studio: integrate/develop/troubleshooting-wso2-integration-studio.md
-            - Develop Your First Integation: integrate/develop/integration-development-kickstart.md
+            - Developing Your First Integation: integrate/develop/integration-development-kickstart.md
             - Publish Integrations to the Service Catalog: integrate/develop/working-with-service-catalog.md
             - Creating Projects:
                 - Creating an Integration Project: integrate/develop/create-integration-project.md
@@ -483,7 +487,7 @@ nav:
                     - Publishing a Custom Swagger Document: integrate/examples/rest_api_examples/publishing-a-swagger-api.md
                     - Special Cases: integrate/examples/rest_api_examples/special-cases.md
                 - Proxy Services:
-                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
+                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/introduction-to-proxy-services.md
                     - Publishing a Custom WSDL: integrate/examples/proxy_service_examples/publishing-a-custom-wsdl.md
                     #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
                     - Exposing a Proxy Service via Inbound Endpoints: integrate/examples/proxy_service_examples/exposing-proxy-via-inbound.md
@@ -537,7 +541,7 @@ nav:
             - Transports:
                 - Using the TCP Transport: integrate/examples/transport_examples/tcp-transport-examples.md
                 - Using the FIX Transport: integrate/examples/transport_examples/fix-transport-examples.md
-                - Using the MQTT Transport: integrate/examples/transport_examples/Pub_Sub_using_MQTT.md
+                - Using the MQTT Transport: integrate/examples/transport_examples/pub-sub-using-mqtt.md
                 - HL7 Examples:
                     - Mediating HL7 Messages: integrate/examples/hl7-examples/hl7_proxy_service.md
                     - Acknowledging HL7 Messages: integrate/examples/hl7-examples/acknowledge_hl7_messages.md
@@ -724,9 +728,10 @@ nav:
                     - Configuring Gateway:
                         - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
                         - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
+                    - Working with Organizations: observe/api-manager-analytics/configure-analytics/working-with-organizations.md
                 - Viewing APIM analytics:
-                    - Viewing Statistics in Cloud: observe/api-manager-analytics/viewing-stats-in-cloud.md
                     - Pages:
+                        - Introduction: observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md
                         - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
                         - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
                         - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
@@ -798,69 +803,12 @@ nav:
             - Service Catalog APIs:
                 - Service Catalog v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
-        - Configuration Catalogs:
-            - API Management Configs: reference/config-catalog.md
-            - Integration Server Configs: reference/config-catalog-mi.md
-        - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
-        - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
-        - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
-        - FAQ: reference/faq.md
-        - Customize Product:
-            - Extending WSO2 API Manager:
-                - Extending Key Management:
-                    - Extending Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
-                    - Extending Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
-                    - Extending Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-                    - Writing Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
-                - Extending API Gateway:
-                    - Customizing API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-                    - Writing Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
-                - Extending Workflows:
-                    - Invoking the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
-                    - Customizing a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
-                    - Configuring HTTP Redirection for Workflows: reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
-                    - Configuring Workflows for Tenants: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
-                    - Configuring Workflows in a Cluster: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
-                    - Changing the Default User Role in Workflows: reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
-                    - Cleaning Up Workflow Tasks: reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
-                - SAML2 SSO:
-                    - Configuring Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
-                    - Configuring External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-                    - Configuring Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-            - Customizations:
-                - Customizing the Developer Portal:
-                    - Overriding Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
-                    - Customize API Listing:
-                        - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-                        - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-                    - Enabling or Disabling API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-                    - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-                    - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-                    - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-                    - Enable or Disable Tag Cloud: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-                    - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-                    - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-                    - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-                    - Styling API Details Info Section: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
-                    - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-                    - Enabling or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-                - Overriding the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
-                - Log in to the Developer Portal using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
-                - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
-                - Customizing User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
-                - Customizing Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-                - Customizing the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
-                - Adding a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
-                - Adding internationalization: reference/customize-product/customizations/adding-internationalization.md
-                - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
-            - Admin Services: reference/wso2-admin-services.md
-            - Working with the Source Code: reference/working-with-the-source-code.md
-            - Java Documentation: reference/java-documentation.md
-        - Guides:
-            - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
-            - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
+        - Product Configurations:
+            - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
+            - API-M Config Catalog: reference/config-catalog.md
+            - MI Config Catalog: reference/config-catalog-mi.md
+        - API Controller (APICTL): reference/apictl/wso2-api-controller.md
+        - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
             - Connectors Overview: reference/connectors/connectors-overview.md
             - When to Use Connectors: reference/connectors/why-connectors.md
@@ -908,47 +856,47 @@ nav:
                         - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgunits.md
                         - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgunitdetails.md
                     - Employee Documents:
-                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listofdocuments.md
-                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentdetails.md
-                    - Employee Employemnt Information:
-                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeclockdevicegroups.md
-                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecompensationsummary.md
-                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecourses.md
-                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentagreements.md
-                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentstatuses.md
-                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymenttypes.md
-                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehighlycompensatedemployees.md
-                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehrincidents.md
-                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeelabordefaults.md
-                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeonboardingpolicies.md
-                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeorginfo.md
-                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepayadjustmentcodegroups.md
-                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepaygraderates.md
-                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeperformanceratings.md
-                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeproperties.md
-                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeskills.md
-                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeetrainingprograms.md
-                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeunionmemberships.md
-                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkassignments.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
+                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employee-documents/listofdocuments.md
+                        - documentDetails: reference/connectors/ceridiandayforce-connector/employee-documents/documentdetails.md
+                    - Employee Employment Information:
+                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeclockdevicegroups.md
+                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecompensationsummary.md
+                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecourses.md
+                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentagreements.md
+                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentstatuses.md
+                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymenttypes.md
+                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehighlycompensatedemployees.md
+                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehrincidents.md
+                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeelabordefaults.md
+                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeonboardingpolicies.md
+                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeorginfo.md
+                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepayadjustmentcodegroups.md
+                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepaygraderates.md
+                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeperformanceratings.md
+                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeproperties.md
+                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeskills.md
+                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeetrainingprograms.md
+                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeunionmemberships.md
+                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkassignments.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
                     - Employee Personal Information:
-                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeaddresses.md
-                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecantaxes.md
-                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecontacts.md
-                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeedirectdeposits.md
-                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeemergencycontacts.md
-                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeehealthandwellness.md
-                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeemaritalstatuses.md
-                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeustaxes.md
+                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeaddresses.md
+                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecantaxes.md
+                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecontacts.md
+                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeedirectdeposits.md
+                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeemergencycontacts.md
+                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeehealthandwellness.md
+                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeemaritalstatuses.md
+                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeustaxes.md
                     - Employee Time Management:
-                        - availability: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md
-                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeepunches.md
-                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeerawpunches.md
-                        - schedules: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md
-                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeawayfromwork.md
+                        - availability: reference/connectors/ceridiandayforce-connector/employee-time-management/availability.md
+                        - employeePunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeepunches.md
+                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeerawpunches.md
+                        - schedules: reference/connectors/ceridiandayforce-connector/employee-time-management/schedules.md
+                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employee-time-management/timeawayfromwork.md
                     - Employment Eligibility Verification:
-                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9order.md
+                        - i9Order: reference/connectors/ceridiandayforce-connector/employment-eligibility-verification/i9order.md
                     - Recruiting:
                         - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobpostings.md
                     - Reporting:
@@ -956,13 +904,13 @@ nav:
                         - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforaspecificreport.md
                         - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
                     - User Security Authority And Management:
-                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentmanagementsecuritygroups.md
-                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeelocations.md
-                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeemanagers.md
-                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeroles.md
-                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeessoaccounts.md
-                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeworkassignmentmanagers.md
-                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userpayadjustmentcodegroups.md
+                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/documentmanagementsecuritygroups.md
+                        - employeeLocations: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeelocations.md
+                        - employeeManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeemanagers.md
+                        - employeeRoles: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeroles.md
+                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
+                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
+                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
@@ -1010,12 +958,12 @@ nav:
                 - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
                 - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
             - ISO8583 Connector:
-                - ISO8583 Overview: reference/connectors/ISO8583-connector/ISO8583-connector-overview.md
-                - Setting up ISO8583: reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md
-                - ISO8583 Example: reference/connectors/ISO8583-connector/ISO8583-connector-example.md
-                - ISO8583 Reference: reference/connectors/ISO8583-connector/ISO8583-connector-reference.md
-                - ISO8583 Inbound Endpoint Example: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md
-                - ISO8583 Inbound Endpoint Reference: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md
+                - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
+                - Setting up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
+                - ISO8583 Example: reference/connectors/iso8583-connector/iso8583-connector-example.md
+                - ISO8583 Reference: reference/connectors/iso8583-connector/iso8583-connector-reference.md
+                - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
+                - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
             - Kafka Connector:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
@@ -1068,7 +1016,7 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
-        - Synapse Configurations:
+        - Integration Artifacts:
             - REST API Properties: reference/synapse-properties/rest-api-properties.md
             - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
             - Mediator Catalog:
@@ -1084,6 +1032,7 @@ nav:
                 - Data Mapping:
                     - Data Mapper Mediator: reference/mediators/data-mapper-mediator.md
                     - Data Mapper Schema Specification: reference/mediators/data-mapper-json-schema-specification.md
+                - Data Service Call Mediator: reference/mediators/dss-mediator.md
                 - DBLookup  Mediator: reference/mediators/dblookup-mediator.md
                 - DB Report Mediator: reference/mediators/db-report-mediator.md
                 - Drop Mediator: reference/mediators/drop-mediator.md
@@ -1176,6 +1125,61 @@ nav:
                 - Customizing Secure Vault: reference/mi-security-reference/customizing-secure-vault.md
                 - Using Keystores: reference/mi-security-reference/using_keystores.md
                 - WS-Security Implementations: reference/mi-security-reference/security-implementation.md
+        - Customizations:
+            - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
+            - Extending WSO2 API Manager:
+                - Extending Key Management:
+                    - Extending Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
+                    - Extending Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
+                    - Extending Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                    - Writing Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                - Extending API Gateway:
+                    - Customizing API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                    - Writing Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                - Extending Workflows:
+                    - Invoking the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                    - Customizing a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                    - Configuring HTTP Redirection for Workflows: reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                    - Configuring Workflows for Tenants: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                    - Configuring Workflows in a Cluster: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                    - Changing the Default User Role in Workflows: reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                    - Cleaning Up Workflow Tasks: reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
+                - SAML2 SSO:
+                    - Configuring Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
+                    - Configuring External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
+                    - Configuring Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+            - Customizations:
+                - Customizing the Developer Portal:
+                    - Overriding Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                    - Customize API Listing:
+                        - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
+                        - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                    - Enabling or Disabling API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                    - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                    - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                    - Enable or Disable Tag Cloud: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                    - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                    - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                    - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                    - Styling API Details Info Section: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                    - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                    - Enabling or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                - Overriding the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
+                - Log in to the Developer Portal using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
+                - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customizing User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
+                - Customizing Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                - Customizing the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
+                - Adding a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
+                - Adding internationalization: reference/customize-product/customizations/adding-internationalization.md
+                - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
+            - Admin Services: reference/wso2-admin-services.md
+            - Working with the Source Code: reference/working-with-the-source-code.md
+            - Java Documentation: reference/java-documentation.md
+        - Best Practices:
+            - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
@@ -1187,6 +1191,10 @@ nav:
             - API Rate Monetization Sample: reference/samples/api-rate-monetization-sample.md
             - API Security Sample: reference/samples/api-security-sample.md
             - API Versioning Sample: reference/samples/api-versioning-sample.md
+        - Guides:
+            - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
+            - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
+            - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Troubleshooting:
               - Error Handling: troubleshooting/error-handling.md
               - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
@@ -1194,6 +1202,7 @@ nav:
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
               - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
+        - FAQ: reference/faq.md
     - Administer:
         - Administer Overview: administer/admin-overview.md
         - Managing Users and Roles:
@@ -1236,7 +1245,6 @@ nav:
                     - Installing on Windows: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows.md
                     - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service.md
                     - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md
-                    - Deploying on Kubernetes: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Installing Micro Integrator:
                 - Installing via the Installer: install-and-setup/install/installing-the-product/install-mi-in-vm-installer.md
                 - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
@@ -1253,7 +1261,7 @@ nav:
             - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Setting up API Manager:
-                - Applying WSO2 Updates: administer/updating-wso2-api-manager.md
+                - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
                 - Setting up a Key Manager:
                     - Setting up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Setting up WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -1290,34 +1298,33 @@ nav:
                     - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
                 - Configuring Userstores:
-                    - Managing User Stores:
-                        - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                        - Configuring Primary User Stores:
-                            - Configuring Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-                            - Configuring a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-                            - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-                            - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-                            - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
-                    - SSO:
-                        - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
-                        - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
-                        - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
-                        - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-                    - Advanced Configuration:
-                        - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
-                        - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
-                        - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
+                    - Configuring Primary User Stores:
+                        - Configuring Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
+                        - Configuring a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
+                        - Configuring a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
+                        - Configuring a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
+                        - Configuring a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+                - SSO:
+                    - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
+                    - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
+                    - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
+                - Advanced Configurations:
+                    - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
+                    - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
+                    - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
             - Setting up Micro Integrator:
-                - Applying WSO2 Updates: install-and-setup/setup/mi-setup/updating-mi.md
+                - Updating WSO2 Micro Integrator: install-and-setup/setup/mi-setup/updating-mi.md
                 - Data Stores:
                     - Configuring a User Store: install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore.md
-                    - Databases:
+                    - Configuring Databases:
                         - MySQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mysql.md
                         - MSSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-mssql.md
                         - Oracle Database: install-and-setup/setup/mi-setup/databases/setting-up-oracle.md
                         - PostgreSQL Database: install-and-setup/setup/mi-setup/databases/setting-up-postgresql.md
                         - IBM Database: install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2.md
-                    - File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
+                    - Configuring the File-Based Registry: install-and-setup/setup/mi-setup/deployment/file_based_registry.md
                 - Security:
                     - Setting up Keystores:
                         - Creating New Keystores: install-and-setup/setup/mi-setup/security/creating_keystores.md
@@ -1332,15 +1339,6 @@ nav:
                         - Using Hashicorp Secrets: install-and-setup/setup/mi-setup/security/using-hashicorp-secrets.md
                         - Using Symmetric Encryption: install-and-setup/setup/mi-setup/security/single_key_encryption.md
                     - Securing the Management API: install-and-setup/setup/mi-setup/security/securing_management_api.md
-                - Performance:
-                    - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
-                    - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
-                    - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
-                    - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
-                    - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
-                    - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
-                    - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
-                    - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
                 - Message Brokers:
                     - AMQP (RabbitMQ):
                         - Deploying RabbitMQ: install-and-setup/setup/mi-setup/brokers/deploy-rabbitmq.md
@@ -1378,10 +1376,10 @@ nav:
                 - Load Balancer and Proxy Server:
                     - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
                     - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_ssl_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
-                - Applying WSO2 Updates: install-and-setup/setup/si-setup/updating-si.md
+                - Updating WSO2 Streaming Integrator: install-and-setup/setup/si-setup/updating-si.md
                 - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
                 - Performance Analysis Results: install-and-setup/setup/si-setup/performance-analysis-results.md
                 - Configuring Business Rules Deployment: install-and-setup/setup/si-setup/configuring-business-rules-deployment.md
@@ -1410,9 +1408,6 @@ nav:
                     - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
                 - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
-                - Deploy on Kubernetes:
-                    - Kubernetes Deployment Patterns: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
-                    - Deploy on Kubernetes: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
             - Deploying the Streaming Integrator:
                 - Streaming Integrator Deployment Overview: install-and-setup/setup/si-deployment/deployment-guide.md
@@ -1421,20 +1416,70 @@ nav:
                 - Active-Active Cluster: install-and-setup/setup/si-deployment/deploying-si-as-an-active-active-deployment.md
                 - Scalable Cluster: install-and-setup/setup/si-deployment/deploying-si-as-a-scalable-cluster.md
                 - Minimum Ha Cluster in AWS ECS: install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster-in-aws-ecs.md
+            - Deploying on Kubernetes:
+                - API-M on K8s:
+                    - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
+                - Micro Integrator on K8s:
+                    - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
+                    - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
+                - APIs and Integrations on K8s:
+                    - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
+                    - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                    - Integration Deployment Samples:
+                        - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
+                        - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
+                        - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
             - Deployment Best Practices:
-                - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-                - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Changing the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Monitoring Integration Transaction Counts: install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-                - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
-            - CI/CD:
-                - Building a Jenkins CI/CD Pipeline for Micro Integrator:
-                    - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
-                    - CI/CD for a VM deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
-                    - CI/CD for a K8s deployment: install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+                - Performance Tuning:
+                    -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+                    -   Micro Integrator Performance Tuning:
+                        - Tuning JVM Performance: install-and-setup/setup/mi-setup/performance_tuning/tuning_jvm_performance.md
+                        - Tuning Network and OS Performance: install-and-setup/setup/mi-setup/performance_tuning/network_os_performance.md
+                        - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
+                        - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
+                        - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
+                        - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport.md
+                        - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
+                        - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
+        - CI/CD:
+            - CI/CD - Integrations:
+                - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
+                - Building a CI/CD Pipeline for Integrations (VM deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-vm.md
+                - Building a CI/CD Pipeline for Integrations (K8s deployment): install-and-setup/setup/mi-setup/deployment/mi-cicd-k8s.md
+            - CI/CD - APIs:
+                - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
+                - Building a CI/CD Pipeline for APIs using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
+                - Building a CI/CD Pipeline for APIs using Jenkins: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Managing Environments using the CLI:
+                - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
+                - Managing APIs and API Products:
+                    - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
+                    - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                    - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
+                    - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Managing Applications:
+                    - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
+                    - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+                - Managing APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
+                - Managing Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
+                - Managing Integrations: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
+                - Encrypting Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
+                - Advanced Topics:
+                    - Creating Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                    - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
+                    - Using Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                    - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                    - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                    - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade:
             - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
@@ -1471,54 +1516,33 @@ nav:
                 - EI 6.1.1 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.1.md
                 - EI 6.1.0 to API-M 4.0.0: install-and-setup/upgrading-from-wso2-ei/upgrading-from-ei-6.1.0.md
             -  Upgrading from WSO2 ESB: install-and-setup/upgrading-from-wso2-ei/upgrading-from-esb-5.x.x.md
-        - Kubernetes Operators:
-          - K8s API Operator:
-              - Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview.md
-              - Install: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
-              - Manage APIs:
-                - Deploy APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
-              - Manage Integrations:
-                - Deploy Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
-                - Integration Deployment Samples:
-                  - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
-                  - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
-                  - Sample 3 - JMS Sender/Receiver: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md
-              - Configuration Overview: install-and-setup/setup/kubernetes-operators/k8s-api-operator/configuration-overview.md
-          - K8s WSO2 API Manager Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
-        - API Controller:
-            - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
-            - Managing APIs and API Products:
-                - Managing APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
-                - Importing APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
-                - Migrating APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
-                - Migrating API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
-            - Managing Applications:
-                - Managing Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
-                - Migrating Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
-            - Managing APIs in Kubernetes: install-and-setup/setup/api-controller/managing-apis-in-kubernetes/managing-apis-in-kubernetes.md
-            - Managing Choreo Connect: install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl.md
-            - CI/CD with WSO2 API Manager: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
-            - Building a Jenkins CI/CD Pipeline for Dev First Approach: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
-            - Managing Integrations:
-                - Managing Integrations with apictl: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
-            - Encrypting Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
-            - Advanced Topics:
-                - Creating Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-                - Configuring Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Using Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-                - Configuring Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                - Formatting the Outputs of get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
-                - Configuring Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-                - Test Content: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md 
         - Reference:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+            - Performance Test Results:
+                - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
-          - Using API Manager to Solve a Real-world Problem: tutorials/user-scenario.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
+          - Scenario Tutorials:
+            - Scenario Overview: tutorials/scenarios/scenario-overview.md
+            - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
+            - Scenario 2 - Engage Access Control to the API: tutorials/scenarios/scenario2-access-control.md
+            - Scenario 3 - Implementing an API: tutorials/scenarios/scenario3-implementing-an-api.md
+            - Scenario 4 - Signing Up a New User: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+            - Scenario 5 - Getting the Developer Community Involved: tutorials/scenarios/scenario5-developer-community-feature.md
+            - Scenario 6 - Integrating with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
+            - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
+            - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
+            - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
+            - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
+            - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
+            - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
+            - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
+            - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:

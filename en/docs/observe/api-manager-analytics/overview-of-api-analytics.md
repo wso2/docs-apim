@@ -34,7 +34,7 @@ In the earlier versions, customers had to log on to a separate console to config
 All above highly user-friendly features are possible through the new design adopted by the analytics solution. 
 The following diagram illustrates the basic architecture of the solution.
 
-![APIM Analytics Simplified Design]({{base_path}}/assets/img/observe/apim-analytics-simplified.jpg)
+![APIM Analytics Simplified Design]({{base_path}}/assets/img/observe/apim-analytics-simplified.png)
 
 As you can observe, Gateways will now publish analytics stats directly to the analytics cloud over the internet. 
 Analytics cloud will have regional deployments to reduce publishing latencies and honor data privacy. 

@@ -1,4 +1,4 @@
-# Configuration Catalog
+# API Manager Configuration Catalog
 
 The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
 
@@ -4599,7 +4599,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(Only applicable if the Microgateway is used)If set to FALSE, works as persistent.</p>
+                                        <p>(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4618,7 +4618,7 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway.</p>
+                                        <p>Notifications will be persisted to etcd. At the Choreo Connect startup, the etcd will be queried by Choreo Connect.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

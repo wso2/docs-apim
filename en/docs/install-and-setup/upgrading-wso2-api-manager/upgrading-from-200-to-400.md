@@ -1,6 +1,6 @@
 # Upgrading API Manager from 2.0.0 to 4.0.0
 
-The following information describes how to upgrade your API Manager server **from APIM 2.0.0 to 4.0.0**.
+The following information describes how to upgrade your API Manager server **from API-M 2.0.0 to 4.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
@@ -3411,7 +3411,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
         
-         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
+         Navigate to the [latest release tag](https://github.com/wso2-extensions/apim-identity-migration-resources/tags) and download the `wso2is-migration-x.x.x.zip` under **Assets**.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_4.0.0_HOME>` directory.
 
@@ -3566,34 +3566,36 @@ Follow the instructions below to move all the existing API Manager configuration
 
         - Remove the `migration-resources` directory, which is in the `<API-M_4.0.0_HOME>` directory.
 
-    5. Execute below db script in the respective AM database.    
-    ??? info "DB Scripts"
-        ```tab="DB2"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
+    5. Execute the following DB script in the respective AM database.    
     
-        ```
+        ??? info "DB Scripts"
+            ```tab="DB2"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
         
-        ```tab="MySQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="MSSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ``` 
+            ```
+            
+            ```tab="MySQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="MSSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ``` 
 
-        ```tab="PostgreSQL"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
-   
-        ```
-                
-        ```tab="Oracle"
-        ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
-        /
-   
-        ```
+            ```tab="PostgreSQL"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID);
+    
+            ```
+                    
+            ```tab="Oracle"
+            ALTER TABLE AM_API ADD CONSTRAINT API_UUID_CONSTRAINT UNIQUE(API_UUID)
+            /
+    
+            ```
+    
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
@@ -3655,6 +3657,7 @@ This concludes the upgrade process.
     
    - API-M 4.0.0 synapse artifacts have been removed from the file system and are managed via database. At server startup the synapse configs are loaded to the memory from the Traffic Manager.
   
+
    - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.
 
    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
@@ -3668,3 +3671,48 @@ This concludes the upgrade process.
    - Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
      All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
      For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).
+
+   - When Migrating a Kubernetes environment to a newer API Manager version it is recommended to do the data migration in a single container and then do the deployment.    
+
+        
+!!! note
+    Prior to WSO2 API Manager 4.0.0, the distributed deployment comprised of five main product profiles, namely Publisher, Developer Portal, Gateway, Key Manager, and Traffic Manager. However, the new architecture in APIM 4.0.0 only has three profiles, namely Gateway, Traffic Manager, and Default.
+    All the data is persisted in databases **from WSO2 API-M 4.0.0 onwards**. Therefore, it is recommended to execute the migration client in the Default profile.
+    For more details on the WSO2 API-M 4.0.0 distributed deployment, see [WSO2 API Manager distributed documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).    
+
+!!! important
+
+    **From WSO2 API_M 4.0.0 onwards** error responses in API calls has changed from XML to JSON format.
+    If you have developed client applications to handle XML error responses you give have to change the client applications to handle the JSON responses.
+    As an example for a 404 error response previously it was as follows
+       
+        <am:fault xmlns:am="http://wso2.org/apimanager">
+           <am:code>404</am:code>
+           <am:type>Status report</am:type>
+           <am:message>Not Found</am:message>
+           <am:description>The requested resource is not available.</am:description>
+        </am:fault>
+     
+    In API-M 4.0.0 onwards the above resopnse will changed as follows.
+    
+        {
+           "code":"404",
+           "type":"Status report",
+           "message":"Not Found",
+           "description":"The requested resource is not available."
+        }
+     
+!!! important
+        
+    In API-M 4.0.0 following fault sequences were changed to send JSON responses as mentioned above. If you have done any custom changes to any of the following sequences previously,
+    you have to add those custom changes manually to these changed files. 
+    
+    -   _auth_failure_handler_.xml
+    -   _backend_failure_handler_.xml
+    -   _block_api_handler_.xml
+    -   _graphql_failure_handler_.xml
+    -   _threat_fault_.xml
+    -   _throttle_out_handler_.xml
+    -   _token_fault_.xml
+    -   fault.xml
+    -   main.xml

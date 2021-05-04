@@ -77,7 +77,7 @@ At the heart of the Micro Integrator server is an event-driven, standards-based 
 
 See the topics in the following sections for details and instructions.
 
-### Integration Capabilities
+### Integration Use Cases
 
 Learn about the main integration capabilities of the Micro Integrator of WSO2 API Manager. You can also follow the [tutorials](#integration-tutorials) on each of these use cases to gain hands-on knowledge.
 
@@ -171,6 +171,44 @@ Learn about the main integration capabilities of the Micro Integrator of WSO2 AP
     </div>
 </div>
 
+### Integration Development
+
+Learn how to set up the development environment and build integration solutions.
+
+<div>
+    <div class="content">
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/wso2-integration-studio';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Quick Tour - WSO2 Integration Studio</p>
+                <p class="hint">Get an overview of the developer tool that you will use for developing integrations.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/installing-wso2-integration-studio';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">Install WSO2 Integration Studio</p>
+                <p class="hint">Install and set up WSO2 Integration Studio.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/integrate/develop/intro-integration-development';">
+            <div class="line"></div>
+            <div class="card-content">
+                <p class="title">Development Workflow</p>
+                <p class="hint">Get an overview of the integration development workflow.</p>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
+
+See the **Developing Integrations** section in the left-hand navigator for more topics on working with integrations.
+
 ### Management and Observability
 
 Learn about the dashboards, tools, and solutions that are available for managing and monitoring integrations deployed in the Micro Integrator.
@@ -248,6 +286,15 @@ Learn how to set up a Micro Integrator deployment and configure the deployment a
             <div class="card-content" >
                 <p class="title">Configuration and Set up</p>
                 <p class="hint">Configure Security, Data Stores, Perfomance, Message Brokers, Transports, etc.</p>
+            </div>
+        </div>
+        <!-- end card -->
+        <!-- card -->
+        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users';">
+            <div class="line"></div>
+            <div class="card-content" >
+                <p class="title">User Management</p>
+                <p class="hint">Configure a user store and manage users and roles in the Micro Integrator.</p>
             </div>
         </div>
         <!-- end card -->
@@ -427,7 +474,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                 </li>
                 <li>Proxy Services 
                     <ul>
-                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services">Using a Simple Proxy Service</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services">Using a Simple Proxy Service</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl">Publishing a Custom WSDL</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound">Exposing a Proxy Service via Inbound Endpoints</a></li>
                         <li><a href="{{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services">Securing a Proxy Service</a></li>
@@ -503,7 +550,7 @@ Learn how to implement various integration use cases, deploy them in the Micro I
                     <ul>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/tcp-transport-examples">Using the TCP Transport</a></li>
                         <li><a href="{{base_path}}/integrate/examples/transport_examples/fix-transport-examples">Using the FIX Transport</a></li>
-                        <li><a href="{{base_path}}/integrate/examples/transport_examples/Pub_Sub_using_MQTT">Using the MQTT Transport</a></li>
+                        <li><a href="{{base_path}}/integrate/examples/transport_examples/pub-sub-using-mqtt">Using the MQTT Transport</a></li>
                     </ul>
                 </li>
             </ul>

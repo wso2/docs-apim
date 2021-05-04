@@ -139,7 +139,7 @@ Follow the instructions below to secure the endpoint's password that is given in
      * On Linux/Mac OS: `./api-manager.sh`
      * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written in the API Gateway configuration file, which can be found in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
+After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
 
 Example:
 
