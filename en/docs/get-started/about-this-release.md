@@ -401,7 +401,6 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 #### New features
 
-<<<<<<< Updated upstream
 - [API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
