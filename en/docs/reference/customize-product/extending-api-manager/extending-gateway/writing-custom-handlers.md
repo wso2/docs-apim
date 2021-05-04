@@ -91,7 +91,25 @@ before `</Handlers>`.
     ``` java
     <handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/> 
     ```
+    
+        !!! note
+            In a fully distributed setup, this configuration should be done in the Traffic manager Node.
+            
+2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j2.properties` file to enable printing DEBUG logs.
 
+    ``` java
+    logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
+    logger.log-msg-handler.level = DEBUG
+    ```
+    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
+
+    ```
+    loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
+    ```
+
+    !!! note
+        The logger name `log-msg-handler` can be replaced by any logger-name.
+        
 2.  Restart API Manager.
 
 !!! note
