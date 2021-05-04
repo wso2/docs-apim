@@ -2,8 +2,6 @@
 
 A Web Socket API can be deployed in Choreo Connect via API Manager.
 
-Before You begin
-
 ### Step 1 - Create a WebSocket API in API Manager
 
  Please follow [Create a WebSocket API]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api/) and create the WebSocket API.
