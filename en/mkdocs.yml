@@ -1522,6 +1522,7 @@ nav:
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
             - Performance Test Results:
                 - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
                 - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
