@@ -136,7 +136,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 [Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
 
-### Step 4 - Starting the MI Dashboard
+### Step 4 - Start the MI Dashboard
 
 [Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
 

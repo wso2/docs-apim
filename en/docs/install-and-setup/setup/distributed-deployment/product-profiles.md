@@ -28,7 +28,7 @@ The following are the different profiles available in WSO2 API Manager.
         <td>
             Gateway Profile
         </td>
-        <td><pre><code>-Dprofile=gateway-worker   </code></pre></td>
+        <td><pre><code>-Dprofile=gateway</code></pre></td>
         <td>
             <p>Only starts the components related to the API Gateway.</p>
 <p>Use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
@@ -38,18 +38,18 @@ The following are the different profiles available in WSO2 API Manager.
         <td>
             Control Plane Profile
         </td>
-        <td><pre><code></code></pre></td>
+        <td><pre><code>-Dprofile=control-plane</code></pre></td>
         <td>
             Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal) excluding the Gateway.
         </td>
     </tr>
     <tr>
         <td>
-            Default Profile
+            Traffic Manager Profile
         </td>
-        <td><pre><code></code></pre></td>
+        <td><pre><code>Dprofile=traffic-manager</code></pre></td>
         <td>
-            Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal, and the Gateway).
+            Only starts the Traffic Manager component.
         </td>
     </tr>
 </table>

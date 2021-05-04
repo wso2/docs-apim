@@ -395,7 +395,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Support endpoint security separately for Production and Sandbox endpoints via params file
 - VCS support for both the deployment and source repositories
 - Support for import/export Async APIs
-- Introducing "apictl aws init" command to extract APIs from AWS API and to initialize an apictl API project
+- [Introducing "apictl aws init" command to extract APIs from AWS API-Gateway and to initialize an apictl API project]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal)
 - Standardized the apictl flags with a common convention
 - Deprecated few old apictl commands and introduced new improved commands
     <table>

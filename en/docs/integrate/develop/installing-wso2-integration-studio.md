@@ -52,7 +52,7 @@ You can check the version of the Integration Studio as below.
 * For MacOS : Integration Studio > About Integration Studio
 * For Windows/Linux : Help > About Integration Studio
 
-    <img src="{{base_path}}/assets/img/integrate/about-integration-studio.png" alt="get studio information" width="400">
+    <a href="{{base_path}}/assets/img/integrate/about-integration-studio.png"><img src="{{base_path}}/assets/img/integrate/about-integration-studio.png" alt="get studio information" width="400"></a>
 
 ### Troubleshooting
 

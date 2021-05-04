@@ -283,6 +283,7 @@ nav:
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
+            - Importing APIs from AWS API-Gateway to the WSO2 APIM: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -487,7 +488,7 @@ nav:
                     - Publishing a Custom Swagger Document: integrate/examples/rest_api_examples/publishing-a-swagger-api.md
                     - Special Cases: integrate/examples/rest_api_examples/special-cases.md
                 - Proxy Services:
-                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services.md
+                    - Using a Simple Proxy Service: integrate/examples/proxy_service_examples/introduction-to-proxy-services.md
                     - Publishing a Custom WSDL: integrate/examples/proxy_service_examples/publishing-a-custom-wsdl.md
                     #- 'Configuring Pinned Servers': 'use-cases/examples/proxy_service_examples/using-pinned-servers.md'
                     - Exposing a Proxy Service via Inbound Endpoints: integrate/examples/proxy_service_examples/exposing-proxy-via-inbound.md
@@ -541,7 +542,7 @@ nav:
             - Transports:
                 - Using the TCP Transport: integrate/examples/transport_examples/tcp-transport-examples.md
                 - Using the FIX Transport: integrate/examples/transport_examples/fix-transport-examples.md
-                - Using the MQTT Transport: integrate/examples/transport_examples/Pub_Sub_using_MQTT.md
+                - Using the MQTT Transport: integrate/examples/transport_examples/pub-sub-using-mqtt.md
                 - HL7 Examples:
                     - Mediating HL7 Messages: integrate/examples/hl7-examples/hl7_proxy_service.md
                     - Acknowledging HL7 Messages: integrate/examples/hl7-examples/acknowledge_hl7_messages.md
@@ -856,47 +857,47 @@ nav:
                         - orgUnits: reference/connectors/ceridiandayforce-connector/configuration/orgunits.md
                         - orgUnitDetails: reference/connectors/ceridiandayforce-connector/configuration/orgunitdetails.md
                     - Employee Documents:
-                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employeeDocuments/listofdocuments.md
-                        - documentDetails: reference/connectors/ceridiandayforce-connector/employeeDocuments/documentdetails.md
-                    - Employee Employemnt Information:
-                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeclockdevicegroups.md
-                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecompensationsummary.md
-                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeecourses.md
-                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentagreements.md
-                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymentstatuses.md
-                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeemploymenttypes.md
-                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehighlycompensatedemployees.md
-                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeehrincidents.md
-                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeelabordefaults.md
-                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeonboardingpolicies.md
-                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeorginfo.md
-                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepayadjustmentcodegroups.md
-                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeepaygraderates.md
-                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeperformanceratings.md
-                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeproperties.md
-                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeskills.md
-                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeetrainingprograms.md
-                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeunionmemberships.md
-                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkassignments.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
-                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employeeEmploymentInformation/employeeworkcontracts.md
+                        - listOfDocuments: reference/connectors/ceridiandayforce-connector/employee-documents/listofdocuments.md
+                        - documentDetails: reference/connectors/ceridiandayforce-connector/employee-documents/documentdetails.md
+                    - Employee Employment Information:
+                        - employeeClockDeviceGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeclockdevicegroups.md
+                        - employeeCompensationSummary: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecompensationsummary.md
+                        - employeeCourses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeecourses.md
+                        - employeeEmploymentAgreements: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentagreements.md
+                        - employeeEmploymentStatuses: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymentstatuses.md
+                        - employeeEmploymentTypes: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeemploymenttypes.md
+                        - employeeHighlyCompensatedEmployees: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehighlycompensatedemployees.md
+                        - employeeHRIncidents: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeehrincidents.md
+                        - employeeLaborDefaults: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeelabordefaults.md
+                        - employeeOnboardingPolicies: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeonboardingpolicies.md
+                        - employeeOrgInfo: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeorginfo.md
+                        - employeePayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepayadjustmentcodegroups.md
+                        - employeePayGradeRates: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeepaygraderates.md
+                        - employeePerformanceRatings: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeperformanceratings.md
+                        - employeeProperties: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeproperties.md
+                        - employeeSkills: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeskills.md
+                        - employeeTrainingPrograms: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeetrainingprograms.md
+                        - employeeUnionMemberships: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeunionmemberships.md
+                        - employeeWorkAssignments: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkassignments.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
+                        - employeeWorkContracts: reference/connectors/ceridiandayforce-connector/employee-employment-information/employeeworkcontracts.md
                     - Employee Personal Information:
-                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeaddresses.md
-                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecantaxes.md
-                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeecontacts.md
-                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeedirectdeposits.md
-                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeemergencycontacts.md
-                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeehealthandwellness.md
-                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeemaritalstatuses.md
-                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employeePersonalInformation/employeeustaxes.md
+                        - employeeAddresses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeaddresses.md
+                        - employeeCANTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecantaxes.md
+                        - employeeContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeecontacts.md
+                        - employeeDirectDeposits: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeedirectdeposits.md
+                        - employeeEmergencyContacts: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeemergencycontacts.md
+                        - employeeHealthandWellness: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeehealthandwellness.md
+                        - employeeMaritalStatuses: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeemaritalstatuses.md
+                        - employeeUSTaxes: reference/connectors/ceridiandayforce-connector/employee-personal-information/employeeustaxes.md
                     - Employee Time Management:
-                        - availability: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/availability.md
-                        - employeePunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeepunches.md
-                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/employeerawpunches.md
-                        - schedules: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/schedules.md
-                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employeeTimeManagement/timeawayfromwork.md
+                        - availability: reference/connectors/ceridiandayforce-connector/employee-time-management/availability.md
+                        - employeePunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeepunches.md
+                        - employeeRawPunches: reference/connectors/ceridiandayforce-connector/employee-time-management/employeerawpunches.md
+                        - schedules: reference/connectors/ceridiandayforce-connector/employee-time-management/schedules.md
+                        - timeAwayFromWork: reference/connectors/ceridiandayforce-connector/employee-time-management/timeawayfromwork.md
                     - Employment Eligibility Verification:
-                        - i9Order: reference/connectors/ceridiandayforce-connector/employmentEligibilityVerification/i9order.md
+                        - i9Order: reference/connectors/ceridiandayforce-connector/employment-eligibility-verification/i9order.md
                     - Recruiting:
                         - jobPostings: reference/connectors/ceridiandayforce-connector/recruiting/jobpostings.md
                     - Reporting:
@@ -904,13 +905,13 @@ nav:
                         - reportMetadataForASpecificReport: reference/connectors/ceridiandayforce-connector/reporting/reportmetadataforaspecificreport.md
                         - reports: reference/connectors/ceridiandayforce-connector/reporting/reports.md
                     - User Security Authority And Management:
-                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/documentmanagementsecuritygroups.md
-                        - employeeLocations: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeelocations.md
-                        - employeeManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeemanagers.md
-                        - employeeRoles: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeroles.md
-                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeessoaccounts.md
-                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/employeeworkassignmentmanagers.md
-                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/userSecurityAuthorityAndManagement/userpayadjustmentcodegroups.md
+                        - documentManagementSecurityGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/documentmanagementsecuritygroups.md
+                        - employeeLocations: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeelocations.md
+                        - employeeManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeemanagers.md
+                        - employeeRoles: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeroles.md
+                        - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
+                        - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
+                        - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
             - DB Event Listener Inbound Endpoint:
                 - Database Event Listener Overview: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md
                 - Database Event Listener Example: reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md
@@ -958,12 +959,12 @@ nav:
                 - Google Spreadsheet Example: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-example.md
                 - Google Spreadsheet Reference: reference/connectors/google-spreadsheet-connector/google-spreadsheet-connector-config.md
             - ISO8583 Connector:
-                - ISO8583 Overview: reference/connectors/ISO8583-connector/ISO8583-connector-overview.md
-                - Setting up ISO8583: reference/connectors/ISO8583-connector/ISO8583-connector-configuration.md
-                - ISO8583 Example: reference/connectors/ISO8583-connector/ISO8583-connector-example.md
-                - ISO8583 Reference: reference/connectors/ISO8583-connector/ISO8583-connector-reference.md
-                - ISO8583 Inbound Endpoint Example: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-example.md
-                - ISO8583 Inbound Endpoint Reference: reference/connectors/ISO8583-connector/ISO8583-inbound-endpoint-config.md
+                - ISO8583 Overview: reference/connectors/iso8583-connector/iso8583-connector-overview.md
+                - Setting up ISO8583: reference/connectors/iso8583-connector/iso8583-connector-configuration.md
+                - ISO8583 Example: reference/connectors/iso8583-connector/iso8583-connector-example.md
+                - ISO8583 Reference: reference/connectors/iso8583-connector/iso8583-connector-reference.md
+                - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
+                - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
             - Kafka Connector:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
@@ -1376,7 +1377,7 @@ nav:
                 - Load Balancer and Proxy Server:
                     - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
                     - Configuring a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
-                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_SSL_tunneling_thru_proxy_server.md
+                    - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_ssl_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
             - Setting up Streaming Integrator:
                 - Updating WSO2 Streaming Integrator: install-and-setup/setup/si-setup/updating-si.md
@@ -1447,7 +1448,7 @@ nav:
                         - Tuning JDBC Configurations: install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning.md
                         - Tuning the HTTP Transport: install-and-setup/setup/mi-setup/performance_tuning/http_transport_tuning.md
                         - Tuning the JMS Transport: install-and-setup/setup/mi-setup/performance_tuning/jms_transport_tuning.md
-                        - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-VFS-Transport.md
+                        - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport.md
                         - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
                         - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
         - CI/CD:
@@ -1522,6 +1523,7 @@ nav:
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
             - Performance Test Results:
                 - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+                - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
                 - Micro Integrator: install-and-setup/setup/deployment-best-practices/performance-test-results-mi.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md     
     - Tutorials:
