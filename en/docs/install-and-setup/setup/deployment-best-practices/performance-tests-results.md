@@ -97,12 +97,12 @@ The following graph depicts the average response time changes based on the numbe
 
 **Key observations:**
 
-- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the API Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources changes. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
+- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the API Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources change. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
 
 - The mediation API response times are higher than Echo API due to the performance overhead of the mediation extension.
 
 
-Let’s look at the 90th, 95th, and 99th response time percentiles. This is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
+Let’s look at the 90th, 95th, and 99th response time percentiles. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
 For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 59ms. This means that 10% of the requests have taken more than 59ms to respond. Similarly, the 99th response time percentile for Echo API is 149ms, which means that 99% of the requests have been completed within 149ms.
 
@@ -128,7 +128,7 @@ In order to see the memory usage, the Garbage Collection (GC) logs in the API Ma
 In addition, the GC log for each performance test was analyzed using the GCViewer.
 The GC Throughput was calculated for each test to check whether GC operations are not impacting the performance of the server. The GC Throughput is the time percentage of the application, which was not busy with GC operations. For example, if the application ran for 10 minutes and 30 seconds were taken for GC operations, the GC Throughput is 1-301060100=95%. A GC Throughput over 90% is good, and that means the allocated heap was enough to handle all concurrent requests, which allocate objects in the memory. On the contrary, if the GC throughput is a lower value, it indicates that the allocated memory is not enough for API Manager to function efficiently.
 
-The following chart depict the GC Throughput (%) based on the number of concurrent users for the passthrough scenario (Echo API) for different payload sizes.
+The following chart depicts the GC Throughput (%) based on the number of concurrent users for the passthrough scenario (Echo API) for different payload sizes.
 
 [![Lineplot WSO2 Api Manager GC throughput 2G 50B 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_0ms.png)
 
