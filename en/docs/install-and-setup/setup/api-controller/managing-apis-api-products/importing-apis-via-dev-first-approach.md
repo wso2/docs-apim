@@ -420,7 +420,7 @@ After editing the mandatory fields in the API Project, you can import the API to
     apictl import api -f <path to API Project> -e <environment> 
     ```
     ``` bash
-    apictl import api --file <path to API Project> --environment <environment> --rotate-revision=<rotate-revision>
+    apictl import api --file <path to API Project> --environment <environment> --rotate-revision
     ```
     ``` bash
     apictl import api --file <path to API Project> --environment <environment> --params=<environment params file> 
