@@ -77,16 +77,16 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
       
-    | Profile        | Description           | Startup argument  |
+    | Profile        | Description           | Startup Argument  |
     | :------------- |:-------------| :-----|
-    | Control Plane      | Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>If someone wants to use traffic manager profile separately they can use it as -Dprofile=traffic-manager and point to that. For more details please refer [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | -Dprofile=control-plane |
-    | Gateway      | API Gateway profiles      |   -Dprofile=gateway |
-    | Traffic Manager | Traffic manager profile      |    -Dprofile=traffic-manager |  
+    | Control Plane      | Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>If you want to use the Traffic Manager profile separately, you can use it as `-Dprofile=traffic-manager` and point to that. For more information, see [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
+    | Gateway      | API Gateway profiles      |   `-Dprofile=gateway` |
+    | Traffic Manager | Traffic manager profile      |    `-Dprofile=traffic-manager` |  
 
-- API related Synapse artifacts were moved from file system to in memory. Hence, there will be no synapse artifacts were store in APIM_HOME/repository/deployment/server/synapse-configs/default/api directory.
+- API related Synapse artifacts were moved from file system to in memory. Hence, there will be no Synapse artifacts were store in `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory.
   They were stored in the database and loaded to memory when the server starts up and when a new api revision is deployed and published.
 
-- To publish an API with the inclusion of revision feature, the API needs have a revision deployed in a gateway.
+- To publish an API with the inclusion of revision feature, the API needs have a revision deployed in a Gateway.
 
 ## Micro Integrator
 
