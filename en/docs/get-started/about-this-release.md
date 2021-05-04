@@ -66,92 +66,22 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 
 - The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
 
-- Below mentioned endpoints previously worked through gateway. In API-M 4.0.0 we have moved them separately as follows.
+- The endpoints mentioned below previously worked through the Gateway. In API-M 4.0.0, WSO2 has moved them separately as follows:   
     
-<table>
-	<tr>
-		<th>Until 3.2.0</th>
-		<th>In 4.0.0</th>
-	</tr>
-    <tr>
-        <td>
-            https://GATEWAY-HOST/token
-        </td>
-        <td>
-            https://KEYMANAGER-HOST/oauth2/token
-        </td>
-    </tr>
-    <tr>
-        <td>
-            https://GATEWAY-HOST/revoke
-        </td>
-        <td>
-            https://KEYMANAGER-HOST/oauth2/revoke
-        </td>
-    </tr> 
-    <tr>
-        <td>
-            https://GATEWAY-HOST/authorize
-        </td>
-        <td>
-            https://KEYMANAGER-HOST/oauth2/authorize
-        </td>
-    </tr> 
-    <tr>
-        <td>
-            https://GATEWAY-HOST/userInfo
-        </td>
-        <td>
-            https://KEYMANAGER-HOST/oauth2/userInfo
-        </td>
-    </tr>                 
-</table>
+    | Until 3.2.0        | In 4.0.0           |
+    | :------------- |:-------------|
+    | https://&lt;gateway-host&gt;/token      | https://&lt;keymanager-host&gt;/oauth2/token |
+    | https://&lt;gateway-host&gt;/revoke      | https://&lt;keymanager-host&gt;/oauth2/revoke      |
+    | https://&lt;gateway-host&gt;/authorize      | https://&lt;keymanager-host&gt;/oauth2/authorize      |
+    | https://&lt;gateway-host&gt;/userInfo | https://&lt;keymanager-host&gt;/oauth2/userInfo|
 
-- Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards. 
-
-<table>
-	<tr>
-		<th>Profile</th>
-		<th>Description</th>
-		<th>Startup argument</th>
-	</tr>
-	<tr>
-		<td>
-			Control Plane
-		</td>
-		<td>
-			Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>
-			If someone wants to use traffic manager profile separately they can use it as -Dprofile=traffic-manager and point to that.
-		</td>
-		<td>
-		    -Dprofile=control-plane
-		</td>
-	</tr>
-    <tr>
-        <td>
-            Gateway
-        </td>
-        <td>
-            API Gateway profiles
-        </td>
-        <td>
-            -Dprofile=gateway
-        </td>
-    </tr>    
-    <tr>
-        <td>
-            Traffic Manager
-        </td>
-        <td>
-            Traffic manager profile
-        </td>
-        <td>
-            -Dprofile=traffic-manager
-        </td>
-    </tr>
-</table>
-
-For more details please refer [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).  
+- Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
+      
+    | Profile        | Description           | Startup argument  |
+    | :------------- |:-------------| :-----|
+    | Control Plane      | Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>If someone wants to use traffic manager profile separately they can use it as -Dprofile=traffic-manager and point to that. For more details please refer [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | -Dprofile=control-plane |
+    | Gateway      | API Gateway profiles      |   -Dprofile=gateway |
+    | Traffic Manager | Traffic manager profile      |    -Dprofile=traffic-manager |  
 
 - API related Synapse artifacts were moved from file system to in memory. Hence, there will be no synapse artifacts were store in APIM_HOME/repository/deployment/server/synapse-configs/default/api directory.
   They were stored in the database and loaded to memory when the server starts up and when a new api revision is deployed and published.
