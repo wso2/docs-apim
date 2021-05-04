@@ -86,7 +86,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
       
     | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
-    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager components. </br>If you need to use the Traffic Manager profile separately, you need to disable the Traffic Manager component in the Control Plane and use the </br> `-Dprofile=traffic-manager` startup argument to start the Traffic Manager profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
+    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager </br>components. </br>If you need to use the Traffic Manager profile separately, you need to disable </br>the Traffic Manager component in the Control Plane and use the</br> `-Dprofile=traffic-manager` startup argument to start the Traffic Manager profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
     | Gateway profile      | The API Gateway profile.      |   `-Dprofile=gateway` |
     | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
