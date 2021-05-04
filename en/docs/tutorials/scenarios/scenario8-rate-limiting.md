@@ -1,16 +1,22 @@
 # Scenario 8 - Rate Limiting
 
-While analyzing the traffic patterns and data, GOGO devops team noticed that their backend is getting a high number of requests and due to these high demand, their latency numbers also increased. devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce throttling limits to their free users.
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to set up rate limiting for an API. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
 **_Time to Complete : 5 mins_**
 
-![Throttle description]({{base_path}}/assets/img/tutorials/scenarios/throttle-desc.png)
+## User story
 
-WSO2 API Manager provides various levels of throttling. For this case let’s apply Subscription Rate Limiting Policy and Maximum Throughput for the backend for **PassengerInfoAPI**.
+While analyzing the traffic patterns and data, the GOGO DevOps team noticed that their backend is receiving a high number of requests and due to these high demand, their latency numbers also increased. The devOps team did some performance tests on their user info backend and identified that their backend service can handle a maximum of 1000 TPS. So GOGO management decided to introduce rate limiting to manage their free users.
 
-To Create Subscription Rate Limiting Policy
+<img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario8.png" title="Rate Limiting Description" width="630"/>
 
-1. Log in to Admin Portal [https://localhost:9443/admin](https://localhost:9443/admin) using `admin` and password `admin`.
+## Step 1: Apply a rate limiting policy.
+
+WSO2 API Manager provides various levels of rate limiting. For this case, let’s apply Subscription Rate Limiting Policy and Maximum Throughput for the backend for **PassengerInfoAPI**.
+
+To create a Subscription Rate Limiting Policy, do the following.
+
+1. Log on to Admin Portal [https://localhost:9443/admin](https://localhost:9443/admin) using `admin` and password `admin`.
 2. Navigate to Rate Limiting **Policies → Subscription** Policies and create a new policy. Following is a sample policy.
 
     ![Sample policy]({{base_path}}/assets/img/tutorials/scenarios/sample-policy.png)
@@ -31,9 +37,9 @@ To Create Subscription Rate Limiting Policy
 
     ![Throttle out]({{base_path}}/assets/img/tutorials/scenarios/throttleout-api.png)
 
+## Step 2: Define maximum throughput
 
-
-You could define a maximum throughput for the backend to protect the backend from high request load. For that
+You can define a maximum throughput for the backend to protect the backend from high request load.
 
 1. Log in to the Publisher Portal and select the API and navigate to **Develop → API Configurations → Runtime section**.
 2. Under the **Backend** section, you could define the maximum TPS for the backend. For this demo, to see the results quickly, lets set it to 1 TPS and save the API
@@ -56,4 +62,8 @@ You should see requests getting throttled out with following message
 ![Backend throttled out]({{base_path}}/assets/img/tutorials/scenarios/throttleout-backend.png)
 
 
-This shows API-M is limiting the requests to the backend.
+This shows API Manager is limiting the requests to the backend.
+
+## What's next
+
+Try out the next scenario in the series, [Realtime Data with WebSocket API]({{base_path}}/tutorials/scenarios/scenario9-realtime-data).

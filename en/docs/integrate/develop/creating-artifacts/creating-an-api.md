@@ -2,17 +2,13 @@
 
 Follow the instructions given below to create a new [REST API]({{base_path}}/reference/synapse-properties/rest-api-properties) artifact in WSO2 Integration Studio.
 
-You can refer to the following video to get a quick understanding of how this is done.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yp2fzOgVcIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Instructions
 
 ### Creating the API artifact
 
 1.  Right-click the **Config** project in the project explorer and go to **New → REST API**.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new-artifact.png" width="700">
 
 2.  In the dialog box that opens, select one of the given options for creating the API artifact:
 
@@ -146,11 +142,11 @@ You can refer to the following video to get a quick understanding of how this is
             </tr>
         </table>
 
-4.  Click **Finish**. 
-    -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
+4.  Click **Finish**. 
+    -   The REST API is created inside the `src/main/synapse-config/api` folder of your **Config** project.
     -   If you provided a custom Swagger definition file (YAML), it is now stored in the registry project.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="300">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/project-explorer.png" width="400">
 
 ### Designing the integration
 
@@ -166,15 +162,15 @@ You can also use the [**Source** view](#using-the-source-view) or the [**Swagger
 
 ### Adding new API resources
 
-When you create the API, an API resource is created by default. If you want to add a new resource, click **API Resource** in the **Pallet** and simply drag and drop the resource to the REST API.
+When you create the API, an API resource is created by default. If you want to add a new resource, click **API Resource** in the **Pallet** and simply drag and drop the resource to the REST API.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/add-new-api-resource.png" width="700">
 
 !!! Info
     **About the default API Resource**
 
     Each API can have at most one default resource. Any request received
-        by the API but does not match any of the enclosed resource
+        by the API but does not match any of the enclosed resources
         definitions will be dispatched to the default resource of the API.
         In the following example, if a DELETE request is received by `SampleAPI` on the `/payments` URL, the request will be
         dispatched to the default resource as none of the resources in SampleAPI are configured to handle DELETE requests.
@@ -193,6 +189,56 @@ When you create the API, an API resource is created by default. If you want to a
     <resource inSequence="seq10" outSequence="seq11"/>
     </api>
     ```    
+
+### Updating metadata
+
+When you create the API artifact from WSO2 Integration Studio, a **resources** folder with metadata files is created as shown below.
+
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/new-api-meta-data-folder.png" width="350">
+
+The service's metadata is used by the API management runtime to generate the API proxy for the integration service (which is this API).
+
+<table>
+    <tr>
+        <th>
+            Parameter
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            description
+        </td>
+        <td>
+            Explain the purpose of the API.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            serviceUrl
+        </td>
+        <td>
+            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+            You can configure the serviceUrl in the following ways:
+            <ul>
+                <li>
+                    Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
+                </li>
+                <li>
+                    Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                </li>
+                <li>
+                    Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+!!! Tip
+    See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
 ### Updating properties
 
