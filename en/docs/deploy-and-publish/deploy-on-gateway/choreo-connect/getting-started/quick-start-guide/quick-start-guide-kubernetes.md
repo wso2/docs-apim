@@ -2,7 +2,7 @@
 
 Let's host your first API on Choreo Connect using Kubernetes.
 
-### Before you begin...
+## Before you begin
 
 1.  Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 2.  Setup a [Kubernetes](https://Kubernetes.io/docs/setup/) cluster v1.14 or above.
@@ -10,7 +10,7 @@ Let's host your first API on Choreo Connect using Kubernetes.
       - Minimum Memory : 2GB
 3.  Deploy an ingress controller - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) for this sample.
 
-### Objectives
+## Objectives
 
 1.  Setup K8s API Operator in Kubernetes.
 2.  Create and deploy an API project.
@@ -18,19 +18,19 @@ Let's host your first API on Choreo Connect using Kubernetes.
 
 Let's get started...
 
-### Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
+## Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
 
 1.  Download the Choreo Connect v0.9.0 from
     [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
     to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
 
-2.  Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.
+2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
 
     ```bash
     kubectl apply -f <CHOREO-CONNECT_HOME>/k8s-artifacts/choreo-connect
     ```
 
-3.  Let's install K8s API Operator by executing the following command.
+3.  Install K8s API Operator by executing the following command.
 
     ```bash
     kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
@@ -38,18 +38,20 @@ Let's get started...
     !!!info
         For more information, see [Installing the API K8s Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install/)
 
-4.  Let's add the host entry to `/etc/hosts` file in order to access the Choreo Connect Router and Adapter.
-    Add the following entry to `/etc/hosts` file.
+4.  Add the host entry to `/etc/hosts` file.
+
+    Add the following entry to `/etc/hosts` file in order to access the Choreo Connect Router and Adapter.
+
     ```sh
     <INGRESS_ADDRESS>    gw.wso2.com    adapter.wso2.com
     ```
 
-### Step 2 - Create and deploy an API project
+## Step 2 - Create and deploy an API project
 
-Let's create our first project with the name "petstore" by adding the
-[open API definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
+Let's create our first project with the name "petstore" by adding the [OpenAPI definition](https://petstore.swagger.io/v2/swagger.json) of the petstore.
 
-1.  First we need to create a Kubernetes ConfigMap with the API-CTL project.
+1.  Create a Kubernetes ConfigMap with the API-CTL project.
+    
     Download the api controller (apictl) from the 
     [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
     extract them to a folder of your choice.
@@ -66,6 +68,7 @@ Let's create our first project with the name "petstore" by adding the
     where you executed the command.
     
     Let's update endpoints as `https://petstore.swagger.io/v2` of the API by editing the `petstore/api.yaml` file.
+
     ```yaml
     endpointConfig:
       endpoint_type: http
@@ -76,6 +79,7 @@ Let's create our first project with the name "petstore" by adding the
     ```
     
     Let's zip the created "petstore"` directory and create a Kubernetes Config Map.
+
     ```bash
     zip -r petstore.zip petstore/
     kubectl create cm petstore-cm --from-file petstore.zip
@@ -101,11 +105,11 @@ Let's create our first project with the name "petstore" by adding the
     EOF
     ```
 
-### Step 3 - Invoke the API
+## Step 3 - Invoke the API
 
 1.  The next step would be to invoke the API using a REST tool. Since APIs on the Choreo Connect are by default secured, 
     we need a valid token in order to invoke the API.
-    Use the following sample token accepted by the Choreo Connect to access the API. 
+    Use the following sample token accepted by Choreo Connect to access the API. 
     Let's set the token to the command line as a variable.
 
     ```bash
