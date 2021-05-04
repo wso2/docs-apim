@@ -23,7 +23,7 @@ x-wso2-cors:
   accessControlAllowCredentials: true
 ```
 
-If you are following the [Deploy API via APIM]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [APIM]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI).
+If you are following the [Deploy API via API-M]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager) approach, you can add **CORS** configurations for each API using the [API-M]({{base_path}}/design/advanced-topics/enabling-cors-for-apis/#EnablingCORSPerAPI).
 
 ### Enable CORS configurations globally
 
@@ -34,18 +34,18 @@ Follow the instructions below to enable CORS globally. Once this is enabled, it 
 1. Open the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect/conf/config.toml` file.
 2. Locate the following configuration set and make the `enabled` attribute to `true` with the required CORS attributes there.
 
-  ``` yml
-  [router.cors]
-      enabled = true
-      allowOrigins = ["*"]
-      allowMethods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
-      allowHeaders = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey", "testKey", "Internal-Key"]
-      exposeHeaders = []
-      allowCredentials = false
-  ```
+     ``` yml
+     [router.cors]
+         enabled = true
+         allowOrigins = ["*"]
+         allowMethods = ["GET","PUT","POST","DELETE","PATCH","OPTIONS"]
+         allowHeaders = ["authorization","Access-Control-Allow-Origin","Content-Type","SOAPAction","apikey", "testKey", "Internal-Key"]
+         exposeHeaders = []
+         allowCredentials = false
+     ```
 
 !!! info 
-    Global CORS Configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
+    Global CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `config.toml` file.
 
 !!! note 
     If CORS for a certain API is disabled from API Level Configurations, the default global Configurations will apply.
