@@ -110,7 +110,7 @@ before `</Handlers>`.
     !!! note
         The logger name `log-msg-handler` can be replaced by any logger-name.
         
-2.  Restart API Manager.
+3.  Restart API Manager.
 
 !!! note
     To perform analytics with the logs, see 
