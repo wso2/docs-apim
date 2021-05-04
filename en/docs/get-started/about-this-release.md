@@ -149,13 +149,14 @@ It is now available to download from [here](https://github.com/wso2/product-apim
             -Dprofile=traffic-manager
         </td>
     </tr>
-</table>	
+</table>
+
+For more details please refer [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m).  
 
 - API related Synapse artifacts were moved from file system to in memory. Hence, there will be no synapse artifacts were store in APIM_HOME/repository/deployment/server/synapse-configs/default/api directory.
   They were stored in the database and loaded to memory when the server starts up and when a new api revision is deployed and published.
 
 - To publish an API with the inclusion of revision feature, the API needs have a revision deployed in a gateway.
----
 
 ## Micro Integrator
 
