@@ -1238,7 +1238,7 @@ nav:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
-            - Installing API Manager Runtime:
+            - Installing the API Manager Runtime:
                 - Installing the API-M Runtime: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
                 - Running the API-M Runtime: install-and-setup/install/installing-the-product/running-the-api-m.md
                 - Running API-M as a Linux Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service.md

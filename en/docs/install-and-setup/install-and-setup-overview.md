@@ -15,7 +15,7 @@ To install and run the API Manager in virtual machines, see the following topics
 <table>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-api-m">Installing the API Manager Runtime</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime">Installing the API Manager Runtime</a>
         </th>
         <td>
             Explains how to download the API Manager component as a binary and install it on a virtual machine.
@@ -486,7 +486,7 @@ To install and run the Micro Integrator Dashboard on a virtual machine, see the 
     </tr>   
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard">Running the Micro Integrator Runtime</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard">Running the Micro Integrator Dashboard</a>
         </th>
         <td>
             Explains how you can execute the Micro Integrator Dashboard and start using its features.

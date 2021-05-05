@@ -10,7 +10,7 @@ This involves enabling the AsyncAPI functionality in the Streaming Integrator co
    
 ## Step 2 - Start Streaming Integrator and WSO2 API Manager
 
-[Start the Streaming Integrator server]({{base_path}}/install-and-setup/install/installing-the-product/installing-si/#starting-the-si-server) and the [API Manager server]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/) based on the instructions in the install and setup section.
+[Start the Streaming Integrator server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-si/#starting-the-si-server) and the [API Manager server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/) based on the instructions in the install and setup section.
 
 ## Step 3 - Create a Streaming Backend
 
