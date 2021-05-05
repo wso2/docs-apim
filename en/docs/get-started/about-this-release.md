@@ -420,14 +420,14 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 - [API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
-- [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl/)
+- [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl)
 - Resolve parameters at server-side while importing an API/API Product project
-- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product/)
+- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
-- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api/)
-- [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode/)
-- [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import/)
-- [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory/)
+- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
+- [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode)
+- [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
+- [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
 - Support endpoint security separately for Production and Sandbox endpoints via params file
 - VCS support for both the deployment and source repositories
 - Support for import/export of Streaming APIs
