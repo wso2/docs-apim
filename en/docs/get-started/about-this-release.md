@@ -514,7 +514,7 @@ It is now available to download from [here](https://wso2.com/integration/integra
 - Enrich mediator improvements
 - OAuth feature for HTTP endpoints
 - Dynamic endpoint support for mock services in synapse unit testing
-- Improve Call mediator to support storing in properties
+- Call mediator improvements
 - Parent maven details included in the children POM by default
 - Kubernetes exporter project is enhanced to support a pure Kubernetes deployment
 - Apply software updates to the embedded Micro Integrator runtime
@@ -522,7 +522,6 @@ It is now available to download from [here](https://wso2.com/integration/integra
 - Publish integrations to the API-M runtime during deployment
 - Cassandra datasource support for data services
 - Adding Registry Resource Properties
-- Runtime Services view improved
 
 ### Key changes
 
