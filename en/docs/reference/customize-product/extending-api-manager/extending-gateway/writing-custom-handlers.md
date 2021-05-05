@@ -101,7 +101,7 @@ before `</Handlers>`.
     logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
     logger.log-msg-handler.level = DEBUG
     ```
-    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
+    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma-separated list of all active loggers. The sample configuration is given below.
 
     ```
     loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
