@@ -70,8 +70,8 @@ apictl k8s gen deployment-dir -s cert-products/
     apictl k8s gen deployment-dir -s cert-products.zip
     ```
 
-You can see a directory created with name `DeploymentArtifacts_cert-products`. Edit the file
-`DeploymentArtifacts_cert-products/params_cm.yaml` with following content.
+You can see a directory created with the name `DeploymentArtifacts_cert-products`. Edit the
+`DeploymentArtifacts_cert-products/params_cm.yaml` file with the following content.
 
 ```yaml
 apiVersion: v1
