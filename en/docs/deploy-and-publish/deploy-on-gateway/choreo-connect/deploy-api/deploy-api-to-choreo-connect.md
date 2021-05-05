@@ -57,16 +57,9 @@ In the `[controlPlane]` section,
 
     In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab. For an example, if a new Gateway Environment was added with the name "choreo-connect" and display name "Choreo Connect", add the following changes to the `docker-compose.yaml` and `config.toml`.
 
-    1. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml` update the environment variables `ENFORCER_LABEL` and `ROUTER_LABEL` to `choreo-connect`
-    2. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml`,
-        i. update `environmentLabels` in `[controlPlane]` to `["choreo-connect"]`
-        ii. to be able to use accept APIs via apictl, include "choreo-connect" to [[adapter.vhostMapping]] as shown below.
-        ```
-        [[adapter.vhostMapping]]
-        environment = "choreo-connect"
-        vhost = "localhost"
-        ```
-
+    1. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml`, update the environment variables `ENFORCER_LABEL` and `ROUTER_LABEL` to `choreo-connect`
+    2. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml`, update `environmentLabels` under `[controlPlane]`, to `["choreo-connect"]`
+        
 ### Step 3 - Start Choreo Connect
 
 Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
@@ -89,6 +82,9 @@ That's it! To invoke the API follow the steps [here](#invoke-the-api).
 During the startup, Choreo Connect will check the `config.toml` to see if the `controlPlane.eventHub` configuration has been enabled. If so, it will start fetching all the necessary artifacts that belongs to the gateway environment given in `environmentLabels`. These artifacts include deployed APIs, Applications, Subscriptions, Polices, information related to Key Managers, etc.
 
 Whenever a new event occurs in API Manager such as an API being deployed, API Manager will notify Choreo Connect via Event Hub. Choreo Connect will then start fetching all the new artifacts related to its environment. 
+
+!!! Tip
+    To be able to invoke an API via the Devportal TryOut Console, make sure atleast one of the certificates used by the enforcer, is same as the certificate used by the Key Manager configured in API-M. In Choreo Connect, the certs for enforcer are located at `<CHOREO-CONNECT_HOME>/docker-compose/resources/enforcer/security/truststore`. In API-M, Key Managers can be configured from the API-M Admin Portal.
 
 !!! Note 
 
