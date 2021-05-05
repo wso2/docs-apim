@@ -513,7 +513,7 @@ It is now available to download from [here](https://wso2.com/integration/integra
 - FreeMarker support PayloadFactory mediator
 - Enrich mediator improvements
 - OAuth feature for HTTP endpoints
-- Dynamic endpoint support for Mock Services in Synapse unit testing
+- Dynamic endpoint support for mock services in synapse unit testing
 - Improve Call mediator to support storing in properties
 - Add parent maven details inside children pom by default
 - Enhance K8s exporter project to support pure Kubernetes deployment
