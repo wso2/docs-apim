@@ -1,6 +1,6 @@
 # About this Release
 
-The WSO2 API Manager is a platform for building and managing APIs. It helps developers implement APIs by integrating different types of systems and APIs so that the APIs can be managed by using its API governance and lifecycle management capabilities. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It allows API developers to design, publish, and manage the lifecycle of APIs and API product managers to create API products from one or more APIs. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -40,11 +40,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[Streaming API support in API Gateway]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview)**
 
-    Streaming APIs refer to APIs that have AsyncAPI definitions and use the **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events (SSE)** protocols. Streaming APIs are popular in the Event-driven architecture (EDA). With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events** backends in WSO2 API Manager.
-
-- **[Streaming API creation using AsyncAPI Definitions]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
-
-    [AsyncAPI](https://www.asyncapi.com/) definitions are used to define Streaming APIs. In WSO2 API Manager, [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview) can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
+    Streaming APIs refer to APIs that have AsyncAPI definitions and use the **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events (SSE)** protocols. Streaming APIs are popular in the Event-driven architecture (EDA). With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events** backends in WSO2 API Manager. In WSO2 API Manager, Streaming APIs can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
 
 - **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)**
 
@@ -86,13 +82,13 @@ It is now available to download from [here](https://wso2.com/api-management/#).
       
     | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
-    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager </br>components. </br>If you need to use the Traffic Manager profile separately, you need to disable </br>the Traffic Manager component in the Control Plane and use the</br> `-Dprofile=traffic-manager` startup argument to start the Traffic Manager profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
+    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager </br>components. </br>If you need to use the Traffic Manager profile separately, you need to disable </br>the Traffic Manager component in the Control Plane profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
     | Gateway profile      | The API Gateway profile.      |   `-Dprofile=gateway` |
     | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
 - API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
 
-- It is required to have the API revision deployed in a Gateway to be able to publish an API that includes an API revision.
+- With the inclusion of API revisioning it is required to have an API revision deployed in a Gateway to be able to publish an API.
 
 <hr style="border:8px solid gray"> </hr>
 
