@@ -198,8 +198,10 @@ For instance, if you are configuring a single adapter for two environments "chor
     !!! note
         If you are configuring a distributed adapter deployment, you need to define the separate adapters along with the routers and the enforcers deployed in the same environment.
 
-3. Add the gateway environments from the Gateways in the APIM admin portal.
+3. Start Choreo Connect deployment from docker-compose.
+
+4. Add the gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
 
     ![]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)
 
-4. Deploy the API on the defined gateway.
+5. Deploy the API on the defined gateway.
