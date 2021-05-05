@@ -23,7 +23,7 @@ events to the active node. To achieve this, you can use a load balancing mechani
 
 !!! info "Before you begin:"
     Before configuring a minimum HA cluster, you need to complete the following prerequisites:<br/>
-      - For each WSO2 SI instance, you need a CPU with four cores, and a total memory of 4GB. For more information, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm).<br/>
+      - For each WSO2 SI instance, you need a CPU with four cores, and a total memory of 4GB. For more information, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).<br/>
       <br/>
       - Download and install two binary packs of WSO2 SI..<br/>
       <br/>

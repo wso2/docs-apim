@@ -18,7 +18,7 @@ in your Jenkins server.
 
 3.  Download and setup [WSO2 API-M 4.0.0](https://wso2.com/api-management/) in Development and Production environment servers. 
      
-     For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
+     For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
 4. Download and setup [WSO2 API Controller 4.0.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 

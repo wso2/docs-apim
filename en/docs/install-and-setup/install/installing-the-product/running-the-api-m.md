@@ -1,10 +1,6 @@
-# Running the Product
+# Running the API Manager Runtime
 
 To run WSO2 products, you start the product server at the command line. You can then run the Management Console to configure and manage the product.
-
-!!! info
-
-    The Management Console uses the default HTTP-NIO transport, which is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. ( `<PRODUCT_HOME>` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
 
 ### Starting the API Manager server
 
@@ -12,7 +8,7 @@ Follow the instructions below to start your WSO2 product based on the operating 
 
 #### On Windows/Linux/Mac OS
 
-To start the server, run `<PRODUCT_HOME>\bin\api-manager.bat` (on Windows) or `<PRODUCT_HOME>/bin/api-manager.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
+To start the server, run `<PRODUCT_HOME>\bin\api-manager.bat` (on Windows) or `<PRODUCT_HOME>/bin/api-manager.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
 
 1. Open a command prompt by following the instructions below.
 
@@ -28,14 +24,14 @@ To start the server, run `<PRODUCT_HOME>\bin\api-manager.bat` (on Windows) or `<
         -   On Linux/Mac OS: `sh api-manager.sh`
 
     -   To start the server in the background mode of Linux: `sh api-manager.sh start`
-        To stop the server running in this mode, you will enter: `sh api-manager.sh stop`
+        To stop the server from running in this mode, you will enter: `sh api-manager.sh stop`
 
     -   To provide access to the production environment without allowing any user group (including admin) to log in to the Management Console:
 
         -   On Windows: `api-manager.bat --run -DworkerNode`
         -   On Linux/Mac OS: `sh api-manager.sh -DworkerNode`
 
-    -   To check for additional options you can use with the startup commands, type `-help` after the command, such as:
+    -   To check for additional options you can use with the startup commands, type `-help` after the command, such as:
     `sh api-manager.sh -help` (see the related topics section at the end of this page).
 
 4. The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
@@ -105,12 +101,12 @@ WSO2 API Manager has several web portals such as the Management Console, the API
 -   [Accessing the API Publisher](#accessing-the-api-publisher)
 -   [Accessing the Developer Portal](#accessing-the-developer-portal)
 
- When signing-in to the web portals, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
+ When signing in to the web portals, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
 
 !!! info
-    Web portals are based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access these portals, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
+    Web portals are based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to the server for security reasons. The certificate it works with is used for encryption only and does not prove the server identity. Therefore, when you try to access these portals, a warning of an untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
 
-   This scenario is suitable for testing purposes or for running the program on the company's internal networks. If you want to make the above portals available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization. Refer [Creating new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) to learn more about the information on configuring the keystores using certificates.
+   This scenario is suitable for testing purposes or for running the program on the company's internal networks. If you want to make the above portals available to external users, your organization should obtain a certificate signed by a well-known certificate authority, which verifies that the server actually has the name it is accessed by and that this server actually belongs to the given organization. Refer [Creating new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) to learn more about the information on configuring the keystores using certificates.
 
 ### Accessing the API Manager's Management Console
 
@@ -132,7 +128,7 @@ The URL should be in the following format: `https://<Server Host>:9443/carbon`
 You can use this URL to access the Management Console on this computer from any other computer connected to the Internet or LAN. When accessing the Management Console from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/carbon`
 
 !!! note
-    You can change the Management Console URL by modifying the value of the `hostname` property in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. When the host is internal or not resolved by a DNS, map the hostname alias to its IP address in the `/etc/hosts` file of your system, and then enter that alias as the value of the `hostname` property in `deployment.toml` . For example:
+    You can change the Management Console URL by modifying the value of the `hostname` property in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. When the host is internal or not resolved by a DNS, map the hostname alias to its IP address in the `/etc/hosts` file of your system, and then enter that alias as the value of the `hostname` property in `deployment.toml` . For example:
 
     ``` java
     In /etc/hosts:
@@ -149,7 +145,7 @@ At the sign-in screen, you can sign in to the Management Console using **admin**
 
 ##### Getting help
 
-The tabs and menu items in the navigation pane on the left may vary depending on the features you have installed. To view information about a particular page, click the **Help** link at the top right corner of that page, or click the **Docs** link to open the documentation for full information on managing the product.
+The tabs and menu items in the navigation pane on the left may vary depending on the features you have installed. To view information about a particular page, click the **Help** link at the top right corner of that page, or click the **Docs** link to open the documentation for full information on managing the product.
 
 ##### Configuring the session time-out
 
@@ -209,7 +205,7 @@ You can use this URL to access the Developer Portal on this computer from any ot
 
 ##### Signing in
 
-At the Developer Portal home page, you can click sign in link at top right corner to sign-in to the API Publisher using **admin** as both the username and password.
+At the Developer Portal home page, you can click the sign-in link at the top right corner to sign in to the API Publisher using **admin** as both the username and password.
 
 ### Stopping the server
 
@@ -241,7 +237,7 @@ You can restrict access to the management console of your product by binding the
 
 <!-- -->
 
--   You can also restrict access to particular servlets in a web application by adding a Remote Address Filter to the `web.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/tomcat/` directory), and by mapping that filter to the servlet url. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
+-   You can also restrict access to particular servlets in a web application by adding a Remote Address Filter to the `web.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/tomcat/` directory), and by mapping that filter to the servlet URL. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
 
     The following example from a `web.xml` file illustrates how access to the management page ( `/carbon/admin/login.jsp` ) is granted only to one IP address:
     ``` java
@@ -253,5 +249,5 @@ You can restrict access to the management console of your product by binding the
 
 **Related Topics**
 
--   [Installing as a Windows Service]({{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-windows-service/)
--   [Installing as a Linux Service]({{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-linux-service/)
+-   [Installing as a Windows Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/)
+-   [Installing as a Linux Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service/)

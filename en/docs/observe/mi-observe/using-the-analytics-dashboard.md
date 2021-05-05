@@ -62,7 +62,7 @@ Let's start the servers in the given order.
 
 ### Starting the Micro Integrator
 
-Once you have [started the Analytics Server](#starting-the-analytics-server), you can [start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/).
+Once you have [started the Analytics Server](#starting-the-analytics-server), you can [start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/).
 
 ### Starting the Analytics Portal
 

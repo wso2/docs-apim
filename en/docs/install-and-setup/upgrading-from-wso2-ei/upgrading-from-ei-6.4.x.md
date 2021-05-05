@@ -17,8 +17,8 @@ Follow the instructions below to start the migration!
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
-	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
+	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
 -	Use [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/) to get the latest available updates for your API-M 4.0.0 distribution.
 

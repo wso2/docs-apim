@@ -48,30 +48,10 @@ Follow the steps given below to get started with the Micro Integrator Dashboard.
 
 ### Step 1 - Download the MI Dashboard
 
-See the following topics to install the MI server and dashboard.
+Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
-        </td>
-<!--
-        <td>
-            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
-        </td>
--->
-    </tr>
-    <tr>
-        <td>
-            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
-        </td>
-<!--
-        <td>
-            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
-        </td>
--->
-    </tr>
-</table>
+-   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+-   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard).
 
 ### Step 2 - Configure the MI servers
 
@@ -134,11 +114,11 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 ### Step 3 - Start the MI servers
 
-[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
+[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi) connected to the dashboard.
 
 ### Step 4 - Start the MI Dashboard
 
-[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard).
 
 ### Step 5 - Sign in to the Dashboard
 

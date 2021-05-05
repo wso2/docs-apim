@@ -1,4 +1,4 @@
-# Installing as a Linux Service
+# Running API Manager as a Linux Service
 
 !!! warning
     - The following instructions are **not applicable to Red Hat Linux distributions** such as Fedora because those distributions contain the chkconfig package instead of the `update-rc.d` package for service management. 

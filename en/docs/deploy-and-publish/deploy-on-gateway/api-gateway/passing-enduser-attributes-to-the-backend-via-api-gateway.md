@@ -35,7 +35,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
 
      For more information, see [JWT generation configuration details](#jwt-generation-configuration-details).
 
-3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -108,7 +108,7 @@ Follow the instructions below if you want to pass additional attributes to the b
 
 4.  Set the `apim.jwt.enable` element to **true** in the `deployment.toml` file.
 
-5.  [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+5.  [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
      This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -165,7 +165,7 @@ claims_extractor_impl="org.wso2.carbon.test.CustomClaimRetriever"
 ....
 ```
 
-4. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+4. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 

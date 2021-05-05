@@ -8,7 +8,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
 
 ## Before you begin
 
-- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si-in-vm#starting-the-si-server).
+- [Start WSO2 Streaming Integrator server]({{base_path}}/setup/installing-si#starting-the-si-server).
 
 - [Start Streaming Integrator Tooling]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview#starting-streaming-integrator-tooling).
 
