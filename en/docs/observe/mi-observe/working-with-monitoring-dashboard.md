@@ -51,7 +51,7 @@ Follow the steps given below to get started with the Micro Integrator Dashboard.
 Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
 
 -   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
--   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+-   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard).
 
 ### Step 2 - Configure the MI servers
 

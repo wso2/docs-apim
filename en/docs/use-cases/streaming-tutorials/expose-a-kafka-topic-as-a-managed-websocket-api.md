@@ -74,7 +74,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
 1. Navigate to the `<APIM_HOME>/bin` directory 
 
-2. [Start the API_Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-api-m/).
+2. [Start the API_Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
      The following log appears on the API Manager console when the server is started successfully.
 
