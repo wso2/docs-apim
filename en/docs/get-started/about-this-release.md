@@ -1,47 +1,50 @@
 # About this Release
 
-The WSO2 API Manager is a platform for building and managing APIs. It helps developers implement APIs by integrating different types of systems and APIs and to manage them using its API governance and lifecycle management capabilities. APIs could be built by integrating different types of APIs such as traditional request-response style APIs and event-driven APIs using a low-code/no-code development experience and expose to consumers through its API Gateway. 
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It allows API developers to design, publish, and manage the lifecycle of APIs and API product managers to create API products from one or more APIs. APIs can be built by integrating different types of APIs such as traditional request-response style APIs and Event-driven APIs using a low-code/no-code development experience, and the APIs can be exposed to consumers through its API Gateway. 
 
-For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 4.0.0 documentation]({{base_path}}/getting-started/overview/).
+For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
-The **WSO2 API Manager 4.0.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
+The **WSO2 API Manager 4.0.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.2.0** and **WSO2 Enterprise Integrator 7.1.0**. It contains the following components, which have new features and enhancements:
 
----
+## **API Manager**
 
-## API Manager 
+The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager, and Traffic Manager.
 
-The API Manager component addresses all aspects of API management in the platform. It consists of an API Gateway, API Publisher, Developer Portal, Key Manager and Traffic Manager.
+It is now available to download from [here](https://wso2.com/api-management/#).
 
-It is now available to download from [here](https://github.com/wso2/product-apim/releases/).
+### New features
 
-#### New features
+- **[New Service Catalog that lists registered services]({{base_path}}/design/create-api/create-an-api-using-a-service/)**
+    
+	 WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them.
 
-- **[New Service Catalog that lists registered services]({{base_path}}/integrate/develop/working-with-service-catalog/)**
-    WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them.
+- **[API and API Product revision support]({{base_path}}/design/create-api/create-api-revisions/)**
+    
+	 If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. You cannot edit the revisions. However, if required, you can **restore** your API to a specific revision if you want to discard the latest changes.
 
-- **[API and API Product Revision Support]({{base_path}}/design/create-api/create-api-revisions/)**
-    If you are an API Publisher, there can be a situation where you need to keep track of the different deployments of your API. For this purpose, a new concept named **Revisions** has been introduced. The revisions of your API can be **deployed** to specific Gateway Environment(s) as needed. These revisions cannot be edited and you can even **restore** your API to a specific revision if you want to discard the latest changes.
+- **[OpenAPI or GraphQL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
 
-- **[Swagger/GraphqL to Postman Collection]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/)**
-    [GraphQL](https://github.com/graphql/graphiql) is the graphical, interactive, web-based GraphQL integrated development environment (IDE) for GraphQL query and it has a reference implementation from the GraphQL Foundation. If required, instead of using the integrated GraphQL console you can try out your GraphQL API by downloading your GraphQL Schema as a Postman collection and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md).
+    If required, instead of using the integrated GraphQL console or the integrated API Console, you can try out your GraphQL API and REST API respectively by downloading a Postman collection for your API and trying it out on Postman. For more information, see [Try out using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman/).
 
-- **[Support for Forgerock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)** 
-    WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to Forgerock as a third-party Key Manager.
+- **[Support for ForgeRock Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)**
 
-- **[Support for Ping Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)** 
+    WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to ForgeRock as a third-party Key Manager.
+
+- **[Support for PingFederate Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)**
+
     WSO2 API Manager supports multiple Key Managers at the same time. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager, and with the use of connectors, it is capable of supporting any authorization server as a Key Manager. WSO2 API Manager can connect PingFederate out-of-the-box using the [WSO2 API-M PingFederate Connector](https://github.com/wso2-extensions/apim-km-pingfederate).
 
-- **[Support for auth0 Key Manager]({{base_path}}/administer/key-managers/configure-auth0-connector/)** 
-    It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
+- **[Support for Auth0 Key Manager]({{base_path}}/administer/key-managers/configure-auth0-connector/)**
+
+    It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that WSO2 API Manager requires. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
 
 - **[Streaming API support in API Gateway]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview)**
-    Streaming APIs are asynchronous APIs that support asynchronous message flows. Asynchronous message flows are popular in the event driven architecture. With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (Webhook)** and **Server Sent Events (SSE)** backends in WSO2 API Manager.
 
-- **[AsyncAPI Definitions for Streaming APIs]({{base_path}}/design/create-api/create-a-streaming-api-from-an-asyncapi-definition)**
-    [AsyncAPI](https://www.asyncapi.com/) is used to define asynchronous APIs. In WSO2 API Manager, [Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview) can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
+    Streaming APIs refer to APIs that have AsyncAPI definitions and use the **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events (SSE)** protocols. Streaming APIs are popular in the Event-driven architecture (EDA). With Streaming APIs, you can expose and manage **WebSocket**, **WebSub (WebHook)**, and **Server-Sent Events** backends in WSO2 API Manager. In WSO2 API Manager, Streaming APIs can be created by importing AsyncAPI definitions, and existing Streaming APIs can be exported as AsyncAPI definitions.
 
 - **[Exposing APIs via Custom Hostnames (Virtual Hosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)**
-    **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
+
+    **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via the Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
 
 <!--
 
@@ -54,7 +57,7 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - Defaulting code and configs to do with event based
 -->
 
-#### Removed features and functionalities
+### Removed features and functionalities
 
 - Microgateway Labels
 
@@ -62,75 +65,83 @@ It is now available to download from [here](https://github.com/wso2/product-apim
       is removed from this release. Instead, you can use [Virtual Hosts (VHosts)]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames)
       and dynamically manageable Gateway environments to group and expose APIs with custom hostnames.
 
-#### Key changes
+### Key changes
 
-- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. Refer the [documentation on running the product]({{base_path}}/install-and-setup/install/running-the-product/) for instructions.
+- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. For instructions, see [Running the Product]({{base_path}}/install-and-setup/install/running-the-product/).
 
 - The endpoints mentioned below previously worked through the Gateway. In API-M 4.0.0, WSO2 has moved them separately as follows:   
     
-    | Until 3.2.0        | In 4.0.0           |
+    | **Until 3.2.0**        | **In 4.0.0**           |
     | :------------- |:-------------|
-    | https://&lt;gateway-host&gt;/token      | https://&lt;keymanager-host&gt;/oauth2/token |
-    | https://&lt;gateway-host&gt;/revoke      | https://&lt;keymanager-host&gt;/oauth2/revoke      |
-    | https://&lt;gateway-host&gt;/authorize      | https://&lt;keymanager-host&gt;/oauth2/authorize      |
-    | https://&lt;gateway-host&gt;/userInfo | https://&lt;keymanager-host&gt;/oauth2/userInfo|
+    | `https://<gateway-host>/token`      | `https://<keymanager-host>/oauth2/token` |
+    | `https://<gateway-host>/revoke`      | `https://<keymanager-host>/oauth2/revoke`      |
+    | `https://<gateway-host>/authorize`      | `https://<keymanager-host>/oauth2/authorize`      |
+    | `https://<gateway-host>/userInfo` | `https://<keymanager-host>/oauth2/userInfo` |
 
 - Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
       
-    | Profile        | Description           | Startup argument  |
+    | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
-    | Control Plane      | Publisher, Developer Portal, Key Manager profiles and Traffic Manager. </br>If someone wants to use traffic manager profile separately they can use it as -Dprofile=traffic-manager and point to that. For more details please refer [API-M 4.0.0 distributed setup documentation](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | -Dprofile=control-plane |
-    | Gateway      | API Gateway profiles      |   -Dprofile=gateway |
-    | Traffic Manager | Traffic manager profile      |    -Dprofile=traffic-manager |  
+    | Control Plane profile      | This profile contains the Publisher, Developer Portal, Key Manager, and Traffic Manager </br>components. </br>If you need to use the Traffic Manager profile separately, you need to disable </br>the Traffic Manager component in the Control Plane profile. </br>For more information, see [API-M 4.0.0 distributed setup documentation]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m). | `-Dprofile=control-plane` |
+    | Gateway profile      | The API Gateway profile.      |   `-Dprofile=gateway` |
+    | Traffic Manager profile | The Traffic Manager profile.      |    `-Dprofile=traffic-manager` |
 
-- API related Synapse artifacts were moved from file system to in memory. Hence, there will be no synapse artifacts were store in APIM_HOME/repository/deployment/server/synapse-configs/default/api directory.
-  They were stored in the database and loaded to memory when the server starts up and when a new api revision is deployed and published.
+- API-related Synapse artifacts were moved from the file system to the in-memory. Therefore, there will not be any Synapse artifacts stored in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. These Synapse artifacts are stored in the database and loaded to memory when the server starts up and when a new API revision is deployed and published.
 
-- To publish an API with the inclusion of revision feature, the API needs have a revision deployed in a gateway.
+- With the inclusion of API revisioning it is required to have an API revision deployed in a Gateway to be able to publish an API.
 
-## Micro Integrator
+<hr style="border:8px solid gray"> </hr>
 
-The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to API Manager 4.
+## **Micro Integrator**
+
+The Micro Integrator is a cloud-native, standards-based messaging engine and an integration framework with a configuration-based runtime environment for integrating APIs, services, data, SaaS, proprietary, and legacy systems. This is a newly added component to WSO2 API Manager 4.0.0.
 
 This serves the integration needs for the data plane of the API Manager platform.
 
-It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
+It is now available to download from [here](https://wso2.com/api-management/#).
 
-#### New features
+### New features
 
 - **[New and improved File Connector]({{base_path}}/reference/connectors/file-connector/file-connector-overview/)**
-    The File Connector allows you to connect to different file systems and perform various operations. The File Connector uses the [Apache Commons VFS](https://commons.apache.org/proper/commons-vfs/) I/O functionalities to execute operations. For more information, see **[File Connector Example]({{base_path}}/reference/connectors/file-connector/file-connector-example/)** and **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/file-connector-config/)**.
+    
+	The File Connector allows you to connect to different file systems and perform various operations. The File Connector uses the [Apache Commons VFS](https://commons.apache.org/proper/commons-vfs/) I/O functionalities to execute operations. For more information, see **[File Connector Example]({{base_path}}/reference/connectors/file-connector/file-connector-example/)** and **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/file-connector-config/)**.
 
-- **[Hashicorp Secure Vault]({{base_path}}/install-and-setup/setup/mi-setup/security/using-hashicorp-secrets/)**
-    By default, the Micro Integrator is configured to use WSO2 secure vault for encrypting secrets. However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
+- **[HashiCorp Secure Vault]({{base_path}}/install-and-setup/setup/mi-setup/security/using-hashicorp-secrets/)**
+    
+	By default, the Micro Integrator is configured to use WSO2 secure vault for encrypting secrets. However, you may encounter certain limitations with WSO2 secure vault if you use secrets with a large number of characters. You can overcome this issue by using HashiCorp secrets.
 
 - **[JSON evaluation support for property mediator]({{base_path}}/reference/mediators/property-mediator/)**
-    Enhanced JSON evaluation support was added for the property mediator.
+    
+	Enhanced JSON evaluation support was added for the property mediator.
 
-- **[FreeMarker support PayloadFactory mediator]({{base_path}}reference/mediators/payloadfactory-mediator/)**
-    You can now use the **FreeMarker** template to write the payload. This is particularly useful when defining complex JSON payloads.
+- **[FreeMarker support PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/)**
+    
+	You can now use the **FreeMarker** template to write the payload. This is particularly useful when defining complex JSON payloads.
 
 - **[OAuth endpoint](reference/synapse-properties/endpoint-properties/)**
-    A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc. along with the settings needed for the connection.
+    
+	A message exit point or an endpoint defines an external destination for a message. Typically, this is the address of a proxy service that acts as the front-end to the actual service. You can configure the endpoint artifacts with any attributes or semantics needed for communicating with that service. An endpoint could represent a URL, a mailbox, a JMS queue, a TCP socket, etc., along with the settings needed for the connection.
 
 - **[Call mediator improvement]({{base_path}}/reference/mediators/call-mediator/)**
-    Improvements have been made to the call mediator so that it can now store the response to a property.
+    
+	Improvements have been made to the call mediator so that it can now store the response to a property.
 
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
-    WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+    
+	WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
 
-#### Compare this release with the Micro Integrator of WSO2 EI 7.x
+### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
 The Micro Integrator is the integration runtime of WSO2 API-M 4.0.0 as well WSO2 EI 7.x versions.
 
 The **new features** introduced with the Micro Integrator of API-M 4.0.0 are listed above. In addition, note the following significant changes:
 
 - The CLI tool of EI 7.x is replaced with the [API Controller (CLI)]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl) of API-M 4.0.0.
-- The EI Kubernetes Operator of EI 7.x is merged with the [API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/overview) of API-M 4.0.0.
+- The EI Kubernetes Operator of EI 7.x is merged with the [API Operator]({{base_path}}/reference/k8s-operators/k8s-api-operator/) of API-M 4.0.0.
 
 
 
-#### Compare this release with previous ESBs
+### Compare this release with previous ESBs
 
 Given below is a comparison of the Micro Integrator of API-M 4.0.0 and the previous WSO2 ESB runtimes. Note that the Micro Integrator of API-M 4.0.0 is the latest, most improved version of the WSO2 ESB runtime.
 
@@ -149,12 +160,12 @@ The following table explains the availability of the most critical features in t
 <table>
 	<tr>
 		<th></th>
-		<th>WSO2 ESB Runtime</th>
-		<th>Micro Integrator Runtime</th>
+		<th><b>WSO2 ESB Runtime</b></th>
+		<th><b>Micro Integrator Runtime</b></th>
 	</tr>
 	<tr>
 		<td>
-			Startup Time
+			Startup time
 		</td>
 		<td>
 			40s
@@ -165,7 +176,7 @@ The following table explains the availability of the most critical features in t
 	</tr>
 	<tr>
 		<td>
-			Distribution Size
+			Distribution size
 		</td>
 		<td>
 			~600 MB
@@ -187,7 +198,7 @@ The following table explains the availability of the most critical features in t
 	</tr>
 	<tr>
 		<td>
-			Mediation (ESB) Features
+			Mediation (ESB) features
 		</td>
 		<td>
 			Available
@@ -198,7 +209,7 @@ The following table explains the availability of the most critical features in t
 	</tr>
 	<tr>
 		<td>
-			Data Integration Features
+			Data Integration features
 		</td>
 		<td>
 			Available
@@ -209,7 +220,7 @@ The following table explains the availability of the most critical features in t
 	</tr>
 	<tr>
 		<td>
-			Task Coordination 
+			Task coordination 
 		</td>
 		<td>
 			Hazelcast based
@@ -234,7 +245,7 @@ The following table explains the availability of the most critical features in t
 			Runtime monitoring and management
 		</td>
 		<td>
-			Managemement Console
+			Management Console
 		</td>
 		<td>
 			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a></br>
@@ -276,20 +287,20 @@ The following table explains the availability of the most critical features in t
 	</tr>
 </table>
 
-**Features removed**
+**Removed Features**
 
 The following features, which are available in ESB runtimes, are removed from the Micro Integrator of API-M 4.0.0 because they are not frequently used.
 
 <table>
 	<tr>
 		<th>
-			Feature
+			<b>Feature</b>
 		</th>
 		<th>
-			Description
+			<b>Description</b>
 		</th>
 		<th>
-			Alternative
+			<b>Alternative</b>
 		</th>
 	</tr>
 	<tr>
@@ -297,7 +308,7 @@ The following features, which are available in ESB runtimes, are removed from th
 			Management Console
 		</td>
 		<td>
-			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="{{base_path}}/administer-and-observe/working-with-monitoring-dashboard">Micro Integrator dashboard</a>.
+			<a href="{{base_path}}/integrate/develop/wso2-integration-studio">WSO2 Integration Studio</a> is the recommended tool for developing integration solutions. The monitoring capabilities available in the management console (of the ESB profile) are available through the new <a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator dashboard</a>.
 		</td>
 		<td>
 			<a href="{{base_path}}/observe/mi-observe/working-with-monitoring-dashboard">Micro Integrator Dashboard</a>
@@ -316,13 +327,13 @@ The following features, which are available in ESB runtimes, are removed from th
 	</tr>
 	<tr>
 		<td>
-			Svn based Dep-sync
+			SVN-based DepSync
 		</td>
 		<td>
 			This is not a widely used feature in the ESB profile, and is not recommended for use.
 		</td>
 		<td>
-			Third-party offering like <b>rsync</b>
+			Third-party offering like <b>Rsync</b>
 		</td>
 	</tr>
 	<tr>
@@ -376,36 +387,36 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 -	Router Mediator
 -	Publish Event Mediator
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## Streaming Integrator
+## **Streaming Integrator**
 
-Streaming Integrator serves the streaming based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into API Manager 4.0.0.
+Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
 
-It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/).
+It is now available to download from [here](https://wso2.com/api-management/#).
 
-#### New features
+### New features
 
-- Deploy Async API definitions to the APIM Service Catalogue
-- Add support to capture multiple operations from single cdc source
-- Make regex matching dynamic in copy function
-- Add SSE source functionality
+- [Deploy AsyncAPI definitions to the WSO2 API-M Service Catalog]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)
+- Support to capture multiple operations from a single CDC source
+- RegEx matching dynamic in copy function
+- SSE source functionality
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## API Controller (apictl)
+## **API Controller (apictl)**
 
-WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Microgateway. Furthermore, it can perform Micro Integrator server specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
+WSO2 API Controller (apictl) is a command-line tool providing the capability to move APIs, API Products, and Applications across environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. In addition, apictl can be used as a developer CLI tool for Choreo Connect. Furthermore, it can perform Micro Integrator server-specific operations such as monitoring Synapse artifacts and performing MI management/administrative tasks from the command line.
 
-It is now available to download from [here](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0-alpha).
+It is now available to download from [here](https://wso2.com/api-management/tooling/).
 
-#### New features
+### New features
 
-- [API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
+- [API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
 - [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl/)
-- Resolve parameters at server side while importing an API/API Product project
+- Resolve parameters at server-side while importing an API/API Product project
 - [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product/)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
 - [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api/)
@@ -414,175 +425,181 @@ It is now available to download from [here](https://github.com/wso2/product-apim
 - [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory/)
 - Support endpoint security separately for Production and Sandbox endpoints via params file
 - VCS support for both the deployment and source repositories
-- Support for import/export Async APIs
-- [Introducing "apictl aws init" command to extract APIs from AWS API-Gateway and to initialize an apictl API project]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal)
+- Support for import/export of Streaming APIs
+- [Ability to extract APIs from the AWS API-Gateway and to initialize an apictl API project]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal)
+	 
+	 The `apictl aws init` command was introduced for this purpose.
+
 - Standardized the apictl flags with a common convention
-- Deprecated few old apictl commands and introduced new improved commands
+- Introduced new improved commands while deprecating some old apictl commands 
     <table>
         <tr class="odd">
-            <th>Deprecated Command</th>
-            <th>New Command</th>
+            <th><b>Deprecated Command</b></th>
+            <th><b>New Command</b></th>
         </tr>
         <tr class="even">
-            <td>apictl import-api [flags]</td>
-            <td>apictl import api [flags]</td>
+            <td><code>apictl import-api [flags]</code></td>
+            <td><code>apictl import api [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl import-app [flags]</td>
-            <td>apictl import app [flags]</td>
+            <td><code>apictl import-app [flags]</code></td>
+            <td><code>apictl import app [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl export-api [flags]</td>
-            <td>apictl export api [flags]</td>
+            <td><code>apictl export-api [flags]</code></td>
+            <td><code>apictl export api [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl export-apis [flags]</td>
-            <td>apictl export apis [flags]</td>
+            <td><code>apictl export-apis [flags]</code></td>
+            <td><code>apictl export apis [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl export-app [flags]</td>
-            <td>apictl export app [flags]</td>
+            <td><code>apictl export-app [flags]</code></td>
+            <td><code>apictl export app [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl list apis [flags]</td>
-            <td>apictl get apis [flags]</td>
+            <td><code>apictl list apis [flags]</code></td>
+            <td><code>apictl get apis [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl list api-products [flags]</td>
-            <td>apictl get api-products [flags]</td>
+            <td><code>apictl list api-products [flags]</code></td>
+            <td><code>apictl get api-products [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl list apps [flags]</td>
-            <td>apictl get apps [flags]</td>
+            <td><code>apictl list apps [flags]</code></td>
+            <td><code>apictl get apps [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl list envs [flags]</td>
-            <td>apictl get envs [flags]</td>
+            <td><code>apictl list envs [flags]</code></td>
+            <td><code>apictl get envs [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl get-keys [flags]</td>
-            <td>apictl get keys [flags]</td>
+            <td><code>apictl get-keys [flags]</code></td>
+            <td><code>apictl get keys [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl delete api [flags]</td>
-            <td>apictl delete api [flags] <br> apictl k8s delete api [flags]</td>
+            <td><code>apictl delete api [flags]</code></td>
+            <td><code>apictl delete api [flags] <br> apictl k8s delete api [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl add api [flags]</td>
-            <td>apictl k8s add api [flags]</td>
+            <td><code>apictl add api [flags]</code></td>
+            <td><code>apictl k8s add api [flags]</code></td>
         </tr>
         <tr class="even">
-            <td>apictl update api [flags]</td>
-            <td>apictl k8s update api [flags]</td>
+            <td><code>apictl update api [flags]</code></td>
+            <td><code>apictl k8s update api [flags]</code></td>
         </tr>
         <tr class="odd">
-            <td>apictl add-env [flags]</td>
-            <td>apictl k8s update api [flags]</td>
+            <td><code>apictl add-env [flags]</code></td>
+            <td><code>apictl k8s update api [flags]</code></td>
         </tr>
     </table>
 
-- **[API Controller as a developer CLI tool for Microgateway]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
-    This includes the following features and improvements:
-    - Merge Micro Integrator cli commands with APICTL
-    - Support import/export revisioning of APIs- Adding proxy environment variables support for APICTL
-    - Alias for APICTL commands ([)APICTL)
-    - Resolve parameters at server side while importing an API project
+- **[API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
+    
+	This includes the following features and improvements:
+
+    - Merge Micro Integrator CLI commands with APICTL
+    - Support import/export revisioning of APIs
+    - Adding proxy environment variables support for APICTL
+    - Alias for APICTL commands
+    - Resolve parameters at server-side while importing an API project
     - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
     - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
     - Support to override subscription policies of an API using the params file
     - Support TLS renegotiation configuration
     - Support APICTL bundle command (archives an API Project) 
-    - Cross tenant subscriptions feature is broght back
+    - Cross tenant subscriptions feature is brought back
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## WSO2 Integration Studio
+## **WSO2 Integration Studio**
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
-It is now available to download from [here](https://github.com/wso2/integration-studio/releases/tag/v8.0.0-m8).
+It is now available to download from [here](https://wso2.com/integration/integration-studio/)).
 
-#### New features
+### New features
 
-- Added Cassandra data source support for DSS
-- Added Registry Resource Properties support
+- Cassandra data source support for DSS
+- Registry Resource Properties support
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## Streaming Integrator tooling
+## **Streaming Integrator Tooling**
 
 The Streaming Integrator Tooling is a developer tool to develop Siddhi applications and simulate events for testing purposes.
 
 It is now available to download from [here](https://github.com/wso2/streaming-integrator-tooling/releases/).
 
-#### New features
+### New features
 
-- Add support to capture multiple operations from single cdc source
-- Make regex matching dynamic in copy function
-- Add SSE source functionality
+- Support to capture multiple operations from a single CDC source
+- RegEx matching dynamic in copy function
+- SSE source functionality
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## Kubernetes API operator
+## **Kubernetes API Operator**
 
 The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. The Micro Integrator Kubernetes Operator is merged with the API Operator of API Manager 4.0.0.
 
 It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/). K8s API Operator M3 is compatible with API Manager M4.
 
-#### New features
+### New features
 
-- New Micro Integrator Kubernetes operations added
-- Deploy APIs to Microgateway
+- Added new Micro Integrator Kubernetes operations
+- Support to deploy APIs to Choreo Connect
 - Deploy APIs to API Manager
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## Compatible WSO2 product versions
+## **Compatible WSO2 product versions**
 
 WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version. If you encounter any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
----
+<hr style="border:8px solid gray"> </hr>
 
-## Fixed and known issues
+## **Fixed and known issues**
 
 **API Manager**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/92?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/94?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
 
 **Micro Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/23?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/24?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/micro-integrator/issues).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/micro-integrator/issues).
 
 **Streaming Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/13?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/16?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator/issues).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator/issues).
 
 **API Controller**
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim-tooling/issues?q=is%3Aopen+is%3Aissue).
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/7?closed=1).
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/10?closed=1).
 
 - Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
 
 **Streaming Integrator Tooling**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/12?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/15?closed=1).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
 
 **Kubernetes API Operator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0-alpha+is%3Aclosed).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aissue+milestone%3Av2.0.0+is%3Aclosed).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager-4.0.0-Alpha are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/k8s-api-operator/issues?q=is%3Aopen+is%3Aissue+label%3A2.0.0).
