@@ -510,7 +510,7 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
 ### New features
 
-- FreeMarker support PayloadFactory mediator
+- PayloadFactory mediator supports FreeMarker templates
 - Enrich mediator improvements
 - OAuth feature for HTTP endpoints
 - Dynamic endpoint support for mock services in synapse unit testing
