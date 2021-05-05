@@ -15,9 +15,7 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-    </div>
-</div></br></br>
-<div>
+    </div></br></br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
