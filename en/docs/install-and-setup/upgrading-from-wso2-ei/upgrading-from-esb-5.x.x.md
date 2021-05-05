@@ -70,15 +70,12 @@ Follow the instructions below to start the migration!
 
 -	Make a backup of the ESB 5.0 distribution (`<ESB_HOME>` folder) to back up the product configurations.
 -	Make a backup of the database used by the current ESB 5.0 deployment. This backup is necessary in case the migration causes any issues in the existing database.
--	Download and install API-M 4.0.0 in your environment:
+-	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the latest Micro Integrator in your environment:
 
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
-	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
-
--	Use [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/) to get the latest available updates for your API-M 4.0.0 distribution.
+-	Use [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/) to get the latest available updates for your Micro Integrator distribution.
 
 	!!! Info
 		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment.

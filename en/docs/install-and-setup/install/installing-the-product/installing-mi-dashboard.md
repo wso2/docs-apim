@@ -4,7 +4,7 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 
 ## Installing the MI Dashboard
 
-1.  Go to the [product page](https://wso2.com/integration/#), click **Download**, and then click **Zip Archive** to download the product distribution as a ZIP file.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Resources/MI Dashboard** to download the MI Dashboard as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the Micro Integrator Dashboard, which will hereafter be referred to as `<MI-DASHBOARD_HOME>`.
 
 ## Setting up JAVA_HOME
@@ -35,19 +35,18 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
             If you do not know how to work with text editors in a Linux SSH session, run the following command: `cat >> .bashrc.` Paste the string from the clipboard and press "Ctrl+D."
 
 
-    4.  To verify that the `JAVA_HOME` variable is set correctly, execute the following command:
+    4.  To verify that the `JAVA_HOME` variable is set correctly, execute the following command.
 
-    5.  The system returns the JDK installation path.
-
-    ``` java
-    On Linux:
-    echo $JAVA_HOME
-         
-    On OS X:
-    which java
-    If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
-    ls -l `which java`
-    ```
+        ``` java
+        On Linux:
+        echo $JAVA_HOME
+            
+        On OS X:
+        which java
+        If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
+        ls -l `which java`
+        ```
+    The system returns the JDK installation path.
 
 ??? note "On Solaris"
 
@@ -82,7 +81,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.8.0_xx`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
-    You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, [set it at the command prompt]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-java95home-temporarily-using-the-windows-command-prompt-cmd).
+    You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, set it at the command prompt.
 
     **Setting up JAVA\_HOME using the system properties**
 
@@ -106,7 +105,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     `set JAVA_HOME`
 
-    The system returns the JDK installation path. You are now ready to [run the product]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
+    The system returns the JDK installation path.
 
 ## Setting system properties
 
