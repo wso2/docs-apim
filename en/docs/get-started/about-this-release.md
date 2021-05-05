@@ -526,15 +526,24 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ## **Kubernetes API Operator**
 
-The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. The Micro Integrator Kubernetes Operator is merged with the API Operator of API Manager 4.0.0.
+As microservices are increasingly being deployed on Kubernetes, the need to expose these microservices as well documented,
+easy to consume, managed APIs is becoming important to develop great applications. The API operator for Kubernetes makes
+APIs a first-class citizen in the Kubernetes ecosystem. Similar to deploying microservices, you can now use this operator
+to deploy APIs for individual microservices or compose several microservices into individual APIs. With this users will
+be able to expose their microservice as managed API in Kubernetes environment without any additional work.
 
-It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/). K8s API Operator M3 is compatible with API Manager M4.
+The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem.
+It uses the Integration custom resource (integration_cr.yaml file) that is available in the
+Kubernetes project (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
+
+It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/).
+K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Added new Micro Integrator Kubernetes operations
-- Support to deploy APIs to Choreo Connect
+- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
+- Deploy Integrations with Micro Integrator
 
 <hr style="border:8px solid gray"> </hr>
 
