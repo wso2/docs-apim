@@ -495,22 +495,6 @@ It is now available to download from [here](https://wso2.com/api-management/tool
         </tr>
     </table>
 
-- **[API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
-    
-	This includes the following features and improvements:
-
-    - Merge Micro Integrator CLI commands with APICTL
-    - Support import/export revisioning of APIs
-    - Adding proxy environment variables support for APICTL
-    - Alias for APICTL commands
-    - Resolve parameters at server-side while importing an API project
-    - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
-    - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the params file
-    - Support TLS renegotiation configuration
-    - Support APICTL bundle command (archives an API Project) 
-    - Cross tenant subscriptions feature is brought back
-
 <hr style="border:8px solid gray"> </hr>
 
 ## **WSO2 Integration Studio**
@@ -564,13 +548,13 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **API Manager**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/94?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20+label%3A%22API-M+4.0.0%22).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
 
 **Micro Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/24?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/micro-integrator/issues).
 
