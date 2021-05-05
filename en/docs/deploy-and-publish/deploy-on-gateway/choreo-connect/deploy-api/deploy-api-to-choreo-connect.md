@@ -14,7 +14,66 @@ There are two ways to add an API to the Choreo Connect.
 
 ### Step 1 - Configure Choreo Connect with API Manager
 
-Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
+!!! info
+    **Before you begin**
+
+    - Make sure you have installed Docker and Docker Compose on your machine.
+
+    - Download the latest [Choreo Connect release](https://github.com/wso2/product-microgateway/releases) and extract it to a folder of your choice. The extracted folder will be referred to as `CHOREO-CONNECT_HOME` here onwards.
+
+    - This guide assumes that you have already started the WSO2 API Manager instance. If not, download the latest [release](https://github.com/wso2/product-apim/releases) and follow the steps [here](https://github.com/wso2/product-apim#installation--running).
+
+### Step 1 - Find the API-M IP Address
+
+Choreo Connect identifies the location of the API-M server instance by its IP address. If you are trying out WSO2 API Manager locally, you can use the private IP retrieved using `hostname -I` or `ipconfig`.
+
+### Step 2 - Update the Choreo Connect Config File
+
+Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file in a text editor and update the `[controlPlane]` configuration as explained below:
+
+In the `[controlPlane]` section,
+
+ - set `enabled` to true
+ - update `serviceUrl` with the IP and the port of API Manager
+ - replace `apim` in `eventListeningEndpoints` under `controlPlane.jmsConnectionParameters` with the same IP and the port of API Manager
+ - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the default value `"Default"` as it is.
+
+ Example
+ ``` yaml
+ [controlPlane]
+  enabled = true
+  serviceUrl = "https://192.168.8.101:9443/"
+  username="admin"
+  password="$env{cp_admin_pwd}"
+  environmentLabels = ["Default"]
+  retryInterval = 5
+  skipSSLVerification=true
+  # Message broker connection URL of the control plane
+    [controlPlane.jmsConnectionParameters]
+        eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@192.168.8.101:5672?retries='10'&connectdelay='30'"]
+ ``` 
+
+!!! tip
+
+    In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab. For an example, if a new Gateway Environment was added with the name "choreo-connect" and display name "Choreo Connect", add the following changes to the `docker-compose.yaml` and `config.toml`.
+
+    1. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/docker-compose.yaml` update the environment variables `ENFORCER_LABEL` and `ROUTER_LABEL` to `choreo-connect`
+    2. In `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml`,
+        i. update `environmentLabels` in `[controlPlane]` to `["choreo-connect"]`
+        ii. to be able to use accept APIs via apictl, include "choreo-connect" to [[adapter.vhostMapping]] as shown below.
+        ```
+        [[adapter.vhostMapping]]
+        environment = "choreo-connect"
+        vhost = "localhost"
+        ```
+
+### Step 3 - Start Choreo Connect
+
+Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
+    
+``` bash
+docker-compose up -d
+```
 
 ### Step 2 - Create an API in API Manager
 
