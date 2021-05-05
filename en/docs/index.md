@@ -15,11 +15,9 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="rightImage">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JejVjoaAc38?controls=0" 
-            frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
-        </div>
     </div>
+</div></br></br>
+<div>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
