@@ -77,10 +77,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
     | **Until 3.2.0**        | **In 4.0.0**           |
     | :------------- |:-------------|
-    | `https://<gateway-host&gt>/token`      | `https://<keymanager-host&gt>/oauth2/token` |
-    | `https://<gateway-host&gt>/revoke`      | `https://<keymanager-host&gt>/oauth2/revoke`      |
-    | `https://<gateway-host&gt>/authorize`      | `https://<keymanager-host>/oauth2/authorize`      |
-    | `https://<gateway-host&gt>/userInfo` | `https://<keymanager-host>/oauth2/userInfo` |
+    | `https://<gateway-host>/token`      | `https://<keymanager-host>/oauth2/token` |
+    | `https://<gateway-host>/revoke`      | `https://<keymanager-host>/oauth2/revoke`      |
+    | `https://<gateway-host>/authorize`      | `https://<keymanager-host>/oauth2/authorize`      |
+    | `https://<gateway-host>/userInfo` | `https://<keymanager-host>/oauth2/userInfo` |
 
 - Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
       
