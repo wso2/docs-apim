@@ -12,7 +12,7 @@ The result of the query should be as follows when you query to view the records
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 Let's setup a MySQL database:
 

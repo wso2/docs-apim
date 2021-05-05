@@ -7,7 +7,7 @@ how to host a solution on Integration Cloud, follow the steps below:
 ## Before you begin
 
 - [Register as a user of the Integration Cloud](https://wso2.com/integration/cloud/).
-- [Download WSO2 Integration Studio](https://wso2.com/integration/tooling/).
+- [Download WSO2 Integration Studio](https://wso2.com/api-management/tooling/).
 
 ## Step 1: Create an Application
 
