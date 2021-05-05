@@ -60,7 +60,7 @@ Here are the steps to revoking an Access Token.
     ```
 
     !!! info
-        Once the token is revoked, if you check the logs in `adapter`, you will be able to see the following logs appeared there, which means the `adapter` has received the token revocation data from the control plane.
+        Once the token is revoked, if you check the logs in `adapter`, you will see the following logs appear, which means the `adapter` has received the token revocation data from the control plane.
         ```
         2021-05-01 07:20:57 INFO [revoked_token_listener.go:36] - [messaging.handleTokenRevocation] [-] RevokedToken: 4e330dbd-75c6-4ab5-a749-b9497aa3521a, Token Type: JWT
         2021-05-01 07:20:57 INFO [server.go:827] - [xds.UpdateEnforcerRevokedTokens] [-] New Revoked token cache update for the label: commonEnforcerLabel version: 652374093
