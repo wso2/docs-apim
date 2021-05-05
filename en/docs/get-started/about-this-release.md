@@ -495,22 +495,6 @@ It is now available to download from [here](https://wso2.com/api-management/tool
         </tr>
     </table>
 
-- **[API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
-    
-	This includes the following features and improvements:
-
-    - Merge Micro Integrator CLI commands with APICTL
-    - Support import/export revisioning of APIs
-    - Adding proxy environment variables support for APICTL
-    - Alias for APICTL commands
-    - Resolve parameters at server-side while importing an API project
-    - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
-    - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the params file
-    - Support TLS renegotiation configuration
-    - Support APICTL bundle command (archives an API Project) 
-    - Cross tenant subscriptions feature is brought back
-
 <hr style="border:8px solid gray"> </hr>
 
 ## **WSO2 Integration Studio**
