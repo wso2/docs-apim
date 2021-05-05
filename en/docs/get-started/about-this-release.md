@@ -30,7 +30,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
     WSO2 API Manager can connect to ForgeRock out-of-the-box using the [WSO2 API-M ForgeRock Connector](https://github.com/wso2-extensions/apim-km-forgerock). WSO2 API Manager has the capability to support multiple Key Managers at the same time. So with the use of connectors, it is capable of supporting any authorization server as a Key Manager, and in this case, it supports a connection to ForgeRock as a third-party Key Manager.
 
-- **[Support for Ping Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)**
+- **[Support for PingFederate Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)**
 
     WSO2 API Manager supports multiple Key Managers at the same time. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager, and with the use of connectors, it is capable of supporting any authorization server as a Key Manager. WSO2 API Manager can connect PingFederate out-of-the-box using the [WSO2 API-M PingFederate Connector](https://github.com/wso2-extensions/apim-km-pingfederate).
 
