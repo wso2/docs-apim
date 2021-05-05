@@ -99,7 +99,7 @@ EOF
 
 ## Step 3: Invoke the API
 
-Lets get a sample token.
+Let's get a sample token.
 ```sh
 TOKEN=$(curl -X POST "https://gw.wso2.com/testkey" \
     -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)
