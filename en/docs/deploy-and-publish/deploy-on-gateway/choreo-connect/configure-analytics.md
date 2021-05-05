@@ -19,7 +19,7 @@ To configure analytics with Choreo,
 3. Open the `docker-compose.yaml` file located in the `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` or `CHOREO-CONNECT_HOME/docker-compose/choreo-connect-with-apim` based on your choice on the setup.
 
     !!! info
-        Choreo Connect can be configured to pulish Analytics to Choreo cloud in both [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-3-start-choreo-connect) and [with control plane mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-3-start-choreo-connect-and-api-manager).
+        Choreo Connect can be configured to publish Analytics to Choreo cloud in both [standalone mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker/#step-3-start-choreo-connect) and [with control plane mode]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim/#step-3-start-choreo-connect-and-api-manager).
 
 4. Find the environment variables section under the `enforcer` and change the below variables.
 
@@ -67,7 +67,7 @@ Let's generate some traffic to see the Analytics in Choreo cloud.
 2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#invoke-the-api)
 3. Go to [https://analytics.choreo.dev/overview](https://analytics.choreo.dev/overview) to view statistics. 
 
-Here are some of the graphs generated in Choreo cloud.
+Here are some of the graphs generated in the Choreo cloud.
 
 [![]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)]({{base_path}}/assets/img/deploy/choreo-analytics-overview.png)
 
