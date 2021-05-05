@@ -50,7 +50,7 @@ template: templates/single-column.html
             </p>
             <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
         </div>
-        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
+        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
             <h3>Concepts</h3>
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
@@ -98,7 +98,7 @@ template: templates/single-column.html
                     WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature.md';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Getting the Developer Community Involved</h4>
                 <p>
@@ -186,12 +186,12 @@ template: templates/single-column.html
     <div class="section05">
         <h3>Deployment</h3>
         <p>
-            WSO2 API Manager includes multiple components. This allows you set up the API Manager following a range of deployment patterns. This section describes all the possible deployment patterns and guides you how to select the most appropriate pattern based on your requirement.
+            WSO2 API Manager includes multiple components (runtimes). This section describes the main deployment patterns and guides you to select the most appropriate pattern for your requirement.
         </p>
         <div class="DeploymentWrapper">
             <div class="Deploymentlinks">
                 <ul>
-                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'>Deploy API Manager Runtime</a></li>
+                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'>Deploy the API Manager Runtime</a></li>
                 </ul>
             </div>
             <div class="Deploymentlinks middle">
