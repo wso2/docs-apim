@@ -15,7 +15,7 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
 
 ### Update the server configurations
 
-1. [Stop the API-M server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running.
+1. [Stop the API-M server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
 
 2.  Open the `<API-M-HOME>/repository/conf/deployment.toml` file.
 
@@ -32,11 +32,11 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
     offset=1
     ```
 
-4. [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/).
+4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
 ### Pass the port offset during server startup
 
-1.  [Stop the API-M server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running.
+1.  [Stop the API-M server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
 
 2.  Restart the server with the `-DportOffset` system property.
 
@@ -75,7 +75,7 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
 
 ### Update the server configurations
 
-1. [Stop the MI server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running.
+1. [Stop the MI server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
 
 2.  Open the `<MI_HOME>/conf/deployment.toml` file.
 
@@ -91,11 +91,11 @@ The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of
     offset = 3
     ```
 
-4. [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/).
+4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
 ### Pass the port offset during server startup
 
-1.  [Stop the MI server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running.
+1.  [Stop the MI server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
 
 2.  Restart the server with the `-DportOffset` system property.
 

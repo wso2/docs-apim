@@ -14,7 +14,7 @@ The deployment options for a scalable streaming integrator depends on the statel
 The following topics provide detailed descriptions of two approaches.
 
 !!! tip "System Requirements"
-    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm).
+    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).
 
 
 ## Stateless scalable high availability (HA) deployment

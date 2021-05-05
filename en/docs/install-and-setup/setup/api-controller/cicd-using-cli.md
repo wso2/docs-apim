@@ -27,7 +27,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
 1.  Download and install WSO2 API-M 4.0.0 in your environments.
      
-     For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
+     For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites/).
 
 2.  Download and setup apictl 4.0.0 version. 
 

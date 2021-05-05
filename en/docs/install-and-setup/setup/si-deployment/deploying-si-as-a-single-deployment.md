@@ -6,7 +6,7 @@ in the streaming integration world. The other deployment options, namely [Minimu
 However, single node deployment too allows you to achieve resilient deployment as explained in the [Resilient Deployment](#resilient-deployment) subsection.
 
 !!! tip "System Requirements"
-    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm).
+    For system requirements for this deployment, see [Installing the Streaming Integrator in a Virtual Machine]({{base_path}}/install-and-setup/install/installing-the-product/installing-si).
 
 ## Resilient deployment
 

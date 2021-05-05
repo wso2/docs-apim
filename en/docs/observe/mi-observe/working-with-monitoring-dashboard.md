@@ -53,7 +53,7 @@ See the following topics to install the MI server and dashboard.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-mi">Using the Installer</a>
         </td>
 <!--
         <td>
@@ -63,7 +63,7 @@ See the following topics to install the MI server and dashboard.
     </tr>
     <tr>
         <td>
-            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
+            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-mi">Using the Binary</a>
         </td>
 <!--
         <td>
@@ -134,11 +134,11 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 ### Step 3 - Start the MI servers
 
-[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
+[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) connected to the dashboard.
 
 ### Step 4 - Start the MI Dashboard
 
-[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
 ### Step 5 - Sign in to the Dashboard
 
