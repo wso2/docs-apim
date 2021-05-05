@@ -28,9 +28,8 @@ Two key performance metrics were used to measure the performance of each test.
     following performance results may become invalid if configurations are changed. For
     example, the default passthru io_buffer_size is 16KB. Hence the throughput significantly
     decreases for payload sizes above 16KB. If the buffer size is increased, the throughput
-    might differ. Similarly when worker pool thread counts are changed, the performance of
-    Micro Integrator changes significantly. Hence, for accurate results doing a performance
-    test with the exact configuration and scenarios is a must.
+    might differ. Similarly, when worker pool thread counts are changed, the performance of the
+    Micro Integrator changes significantly. Therefore, to get accurate results, it is necessary to be specific about the exact configurations and scenarios used for the performance tests.
 
 ## Deployment used for the test
 
@@ -91,11 +90,11 @@ All scripts used to run the performance tests and analyze results are in the fol
 - [https://github.com/wso2/performance-ei](https://github.com/wso2/performance-ei)
 
 ## Results
-
+Given below is a summary of the performance result for each of the scenarios used for the tests.
 The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/b06581ed31fceaa32c01a03a63a107141a68cb2b/performance/benchmarks/summary.md).
 
 #### Throughput (requests/sec) vs. concurrent users
-
+The following results compare the throughput against the number of concurrent users in each scenario.
 ##### Direct Proxy
 
 <img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" />
@@ -113,7 +112,7 @@ The complete results can be found [here](https://github.com/wso2/micro-integrato
 <img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/xslt-proxy-tp.png" alt="XSLT Proxy Throughput" title="XSLT Proxy Throughput" width="70%" />
 
 #### Average response time (ms) vs. concurrent users
-
+The following results compare the average response time of the Micro Integrator server against the number of users in each scenario.
 ##### Direct Proxy
 
 <img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-rt.png" alt="Direct Proxy Response Time" title="Direct Proxy Response Time" width="70%" />
