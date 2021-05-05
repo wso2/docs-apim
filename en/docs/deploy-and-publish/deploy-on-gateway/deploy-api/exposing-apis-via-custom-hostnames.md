@@ -38,18 +38,24 @@ Each Gateway environment definition contains details related to a specific Gatew
     wss_endpoint = "wss://localhost:8099"
     http_endpoint = "http://localhost:${http.nio.port}"
     https_endpoint = "https://localhost:${https.nio.port}"
+    websub_event_receiver_http_endpoint = "http://localhost:9021"
+    websub_event_receiver_https_endpoint = "https://localhost:8021"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
     wss_endpoint = "wss://us.wso2.com:8099"
     http_endpoint = "http://us.wso2.com/gateway"
     https_endpoint = "https://us.wso2.com/gateway"
+    websub_event_receiver_http_endpoint = "http://us.wso2.com:9021"
+    websub_event_receiver_https_endpoint = "https://us.wso2.com:8021"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
     wss_endpoint = "wss://foods.com:8099"
     http_endpoint = "http://foods.com:8280"
     https_endpoint = "https://foods.com:8243"
+    websub_event_receiver_http_endpoint = "http://foods.com:9021"
+    websub_event_receiver_https_endpoint = "https://foods.com:8021"
     ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
@@ -78,7 +84,7 @@ Follow the instructions below to use a new custom Gateway environment to expose 
 
 Each Gateway environment definition contains details related to a specific Gateway. You can create a Gateway environment that includes VHosts using either one of the following methods.
 
-#### Create a Gateway environment via the Admin Portal
+#### Option 1: Create a Gateway environment via the Admin Portal
 
 1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
 
@@ -125,7 +131,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
         Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
 
-#### Create a Gateway environment using the configuration file
+#### Option 2:Create a Gateway environment using the configuration file
 
 Follow the instructions below to use the `deployment.toml` file, which is the central configuration file, to configure a Gateway environment that consists of virtual hosts:
 
@@ -157,18 +163,25 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     wss_endpoint = "wss://localhost:8099"
     http_endpoint = "http://localhost:${http.nio.port}"
     https_endpoint = "https://localhost:${https.nio.port}"
+    websub_event_receiver_http_endpoint = "http://localhost:9021"
+    websub_event_receiver_https_endpoint = "https://localhost:8021"
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
     wss_endpoint = "wss://us.wso2.com:8099"
     http_endpoint = "http://us.wso2.com/gateway"
     https_endpoint = "https://us.wso2.com/gateway"
+    websub_event_receiver_http_endpoint = "http://us.wso2.com:9021"
+    websub_event_receiver_https_endpoint = "https://us.wso2.com:8021"
+   
 
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://foods.com:9099"
     wss_endpoint = "wss://foods.com:8099"
     http_endpoint = "http://foods.com:8280"
     https_endpoint = "https://foods.com:8243"
+    websub_event_receiver_http_endpoint = "http://foods.com:9021"
+    websub_event_receiver_https_endpoint = "https://foods.com:8021"
     ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
