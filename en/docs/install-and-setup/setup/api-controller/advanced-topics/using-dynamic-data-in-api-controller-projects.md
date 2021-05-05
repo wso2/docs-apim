@@ -26,8 +26,8 @@ Follow the instructions below to add dynamic data to environment configs of an A
                   production:
                       url: ${DEV_ENV_PROD_URL}
                       config:
-                          retryTimeOut: ${DEV_ENV_PROD_RE_DELAY}
-                          retryDelay: ${DEV_ENV_PROD_RE_TO}
+                          retryTimeOut: ${DEV_ENV_PROD_RE_TO}
+                          retryDelay: ${DEV_ENV_PROD_RE_DELAY}
                   sandbox:
                       url: ${DEV_ENV_SAND_URL}
     ```
