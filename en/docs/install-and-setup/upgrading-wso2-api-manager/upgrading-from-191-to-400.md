@@ -1,14 +1,15 @@
 # Upgrading API Manager from 1.8.0/1.9.0/1.9.1 to 4.0.0
 
+!!! warning
+    **The contents on this page are currently under review!**
+
+Before you begin:
+
+-   See [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
+
+-   If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110).
+
 The following information describes how to upgrade your API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 4.0.0**.
-
-!!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
-
-Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 4.0.0**.
-
-!!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-is-5110).
 
 -   [Step 1 - Upgrade WSO2 API Manager to 2.0.0](#step-1-upgrade-wso2-api-manager-to-200)
 -   [Step 2 - Upgrade WSO2 API Manager to 4.0.0](#step-2-upgrade-wso2-api-manager-to-320)
