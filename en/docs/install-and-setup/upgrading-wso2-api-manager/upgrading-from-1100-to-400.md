@@ -1,20 +1,23 @@
 # Upgrading API Manager from 1.10.0 to 4.0.0
 
-!!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for detailed guidelines on how you should prepare for the upgrading process.
+!!! warning
+    **The contents on this page are currently under review!**
 
-Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 1.10.0 to 4.0.0**.
+Before you begin:
 
-!!! Attention
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110).
+-   See [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for detailed guidelines on how you should prepare for the upgrading process.
 
-!!! note "If you are using PostgreSQL"
-    The DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
+-   Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 1.10.0 to 4.0.0**.
+
+-   If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-is-5110).
+
+-   **If you are using PostgreSQL**, the DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
+
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
-!!! note "If you are using Oracle"
-    Commit the changes after running the scripts given below.
+
+-   **If you are using Oracle**, commit the changes after running the scripts given below.
     
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
