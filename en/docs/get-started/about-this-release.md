@@ -130,6 +130,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     
 	WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
 
+- **[Data Service Call Mediator]({{base_path}}/reference/mediators/dss-mediator/)**
+
+    Data Service Call mediator allows you to invoke data service operations from a mediation sequence without introducing an HTTP call (using the Call or Send mediators) 
+    to access the data service.  This improves the server performance because the data service is accessed directly without going through the HTTP transport.
+
 ### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
 The Micro Integrator is the integration runtime of WSO2 API-M 4.0.0 as well WSO2 EI 7.x versions.
@@ -501,12 +506,41 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
-It is now available to download from [here](https://wso2.com/integration/integration-studio/)).
+It is now available to download from [here](https://wso2.com/integration/integration-studio/).
 
 ### New features
 
-- Cassandra data source support for DSS
-- Registry Resource Properties support
+- PayloadFactory mediator supports FreeMarker templates
+- Enrich mediator improvements
+- OAuth feature for HTTP endpoints
+- Dynamic endpoint support for mock services in synapse unit testing
+- Call mediator improvements
+- Parent maven details included in the children POM by default
+- Kubernetes exporter project is enhanced to support a pure Kubernetes deployment
+- Apply software updates to the embedded Micro Integrator runtime
+- OpenAPI specification 3.0 support
+- Publish integrations to the API-M runtime during deployment
+- Cassandra datasource support for data services
+- Adding Registry Resource Properties
+
+### Key changes
+
+- The folder structure of the ESB Configs modules is changed to include the Swagger-related metadata in the `/resources` directory.
+- WSO2 Integration Studio now supports OpenAPI specification 3.0 by default.
+- Use a new workspace for WSO2 Integration Studio 8.0.0 and import any existing projects (created using older Integration Studio versions) into this new workspace.
+  
+
+<hr style="border:8px solid gray"> </hr>
+
+## **Micro Integrator Dashboard**
+
+The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
+
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
+
+### New features
+
+- Revamped dashboard, which can monitor multiple Micro Integrator instances grouped together
 
 <hr style="border:8px solid gray"> </hr>
 
@@ -572,9 +606,15 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/10?closed=1).
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/issues?q=is%3Aissue+closed%3A2020-12-23..2021-04-16).
 
 - Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
+
+**Micro Integrator Dashboard**
+
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?page=1&q=label%3AMonitoring-Dashboard+is%3Aclosed+label%3A4.0.0).
+
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/micro-integrator/issues).
 
 **Streaming Integrator Tooling**
 
