@@ -132,7 +132,8 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 - **[Data Service Call Mediator]({{base_path}}/reference/mediators/dss-mediator/)**
 
-    Data Service Call mediator allows you to invoke the data service operations directly via JVM without HTTP Transport 
+    Data Service Call mediator allows you to invoke data service operations from a mediation sequence without introducing an HTTP call (using the Call or Send mediators) 
+    to access the data service.  This improves the server performance because the data service is accessed directly without going through the HTTP transport.
 
 ### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
