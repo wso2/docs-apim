@@ -1238,29 +1238,27 @@ nav:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
-            - Installing API Manager:
-                - Overview: install-and-setup/install/installing-the-product/installing-the-product.md
-                - Installing via the Installer: install-and-setup/install/installing-the-product/installing-via-the-installer.md
-                - Installing the Binary:
-                    - Installing on Linux or OS X: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md
-                    - Installing on Solaris: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris.md
-                    - Installing on Windows: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows.md
-                    - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service.md
-                    - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md
-            - Installing Micro Integrator:
-                - Installing via the Installer: install-and-setup/install/installing-the-product/install-mi-in-vm-installer.md
-                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary.md
-                - Installing as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
-            - Installing Streaming Integrator:
-                - Installing via the Installer: install-and-setup/install/installing-the-product/installing-si-in-vm.md
-                - Installing via the Binary: install-and-setup/install/installing-the-product/installing-the-binary/installing-si-binary.md
-                - Installing as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
-                - Installing as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
+            - Installing the API Manager Runtime:
+                - Installing the API-M Runtime: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
+                - Running the API-M Runtime: install-and-setup/install/installing-the-product/running-the-api-m.md
+                - Running API-M as a Linux Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service.md
+                - Running API-M as a Windows Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service.md
+            - Installing the Micro Integrator (MI):
+                - Installing the MI: install-and-setup/install/installing-the-product/installing-mi.md
+                - Running the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
+                - Running the MI as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
+            - Installing the MI Dashboard:
+                - Installing the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
+                - Running the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
+            - Installing the Streaming Integrator (SI):
+                - Installing the SI: install-and-setup/install/installing-the-product/installing-si.md
                 - Installing Siddhi Extensions: develop/streaming-apps/installing-siddhi-extensions.md
-                - Running the Streaming Integrator in Containers:
+                - Running the SI Runtime: install-and-setup/install/installing-the-product/running-the-si.md
+                - Running SI as a Windows Service: install-and-setup/install/installing-the-product/installing-si-as-windows-service.md
+                - Running SI as a Linux Service: install-and-setup/install/installing-the-product/installing-si-as-a-linux-service.md
+                - Running the SI in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
-            - Running the Product: install-and-setup/install/running-the-product.md
         - Setup:
             - Setting up API Manager:
                 - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md

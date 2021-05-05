@@ -1,4 +1,4 @@
-# Installing as a Windows Service
+# Running API Manager as a Windows Service
 
 !!! note
     **Before you begin:**

@@ -235,7 +235,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ### How can I manage session timeouts for the management console?
 
-To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/running-the-product/#configuring-the-session-time-out).
+To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#configuring-the-session-time-out).
 
 ### How can I add authentication headers to messages going out of the API Gateway to the backend?
 

@@ -9,7 +9,7 @@ Follow the instructions given below to configure ForgeRock as a third-party Key 
 ## Before you begin
 
 - Install ForgeRock.
-- [Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-product/).
+- [Download and install WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
 ## Step 1 - Configure ForgeRock
 
@@ -177,7 +177,7 @@ If you want to work with scopes, then you need to assign the relevant scopes to 
 
 Follow the instructions given below to configure WSO2 API Manager to work with the Fogerock Authorization Server.
 
-1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 
