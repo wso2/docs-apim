@@ -526,7 +526,7 @@ It is now available to download from [here](https://wso2.com/integration/integra
 
 ### Key changes
 
-- The Folder structure of the ESB Configs modules has been changed to contain the Swagger related metadata under resources directory.
+- The folder structure of the ESB Configs modules is changed to include the Swagger-related metadata in the `/resources` directory.
 - Integration Studio now supports OpenAPI Specification 3.0 by default.
 - Use a new workspace for Integration Studio 8.0.0 and any existing Projects created with older Studio versions, needed to be imported into this new workspace.
   
