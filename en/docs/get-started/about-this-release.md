@@ -515,33 +515,33 @@ It is now available to download from [here](https://wso2.com/integration/integra
 - OAuth feature for HTTP endpoints
 - Dynamic endpoint support for mock services in synapse unit testing
 - Improve Call mediator to support storing in properties
-- Add parent maven details inside children pom by default
-- Enhance K8s exporter project to support pure Kubernetes deployment
-- Support to change embedded runtime via software updates
-- Add OpenAPI Specification 3.0 support
-- Add features to support Service Catalogue
-- Add Cassandra data source support for DSS
-- Add Registry Resource Properties support
-- Refactor Runtime Services view
+- Parent maven details included in the children POM by default
+- Kubernetes exporter project is enhanced to support a pure Kubernetes deployment
+- Apply software updates to the embedded Micro Integrator runtime
+- OpenAPI specification 3.0 support
+- Publish integrations to the API-M runtime during deployment
+- Cassandra datasource support for data services
+- Adding Registry Resource Properties
+- Runtime Services view improved
 
 ### Key changes
 
 - The folder structure of the ESB Configs modules is changed to include the Swagger-related metadata in the `/resources` directory.
-- Integration Studio now supports OpenAPI Specification 3.0 by default.
-- Use a new workspace for Integration Studio 8.0.0 and any existing Projects created with older Studio versions, needed to be imported into this new workspace.
+- WSO2 Integration Studio now supports OpenAPI specification 3.0 by default.
+- Use a new workspace for WSO2 Integration Studio 8.0.0 and import any existing projects (created using older Integration Studio versions) into this new workspace.
   
 
 <hr style="border:8px solid gray"> </hr>
 
 ## **Micro Integrator Dashboard**
 
-The Micro Integrator dashboard provides the capability to monitor specified cluster/group of Micro Integrator server instances.
+The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
 
 It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
 
 ### New features
 
-- Revamped dashboard which provides the capability to monitor multiple MI instances grouped together
+- Revamped dashboard, which can monitor multiple Micro Integrator instances grouped together
 
 <hr style="border:8px solid gray"> </hr>
 
