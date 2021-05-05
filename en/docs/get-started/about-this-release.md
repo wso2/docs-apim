@@ -587,7 +587,7 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20+label%3A%22API-M+4.0.0%22).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20+label%3A%22API-M+4.0.0%22).
 
 **Micro Integrator**
 
