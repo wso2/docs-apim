@@ -213,7 +213,19 @@ When added successfully the alert is shown in the lower table.
  /remove icon.
  
  #### Remove Traffic Alerts
- - Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To remove an existing Traffic alert:
+	
+1.	Click **User Profile** on the upper-right corner and select **Settings**.	
+
+2.	Go to the **Traffic** tab. 
+		
+		This takes you to the **Traffic Alert Configuration** section. The first part of the UI shows the alert-creation controls and the latter half shows the existing alerts and the modify/remove controls.
+	
+		![traffic config pic]({{base_path}}/assets/img/observe/alerts/traffic-alert-config-full.png)
+
+3.	Select the alert you want to remove from the table and click the bin option under Action.
+
+Your alert configuration is now removed.
  
  - Once settings page is loaded, click on the **Traffic** tab. This will take you to **Traffic Alert Configuration**
   section.
