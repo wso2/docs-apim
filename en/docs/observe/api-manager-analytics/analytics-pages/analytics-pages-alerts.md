@@ -10,7 +10,6 @@ To use this page, be sure to configure alerts and have API invocations that trig
 
 !!! Tip
      By default, alerts are not enabled for API analytics. 
- and then should have API invocations which will trigger alerts.
  
 ## Page Walk Through
 WIP
