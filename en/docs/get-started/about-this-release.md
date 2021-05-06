@@ -572,7 +572,9 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Siddhi Error Replay for 'Store' type errors**
 
-	 This release enables error replay for database connection errors. Errors occurred during ADD, DELETE, UPDATE, ADDORUPDATE operations can be replayed from the error store explorer. Refer tutorial on handling store-type errors [here](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-tutorials/handling-requests-with-errors/#step-7-handle-events-that-fail-at-database-level).
+	 This release enables **error replay** for database connection errors. Errors that occur during ADD, DELETE, UPDATE, ADDORUPDATE operations can be replayed from the Error Store explorer. 
+	 
+	 See the tutorial on [handling store-type errors](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-tutorials/handling-requests-with-errors/#step-7-handle-events-that-fail-at-database-level).
 
 <hr style="border:8px solid gray"> </hr>
 
