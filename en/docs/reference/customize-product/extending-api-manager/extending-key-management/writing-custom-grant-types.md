@@ -2,7 +2,7 @@
 
 OAuth 2.0 authorization servers provide support for four main grant types according to the OAuth 2.0 specification. They also allow you to add custom grant types and extend the existing ones.
 
-See [Writing a Custom OAuth 2.0 Grant Type](https://is.docs.wso2.com/en/5.10.0/learn/writing-a-custom-oauth-2.0-grant-type/) in the WSO2 identity Server documentation to implement custom grant types for the API Manager. Note that API Manager has already customized the Grant Type handlers for `authorization_code` , `password` , `client_credentials` and `saml2-bearer` grant types. If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
+See [Writing a Custom OAuth 2.0 Grant Type](https://is.docs.wso2.com/en/5.11.0/learn/writing-a-custom-oauth-2.0-grant-type/) in the WSO2 identity Server documentation to implement custom grant types for the API Manager. Note that API Manager has already customized the Grant Type handlers for `authorization_code` , `password` , `client_credentials` and `saml2-bearer` grant types. If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
 
 | Grant Type                                                               | Existing Handler Class (which can be extended if required)                                              |
 |--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ See [Writing a Custom OAuth 2.0 Grant Type](https://is.docs.wso2.com/en/5.10.0/l
 
 
     !!! info    
-        The **prepackaged WSO2 Identity Server as a Key Manager 5.10.0** comes with the necessary configurations already installed in order to connect WSO2 Identity Server as the Key Manager for WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.10.0. The prepackaged WSO2 Identity Server as a Key Manager 5.10.0 is compatible with WSO2 API Manager 3.0 and is supported by [WUM](https://wso2.com/updates) .
+        The **prepackaged WSO2 Identity Server as a Key Manager 5.11.0** comes with the necessary configurations already installed in order to connect WSO2 Identity Server as the Key Manager for WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.11.0. The prepackaged WSO2 Identity Server as a Key Manager 5.11.0 is compatible with WSO2 API Manager 4.0 and is supported by [WSO2 Updates](https://wso2.com/updates) .
 
 
     <table>
@@ -31,14 +31,14 @@ See [Writing a Custom OAuth 2.0 Grant Type](https://is.docs.wso2.com/en/5.10.0/l
     </thead>
     <tbody>
     <tr class="odd">
-    <td>API-M 3.1.0 GA</td>
-    <td><p>GA or WUM update for WSO2 IS-KM-5.10.0</p></td>
+    <td>API-M 4.0.0 GA</td>
+    <td><p>GA or WUM update for WSO2 IS-KM-5.11.0</p></td>
     <td><br />
     </td>
     </tr>
     <tr class="even">
-    <td>API-M-3.1.0 WUM update</td>
-    <td><p>GA or WUM update for WSO2 IS-KM-5.10.0</p></td>
+    <td>API-M-4.0.0 update</td>
+    <td><p>GA or WUM update for WSO2 IS-KM-5.11.0</p></td>
     <td><br />
     </td>
     </tr>
