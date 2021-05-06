@@ -432,7 +432,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved KeyValue Mapper to support force casting**
     
-	 KeyValue mapper provides capability to retrieve or publish events in as key value format. For more information , see [Map-KeyValue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.1/).
+	 The KeyValue mapper allows the Streaming Integrator to get events and publish events as a key-value pair. For more information, see [Map-KeyValue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.1/).
 	 
 - **Improved IO File Sink and Source**
     
