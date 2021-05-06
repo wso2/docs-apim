@@ -22,7 +22,7 @@ For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com
     !!! tip
         Before you discard the old API Manager instance,
         
-        You must take a backup of the `<API-M_HOME>/repository/data` directory and copy it to the API Manager binary pack in the `<API-M_HOME>/repository/data` directory that is updated with the WSO2 Updates.
+        You must take a backup of the `<API-M_HOME>/repository/data` directory and copy it to the API Manager binary pack in the `<API-M_HOME>/repository/data` directory that is updated.
         
     
     **Persisting WSO2CarbonDB**
