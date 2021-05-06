@@ -11,9 +11,9 @@ As the document progresses we will talk about different alert types and how to c
     
 ## Alert Types
 ### Latency Alert 
-Latency alerts allows users to configure alerts if response latency of their APIs are greater than a predefined
- threshold. This is useful when you have APIs which should honor SLAs and to get to know about slow APIs
-  proactively. Following sections will discuss how to create, modify and remove latency alerts.
+Configure Latency alerts to identify if the response latency of APIs is greater than a predefined threshold. This is useful when you have APIs that should honor SLAs and when you want to know about slow APIs proactively.
+
+The following topics explain how to create, modify, and remove latency alerts.
   
 #### Create Latency Alert
 - Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
