@@ -7,7 +7,9 @@ See the topics given below to get an overview of the main capabilities of **Anal
 Let's start with the common controls that govern Analytics pages. See the related links in each topic given below for more details.
  
 ## Common Controls
- These are the set of common controls that enable you to govern the data shown in pages. Each page will refer these
+These are the common controls that enable you to govern the data shown in Analytics pages. Each page uses these common controls and page-specific controls to visualize the information requested by the user. 
+
+Explained below are these common controls and their usage.
  common controls and page specific controls to visualize the information requested by the user. Following sections
   will in detail explain each of these common controls and their usage.
 ### Time Picker
