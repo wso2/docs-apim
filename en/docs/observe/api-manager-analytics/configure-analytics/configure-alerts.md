@@ -200,7 +200,21 @@ When added successfully the alert is shown in the lower table.
    ![traffic success]({{base_path}}/assets/img/observe/alerts/traffic-success.png)
    
  #### Modify Traffic Alerts
- - Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To modify an existing alert:
+
+1.	Click **User Profile** on the upper-right corner and select **Settings**.	
+2.	Go to the **Traffic** tab. 
+	
+	This takes you to the **Traffic Alert Configuration** section. The first part of the UI shows the alert-creation controls and the latter half shows the existing alerts and the modify/remove controls.
+
+	![traffic config pic]({{base_path}}/assets/img/observe/alerts/traffic-alert-config-full.png)
+
+2.	Select the alert you want to modify from the table and click the **Edit** option under **Action**. 
+		 
+	![traffic config editable]({{base_path}}/assets/img/observe/alerts/traffic-config-editable.png)
+
+3.	Change the parameters as you desire and click **Submit**. 
+4.	If you want to discard the changes, click the stop/remove option.
  - Once settings page is loaded, click on the **Traffic** tab. This will take you to **Traffic Alert Configuration**
   section.
  
