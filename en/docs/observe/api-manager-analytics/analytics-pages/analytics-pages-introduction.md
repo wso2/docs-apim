@@ -1,16 +1,15 @@
 # Analytics Pages Introduction
-The new cloud analytics portal consists of several pages where pages are divided based on different functional aspects.
- (e.g., traffic, latency). Using these pages you can get the complete business analytics on your API management
-  system. This page will serve as the entry point on how to use the cloud analytics portal and educate you on how to
-   get maximum use out of it. 
+The new cloud analytics portal consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
+You can use these pages to get the complete business analytics on your API management system. 
+
+See the topics given below to get an overview of the main capabilities of **Analytics Pages**.
    
-We will start off with introducing you to common controls which will govern the pages. Also we will provide an index
- to all pages that are present in the solution so that you can refer those pages in detail.   
+Let's start with the common controls that govern Analytics pages. See the related links in each topic given below for more details.
  
 ## Common Controls
- These are the set of common controls that enable you to govern the data shown in pages. Each page will refer these
- common controls and page specific controls to visualize the information requested by the user. Following sections
-  will in detail explain each of these common controls and their usage.
+These are the common controls that enable you to govern the data shown in Analytics pages. Each page uses these common controls and page-specific controls to visualize the information requested by the user. 
+
+Explained below are these common controls and their usage.
 ### Time Picker
 ![APIM Analytics TIme Picker]({{base_path}}/assets/img/observe/time-picker.png)
 
@@ -99,11 +98,11 @@ This page displays information about OS platforms and HTTP Agents end users are 
   
 ### Alerts Page
 
-This page illustrates information related to business alerts issued by the system for your currently selected
- environment and organization. You can use this page as a health monitoring dashboard and make it visible to whole
-  team. Using this page you can drilldown on each alert and discover possible anomalies or errors in your published
-   APIs. For more information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts) documentation.
+This page shows the information related to business alerts issued by the system for your currently selected
+environment and organization. You can use this page as a health monitoring dashboard and make it visible to
+the whole team. You can use this page to drill down on each alert and discover possible anomalies or errors in your published APIs.
+
+For more information, see [Alerts Page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts)
   
 ### Reports Page
 

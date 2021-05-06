@@ -38,7 +38,7 @@ Follow the steps given below to build this use case and try it out.
 
 Follow the instructions given in this section to create and configure the required artifacts.
 
-1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+1.  Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 2.  Open **WSO2 Integration Studio**.
 3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 

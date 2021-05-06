@@ -1,6 +1,4 @@
-# Streaming Integrator Quick Start Guide
-
-## Introduction
+# Quick Start Guide - Streaming Integration
 
 This quick start guide gets you started with the Streaming Integrator (SI), in just 5 minutes.
 

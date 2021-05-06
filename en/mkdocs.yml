@@ -16,10 +16,10 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.0.0
+site_name: WSO2 API Manager Documentation 4.0.x
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.0.0/
+site_url: https://apim.docs.wso2.com/en/4.0.x/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -1247,7 +1247,7 @@ nav:
             - Installing the Micro Integrator (MI):
                 - Installing the MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Running the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
-                - Running the MI as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
+                - Running the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
             - Installing the MI Dashboard:
                 - Installing the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Running the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md
@@ -1786,6 +1786,6 @@ extra:
           link: https://twitter.com/wso2
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
-    site_version: 4.0.0
+    site_version: 4.0.x
     #base_path: http://localhost:8000
-    base_path: https://apim.docs.wso2.com/en/4.0.0
+    base_path: https://apim.docs.wso2.com/en/4.0.x
