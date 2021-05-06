@@ -424,7 +424,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Synchronous publishing support for IO Kafka**
     
-	 IO Kafka allows seamless connection with kafka broker and retrieves the events into the streaming integrator. Release includes synchronous publishing which allows more controlled event publishing and other bug fixes. For more information , see [IO-Kafka](https://github.com/siddhi-io/siddhi-io-kafka).
+	 IO Kafka allows seamless connection with kafka broker and retrieves the events into the streaming integrator. Release includes synchronous publishing of events which allows more controlled event publishing and other bug fixes. For more information , see [IO-Kafka](https://github.com/siddhi-io/siddhi-io-kafka).
 	 
 - **Improved JSON Mapper to support null values**
     
