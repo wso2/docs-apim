@@ -442,7 +442,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
     
 	 Store RDBMS can be used to connect with any rdbms type. With the new versions it has the support to add null values to RDBMS tables and improved metrics support. For more information , see [Store RDBMS](https://github.com/siddhi-io/siddhi-store-rdbms).
 	 
-- **Added Kafka and HTTP metrics monitoring capabilities**
+- **Kafka and HTTP metrics monitoring**
     
 	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC. The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
 	 
