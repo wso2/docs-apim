@@ -83,7 +83,17 @@ When added successfully the alert is shown in the lower table.
   ![latency success]({{base_path}}/assets/img/observe/alerts/latency-success.png)
   
 #### Modify Latency Alerts
-- Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To modify an existing alert:
+
+1.	Click **User Profile** on the upper-right corner and select **Settings**.
+
+	This takes you to the **Latency Alert Configuration** section by default. The latter table shows the already configured alerts. 
+
+2.	Select the alert you want to modify from the table and click the **Edit** option under **Action**. 
+		 ![latency config modify]({{base_path}}/assets/img/observe/alerts/latency-config-modify.png)
+
+3.	Change the parameters as you desire and click **Submit**. 
+4.	If you want to discard the changes, click the stop/remove option.
 - This will take you to **Latency Alert Configuration** section by default.
   
   ![latency alert config]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
