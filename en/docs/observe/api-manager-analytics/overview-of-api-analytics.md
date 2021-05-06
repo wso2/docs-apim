@@ -21,7 +21,7 @@ These are the only two steps that are needed to setup analytics with the new sol
 ### Modern Responsive UIs
 With cloud-based analytics now we have sleek and modern responsive UIs with improved 
  filtering and drill down capabilities. 
-You can access the all new analytics portal through [here](https://analytics.choreo.dev/). Use 
+You can access the new analytics portal from [here](https://analytics.choreo.dev/).
 [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-introduction) document as a reference to the
  composition of each dashboard and information that is available through them. 
 
