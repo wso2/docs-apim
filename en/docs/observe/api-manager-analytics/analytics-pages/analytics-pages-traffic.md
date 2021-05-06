@@ -1,47 +1,57 @@
 # Traffic Page
+
+This page shows information related to the traffic that goes through your API management system. This includes API usage, Application usage, Resource usage, etc. You can use this page to investigate the usage of APIs and Applications, traffic patterns, etc.
+
 ![traffic page full]({{base_path}}/assets/img/observe/traffic/traffic-page-full.png)
 
-This page displays all traffic related information available in the system such as API Usage, Application Usage
-, Resource Usage, etc. You can utilize this page to drill-down more into API and Application usages, traffic patterns
- and mostly used APIs/Applications. Rest of the document will explain each widget in detail.
+See the topics given below to get details of the available widgets.
  
 ## Common Controls
+
+The Traffic page offers you the two additional common controls listed below.
+
 ![common controls]({{base_path}}/assets/img/observe/traffic/common-controls.png)
 
-This page offers two additional common controls for the user. 
 ### API Selector
-API selector allows user to select the APIs that they want to view analytics within this page. By default, this is
- set to **All** option. you can select one or multiple APIs from this selector and aggregated result will be shown
-  in the page. Depending on the selection of this drop-down next common control **Application** will be populated.
+
+Use the **API Selector** to select the APIs for which you want to view analytics. By default, this is set to **All**. You can select one or multiple APIs from this selector and view the aggregated result. The **Application** control (described below) is populated based on your API selector configuration.
+  
 ### Application Selector
-Application selector allows users to further narrow down search into application level. If same API is used by
- multiple applications, using this selector you can get the separate traffic per each application or for a set of
-  applications. Available options on this drop-down depends on the selection of API selector.
+
+Use the **Application Selector** to narrow down the API search to the application level. If the same API is used by multiple applications,
+use this selector to get the traffic per application or a set of applications. The options available for this selector depend on what you specified for the API selector.
   
 ## Page Walk Through
-### API Usage Overtime
-![api usage timeline]({{base_path}}/assets/img/observe/traffic/api-usage-timeline.png)
 
-This timeline shows API hit count for selected set of APIs by above mentioned selectors. If multiple APIs are
- selected then timeline will show each API in a separate line with a legend clearly separating each line.
+The following topics walk you through the main features available for monitoring traffic.
+
+### API Usage Overtime
+
+This timeline shows the count of API hits for the APIs you selected using the above-mentioned selectors. If multiple APIs are
+ selected, the timeline shows each API in a separate line with a legend separating each line.
+ 
+![api usage timeline]({{base_path}}/assets/img/observe/traffic/api-usage-timeline.png)
  
 ## API Usage by Application
-![usage by application]({{base_path}}/assets/img/observe/traffic/usage-by-application.png)
 
-This widget shows an application wise breakdown of the API requests as selected by the common controls. There is a
- pie chart view, and a line chart view which you can switch between using the small icon on the top right hand corner
-  of the widget.
+This widget shows the per-application breakdown of requests for the APIs you selected. You can use the pie chart view or the line chart view. You can switch between the two views using the small icon at the upper-right corner 
+of the widget.
+
+![usage by application]({{base_path}}/assets/img/observe/traffic/usage-by-application.png)
   
-## API Usage by backend
+## API Usage by Backend
+
+This widget shows the per-backend breakdown of requests for the APIs you selected. This is useful when multiple APIs are sharing the same backend, which has traffic restrictions. You can use these stats to proactively scale your backends. You can switch between the two views using the small icon at the upper-right corner 
+of the widget.
+
 ![usage by backend]({{base_path}}/assets/img/observe/traffic/usage-by-backend.png)
 
-This widget shows API backend wise breakdown of the API requests as selected by the common controls. This is useful
- when multiple APIs are sharing the same backend which has traffic restrictions. Using these stats you can take
-  proactive steps to scale your backends beforehand. There is a pie chart view, and a line chart view which you can
-   switch between using the small icon on the top right-hand corner of the widget.
 ## API Resource Usage Summary
-![resource usage]({{base_path}}/assets/img/observe/traffic/resource-usage.png)
 
-This table shows resource-level breakdown of API traffic. Each row will represent a resource of API and it will show
- API name, resource path, API method and hit count for that combination. Special point to not is that above mentioned
-  two common controls won't be applicable to this table. 
+This table shows a resource-level breakdown of API traffic. Each row represents an API resource and it shows the
+ API name, resource path, API method, and the hit count for that combination. 
+ 
+!!! Note
+    The **API Selector** and **Application Selector** controls do not apply to this widget.
+
+![resource usage]({{base_path}}/assets/img/observe/traffic/resource-usage.png)
