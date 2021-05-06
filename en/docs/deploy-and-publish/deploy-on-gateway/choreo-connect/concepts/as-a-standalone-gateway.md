@@ -12,7 +12,7 @@ self-contained token.
 ## Defining gateway specific properties
 
 OpenAPI specification doesn't define all required properties for an API gateway. It's meant to be a descriptor of an REST endpoint.
-In this case that'd be the OpenAPI definition of backend service or microservice. How ever a developer of an API gateway should be able to define,
+In this case that'd be the OpenAPI definition of backend service or microservice. However, a developer of an API gateway should be able to define,
 
 - Different types of endpoints
 - Gateway security
@@ -22,7 +22,7 @@ and many other gateway specific features per API or per Resource.
 Since Choreo Connect is using the OpenAPI definition as the API descriptor, these additional properties should somehow go into OpenAPI definition maintained inside the API project. Choreo Connect utilizes OpenAPI Specification's vendor extensions for this purpose.
 
 So to define above mentioned additional API/ Resource specific gateway attributes, Choreo Connect introduces set of open API vendor extensions for developers.
-List of available extensions are documented [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-key-concepts/) .
+List of available extensions are documented [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-key-concepts/) . (broken link!)
 
 ### How to work with standard open API definition
 
