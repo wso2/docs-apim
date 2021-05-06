@@ -402,15 +402,15 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
-- **[Deploy AsyncAPI definitions to the WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
+- **[Deploy AsyncAPI definitions to WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
     
-	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async Api definition to WSO2 Api Manager services which afterwards can be used to deploy an api.
+	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
 
-- **SSE Sink / Source support over http**
+- **SSE Sink / Source support over HTTP**
     
-	 SSE is an HTTP-based protocol that allows one-way communication similar to WebHooks, from the server to the client. For more information , see [SSE Server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) , [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source).
+	 SSE is an HTTP-based protocol that allows one-way communication (similar to WebHooks) from the server to the client. For more information, see [SSE Server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) and [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source).
 	 
-- **WebSub Sink / Source support over http**
+- **WebSub Sink / Source support over HTTP**
     
 	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
 
@@ -420,7 +420,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved IO CDC Source**
     
-	 CDC can be used to capture insert / update / delete actions from databases. Release includes improvement where with single CDC configuration it can handle all three actions. For more information , see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
+	 CDC can be used to capture insert /update/delete actions from databases. With the new improvements, you can handle all three actions using a single CDC configuration. For more information, see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
 	 
 - **Synchronous publishing support for IO Kafka**
     
@@ -432,7 +432,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved KeyValue Mapper to support force casting**
     
-	 KeyValue mapper provides capability to retrieve or publish events in as key value format. For more information , see [Map-KeyValue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.1/).
+	 The KeyValue mapper allows the Streaming Integrator to get events and publish events as a key-value pair. For more information, see [Map-KeyValue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.1/).
 	 
 - **Improved IO File Sink and Source**
     
