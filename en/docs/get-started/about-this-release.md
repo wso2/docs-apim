@@ -398,14 +398,54 @@ The following mediators and artifacts are removed from the ESB runtime in all ve
 
 Streaming Integrator serves the streaming-based integrations and acts as the event stream provider for Streaming APIs in the data plane of the API Manager platform. This is a newly added component into WSO2 API Manager 4.0.0.
 
-It is now available to download from [here](https://wso2.com/api-management/#).
+It is now available to download from [here](https://github.com/wso2/streaming-integrator/releases/download/v4.0.0/wso2si-4.0.0.zip).
 
 ### New features
 
-- [Deploy AsyncAPI definitions to the WSO2 API-M Service Catalog]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)
-- Support to capture multiple operations from a single CDC source
-- RegEx matching dynamic in copy function
-- SSE source functionality
+- **[Deploy AsyncAPI definitions to WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
+    
+	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
+
+- **SSE Sink / Source support over HTTP**
+    
+	 SSE is an HTTP-based protocol that allows one-way communication (similar to WebHooks) from the server to the client. For more information, see [SSE Server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) and [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source).
+	 
+- **WebSub Sink / Source support over HTTP**
+    
+	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
+
+- **Improved MongoDB Store**
+    
+	 Several improvements are done, such as making the encryption protocol configurable, Object_ID support when searching specific values in the store, and other bug fixes. For more information, see [Mongo DB Store](https://siddhi-io.github.io/siddhi-store-mongodb/api/2.1.2/#mongodb-store).
+	 
+- **Improved IO CDC Source**
+    
+	 CDC(Change Data Capture) can be used to capture insert /update/delete actions from databases. With the new improvements, you can handle all three actions using a single CDC configuration. For more information, see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
+	 
+- **Synchronous publishing support for IO Kafka**
+    
+	 IO Kafka allows seamless connection with the Kafka broker and retrieves the events into the Streaming Integrator. This release includes synchronous publishing of events, which allows more controlled event publishing and other bug fixes. For more information, see [IO-Kafka](https://github.com/siddhi-io/siddhi-io-kafka).
+	 
+- **Improved JSON Mapper to support null values**
+    
+	 JSON mapper provides capability to retrieve or publish events in JSON format. Release contains improvement where when null values arrives into the system they are treated as null values if needed. For more information , see [Map-JSON](https://github.com/siddhi-io/siddhi-map-json).
+	 
+- **Improved KeyValue Mapper to support force casting**
+    
+	 The KeyValue mapper allows the Streaming Integrator to get events and publish events as a key-value pair. For more information, see [Map-KeyValue](https://siddhi-io.github.io/siddhi-map-keyvalue/api/2.1.1/).
+	 
+- **Improved IO File Sink and Source**
+    
+	 IO File sink/source is used to read or write into a file. With the new improvements, the Streaming Integrator supports EOF(End Of File) in other modes, file trailers, file-writing mechanisms, and SFTP. For more information, see [IO-File](https://siddhi-io.github.io/siddhi-io-file/api/2.0.16/).
+	 
+- **Improved Store RDBMS support**
+    
+	 Store RDBMS can be used to connect with any RDBMS type. With the new versions, it supports adding null values to RDBMS tables and includes improved metrics support. For more information, see [Store RDBMS](https://github.com/siddhi-io/siddhi-store-rdbms).
+	 
+- **Kafka and HTTP metrics monitoring**
+    
+	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC(Change Data Capture). The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
+	 
 
 <hr style="border:8px solid gray"> </hr>
 
