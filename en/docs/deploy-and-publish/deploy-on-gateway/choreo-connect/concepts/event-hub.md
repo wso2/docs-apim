@@ -1,9 +1,12 @@
 # Event Hub
 
-Choreo Connect uses the below methods to fetch data from API Manager.
+The Event Hub acts as a mediator between the adapter and the control plane. Choreo Connect uses the below methods to fetch data from API Manager.
 
 - Internal Data REST API
 - JMS Topic
+
+!!! note
+    The event hub is included within the control plane profile of APIM. Therefore, if you use a distributed setup use the ip address of the control plane node for the configurations. Please refer [API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles) for more information on profiles.
 
 ## Internal Data REST API
 
