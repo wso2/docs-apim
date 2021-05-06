@@ -554,7 +554,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **Async API View**
     
-	 This release introduces a new view - 'Async API View', in addition to the existing 'Source/Design View' and 'Wizard view'. 
+	 This release introduces a new 'Async API' view in addition to the existing 'Source/Design' views and 'Wizard' view. 
 	 
 	 Using the Async API View, you can generate an [Async API](https://www.asyncapi.com/) specification for a given Siddhi app. 
 	 
