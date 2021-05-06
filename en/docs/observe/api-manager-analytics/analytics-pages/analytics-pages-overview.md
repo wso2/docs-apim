@@ -23,7 +23,7 @@ Latency widget displays the 95th percentile of all API latencies in your selecte
 
 This widget displays the average error rate (error count/total request count) in your selected environment for
  the selected time period. You can use this widget as an indicator to know the health of the system. If the error
-  rate is high you will need to investigate more via 
+  rate is high, investigate further using the 
   [error page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-erros).
   
 ## API Request Summary Timeline
