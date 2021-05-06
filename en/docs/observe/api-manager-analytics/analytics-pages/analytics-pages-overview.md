@@ -8,7 +8,7 @@ This is the welcome page of the analytics portal. This page will mainly display 
 ![overview page total traffic]({{base_path}}/assets/img/observe/overview/overview-page-total-traffic.png)
 
 Total traffic widget displays the total traffic your selected environment received during the selected time range
-. This will include both successful requests and error requests. If you want to investigate further on the traffic
+. This includes both successful requests and error requests. If you want to further investigate the traffic, see the [traffic page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic).
  please move on to 
  [traffic page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic).
  
