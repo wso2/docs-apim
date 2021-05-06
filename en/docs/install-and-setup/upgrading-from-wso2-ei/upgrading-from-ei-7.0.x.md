@@ -73,7 +73,7 @@ To migrate the encrypted passwords from EI 7.0.0, you need to first obtain the p
 Follow the instructions given below.
 
 1. Download the [tool](https://github.com/wso2-docs/WSO2_EI/blob/master/migration-client/org.wso2.mi.migration-1.2.0.jar).
-2. Get the latest update for your existing EI 7.0.0 distribution by using [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/).
+2. Get the latest update for your existing EI 7.0.0 distribution by using [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
 	!!! Info
 		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment.
