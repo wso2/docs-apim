@@ -420,7 +420,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved IO CDC Source**
     
-	 CDC can be used to capture insert / update / delete actions from databases. Release includes improvement where with single CDC configuration it can handle all three actions. For more information , see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
+	 CDC can be used to capture insert /update/delete actions from databases. With the new improvements, you can handle all three actions using a single CDC configuration. For more information, see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
 	 
 - **Synchronous publishing support for IO Kafka**
     
