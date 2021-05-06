@@ -16,7 +16,44 @@ Configure Latency alerts to identify if the response latency of APIs is greater 
 The following topics explain how to create, modify, and remove latency alerts.
   
 #### Create Latency Alert
-- Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To configure a latency alerts:
+
+1.	Click **User Profile** on the upper-right corner and select **Settings**.
+
+	This takes you to the **Latency Alert Configuration** section by default. The first part of the UI shows the alert-creation controls and the latter half shows the existing alerts and modify/remove controls.
+
+		 ![latency alert config]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
+
+2.	Verify that you are in the correct 
+		[organization]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations) and select
+		 the desired [environment]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-introduction). 
+
+3.	Select the API for which you want to create the alert by typing the API name in the **API Name** field. 
+
+	!!! Info
+	     -	As you type, the APIs that match the text you enter are listed. You can select the desired API from there. 
+	     - Note that only the APIs you have invoked at least once are populated here. For other APIs, you need to give the API name in the desired format as instructed in the UI.
+		 ![api name dropdown]({{base_path}}/assets/img/observe/alerts/api-name-dropdown.png)
+
+4.	Go to the next column and select the desired metric against which you want to evaluate the alert rule. 
+
+	!!! Info
+	     The dropdown shows all available options. If there are multiple options, you can select the desired metric. If there is only one
+		 option to select, the dropdown is disabled.
+		
+	![latency metric type]({{base_path}}/assets/img/observe/alerts/latency-metric-type.png)
+
+5.	Go to the next column and specify the threshold in milliseconds. 
+
+	!!! Info
+	    When the 95th percentile of the selected metric exceeds the threshold provided here, alerts are triggered.
+		
+	 ![latency threshold]({{base_path}}/assets/img/observe/alerts/latency-threshold.png)
+
+6.	Click **Add** once all the required alert configurations are specified. 
+
+When added successfully the alert is shown in the lower table.
+![latency success]({{base_path}}/assets/img/observe/alerts/latency-success.png)
 - This will take you to **Latency Alert Configuration** section by default.
 
   ![latency alert config]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
