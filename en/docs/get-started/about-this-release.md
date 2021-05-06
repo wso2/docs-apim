@@ -552,9 +552,29 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
-- Support to capture multiple operations from a single CDC source
-- RegEx matching dynamic in copy function
-- SSE source functionality
+- **Async API View**
+    
+	 This release introduces a new 'Async API' view in addition to the existing 'Source/Design' views and 'Wizard' view. 
+	 
+	 Using the Async API View, you can generate an [Async API](https://www.asyncapi.com/) specification for a given Siddhi app. 
+	 
+	 The following sinks/sources can be exposed as an Async API : [websocket-server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [websocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [sse-server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [websubhub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
+     
+      See the [example use case](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
+
+- **Tooling support for webhubsub Source and webhubsub Sink**
+    
+	 Tooling support is added for the newly introduced [webhubsub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [webhubsub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
+
+- **Tooling support for SSE Source and SSE-server Sink**
+
+	 Tooling support is added for the newly introduced [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source) and [SSE-server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink). For details, see the **Streaming Integrator - New Features** section above.
+	 
+- **Siddhi Error Replay for 'Store' type errors**
+
+	 This release enables **error replay** for database connection errors. Errors that occur during ADD, DELETE, UPDATE, ADDORUPDATE operations can be replayed from the Error Store explorer. 
+	 
+	 See the tutorial on [handling store-type errors](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-tutorials/handling-requests-with-errors/#step-7-handle-events-that-fail-at-database-level).
 
 <hr style="border:8px solid gray"> </hr>
 
