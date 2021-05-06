@@ -440,7 +440,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved Store RDBMS support**
     
-	 Store RDBMS can be used to connect with any rdbms type. With the new versions it has the support to add null values to RDBMS tables and improved metrics support. For more information , see [Store RDBMS](https://github.com/siddhi-io/siddhi-store-rdbms).
+	 Store RDBMS can be used to connect with any RDBMS type. With the new versions, it supports adding null values to RDBMS tables and includes improved metrics support. For more information, see [Store RDBMS](https://github.com/siddhi-io/siddhi-store-rdbms).
 	 
 - **Kafka and HTTP metrics monitoring**
     
