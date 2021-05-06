@@ -436,7 +436,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved IO File Sink and Source**
     
-	 IO File sink / source can be used to read or write into a file. With the new versions it has the support for EOF in other modes, support for file trailers, file writing mechanisms and SFTP support. For more information , see [IO-File](https://siddhi-io.github.io/siddhi-io-file/api/2.0.16/).
+	 IO File sink/source is used to read or write into a file. With the new improvements, the Streaming Integrator supports EOF in other modes, file trailers, file-writing mechanisms, and SFTP. For more information, see [IO-File](https://siddhi-io.github.io/siddhi-io-file/api/2.0.16/).
 	 
 - **Improved Store RDBMS support**
     
