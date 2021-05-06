@@ -131,7 +131,45 @@ The following topics explain how to create, modify, and remove traffic alerts.
     create, modify and remove traffic alerts.
    
  #### Create Traffic Alert
- - Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To create a new Traffic alert:
+
+1.	Click User Profile on the upper-right corner and select Settings.
+2.	Go to the **Traffic** tab.  
+
+	This takes you to the **Traffic Alert Configuration** section. The first part of the UI shows the alert-creation controls and the latter half shows the existing alerts and the modify/remove controls.
+
+		 ![traffic alert config]({{base_path}}/assets/img/observe/alerts/traffic-alert-config-full.png)
+
+3.	Verify that you are in the correct [organization]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations) and select the desired [environment]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-introduction). 
+
+4.	Select the API for which you want to create the alert by typing the API name in the API Name field.
+
+	!!! Info
+		- As you type, the APIs that match the text you enter are listed. You can select the desired API from there.
+		- Note that only the APIs you have invoked at least once are populated here. For other APIs, you need to give the API name in the desired format as instructed in the UI.
+
+		 ![api name dropdown]({{base_path}}/assets/img/observe/alerts/api-name-dropdown.png)
+
+5.	Go to the next column and select the desired metric against which you want to evaluate the alert rule.
+
+	!!! Info
+	    The dropdown shows all available options. If there are multiple options, you can select the desired metric. If there is only one
+option to select, the dropdown is disabled.
+	
+		 ![traffic metric type]({{base_path}}/assets/img/observe/alerts/traffic-metric-type.png)
+
+6.	Specify the threshold in requests per minute.
+
+	!!! Info
+	     When the per-minute request count for the given API exceeds the given threshold, the alerts are triggered.
+
+		 ![traffic threshold]({{base_path}}/assets/img/observe/alerts/traffic-threshold.png)
+
+7.	Click Add once all the required alert configurations are specified.
+
+When added successfully the alert is shown in the lower table.
+		
+ ![traffic success]({{base_path}}/assets/img/observe/alerts/traffic-success.png)
  - Once settings page is loaded, click on the **Traffic** tab. This will take you to **Traffic Alert Configuration**
   section.
  
