@@ -412,11 +412,11 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **WebSub Sink / Source support over http**
     
-	 Implementation is based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
+	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
 
 - **Improved MongoDB Store**
     
-	 Several improvements are done like allow encryption protocol to be configurable, Object_ID support when joining and other bug fixes. For more information , see [Mongo DB Store](https://siddhi-io.github.io/siddhi-store-mongodb/api/2.1.2/#mongodb-store).
+	 Several improvements are done like allow encryption protocol to be configurable, Object_ID support when searching specific values in the store and other bug fixes. For more information , see [Mongo DB Store](https://siddhi-io.github.io/siddhi-store-mongodb/api/2.1.2/#mongodb-store).
 	 
 - **Improved IO CDC Source**
     
@@ -424,7 +424,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Synchronous publishing support for IO Kafka**
     
-	 IO Kafka allows seamless connection with kafka broker and retrieves the events into the streaming integrator. Release includes synchronous publishing in a more controlled manner and other bug fixes. For more information , see [IO-Kafka](https://github.com/siddhi-io/siddhi-io-kafka).
+	 IO Kafka allows seamless connection with kafka broker and retrieves the events into the streaming integrator. Release includes synchronous publishing which allows more controlled event publishing and other bug fixes. For more information , see [IO-Kafka](https://github.com/siddhi-io/siddhi-io-kafka).
 	 
 - **Improved JSON Mapper to support null values**
     
