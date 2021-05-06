@@ -123,7 +123,9 @@ Your alert configuration is now removed.
  bin icon under **Action** column. Your alert configuration will be removed.
  
  ### Traffic Alert 
- Traffic alerts allows users to configure alerts if request count of their APIs are greater than a predefined
+Configure Traffic alerts to identify if the request count of APIs is greater than a predefined threshold. This is useful when you have APIs that are using backends with traffic limits or monetized backends that require your system to proactively scale depending on the incoming traffic. 
+
+The following topics explain how to create, modify, and remove traffic alerts.
   threshold. This is useful when you have APIs which are using traffic limited backends or monetized backends
    where you need to proactively scale depending on your incoming traffic. Following sections will discuss how to
     create, modify and remove traffic alerts.
