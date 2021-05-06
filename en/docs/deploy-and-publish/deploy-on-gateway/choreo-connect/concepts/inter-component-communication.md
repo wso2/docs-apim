@@ -2,7 +2,7 @@
 
 Communication between internal components of Choreo Connect (adapter, enforcer, router and apim control plane) are secured via mutual ssl.
 
-Each component has it's private key and truststore and it's configured in against each component tag `config.toml` file as below.
+Each component has it's private-public key pair and truststore. In adapter's case, it's configured using the `config.toml` file as below.
 
 ```toml
     [adapter.keystore] 
