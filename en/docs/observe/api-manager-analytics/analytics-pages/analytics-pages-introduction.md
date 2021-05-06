@@ -1,5 +1,5 @@
 # Analytics Pages Introduction
-The new cloud analytics portal consists of several pages where pages are divided based on different functional aspects.
+The new cloud analytics portal consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
  (e.g., traffic, latency). Using these pages you can get the complete business analytics on your API management
   system. This page will serve as the entry point on how to use the cloud analytics portal and educate you on how to
    get maximum use out of it. 
