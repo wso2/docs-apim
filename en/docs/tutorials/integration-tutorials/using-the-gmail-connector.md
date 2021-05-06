@@ -10,7 +10,7 @@ When you integrate the systems in your organizaion, it is also necessary to inte
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 ### Step 2: Develop the integration artifacts
 

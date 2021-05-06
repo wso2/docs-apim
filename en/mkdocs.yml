@@ -1246,7 +1246,7 @@ nav:
             - Installing the Micro Integrator (MI):
                 - Installing the MI: install-and-setup/install/installing-the-product/installing-mi.md
                 - Running the MI Runtime: install-and-setup/install/installing-the-product/running-the-mi.md
-                - Running the MI as a Windows Service: install-and-setup/install/installing-the-product/install-mi-as-windows-service.md
+                - Running the MI as a Windows Service: install-and-setup/install/installing-the-product/installing-mi-as-a-windows-service.md
             - Installing the MI Dashboard:
                 - Installing the MI Dashboard: install-and-setup/install/installing-the-product/installing-mi-dashboard.md
                 - Running the MI Dashboard: install-and-setup/install/installing-the-product/running-the-mi-dashboard.md

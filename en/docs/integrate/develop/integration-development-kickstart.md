@@ -384,8 +384,8 @@ The embedded Micro Integrator starts with the deployed artifacts. You will see t
 
 **Before you begin**, be sure to install the Micro Integrator on your machine:
 
-1.  Go to the [website](https://wso2.com/integration/#) to download the Micro Integrator. 
-2.  Click **Download** and see that the installation options are listed. You can either download and run the **installer** or use the **binary** file. The home directory of your Micro Integrator installation will be referred to as `<MI_HOME>` from hereon.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+2.  Extract the ZIP file. This will be the `<MI_HOME>` folder.
 
 Once you have downloaded and set up the Micro Integrator locally, follow the steps given below.
 
@@ -394,34 +394,27 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 2.  **Deploy the Healthcare service**: Copy the exported CAR file of the Healthcare service to the `MI_HOME/repository/deployment/server/carbonapps` directory.
 
 3.  **Start the Micro Integrator**:
-    
-    If you set up the product using the **installer**, follow the steps relevant to your OS as shown below.
 
-    -   On **MacOS/Linux/CentOS**, open a terminal and execute the following command:
-        ```bash
-        sudo wso2mi
-        ```
-    -   On **Windows**, go to **Start Menu -> Programs -> WSO2 -> Micro Integrator**. This will open a terminal and start the Micro Integrator.
+    1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+    2.    Execute one of the commands given below.
 
-    If you set up the product using the **binary** distribution, open a terminal, navigate to the `<MI_HOME>/bin` directory, and execute the command relevant to your OS as shown below.
+          ```bash tab="On MacOS/Linux"
+          ./micro-intgrator.sh
+          ```
 
-    ```bash tab='On MacOS/Linux/CentOS'
-    sh micro-integrator.sh
-    ```
-
-    ```bash tab='On Windows'
-    micro-integrator.bat
-    ```
+          ```bash tab="On Windows"
+          micro-intgrator.bat
+          ```
 
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can start the <b>Dashboard</b> to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) to observe details of the deployed artifacts.
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.png" width="500">
 
-You will be directed to the log-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
+You will be directed to the sign-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png">
 
