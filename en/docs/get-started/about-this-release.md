@@ -406,7 +406,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
     
 	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
 
-- **SSE Sink / Source support over http**
+- **SSE Sink / Source support over HTTP**
     
 	 SSE is an HTTP-based protocol that allows one-way communication similar to WebHooks, from the server to the client. For more information , see [SSE Server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) , [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source).
 	 
