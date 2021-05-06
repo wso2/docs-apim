@@ -15,7 +15,7 @@ Total traffic widget displays the total traffic your selected environment receiv
 
 Latency widget displays the 95th percentile of all API latencies in your selected environment for the selected time
  period. You can use this widget to know whether the whole system operates under given SLAs. This metric
-  will give the first indication into whether there are any slow APIs. To investigate further please visit 
+ gives the first indication of slow APIs. To investigate further, see the 
   [latency page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-latency).
   
 ## Error Rate Widget
