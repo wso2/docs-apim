@@ -416,7 +416,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **Improved MongoDB Store**
     
-	 Several improvements are done like allow encryption protocol to be configurable, Object_ID support when searching specific values in the store and other bug fixes. For more information , see [Mongo DB Store](https://siddhi-io.github.io/siddhi-store-mongodb/api/2.1.2/#mongodb-store).
+	 Several improvements are done, such as making the encryption protocol configurable, Object_ID support when searching specific values in the store, and other bug fixes. For more information, see [Mongo DB Store](https://siddhi-io.github.io/siddhi-store-mongodb/api/2.1.2/#mongodb-store).
 	 
 - **Improved IO CDC Source**
     
