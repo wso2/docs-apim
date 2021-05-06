@@ -22,7 +22,7 @@ Latency widget displays the 95th percentile of all API latencies in your selecte
 ![overview page latency]({{base_path}}/assets/img/observe/overview/overview-page-error-rate.png)
 
 This widget displays the average error rate (error count/total request count) in your selected environment for
- the selected time period. You can utilize this widget as an indicator to know the health of the system. If error
+ the selected time period. You can use this widget as an indicator to know the health of the system. If the error
   rate is high you will need to investigate more via 
   [error page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-erros).
   
