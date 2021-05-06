@@ -31,7 +31,7 @@ In Choreo Connect, version 3.0.x series the open API definition required 2 manda
 1. x-wso2-basePath
 2. x-wso2-production-endpoints
 
-The `x-wso2-basePath` is used to group the all http resources of the open API under a single context so, it will be exposed as a sub resources of a singel API using Choreo Connect. This is how Choreo Connect logically separate one API from the other. The `x-wso2-production-endpoints` refers to the actual backend service implementation of the API. So these two details were mandatory to expose an API using Choreo Connect.
+The `x-wso2-basePath` is used to group the all http resources of the open API under a single context so, it will be exposed as a sub resources of a single API using Choreo Connect. This is how Choreo Connect logically separates one API from the other. The `x-wso2-production-endpoints` refers to the actual backend service implementation of the API. So these two details were mandatory to expose an API using Choreo Connect.
 
 **But with 3.1.0 onwards none of the wso2 specific open API extensions are mandatory.** Choreo Connect resolves base path and back end url as below
 
