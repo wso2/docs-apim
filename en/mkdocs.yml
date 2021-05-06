@@ -731,6 +731,7 @@ nav:
                         - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
                         - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
                     - Working with Organizations: observe/api-manager-analytics/configure-analytics/working-with-organizations.md
+                    - Working with Alerts: observe/api-manager-analytics/configure-analytics/configure-alerts.md
                 - Viewing APIM analytics:
                     - Pages:
                         - Introduction: observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md
