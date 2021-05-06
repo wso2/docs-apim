@@ -19,7 +19,7 @@ There are two main components related to internal gRPC requests for sending `Str
 #### gRPC Access Logger
 
 gRPC Access Logger in the router will be activated only if we enable analytics and which is triggered after the backend response came back to the `router` (after step 5 in above diagram). 
-This will send `StreamAccessLogsMessage` to the `enforcer` with `dynamic_metadata` for collecting Analytics data at the `enforcer`.
+This will send `StreamAccessLogsMessage` to the `enforcer` with several access log entries corresponding to each request, for collecting Analytics data at the `enforcer`.
 
 #### gRPC Event Listener
 
@@ -27,4 +27,4 @@ gRPC Event Listener in the `enforcer` will be activated only if we enable analyt
 This will process the `StreamAccessLogsMessage` and publish analytics using the `ChoreoAnalyticsPublisher` client.
 
 !!! note
-    In case of a request failure (i.e. authentication failure at `enforcer`) it will publish the events after the failure at `enforcer` (after step 2) and the `StreamAccessLogsMessage` will be ignored in such a case.
+    In case of a request failure at the enforcer level (i.e. authentication failure at `enforcer`) it will publish the events after the failure at `enforcer` (after step 2) and the `HTTPAccessLogEntry` corresponding to that specific request will be ignored as it is already published.
