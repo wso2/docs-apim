@@ -32,7 +32,7 @@ For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com
     !!! tip
         Before you discard the old API Manager instance,
         
-        Take a backup of `<API-M_HOME>/repository/database/WSO2CARBON_DB.h2.db` and replace it to the API Manager binary pack in the `<API-M_HOME>/repository/database` directory that is updated with the WSO2 Updates.
+        Take a backup of `<API-M_HOME>/repository/database/WSO2CARBON_DB.h2.db` and replace it to the API Manager binary pack in the `<API-M_HOME>/repository/database` directory that is updated.
         
         If you are using the existing local H2 database for WSO2MetricsDB as well,
         
