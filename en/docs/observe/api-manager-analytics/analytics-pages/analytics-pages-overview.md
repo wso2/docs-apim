@@ -4,7 +4,6 @@ This is the welcome page of the analytics portal. This page will mainly display 
  management system. Targeted audience for the page are managers and business users who need quick insight. Also this
   page can be used as a dashboard displaying current system status.
  
-## Page Walk Through
 ### Total Traffic Widget
 ![overview page total traffic]({{base_path}}/assets/img/observe/overview/overview-page-total-traffic.png)
 
