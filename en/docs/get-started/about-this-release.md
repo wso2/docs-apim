@@ -568,7 +568,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **Tooling support for SSE Source and SSE-server Sink**
 
-	 Tooling support has been added for the newly introduced [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source) and [SSE-server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) . For feature description, refer to the Streaming Integrator new features section above.
+	 Tooling support is added for the newly introduced [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source) and [SSE-server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink). For details, see the **Streaming Integrator - New Features** section above.
 	 
 - **Siddhi Error Replay for 'Store' type errors**
 
