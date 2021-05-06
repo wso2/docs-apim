@@ -3,7 +3,6 @@ The new cloud analytics portal consists of several pages, which are divided base
 You can use these pages to get the complete business analytics on your API management system. 
 
 See the topics given below to get an overview of the main capabilities of **Analytics Pages**.
-  system. This page will serve as the entry point on how to use the cloud analytics portal and educate you on how to
    get maximum use out of it. 
    
 We will start off with introducing you to common controls which will govern the pages. Also we will provide an index
