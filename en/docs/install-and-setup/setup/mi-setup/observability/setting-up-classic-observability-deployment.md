@@ -55,7 +55,7 @@ You will be running three servers (EI Analytics server, EI Analytics portal, and
     !!! Info
         The location of your Analytics installation will be referred to as `<EI_ANALYTICS_HOME>`.
 
--   Download and [install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+-   Download and [install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
 ## Configuring the Micro Integrator
     

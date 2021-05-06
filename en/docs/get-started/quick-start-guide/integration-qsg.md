@@ -165,7 +165,7 @@ java -jar DoctorInfo-JDK11.jar
 Copy the CAR file of the healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
 !!! Note
-    If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#accessing-the-home-directory) is specific to your OS.
+    If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#accessing-the-home-directory) is specific to your OS.
 
 #### Start the Micro Integrator
 
@@ -193,8 +193,8 @@ micro-integrator.bat
 
 If you want to view the integrations artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-- Running the [MI dashboard using the installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/#running-the-mi-dashboard)
-- Running the [MI dashboard using the binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary/#running-the-mi-dashboard)
+- Running the [MI dashboard using the installer]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#running-the-mi-dashboard)
+- Running the [MI dashboard using the binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#running-the-mi-dashboard)
 
 #### Invoke the healthcare service
 

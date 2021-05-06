@@ -5,7 +5,7 @@ WSO2 API Controller, **apictl** allows you to monitor the Synapse artifacts (dep
 !!! info
     **Before you begin** 
 
-    -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
+    -  Ensure that WSO2 Micro Integrator is started, if not follow the steps in [Installing via the Installer]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
 
     -  Make sure the apictl is downloaded and initialized, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 

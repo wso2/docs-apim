@@ -67,7 +67,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 ### Key changes
 
-- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. For instructions, see [Running the Product]({{base_path}}/install-and-setup/install/running-the-product/).
+- The name of the startup script has changed from `wso2server.sh` (Linux/Mac OS) and `wso2server.bat` (Windows) to `api-manager.sh` and `api-manager.bat` respectively. For instructions, see [Running the Product]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
 - The endpoints mentioned below previously worked through the Gateway. In API-M 4.0.0, WSO2 has moved them separately as follows:   
     
@@ -129,6 +129,11 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 - **[Generating service catalog entry (open API definition)]({{base_path}}/integrate/develop/working-with-service-catalog/)**
     
 	WSO2 API Manager includes a Service Catalog where developers can register their services in a RESTful manner. Integration services can be created when deploying your project as a C-App. These integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+
+- **[Data Service Call Mediator]({{base_path}}/reference/mediators/dss-mediator/)**
+
+    Data Service Call mediator allows you to invoke data service operations from a mediation sequence without introducing an HTTP call (using the Call or Send mediators) 
+    to access the data service.  This improves the server performance because the data service is accessed directly without going through the HTTP transport.
 
 ### Compare this release with the Micro Integrator of WSO2 EI 7.x
 
@@ -415,14 +420,14 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 - [API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/)
 - [Merge Micro Integrator (MI) CLI commands with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl/)
 - Support import/export revisioning of APIs and API Products
-- [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl/)
+- [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl)
 - Resolve parameters at server-side while importing an API/API Product project
-- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product/)
+- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
-- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api/)
-- [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode/)
-- [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import/)
-- [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory/)
+- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
+- [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode)
+- [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
+- [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
 - Support endpoint security separately for Production and Sandbox endpoints via params file
 - VCS support for both the deployment and source repositories
 - Support for import/export of Streaming APIs
@@ -495,34 +500,47 @@ It is now available to download from [here](https://wso2.com/api-management/tool
         </tr>
     </table>
 
-- **[API Controller as a developer CLI tool for Choreo Connect]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/)**
-    
-	This includes the following features and improvements:
-
-    - Merge Micro Integrator CLI commands with APICTL
-    - Support import/export revisioning of APIs
-    - Adding proxy environment variables support for APICTL
-    - Alias for APICTL commands
-    - Resolve parameters at server-side while importing an API project
-    - Defining schemas for API Controller API/API Product project artifacts (A part of migrating data via apictl)
-    - Defining schemas for API Controller Application project artifacts (A part of migrating data via apictl)
-    - Support to override subscription policies of an API using the params file
-    - Support TLS renegotiation configuration
-    - Support APICTL bundle command (archives an API Project) 
-    - Cross tenant subscriptions feature is brought back
-
 <hr style="border:8px solid gray"> </hr>
 
 ## **WSO2 Integration Studio**
 
 WSO2 Integration Studio is an open-source development environment used to design and develop integration scenarios for WSO2 Micro Integrator.
 
-It is now available to download from [here](https://wso2.com/integration/integration-studio/)).
+It is now available to download from [here](https://wso2.com/integration/integration-studio/).
 
 ### New features
 
-- Cassandra data source support for DSS
-- Registry Resource Properties support
+- PayloadFactory mediator supports FreeMarker templates
+- Enrich mediator improvements
+- OAuth feature for HTTP endpoints
+- Dynamic endpoint support for mock services in synapse unit testing
+- Call mediator improvements
+- Parent maven details included in the children POM by default
+- Kubernetes exporter project is enhanced to support a pure Kubernetes deployment
+- Apply software updates to the embedded Micro Integrator runtime
+- OpenAPI specification 3.0 support
+- Publish integrations to the API-M runtime during deployment
+- Cassandra datasource support for data services
+- Adding Registry Resource Properties
+
+### Key changes
+
+- The folder structure of the ESB Configs modules is changed to include the Swagger-related metadata in the `/resources` directory.
+- WSO2 Integration Studio now supports OpenAPI specification 3.0 by default.
+- Use a new workspace for WSO2 Integration Studio 8.0.0 and import any existing projects (created using older Integration Studio versions) into this new workspace.
+  
+
+<hr style="border:8px solid gray"> </hr>
+
+## **Micro Integrator Dashboard**
+
+The Micro Integrator dashboard can connect to multiple Micro Integrator server instances and monitor artifacts and logs from a selected cluster or group of server nodes.
+
+It is now available to download from [here](https://github.com/wso2/micro-integrator/releases/).
+
+### New features
+
+- Revamped dashboard, which can monitor multiple Micro Integrator instances grouped together
 
 <hr style="border:8px solid gray"> </hr>
 
@@ -542,15 +560,18 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ## **Kubernetes API Operator**
 
-The API operator for Kubernetes makes managed APIs for microservices and integrations in the Kubernetes ecosystem. The Micro Integrator Kubernetes Operator is merged with the API Operator of API Manager 4.0.0.
+Microservices are increasingly being deployed on Kubernetes. As a result, it is important to expose these microservices as well documented, easy to consume, managed APIs so that they can be used to develop great applications. The API operator for Kubernetes makes APIs a first-class citizen in the Kubernetes ecosystem. Similar to deploying microservices, you can now use this operator to deploy APIs for individual microservices or compose several microservices into individual APIs. With this, users can expose their microservice as managed APIs in the Kubernetes environment without any additional work.
 
-It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/). K8s API Operator M3 is compatible with API Manager M4.
+The API operator for Kubernetes provides first-class support for Micro Integrator deployments in the Kubernetes ecosystem. It uses the Integration custom resource (`integration_cr.yaml` file) that is available in the Kubernetes project (exported from WSO2 Integration Studio) and deploys the integration in your Kubernetes environment.
+
+It is now available to download from [here](https://github.com/wso2/k8s-api-operator/releases/).
+K8s API Operator v2.0.0 is compatible with API Manager v4.0.0.
 
 ### New features
 
-- Added new Micro Integrator Kubernetes operations
-- Support to deploy APIs to Choreo Connect
+- Deploy APIs to Choreo Connect (API Microgateway)
 - Deploy APIs to API Manager
+- Deploy Integrations with Micro Integrator
 
 <hr style="border:8px solid gray"> </hr>
 
@@ -564,13 +585,13 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **API Manager**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/milestone/94?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-apim/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20+label%3A%22API-M+4.0.0%22).
 
-- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A%22API-M+4.0.0%22).
+- Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/product-apim/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20+label%3A%22API-M+4.0.0%22).
 
 **Micro Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/milestone/24?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+closed%3A2020-07-20..2021-04-20).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/micro-integrator/issues).
 
@@ -588,9 +609,15 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **Integration Studio**
 
-- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/milestone/10?closed=1).
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this milestone release](https://github.com/wso2/integration-studio/issues?q=is%3Aissue+closed%3A2020-12-23..2021-04-16).
 
 - Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/integration-studio/issues).
+
+**Micro Integrator Dashboard**
+
+- Fixed Issues - See [details of all the changes including new features, improvements, and bug fixes in this release](https://github.com/wso2/micro-integrator/issues?page=1&q=label%3AMonitoring-Dashboard+is%3Aclosed+label%3A4.0.0).
+
+- Known Issues - All the open issues pertaining to WSO2 Integration Studio are reported [here](https://github.com/wso2/micro-integrator/issues).
 
 **Streaming Integrator Tooling**
 

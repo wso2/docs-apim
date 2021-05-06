@@ -1,4 +1,4 @@
-# Installing as a Windows Service
+# Running Streaming Integrator as a Windows Service
 
 !!! note
     **Before you begin:**

@@ -1,7 +1,6 @@
 # Developing Your First Integration Solution
 
-Integration developers need efficient tools to build and test all the integration use cases required by the enterprise before pushing them into a production environment. 
-The following topics will guide you through the process of building and running an example 
+Integration developers need efficient tools to build and test all the integration use cases required by the enterprise before pushing them into a production environment. The following topics will guide you through the process of building and running an example 
 integration use case using WSO2 Integration Studio. 
 This tool contains an embedded WSO2 Micro Integrator instance as well as other capabilities 
 that allows you to conveniently design, develop, and test your integration artifacts before 
@@ -27,7 +26,7 @@ Both the Grand Oak service and Pine Valley service are exposed over the HTTP pro
   http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
   ```
 
-- The Pine Vallery service accepts POST requests in the following service endpoint url:
+- The Pine Vallery service accepts POST requests in the following service endpoint URL:
   ```bash
   http://<HOST_NAME>:<PORT>/pineValley/doctors
   ```
@@ -55,7 +54,7 @@ Let's create an integration project with the required modules (to store artifact
 1.  Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
     <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
 
-3.  In the **New Integration Project** dialog box that opens, enter `Healthcare` for your integration project. This is a <b>maven multi module</b> project.
+3.  In the **New Integration Project** dialog box that opens, enter `Healthcare` as the project name. This is a <b>maven multi module</b> project.
 
     Be sure to leave the <b>Create ESB Configs</b> and <b>Create Composite Exporter</b> check boxes selected as shown below.
 
@@ -65,7 +64,7 @@ Let's create an integration project with the required modules (to store artifact
 
   The integration project with the ESB Config module (`HealthcareConfigs`) and Composite Exporter module (`HealthcareCompositeExporter`) are created as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png" width="300">
+  <a href="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png"><img src="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png" alt="project folder" width="300"></a>
 
 ### Create Endpoints
 
@@ -311,9 +310,9 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
 
 6. Send a response back to the client :
 
-    To send the response back to the client, we can use the **Respond** mediator. Remove the <b>Drop</b> mediator (which comes with the Aggregate mediator by default) and add the Respond mediator as shown below.
+    To send the response back to the client, we can use the **Respond** mediator. Add the Respond mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png">
     
 The final mediation configuration looks similar to the above diagram.     
 Following is what you will see in the **Source View** of WSO2 Integration Studio.
@@ -422,11 +421,11 @@ If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashb
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.png" width="500">
 
-You will be directed to the log-in screen of the Dashboard from your default browser as shown below. Log in using `admin` as the user name and password.
+You will be directed to the log-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png">
 
-Once you are logged in, click the required artifact type to view details.
+Once you sign in, click the required artifact type to view details.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/22-dev-get-started-dashboard-artifact-view.png">
 
@@ -523,6 +522,5 @@ There are two ways to invoke the service:
 
 ## What's Next?
 
-- [Running the Micro Integrator on Containers](../../setup/installation/run_in_containers).
+- [Publish Integrations to the API Manager]({{base_path}}/integrate/develop/working-with-service-catalog).
 - [Writing a unit test for integration artifacts]({{base_path}}/integrate/develop/creating-unit-test-suite).
-- [Developing Your First Siddhi Application](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/quick-start-guide/getting-started/getting-started-guide-overview/).
