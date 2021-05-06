@@ -98,7 +98,11 @@ This page displays information about OS platforms and HTTP Agents end users are 
   
 ### Alerts Page
 
-This page illustrates information related to business alerts issued by the system for your currently selected
+This page shows the information related to business alerts issued by the system for your currently selected
+environment and organization. You can use this page as a health monitoring dashboard and make it visible to
+the whole team. You can use this page to drill down on each alert and discover possible anomalies or errors in your published APIs.
+
+For more information, see [Alerts Page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts)
  environment and organization. You can use this page as a health monitoring dashboard and make it visible to whole
   team. Using this page you can drilldown on each alert and discover possible anomalies or errors in your published
    APIs. For more information please refer 
