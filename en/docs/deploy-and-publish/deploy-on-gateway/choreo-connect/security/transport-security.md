@@ -85,7 +85,7 @@ The above section explains how a certificate can be added to the Choreo Connect 
 #### via API CTL
 
 1. Create a new API Project by following the [Importing APIs via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/)
-2. Copy the backend certificate to `<API_PROJECT_HOME>/Endpoint-certificates` directory
+2. Copy the backend certificate to `<API_PROJECT_HOME>/Endpoint-certificates` directory in PEM format.
 3. Genrate the Deployment directory for the API project following [Generating the Deployment Directory]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
 4. Following [Defining the params file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api), edit the params.yaml file in the generated deployment directory.
 5. Bundle the generated Deployment directory with the project, [Bundling the generated directory before Import]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
