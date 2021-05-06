@@ -95,7 +95,17 @@ When added successfully the alert is shown in the lower table.
 /remove icon.
 
 #### Remove Latency Alerts
-- Click on 'User Profile' icon on the top right-hand corner and select **Settings**.
+To remove an existing latency alert:
+
+1.	Click **User Profile** on the upper-right corner and select **Settings**.
+
+	This takes you to the **Latency Alert Configuration** section by default. The latter table shows the already configured alerts. 
+
+	![latency alert config]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
+
+2.	Select the alert you want to remove from the table and click the **bin** option under **Action**. 
+
+Your alert configuration is now removed.
 - This will take you to **Latency Alert Configuration** section by default.
   
   ![latency alert config]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
