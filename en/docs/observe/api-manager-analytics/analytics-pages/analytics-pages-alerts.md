@@ -1,5 +1,5 @@
 # Alerts Page
-This page illustrates information related to business alerts issued by the APIM analytics for your currently selected
+This page shows information related to business alerts issued by APIM analytics for your currently selected
  environment and organization. You can use this page as a health monitoring dashboard and make it visible to your project 
   team. Using this page you can drilldown on each alert and discover possible anomalies or errors in your published
    APIs. See the topics given below to get details of the available widgets and understand how to use them to best effect.
