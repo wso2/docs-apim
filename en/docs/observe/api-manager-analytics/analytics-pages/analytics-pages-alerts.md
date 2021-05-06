@@ -6,7 +6,10 @@ This page illustrates information related to business alerts issued by the syste
     effect.
     
 ## Prerequisites
-By default, API analytics doesn't have any alerts enabled. Hence for you to use this page you should configure alerts
+To use this page, be sure to configure alerts and have API invocations that trigger alerts. 
+
+!!! Tip
+     By default, alerts are not enabled for API analytics. 
  and then should have API invocations which will trigger alerts.
  
 ## Page Walk Through
