@@ -10,7 +10,6 @@ Let's start with the common controls that govern Analytics pages. See the relate
 These are the common controls that enable you to govern the data shown in Analytics pages. Each page uses these common controls and page-specific controls to visualize the information requested by the user. 
 
 Explained below are these common controls and their usage.
- common controls and page specific controls to visualize the information requested by the user. Following sections
   will in detail explain each of these common controls and their usage.
 ### Time Picker
 ![APIM Analytics TIme Picker]({{base_path}}/assets/img/observe/time-picker.png)
