@@ -2,7 +2,7 @@
 ![overview page full]({{base_path}}/assets/img/observe/overview/overview-page-full.png)
 This is the welcome page of the analytics portal. This page gives you a quick overview of the whole
  management system. Targeted audience for the page are managers and business users who need quick insight. Also, this
-  page can be used as a dashboard displaying current system status.
+  page can be used as a dashboard to view the current system status.
  
 ### Total Traffic Widget
 ![overview page total traffic]({{base_path}}/assets/img/observe/overview/overview-page-total-traffic.png)
