@@ -402,7 +402,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 ### New features
 
-- **[Deploy AsyncAPI definitions to the WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
+- **[Deploy AsyncAPI definitions to WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
     
 	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
 
