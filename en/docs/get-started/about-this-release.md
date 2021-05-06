@@ -564,7 +564,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **Tooling support for webhubsub Source and webhubsub Sink**
     
-	 Tooling support has been added for the newly introduced [webhubsub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [webhubsub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For feature description, refer to the Streaming Integrator new features section above.
+	 Tooling support is added for the newly introduced [webhubsub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [webhubsub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
 
 - **Tooling support for SSE Source and SSE-server Sink**
 
