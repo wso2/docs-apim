@@ -428,7 +428,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved JSON Mapper to support null values**
     
-	 JSON mapper provides capability to retrieve or publish events in JSON format. For more information , see [Map-JSON](https://github.com/siddhi-io/siddhi-map-json).
+	 JSON mapper provides capability to retrieve or publish events in JSON format. Release contains improvement where when null values arrives into the system they are treated as null values if needed. For more information , see [Map-JSON](https://github.com/siddhi-io/siddhi-map-json).
 	 
 - **Improved KeyValue Mapper to support force casting**
     
