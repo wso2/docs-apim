@@ -560,7 +560,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 	 The following sinks/sources can be exposed as an Async API : [websocket-server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [websocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [sse-server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [websubhub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
      
-     Refer example use case [here](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
+      See the [example use case](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
 
 - **Tooling support for webhubsub Source and webhubsub Sink**
     
