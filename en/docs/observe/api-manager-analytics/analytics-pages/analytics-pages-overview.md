@@ -14,7 +14,7 @@ Total traffic widget displays the total traffic your selected environment receiv
 ![overview page latency]({{base_path}}/assets/img/observe/overview/overview-page-latency.png)
 
 Latency widget displays the 95th percentile of all API latencies in your selected environment for the selected time
- period. You can utilize this widget to know whether the whole system operates under given SLAs. This metric
+ period. You can use this widget to know whether the whole system operates under given SLAs. This metric
   will give the first indication into whether there are any slow APIs. To investigate further please visit 
   [latency page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-latency).
   
