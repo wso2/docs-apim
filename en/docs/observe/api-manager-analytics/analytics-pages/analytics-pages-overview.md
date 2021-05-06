@@ -30,6 +30,6 @@ This widget displays the average error rate (error count/total request count) in
 ![overview page latency]({{base_path}}/assets/img/observe/overview/overview-page-timeline.png)
 
 This chart combines the above three widgets and plots them in a timeline. The y-axis on the left shows the 'request count' and 'error
- count. x-axis displays time and right y-axis shows latency in milliseconds. Granularity of the data points will be
+ count. The x-axis displays time and right y-axis on the right shows latency in milliseconds. Granularity of the data points are
   decided based on the time range you have selected. Tooltip will provide the exact value of all three metrics
    accurately. 
