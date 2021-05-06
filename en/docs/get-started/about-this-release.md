@@ -410,7 +410,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
     
 	 SSE is an HTTP-based protocol that allows one-way communication (similar to WebHooks) from the server to the client. For more information, see [SSE Server Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink) and [SSE Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-source).
 	 
-- **WebSub Sink / Source support over http**
+- **WebSub Sink / Source support over HTTP**
     
 	 Implementation is based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
 
