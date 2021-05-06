@@ -5,7 +5,6 @@ You can use these pages to get the complete business analytics on your API manag
 See the topics given below to get an overview of the main capabilities of **Analytics Pages**.
    
 Let's start with the common controls that govern Analytics pages. See the related links in each topic given below for more details.
- to all pages that are present in the solution so that you can refer those pages in detail.   
  
 ## Common Controls
  These are the set of common controls that enable you to govern the data shown in pages. Each page will refer these
