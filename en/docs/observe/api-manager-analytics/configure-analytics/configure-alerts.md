@@ -1,18 +1,13 @@
 # Working with Alerts
 ![alert config page]({{base_path}}/assets/img/observe/alerts/alert-config-full.png)
 
-One of the most useful features in APIM cloud analytics is the **Alerting support**. New analytics solution allows
- your configure several types of alert and then receive alerts based on the configurations, either within
-  the portal or as emails. These alerts allow you to proactively monitor your API ecosystem and take corrective
-   meassures for any abnormalities you find. 
-   
-Users can configure alerts for each environment they have separately withing their organizations. Alert
- configurations will always be per API basis. Users can also modify/remove already added alerting configurations. 
- 
-Alert issuance is subjected to a suppression policy so that users will not be overwhelmed with duplicate alert
- notifications. For each alert rule that you configure, there will be a 10 minute suppression window applied by
-  default. Suppression interval is currently not configurable. Also, please note that suppression will work on a per
-   alert rule basis. As the document progresses we will talk about different alert types and how to configure them.
+One of the most useful features in APIM cloud analytics is Alerting. You can configure several types of alerts and receive alerts either within the portal or as emails. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
+
+You can configure alerts for each environment within your organization separately. Alerts are configured per API and you can also modify/remove already-added alert configurations.
+
+Alerts are subjected to a suppression policy to ensure you are not overwhelmed with duplicate alert notifications. For each alert rule that you configure, there is a 10-minute suppression window applied by default. The suppression interval is currently not configurable. Also, note that suppression works per the alert rule.
+
+As the document progresses we will talk about different alert types and how to configure them.
     
 ## Alert Types
 ### Latency Alert 
