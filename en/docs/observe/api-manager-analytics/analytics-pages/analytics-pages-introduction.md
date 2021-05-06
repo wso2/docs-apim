@@ -103,7 +103,6 @@ environment and organization. You can use this page as a health monitoring dashb
 the whole team. You can use this page to drill down on each alert and discover possible anomalies or errors in your published APIs.
 
 For more information, see [Alerts Page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts)
-  team. Using this page you can drilldown on each alert and discover possible anomalies or errors in your published
    APIs. For more information please refer 
   [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts) documentation.
   
