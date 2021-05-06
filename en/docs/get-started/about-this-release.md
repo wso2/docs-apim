@@ -420,7 +420,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved IO CDC Source**
     
-	 CDC can be used to capture insert /update/delete actions from databases. With the new improvements, you can handle all three actions using a single CDC configuration. For more information, see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
+	 CDC(Change Data Capture) can be used to capture insert /update/delete actions from databases. With the new improvements, you can handle all three actions using a single CDC configuration. For more information, see [CDC Source](https://siddhi-io.github.io/siddhi-io-cdc/api/2.0.10/).
 	 
 - **Synchronous publishing support for IO Kafka**
     
@@ -436,7 +436,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Improved IO File Sink and Source**
     
-	 IO File sink/source is used to read or write into a file. With the new improvements, the Streaming Integrator supports EOF in other modes, file trailers, file-writing mechanisms, and SFTP. For more information, see [IO-File](https://siddhi-io.github.io/siddhi-io-file/api/2.0.16/).
+	 IO File sink/source is used to read or write into a file. With the new improvements, the Streaming Integrator supports EOF(End Of File) in other modes, file trailers, file-writing mechanisms, and SFTP. For more information, see [IO-File](https://siddhi-io.github.io/siddhi-io-file/api/2.0.16/).
 	 
 - **Improved Store RDBMS support**
     
@@ -444,7 +444,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Kafka and HTTP metrics monitoring**
     
-	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC. The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
+	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC(Change Data Capture). The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
 	 
 
 <hr style="border:8px solid gray"> </hr>
