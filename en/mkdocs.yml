@@ -1627,6 +1627,22 @@ plugins:
               - wip/*
     - redirects:
           redirect_maps:
+              'install-and-setup/setup/deployment-patterns.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/deployment-overview/'
+              'learn/api-controller/getting-started-with-wso2-api-controller.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/'
+              'learn/api-controller/importing-apis-via-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/cicd-using-cli/'
+              'learn/api-controller/migrating-apis-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/'
+              'learn/api-controller/migrating-api-products-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/'
+              'learn/api-controller/migrating-applications-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments/'
+              'learn/api-controller/ci-cd-with-wso2-api-management.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/'
+              'learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/'
+              'learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/'
+              'learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/'
+              'learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/'
+              'learn/api-controller/advanced-topics/configuring-different-endpoint-types.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types/'
+              'learn/api-controller/advanced-topics/configuring-git-integration.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration/'
+              'learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+              'learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+              'learn/kubernetes-operators/k8s-wso2am-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
