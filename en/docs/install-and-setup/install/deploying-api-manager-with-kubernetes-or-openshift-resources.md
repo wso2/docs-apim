@@ -1,8 +1,7 @@
 # Deploying API-M on Kubernetes using Helm Resources
 
-!!! warning
-    Currently this page has instructions for deployment of WSO2 API Manager with WSO2 API Manager Analytics in Kubernetes.
-
+!!! Warning
+    **The contents on this page are currently under review**
 
 Follow the instructions below to use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M).
 
@@ -35,13 +34,13 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
     ``` java
         git clone https://github.com/wso2/kubernetes-apim.git
-        git checkout tags/v3.2.0.2
+        git checkout tags/v4.0.0.2
     ```
 
 2.  Provide the necessary configurations.
 
     !!! note
-        The default product configurations for deployment of WSO2 API Manager with WSO2 API Manager Analytics are available [here](https://github.com/wso2/kubernetes-apim/tree/v3.2.0.2/advanced/am-pattern-1/templates) folder. Change the configurations, as necessary.
+        The default product configurations for deployment of WSO2 API Manager with WSO2 API Manager Analytics are available [here](https://github.com/wso2/kubernetes-apim/tree/v4.0.0.2/advanced/am-pattern-1/templates) folder. Change the configurations, as necessary.
 
     Open the `<HELM_HOME>/am-pattern-1/values.yaml` and provide the following values for WSO2 Subscription Configurations.
     
