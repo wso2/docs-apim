@@ -1782,6 +1782,16 @@ plugins:
               'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
               'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
               'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+              'getting-started/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/overview/'
+              'getting-started/basic-architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/key-concepts/'
+              'getting-started/key-concepts.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/architecture/'
+              'getting-started/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/quick-start-guide/quick-start-guide/'
+              'getting-started/about-this-release.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/about-this-release/'
+              'get-started/quick-start-guide/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/api-manager-quick-start-guide/'
+              'get-started/quick-start-guide/integration-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/integration-quick-start-guide/'
+              'get-started/quick-start-guide/streaming-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/streaming-quick-start-guide'
+
+
 
     # Extra
 extra_css:
