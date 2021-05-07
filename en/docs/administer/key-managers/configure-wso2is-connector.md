@@ -23,7 +23,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     notification_endpoint = "https://localhost:9443/internal/data/v1/notify"
     username = "${admin.username}"
     password = "${admin.password}"
-    'header.X-WSO2-KEY-MANAGER' = "WSO2IS"
+    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
 
     [[resource.access_control]]
     context = "(.)/keymanager-operations/user-info/claims(.)"
