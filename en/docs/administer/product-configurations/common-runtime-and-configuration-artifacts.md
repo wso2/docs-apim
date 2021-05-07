@@ -36,8 +36,10 @@ The following are the artifacts used commonly in a WSO2 API Manager and API Mana
 
     The following artifacts can be shared among API Manager nodes
 
-    1. `<API-M_HOME>/repository/deployment/server`
-    2. `<API-M_HOME>/repository/tenants`
+    1. `<API-M_HOME>/repository/deployment/server/executionplans`
+    2. `<API-M_HOME>/repository/deployment/server/synapse-configs`
+    3. `<API-M_HOME>/repository/deployment/server/userstores` (Optional)
+    4. `<API-M_HOME>/repository/tenants`
 
 
 ### Persistent Configuration Artifacts

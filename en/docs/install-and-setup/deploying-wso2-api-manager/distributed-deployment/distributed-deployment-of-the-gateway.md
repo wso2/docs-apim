@@ -71,7 +71,7 @@ When using the shared file system, all nodes have the manager worker capability.
 
 
     4.  Mount the directory required for the shared file system.
-        Mount the `<API-M_HOME>/repository/deployment/server` directory of all the Gateway nodes to the shared file system to share all APIs between all the Gateway nodes.
+        Mount the `<API-M_HOME>/repository/deployment/server/synapse-configs` directory of all the Gateway nodes to the shared file system to share all APIs between all the Gateway nodes.
 
 ### Step 3 - Optionally, configure Hazelcast
 
