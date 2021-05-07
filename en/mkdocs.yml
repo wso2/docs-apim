@@ -1420,7 +1420,6 @@ nav:
             - Deploying on Kubernetes:
                 - API-M on K8s:
                     - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
                 - Micro Integrator on K8s:
                     - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
