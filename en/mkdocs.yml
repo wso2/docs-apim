@@ -1784,10 +1784,14 @@ plugins:
               'learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-mutual-ssl/'
               'learn/api-security/api-authentication/secure-apis-using-basic-authentication.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-basic-authentication/'
               'learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
-
-
-
-
+              'learn/api-security/authorization/api-authorization.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/authorization/api-authorization/'
+              'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
+              'learn/api-security/authorization/role-based-access-control-using-xacml.md': ''https://apim.docs.wso2.com/en/4.0.0/design/api-security/authorization/role-based-access-control-using-xacml/'
+              'learn/api-security/configuring-api-security-audit.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/configuring-api-security-audit/'
+              'learn/api-security/api-request-response-schema-validation/json-schema-validator.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-request-response-schema-validation/json-schema-validator/'
+              'learn/api-security/oauth2/access-token-types/jwt-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/access-token-types/jwt-tokens/'
+              'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
+              'learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/scope-whitelisting/'
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
