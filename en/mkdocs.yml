@@ -1420,7 +1420,6 @@ nav:
             - Deploying on Kubernetes:
                 - API-M on K8s:
                     - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
                 - Micro Integrator on K8s:
                     - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
@@ -1800,6 +1799,7 @@ plugins:
               'learn/api-security/oauth2/access-token-types/jwt-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/access-token-types/jwt-tokens/'
               'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
               'learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/scope-whitelisting/'
+<<<<<<< HEAD
               'learn/tutorials/create-and-publish-a-graphql-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-a-graphql-api/'
               'learn/tutorials/create-and-publish-awslambda-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-awslambda-api/'
               'learn/tutorials/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/expose-a-soap-service-as-a-rest-api/'
@@ -1832,6 +1832,24 @@ plugins:
               'learn/analytics/analytics-event-streams-and-aggregations.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
               'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
+=======
+              'learn/api-security/oauth2/grant-types/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/overview/'
+              'learn/api-security/oauth2/grant-types/password-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/password-grant.md'
+              'learn/api-security/oauth2/grant-types/client-credentials-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/client-credentials-grant/'
+              'learn/api-security/oauth2/grant-types/authorization-code-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/authorization-code-grant/'
+              'learn/api-security/oauth2/grant-types/jwt-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/jwt-grant.md'
+              'learn/api-security/oauth2/grant-types/refresh-token-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/refresh-token-grant/'
+              'learn/api-security/oauth2/grant-types/saml-extension-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/saml-extension-grant/'
+              'learn/api-security/oauth2/grant-types/kerberos-oauth2-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/kerberos-oauth2-grant/'
+              'learn/api-security/oauth2/grant-types/ntlm-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/ntlm-grant/'
+              'learn/api-security/oauth2/token-revocation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-revocation/'
+              'learn/api-security/oauth2/token-expiration.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-expiration/'
+              'learn/api-security/oauth2/token-persistence.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-persistence/'
+              'learn/api-security/oauth2/encrypting-oauth2-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/encrypting-oauth2-tokens/'
+              'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/hashing-oauth-keys/'
+              'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
+              'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
+>>>>>>> 41f04962b7ae7d5358d4503122100375dc06c4d9
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
