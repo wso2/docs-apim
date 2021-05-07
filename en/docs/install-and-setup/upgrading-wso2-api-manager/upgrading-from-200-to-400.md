@@ -3624,6 +3624,7 @@ Follow the instructions below to move all the existing API Manager configuration
         [indexing]
         re_indexing= 1
         ```
+        Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
         
         !!! info 
             If you use a clustered/distributed API Manager setup, do the above change in the `deployment.toml` file of the Publisher and Developer Portal nodes.
