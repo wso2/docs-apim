@@ -22,7 +22,7 @@ and many other gateway specific features per API or per Resource.
 Since Choreo Connect is using the OpenAPI definition as the API descriptor, these additional properties should somehow go into OpenAPI definition maintained inside the API project. Choreo Connect utilizes OpenAPI Specification's vendor extensions for this purpose.
 
 So to define above mentioned additional API/ Resource specific gateway attributes, Choreo Connect introduces set of open API vendor extensions for developers.
-List of available extensions are documented [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-key-concepts/) . (broken link!)
+List of available extensions are documented [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/as-a-standalone-gateway/#openapi-extensions). 
 
 ### How to work with standard open API definition
 
