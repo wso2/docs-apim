@@ -10,6 +10,9 @@ If you are a standalone user trying out the product, please signup to Choreo by 
 [https://console.choreo.dev](https://console.choreo.dev). If you are signing up on behalf of an enterprise and need to share the Analytics Cloud among a group of people, please follow [this]({{base_path}}/observe/api-manager-analytics/configure-analytics/working-with-organizations)
 document to signup and create a group that is formally referred as an organization.
 
+!!! info
+    Note that the approval for your sign-up request may not take place immediately. Check your email for the invitation email, as Choreo sends out new invites every day.
+
 ## Register On-premise Environment
 
 Please follow below steps to register your on-premise environment.
