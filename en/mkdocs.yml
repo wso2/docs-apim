@@ -1797,6 +1797,7 @@ plugins:
               'learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'        
               'learn/design-api/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'        
               'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+<<<<<<< HEAD
               'learn/api-gateway/overview-of-the-api-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway/'
               'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/'
               'learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio/'
@@ -1824,6 +1825,32 @@ plugins:
               'learn/design-api/publish-api/publish-through-multiple-api-gateways.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/'
               'learn/design-api/publish-api/publish-to-multiple-external-api-stores.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/'
               'learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+=======
+              'learn/design-api/create-api/adding-custom-properties-to-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/adding-custom-properties-to-apis/'
+              'learn/design-api/create-api/change-api-thumbnail.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/change-api-thumbnail/'
+              'learn/design-api/mock-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.0.0/design/prototype-api/create-a-mock-api-with-an-inline-script/'
+              'learn/design-api/create-api-product/api-product-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api-product/api-product-overview.md'
+              'learn/design-api/create-api-product/create-api-product.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api-product/create-api-product/'
+              'learn/design-api/endpoints/endpoint-types.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-types/'
+              'learn/design-api/endpoints/endpoint-security/basic-auth.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/basic-auth/'
+              'learn/design-api/endpoints/endpoint-security/digest-auth.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/digest-auth/'
+              'learn/design-api/endpoints/endpoint-security/oauth-2.0.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/oauth-2.0/'
+              'learn/design-api/endpoints/high-availability-for-endpoints.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/high-availability-for-endpoints/'
+              'learn/design-api/endpoints/resiliency/endpoint-timeouts.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/endpoint-timeouts/'
+              'learn/design-api/endpoints/resiliency/endpoint-suspension.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/endpoint-suspension/'
+              'learn/design-api/endpoints/resiliency/prevent-api-suspension.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/prevent-api-suspension/'
+              'learn/design-api/endpoints/certificates.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/certificates/'
+              'learn/design-api/lifecycle-management/api-lifecycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/api-lifecycle/'
+              'learn/design-api/lifecycle-management/customize-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/customize-api-life-cycle/'
+              'learn/design-api/lifecycle-management/extending-the-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/extending-the-api-life-cycle/'
+              'learn/design-api/api-versioning/create-a-new-api-version.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/create-a-new-api-version/'
+              'learn/design-api/api-versioning/deprecate-the-old-version.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/deprecate-the-old-version/'
+              'learn/design-api/api-versioning/backward-compatibility.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/backward-compatibility/'
+              'learn/design-api/api-versioning/enabling-notifications.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/enabling-notifications/'
+              'learn/design-api/api-documentation/add-api-documentation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-documentation/add-api-documentation/'
+              'learn/design-api/api-documentation/search-documentation/add-new-search-keyword.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-documentation/search-documentation/add-new-search-keyword/'
+
+>>>>>>> 819e96ea00843fbf514c4de37d8858147a794542
 
     # Extra
 extra_css:
