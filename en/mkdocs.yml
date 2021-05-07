@@ -53,9 +53,9 @@ nav:
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/architecture.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
-                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
-                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
+                - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
+                - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
+                - Quick Start Guide Streaming: get-started/streaming-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
