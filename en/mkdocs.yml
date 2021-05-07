@@ -1803,7 +1803,7 @@ plugins:
               'learn/tutorials/create-and-publish-awslambda-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-awslambda-api/'
               'learn/tutorials/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/expose-a-soap-service-as-a-rest-api/'
               'learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/edit-an-api-by-modifyng-the-api-definition/'
-              'learn/tutorials/create-and-publish-websocket-api.md': 'https://apim.docs.wso2.com/en/latest/tutorials/streaming-api/create-and-publish-websocket-api/'
+              'learn/tutorials/create-and-publish-websocket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/streaming-api/create-and-publish-websocket-api/'
               'learn/analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/analytics/viewing-api-statistics/monitoring-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/analytics/viewing-api-statistics/business-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
