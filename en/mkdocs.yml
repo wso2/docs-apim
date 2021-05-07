@@ -1799,12 +1799,11 @@ plugins:
               'learn/api-security/oauth2/access-token-types/jwt-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/access-token-types/jwt-tokens/'
               'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
               'learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/scope-whitelisting/'
-<<<<<<< HEAD
               'learn/tutorials/create-and-publish-a-graphql-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-a-graphql-api/'
               'learn/tutorials/create-and-publish-awslambda-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-awslambda-api/'
               'learn/tutorials/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/expose-a-soap-service-as-a-rest-api/'
               'learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/edit-an-api-by-modifyng-the-api-definition/'
-              'learn/tutorials/create-and-publish-websocket-api.md': 'https://apim.docs.wso2.com/en/latest/tutorials/streaming-api/create-and-publish-websocket-api/'
+              'learn/tutorials/create-and-publish-websocket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/streaming-api/create-and-publish-websocket-api/'
               'learn/analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/analytics/viewing-api-statistics/monitoring-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/analytics/viewing-api-statistics/business-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
@@ -1832,7 +1831,6 @@ plugins:
               'learn/analytics/analytics-event-streams-and-aggregations.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
               'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
               'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
-=======
               'learn/api-security/oauth2/grant-types/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/overview/'
               'learn/api-security/oauth2/grant-types/password-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/password-grant.md'
               'learn/api-security/oauth2/grant-types/client-credentials-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/client-credentials-grant/'
@@ -1849,7 +1847,6 @@ plugins:
               'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/hashing-oauth-keys/'
               'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
               'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
->>>>>>> 41f04962b7ae7d5358d4503122100375dc06c4d9
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
