@@ -53,9 +53,9 @@ nav:
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/architecture.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
-                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
-                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
+                - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
+                - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
+                - Quick Start Guide Streaming: get-started/streaming-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
@@ -1772,9 +1772,9 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
-              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
-              'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
+              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
+              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
+              'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/collaboration/interact-with-the-community/'
               'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
               'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/test-a-websub-api/'
               'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'
@@ -1782,6 +1782,16 @@ plugins:
               'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
               'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
               'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+              'getting-started/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/overview/'
+              'getting-started/basic-architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/key-concepts/'
+              'getting-started/key-concepts.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/architecture/'
+              'getting-started/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/quick-start-guide/quick-start-guide/'
+              'getting-started/about-this-release.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/about-this-release/'
+              'get-started/quick-start-guide/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/api-manager-quick-start-guide/'
+              'get-started/quick-start-guide/integration-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/integration-quick-start-guide/'
+              'get-started/quick-start-guide/streaming-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/streaming-quick-start-guide/'
+
+
 
     # Extra
 extra_css:
