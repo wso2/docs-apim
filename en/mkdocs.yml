@@ -1790,7 +1790,13 @@ plugins:
               'get-started/quick-start-guide/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/api-manager-quick-start-guide/'
               'get-started/quick-start-guide/integration-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/integration-quick-start-guide/'
               'get-started/quick-start-guide/streaming-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/streaming-quick-start-guide/'
-
+              'learn/design-api/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'                  
+              'learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'                 
+              'learn/design-api/create-api/create-a-graphql-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-a-graphql-api/'  
+              'learn/design-api/create-api/create-a-websocket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-websocket-streaming-api/' 
+              'learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'        
+              'learn/design-api/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'        
+              'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
 
 
     # Extra
