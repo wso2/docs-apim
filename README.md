@@ -135,7 +135,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 
 > **NOTE:**
 >
-> If you were running the `mkdocs serve --dirtyreload` command to run the MkDocs server, make sure to change the configuration in the `mkdocs.yml` file as follows before sending a pull request..
+> If you were running the `mkdocs serve --dirtyreload` command to run the MkDocs server, make sure to change the configuration in the `mkdocs.yml` file as follows before sending a pull request.
 >
 > `strict: true` 
 
