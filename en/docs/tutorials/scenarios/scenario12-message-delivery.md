@@ -74,7 +74,7 @@ To test this flow you can do the following.
 
 Now if you check the Micro-Integrator logs, you can see that invocation has succeeded. 
 
-`_Response = CateringServiceEP Reply Sequence Invoked, Payload: {"success":true}_`
+`Response = CateringServiceEP Reply Sequence Invoked, Payload: {"success":true}`
 
 You can refresh the hookbin site and see that the message has been captured now.
 

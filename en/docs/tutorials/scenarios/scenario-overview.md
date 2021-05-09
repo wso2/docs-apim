@@ -26,11 +26,12 @@ Docker and Docker compose need to be installed. Please refer [https://docs.docke
 
 A basic infrastructure has already been created for you to try out the scenarios. To run the setup please follow these steps.
 
-1. Clone https://github.com/wso2/samples-apim/tree/master/apim-tutorial 
-2. Start the setup using the command `docker-compose up -d`.
-3. You can view the logs using the command `docker-compose logs -d`.
-4. It might take 5-10 mins for setup to complete (if it is the first time, based on your download speed it might take longer). 
-5. When you see the below log you can start working on the scenarios.
+1. Clone `https://github.com/wso2/samples-apim` from GitHub.
+2. Move into `apim-tutorial`. All the resources that are related to this tutorial resides in this folder.
+3. Start the setup using the command `docker-compose up -d`.
+4. You can view the logs using the command `docker-compose logs -d`.
+5. It might take 5-10 mins for setup to complete (if it is the first time, based on your download speed it might take longer). 
+6. When you see the below log you can start working on the scenarios.
     ```
     “==Data population completed==”
     ```
