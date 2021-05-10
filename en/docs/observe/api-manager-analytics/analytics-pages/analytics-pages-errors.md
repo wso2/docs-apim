@@ -37,7 +37,7 @@ The following topics walk you through the main features available for monitoring
 
 #### Errors by Category Graph
 This graph shows the error category distribution over time for the selected period. Use the controllers (explained above) to select the APIs to which this content applies.
-When you select multiple APIs, error count will be grouped by the category.
+When you select multiple APIs, the error count is grouped by the category.
 
 ![error category graph]({{base_path}}/assets/img/observe/error/error-category-graph.png)
 #### Errors by Category Table   
