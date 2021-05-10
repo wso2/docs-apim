@@ -15,7 +15,6 @@ Use line charts to find the slowest APIs of the API management system at a glanc
 ![slowest apis]({{base_path}}/assets/img/observe/latency/slowest-apis.png)
 ### Latencies by Category
 This widget allows you to further drill down details in the above chart. Use the API selector in this widget to select the slow API you identified in the earlier step and then troubleshoot further. Use the charts available in the widget to view the 95th percentile and the median latency of the components given below over the selected period.
-Using the charts available in the widget you can now view the 95th percentile and median latency of below three components over the selected time period.
 - Backend
 - Request mediation
 - Response mediation
