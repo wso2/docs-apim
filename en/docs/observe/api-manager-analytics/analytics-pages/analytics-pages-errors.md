@@ -42,7 +42,7 @@ When you select multiple APIs, the error count is grouped by the category.
 ![error category graph]({{base_path}}/assets/img/observe/error/error-category-graph.png)
 #### Errors by Category Table   
 This table provides further information about the errors such as application details and the error reason. For some authentication errors, the application name is not available.
-You can use this table to get mode concrete information about errors of your API management system and then start the problem isolation process.
+You can use this table to get more concrete information about the errors of your API management system and then start the problem isolation process.
 
 ![error category table]({{base_path}}/assets/img/observe/error/error category table.png)
 ### Status Code Mode
