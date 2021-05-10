@@ -111,6 +111,7 @@ database</strong></p>
 </tbody>
 </table>
 
+<!--
 ## Understanding the distributed deployment
 
 !!! Note
@@ -357,3 +358,4 @@ In the following diagram, the five components are set up in a distributed deploy
     </tr>
     </tbody>
     </table>
+-->
