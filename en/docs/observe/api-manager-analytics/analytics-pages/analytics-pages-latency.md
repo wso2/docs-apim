@@ -11,7 +11,6 @@ The following topics walk you through the main features available for monitoring
 
 ### Top 10 Slowest API Chart
 Use line charts to find the slowest APIs of the API management system at a glance. Since these are the APIs that contribute to the higher 95th percentile of the system, improving these APIs lowers the 95th percentile of latency in the API Management system.
-improving these APIs will lower the 95th percentile of latency in the API Management system.
 
 ![slowest apis]({{base_path}}/assets/img/observe/latency/slowest-apis.png)
 ### Latencies by Category
