@@ -15,7 +15,9 @@ Use the **API Selector** to select the APIs for which you want to view analytics
 
 ### Category/Status Code Toggle
 Use this toggle to switch between the error category view and the status code view. When you use the **Category** mode, the errors are categorized by predefined types. 
-In the **Status Code** mode, you will observe errors categorized by the client-side status code. Category view is more suitable for business analytics purposes while 
+If you select the **Status Code** mode, you can observe errors categorized by the client-side status code. The **Category** view is more suitable for business analytics purposes while the **Status Code** mode is more suitable for troubleshooting and finding faulty APIs. 
+
+The other common controls and chart layouts change depending on this toggle. 
 status code mode is more suitable for troubleshooting and finding faulty APIs. Depending on this toggle other common control and chart layout will change.
 
 ### Category Selector
@@ -65,4 +67,3 @@ Cell colour will be determined by the number of errors belonging to each status 
 Using this chart you can further drill down on error code groups that you identified with the **Errors by Status Code** graph.
 
 ![target error heatmap]({{base_path}}/assets/img/observe/error/target-error-heatmap.png)
-
