@@ -56,7 +56,7 @@ When you select multiple APIs, the error count is grouped by the status code gro
 
 ![error by status code]({{base_path}}/assets/img/observe/error/error-by-status-code.png)
 #### Proxy Errors Heatmap
-Proxy errors heatmap shows the error http response codes sent to the client by API Gateway. Each individual status code will be shown against the selected APIs. 
+Proxy errors heatmap shows the HTTP response codes of errors that are sent to the client by the API Gateway. Each status code is shown against the selected APIs.
 Cell colour will be determined by the number of errors belonging to each status code. Higher the number cell colour will be red and lower the number cell colour will be white.
 Using this chart you can further drill down on error code groups that you identified with the **Errors by Status Code** graph.
 
