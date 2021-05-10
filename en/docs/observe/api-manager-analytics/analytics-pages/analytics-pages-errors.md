@@ -28,7 +28,6 @@ The **Category Selector** is enabled only when you have selected the **Category*
 
 ### Status Code Selector
 The **Status Code** selector is enabled only when you have selected the **Status Code** toggle explained above. You can use this to select all or any available HTTP status code category (4xx, 5xx, etc.). These status codes represent the response status of the API Gateway.
-category(4xx, 5xx). These status codes represent the response status code of the API Gateway.
 
 ## Page Walk Through
 Page composition is dynamic based on the Category/Status Code Toggle as explained above. Hence both views will be detailed out below.
