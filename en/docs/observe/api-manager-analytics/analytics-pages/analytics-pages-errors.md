@@ -20,7 +20,7 @@ If you select the **Status Code** mode, you can observe errors categorized by th
 The other common controls and chart layouts change depending on this toggle. 
 
 ### Category Selector
-**Category Selector** is enabled only when you have selected **Category** toggle explained above. Using this selector you can select one or all of below error categories.
+The **Category Selector** is enabled only when you have selected the **Category** toggle explained above. You can use this to select one or all of the error categories listed below.
 - Authentication: Any kind of authentication error will fall into this category including expired/missing/invalid credentials.
 - Target Connectivity: Any kind of API backend errors will fall into this category including connection time-outs/backend error(4xx ,5xx status codes)
 - Throttling: Any kind of API backend errors will fall into this category including application throttling/subscription throttling.
