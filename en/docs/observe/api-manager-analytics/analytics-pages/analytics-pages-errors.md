@@ -24,7 +24,7 @@ The **Category Selector** is enabled only when you have selected the **Category*
 - Authentication: Any kind of authentication error falls into this category including expired/missing/invalid credentials.
 - Target Connectivity: Any kind of API backend errors will fall into this category including connection time-outs/backend error(4xx ,5xx status codes)
 - Throttling: Any kind of API back-end error falls into this category including application throttling/subscription throttling.
-- Other: Everything else falls into this category including mediation errors/resource not found errors.
+- Other: All other errors fall into this category including mediation errors/resource not found errors.
 
 ### Status Code Selector
 **Status Code Slector** is enabled only when you have selected **Status Code** toggle explained above. Using this selector you can select all or any available HTTP status code
