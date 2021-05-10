@@ -21,7 +21,7 @@ The other common controls and chart layouts change depending on this toggle.
 
 ### Category Selector
 The **Category Selector** is enabled only when you have selected the **Category** toggle explained above. You can use this to select one or all of the error categories listed below.
-- Authentication: Any kind of authentication error will fall into this category including expired/missing/invalid credentials.
+- Authentication: Any kind of authentication error falls into this category including expired/missing/invalid credentials.
 - Target Connectivity: Any kind of API backend errors will fall into this category including connection time-outs/backend error(4xx ,5xx status codes)
 - Throttling: Any kind of API backend errors will fall into this category including application throttling/subscription throttling.
 - Other: Everything else falls into this category including mediation errors/resource not found errors.
