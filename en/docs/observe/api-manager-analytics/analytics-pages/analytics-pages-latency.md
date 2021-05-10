@@ -23,5 +23,5 @@ Using the charts available in the widget you can now view the 95th percentile an
 
 ![latency by category]({{base_path}}/assets/img/observe/latency/latency-by-category.png)
 
-By referring these charts now you can narrow it down to the component level where the slowness occurs. Also since both median and 95th percentile is present you can decide whether the slowness
+You can use these charts to drill down to the component level where the slowness occurs. Also, because you can see both the median and 95th percentile, you can easily identify whether the slowness is occurring in each request or whether it is intermittent.
 is occurring in each request or whether it is intermittent.
