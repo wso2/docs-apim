@@ -1,15 +1,17 @@
 # Error Page
+
+The error page shows information related to erroneous API calls that are received by your API management deployment. The errors are categorization based on the error type. You can further drill down using the error subtypes. Use this page as the starting point for debugging any API errors. 
+
 ![error page full]({{base_path}}/assets/img/observe/error/error-page-full.png)
 
-The error page displays analytics stats related to erroneous API calls that happened within the API management deployment. 
-Page will include error categorization based on the error type and then further drills down into sub types. 
-You can use this page as the starting point for debugging any API errors.
 See the topics given below to get details of the available widgets.
 
 ## Common Controls
-![common controls]({{base_path}}/assets/img/observe/error/common-controls.png)
 
 The Error page offers you the three additional common controls listed below.
+
+![common controls]({{base_path}}/assets/img/observe/error/common-controls.png)
+
 ### API Selector
 Use the **API Selector** to select the APIs for which you want to view analytics. By default, this is set to **All**. You can select one or multiple APIs from this selector and view the aggregated result.
 
