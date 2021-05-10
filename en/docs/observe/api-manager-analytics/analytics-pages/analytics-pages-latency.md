@@ -1,9 +1,10 @@
 # Latency Page
+
+The latency page shows information related to the latency of API calls within the API management deployment. You can view a summary of the slowest APIs and then drill down into the API view for further analysis. Use this page as the starting point for debugging API slowness. 
+
 ![latency page full]({{base_path}}/assets/img/observe/latency/latency-page-full.png)
 
-The latency page latency stats of API calls that happened within the API management deployment. 
-Page will include summary view into the slowest APIs and then offer per API drill-down view to do further analysis.
-You can use this page as the starting point for debugging API slowness. See the topics given below to get details of the available widgets.
+See the topics given below to get details of the available widgets.
 
 ## Page Walk Through
 The following topics walk you through the main features available for monitoring API latency.
