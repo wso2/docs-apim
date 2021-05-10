@@ -36,7 +36,7 @@ Page composition is dynamic based on the Category/Status Code Toggle as explaine
 The following topics walk you through the main features available for monitoring errors under **Category** mode.
 
 #### Errors by Category Graph
-This graph shows error category distribution over time for the selected time period. You can decide the APIs and categories by the controllers explained above.
+This graph shows the error category distribution over time for the selected period. Use the controllers (explained above) to select the APIs to which this content applies.
 When you select multiple APIs, error count will be grouped by the category.
 
 ![error category graph]({{base_path}}/assets/img/observe/error/error-category-graph.png)
