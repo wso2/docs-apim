@@ -51,7 +51,7 @@ You can use this table to get more concrete information about the errors of your
 The following topics walk you through the main features available for monitoring errors under **Status Code** mode.
 
 #### Errors by Status Code Graph
-This graph shows error HTTP status code distribution over time for the selected time period. You can decide the APIs and status codes groups by the controllers explained above.
+This graph shows the distribution of HTTP status codes (of the errors) over time for the selected period. Use the controllers (explained above) to select the APIs and status code groups to which this content applies.
 When you select multiple APIs, error count will be grouped by the status code group.
 
 ![error by status code]({{base_path}}/assets/img/observe/error/error-by-status-code.png)
