@@ -18,7 +18,6 @@ Use this toggle to switch between the error category view and the status code vi
 If you select the **Status Code** mode, you can observe errors categorized by the client-side status code. The **Category** view is more suitable for business analytics purposes while the **Status Code** mode is more suitable for troubleshooting and finding faulty APIs. 
 
 The other common controls and chart layouts change depending on this toggle. 
-status code mode is more suitable for troubleshooting and finding faulty APIs. Depending on this toggle other common control and chart layout will change.
 
 ### Category Selector
 **Category Selector** is enabled only when you have selected **Category** toggle explained above. Using this selector you can select one or all of below error categories.
