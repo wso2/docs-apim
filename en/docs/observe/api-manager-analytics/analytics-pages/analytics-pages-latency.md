@@ -22,4 +22,3 @@ This widget allows you to further drill down details in the above chart. Use the
 ![latency by category]({{base_path}}/assets/img/observe/latency/latency-by-category.png)
 
 You can use these charts to drill down to the component level where the slowness occurs. Also, because you can see both the median and 95th percentile, you can easily identify whether the slowness is occurring in each request or whether it is intermittent.
-is occurring in each request or whether it is intermittent.
