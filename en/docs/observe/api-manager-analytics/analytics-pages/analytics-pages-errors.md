@@ -63,7 +63,7 @@ Use this chart to further drill down on error code groups that you identified wi
 ![proxy error heatmap]({{base_path}}/assets/img/observe/error/proxy-error-heatmap.png)
 #### Target Errors Heatmap
 Target errors heatmap shows the HTTP response codes of errors that are received by the API Gateway from the backend. Each status code is shown against the selected APIs.
-Cell colour will be determined by the number of errors belonging to each status code. Higher the number cell colour will be red and lower the number cell colour will be white.
+The cell color is determined by the number of errors belonging to each status code. The cell color is red for higher numbers and white for lower numbers.
 Using this chart you can further drill down on error code groups that you identified with the **Errors by Status Code** graph.
 
 ![target error heatmap]({{base_path}}/assets/img/observe/error/target-error-heatmap.png)
