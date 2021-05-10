@@ -18,7 +18,7 @@ You can monitor the following statistics and more through the EI Analytics porta
 
 ## Before you begin
 
--   Set up the [EI Analytics deployment](../../setup/observability/setting-up-classic-observability-deployment).
+-   Set up the [EI Analytics deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 -   Note the following server directories in your deployment.
 
     <table>
@@ -62,7 +62,7 @@ Let's start the servers in the given order.
 
 ### Starting the Micro Integrator
 
-Once you have [started the Analytics Server](#starting-the-analytics-server), you can [start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer/).
+Once you have [started the Analytics Server](#starting-the-analytics-server), you can [start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/).
 
 ### Starting the Analytics Portal
 
@@ -154,7 +154,7 @@ Follow the steps given below.
 
 Once you have signed in to the analytics portal server, click the **Enterprise Integrator Analytics** icon shown below to open the portal.  
 
-![Opening the Analytics dashboard for Enterprise Integrator component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132335.png "Opening the Analytics dashboard for Enterprise Integrator component")  
+![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132335.png "Opening the Analytics dashboard for integration component")  
       
 ### Statistics overview
 

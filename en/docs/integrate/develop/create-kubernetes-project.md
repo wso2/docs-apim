@@ -2,7 +2,7 @@
 
 Create a Kubernetes Exporter if you want to deploy your integration solutions in a Kubernetes environment. 
 
-The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [k8s-ei-operator](../../setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
+The Kubernetes Exporter allows you to package multiple [integration modules]({{base_path}}/integrate/develop/create-integration-project) into a single Docker image. Also, a file named **integration_cr.yaml** is generated, which can be used to carry out Kubernetes deployments based on the [API K8s Operator]({{base_path}}/setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator).
 
 ## Creating the Kubernetes project
 
@@ -35,6 +35,22 @@ Follow the steps given below.
             </td>
             <td>
                 <b>Required</b>. Give a name for the Kubernetes project.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Generate K8s Artifacts for
+            </td>
+            <td>
+                Specify the method that should be used for deploying the Micro Integrator on Kubernetes.
+                <ul>
+                    <li>
+                        <b>K8s Operator</b>: The Kubernetes resources required by the Operator are generated.
+                    </li>
+                    <li>
+                        <b>Pure K8s Artifacts</b>: The Kubernetes resources required for setting up a deployment without using the K8s Operator are generated.
+                    </li>
+                </ul>
             </td>
         </tr>
         <tr>
@@ -111,7 +127,7 @@ Follow the steps given below.
                 Automatically deploy configurations
             </td>
             <td>
-                This check box indicates that you are using WSO2 EI 7 Micro Integrator as the base image. It is recommended to leave this check box selected when you use WSO2 EI 7.
+                This check box indicates that you are using the Micro Integrator as the base image. It is recommended to leave this check box selected when you use the Micro Integrator.
             </td>
         </tr>
         <tr>

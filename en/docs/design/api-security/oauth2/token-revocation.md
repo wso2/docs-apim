@@ -5,7 +5,7 @@
 After issuing an access token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is `http://localhost:8280/revoke` .
 
 !!! note
-    You can also revoke refresh tokens. For more information, see [Revoking a refresh token]({{base_path}}/learn/api-security/oauth2/grant-types/refresh-token-grant/#revoking-a-refresh-token).
+    You can also revoke refresh tokens. For more information, see [Revoking a refresh token]({{base_path}}/design/api-security/oauth2/grant-types/refresh-token-grant/#revoking-a-refresh-token).
 
 
 The parameters required to invoke the following API are as follows:

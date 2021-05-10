@@ -146,7 +146,7 @@ client. Following is the configuration of these sequences.
 ### Configuring a blocking/non-blocking send operation
 
 In this example, the Send mediator in a proxy service using the [VFS
-transport](https://docs.wso2.com/display/EI650/VFS+Transport) is
+transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-vfs-transport) is
 transferring a file to a VFS endpoint. VFS is a non-blocking transport
 by default, which means a new thread is spawned for each outgoing
 message. The [Property mediator](_Property_Mediator_) added before the

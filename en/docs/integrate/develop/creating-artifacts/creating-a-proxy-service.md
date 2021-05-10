@@ -6,6 +6,8 @@ Follow the instructions given below to create a new [Proxy Service]({{base_path}
 
 ### Creating the Proxy Service artifact
 
+Follow the steps given below.
+
 1.  Right-click the project in the navigator and go to **New → Proxy Service** to open the **New Proxy Service** dialog box.     
     <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/select-new-proxy.png">
 
@@ -37,7 +39,7 @@ Follow the instructions given below to create a new [Proxy Service]({{base_path}
     </tr>
     <tr class="even">
     <td>WSDL-Based proxy</td>
-    <td>This template generates a proxy service from the remotely hosted WSDL of an existing web service. The endpoint information is extracted from the WSDL you specify.
+    <td>This template generates a proxy service from the remotely hosted WSDL of an existing web service. The endpoint information is extracted from the WSDL you specify. Alternatively, you can generate a proxy service from a WSDL definition as explained <a href="#creating-a-proxy-service-using-a-wsdl-definition">below</a>.
     </td>
     </tr>
     <tr class="odd">
@@ -57,6 +59,25 @@ Follow the instructions given below to create a new [Proxy Service]({{base_path}
 5. Click **Finish**. 
 
 The proxy service is created in the `src/main/synapse-config/proxy-services` folder under the project you specified.
+
+### Creating a Proxy Service using a WSDL definition
+
+Follow the steps given below after opening the **New Proxy Service** dialog box.
+
+1. Select **Generate Proxy Service using WSDL file** and click **Next**.
+
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/proxy-service-properties.png" width="700">
+
+2. Provide a URL or a file location as the source of the WSDL and click **Finish**.
+
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/create-proxy-from-wsdl.png" width="600">
+
+You will now see the mediation logic generated from the WSDL as shown below. Note that the [Switch mediator]({{base_path}}/reference/mediators/switch-mediator) is added to the mediation logic and that the different operations given in the WSDL are represented as switch cases.
+
+!!! Tip
+     If your WSDL does not have `SOAPActions` specified for the operations, only the **default** switch case will be generated.
+
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_proxy_service/skeleton-proxy-service-wsdl.png" width="600">
 
 ### Designing the integration
 
@@ -107,7 +128,7 @@ Click the **Source** tab to view the XML-based synapse configuration (source cod
 
 ## Examples
 
--   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/Introduction-to-Proxy-Services)
+-   [Using a Simple Proxy Service]({{base_path}}/integrate/examples/proxy_service_examples/introduction-to-proxy-services)
 -   [Publishing a Custom WSDL]({{base_path}}/integrate/examples/proxy_service_examples/publishing-a-custom-wsdl)
 -   [Exposing a Proxy Service via Inbound Endpoint]({{base_path}}/integrate/examples/proxy_service_examples/exposing-proxy-via-inbound)
 -   [Securing Proxy Services]({{base_path}}/integrate/examples/proxy_service_examples/securing-proxy-services)

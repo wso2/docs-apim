@@ -5,7 +5,7 @@ This section helps you to understand streaming integration and how to perform it
 First, let's understand the concept of streaming integration. For this, let's consider an example of a sweet factory where the system publishes the production details after each production run. The details published include the name of the sweet and the amount produced.
 
 
-![Streams](../../images/quick-start-guide-101/stream.png)
+![Streams]({{base_path}}/assets/img/streaming/quick-start-guide-101/stream.png)
 
 Each production run that reports the name of the sweet and the amount is an **event**.
 

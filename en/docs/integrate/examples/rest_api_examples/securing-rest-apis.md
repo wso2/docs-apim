@@ -1,5 +1,5 @@
 # Securing REST APIs
-In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the Micro Integrator validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server](../../../../setup/user_stores/setting_up_a_userstore). 
+In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the Micro Integrator validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore). 
 
 !!! Info
     The Micro Integrator uses a <b>Basic Auth handler</b> for this purpose. If required, you can use a custom basic auth handler or other security implementations. Find out more about [applying security to REST APIs]({{base_path}}/integrate/develop/advanced-development/applying-security-to-an-api).
@@ -61,7 +61,7 @@ Create the artifacts:
 3. [Create the rest api]({{base_path}}/integrate/develop/creating-artifacts/creating-an-api) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Configure an external user store](../../../../setup/user_stores/setting_up_a_userstore).
+[Configure an external user store]({{base_path}}/install-and-setup/setup/mi-setup/setup/user_stores/setting_up_a_userstore).
 
 Set up the back-end service:
 

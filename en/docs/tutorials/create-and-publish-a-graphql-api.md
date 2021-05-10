@@ -4,7 +4,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on GraphQL APIs, see <a href="{{base_path}}/learn/design-api/create-api/create-a-graphql-api">Create a GraphQL API</a>.</p>
+<p>For more information on GraphQL APIs, see <a href="{{base_path}}/design/create-api/create-a-graphql-api">Create a GraphQL API</a>.</p>
 </div> 
 </html>
 ### Step 1 - Design a GraphQL API
@@ -17,15 +17,9 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
     Let's use `admin` as your username and password to sign in.
 
-2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
+2. Click **CREATE API** and then click **Import GraphQL SDL**.
 
-     <html>
-     <head>
-     </head>
-     <body>
-     <img src="{{base_path}}/assets/img/learn/create-graphql-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600" />
-     </body>
-     </html>
+     [![Create GraphQL Schema Option]({{base_path}}/assets/img/learn/create-graphql-schema-option.png)]({{base_path}}/assets/img/learn/create-graphql-schema-option.png)
 
 
 3. Import the schema and click **Next**.  
@@ -112,14 +106,6 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
                <a href="http://localhost:8080/graphql" target="_blank">http://localhost:8080/graphql</a>
             </td>
             </tr>
-            <tr>
-            <td >
-               <p>Business Plans</p>
-            </td>
-            <td>
-               <p>Unlimited</p>
-            </td>
-            </tr>
          </table>
       </html>
 
@@ -172,7 +158,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
                   [![Create a scope]({{base_path}}/assets/img/learn/create-scope.png)]({{base_path}}/assets/img/learn/create-scope.png)
 
-            3. Press `Enter` to add each scope. 
+            3. Press `Enter` to add each role. 
 
             4. Click **SAVE**.
 
@@ -188,7 +174,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
             3. Select a throttling policy, scope, and enable or disable security for each of the operations. 
 
-                 Apply the `adminScope` and `FilmSubscriberScope` scopes to the `allFilms` and `allPlanets` operations, respectively.
+                 Apply the `adminScope` and `FilmSubscriberScope` scopes to the `allCharacters` and `allDroids` operations, respectively.
             
             4. Click **Save**.
 
@@ -198,11 +184,15 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
 Now, you have created and configured the GraphQL API successfully. 
 
-### Step 2 - Publish the GraphQL API
+### Step 2 - Deploy and Publish the GraphQL API
 
-Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+1. Click **DEPLOYMENTS** to navigate to the API deployments and click **Deploy** to deploy the API to the default gateway.
 
-[![Publish GraphQL API]({{base_path}}/assets/img/learn/publish-graphql-api.png)]({{base_path}}/assets/img/learn/publish-graphql-api.png)
+     [![Deploy GraphQL API]({{base_path}}/assets/img/learn/deploy-graphql-api.png)]({{base_path}}/assets/img/learn/deploy-graphql-api.png)
+
+2. Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+
+     [![Publish GraphQL API]({{base_path}}/assets/img/learn/publish-graphql-api.png)]({{base_path}}/assets/img/learn/publish-graphql-api.png)
 
 ### Step 3 - Invoke the GraphQL API
 
@@ -235,33 +225,20 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
 4. Subscribe to the API.
 
-    1. Click **KEY GENERATION WIZARD**.
+    1. Click **TRY OUT**.
     
-         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (`allFilms`, `allPlanets`) that you assigned to the operations.
+         [![Try Out Wizard]({{base_path}}/assets/img/learn/try-out-graphql.png)]({{base_path}}/assets/img/learn/try-out-graphql.png)
+         
+         This will create a subscription for DefaultApplication and generate consumer key, consumer secret pair for the DefaultApplication. Click **TRY OUT** on the pop-up window to navigate to the try-out console. 
 
-         <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p> 
-         You can use any application (e.g., JWT or OAuth) to subscribe to the API.
-         </p>
-         </div>
-
-         [![Key generation wizard]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)
-
-    2. Copy the authorization token that appears.
-
-         [![Copy the authorization token]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)
+         [![Try Out Popup]({{base_path}}/assets/img/learn/try-out-graphql-popup.png)]({{base_path}}/assets/img/learn/try-out-graphql-popup.png)
 
 5. Try out the operations.
-    1. Click **TEST** to navigate to the developer console.
+    1. Click **GET TEST KEY**.
 
-         [![StarWars Developer Console ]({{base_path}}/assets/img/learn/star-wars-developer-console.png)]({{base_path}}/assets/img/learn/star-wars-developer-console.png)
-
-    2. Paste the access token that you previously copied into the **Access Token** field.
-
-         [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
-
-    3. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
+         [![Get Test Key]({{base_path}}/assets/img/learn/get-test-key-starwars.png)]({{base_path}}/assets/img/learn/get-test-key-starwars.png)
+    
+    2. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
     
          ```
          query{

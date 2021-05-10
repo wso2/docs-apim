@@ -2,7 +2,7 @@
 
 An integration project consists of one or several project directories. These directories store the various artifacts that you create for your integration sequence. An integration project can be created as a Maven Multi Module (MMM) project by default. This enables you to add ESB Configs, Composite Exporter, Registry Resources, Connector Exporter, Docker Exporter, and Kubernetes Exporter as sub-modules to the project. 
 
-An integration project is the recommended way of creating an “Integration Solution” for the WSO2 Enterprise Integrator as it simplifies the CICD workflow.
+An integration project is the recommended way of creating an “Integration Solution” as it simplifies the CICD workflow.
 
 ## Integration project
 
@@ -43,20 +43,20 @@ The following table lists out the available projects that can be associated with
         The following are the synapse artifacts that can be added to an integration flow.
         </br>
         <ul>
-            <li><b>Proxy</b>: This is a virtual service in WSO2 EI that receives messages and processes them. It then delivers them to an endpoint outside EI, where the actual Web Service is located.</li>
-            <li><b>API</b>: Rest API is an endpoint in WSO2 EI that has a URL. This address specifies the context and resources that need to be accessed through an HTTP method or call such as GET, PUT, POST, DELETE. Requests arrive at the input sequence, the EI processes the message using mediators and forwards the message to the Backend. The output sequence receives the backend’s response, processes it, and forwards the message to the client.</li>
+            <li><b>Proxy</b>: This is a virtual service in the Micro Integrator that receives messages and processes them. It then delivers them to an external endpoint, where the actual web service is located.</li>
+            <li><b>API</b>: A Rest API is an endpoint that has a URL. This address specifies the context and resources that need to be accessed through an HTTP method or call such as GET, PUT, POST, DELETE. Requests arrive at the input sequence, the Micro Integrator processes the message using mediators and forwards the message to the backend. The output sequence receives the backend’s response, processes it, and forwards the message to the client.</li>
             <li><b>Inbound endpoints</b>: They can be configured dynamically without restarting the server. Messages move from the transport layer to the mediation layer without going through the Axis2 engine.</li>
             <li><b>Sequences</b>: Sequences are used in the proxy service and the REST APIs. Each sequence is a set of mediators where messages are processed.</li>
             <li><b>Mediator</b>: It is the processing unit or action that is performed on a message. For example, when enriching a message, filtering it, sending it to an endpoint, deleting it, etc. Mediators can be customized.</li>
             <li><b>Scheduled Tasks</b>: This is a code that is to be executed at a specific moment. Tasks can also be customized.</li>
-            <li><b>Endpoints</b>: They are destinations, for example, external to WSO2 EI, for a message; it may be a service represented by a URL, mailbox, JMS queue, TCP socket. The same endpoint can be used with several transport protocols.</li>
-            <li><b>Message Store/Message Processors</b>: This design pattern is used in integration when dealing with messages asynchronously. Which is to say, when the client does not wait for the response. The message is stored in the memory or drive; this is done by the Message Store. The message processor extracts a queue, memory or database from it and sends it to an endpoint. By using this pattern, the delivery of a message to the endpoint can be guaranteed, since it is only deleted from the Store when an endpoint receives the message correctly.</li>
+            <li><b>Endpoints</b>: They are destinations, for example, external to the Micro Integrator. It may be a service represented by a URL, mailbox, JMS queue, TCP socket. The same endpoint can be used with several transport protocols.</li>
+            <li><b>Message Store/Message Processors</b>: This design pattern is used in integration when dealing with messages asynchronously (which is to say, when the client does not wait for the response). The message is stored in the memory or drive; this is done by the Message Store. The message processor extracts a queue, memory or database from it and sends it to an endpoint. By using this pattern, the delivery of a message to the endpoint can be guaranteed, since it is only deleted from the Store when an endpoint receives the message correctly.</li>
         </ul>
         </td>
     </tr>
     <tr>
         <td>Composite Exporter</td>
-        <td>This project allows you to package all the artifacts (stored as sub-projects under the same integration project) into one <a href="packaging-artifacts/">composite application (C-APP)</a>. This C-APP can then be deployed in the WSO2 EI server.
+        <td>This project allows you to package all the artifacts (stored as sub-projects under the same integration project) into one <a href="packaging-artifacts/">composite application (C-APP)</a>. This C-APP can then be deployed in the Micro Integrator server.
         </br>
         <img src="{{base_path}}/assets/img/integrate/new-project/composite-application.png" title="Composite Application" width="250" alt="Composite Application"/>
         </td>
@@ -65,25 +65,25 @@ The following table lists out the available projects that can be associated with
         <td>Registry Resources</td>
         <td>Create this project if you want to create registry resources for your mediation flow. You can later use these registry artifacts when you define your mediation sequences in the ESB config project.
         </br>
-        WSO2 registry has three components, namely local, config, and governance. Registry resources and metadata can be added into each component in the registry.
+        The registry has three components: local, config, and governance. Registry resources and metadata can be added into each component in the registry.
         </br>
         <img src="{{base_path}}/assets/img/integrate/new-project/registry-resource.png" title="Registry Resource" width="300" alt="Registry Resource"/>
         </td>
     </tr>
     <tr>
         <td>Connector Exporter</td>
-        <td>Create this project if you wish to use EI connectors in your mediation sequence (defined in the ESB config project). All connector artifacts need to be stored in a connector exporter module before packaging.
+        <td>Create this project if you wish to use connectors in your mediation sequence (defined in the ESB config project). All connector artifacts need to be stored in a connector exporter module before packaging.
         </br>
         <img src="{{base_path}}/assets/img/integrate/connectors/why-connectors.png" title="Why Connectors" width="400" alt="Why Connectors"/>
         </td>
     </tr>
     <tr>
         <td>Docker Exporter</td>
-        <td>Create a Docker Exporter project if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="{{base_path}}/integrate/develop/create-docker-project">Create Docker Project</a>.</td>
+        <td>Create a Docker Exporter if you want to deploy your integration solutions inside a Docker environment. This project directory allows you to package multiple integration projects into a single Docker image and then build and push to the Docker registries. For more information on Docker-specific project creation information, see <a href="{{base_path}}/integrate/develop/create-docker-project">Create Docker Project</a>.</td>
     </tr>
     <tr>
         <td>Kubernetes Exporter</td>
-        <td>A Kubernetes Exporter project allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="../../setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
+        <td>A Kubernetes Exporter allows you to deploy your integration solutions in a Kubernetes environment. This module allows you to package multiple integration projects and modules into a single Docker image. Also, a file named integration_cr.yaml is generated, which can be used to carry out Kubernetes deployments based on the <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment/#ei-kubernetes-k8s-operator">k8s-ei-operator</a>. For more information on Kubernetes-specific project creation information, see <a href="develop/create-kubernetes-project">Create Kubernetes Project</a>.</td>
     </tr>
 </table>
 

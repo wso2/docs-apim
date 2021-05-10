@@ -224,7 +224,7 @@ Follow the steps below to add CDATA to display them in the output
 without processing them via the XSLT transformation.
 
 1.  Create a file named `          XMLInputFactory.properties         `
-    inside the `          <EI_HOME>         ` directory, and include the
+    inside the `          <MI_HOME>         ` directory, and include the
     following property in it:
     `          javax.xml.stream.isCoalescing=         `
     `          false         `
@@ -308,23 +308,12 @@ For example, pass the following payload to the `         XSLTProxy        ` prox
 ```
 
 You view the output with the CDATA displayed as follows in the Console
-logs of the WSO2 EI server.
+logs of the Micro Integrator.
 
 ``` text
-    INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction: urn:mediate, SOAPAction: urn:mediate, MessageID: urn:uuid:266d380f-800f-479b-bee9-c30897efe562, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?>
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-    <soapenv:Body>
-       <root xmlns="http://ws.apache.org/ns/synapse"><![CDATA[<abc xmlns="">testabc</abc>]]></root>
-    </soapenv:Body></soapenv:Envelope>
+INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction: urn:mediate, SOAPAction: urn:mediate, MessageID: urn:uuid:266d380f-800f-479b-bee9-c30897efe562, Direction: request, Envelope: <?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<soapenv:Body>
+    <root xmlns="http://ws.apache.org/ns/synapse"><![CDATA[<abc xmlns="">testabc</abc>]]></root>
+</soapenv:Body></soapenv:Envelope>
 ```
-
-<!--
-### Samples
-
-[Sample 440: Converting JSON to XML Using
-XSLT](https://docs.wso2.com/display/EI6xx/Sample+440%3A+Converting+JSON+to+XML+Using+XSLT)
-
-[Sample 8: Introduction to Static and Dynamic Registry Resources and
-Using XSLT
-Transformations](https://docs.wso2.com/display/EI6xx/Sample+8%3A+Introduction+to+Static+and+Dynamic+Registry+Resources+and+Using+XSLT+Transformations)
--->

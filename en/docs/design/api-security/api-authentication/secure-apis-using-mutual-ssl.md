@@ -6,8 +6,8 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
 
 ## Create an API secured with Mutual SSL
 
-1.  [Create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api).
-2.  Click **Runtime Configurations**.
+1.  [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
+2.  Click **Develop -> API Configurations -> Runtime**.
 3.  Select **Mutual SSL**.
     
      [![Enable mutual SSL]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)
@@ -22,9 +22,13 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
 
 5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload**.
     
-     [![]({{base_path}}/assets/img/learn/upload-certificate.png)]({{base_path}}/assets/img/learn/upload-certificate.png)
+     [![Upload Certificate]({{base_path}}/assets/img/learn/upload-certificate.png)]({{base_path}}/assets/img/learn/upload-certificate.png)
     
-6.  **Save** the API.
+6.  **Save and Deploy** the API.
+
+!!! note
+     If you are on a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs.
+     In that case, you need to define 0:0:0:0:0:0:0:0 as the bindAddress in `<APIM_HOME>/repository/resources/security/listenerprofiles.xml`  
     
 ### Invoke an API secured with Mutual SSL using Postman
 

@@ -14,7 +14,7 @@ First, you are required to download the Streaming Integrator and the other softw
 
 ## Downloading the other dependencies for your scenario
 
-This section shows how to prepare your production environment for the scenario described in the [Streaming Integration Overview section](download-install-and-start-si.md).
+This section shows how to prepare your production environment for the scenario described in the [Streaming Integration Overview section]({{base_path}}/streaming/getting-started/getting-started-guide-overview).
 
 ## Setting up a MySQL database table
 
@@ -86,5 +86,5 @@ Now you have completed a WSO2 Streaming Integrator setup that is capable of the 
 
 
 !!! tip "What's Next?"
-    To design a Siddhi application, proceed to [Step 2: Create the Siddhi Application](create-the-siddhi-application.md).
+    To design a Siddhi application, proceed to [Step 2: Create the Siddhi Application]({{base_path}}/streaming/getting-started/create-the-siddhi-application).
 

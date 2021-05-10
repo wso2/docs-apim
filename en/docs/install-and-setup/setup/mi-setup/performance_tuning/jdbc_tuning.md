@@ -1,9 +1,9 @@
 # Tuning JDBC Pool Configurations
 
-If you have connected a [JDBC user store](../../../setup/user_stores/setting_up_ro_ldap) to the Micro Integrator, you can apply the following datasource tuning recommendations in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
+If you have connected a [JDBC user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) to the Micro Integrator, you can apply the following datasource tuning recommendations in the `deployment.toml` file (stored in the `<MI_HOME>/conf` directory).
 
 !!! Info
-    The following recommendations also apply when you create a data service to expose data in an RDBMS. Find out more about [RDBMS configurations](../../../references/synapse-properties/data-services/datasource-Configuration-Parameters) in data services.
+    The following recommendations also apply when you create a data service to expose data in an RDBMS. Find out more about [RDBMS configurations]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters) in data services.
 
 ## JDBC connection pool tuning recommendations
 
@@ -22,7 +22,7 @@ The following parameters should be considered when tuning the connection pool fo
 -   The average time used for running a database query.
 -   The maximum number of connections the database server can support.
 
-The table below indicates some recommendations on how to configure the JDBC pool. See the complete list of [JDBC configuration parameters](../../../references/config-catalog/#database-connection) that you can use in the `deployment.toml` file. For more details about recommended JDBC configurations, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html). 
+The table below indicates some recommendations on how to configure the JDBC pool. See the complete list of [JDBC configuration parameters]({{base_path}}/reference/config-catalog-mi/#database-connection) that you can use in the `deployment.toml` file. For more details about recommended JDBC configurations, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html). 
 
 <table>
     <tr>

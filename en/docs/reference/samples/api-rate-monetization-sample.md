@@ -35,6 +35,7 @@ To monetize APIs using your subscription models, do the following
 -   Connect to a billing engine
 -   Connect the API manager node to the billing engine to charge according to the API usage and bandwidth consumption.
 
-For more details, see [Enabling Monetization of APIs-]({{base_path}}/learn/api-monetization/monetizing-an-api).
+For more details, see [Enabling Monetization of APIs-]({{base_path}}/design/api-monetization/monetizing-an-api).
 
-To view API usage and statistics, configure WSO2 API-M Analytics. For more details, see [Configuring APIM Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/#configuring-apim-analytics).
+To view API usage and statistics, configure WSO2 API-M Analytics. For more details, see [APIM Analytics]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics).
+ 

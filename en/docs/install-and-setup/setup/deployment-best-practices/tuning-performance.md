@@ -8,7 +8,6 @@ This section describes some recommended performance tuning configurations to opt
 !!! info
     The values that WSO2 discusses here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. WSO2 recommends that you carry out load tests on your environment to tune the API Manager accordingly.
 
-
 ## OS-level settings
 
 When it comes to performance, the OS that the server runs plays an important role.
@@ -65,7 +64,7 @@ Following are the configurations that can be applied to optimize the OS-level pe
 
 When an XML element has a large number of sub-elements and the system tries to process all the sub-elements, the system can become unstable due to a memory overhead. This is a security risk.
 
-To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
+To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/api-manager.bat` file (for Windows) or the `<API-M_HOME>/bin/api-manager.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
 -DentityExpansionLimit=10000
@@ -109,7 +108,7 @@ The following diagram shows the communication/network paths that occur when an A
 
 -   **Client call API Gateway + API Gateway call Backend**
 
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthrough properties]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport). Add the following section to the `deployment.toml` file to configure the Socket timeout value.
             ``` java
                 [passthru_http]
                 http.socket.timeout=180000
@@ -134,7 +133,7 @@ Some general API-M-level recommendations are listed below:
 <tr class="odd">
 <td>API Gateway nodes</td>
 <td><div class="content-wrapper">
-<p>Increase memory allocated by modifying the <code>/bin/wso2server.sh</code>  file with the following setting:</p>
+<p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
 <ul>
 <li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
 </ul>
@@ -395,90 +394,3 @@ The registry indexing process, which indexes the APIs in the Registry, is only r
 [indexing]
 enable = false
 ```
-
-## Rate limit data and Analytics-related settings
-
-This section describes the parameters you need to configure to tune the performance of API-M Analytics and rate-limiting when it is affected by high load, network traffic, etc. You need to tune these parameters based on the deployment environment.
-
-### Tuning data-agent parameters
-
-The following parameters should be configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. Note that there are two sub-sections related to  **Thrift** and **Binary**.
-
-``` java
-[transport.thrift.agent]
-:
-
-[transport.binary.agent]
-:
-```
-The Thrift section is related to Analytics, and the Binary section is related to rate limiting. The same set of parameters mentioned below can be found in both sections. The parameter descriptions and recommendations are intended towards the performance tuning of Analytics, but the same recommendations are relevant for rate limiting data related tuning in the Binary section. Note that the section for Thrift is relevant only if Analytics is enabled.
-
-<table>
-<thead>
-<tr class="header">
-<th><b>Parameter</b></th>
-<th><b>Description</b></th>
-<th><b>Default Value</b></th>
-<th><b>Tuning Recommendation</b></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code style="white-space: nowrap;">             queue_size            </code></td>
-<td>The number of messages that can be stored in WSO2 API-M at a given time before they are published to the Analytics Server.</td>
-<td>32768</td>
-<td><div class="content-wrapper">
-<p>This value should be increased when the Analytics Server is busy due to a request overload or if there is high network traffic. This prevents the generation of the <code><b>queue full, dropping message</b></code> error.</p>
-<p>When the Analytics server is not very busy and when the network traffic is relatively low, the queue size can be reduced to avoid overconsumption of memory.</p>
-
-<div class="admonition info">
-    <p class="admonition-title">Info</p>
-    <p>The number specified for this parameter should be a power of 2.</p>
-</div>
-
-</div></td>
-</tr>
-<tr class="even">
-<td><code>             batch_size            </code></td>
-<td>The WSO2 API-M statistical data sent to the Analytics Server to be published in the Analytics Dashboard are grouped into batches. This parameter specifies the number of requests to be included in a batch.</td>
-<td>200</td>
-<td>The batch size should be tuned in proportion to the volume of requests sent from WSO2 API-M to the Analytics Server.
-<ul>
-<li>
-<b>Increase the batch size</b> - If WSO2 API-M is generating a high amount of statistics and if the <code>queue_size</code> cannot be further increased without causing overconsumption of memory.
-</li>
-<li>
-<b>Reduce the batch size</b> - If you want to reduce the system overhead of the Analytics Server.
-</li>
-</ul>
-</td>
-</tr>
-<tr class="odd">
-<td><code>             core_pool_size            </code></td>
-<td>The number of threads allocated to publish WSO2 API-M statistical data to the Analytics Server via Thrift at the time WSO2 API-M is started. This value increases when the throughput of statistics generated increases. However, the number of threads will not exceed the number specified for the <code>             max_pool_size            </code> parameter.</td>
-<td>1</td>
-<td>The number of available CPU cores should be taken into account when specifying this value. Increasing the core pool size may improve the throughput of statistical data published in the Analytics Dashboard, but latency will also be increased due to context switching.</td>
-</tr>
-<tr class="even">
-<td><code>             max_pool_size            </code></td>
-<td>The maximum number of threads that should be allocated at any given time to publish WSO2 API-M statistical data to the Analytics Server.</td>
-<td>1</td>
-<td>The number of available CPU cores should be taken into account when specifying this value. Increasing the maximum core pool size may improve the throughput of statistical data published in the Analytics Dashboard, since more threads can be spawned to handle an increased number of events. However, latency will also increase since a higher number of threads would cause context switching to take place more frequently.</td>
-</tr>
-<tr class="odd">
-<td><code>             max_transport_pool_size            </code></td>
-<td>The maximum number of transport threads that should be allocated at any given time to publish WSO2 API-M statistical data to the Analytics Server.</td>
-<td>250</td>
-<td>This value must be increased when there is an increase in the throughput of events handled by WSO2 API-M Analytics.<br />
-<br />
-The value of the <code>             tcpMaxWorkerThreads            </code> parameter defined under <code>databridge.config:</code> in the <code>             &lt;API-M_ANALYTICS_HOME&gt;/conf/worker/deployement.yaml            </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. For example, when the value for this parameter is <code>             250            </code> and the number of data publishers is 7, the value for the <code>             tcpMaxWorkerThreads            </code> parameter must be <code>             1750            </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</td>
-</tr>
-<tr class="even">
-<td><code>             secure_max_transport_pool_size            </code></td>
-<td>The maximum number of secure transport threads that should be allocated at any given time to publish WSO2 API-M statistical data to the Analytics Server.</td>
-<td>250</td>
-<td><p>This value must be increased when there is an increase in the throughput of events handled by WSO2 API-M Analytics.</p>
-<p>The value of the <code>              sslMaxWorkerThreads             </code> parameter defined under <code>databridge.config:</code> in the <code>              &lt;API-M_ANALYTICS_HOME&gt;/conf/worker/deployement.yaml             </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. For example, when the value for this parameter is <code>              250             </code> and the number of data publishers is 7, the value for the <code>              sslMaxWorkerThreads             </code> parameter must be <code>              1750             </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</p></td>
-</tr>
-</tbody>
-</table>

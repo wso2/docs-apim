@@ -1,6 +1,6 @@
 # Adding an API State Change Workflow
 
-This section explains how to add a custom workflow to control the API state changes in the API Manager. Before you begin, see [Workflow Extensions]({{base_path}}/learn/extensions/managing-workflow-extension/invoking-the-api-manager-from-the-bpel-engine) for more information on the different types of workflow executors, and also, see [API Lifecycle]({{base_path}}/getting-started/key-concepts#api-lifecycle) to get a better understanding on the API states.
+This section explains how to add a custom workflow to control the API state changes in the API Manager. Before you begin, see [Workflow Extensions]({{base_path}}/reference/extending-the-api-manager/extendingh-workflows/invoking-the-api-manager-from-the-bpel-engine) for more information on the different types of workflow executors, and also, see [API Lifecycle]({{base_path}}/getting-started/key-concepts#api-lifecycle) to get a better understanding on the API states.
 
 !!! Note
 
@@ -116,7 +116,7 @@ First, enable the API state change workflow.
 
 4.  Sign in to the API Publisher (`https://<Server Host>:9443/publisher`) and publish an API. 
 
-     For more information, see [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) and [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api/). 
+     For more information, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) and [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/). 
      
 5. Click **Lifecycle**.
 

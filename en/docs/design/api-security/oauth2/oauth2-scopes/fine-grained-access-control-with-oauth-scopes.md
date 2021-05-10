@@ -89,7 +89,7 @@ A shared scope has to be applied to a resource, in order to restrict the access 
 !!! warning
      
     This feature is **DEPRECATED** from **WSO2 API-M 3.2 onwards** and, it is recommended to use 
-    [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
+    [Shared Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
 
 In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. These scopes are local and unique to the relevant API. 
 
@@ -99,7 +99,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
 1. Login to API Publisher (https://localhost:9443/publisher) 
 
-2. Start creating an API as described [here]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
+2. Start creating an API as described [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
 3. Navigate to **Scopes** section and click on **CREATE SCOPES** button.
 
@@ -163,8 +163,8 @@ Once you attach multiple scopes per resource, the resource will look as follows.
 
 ## Defining OAuth Scopes in API Definition
 
-Both [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
-and [Local Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#local-scopes) should be defined in same way in the OpenAPI definition as follows.
+Both [Shared Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
+and [Local Scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#local-scopes) should be defined in same way in the OpenAPI definition as follows.
 
 <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" alt="Resource Scopes API Definition" 
      title="Resource Scopes API Definition" width="50%" /></a>
@@ -177,7 +177,7 @@ and [Local Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-gr
 
    **Option 1**: Adding in startup script
 
-         Open <API-M_HOME>/bin/wso2server.(sh|bat) file.
+         Open <API-M_HOME>/bin/api-manager.(sh|bat) file.
          Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.
          Restart the server.
 
@@ -188,21 +188,21 @@ and [Local Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-gr
    - Linux/Mac OS
          
        ``` tab="Format"
-         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
+         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=<boolean_value>
        ```
              
        ``` tab="Example"
-         ./wso2server.sh -DdisableRoleValidationAtScopeCreation=true
+         ./api-manager.sh -DdisableRoleValidationAtScopeCreation=true
        ```
              
    - Windows
          
        ``` tab="Format"
-         wso2server.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
+         api-manager.bat -DdisableRoleValidationAtScopeCreation=<boolean_value>
        ```
              
        ``` tab="Example"
-             wso2server.bat -DdisableRoleValidationAtScopeCreation=true           
+             api-manager.bat -DdisableRoleValidationAtScopeCreation=true           
        ```
        
 ## Obtaining Tokens with Scopes

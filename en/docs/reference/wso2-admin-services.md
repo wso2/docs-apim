@@ -25,11 +25,11 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
 2. Navigate to the `<API-M_HOME>/bin/` directory and start WSO2 API Manager as follows:
 
     ``` shell tab="Linux"
-    sh wso2server.sh -DosgiConsole
+    sh api-manager.sh -DosgiConsole
     ```
 
     ``` shell tab="Windows"
-    wso2server.bat -DosgiConsole
+    api-manager.bat -DosgiConsole
     ```
 
 3.  When the server starts, press the Enter/Return key several times to get the OSGi shell in the console.
@@ -55,7 +55,7 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
      ```
 
     !!! tip
-        In products such as WSO2 Enterprise Integrator and WSO2 API Manager, the port used is 8243 (assuming that the port offset is 0). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
+        In WSO2 API Manager, the port used is 8243 (assuming that the port offset is 0). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
 
      The admin service's URL appears as follows in the previous list that you discovered:
 

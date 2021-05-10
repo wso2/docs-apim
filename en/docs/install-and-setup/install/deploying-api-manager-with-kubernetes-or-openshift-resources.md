@@ -1,8 +1,7 @@
-# Deploying API Manager with Kubernetes Resources
+# Deploying API-M on Kubernetes using Helm Resources
 
-!!! warning
-    Currently this page has instructions for deployment of WSO2 API Manager with WSO2 API Manager Analytics in Kubernetes.
-
+!!! Warning
+    **The contents on this page are currently under review**
 
 Follow the instructions below to use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M).
 

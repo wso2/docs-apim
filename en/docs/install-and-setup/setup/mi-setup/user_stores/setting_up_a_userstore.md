@@ -4,11 +4,11 @@ A user store is a repository that stores user credentials (user names and passwo
 
 ## Users in the Micro Integrator
 
-Find out about [user credentials in the Micro Integrator](../../../setup/user_stores/managing_users/#users-credentials-in-the-mi).
+Find out about [user credentials in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users/#users-credentials-in-the-mi).
 
 ## File-based user store (Default)
 
-The default user store of the Micro Integrator is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text](../../../setup/security/encrypting_plain_text) using **secure vault**.
+The default user store of the Micro Integrator is file-based. You can open the `deployment.toml` file and add new users to the file-based user store as shown below. You can [encrypt the plain text]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text) using **secure vault**.
 
 ```toml
 [[internal_apis.users]]
@@ -20,7 +20,7 @@ user.name = "user-2"
 user.password = "pwd-2"
 ``` 
 
-The users in this store can only access the management API and related tools ([Micro Integrator dashboard](../../../administer-and-observe/working-with-monitoring-dashboard)/[Micro Integrator CLI](../../../administer-and-observe/using-the-command-line-interface)). That is, the file-based user store only supports user authentication for the management API. If you want to use **authentication for integration use cases** or **authorization**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
+The users in this store can only access the management API and related tools ([Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)/[API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller). That is, the file-based user store only supports user authentication for the management API. If you want to use **authentication for integration use cases** or **authorization**, you need an [LDAP](#configuring-an-ldap-user-store) or [RDBMS](#configuring-an-rdbms-user-store) user store.
 
 ## Disabling the file-based user store
 
@@ -66,7 +66,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 				<code>connection_url</code>
 			</td>
 			<td>
-				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="../../../setup/security/importing_ssl_certificate">add certificates to the truststore</a>.
+				The URL for connecting to the LDAP. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href="{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate">add certificates to the truststore</a>.
 			</td>
 		</tr>
 		<tr>
@@ -105,7 +105,7 @@ Follow the steps given below to connect the Micro Integrator to your LDAP user s
 		</tr>
 	</table>
 
-See the [complete list of parameters](../../../references/config-catalog/#ldap-user-store) you can configure for the ldap user store.
+See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#ldap-user-store) you can configure for the ldap user store.
 
 ## Configuring an RDBMS user store
 
@@ -119,11 +119,11 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 	!!! Tip
 		If you already have an RDBMS user store set up, you can skip this step.
 
-	- [Setting up a MySQL database](../../../setup/databases/setting-up-MySQL)
-	- [Setting up an MSSQL database](../../../setup/databases/setting-up-MSSQL)
-	- [Setting up an Oracle database](../../../setup/databases/setting-up-Oracle)
-	- [Setting up a Postgre database](../../../setup/databases/setting-up-PostgreSQL)
-	- [Setting up an IBM database](../../../setup/databases/setting-up-IBM-DB2)
+	- [Setting up a MySQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mysql)
+	- [Setting up an MSSQL database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-mssql)
+	- [Setting up an Oracle database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-oracle)
+	- [Setting up a Postgre database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-postgresql)
+	- [Setting up an IBM database]({{base_path}}/install-and-setup/setup/mi-setup/databases/setting-up-ibm-db2)
 
 2.	Be sure to add the JDBC driver to the `<MI_HOME>/lib` folder.
 3.	To connect the Micro Integrator to your RDBMS user store: 
@@ -248,7 +248,7 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 			</tr>
 		</table>
 		
-		See the complete list of [database connection parameters](../../../references/config-catalog/#database-connection) and their descriptions. Also, see the recommendations for [tuning the JDBC connection pool](../../../setup/performance_tuning/jdbc_tuning).
+		See the complete list of [database connection parameters]({{base_path}}/reference/config-catalog-mi/#database-connection) and their descriptions. Also, see the recommendations for [tuning the JDBC connection pool]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/jdbc_tuning).
 
 	3.	Add the JDBC user store manager under the `[user_store]` toml heading as shown below.
 
@@ -269,4 +269,4 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 
 ## What's next?
 
-See [Managing Users](../managing_users) for instructions on adding, deleting, or viewing users in the user store.
+See [Managing Users]{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) for instructions on adding, deleting, or viewing users in the user store.

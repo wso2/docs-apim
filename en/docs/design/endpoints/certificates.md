@@ -125,7 +125,7 @@ Follow the steps below to add a certificate to an endpoint:
 
 1.  Sign in to the API Publisher. 
 
-2. [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or click on an existing API.
+2. [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or click on an existing API.
 
 3.  Click **Endpoints** and click **General Endpoint Configuration** to expand that section. 
     [![Open General Endpoint Configuration]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)
@@ -133,6 +133,7 @@ Follow the steps below to add a certificate to an endpoint:
    [![Click on Add Certificate]({{base_path}}/assets/img/learn/click-add-certificate.png)]({{base_path}}/assets/img/learn/click-add-certificate.png)
    
     The Upload Certificate dialog box appears.
+
     [![Upload Certificate Dialog]({{base_path}}/assets/img/learn/upload-certificate-open.png)]({{base_path}}/assets/img/learn/upload-certificate-open.png)
 
     *  Enter the following information and click **Save**.

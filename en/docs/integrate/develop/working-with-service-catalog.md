@@ -1,81 +1,96 @@
-# Working with Service Catalog
+# Publishing Integrations to the API Manager
 
-Service Catalog is one of the main attributes which enables the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them.
+A REST API artifact you create from WSO2 Integration Studio is exposed to consumers when you run it on the Micro Integrator runtime. If you want to control and manage this API, and also expose it to an API marketplace where it becomes discoverable to a wider community of consumers, you need to publish this REST API to the API management layer (API-M runtime) of the product.
 
-## Getting Started with Service Catalog
+Follow the steps given below to publish REST APIs from the Micro Integrator to the API-M runtime.
 
-1. Go to the **Publisher Portal** (https://localhost:9443/publisher)
-2. Click on the **Hamburger Icon** on the top left corner of the page.
-3. Select the **Service Catalog** Menu as follows.
+!!! tip "Related Tutorials"
+        To try out an end-to-end use case where an integration service is created and used as a managed API, see the tutorial: [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial).
 
-![Service Catalog Menu]({{base_path}}/assets/img/integrate/service-catalog/go-to-service-catalog.png)
+## Prerequisites
 
-If this is the first time you work with the Service Catalog, you will see the following **onboarding page** where you can easily get started with your first integration service.
+Develop a REST API artifact using WSO2 Integration Studio. This is your integration service with the mediation logic that will run on the Micro Integrator.
 
-![Service Catalog Onboarding Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-onboarding-page.png)
+!!! Tip
+    For instructions on creating a new integration service, use the following documentation: 
 
-There are 2 options where you can either
+    -   [Developing your First Integration Service]({{base_path}}/integrate/develop/working-with-service-catalog).
+    -   [integration tutorials]({{base_path}}/tutorials/tutorials-overview/#integration-tutorials).
 
-1. Deploy a sample service by clicking on the **Add Sample Service** button or,
-2. Deploy your own Integration Service through the Micro Integrator. You can get the relevant instructions by clicking on the **Get Started** button. 
+## Step 1 - Update the service metadata
 
-## Manage Services
+When you create a REST API artifact from WSO2 Integration Studio, a **resources** folder with metadata files is created as shown below. This metadata is used by the API management runtime to generate the API proxy for the service.
 
-#### Discover Services
+<img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="400">
 
-Once you have services deployed, you can view the list of available services by accessing the Service Catalog Menu. 
+Update the metadata for your service as explained below.
 
-1. Click on the **Hamburger Icon** in the top left corner of the web page.
-2. Select the **Service Catalog** Menu.
+<table>
+    <tr>
+        <th>
+            Parameter
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            description
+        </td>
+        <td>
+            Explain the purpose of the API.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            serviceUrl
+        </td>
+        <td>
+            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
+            You can configure the serviceUrl in the following ways:
+            <ul>
+                <li>
+                    Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
+                </li>
+                <li>
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_HOST}/healthcare</code>.
+                </li>
+                <li>
+                    Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
 
-Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
+!!! Tip
+    See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
-![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-listing.png)
+## Step 2 - Configure the Micro Integrator server
 
-#### View information of a specific Service
+The Micro Integrator contains a client for publishing integrations to the API-M runtime. To enable this client, update the following in the `deployment.toml` file of your Micro Integrator.
 
-You can view the detailed information of a specific service by clicking on the **Service** name from the service listing page.
+```toml
+[[service_catalog]]
+apim_host = "https://localhost:9443"
+enable = true
+username = "admin"
+password = "admin"
+```
 
-Click on **Hamburger Icon** -> Select **Service Catalog** -> Click on the **service name**
+See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
-![Click on service name]({{base_path}}/assets/img/integrate/service-catalog/service-name.png)
+## Step 3 - Start the servers
 
-You will be directed to the **service overview** page as follows where you can view service information such as service name, version, description, usages in APIs and other important metadata.
+Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). 
 
-![Service Overview]({{base_path}}/assets/img/integrate/service-catalog/service-overview.png)
+Note that the API-M server should be started before the Micro Integrator. The client in the Micro Integrator publishes the integration services to the API-M layer during server startup.
 
-##### Download a Service Definition
+## What's Next?
 
-Through the service overview page, it is possible to download the service definition. For this you can click on the **Download** button against the Service Definition as shown below.
+Once the servers are started and the services are published, you can access the service from the API-M layer, and then proceed to **Create**, **Deploy**, and **Publish** the API as follows:
 
-Click on the **service name** from the listing -> Go to **Service Definition** -> Click **Download**
-
-![Download Service]({{base_path}}/assets/img/integrate/service-catalog/download-service.png)
-
-##### View the Service Definition
-
-To view the definition of a service, you can click on the **View Definition** button in the service overview page.
-
-Click on the **service name** from the listing -> Go to **Service Definition** -> Click **View Definition**
-
-![View service definition]({{base_path}}/assets/img/integrate/service-catalog/view-service-definition.png)
-
-#### View APIs that use a specific Service
-
-In order to view the list of APIs that use a specific service, you can click on the **Number of Usages** in the **service listing** page or click on the link depicting the number of usages in the **service overview** page as shown below.
-
-![API usage in Service Listing page]({{base_path}}/assets/img/integrate/service-catalog/service-listing-usage.png)
-
-![API usage in Service Overview page]({{base_path}}/assets/img/integrate/service-catalog/service-overview-usage.png)
-
-You can access the relevant API from the API usage list by clicking on the API name as shown below.
-
-![API usage list]({{base_path}}/assets/img/integrate/service-catalog/service-usage-view.png)
-
-## Create an API from a Service
-
-You can create an API from a service by clicking on the **Create API** button in the service listing page or the service overview page.
-
-![Create API from Service]({{base_path}}/assets/img/integrate/service-catalog/create-api-from-service.png)
-
-Provide the API Name, Context and Version where all fields are mandatory, and click **Create API**. You will then be directed to the overview page of the API created from the service.
+1. [Create and API ]({{base_path}}/design/create-api/create-an-api-using-a-service) using the integration service.
+2. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) in the API Gateway.
+3. [Publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) to the Developer Portal.

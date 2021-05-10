@@ -27,6 +27,6 @@ Follow the instructions below to set up OAuth token hashing.
     ALTER TABLE IDN_OAUTH2_ACCESS_TOKEN DROP CONSTRAINT IF EXISTS CON_APP_KEY
     ```
                
-4.  [Start the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server). 
+4.  [Start the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server). 
 
-5.  Follow the [Generate Application Keys]({{base_path}}/learn/consume-api/manage-application/generate-keys/generate-api-keys) guide to create a new application, generate application consumer keys, and to obtain an access token.
+5.  Follow the [Generate Application Keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys) guide to create a new application, generate application consumer keys, and to obtain an access token.

@@ -78,7 +78,7 @@ Follow the instructions below to add documentation to an API:
         <tbody>
         <tr class="odd">
         <td>Name</td>
-        <td>API Forum</td>
+        <td>APIForum</td>
         </tr>
         <tr class="even">
         <td>Summary</td>
@@ -110,7 +110,7 @@ Follow the instructions below to add documentation to an API:
         <tbody>
         <tr class="odd">
         <td>Name</td>
-        <td>PizzaShack Wiki</td>
+        <td>PizzaShackWiki</td>
         </tr>
         <tr class="even">
         <td>Summary</td>
@@ -148,7 +148,7 @@ Follow the instructions below to add documentation to an API:
 
         |         |                                                                                                                                                                                                                                                                                                                              |
         |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
+        | Name    | APIManagerSamples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
         | Source  | You can provide only these file formats.(`.pdf` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
@@ -167,7 +167,7 @@ Follow the instructions below to add documentation to an API:
 
         |         |                                      |
         |---------|--------------------------------------|
-        | Name    | PizzaShackAPI Documentation                    |
+        | Name    | PizzaShackAPIDocumentation                    |
         | Summary | This is the official documentation for the PizzaShack API |
         | Type    | How To                               |
         | Source  | Markdown                              |
@@ -229,7 +229,7 @@ You have created documentation using the API Publisher and viewed the documentat
 #### Control API document visibility using the API Publisher
 1.  Sign in to the API Publisher as an API creator using the following URL: 
      `https://<localhost>:9443/publisher`
-2.  [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or edit an existing API.
 3.  In the **Documents** tab, Click **Add New Document**, to see a new drop-down list added to select visibility from.
      [ ![API document visibility selector]({{base_path}}/assets/img/learn/api-doc-visibility-selector.png) ](/{{base_path}}/assets/img/learn/api-doc-visibility-selector.png)
 4.  Select the desired visibility level for the document. 

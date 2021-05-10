@@ -1,8 +1,8 @@
 # Connector Developer Guidelines
 
-WSO2 Enterprise Integrator (EI) Connectors are extensions to WSO2 EI runtime (compatible with both 6.x and 7.x) that enable developers to interact with SaaS applications on the cloud, databases, and popular B2B protocols.
+Integration Connectors are extensions to the integration runtime of WSO2 (compatible with EI 6.x, EI 7.x, as well as APIM 4.0.0). This enables developers to interact with SaaS applications on the cloud, databases, and popular B2B protocols.
 
-Connectors are hosted in a connector store and can be added to integration flows in WSO2 Integration Studio, which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your sequences and proxy services.
+Connectors are hosted in a connector store and can be added to integration flows in WSO2 Integration Studio, which is the tooling component for developing integrations. Once added, the operations of the connector can be dragged onto your canvas and added to your sequences and proxy services.
 
 Each connector provides a set of operations, which you can call from your proxy services, sequences, and APIs to interact with the specific third-party service.
 
@@ -10,13 +10,12 @@ This document is an in-depth guide for developers to follow when developing a ne
 
 ## Connector Architecture
 
-A connector is a collection or a set of operations that can be used in WSO2 Enterprise Integrator integration flow to access a specific service or a functionality. These operations are invoked from proxy services, sequences and APIs to interact.
+A connector is a collection or a set of operations that can be used in the integration flow to access a specific service or functionality. These operations are invoked from proxy services, sequences, and APIs to interact.
 
-* A connector operation is made using [sequence templates]({{base_path}}/reference/synapse-properties/template-properties/) in WSO2 EI. 
-* The integration logic inside a connector operation is constructed using WSO2 EI mediators. 
-* The integration logic inside a connector operation needs some custom functionality not provided by the WSO2 EI mediators, a java implementation can be attached to the associated sequence template. This is using the Custom Class Mediator approach. 
-* If the third party service provider provides a Java SDK to interact with the service, connector operation can use them extending the java implementation. 
-
+* A connector operation is made using [sequence templates]({{base_path}}/reference/synapse-properties/template-properties/). 
+* The integration logic inside a connector operation is constructed using mediators. 
+* The integration logic inside a connector operation needs some custom functionality not provided by mediators, a java implementation can be attached to the associated sequence template. This is using the Custom Class Mediator approach. 
+* If the third-party service provider provides a Java SDK to interact with the service, connector operation can use them extending the java implementation. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/dev-connectors.png" title="Developing Connectors" width="800" alt="Developing Connectors"/>
 
@@ -24,8 +23,8 @@ A connector is a collection or a set of operations that can be used in WSO2 Ente
 
 There are two types of connectors.
 
-* Application/SaaS connectors - which connect to cloud applications. These are implemented purely using WSO2 EI mediators and constructs. E.g., Amazon S3, Salesforce
-* Technology connectors - which implement different B2B protocols. Logic for these are implemented using mainly Java. E.g., JMS, NATS, Email
+* Application/SaaS connectors - Connects to cloud applications. These are implemented purely using WSO2 mediators and constructs. E.g., Amazon S3, Salesforce
+* Technology connectors - Implements different B2B protocols. Logic for these are implemented using mainly Java. E.g., JMS, NATS, Email.
 
 ### Connector Structure
 
@@ -57,13 +56,13 @@ The typical folder structure of a connector is as follows.
 ```
 
 * **pom.xml** - Defines the build information for maven.
-* **repository** - When running Integration tests, the EI pack should be placed here.
+* **repository** - When running Integration tests, the integration runtime distribution should be placed here.
 * **src/main/assembly** - Instructions on packaging the connector.
-* **src/main/java/org/wso2/carbon/connector** - Java code which is being used to implement connector logic
-* **src/main/resources** - contains sequence templates for each connector operation.
-* **src/main/resources/config** - contains the connector initialization logic.
+* **src/main/java/org/wso2/carbon/connector** - Java code which is being used to implement connector logic.
+* **src/main/resources** - Contains sequence templates for each connector operation.
+* **src/main/resources/config** - Contains the connector initialization logic.
 * **src/main/resources/connector.xml** - Contains the connector information.
-* **src/test** - Contains the test cases
+* **src/test** - Contains the test cases.
 
 ### About the connector.xml file
 
@@ -147,7 +146,7 @@ Below is the component.xml in ‘sample’ subdirectory.
     </tr>
     <tr>
         <td>component (under subComponent)</td>
-        <td>Defines an operation. ‘name’ attribute defines the name of the operation. The following is an example of what you can find in the component.xml file.
+        <td>Defines an operation. The ‘name’ attribute defines the name of the operation. The following is an example of what you can find in the component.xml file.
             <code>
                 <subComponents>
                     <component name="operation1">
@@ -188,7 +187,7 @@ The following is a sample available in the component.xml file.
 
 ### Operation
 
-An operation of a WSO2 EI connector is implemented using a [synapse template](https://docs.wso2.com/display/EI611/Sequence+Template) as mentioned before.
+An operation of an integration connector is implemented using a [synapse template](https://docs.wso2.com/display/EI611/Sequence+Template) as mentioned before.
 A typical template configuration for an operation would look like below.
 
 ```xml
@@ -234,13 +233,14 @@ The following is a sample of the code in component.xml.
 ```
 
 The following is a sample code extracted from operation1.xml
+
 ```xml
-    <template xmlns="http://ws.apache.org/ns/synapse" name="operation1">
+<template xmlns="http://ws.apache.org/ns/synapse" name="operation1">
 ```
 
 ### Invoking an operation
 
-When invoking an operation from the main integration flow, the connector name defined in the connector.xml would be appended to the respective operation. Invoking the operation would look similar to the following.
+When invoking an operation from the main integration flow, the connector name defined in the `connector.xml` would be appended to the respective operation. Invoking the operation would look similar to the following.
 
 ```xml
 <sample.operation1>
@@ -255,7 +255,6 @@ When invoking an operation from the main integration flow, the connector name de
 * Download and install Apache Maven.
 
 ### Step 1: Create Maven project template
-
 
 We will use the [Maven archetype](https://github.com/wso2-extensions/archetypes/tree/master/esb-connector-archetype) to generate the Maven project template and sample connector code.
 
@@ -301,11 +300,12 @@ We will use the [Maven archetype](https://github.com/wso2-extensions/archetypes/
 
 ### Step 2: Adding the new connector resources
 
-Now, let's configure files in the org.wso2.carbon.esb.connector.sample/src/main/resources directory:
+Now, let's configure files in the `org.wso2.carbon.esb.connector.sample/src/main/resources` directory:
 
-1. Create a directory named googlebooks_volume in the /src/main/resources directory.
+1. Create a directory named googlebooks_volume in the `/src/main/resources` directory.
 
-2. Create a file named listVolume.xml with the following content in the googlebooks_volume directory:
+2. Create a file named `listVolume.xml` with the following content in the googlebooks_volume directory:
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <template xmlns="http://ws.apache.org/ns/synapse" name="listVolume">
@@ -321,7 +321,8 @@ Now, let's configure files in the org.wso2.carbon.esb.connector.sample/src/main/
     </template>
     ```
 
-3. Create a file named component.xml in the googlebooks_volume directory and add the following content.
+3. Create a file named `component.xml` in the googlebooks_volume directory and add the following content.
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <component name="googlebooks_volume" type="synapse/template">
@@ -334,7 +335,8 @@ Now, let's configure files in the org.wso2.carbon.esb.connector.sample/src/main/
     </component>
     ```
 
-4. Edit the connector.xml file in the src/main/resources directory and replace the contents with the following dependency:
+4. Edit the `connector.xml` file in the `src/main/resources` directory and replace the contents with the following dependency:
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <connector>
@@ -345,38 +347,37 @@ Now, let's configure files in the org.wso2.carbon.esb.connector.sample/src/main/
     </connector>
     ```
 
-5. Create a folder named icon in the /src/main/resources directory and add two icons.(You can download icons from the following location: http://svn.wso2.org/repos/wso2/scratch/connectors/icons/)
-
+5. Create a folder named icon in the /src/main/resources directory and add two icons. You can download icons from the following location: http://svn.wso2.org/repos/wso2/scratch/connectors/icons/.
 
 ### Step 3: Building the connector
 
-Open a terminal, navigate to the org.wso2.carbon.esb.connector.sample directory and execute the following maven command:
+Open a terminal, navigate to the `org.wso2.carbon.esb.connector.sample` directory and execute the following maven command:
 
 ```bash
 mvn clean install
 ```
 
-This builds the connector and generates a ZIP file named sample-connector-1.0.0.zip in the target directory.
+This builds the connector and generates a ZIP file named `sample-connector-1.0.0.zip` in the target directory.
 
 ### Step 4: Testing the connector
 
-1. Open Integration Studio and [create an Integration Project]({{base_path}}/integrate/develop/create-integration-project) by clicking **New Integration Project**.
+1. Open WSO2 Integration Studio and [create an integration project]({{base_path}}/integrate/develop/create-integration-project) by clicking **New Integration Project**.
 
 2. In the window that appears, make sure you select **Connector Exporter Project"** as a module of the project.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/connector-project.png" title="Connector Exporter Project" width="600" alt="Connector Exporter Project"/>
 
-3. In the newly created project, navigate to SampleConnector/SampleConnectorConfigs/src/main/synapse-config/api in Integration Studio. Right click and select **New** -> **Rest API**.
+3. In the newly created project, navigate to `SampleConnector/SampleConnectorConfigs/src/main/synapse-config/api` in WSO2 Integration Studio. Right-click and select **New** -> **Rest API**.
 
 4. Select **Create A New API Artifact** and provide below details.
     * Name - sampleAPI
     * Context - /sample
 
-5. Right click on the SampleConnectorConfigs project, and select **Add or Remove Connector**. In the window that appears, select **Add from File System** and select the file path to the `<sample_connector_folder>/target/sample-connector-1.0.0.zip` file. You may observe the sample-connector added in the pallette as shown below.
+5. Right-click the `SampleConnectorConfigs` project and select **Add or Remove Connector**. In the window that appears, select **Add from File System** and select the file path to the `<sample_connector_folder>/target/sample-connector-1.0.0.zip` file. You may observe the sample-connector added in the pallette as shown below.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/connector-explorer.png" title="Connector Expolorer" width="300" alt="Connector Explorer"/>
 
-6. Switch to source view and update the configuration as below.
+6. Switch to the source view and update the configuration as below.
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <api context="/sample" name="sampleAPI" xmlns="http://ws.apache.org/ns/synapse">
@@ -395,11 +396,11 @@ This builds the connector and generates a ZIP file named sample-connector-1.0.0.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/studio-sequence.png" title="Integration Studio Sequence" width="400" alt="Integration Studio Sequence"/>
 
-7. Right click on the SampleConnectorConnectorExporter project -> **New** -> **Add or Remove Connectors** -> **Select ‘workspace’**. Select the connector from the below window and click **OK**. Click **Finish**.
+7. Right-click the `SampleConnectorConnectorExporter` project and go to -> **New** -> **Add or Remove Connectors** -> **Select ‘workspace’**. Select the connector from the below window and click **OK** and then click **Finish**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/workspace-connector.png" title="Connector Workspace" width="400" alt="Connector Workspace"/>
 
-8. To run the project, right click on the project and select **Run As** -> **Run on Micro Integrator**.
+8. To run the project, right-click on the project and select **Run As** -> **Run on Micro Integrator**.
 
 9. Select the artifacts to be exported and click **Finish**.
 
@@ -423,12 +424,11 @@ In cases where you need to provide custom capabilities that cannot be fulfilled 
 
 These Java classes should reside inside /src/main/java/org.wso2.carbon.connector/ directory.
 
-
 ### Sample
 
 This sample is an extension to the ‘Writing your first connector’ section. Let us improve the connector with a Java implementation. 
 
-In the same project, you may observe the sampleConnector class created under /src/main/java/org.wso2.carbon.connector/ directory.
+In the same project, you may observe the sampleConnector class created in the `/src/main/java/org.wso2.carbon.connector/` directory.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/sampleconnector-class.png" title="sampleConnector class" width="300" alt="sampleConnector class"/>
 
@@ -457,13 +457,13 @@ This class is being invoked by `/src/main/resources/sample/sample_template.xml` 
 <class name="org.wso2.carbon.connector.sampleConnector" />
 ```
 
-Now, let’s add the component containing the sample_template.xml to the connector by adding the below line to connector.xml.
+Now, let’s add the component containing the `sample_template.xml` to the connector by adding the below line to `connector.xml`.
 
 ```xml
 <dependency component="sample" />
 ```
 
-After adding this line, the connector.xml should be similar to the following.
+After adding this line, the `connector.xml` should be similar to the following:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -489,7 +489,7 @@ In the sample, when the connect method is invoked, it should log message “samp
 2. Drag and drop the sample_template operation as indicated below, and configure the generated_param expression as `json-eval($.generatedParam)`.
     <img src="{{base_path}}/assets/img/integrate/connectors/sample-template-operation.png" title="Sample template operation" width="500" alt="Sample template operation"/>
 
-    The API resource would now look similar to the following.
+    The API resource would now look similar to the following:
     ```xml
     <resource methods="POST" uri-template="/sampleTemplate">
         <inSequence>
@@ -521,11 +521,11 @@ In the sample, when the connect method is invoked, it should log message “samp
 
 ## Connection Handling
 
-In connectors, we often need to establish connections with the third party applications or sometimes need to maintain connection configuration. This is done using the ‘init’ operation which is typically invoked before any operation is performed.
+In connectors, we often need to establish connections with the third-party applications or sometimes need to maintain connection configuration. This is done using the ‘init’ operation which is typically invoked before any operation is performed.
 
 This is a hidden operation which is not mandatory for all connectors to implement.
 
-In the latest versions of the connectors, connections are abstracted into local entries by configuring the ‘init’ operation in the local entries. It is then linked to the connector operations which allows the user to maintain multiple connection entries and configure which connection to be used for each operation. 
+In the latest versions of the connectors, connections are abstracted into local entries by configuring the ‘init’ operation in the local entries. It is then linked to the connector operations, which allows the user to maintain multiple connection entries and configure which connection to be used for each operation. 
 
 E.g., The following is a connection created for the email operations.
 
@@ -556,7 +556,7 @@ Here, the `init` operation is configured using the `configKey` attribute. When t
 
 ### SaaS Connectors
 
-In SaaS connectors, where the logic is implemented using pure ESB constructs, it often uses OAuth 2.0 for authentication. Connector core provides the capability to handle access tokens and refresh expired tokens.
+In SaaS connectors, where the logic is implemented using pure integration constructs, it often uses OAuth 2.0 for authentication. Connector core provides the capability to handle access tokens and refresh expired tokens.
 
 #### Authentication Mechanism using Refresh Token
 
@@ -636,7 +636,7 @@ For example, see [the Java code](https://github.com/wso2-extensions/esb-connecto
 
 #### Connection Handler 
 
-Connection Handler contains a map which maintains connections/connection pools. Following are the methods it provides.
+Connection Handler contains a map that maintains connections/connection pools. Following are the methods it provides.
 
 <table>
     <tr>
@@ -697,6 +697,7 @@ See the above section on Connection Handling.
 ### Read template parameters
 
 Template parameters can be read using the `lookupTemplateParamater(MessageContext ctxt, String paramName)` method in `ConnectorUtils` as indicated below.
+
 ```
 ConnectorUtils.lookupTemplateParamater(messageContext, ”param”)
 ```
@@ -704,6 +705,7 @@ ConnectorUtils.lookupTemplateParamater(messageContext, ”param”)
 ### Read connection pool parameters
 
 Connection pool parameters can be parsed from the template parameters and set to the Configuration object using the `getPoolConfiguration(MessageContext messageContext)` method in `ConnectorUtils` as indicated below.
+
 ```
 ConnectorUtils.getPoolConfiguration(messageContext)
 ```
@@ -738,7 +740,7 @@ Following methods in `PayloadUtils` class can be used for payload building and t
 ## Best practices
 
 **Use functionalities available in Connector Core**
-Every connector depends on [WSO2 EI Connector Core](https://github.com/wso2/carbon-mediation/tree/master/components/mediation-connector/org.wso2.carbon.connector.core), which acts as the interface between EI mediation engine and connector implementation. It is the SDK provided to develop WSO2 EI connectors. Connection pooling, OAuth-based authentication, JSON and XML utilities are there. 
+Every connector depends on the [WSO2 Connector Core](https://github.com/wso2/carbon-mediation/tree/master/components/mediation-connector/org.wso2.carbon.connector.core), which acts as the interface between the mediation engine and the connector implementation. It is the SDK provided to develop connectors. Connection pooling, OAuth-based authentication, JSON and XML utilities are there. 
 
 **Never use class level variables when you extend “AbstractConnector” class**
 The `connect` method of this class must be stateless as multiple threads will access it at the same time (e.g., [Email Send](https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/java/org/wso2/carbon/connector/operations/EmailSend.java)). Due to the same reason, avoid using class level variables to assign and keep values as that makes this method stateful. 
@@ -753,7 +755,8 @@ This is extremely useful in production. It is always advised to add required DEB
 ```
 
 **Add meaningful comments to the code**
-This helps for other developers to read through the implementation and understand. In sequence templates also developers can use XML based comments. 
+This helps for other developers to read through the implementation and understand. In sequence templates also developers can use XML-based comments. 
+
 ```xml
     <!-- Calling test EP to obtain key required for further mediation-->
     <call>
@@ -768,7 +771,7 @@ If the connector has many operations, instead of adding templates for all the op
 Developers may define a template with the `<hidden>true</hidden>` property in `component.xml` related to the template ([example component.xml](https://github.com/wso2-extensions/esb-connector-email/blob/master/src/main/resources/config/component.xml)). Then that template will not be presented as a connector operation to the users when rendered in WSO2 Integration Studio. It is a private template which you can refer to construct logic in other templates. This provides a way to keep a reusable logic inside the connector for easy maintenance. See the [example](https://github.com/niruhan/esb-connector-salesforcerest/tree/master/src/main/resources/salesforcerest-config) for more information. 
 
 **Use property Group if there are a lot of properties to define** 
-Within some operations we need to define a number of properties together. When you use Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make xml definition also more readable you can group properties together using [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/). 
+Within some operations we need to define a number of properties together. When you use WSO2 Integration Studio to develop the logic, this fact makes sequence template logic to render in a lengthy manner in the UI. It makes it harder to navigate. To prevent this and to make XML definition also more readable you can group properties together using [Property Group mediator]({{base_path}}/reference/mediators/property-group-mediator/). 
 
 **Use `$ctx`: syntax instead of `get-property()` when reading properties**
 When you use the [property mediator]({{base_path}}/reference/mediators/property-mediator/) to read properties, always use `$ctx:` syntax. It delivers better performance. Make sure to use properties in the correct scope. 
@@ -797,6 +800,7 @@ These schemas are placed inside `/resources` under `input_schema` and `output_sc
 Maps the input format required for the operation. For example:
 
 Operation
+
 ```xml
 <template xmlns="http://ws.apache.org/ns/synapse" name="sample">
    <parameter name="param" description="Sample parameter."/>
@@ -807,6 +811,7 @@ Operation
 ```
 
 Input Schema
+
 ```json
 {
  "$schema":"http:\/\/wso2.org\/json-schema\/wso2-data-mapper-v5.0.0\/schema#",
@@ -843,7 +848,7 @@ Output Schema
 
 ## The UI schema
 
-In order to support the new Integration Studio (version 7.1.0 +) properties window shown below, the UI schema should be derived for each operation. If this schema is present in the connector,  when imported to the Integration Studio properties panel will automatically get generated as per the information there. 
+In order to support the WSO2 Integration Studio (version 7.1.0 +) properties window shown below, the UI schema should be derived for each operation. If this schema is present in the connector, when imported to the Integration Studio, the properties panel will automatically get generated as per the information there. 
 
 <img src="{{base_path}}/assets/img/integrate/connectors/ui-schema.png" title="UI schema" width="500" alt="UI schema"/>
 

@@ -8,8 +8,8 @@ The API Analytics Dashboard provides business insights on APIs enabling users to
 ## API usage analysis
 The API usage related data is represented through the overall and overtime graphs in the API dashboard. Information related to the API usage can be found in the following 2 pages of the API Analytics Dashboard:
 
--   [Usage summary]({{base_path}}/learn/analytics/viewing-api-statistics/api-analytics-dashboard/#usage-summary)
--   [API usage]({{base_path}}/learn/analytics/viewing-api-statistics/api-analytics-dashboard/#api-usage)
+-   [Usage summary]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard/#usage-summary)
+-   [API usage]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard/#api-usage)
 
 ### Usage summary
 The usage summary page provides a summarized view of the usage of the selected API(s) for the specified time period.
@@ -64,7 +64,7 @@ This graph can also be used to view the usage of the selected API(s) by a specif
 ## Viewing API performance
 Analyzing the performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following page of the API Analytics Dashboard:
 
-- [API performance]({{base_path}}/learn/analytics/viewing-api-statistics/api-analytics-dashboard/#api-performance)
+- [API performance]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard/#api-performance)
 
 ### API performance
 
@@ -102,7 +102,7 @@ The API  latency time graph shows the latency breakdown of the selected resource
 ## Error analysis
 The error analysis will help identify problematic APIs so that proactive measures could be taken to improve these APIs. API error-related data are displayed on the following page in the API analytics dashboard:
 
-- [API Faults]({{base_path}}/learn/analytics/viewing-api-statistics/api-analytics-dashboard/#api-faults) 
+- [API Faults]({{base_path}}/observe/api-manager-analytics/viewing-api-statistics/api-analytics-dashboard/#api-faults) 
 
 ### API faults
 The API faults page provides information about the throttled out requests and faulty requests of a selected API. The API faults overtime widget provides an overtime representation of the faulty invocations of the selected API. The API throttled out requests overtime widget provides an overtime representation of the throttled out invocations of the selected API.

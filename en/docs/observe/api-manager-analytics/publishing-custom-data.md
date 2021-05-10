@@ -33,7 +33,7 @@ Following is a sample sequence for the response path. Note the property named <b
 </sequence>
 ```
 
-Once the sequences are created, they can be engaged to the in-sequence or out-sequence via the publisher portal. More information on engaging custom sequences can be found [here]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/#changing-the-default-mediation-flow-of-api-requests). 
+Once the sequences are created, they can be engaged to the in-sequence or out-sequence via the publisher portal. More information on engaging custom sequences can be found [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/#changing-the-default-mediation-flow-of-api-requests). 
 
 
 ## Persisting published custom attributes 

@@ -22,7 +22,7 @@ toolbar, and open the preferred view from the list.
 
 ## Unable to drag and drop mediators into the canvas
 
-When you use **display scaling** that exceed 150% (in **Windows** or **Linux** environments only), you may observe that you cannot drag and drop mediators into the canvas. To overcome this issue, add the following line (VM argument) to the `IntegrationStudio.ini` file in the installation directory of WSO2 Integration Studio.
+When you use **display scaling** that exceeds 150% (in **Windows** or **Linux** environments only), you may observe that you cannot drag and drop mediators into the canvas. To overcome this issue, add the following line (VM argument) to the `IntegrationStudio.ini` file in the installation directory of WSO2 Integration Studio.
 
 !!! Warning
     Be sure to add this as the last line in the file.
@@ -31,7 +31,7 @@ When you use **display scaling** that exceed 150% (in **Windows** or **Linux** e
 -Dswt.autoScale=100
 ```
 
-## Error creating Docker image (on MacOS)
+## Error creating Docker image (on macOS)
 
 When you run WSO2 Integration Studio on MacOS, you will sometimes get the following error when you [generate a Docker image]({{base_path}}/integrate/develop/generate-docker-image) of your integration artifacts: "**Error creating Docker image**".
 
@@ -105,7 +105,7 @@ at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
 at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
 ```
 
-To overcome this issue, you must go to the [**Docker Desktop**](https://docs.docker.com/docker-for-windows/) settings in Windows and expose the **daemon** on TCP without TLS .
+To overcome this issue, you must go to the [**Docker Desktop**](https://docs.docker.com/docker-for-windows/) settings in Windows and expose the **daemon** on TCP without TLS.
 
 Follow the steps given below.
 

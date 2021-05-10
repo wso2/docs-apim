@@ -18,11 +18,11 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 2.  Under the **Rate Limiting Policies** tab and navigate to **Advanced Policies.**
 3.  Click Add New Policy to add a new Rate Limit tier.
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)
+    [![Allowed IP add policy]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)]({{base_path}}/assets/img/learn/allowed-ip-add-policy.png)
 
 4.  Fill the details as below and click **Add Conditional Group**.
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
+    [![Allowed IP add conditional group]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
 
 5.  Open the Conditional Group added and fill the details.
 
@@ -35,9 +35,9 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 
     Following is an example configuration.
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)
+    [![New allow specific IP]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)
     
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
+    [![Save allow specific IP]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
@@ -45,7 +45,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
     You can allow a range of IPs as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range as follows.</p>
     </div>
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
+    [![New allowed IP range]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
 
 6.  Click **Save**.
        
@@ -56,7 +56,7 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
 1.  Login to API Publisher https://:9443/publisher.
 2.  Select the API and go to the <b>Resources</b> menu.
 3.  Enable **API level** under **Operational Configuration** and select the newly created Throttling policy.
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)
+    [![Apply allowlist to API]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)]({{base_path}}/assets/img/learn/apply-allowlist-to-api.png)
     
 4.  Save and Publish the API.
     Now the API will be accessible only by the IP specified in the throttling policy.
@@ -82,17 +82,17 @@ To deny a request,
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Deny Policies** under the **Rate Limiting Policies** section and click **Add Policy**.
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/add-denied-policy.png)
+    [![Add denied policy]({{base_path}}/assets/img/learn/add-denied-policy.png)]({{base_path}}/assets/img/learn/add-denied-policy.png)
 
 Select the item to deny, enter a value and click **Deny**.
 
-![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/select-denied-condition.png)
+[![Select denied condition]({{base_path}}/assets/img/learn/select-denied-condition.png)]({{base_path}}/assets/img/learn/select-denied-condition.png)
 <div class="admonition info">
     <p class="admonition-title">Note</p>
 <p>You can temporary switch on/off the denied condition by enabling/disabling the <b>Condition status</b> that is auto enabled when a denied condition is created. </p>
 </div>
 
-![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/denied-condition-status.png)
+[![Denied condition status]({{base_path}}/assets/img/learn/denied-condition-status.png)]({{base_path}}/assets/img/learn/denied-condition-status.png)
 
 ##### Denying PhoneVerification API
 
@@ -102,10 +102,10 @@ As described above you can deny requests for APIs, by Applications, to IP Addres
 2.  Click **Deny Policies** under the **Rate Limiting Policies** section and click **Add Policy**.
 3.  Select **API Context** and provide the Context of PhoneVerification API with version as the **Value.**
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/select-context-deny.png)
+    [![Select context deny]({{base_path}}/assets/img/learn/select-context-deny.png)]({{base_path}}/assets/img/learn/select-context-deny.png)
 
 4.  Click **Deny.**
 5.  Now login to API Developer Portal using the URL `https://localhost:9443/devportal` and invoke the API.
     You will see the following response.
 
-    ![Advanced Rate Limit policy]({{base_path}}/assets/img/learn/denied-api.png)
+    [![Denied api]({{base_path}}/assets/img/learn/denied-api.png)]({{base_path}}/assets/img/learn/denied-api.png)

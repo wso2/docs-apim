@@ -18,7 +18,7 @@ Follow the steps below to create and publish an AWS Lambda API:
 
     !!!note
          **You do not need to enter the Endpoint during the initial process of creating the API.**
-         For more information on the possible API details that you can add, see [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api)
+         For more information on the possible API details that you can add, see [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api)
 
 Now, you have created a new REST API successfully. 
 

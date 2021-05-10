@@ -13,7 +13,7 @@ Digest Authentication applies a hash function to the username and the password b
 
 Digest Authentication is safer than Basic Authentication, which uses unencrypted base64 encoding instead of a hashing mechanism.
 
-When you [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api) using the API Publisher, you can specify the endpoints of the API backend implementation via the **Endpoints** page as Production and Sandbox endpoints respectively.
+When you [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api) using the API Publisher, you can specify the endpoints of the API backend implementation via the **Endpoints** page as Production and Sandbox endpoints respectively.
 
 Follow the instructions below to use Digest Auth as the endpoint authentication type when using a secured endpoint:
 
@@ -27,7 +27,7 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
      [![digest-auth-dropdown]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)
 
-4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save** in the Endpoints page to save all the changes made in the **Endpoints** page.
+4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save and deploy** in the Endpoints page to save all the changes made in the **Endpoints** page.
 
       [![digest-auth-submit-button]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)
 

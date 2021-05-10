@@ -1,23 +1,14 @@
 # Create and Publish a Server Sent Events API
 
-Follow the instructions in this tutorial to design and publish API with an SSE backend, and thereafter invoke it using a cURL command.
+This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-sse-streaming-api) which is connected to a backend that observes your system's memory, and gives you the values in a continuous manner. Follow the instructions in this tutorial to design and publish an API with an SSE backend, and thereafter invoke it using a cURL command.
 
-This tutorial demonstrates an SSE API which is connected to a backend that observes your system's memory, and gives you the values in a continuous manner.
+## Step 1 - Design a SSE API
 
-<html>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more information on SSE APIs, see <a href="{{base_path}}/design/create-api/create-streaming-api/create-a-sse-streaming-api">Create a SSE API</a>.</p>
-</div> 
-</html>
+1.  {!includes/sign-in-publisher.md!}
 
-### Step 1 - Design a SSE API
+2.  Click **CREATE API**, go to **Streaming API**, and click **WebSocket API**.
 
-1.  Sign in to the WSO2 API Manager (WSO2 API-M) Publisher Portal `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher`).
-
-2.  Go to **CREATE API** and Click **Design New Streaming API**.
-
-    [![Design New Streaming API]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/learn/design-api/streaming-api/design-new-streaming-api.png)
+    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -62,80 +53,83 @@ This tutorial demonstrates an SSE API which is connected to a backend that obser
 
      The overview page of the created SSE API appears.
 
-     [![Overview of SSE API]({{base_path}}/assets/img/learn/tutorials/streaming-api/sse/sse-api-overview.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/sse/sse-api-overview.png)
+     [![Overview of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-overview.png)
 
 5. Attach business plans to the SSE API.
 
-     1. Click **Subscriptions** and navigate to the Business Plans page.
+      1. Click **Subscriptions** and navigate to the Business Plans page.
 
-     2. Select **AsyncGold** and click on **Save**.
+      2. Select **AsyncGold** and click **Save**.
 
-     [![Subscriptions of SSE API]({{base_path}}/assets/img/learn/tutorials/streaming-api/sse/sse-api-subscriptions.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/sse/sse-api-subscriptions.png)
+           [![Subscriptions of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-subscriptions.png)]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-subscriptions.png)
 
-Now, you have created and configured the WebSocket API successfully.
+Now, you have created and configured the SSE API successfully.
 
-### Step 2 - Publish the SSE API
+## Step 2 - Publish the SSE API
 
-1. Click **Lifecycle** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
+1. Click **Lifecycle** to navigate to the API lifecycle page.
+
+2. Click **Publish** to publish the API to the API Developer Portal.
 
 2. Click **Deployments** to navigate to the Deployments page and click **Deploy New Revision**. 
 
 3. Select **Production and Sandbox**, choose **localhost** as the VHost, and click on **Deploy**.
 
-     [![Deploy New Revision]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-deploy-new-revision.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-deploy-new-revision.png)
+      <a href="{{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/streaming-api-deploy-new-revision.png" width="80%" alt="Deploy New Revision"></a>
 
+## Step 3 - Start the SSE Server
 
-### Step 3 - Start the SSE Server
+1. Download the sample SSE server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim/raw/master/streaming-api-backends/sse/target/sse-server-1.0.0.jar).
 
-1. Download the sample SSE server from [WSO2 APIM Samples - GitHub repository](https://github.com/wso2/samples-apim).
-
-2. Go to the `sse` directory and start it.
+2. Go to the directory where you downloaded the SSE server and run the following command.
 
      ```sh
-     mvn spring-boot:run
+     java -jar sse-server-1.0.0.jar --time=5000 --interval=1000
      ```
 
+## Step 4 - Invoke the SSE API
 
-### Step 4 - Invoke the SSE API
+1. {!includes/sign-in-devportal.md!}
 
-1. Sign in to the Develepor Portal `https://<hostname>:9443/devportal` (eg., `https://localhost:9443/devportal`).
+2. Click on the SSE API. 
 
-2. Click on the SSE API. The API overview appears.
+      The API overview appears.
 
 3. Subscribe to the API.
 
-    1. Go to the **Subscriptions** page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
+    1. Click **Subscriptions** to go to the Subscriptions page and click **SUBSCRIPTION & KEY GENERATION WIZARD**.
     
-         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
+           This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. 
 
-         <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p> 
-         You can use any application (e.g., JWT or OAuth) to subscribe to the API.
-         </p>
-         </div>
+           <div class="admonition note">
+           <p class="admonition-title">Note</p>
+           <p> 
+           You can use any application (e.g., JWT or OAuth) to subscribe to the API.
+           </p>
+           </div>
 
-         [![Key Generation Wizard]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
+         [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
     2. Copy the authorization token that appears, and click **FINISH**.
 
-         [![Authorization Token]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/learn/tutorials/streaming-api/streaming-api-subscription-token.png)
+         [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
 4. Try out the operations.
      
-      1.  Invoke the API with an authorization header by executing the following CURL command.
+      Invoke the API with an authorization header by executing the following cURL command.
         
-           ``` sh
-           curl http://localhost:8280/observer/1.0.0/memory -H "Authorization: Bearer [accesstoken]" 
-           ```
+     ``` sh
+     curl http://localhost:8280/observer/1.0.0/memory -H "Authorization: Bearer [accesstoken]" 
+     ```
 
-      2.  You will receive continuous stream of events showing your memory usage, from the server.
-           ``` string
-           data:{"heap":67893392,"nonHeap":36260800,"ts":1614803952066,"identifier":"ram_222"}
+      You will receive continuous stream of events showing your memory usage, from the server.
 
-           data:{"heap":72591160,"nonHeap":37250808,"ts":1614803953067,"identifier":"ram_223"}
+     ``` string
+     data:{"heap":67893392,"nonHeap":36260800,"ts":1614803952066,"identifier":"ram_222"}
 
-           data:{"heap":72591160,"nonHeap":37251544,"ts":1614803954064,"identifier":"ram_224"}
-           ```
+     data:{"heap":72591160,"nonHeap":37250808,"ts":1614803953067,"identifier":"ram_223"}
 
-You have successfully created and published your first SSE API, subscribed to it, obtained an access token for testing, and tested your API with the access token.
+     data:{"heap":72591160,"nonHeap":37251544,"ts":1614803954064,"identifier":"ram_224"}
+     ```
+
+You have successfully created and published your first SSE API, subscribed to it, obtained an access token for testing, and tested your API with an access token.

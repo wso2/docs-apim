@@ -1,6 +1,10 @@
 # Changing the Hostname
 
-By default, WSO2 products identify the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname. The following procedure explains how to change the hostname and management hostname of WSO2 API Manager (WSO2 API-M) as required for your production environment.
+By default, WSO2 products identify the hostname of the current machine through the Java API. However, it is recommended to configure the hostname by setting the hostname parameter in the `deployment.toml` file of each runtime (API-M or Micro Integrator).
+
+## Changing the API-M hostname
+
+Follow the steps given below.
 
 1. Update the `deployment.toml` file.
 
@@ -37,4 +41,29 @@ By default, WSO2 products identify the hostname of the current machine through t
 
     !!! warning
 
-        After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal, with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
+        After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
+
+## Changing the Micro Integrator hostname
+
+Follow the steps given below.
+
+1.  Open the `<MI-HOME>/conf/deployment.toml` file 
+2.  Define the `hostname` attribute under server configuration as shown below.
+
+    ``` format tab="Format"
+    [server]
+    hostname = "{hostname}"
+    ```
+
+    ``` example tab="Example"
+    [server]
+    hostname="localhost"
+    ```
+
+To configure hostnames for WSDLs and endpoints, it is recommended to add the following parameter for the transport listener in the `deployment.toml` file.
+
+```toml
+[transport.http]
+listener.wsdl_epr_prefix="$ref{server.hostname}"
+```
+

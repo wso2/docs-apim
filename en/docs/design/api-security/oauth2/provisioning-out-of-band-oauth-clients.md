@@ -72,7 +72,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
         enable_provisioned_app_validation = false
         ```
 
-3.  [Start the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+3.  [Start the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
 4.  Sign in to the Developer Portal.
 
@@ -80,7 +80,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
 
 5.  Create an application. 
      
-     For more information, see [Create Application]({{base_path}}/learn/consume-api/manage-application/create-application).
+     For more information, see [Create Application]({{base_path}}/consume/manage-application/create-application).
     
 6.  Click on the respective application to view the credential details.
     

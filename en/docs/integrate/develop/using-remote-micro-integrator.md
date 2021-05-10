@@ -6,7 +6,7 @@ The following instructions can be used to run your artifacts in a remote Micro I
 
 ## Deploy and run artifacts in a remote instance
 
-1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) the Micro Integrator server and on your computer. 
+1.	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the Micro Integrator server and on your computer. 
 2.	[Package your Synapse artifacts]({{base_path}}/integrate/develop/packaging-artifacts) from WSO2 Integration Studio.
 
 However, when your solutions are ready to be moved to your production environments, it is recommended to use a **CICD pipeline**.
@@ -32,10 +32,9 @@ However, when your solutions are ready to be moved to your production environmen
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-mi-port-settings.png" width="500">
 
     !!! Note
-		If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
-
-    !!! Note
-        If you are already running another server on these ports, give unused ports. See [Default ports](../../setup/changing_default_ports) of WSO2 Micro Integrator for more information.
+    
+		-   If you selected an <b>Enterprise Integrator</b> server in the previous step, enter the port details required for an Enterprise Integrator.
+        -   If you are already running another server on these ports, give unused ports. See [Default ports](../../setup/changing_default_ports) of the Micro Integrator for more information.
 
 ## Deploy and run artifacts in a remote instance
 
@@ -48,7 +47,7 @@ However, when your solutions are ready to be moved to your production environmen
 
 ## Deploy, redeploy, or remove artifacts in a remote instance
 
-- To deploy/remove C-Apps, right-click the server, click <b>Add and Remove</b> and follow the instructions on the wizard.
+- To deploy/remove C-Apps, right-click the server, click <b>Add and Remove</b>, and follow the instructions on the wizard.
 
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-remove-capps.png" width="500">
 

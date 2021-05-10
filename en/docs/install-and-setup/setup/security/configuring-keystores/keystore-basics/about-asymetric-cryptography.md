@@ -38,5 +38,5 @@ All WSO2 products including WSO2 API Manager are by default shipped with a keyst
 
 !!! note
     The default keystore that is shipped with WSO2 API Manager (wso2carbon.jks) is by default configured for all of the above purposes. However, in a production environment, it is advised to set up several different keystores with separate trust chains for the above use cases.
-    Go through the [Recommendations for setting up keystores](../../configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) for more information.
+    Go through the [Recommendations for setting up keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) for more information.
 

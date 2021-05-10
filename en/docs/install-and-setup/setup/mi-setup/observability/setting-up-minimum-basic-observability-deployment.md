@@ -86,7 +86,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
     The **Import** dialog box opens as follows.
     
-    ![Import Dashboards dialog box](../../assets/img/monitoring-dashboard/grafana-import-dialog-box.png)
+    ![Import Dashboards dialog box]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png)
     
 3. Click **Upload.json file**. Then browse for one of the dashboards that you downloaded as a JSON file.
 
@@ -97,7 +97,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
 ### Scaling Prometheus
 
-In a [clustered deployment](../../../setup/deployment/deploying_wso2_ei), you can add the IP address and the port of each server in the respective `prometheus.yml` file.
+In a [clustered deployment]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei), you can add the IP address and the port of each server in the respective `prometheus.yml` file.
 
 ### Scaling Grafana
 
@@ -306,7 +306,7 @@ Follow the steps given below.
 
 3. In the **Data Sources** section, click **Add your first data source**. In the **Add data source** page that appears, click **Select** for **Loki**.
 
-    ![Select Loki as Data Source](../../assets/img/monitoring-dashboard/grafana-select-datasource.png)
+    ![Select Loki as Data Source]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png)
 
 4. In the **Add data source** page -> **Settings** tab, update the configurations for Loki.
     
@@ -319,6 +319,12 @@ Once you have successfully set up the [minimum deployment](#setting-up-the-minim
 ### Setting up Jaeger
 
 Download and install [Jaeger](https://www.jaegertracing.io/download/).
+
+!!! Note
+
+    - There are some limitations in the Jaeger client, which by default uses a UDP sender as mentioned in [the Jaeger documentation](https://www.jaegertracing.io/docs/1.22/client-libraries/). If the payload size exceeds 65 KB, spans might get lost in the Jaeger console. 
+    - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.
+    - In general, before including tracing in production deployments it is essential to look into performance tests and scaling requirements. Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
 
 ### Setting up the Micro Integrator
 
@@ -347,7 +353,14 @@ To configure the Micro Integrator to publish tracing information, follow steps g
     "opentracing.manager_host": "synapse_properties.'jaeger.sampler.manager.host'",
     "opentracing.agent_host": "synapse_properties.'jaeger.sender.agent.host'"
     ```
-   
+!!! note
+    The service name used to initialize the JaegerTracer can be configured using the environment variable `SERVICE_NAME`
+    as shown below.
+    ```
+    export SERVICE_NAME=customServiceName
+    ```
+    `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
+
 ### Configuring Grafana to visualize tracing data
 
 In order to configure Grafana to display tracing information, follow the steps given below.
@@ -358,17 +371,17 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click the **Configuration** icon in the left menu and then click **Data Sources**.
     
-        ![Open Data sources](../../assets/img/monitoring-dashboard/open-datasources.png)
+        ![Open Data sources]({{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png)
         
     3. Click **Add data source** to open the **Add data source** page where all the available data source types are displayed. Here, click **Jaeger**.
     
-        ![Select Jaeger](../../assets/img/monitoring-dashboard/select-jaeger.png)
+        ![Select Jaeger]({{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png)
         
         This opens the **Data Sources/Jaeger** dialog box. 
         
     4. In the **Data Sources/Jaeger** dialog box, enter the URL of the Jaeger query component in the **URL** field in the `http://host:port` format as shown below.
     
-        ![Enter Basic Jaeger Information](../../assets/img/monitoring-dashboard/enter-basic-jaeger-information.png)
+        ![Enter Basic Jaeger Information]({{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png)
         
     5. Click **Save and Test**. If the data source is successfully configured, it is indicated via a message.
   
@@ -379,11 +392,11 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click **Variable**. This opens the following view.
     
-        ![Variables view](../../assets/img/monitoring-dashboard/variables.png)
+        ![Variables view]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)
         
     3. Edit the JaegerHost variable and provide your Jaeger query component hostname and port in the `host:port` syntax as shown below.
     
-        ![constant options](../../assets/img/monitoring-dashboard/constant-options.png)
+        ![constant options]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)
         
     4. Click **Save**
     
@@ -391,8 +404,8 @@ In order to configure Grafana to display tracing information, follow the steps g
     
 Once Grafana is successfully configured to visualize statistics, you should be correctly redirected to the Jaeger UI from the Response Time widget of each service-level dashboard as shown below.
     
-![jaeger ui](../../assets/img/monitoring-dashboard/jaeger-ui.png)
+![jaeger ui]({{base_path}}/assets/img/integrate/-dashboard/jaeger-ui.png)
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards](../../../administer-and-observe/cloud-native-observability-dashboards).
+If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).

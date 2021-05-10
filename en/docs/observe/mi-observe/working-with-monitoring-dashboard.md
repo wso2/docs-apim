@@ -36,51 +36,33 @@ You can use the dashboard to perform the following administration tasks related 
 
 -   <b>View, update, and add loggers</b>
 
-    This page can be accessed by users with admin rights only. You can view log config information of each instance and update the log level. You can update the log levels on a single node or apply the change on entire cluster/group as well. Furthermore you can add new loggers, which will be applied to entire cluster/group.
+    This page can be accessed by users with admin rights only. You can view log configurations of each instance and update the log level. You can update the log levels on a single node or apply the change to the entire cluster/group as well. Furthermore, you can add new loggers, which will be applied to the entire cluster/group.
 
 -   <b>Manage users</b>
 
-    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store](../../setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
+    This page can be accessed by users with admin rights only. You can view details of users stored in the [external user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users). You can also add new users to the specified cluster/group.
 
-[comment]: <> (You can refer to the following video to get a quick understanding of how this is done.)
+## Using the MI Dashboard
 
-[comment]: <> (<iframe width="560" height="315" src="https://www.youtube.com/embed/WxcHkJVOgOU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+Follow the steps given below to get started with the Micro Integrator Dashboard.
 
-## Before you begin
+### Step 1 - Download the MI Dashboard
 
-See the following topics to install the MI server and dashboard.
+Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashboard.
 
-<table>
-    <tr>
-        <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer">Using the Installer</a>
-        </td>
-<!--
-        <td>
-            Download and run the <b>product installer</b> and then follow the instructions to start the Micro Integrator and the dashboard.
-        </td>
--->
-    </tr>
-    <tr>
-        <td>
-            <a href="{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary">Using the Binary</a>
-        </td>
-<!--
-        <td>
-            Download the binary distribution of the product, and then follow the instructions to start the Micro Integrator and the dashabord.
-        </td>
--->
-    </tr>
-</table>
+-   [Install the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi).
+-   [Install the Micro Integrator Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard).
 
-##  Configure the MI servers
+### Step 2 - Configure the MI servers
 
--   To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
+Follow the steps given below to configure the MI servers to publish data to the dashboard.
+
+1.  To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
 
     ```toml
     [dashboard_config]
     dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-    heartbeat_interval = 15
+    heartbeat_interval = 5
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
@@ -91,7 +73,7 @@ See the following topics to install the MI server and dashboard.
                 dashboard_url
             </th>
             <td>
-                <b>Required</b>. This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values.
+                <b>Required</b>. This is the url to access dashboard server. Replace hostname/ip and port (default - 9743) with relevant values from your environment.
             </td>
         </tr>
         <tr>
@@ -99,7 +81,7 @@ See the following topics to install the MI server and dashboard.
                 heartbeat_interval
             </th>
             <td>
-                <b>Required</b>. The time interval between two heartbeats from Micro Integrator to Dashboard Server.
+                <b>Required</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server.
             </td>
         </tr>
         <tr>
@@ -107,8 +89,8 @@ See the following topics to install the MI server and dashboard.
                 group_id
             </th>
             <td>
-                <b>Optional</b>. In a clustered deployment, the group ID should be same in all Micro Integrator Instances. 
-                The dashboard will only view information of one group at a time. By default, the group_id is set to `default`. 
+                <b>Optional</b>. In a clustered deployment, the group ID should be the same in all Micro Integrator Instances. 
+                The dashboard displays information from one group at a time. By default, the group_id is set to `default`. 
             </td>
         </tr>
         <tr>
@@ -116,29 +98,29 @@ See the following topics to install the MI server and dashboard.
                 node_id
             </th>
             <td>
-                <b>Optional</b>. By default, in a clustered deployment, the relevant node_id will be set. In a non-clustered deployment, a random uuid will be used if node_id is not set for this configuration.
+                <b>Optional</b>. By default, in a clustered deployment, the relevant node_id is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random uuid is used if the node_id is not set for this configuration.
             </td>
         </tr>
     </table> 
 
--	Set up the [Micro Integrator user store](../../setup/user_stores/setting_up_a_userstore).
+2.  **Optionally**, configure the [Micro Integrator user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore).
 
     !!! Tip
         Note the following about your user store configurations.
 
-        -	The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
-        -	[User management](../../setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
-        -	If you have an [external RDBMS user store](../../setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
+        -   The user credentials for signing in to the dashboard should be stored in your user store. This can be the default **file-based user store** or an **external LDAP/RDBMS** user store.
+        -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
+        -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-##  Start the Micro Integrator
+### Step 3 - Start the MI servers
 
-[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer) connected to the dashboard.
+[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi) connected to the dashboard.
 
-##  Start the MI Dashboard
+### Step 4 - Start the MI Dashboard
 
-[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer)
+[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard).
 
-##  Sign in to the Dashboard
+### Step 5 - Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
 
@@ -162,7 +144,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="../../setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>
@@ -181,7 +163,7 @@ You are redirected to the home page of the Micro Integrator dashboard.
      
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000">
 
-## Using the Dashboard
+### Step 6 - Monitor MI artifacts and logs
 
 Follow the steps given below.
 
@@ -199,7 +181,7 @@ Follow the steps given below.
     
     <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-nodes.png" width="1000">
 
-Now you can view details of artifacts, update artifact, and perform various other administration tasks. Select the required option from the left-hand navigator.
+Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300">
 
@@ -266,7 +248,7 @@ You can view details and update <b>tracing</b> for each API as shown below.
 
 ### Templates
 
-Select this option to manage templates artifacts deployed in the Micro Integrator instance.
+Select this option to manage template artifacts deployed in the Micro Integrator instance.
 
 <img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-template-1.png">
 

@@ -60,7 +60,7 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 ### How can I change the memory allocation for the API Manager?
 
-The memory allocation settings are stored in the `<API-M_HOME>/bin/wso2server.sh` file.
+The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.sh` file.
 
 ### How do I start up only selected components of the API Manager?
 
@@ -177,7 +177,7 @@ You can enable centralized authentication using a WSO2 Identity Server based [se
 
 ### How can I manage the API permissions/visibility?
 
-To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
+To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
 
 ### How can I add security policies (UT, XACML, etc.) for the services?
 
@@ -185,7 +185,7 @@ This should be done in the backend services in the Application Server or WSO2 ES
 
 ### How can I enable self signup to the Developer Portal ?
 
-See [how to enable self signup]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+See [how to enable self signup]({{base_path}}/consume/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 
 ### How can I disable self signup to the Developer Portal ? I want to engage my own approval mechanism.
 
@@ -235,7 +235,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ### How can I manage session timeouts for the management console?
 
-To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/running-the-product/#configuring-the-session-time-out).
+To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#configuring-the-session-time-out).
 
 ### How can I add authentication headers to messages going out of the API Gateway to the backend?
 

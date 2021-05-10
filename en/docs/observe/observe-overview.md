@@ -1,8 +1,5 @@
 # Observability Overview
 
-!!! Note
-    **This page is currently WIP!**
-    
 This section explains how to set up the observability solutions and perform management tasks with WSO2 API Manager.
 
 ## Observability

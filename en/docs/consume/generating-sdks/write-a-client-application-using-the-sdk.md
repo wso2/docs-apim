@@ -9,9 +9,9 @@
         <p>Once the keys are generated, copy the access token. You can use this token to invoke APIs that you subscribe to using the same application.</p>
     </div>
 
-2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/learn/consume-api/generating-sdks/generate-sdks-in-dev-portal/). 
+2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/consume/generating-sdks/generate-sdks-in-dev-portal/). 
 
-![Default SDKs in Developer Portal]({{base_path}}/assets/img/learn/default-sdks.png)
+![Default SDKs in Developer Portal]({{base_path}}/assets/img/consume/default-sdks.png)
 
 3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 <details class="admonition info">
@@ -148,10 +148,10 @@
     ``` java
     apiClient.setBasePath("http://localhost:8280/pizzashack/1.0.0");
     ```
-    The base path for the client application is the production (or sandbox) URL of the API. This will be in the form of ```http(s)://<host>:<port>/<context-of-the-api>```. The default ports for HTTP and HTTPS are ```8280``` and ```8243``` respectively.
+    The base path for the client application is the production (or sandbox) URL of the API. This could be found from the URL of the API in overview tab.
     
     The context of the API can be found from the API Overview in Developer Portal.
-    ![Context of the API]({{base_path}}/assets/img/learn/context-of-api.png)
+    ![Context of the API]({{base_path}}/assets/img/consume/url-of-api.png)
 
 10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 

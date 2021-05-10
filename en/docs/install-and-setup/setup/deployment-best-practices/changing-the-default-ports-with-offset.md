@@ -1,62 +1,147 @@
 # Changing the Default Ports with Offset
 
-When you run multiple WSO2 products/clusters or multiple instances of the same product on the same server or virtual machines (VMs), you must change their default ports with an `offset` value to avoid port conflicts. An offset defines the number by which all ports in the runtime (e.g., HTTP/S ports) will be increased. 
+When you run multiple runtimes on the same server or virtual machines (VMs), you must change their default ports with an `offset` value to avoid port conflicts. An offset defines the number by which all ports in the runtime (e.g., HTTP/S ports) are increased. 
 
-For example, if the default HTTP port is 9763 and the offset is 1, the effective HTTP port will change to 9764. For each additional WSO2 product instance running on the same machine, you set the port offset to a unique value. The default port offset value of any WSO2 product is `0`.
+For example, if the default HTTP port is 9763 and the offset is 1, the effective HTTP port changes to 9764. For each additional WSO2 product instance running on the same machine, you set the port offset to a unique value.
 
-There are two ways to set an offset to a port.
+!!! Info
+    See the complete list of [Default API-M ports]({{base_path}}/administer/product-configurations/default-product-ports/).
 
--   [Configuring the port offset](#configuring-the-port-offset)
--   [Passing the port offset during server startup](#passing-the-port-offset-during-server-startup)
+There are two ways to set an offset to a port: Update the server configurations, or pass the port offset during server startup. See the instructions given below to port offset the three runtimes of WSO2 API Manager.
 
-## Configuring the port offset
+## Changing the default API-M ports
 
-1. [Stop the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running
+The default port offset in the WSO2 API-M runtime is `0`. Use one of the following two methods to apply an offset to the API-M runtime.
 
-2.  Open `<APIM_HOME>/repository/conf/deployment.toml` file.
+### Update the server configurations
 
-3.  Uncomment `offset` element under `[server]` configuration and set the offset value.
+1. [Stop the API-M server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
+
+2.  Open the `<API-M-HOME>/repository/conf/deployment.toml` file.
+
+3.  Uncomment the `offset` parameter under `[server]` and set the offset value.
 
 
     ```toml tab="Format"
     [server]
     offset=<offset_value>
     ```
-   
-    ```toml  tab="Example"
+
+    ```toml tab="Example"
     [server]
     offset=1
     ```
 
-4. [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/).
+4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-## Passing the port offset during server startup
+### Pass the port offset during server startup
 
-1.  [Stop the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running
+1.  [Stop the API-M server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
 
-2.  Restart the server with `-DportOffset` system property.
+2.  Restart the server with the `-DportOffset` system property.
 
     - Linux/Mac OS
     
         ```toml tab="Format"
-        ./wso2server.sh -DportOffset=<offset_value>
+        ./api-manager.sh -DportOffset=<offset_value>
         ```
         
         ```toml tab="Example"
-        ./wso2server.sh -DportOffset=3
+        ./api-manager.sh -DportOffset=3
         ```
         
     - Windows
     
         ```toml tab="Format"
-        wso2server.bat -DportOffset=<offset_value>
+        api-manager.bat -DportOffset=<offset_value>
         ```
         
         ```toml tab="Example"
-        wso2server.bat -DportOffset=3
+        api-manager.bat -DportOffset=3
         ```
 
-When you offset the server's port, it automatically changes all ports it uses. 
+When you offset the server's port, it automatically changes all ports. 
 
-For the list of all default ports opened in WSO2 API Manager, see [Default Product Ports]({{base_path}}/administer/product-configurations/default-product-ports/) .
+## Changing the default MI ports
+
+The default port offset in the WSO2 Micro Integrator runtime is `10`. Use one of the following two methods to apply an offset to the Micro Integrator runtime.
+
+!!! Tip
+	-	The internal offset of 10 is overriden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:
+		- `8290` -> `8283` (8290 - 10 + 3)
+		- `8253` -> `8246` (8253 - 10 + 3)
+		- `9164` -> `9157` (9164 - 10 + 3)
+	-	Note that if you manually set an offset of 10 using the following method, you will get the same default ports.
+
+### Update the server configurations
+
+1. [Stop the MI server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
+
+2.  Open the `<MI_HOME>/conf/deployment.toml` file.
+
+3.  Uncomment the `offset` parameter under `[server]` and set the offset value.
+
+    ```toml tab="Format"
+    [server]
+    offset=<offset_value>
+    ```
+
+    ```toml  tab="Example"
+    [server]
+    offset = 3
+    ```
+
+4. [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
+
+### Pass the port offset during server startup
+
+1.  [Stop the MI server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#stopping-the-server) if it is already running.
+
+2.  Restart the server with the `-DportOffset` system property.
+
+    - Linux/Mac OS
+    
+        ```toml tab="Format"
+        ./micro-integrator.sh -DportOffset=<offset_value>
+        ```
+        
+        ```toml tab="Example"
+        ./micro-integrator.sh -DportOffset=3
+        ```
+        
+    - Windows
+    
+        ```toml tab="Format"
+        micro-integrator.bat -DportOffset=<offset_value>
+        ```
+        
+        ```toml tab="Example"
+        micro-integrator.bat -DportOffset=3
+        ```
+
+## Changing the default EI Analytics ports
+
+If required, you can manually change the HTTP/HTTPS ports in the `deployment.yaml` file (stored in `EI_ANALYTICS_HOME/conf/server` folder) as shown below.
+
+!!! Note
+    With the default internal port offset, the effective port is <code>https_port + 1</code>.
+
+```yaml tab='HTTPS Port'
+wso2.transport.http:            
+listenerConfigurations:
+-
+	id: "msf4j-https"
+	host: "0.0.0.0"
+	port: https_port
+	scheme: https
+```
+
+```yaml tab='HTTP Port'
+wso2.transport.http:
+listenerConfigurations:
+-
+  id: "default"
+  host: "0.0.0.0"
+  port: http_port
+```
 

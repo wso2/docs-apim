@@ -15,8 +15,8 @@ In API Manager, by default, the gateway suspends an API for 30 seconds when it c
  <p class="admonition-title">What's Next?</p>
 
  <p>For more information on endpoint timeout configurations, see -
- <ul><li><a href="{{base_path}}/learn/design-api/endpoints/resiliency/endpoint-timeouts">Endpoint Timeouts</a>
+ <ul><li><a href="{{base_path}}/design/endpoints/resiliency/endpoint-timeouts">Endpoint Timeouts</a>
  </li>
-<li><a href="{{base_path}}/learn/design-api/endpoints/resiliency/prevent-api-suspension">Prevent API Suspension</a></li></ul></p>
+<li><a href="{{base_path}}/design/endpoints/resiliency/prevent-api-suspension">Prevent API Suspension</a></li></ul></p>
  </div>
 

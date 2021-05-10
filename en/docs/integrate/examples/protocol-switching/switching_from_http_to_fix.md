@@ -44,7 +44,7 @@ Create the artifacts:
 4. Download the FIX transport resources from [here](https://github.com/wso2-docs/WSO2_EI/tree/master/FIX-transport-resources) and change the `{file_path}` of the proxy with the downloaded location. 
 5. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-[Enable the FIX transport](../../../../setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
+[Enable the FIX transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-fix-transport) and start the Micro-Integrator.
 
 Run the quickfixj **Executor** sample application.
 
@@ -52,7 +52,7 @@ Run the quickfixj **Executor** sample application.
 java -jar quickfixj-examples-executor-2.1.1.jar
 ```
 
-Send the following request to EI and we will receive the response from the executor application.
+Send the following request to the Micro Integrator and we will receive the response from the executor application.
 
 ```bash
 curl -X POST \

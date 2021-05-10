@@ -12,7 +12,7 @@ The result of the query should be as follows when you query to view the records
 
 ### Step 1: Set up the workspace
 
-Download the relevant [WSO2 Integration Studio](https://wso2.com/integration/tooling/) based on your operating system.
+Download the relevant [WSO2 Integration Studio](https://wso2.com/api-management/tooling/) based on your operating system.
 
 Let's setup a MySQL database:
 
@@ -256,7 +256,7 @@ Package the artifacts in your composite application module to be able to deploy 
 
 2.  Add the following server configurations (to the `deployment.toml` file) using the upper section in the dialog box.
 
-    -   The **VFS** transport is enabled in the Micro Integrator by default. Enable the [MailTo transport](../../../setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport) for sending the email message as shown below and update the values:
+    -   The **VFS** transport is enabled in the Micro Integrator by default. Enable the [MailTo transport]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-mailto-transport) for sending the email message as shown below and update the values:
 
         ```toml
         [[transport.mail.sender]]

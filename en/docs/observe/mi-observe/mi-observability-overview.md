@@ -1,10 +1,10 @@
 # Micro Integrator Observability Overview
 
-This section explains how to set up the observability solutions and perform management tasks for the Enterprise Integrator component of WSO2 API Manager.
+This section explains how to set up the observability solutions and perform management tasks for the Micro Integrator.
 
 ### Observability solutions
 
-WSO2 API Manager offers two observability solutions for the Enterprise Integrator component referred to as the cloud-native observability deployment and classic observability deployment.
+There are two observability solutions for the Micro Integrator; The cloud-native observability deployment and the classic observability deployment.
 
 <img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
 
@@ -53,38 +53,38 @@ The cloud-native and classic observability solution are suitable for the followi
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions](../setup/observability/setting-up-minimum-basic-observability-deployment.md) or [Setting up classic observability solution](../setup/observability/setting-up-classic-observability-deployment.md)
+* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
-* For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution](cloud-native-observability-dashboards.md).
+* For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
 
-* For more information on how to use the classic observability solution, see [Classic Observability Deployment](using-the-analytics-dashboard.md).
+* For more information on how to use the classic observability solution, see [Classic Observability Deployment]({{base_path}}/observe/mi-observe/using-the-analytics-dashboard).
 
 ### Understanding observability solutions
 
-The older predecessors of the Enterprise Integrator component (i.e., WSO2 Enterprise Integrator 7.0.0 and older versions) offer an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not sufficiently stream-lined.
+Predecessors of the WSO2 Micro Integrator (i.e., WSO2 Enterprise Integrator 7.0.0 and older versions) offer an analytics distribution that mainly provides business analytics functionality together with a few observability related features. Clients with comprehensive observability requirements had to rely on external tools/stacks such as ELK, Prometheus, AppDynamics, Jaeger, Zipkin, etc. This resulted in multiple scattered systems to observe the system where debugging and troubleshooting were not sufficiently stream-lined.
 
-To address that limitation, WSO2 Enterprise Integrator 7.1.0 introduced an observability solution that utilizes a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions. 
+The current observability solution utilizes a selected set of external tools together with the older analytic distribution intact. This section explains the features and usage of both solutions. 
 
-The older analytics distribution is referred to as the Classic Observability Deployment, and the newer solution introduced with WSO2 Enterprise Integrator 7.1.0 is referred to as the Cloud Native Observability Deployment.
+The older analytics distribution is referred to as the Classic Observability Deployment, and the newer solution (introduced with WSO2 Enterprise Integrator 7.1.0) is the Cloud-Native Observability Deployment.
 
 ## Management
 
 You can monitor and manage various artifacts that you have deployed. The following are the options that enable you to do this.
 
 - **[Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard)**: Allows you to perform administration tasks related to your Micro Integrator deployment
-- **[Using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api)**: The Micro Integrator CLI and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
+- **[Using the Management API]({{base_path}}/observe/mi-observe/working-with-management-api)**: The CLI for the Micro Integrator of APIM 4.0.0 ([apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl)) and the Micro Integrator dashboard communicate with this service to obtain administrative information of the server instance and to perform various administration tasks. If you are not using the dashboard or the CLI, you can directly access the resources of the management API
 
 ## Integration with external tools
 
-You can integrate with external tools to do the following.
+You can integrate with external tools to do the following:
 
 **Monitoring Metrics**
 
-- [JMX Monitoring](jmx_monitoring.md)
-- [SNMP Monitoring](snmp_monitoring.md)
+- [JMX Monitoring]({{base_path}}/observe/mi-observe/jmx_monitoring)
+- [SNMP Monitoring]({{base_path}}/observe/mi-observe/snmp_monitoring)
 
 **TCP Message Monitoring**
 
 - [Starting TCPMon]({{base_path}}/observe/mi-observe/tcp/starting_tcp_mon)
-- [Message Monitoring with TCPMon](tcp/message_monitoring_with_tcpmon.md)
-- [Other Usages of TCPMon](tcp/other_usages_of_tcpmon.md)
+- [Message Monitoring with TCPMon]({{base_path}}/observe/mi-observe/tcp/message_monitoring_with_tcpmon)
+- [Other Usages of TCPMon]({{base_path}}/observe/mi-observe/tcp/other_usages_of_tcpmon)

@@ -73,100 +73,17 @@ Let's use the
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
-        ```
-        https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>&state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
+         ```
+         https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>& state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
         ```
  
-      The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
+         The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-        [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
+         [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
-    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
+    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
 
-#### (B) - Configure WSO2 API-M Analytics
-
- <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>These sub-steps are not applicable when working with fixed business plans, because such plans have a fixed billing scheme as opposed to billing based on the API usage.</p>
-      </div> 
- </html>
-
-When working with API Monetization that involves dynamic business plans (usage-based plans), it is mandatory to enable WSO2 API Manager Analytics, because WSO2 API Manager needs to retrieve the most up-to-date API usage details from WSO2 API Manager Analytics and thereafter publish this data to the billing engine.
-
-<a name="APIM_MONETIZATION_SUMMARY-siddhi"></a>     
-
-1. Enable WSO2 API-M Analytics.
-
-    <html>
-    <p>
-    Copy the <a href="https://raw.githubusercontent.com/wso2/analytics-apim/master/features/org.wso2.analytics.apim.feature/src/main/resources/monetization-summary-siddhi-file/APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi</a>
-    file and add it into the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory if it is not already available.
-    </p>
-    </html>
-    
-    !!! note
-        Under default settings, all successful requests to APIs will get billed regardless of the key type (sandbox or production) used for API invocation. You have to make the following changes to exclude sandbox API calls from getting billed.
-
-        1. Open the `APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi` file you added to `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
-
-        2. Modify `RecordStream` as shown below. Note that the `metaClientType string` is added after the `apiName`
-            ``` java
-            define stream RecordStream(apiName string, metaClientType string, apiVersion string, apiCreator string, apiCreatorTenantDomain string, applicationName string, applicationId string, responseCodeBool bool, requestTimestamp long);
-            ```
-        3. Update the insert queries as shown below.
-            ``` java
-            --checks whether the response code is in 200 range, pass respinseCodeBool as true or false based on it
-            from Request
-            select apiName, json:getString(json:toObject(meta_clientType), '$.keyType') as metaClientType, apiVersion, apiCreator, apiCreatorTenantDomain, applicationName, applicationId,
-            regex:matches('2[0-9][0-9]', convert (responseCode, 'string')) as responseCodeBool, requestTimestamp
-            insert into TempStream;
-            
-            --If responseCodeBool is true add to the stream
-            from TempStream[ responseCodeBool == true and metaClientType == 'PRODUCTION']
-            select *
-            insert into RecordStream;
-            ```
-        4. [Download siddhi-execution-json-2.0.8.jar](https://javalibs.com/artifact/io.siddhi.extension.execution.json/siddhi-execution-json) and add it to the /lib directory.
-
-2. Optionally, preserve the required API usage data table in WSO2 API Manager Analytics.
-
-     <html>
-     <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>This is only mandatory if you customized the API usage-based [monetization granularity](#granularity).</p>
-     </div> 
-     </html>
-     
-     You need to do this to ensure that the data is not deleted from WSO2 API-M Analytics before these details are published to the billing engine.
-
-     1. Navigate to the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_MONETIZATION_SUMMARY.siddhi` file, which you [added previously](#APIM_MONETIZATION_SUMMARY-siddhi).
-
-     2. Increase the timeframe for data deletion based on the [monetization granularity timeframe](#apim-monetization-granularity) and the frequency that you publish the API usage data to the billing engine.  
-
-        ``` java tab="Format"
-        @purge(enable='true', interval='60 min', @retentionPeriod(<update-based-on-apim.monetization.granularity>))
-        ```
-
-        ``` java tab="Example"
-        @purge(enable='true', interval='60 min', @retentionPeriod(sec='7 days', min='1 month', hours='1 month', days='2 month', months='2 years'))
-        ```
-
-         **Example:**
-
-         If we want to publish the usage to Stripe only once in a week, but want to query data from the seconds table, based on the API-M monetization granularity for more accuracy, then you need to preserve the data of the seconds table for one week by editing the purging timeframe to 7 days as shown in the above example. 
-         
-         Otherwise, the seconds table will be purged based on the default value set in the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_MONETIZATION_SUMMARY.siddhi` file with regard to the `@purge` section.
-
-3. Start the WSO2 API Manager Analytics server.
-    
-    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    
-     - On Windows:  `worker.bat --run`
-
-     - On Linux/Mac OS:  `sh worker.sh`
-
-#### (C) - Configure WSO2 API Manager
+#### (B) - Configure WSO2 API Manager
 
 <html>
 <div class="admonition note">
@@ -590,60 +507,56 @@ When working with API Monetization that involves dynamic business plans (usage-b
            
       The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
-    After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.   
+    After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.
 
-    <a name="granularity"></a>
+4. Optionally, configure WSO2 API Manager to work with Choreo Analytics.
 
-4. Optionally, change the granularity for the API usage data if required.
-      
-    This defines the depth of information of the API usage details that you want to publish to the billing engine. The default value is `days`. 
+     These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
     
-      **Example** 
-
-      If you need details on the exact time the API requests were made, then you need to change the granularity to `seconds` to query data from the seconds table.
-
-      <html>
-       <div class="admonition tip">
-       <p class="admonition-title">Tip</p>
-       <p>When the API usage data is more detailed, WSO2 API Manager Analytics will need more storage space to maintain this data.</p>
-       </div> 
-      </html>
-
-     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-         <a name="apim-monetization-granularity"></a>
-
-     2.  Add the following configuration in the TOML file. 
-
+    1. Enable analytics.
+    
         ``` java tab="Format"
-        [apim.monetization]
-        granularity = "<time-period>" 
+         [apim.analytics]
+         enable = <true/false>
+         config_endpoint = "<Choeo config endpoint>"
+         auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ```
-
+     
         ``` java tab="Example"
-        [apim.monetization]
-        granularity = "seconds" 
-        ```
-
-        - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
-
-5.  When the usage publishing API is invoked, it publishes all the data that is between the range of current time
-    and the last time the usage is successfully published. But when you invoke the API for the first
-    time there will be no data about the last published time. So you can configure the time range to reduce 
-    from the current time to derive the last publish time. This configuration is provided in days and the 
-    default value is one day.
+         [apim.analytics]
+         enable = true
+         config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
+         auth_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ```    
    
-    ``` java tab="Format"
-    [apim.monetization]
-    publish_duration = "<time-period in days>" 
-    ```
+    2. Define the Query API endpoint of Choreo Analytics under the monetization configuration.
+    
+         ``` java tab="Format"
+         [apim.monetization]
+         analytics_query_api_endpoint= "<Endpoint of the query API>"
+         ```
 
-    ``` java tab="Example"
-    [apim.monetization]
-    publish_duration = "3" 
-    ```
+         ``` java tab="Example"
+         [apim.monetization]
+         analytics_query_api_endpoint= "https://analytics-api.st.choreo.dev/query-api"
+         ```     
+   
+    3. Define the Access Token required to access the above Query API. 
+    
+         The same access token which is configured under analytcts configuration in step 1 can be configured here.
+   
+         ``` java tab="Format"
+         [apim.monetization]
+         analytics_access_token == "<Token to access the Choreo query API>"
+         ```
 
-6.  Configure the Tenant Admin on WSO2 API Manager.
+         ``` java tab="Example"
+         [apim.monetization]
+         analytics_access_token == "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+         ```     
+   
+5.  Configure the Tenant Admin on WSO2 API Manager.
+
     1.  Start the WSO2 API Manager server.
 
     2.  Sign in to the WSO2 API-M Management Console.
@@ -656,7 +569,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
          `/_system/config/apimgt/applicationdata/tenant-conf.json`
 
-         ![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)
+         [![Resources page]({{base_path}}/assets/img/learn/tenant-config.png)]({{base_path}}/assets/img/learn/tenant-config.png)
     
     5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
 
@@ -676,7 +589,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-7.  Configure the workflows.
+6.  Configure the workflows.
 
     !!! note
         It is mandatory to comment out or delete the existing default workflow executors.
@@ -758,7 +671,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 ### Step 3 - Subscribe to a monetized API
 
-[Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+[Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
 
 When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
 
@@ -917,9 +830,9 @@ Follow the instructions below to disable monetization for an API:
 3.  Click **Monetization** to go to the Monetization configurations.  
     ![Disable monetization]({{base_path}}/assets/img/learn/disable-monetization.png)
 
-4.  Click **Enable Monetization** to unselect the enable monetization option.
+4.  Enter the [connect ID](#connectID) as the connected account key
 
-5.  Enter the [connect ID](#connectID) as the connected account key.
+5.  .Click **Enable Monetization** to unselect the enable monetization option.
 
 6.  Click **Save**.  
     

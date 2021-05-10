@@ -1,10 +1,10 @@
 # Amazon DynamoDB Connector Example
 
- Amazon DynamoDB Connector allows you to access the [Amazon DynamoDB REST API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.API.html) through WSO2 EI.
+ Amazon DynamoDB Connector allows you to access the [Amazon DynamoDB REST API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.API.html) from an intergration sequence.
 
 ## What you'll build
 
-Given below is a sample scenario that demonstrates how to work with the WSO2 EI Amazon DynamoDB Connector and how to perform various `table` and `items` operations with Amazon DynamoDB.
+Given below is a sample scenario that demonstrates how to work with the Amazon DynamoDB Connector and how to perform various `table` and `items` operations with Amazon DynamoDB.
 
 This example explains how to use Amazon DynamoDB Connector to:
 
@@ -38,7 +38,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 
 ## Configure the connector in WSO2 Integration Studio
 
-Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/), which is the tooling component of WSO2 EI. Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
+Connectors can be added to integration flows in [WSO2 Integration Studio](https://wso2.com/integration/integration-studio/). Once added, the operations of the connector can be dragged onto your canvas and added to your resources.
 
 ### Import the connector
 
@@ -518,7 +518,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Follow these steps to deploy the exported CApp in the Enterprise Integrator Runtime. 
+Follow these steps to deploy the exported CApp in the integration runtime. 
 
 {!reference/connectors/deploy-capp.md!}   
 

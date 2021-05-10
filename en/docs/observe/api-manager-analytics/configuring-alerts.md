@@ -1,16 +1,16 @@
 # Configuring Alerts
     
-WSO2 API Manager analytics-based alerts are disabled by default. Once you [enable alerts]({{base_path}}/learn/analytics/configuring-alerts/#enable-alerts), you can customize and configure the analytics-based alerts using the features listed below.
+WSO2 API Manager analytics-based alerts are disabled by default. Once you [enable alerts]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#enable-alerts), you can customize and configure the analytics-based alerts using the features listed below.
 
 -   Configure sender email alerts
 -   Configure alerts as business rules
 -   Configure alerts via the Publisher
 -   Configure alerts via the Developer Portal
 
-Once you have configured alerts, you can subscribe to alerts to receive email notifications. For instructions, see [Subscribing for Alerts]({{base_path}}/learn/analytics/subscribing-for-alerts/).
+Once you have configured alerts, you can subscribe to alerts to receive email notifications. For instructions, see [Subscribing for Alerts]({{base_path}}/observe/api-manager-analytics/subscribing-for-alerts/).
 
 !!! note
-     Before you begin, make sure that you have configured Analytics for API Manager. For instructions, see [Configuring APIM Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/).
+     Before you begin, make sure that you have configured Analytics for API Manager. For instructions, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/).
 
 ### Enable alerts
 
@@ -131,8 +131,8 @@ You can configure alerts as a business rule by using the features listed below.
 
 Follow the instructions below to manage alerts via the Publisher:
 
-- [Create an abnormal response time alert]({{base_path}}/learn/analytics/configuring-alerts/#create-an-abnormal-response-time-alert/)
-- [Create an abnormal backend time alert]({{base_path}}/learn/analytics/configuring-alerts/#create-an-abnormal-backend-time-alert/)
+- [Create an abnormal response time alert]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#create-an-abnormal-response-time-alert/)
+- [Create an abnormal backend time alert]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#create-an-abnormal-backend-time-alert/)
 
 !!! info
      You can not disable Health Availability related alerts, because they are enabled by default. However, you can enable and disable the email alerts that correspond to the Health Availability alerts.
@@ -198,7 +198,7 @@ Immediately after the backend time of the API exceeds the above defined time per
 
 Follow the instructions below to manage alert types via the Developer Portal:
 
-- [Create an abnormal requests per minute alert]({{base_path}}/learn/analytics/configuring-alerts/#create-an-abnormal-requests-per-minute-alert/)
+- [Create an abnormal requests per minute alert]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#create-an-abnormal-requests-per-minute-alert/)
 
 !!! info
      You can not disable Abnormal Resource Access Alerts, Unseen Source IP Access Alerts and Tier Crossing Alerts, because they are enabled by default. However, you can enable and disable the email alerts that correspond to the latter mentioned alerts.

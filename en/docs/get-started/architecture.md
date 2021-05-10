@@ -30,7 +30,7 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 [![API Analytics]({{base_path}}/assets/img/get_started/analytics.png)]({{base_path}}/assets/img/get_started/analytics.png)
 
-Monitoring and analytics of APIs deployed on WSO2 API Manager are provided by the WSO2 API Manager Analytics component. This component includes different types of dashboards to provide more detailed different statistical views of your APIs. Furthermore, you can secure your system by configuring alerts and notifications on pre-determined events to identify any unusual behaviors in near real-time.  For more information, see [Working with Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics).
+Monitoring and analytics of APIs deployed on WSO2 API Manager are provided by the WSO2 API Manager Analytics component. This component includes different types of dashboards to provide more detailed different statistical views of your APIs. Furthermore, you can secure your system by configuring alerts and notifications on pre-determined events to identify any unusual behaviors in near real-time.  For more information, see [Working with Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics).
 
 ## Data Plane
 
@@ -88,7 +88,7 @@ The Traffic Manager helps users to regulate API traffic, make APIs and applicati
 
 In addition to the above, the Traffic Manager also helps to keep the API Gateway's in-memory map, which is used for key validation, up-to-date via a JMS topic. The Traffic Manager publishes artifact (API/application) update events that are received from the API Publisher and API Developer Portal to a JMS topic. The API Gateway receives these events via the JMS topic and updates its in-memory map.
 
-For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
+For more information, see [Working with Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases).
 
 ## Tooling
 

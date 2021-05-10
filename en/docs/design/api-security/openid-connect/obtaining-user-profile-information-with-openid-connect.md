@@ -13,7 +13,7 @@ The following two options are available to obtain the actual user information.
 
 Follow the instructions below to obtain user profile information with OpenID connect with WSO2 API Manager.
 
-1.  Obtain a token using password grant type and `openid` scope. For more information on token generation with password grant type, see [Password Grant Type]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant/). The format of the curl command and a sample is given below :
+1.  Obtain a token using password grant type and `openid` scope. For more information on token generation with password grant type, see [Password Grant Type]({{base_path}}/design/api-security/oauth2/grant-types/password-grant/). The format of the curl command and a sample is given below :
 
     ``` bash tab="Format"
     curl -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=openid" -H "Authorization: Basic <BASE64 ENCODED CONSUMER_KEY:CONSUMER_SECRET>, Content-Type: application/x-www-form-urlencoded" https://<GATEWAY_HOSTNAME>:<PORT>/token

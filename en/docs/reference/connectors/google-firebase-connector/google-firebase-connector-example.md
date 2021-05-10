@@ -194,7 +194,7 @@ You can download the ZIP file and extract the contents to get the project code.
 
 ## Deployment
 
-Now the exported CApp can be deployed in Enterprise Integrator Runtime so that we can run it and test. 
+Now the exported CApp can be deployed in the integration runtime so that we can run it and test. 
 
 **Note**: Download the following .jar files. 
 1. [firebase-admin-6.5.0.jar](https://mvnrepository.com/artifact/com.google.firebase/firebase-admin/6.5.0)

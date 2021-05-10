@@ -423,7 +423,15 @@
                             "required": true,
                             "default": "Production and Sandbox",
                             "possible": "",
-                            "description": "User can add preferred values as the name."
+                            "description": "User can add preferred values and should not be changed once configured."
+                        },
+                        {
+                            "name": "display_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "<name> of the environment",
+                            "possible": "",
+                            "description": "User can add preferred set a name to display"
                         },
                         {
                             "name": "type",
@@ -504,6 +512,51 @@
                             "default": "no default value",
                             "possible": "",
                             "description": "http://localhost:8280/"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway.environment.toml"
+        },
+        {
+            "title": "Virtual host of API-M gateway environment configurations",
+            "options": [
+                {
+                    "name": "apim.gateway.environment.virtual_host",
+                    "required": false,
+                    "description": "Configuring virtual host for the gateways environment.",
+                    "params": [
+                        {
+                            "name": "http_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://<host of https endpoint>:80",
+                            "possible": "http://<host>:<por>/<optional context>",
+                            "description": "HTTP endpoint e.g. http://dev.wso2.com:8280"
+                        },
+                        {
+                            "name": "https_endpoint",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "https://<host>:<por>/<optional context>",
+                            "description": "HTTPS endpoint e.g. https://dev.wso2.com:8243"
+                        },
+                        {
+                            "name": "ws_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "ws://<host of https endpoint>:9099",
+                            "possible": "ws://<host>:<por>",
+                            "description": "WS endpoint e.g. ws://dev.wso2.com:9099"
+                        },
+                        {
+                            "name": "wss_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "wss://<host of https endpoint>:8099",
+                            "possible": "wss://<host>:<por>",
+                            "description": "WSS endpoint e.g. wss://dev.wso2.com:8099"
                         }
                     ]
                 }
@@ -1195,6 +1248,38 @@
                             "default": "true",
                             "possible": "true, false",
                             "description": "This will enable/disable the JMS Message retrieval connection based on the provided value(true/false)."
+                        },
+                        {
+                            "name": "enable_data_publishing",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable publishing of request and throttling data."
+                        },
+                        {
+                            "name": "enable_policy_deploy",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable deploying of throttling policies."
+                        },
+                        {
+                            "name": "enable_blacklist_condition",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable blocking conditions from the admin portal."
+                        },
+                        {
+                            "name": "enable_persistence",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Enable persisting current counter state of the TM."
                         }
                     ]
                 }
@@ -1632,7 +1717,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "(Only applicable if the Microgateway is used)If set to FALSE, works as persistent."
+                            "description": "(Only applicable if Choreo Connect is used). If set to FALSE, works as persistent."
                         },
                         {
                             "name": "enable_persistent_notifier",
@@ -1640,7 +1725,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Notifications will be persisted to etcd. At the microgateway server startup, the etcd will be queried by the microgateway."
+                            "description": "Notifications will be persisted to etcd. When Choreo Connect starts up, the etcd will be queried by Choreo Connect."
                         },
                         {
                             "name": "realtime_notifier.ttl",

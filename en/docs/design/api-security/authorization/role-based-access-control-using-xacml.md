@@ -1,6 +1,6 @@
 # Enabling Role-Based Access Control Using XACML
 
-Many organizations expose their business capabilities through APIs. One of the key challenges is controlling access to these exposed APIs in such a way that all authorized users are able to access its APIs without any interruption, while at the same time making sure that any unauthorized users are kept out. In order to achieve this, parameters such as the user role can be used in determining whether to grant or deny access to an API for a given user. There are two ways to control access to users, namely [OAuth 2.0 scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and XACML. This section explains how an external extensible Access Control Markup Language (XACML) entitlement server can be integrated with WSO2 API Manager to provide role-based access control to APIs exposed via WSO2 API Manager. XACML is a declarative access control policy language based on XML that can provide a standardized way of validating authorization requests.
+Many organizations expose their business capabilities through APIs. One of the key challenges is controlling access to these exposed APIs in such a way that all authorized users are able to access its APIs without any interruption, while at the same time making sure that any unauthorized users are kept out. In order to achieve this, parameters such as the user role can be used in determining whether to grant or deny access to an API for a given user. There are two ways to control access to users, namely [OAuth 2.0 scope]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and XACML. This section explains how an external extensible Access Control Markup Language (XACML) entitlement server can be integrated with WSO2 API Manager to provide role-based access control to APIs exposed via WSO2 API Manager. XACML is a declarative access control policy language based on XML that can provide a standardized way of validating authorization requests.
 
 WSO2 API Manager provides the capability to authorize users based on [OAuth 2.0](https://tools.ietf.org/html/rfc6749) tokens and this mechanism can be extended to provide role-based access control using OAuth 2.0 scopes. However, as opposed to using OAuth 2.0 scope to provide authorization, XACML provides a standardized way of validating authorization requests. Authorization policies can be written in a standardized way using XACML and can be stored and managed through a policy administration point (PAP). Since the policies are standardized, policies written to one XACML engine can be ported to another engine from a different vendor without any issue. Similarly, XACML provides more control on how access should be enforced as different parameters and possibilities can be evaluated. XACML also provides ‘Obligations’ and ‘Advice’ as part of the XACML response that can be used by the API Manager when enforcing the policy decision to implement fine-grained access control for APIs.
 
@@ -30,7 +30,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration `<API-M_HOME>/repository/conf/user-mgt.xml` in both nodes.
 
     !!! tip
-        In an actual deployment, both these servers can [share the user store]({{base_path}}/learn/extensions/saml2-sso/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
+        In an actual deployment, both these servers can [share the user store]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
 
 2.  Start the WSO2 API Manager server and log in to the Management Console. Create user information with the following permission structure.
 
@@ -142,7 +142,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
         remoteServicePassword - Password used to connect to the service
 
-14. Log in to the API Publisher and [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
+14. Log in to the API Publisher and [create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 15. Attach the custom sequence to the inflow of the message as shown below.
     ![]({{base_path}}/assets/img/learn/attach-custom-in-sequence.png)
 16. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.

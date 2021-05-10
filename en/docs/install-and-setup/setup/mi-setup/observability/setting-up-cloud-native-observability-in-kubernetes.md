@@ -2,7 +2,7 @@
 
 Follow the instructions given below to set up a cloud-native observability solution in a Kubernetes environment. 
 
-To streamline the deployment of the cloud native observability solution in Kubernetes, WSO2 EI provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a very few additional configurations. 
+To streamline the deployment of the cloud native observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a very few additional configurations. 
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ The basic observability stack allows you to view metrics by installing and confi
 
     `helm install wso2-observability . --render-subchart-notes`
     
-4. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+4. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
     
 The above step deploys the basic deployment and displays instructions to access the dashboards. This deployment allows you to access both Prometheus and Grafana UIs, and provides you with ability to view and analyze metrics.
 
@@ -50,7 +50,7 @@ This deployment involves deploying Prometheus, Grafana, Loki, and Fluent-bit Dae
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
 
 Above steps deploy the observability solution with log processing capabilities and display instructions to access the dashboards. With this deployment you can access Prometheus and Grafana UIs.     
 
@@ -73,26 +73,31 @@ This involves deploying Prometheus, Grafana, and Jaeger-operator with all the re
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
 
 The above steps deploy the observability solution with tracing capabilities and displays instructions to access the dashboards. With this deployment, you are able to access Prometheus, Grafana, and Jaeger UIs.
 
 This deployment installs Jaeger-Operator. To install the Jaeger deployment, follow the steps in [Jaeger Operator documentation - Creating a new instance](https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger-operator#creating-a-new-jaeger-instance) and deploy the preferred Jaeger deployment.
 
+!!! Note	
+    - There are some limitations because the Jaeger client, by default, uses a UDP sender as mentioned in [the Jaeger documentation](https://www.jaegertracing.io/docs/1.22/client-libraries/). If the payload size exceeds 65 KB, spans might get lost in the Jaeger console. 	
+    - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.	
+    - Be sure to check the performance tests and scaling requirements before including tracing in production deployments . Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
+
 ##### Configuring Grafana to visualize tracing information
 
-The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine](setting-up-minimum-basic-observability-deployment.md), it is not required to add it manually. However to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
+The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment), it is not required to add it manually. However to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
 
 1. Access Grafana via `localhost:3000` and sign in.
 2. Navigate to the settings section of the service level dashboard by clicking the cog wheel icon in the top right corner.
 
 3. Click **Variable**. This opens the following view.
 
-    ![Variables view](../../assets/img/monitoring-dashboard/variables.png)
+    ![Variables view]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)
     
 4. Edit the JaegerHost variable and provide your Jaeger query component hostname and port in the `host:port` syntax as shown below.
 
-    ![constant options](../../assets/img/monitoring-dashboard/constant-options.png)
+    ![constant options]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)
     
 5. Click **Save**
 
@@ -100,7 +105,7 @@ You need to perform the above steps for all the service-level dashboards (i.e., 
 
 Once Grafana is successfully configured to visualize statistics, you should be correctly redirected to the Jaeger UI from the Response Time widget of each service level dashboard as shown below.
 
-![jaeger ui](../../assets/img/monitoring-dashboard/jaeger-ui.png)
+![jaeger ui]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png)
 
 ### Option 4: Metrics + Logs + Message Tracing
 
@@ -123,13 +128,13 @@ To install the cloud native observability solution with logging and tracing capa
 
     `helm install wso2-observability . --render-subchart-notes`
     
-5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Enterprise Integrator Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
+5. Make changes to the default settings of the chart if required. For information about configurable parameters, see [Integration Observability - Configuration](https://github.com/wso2/observability-ei#configuration).
     
 The above step deploys the complete deployment and displays instructions to access the dashboards. This deployment allows you to access Prometheus, Grafana, and Jaeger UIs.
 
 ## Setting up the Micro Integrator deployment
 
-To integrate with the observability deployment, you are required to perform the following three main tasks in the EI containers:
+To integrate with the observability deployment, you are required to perform the following three main tasks in containers:
 
 ### Enabling observability for the Micro Integrator
 
@@ -170,7 +175,7 @@ To integrate with the observability deployment, you are required to perform the 
     
 Once the above tasks are completed, the container that is being deployed through the integration Kubernetes resource emits metric data, and the Observability deployment can discover and start without further configuration.
 
-**Configuring EI pods to parse logs through Fluent-bit**
+**Configuring pods to parse logs through Fluent-bit**
 
 To do this, set the following pod level annotation to the Micro Integrator pod.
 
@@ -201,8 +206,8 @@ agent_host = Agent_hostname
 
 These settings enable the tracing data instrumentation and publishing to a jaeger instance.
 
-For more information about the Micro Integrator Kubernetes development flow, see [MI kubernetes guide](../../../setup/deployment/kubernetes_deployment_patterns).
+For more information about the Micro Integrator Kubernetes development flow, see [MI kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards](../../../administer-and-observe/cloud-native-observability-dashboards).
+If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).

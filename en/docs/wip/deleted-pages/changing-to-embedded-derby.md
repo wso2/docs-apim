@@ -106,8 +106,8 @@ Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the 
 
 -   **Configure the connection pool to commit pending transactions on connection return**
     1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/wso2server.sh/`
-        -   On Windows: `<PRODUCT_HOME>\bin\wso2server.bat`
+        -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/api-manager.sh/`
+        -   On Windows: `<PRODUCT_HOME>\bin\api-manager.bat`
     2.  Add the following JVM option:
 
         ``` java
@@ -211,9 +211,9 @@ You can create database tables by executing the database scripts as follows:
 !!! info
 You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows.
 
--   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
+-   For Windows: `<PRODUCT_HOME>/bin/api-manager.bat -Dsetup`
 
--   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
+-   For Linux: `<PRODUCT_HOME>/bin/api-manager.sh -Dsetup`
 
 !!! warning
 Deprecation of -DSetup
