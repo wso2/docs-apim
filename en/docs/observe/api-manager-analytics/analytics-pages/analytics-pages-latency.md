@@ -10,7 +10,7 @@ See the topics given below to get details of the available widgets.
 The following topics walk you through the main features available for monitoring API latency.
 
 ### Top 10 Slowest API Chart
-You can use line chart to figure out the slowest APIs of the API Management system at a glance. Since these are the APIs that contribute to the higher 95th percentile of the system, 
+Use line charts to find the slowest APIs of the API management system at a glance. Since these are the APIs that contribute to the higher 95th percentile of the system, improving these APIs lowers the 95th percentile of latency in the API Management system.
 improving these APIs will lower the 95th percentile of latency in the API Management system.
 
 ![slowest apis]({{base_path}}/assets/img/observe/latency/slowest-apis.png)
@@ -25,4 +25,3 @@ Using the charts available in the widget you can now view the 95th percentile an
 
 By referring these charts now you can narrow it down to the component level where the slowness occurs. Also since both median and 95th percentile is present you can decide whether the slowness
 is occurring in each request or whether it is intermittent.
-
