@@ -52,7 +52,7 @@ The following topics walk you through the main features available for monitoring
 
 #### Errors by Status Code Graph
 This graph shows the distribution of HTTP status codes (of the errors) over time for the selected period. Use the controllers (explained above) to select the APIs and status code groups to which this content applies.
-When you select multiple APIs, error count will be grouped by the status code group.
+When you select multiple APIs, the error count is grouped by the status code group.
 
 ![error by status code]({{base_path}}/assets/img/observe/error/error-by-status-code.png)
 #### Proxy Errors Heatmap
