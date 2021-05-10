@@ -230,7 +230,7 @@ Let's update the metadata of the integration service.
                 <code>http://localhost:8290/healthcare</code>
             </td>
             <td>
-                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+                This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
                 You can configure the serviceUrl in the following ways:
                 <ul>
                     <li>
@@ -238,10 +238,10 @@ Let's update the metadata of the integration service.
                         <b>Let's use this option for this tutorial.</b>
                     </li>
                     <li>
-                        Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                        Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_HOST}/healthcare</code>.
                     </li>
                     <li>
-                        Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                        Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
                     </li>
                 </ul>
             </td>
@@ -303,9 +303,9 @@ Let's enable this client for the embedded Micro Integrator of WSO2 Integration S
     If you chose to parameterize the `serviceUrl` in the metadata file, you must inject the parameterized values as environment variables. Shown below are example placeholder values that you may have used in the `serviceUrl` followed by the corresponding environment variables. 
 
     ```bash
-    {host}  :  localhost
-    {port}  :  8290
-    {url}   :  localhost:8290
+    {MI_HOST}  :  localhost
+    {MI_PORT}  :  8290
+    {MI_URL}   :  localhost:8290
     ```
 
     !!! Tip
