@@ -738,6 +738,7 @@ nav:
                         - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
                         - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
                         - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
+                        - Latency Page: observe/api-manager-analytics/analytics-pages/analytics-pages-latency.md
                         - Cache Page: observe/api-manager-analytics/analytics-pages/analytics-pages-cache.md
                         - Devices Page: observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md
                         - Alerts Page: observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md
