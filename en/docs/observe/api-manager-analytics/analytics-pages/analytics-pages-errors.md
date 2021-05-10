@@ -27,7 +27,7 @@ The **Category Selector** is enabled only when you have selected the **Category*
 - Other: All other errors fall into this category including mediation errors/resource not found errors.
 
 ### Status Code Selector
-**Status Code Slector** is enabled only when you have selected **Status Code** toggle explained above. Using this selector you can select all or any available HTTP status code
+The **Status Code** selector is enabled only when you have selected the **Status Code** toggle explained above. You can use this to select all or any available HTTP status code category (4xx, 5xx, etc.). These status codes represent the response status of the API Gateway.
 category(4xx, 5xx). These status codes represent the response status code of the API Gateway.
 
 ## Page Walk Through
