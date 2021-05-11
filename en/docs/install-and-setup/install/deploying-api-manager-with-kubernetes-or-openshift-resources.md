@@ -62,7 +62,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     helm install --dependency-update --name <RELEASE_NAME> <HELM_HOME>/am-single --namespace <NAMESPACE> --set wso2.choreoAnalytics.enabled=true --set wso2.choreoAnalytics.endpoint=<CHOREO_ANALYTICS_ENDPOINT> --set wso2.choreoAnalytics.onpremKey=<ONPREM_KEY>
     ```
 
-    You can also provide the above configurations in `<HELM_HOME>/am-single/values.yaml`.
+    You can also provide the above configurations in the `<HELM_HOME>/am-single/values.yaml` file.
 
     | Parameter                                                                   | Description                                                                               | Default Value               |
     |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|-----------------------------|
