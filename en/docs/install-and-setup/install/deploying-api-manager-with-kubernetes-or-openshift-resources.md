@@ -42,7 +42,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     !!! note
         The default product configurations for deployment of WSO2 API Manager are available [here](https://github.com/wso2/kubernetes-apim/tree/v4.0.0.1/simple/am-single/templates) folder. Change the configurations, as necessary.
 
-    Open the `<HELM_HOME>/am-single/values.yaml` and provide the following values for WSO2 Subscription Configurations.
+    Open the `<HELM_HOME>/am-single/values.yaml` file and provide the following values for WSO2 Subscription Configurations.
     
      
     | Parameter                                                                   | Description                                                                               | Default Value               |
