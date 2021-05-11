@@ -98,7 +98,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 !!! note
     You can read the [README guide](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/simple/am-single/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations.
 
-Refer the following for deployment configurations of [Advanced Deployment Patterns](https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/deployment-overview/).
+For more information, see the deployment configurations with regard to the [Advanced Deployment Patterns]({{base_path}}/install-and-setup/setup/deployment-overview/).
 
 - [Standard HA Deployment](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/advanced/am-pattern-1/README.md)
 - [Standard HA Deployment with Multitenancy](https://github.com/wso2/kubernetes-apim/blob/v4.0.0.1/advanced/am-pattern-2/README.md)
