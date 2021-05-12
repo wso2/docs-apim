@@ -6,53 +6,15 @@ WSO2 API Manager is shipped with an H2 database for storing data. These default 
 
 Explained below are the default databases which will be used within API Manager.
 
--   **AM database** :`WSO2AM_DB.mv.db` WSO2 API Manager has this database keeping its specific API-M related data.
--   **Shared database** :`WSO2SHARED_DB.mv.db` This database contains the registry and user management data.
--   **Carbon database:** `WSO2CARBON_DB.mv.db` This database has the internal data related to the product. This data is stored in the embedded H2 database.
+-   **AM database** (`WSO2AM_DB.mv.db`) : WSO2 API Manager has this database keeping its specific API-M related data.
+-   **Shared database** (`WSO2SHARED_DB.mv.db`) : This database contains the registry and user management data.
+-   **Carbon database** (`WSO2CARBON_DB.mv.db`) : This database has the internal data related to the product. This data is stored in the embedded H2 database.
 
 The following image shows the default databases and the data that are stored in each database.
 
 <a href="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" ><img src="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" alt="Data bases" title="Data bases" width="100%" /></a>
 
-## Databases used by API-M profiles
-
-When you run the API-M runtime as separate [profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/), the databases are used as shown below.
-
-<table>
-<thead>
-<tr class="header">
-<th><br />
-</th>
-<th><p><strong>API Manager<br />
-database</strong></p>
-<p><code>              apimgtdb             </code></p>
-<p><code>              WSO2_AM_DB             </code></p></th>
-<th><p><strong>Shared Database</strong></p>
-<p><code>                                            shareddb                           </code></p>
-<p><code>              WSO2_SHARED_DB             </code></p></th>
-
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><strong>Control Plane profile</strong></p></td>
-<td><p>Used</p></td>
-<td><p>Used</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Gateway profile</strong></p></td>
-<td><p>Not used</p></td>
-<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
-
-</tr>
-<tr class="odd">
-<td><strong>Traffic Manager profile</strong></td>
-<td>Used</td>
-<td>Used</td>
-
-</tr>
-</tbody>
-</table>
+See how these databases are used when you [run API-M servers as separate profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/) in a distributed deployment.
 
 ## Changing the default databases
 
@@ -72,8 +34,9 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 
 !!! Note
 
-    - To enable the default H2 database, add the below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
-          ```toml
-          [database_configuration]
-          enable_h2_console = true
-          ```
+    To enable the default H2 database, add the below configurations to deployment.toml file in <APIM_HOME>/repository/conf and restart the server.
+
+    ```toml
+    [database_configuration]
+    enable_h2_console = true
+    ```

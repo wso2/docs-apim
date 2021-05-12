@@ -1,6 +1,6 @@
 # Running the API-M Profiles
 
-When the API-M runtime is started, all components, features, and related artifacts bundled with it are started. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features startup with the server.
+When the API-M server is started, all components, features, and related artifacts bundled with it are started. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features startup with the server.
 
 !!! Tip
     Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-devportal` for example, you can still access the API Publisher web application.
@@ -16,7 +16,7 @@ See the following topics to understand how API-M profiles are used in a distribu
 
 ## Profile startup commands
 
-Listed below are the API-M runtime startup commands for starting each of the profiles.
+Listed below are the startup commands for starting each of the API-M profiles.
 
 <table>
     <tr>
