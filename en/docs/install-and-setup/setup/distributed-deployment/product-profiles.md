@@ -1,16 +1,22 @@
-# API-M Profiles
+# Running the API-M Profiles
 
-When the API-M runtime is started, all components, features and related artifacts bundled with it are started. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
+When the API-M runtime is started, all components, features, and related artifacts bundled with it are started. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features startup with the server.
 
 !!! Tip
     Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-devportal` for example, you can still access the API Publisher web application.
     
-    An **OSGI Bundle** is a tightly coupled, dynamically loadable collection of classes, jars, and configuration files that explicitly declare their external dependencies (if any). In OSGi, a bundle is the primary deployment format. Bundles are applications that are packaged in JARs, and can be installed, started, stopped, updated, and removed.
+    An **OSGI Bundle** is a tightly coupled, dynamically loadable collection of classes, jars, and configuration files that explicitly declare their external dependencies (if any). In OSGi, a bundle is the primary deployment format. Bundles are applications that are packaged in JARs and can be installed, started, stopped, updated, and removed.
 
+## Before you begin
 
-## API-M Profiles
+See the following topics to understand how API-M profiles are used in a distributed deployment:
 
-The following are the different profiles available in WSO2 API Manager.
+-   [Distributed Deployment - Overview]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m)
+-   [Configuring a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup)
+
+## Profile startup commands
+
+Listed below are the API-M runtime startup commands for starting each of the profiles.
 
 <table>
     <tr>
@@ -20,46 +26,30 @@ The following are the different profiles available in WSO2 API Manager.
         <th>
             Command
         </td>
-        <th>
-            Description
-        </td>
     </tr>
     <tr>
         <td>
             Gateway Profile
         </td>
         <td><pre><code>-Dprofile=gateway</code></pre></td>
-        <td>
-            <p>Only starts the components related to the API Gateway.</p>
-<p>Use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
-        </td>
     </tr>
     <tr>
         <td>
             Control Plane Profile
         </td>
         <td><pre><code>-Dprofile=control-plane</code></pre></td>
-        <td>
-            Starts all the API-M components (Traffic Manager, Key Manager, Publisher, Developer Portal) excluding the Gateway.
-        </td>
     </tr>
     <tr>
         <td>
             Traffic Manager Profile
         </td>
         <td><pre><code>Dprofile=traffic-manager</code></pre></td>
-        <td>
-            Only starts the Traffic Manager component.
-        </td>
     </tr>
 </table>
 
 ## Starting an API-M profile
 
-You can start an API Manager profile in the following methods, based on your requirement
-
--   [Method 1 - Optimizing before starting the server](#method-1-optimizing-before-starting-the-server)
--   [Method 2 - Optimizing while starting the server](#method-2-optimizing-while-starting-the-server)
+You can start an API Manager profile in the following methods, based on your requirement.
     
 ### Method 1- Optimizing before starting the server
 
@@ -79,7 +69,7 @@ Create an optimized distribution for a particular API-M profile.
     <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=api-publisher
     ```
     
-2. Copy the respective databasee connector JAR to `/lib` directory.
+2. Copy the respective database connector JAR to `/lib` directory.
    
      For example, if you are using a MySQL database,
 
@@ -91,7 +81,7 @@ Create an optimized distribution for a particular API-M profile.
 
 4. Update the default DB configurations to match your environment.
 
-     Change the following DB configurations, which is in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+     Change the following DB configurations, which are in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
      ```
      [database.apim_db]
@@ -115,7 +105,7 @@ Create an optimized distribution for a particular API-M profile.
 
     If the product pack is "in-place updated" using the "WSO2 in-place updates tool" after the initial profile optimization, it would have fetched irrelevant files for this profile. With the `--optimize` option, the pack will be profile-optimized again and it will make sure that the pack will be in a correctly optimized state. 
        
-    Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
+    Configuration optimization is one of the steps in the profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
     
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/api-manager.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
@@ -192,8 +182,7 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=api-publisher --skipCo
 <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
 ```  
         
-Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration 
-changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
+Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
-!!! note
+!!! Note
     Profile optimization using scripts is the recommended approach. Manually optimizing and including the usage of the `--skipConfigOptimization` option should be done only in the cases where it can't be avoided. 

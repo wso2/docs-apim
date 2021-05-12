@@ -14,6 +14,46 @@ The following image shows the default databases and the data that are stored in 
 
 <a href="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" ><img src="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" alt="Data bases" title="Data bases" width="100%" /></a>
 
+## Databases used by API-M profiles
+
+When you run the API-M runtime as separate [profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/), the databases are used as shown below.
+
+<table>
+<thead>
+<tr class="header">
+<th><br />
+</th>
+<th><p><strong>API Manager<br />
+database</strong></p>
+<p><code>              apimgtdb             </code></p>
+<p><code>              WSO2_AM_DB             </code></p></th>
+<th><p><strong>Shared Database</strong></p>
+<p><code>                                            shareddb                           </code></p>
+<p><code>              WSO2_SHARED_DB             </code></p></th>
+
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><strong>Control Plane profile</strong></p></td>
+<td><p>Used</p></td>
+<td><p>Used</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Gateway profile</strong></p></td>
+<td><p>Not used</p></td>
+<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
+
+</tr>
+<tr class="odd">
+<td><strong>Traffic Manager profile</strong></td>
+<td>Used</td>
+<td>Used</td>
+
+</tr>
+</tbody>
+</table>
+
 ## Changing the default databases
 
 The embedded H2 databases shipped with your product are suitable for development and testing environments. However, for **production environments,** it is recommended to use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc.

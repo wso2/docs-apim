@@ -12,14 +12,144 @@ This page describes the default ports used by each runtime of WSO2 API Manager.
 
 Listed below are the ports used by the API-M runtime when the [port offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#configuring-the-port-offset) is 0.
 
--   5672 - Used by the internal Message Broker.
--   7611 - TCP port to receive throttling events. Required when Thrift data publisher is used for throttling.
--   7711 - SSL port for secure transport to receive throttling events. Required when Thrift data publisher is used for throttling.
--   8280 - Passthrough or NIO HTTP transport
--   8243 - Passthrough or NIO HTTPS transport
--   9611 - TCP port to receive throttling events. Required when Binary data publisher is used for throttling.
--   9711 - SSL port for secure transport to receive throttling events. Required when Binary data publisher is used for throttling.
--   9099 - Web Socket ports.
+<table>
+	<tr>
+		<th>
+			Default Port
+		</th>
+		<th>
+			Description
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<code>9443</code>
+		</td>
+		<td>
+			Port of the HTTPS servlet transport. The default HTTPS URL of the management console is <code>https://localhost:9443/carbon</code>.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>9763</code>
+		</td>
+		<td>
+			Port of the HTTP servlet transport. The default HTTP URL of the management console is <code>http://localhost:9763/carbon</code>.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>10389</code>
+		</td>
+		<td>
+			Port of the embedded LDAP server.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>5672</code>
+		</td>
+		<td>
+			Port of the internal Message Broker of the API-M runtime.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>7611</code>
+		</td>
+		<td>
+			TCP port to receive throttling events. This is required when the Thrift data publisher is used for throttling.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>7711</code>
+		</td>
+		<td>
+			The SSL port of the secure transport for receiving throttling events. This is required when the Thrift data publisher is used for throttling.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>8280</code>
+		</td>
+		<td>
+			Port of the Passthrough or NIO HTTP transport.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>8243</code>
+		</td>
+		<td>
+			Port of the Passthrough or NIO HTTPS transport.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>9611</code>
+		</td>
+		<td>
+			TCP port to receive throttling events. This is required when the binary data publisher is used for throttling.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>9711</code>
+		</td>
+		<td>
+			SSL port of the secure transport for receiving throttling events. This is required when the binary data publisher is used for throttling.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>9099</code>
+		</td>
+		<td>
+			Web Socket ports.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>8000</code>
+		</td>
+		<td>
+			Port exposing the Kerberos key distribution center server.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>45564</code>
+		</td>
+		<td>
+			Opened if the membership scheme is multicast.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>4000</code>
+		</td>
+		<td>
+			Opened if the membership scheme is WKA.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>11111</code>
+		</td>
+		<td>
+			The RMIRegistry port. Used to monitor Carbon remotely.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>9999</code>
+		</td>
+		<td>
+			The MIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
+		</td>
+	</tr>
+</table>
 
 ## WSO2 Micro Integrator ports
 
@@ -82,47 +212,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
 	</tr>
 </table>
 
-## Common ports
-
-The following ports are common to all WSO2 products that provide the given feature. Some features are bundled in the WSO2 Carbon platform itself and therefore are available in all WSO2 products by default.
-
-### Management console ports
-
-WSO2 products that provide a management console use the following servlet transport ports:
-
--   9443 - HTTPS servlet transport (the default URL of the management console is https://localhost:9443/carbon)
--   9763 - HTTP servlet transport
-
-### LDAP server ports
-
-Provided by default in the WSO2 Carbon platform.
-
--   10389 - Used in WSO2 products that provide an embedded LDAP server
-
-### KDC ports
-
--   8000 - Used to expose the Kerberos key distribution center server
-
-### JMX monitoring ports
-
-WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it by adding the following configuration to `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
-
-``` toml
-[monitoring.jmx]
-rmi_server_start = false
-```
-
--   11111 - RMIRegistry port. Used to monitor Carbon remotely
--   9999 - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
-
-### Clustering ports
-
-To cluster any running Carbon instance, either one of the following ports must be opened.
-
--   45564 - Opened if the membership scheme is multicast
--   4000 - Opened if the membership scheme is WKA
-
-### Random ports
+## Random ports
 
 Certain ports are randomly opened during server startup. This is due to the specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
 
@@ -161,5 +251,5 @@ enable = false
 
 3.  Comment out the HTTP connector section.
 
-!!! note
+!!! Note
     You need to restart the server for these changes to take effect.
