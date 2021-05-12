@@ -17,7 +17,7 @@ info:
   title: WSO2 API Manager - Developer Portal
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - **Developer Portal**.
-    Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/devportal-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
+    Please see [full OpenAPI Specification](https://github.com/wso2/carbon-apimgt/blob/v9.0.174/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/devportal-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -96,7 +96,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5bc0161b8aa7e701d7bf)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/deb4be219730f5c7548d?action=collection%2Fimport)
   contact:
     name: WSO2
     url: http://wso2.com/products/api-manager/
@@ -3125,7 +3125,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/store/v1/webhooks/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
+            "https://localhost:9443/api/am/store/v1/webhooks/subscriptions?applicationId=5b65808c-cdf2-43e1-a695-de63e3ad0ae9&apiId=ae4eae22-3f65-387b-a171-d37eaa366fa8"
   ######################################################
   # The Developer Portal settings List
   ######################################################

@@ -95,7 +95,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d6c31bb7998b3c985d71)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/744fce9d9443510bc75d?action=collection%2Fimport)
   contact:
     name: WSO2
     url: http://wso2.com/products/api-manager/
@@ -420,8 +420,8 @@ paths:
     put:
       tags:
         - APIs
-      summary: Update Topics
-      description: This operation can be used to update topics of an existing API.
+      summary: Update Topics of an Async API
+      description: This operation can be used to update topics of an existing async API.
       operationId: updateTopics
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -8360,6 +8360,7 @@ components:
       title: APIRevisionDeployment Info object with basic API deployment details
       properties:
         revisionUuid:
+          readOnly: true
           maxLength: 255
           minLength: 0
           type: string
