@@ -801,7 +801,6 @@ nav:
                 - Developer Portal API v2: reference/product-apis/devportal-apis/devportal-v2/devportal-v2.md
             - Admin APIs:
                 - Admin APIs v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
-                - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
             - Service Catalog APIs:
