@@ -6,7 +6,7 @@
 
 ---
 
-This is the documentation for the upcoming release of WSO2 API Manager (WSO2 API-M). Please note that this documentation is work in progress.
+This is the documentation for the 3.2.0 release of WSO2 API Manager (WSO2 API-M).
 
 To see the **latest released documentation** for the WSO2 API Manager, go to: [https://apim.docs.wso2.com/en/latest/](https://apim.docs.wso2.com/en/latest/)
 
