@@ -135,7 +135,7 @@ For more information, see [Permissions Reference - Facebook Login.](https://deve
 To federate logging in to the Publisher and Developer Portal with Facebook, you need to configure the service provider with the Facebook Identity Provider.
 
 !!! note
-        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/administer/product-security/General/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
+        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login]({{base_path}}/administer/product-security/General/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
 
 
 1.  Go to the **Management Console** of WSO2 Identity Server (`https://localhost:9444/carbon`) and click on **Service Providers**.

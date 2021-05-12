@@ -25,10 +25,11 @@ quota exceeding), change the
 `_throttle_out_handler_.xml` file, for resource mismatch
 errors, the `_resource_mismatch_handler_.xml` file etc.
 
--   [API handlers error codes](#api-handlers-error-codes)
--   [Sequences error codes](#sequences-error-codes)
--   [Transport error codes](#transport-error-codes)
--   [Custom error messages](#custom-error-messages)
+- [Error Handling](#error-handling)
+    - [API handlers error codes](#api-handlers-error-codes)
+    - [Sequences error codes](#sequences-error-codes)
+    - [Transport error codes](#transport-error-codes)
+    - [Custom error messages](#custom-error-messages)
 
 Given below are some error codes and their meanings.
 
@@ -320,7 +321,7 @@ Therefore,
 Error code = 101504 + 3 = 101507
 
 These Transport error codes are used in [Advanced Configurations of
-Endpoints](/../../../../learn/design-api/endpoints/endpoint-types/)
+Endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-types/)
 .
 
 ### Custom error messages

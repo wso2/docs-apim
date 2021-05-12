@@ -73,13 +73,13 @@ Let's use the
     
     4. Enable **OAuth for Standard Accounts** under **OAuth Settings** in the prompted screen. Then, go back to the previous step and create a connected account. This will provide a one-time-use Standard onboarding link which would take the following format. The Tenant Admin can share this with the API Publisher.
     
-        ```
-        https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>&state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
-        ```
+         ```
+         https://connect.stripe.com/oauth/authorize?redirect_uri=https://connect.stripe.com/hosted/oauth&client_id=<client-id>&state=<state>&response_type=code&scope=read_write&stripe_user[country]=<country>
+         ```
  
-      The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
+         The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-        [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
+         [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
     5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal. 
 
@@ -160,7 +160,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 3. Start the WSO2 API Manager Analytics server.
     
-    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     
      - On Windows:  `worker.bat --run`
 
@@ -179,50 +179,49 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     1. Download and copy the JAR specific to the billing engine, which you are working with, into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, add the [Stripe Java 9.8.0 JAR](https://mvnrepository.com/artifact/com.stripe/stripe-java/9.8.0) into the latter mentioned `lib` folder.
+         In this example scenario, add the [Stripe Java 9.8.0 JAR](https://mvnrepository.com/artifact/com.stripe/stripe-java/9.8.0) into the latter mentioned `lib` folder.
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.1.1.jar]({{base_path}}/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.1.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+         In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.1.1.jar]({{base_path}}/assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.1.1.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
+         Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
 
-        ``` json tab="Format"
-        [apim.monetization]
-        monetization_impl = "<monetization-implementation>"
-        ```
+         ``` json tab="Format"
+         [apim.monetization]
+         monetization_impl = "<monetization-implementation>"
+         ```
 
-        ``` json tab="Example"
-        [apim.monetization]
-        monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-        ```
+         ``` json tab="Example"
+         [apim.monetization]
+         ```
 
 2.  Configure the database.
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
         
-        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
+         As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
 
     2. Configure the WSO2 API Manager related datasource.  
         
-        Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `database.apim_db` section. Make sure to add the parameters based on your setup.
+         Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `database.apim_db` section. Make sure to add the parameters based on your setup.
 
         ``` java
-        [database.apim_db]
-        type = "mysql"
-        url = "jdbc:mysql://<DBHost>:<Port>/<DBName>?autoReconnect=true"
-        username = "xxx"
-        password = "yyy"
-        defaultAutoCommit = "false"
-        driverClassName = "com.mysql.jdbc.Driver"
-        maxActive = "50"
-        maxWait = "60000"
-        testOnBorrow = "true"
-        validationQuery = "SELECT 1"
-        validationInterval = "30000"
-        ```
+         [database.apim_db]
+         type = "mysql"
+         url = "jdbc:mysql://<DBHost>:<Port>/<DBName>?autoReconnect=true"
+          username = "xxx"
+         password = "yyy"
+         defaultAutoCommit = "false"
+         driverClassName = "com.mysql.jdbc.Driver"
+         maxActive = "50"
+         maxWait = "60000"
+         testOnBorrow = "true"
+         validationQuery = "SELECT 1"
+         validationInterval = "30000"
+         ```
 
     3.  Navigate to the `<API-M_HOME>/dbscripts/apimgt/` directory and execute the database script that corresponds to the database management system that you are working on.
          
@@ -590,7 +589,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
            
       The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
-    After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.   
+     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.   
 
     <a name="granularity"></a>
 
@@ -615,15 +614,15 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      2.  Add the following configuration in the TOML file. 
 
-        ``` java tab="Format"
-        [apim.monetization]
-        granularity = "<time-period>" 
-        ```
+         ``` java tab="Format"
+         [apim.monetization]
+         granularity = "<time-period>" 
+         ```
 
-        ``` java tab="Example"
-        [apim.monetization]
-        granularity = "seconds" 
-        ```
+         ``` java tab="Example"
+         [apim.monetization]
+         granularity = "seconds" 
+         ```
 
         - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
 
@@ -633,15 +632,15 @@ When working with API Monetization that involves dynamic business plans (usage-b
     from the current time to derive the last publish time. This configuration is provided in days and the 
     default value is one day.
    
-    ``` java tab="Format"
-    [apim.monetization]
-    publish_duration = "<time-period in days>" 
-    ```
+     ``` java tab="Format"
+     [apim.monetization]
+     publish_duration = "<time-period in days>" 
+     ```
 
-    ``` java tab="Example"
-    [apim.monetization]
-    publish_duration = "3" 
-    ```
+     ``` java tab="Example"
+     [apim.monetization]
+     publish_duration = "3" 
+     ```
 
 6.  Configure the Tenant Admin on WSO2 API Manager.
     1.  Start the WSO2 API Manager server.
@@ -660,21 +659,21 @@ When working with API Monetization that involves dynamic business plans (usage-b
     
     5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
 
-        ``` json tab="Format"
-        "MonetizationInfo": {
+         ``` json tab="Format"
+         "MonetizationInfo": {
             "<key-value-pair>"
-        }
-        ```
+         }
+         ```
 
-        ``` json tab="Example"
-        "MonetizationInfo": {
+         ``` json tab="Example"
+         "MonetizationInfo": {
             "BillingEnginePlatformAccountKey": "sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi"
         }
         ```
 
-        * `<key-value-pair>` - The key-value pair varies based on your monetization interface. There can be multiple key-value pairs.
+         * `<key-value-pair>` - The key-value pair varies based on your monetization interface. There can be multiple key-value pairs.
 
-        * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
+         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
 7.  Configure the workflows.
 
@@ -715,7 +714,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 2.  Create a subscription policy.  
      
-     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy](/learn/rate-limiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
+     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy]({{base_path}}/learn/rate-limiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
 
      <html>
       <div class="admonition note">
@@ -861,7 +860,8 @@ The monitoring of API usage is only done for APIs associated with dynamic busine
 The Application Developers who are subscribed to a dynamic business plan can sign in to the API Developer Portal to view the billing details of their subscription from the start of the current billing cycle to the current date, which is the date of viewing the bill.
 
 1. Sign in to the API Developer Portal.  
-    `https://<hostname>:9443/devportal`
+    
+     `https://<hostname>:9443/devportal`
 
 2. Click **Applications** and click **Subscriptions**.
 
@@ -885,7 +885,8 @@ The Application Developers who are subscribed to a dynamic business plan can sig
 The API Publisher can access the billing information related to each of the subscriptions that correspond to a specific API via the API Publisher Portal to view their revenue.
 
 1.  Sign in to the API Publisher Portal.  
-    `https://<hostname>:9443/publisher`
+    
+     `https://<hostname>:9443/publisher`
 
 2. Click on the specific monetized API.
 
@@ -910,12 +911,14 @@ The API Publisher can access the billing information related to each of the subs
 Follow the instructions below to disable monetization for an API:
 
 1.  Sign in to the API Publisher Portal.  
-    `https://<hostname>:9443/publisher`
+    
+     `https://<hostname>:9443/publisher`
 
 2.  Click on the monetized API for which you need to disable monetization.
 
 3.  Click **Monetization** to go to the Monetization configurations.  
-    ![Disable monetization]({{base_path}}/assets/img/learn/disable-monetization.png)
+    
+     ![Disable monetization]({{base_path}}/assets/img/learn/disable-monetization.png)
 
 4.  Click **Enable Monetization** to unselect the enable monetization option.
 

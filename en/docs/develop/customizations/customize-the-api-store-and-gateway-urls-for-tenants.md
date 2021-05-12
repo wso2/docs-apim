@@ -2,9 +2,10 @@
 
 The default URL of WSO2 API Manager Developer Portal is `https://<HostName>:9443/devportal` . Follow the steps below to change the URL of the Gateways and Developer Portal tenants in WSO2 API Manager.
 
--   [Configure per tenant custom domain mappings](#setup-custom-domain-mapping-in-the-registry)
--   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
--   [Configure the load balancer for custom URLs](#configure-the-load-balancer-for-custom-urls)
+- [Customizing the Developer Portal and Gateway URLs for Tenants](#customizing-the-developer-portal-and-gateway-urls-for-tenants)
+  - [Configure per tenant custom domain mappings](#configure-per-tenant-custom-domain-mappings)
+  - [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
+  - [Configure the load balancer for custom URLs](#configure-the-load-balancer-for-custom-urls)
 
 
 ## Configure per tenant custom domain mappings
@@ -16,11 +17,11 @@ The default URL of WSO2 API Manager Developer Portal is `https://<HostName>:9443
 
 2.  In the **Main** menu, click **Browse** under **Resources**.
 
-    ![](../../assets/img/develop/customizations/browse-registry.png)
+    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
 
 3.  Navigate to the `/_system/governance` registry path and create `customurl/api-cloud/<tenant-domain>/urlMapping` directory structure in the registry, as shown in the following diagram. Replace the `<tenant-domain>` placeholder with the domain name of the tenant you want to customize the devportal and gateway URLs. For details on how to create and manage multiple tenants, see [Managing Tenants]({{base_path}}/administer/multitenancy/managing-tenants).
     
-    ![](../../assets/img/develop/customizations/mapping-file-directory-structure.png)
+    ![]({{base_path}}/assets/img/develop/customizations/mapping-file-directory-structure.png)
 
     To create a directory in the registry path, 
     
@@ -28,7 +29,7 @@ The default URL of WSO2 API Manager Developer Portal is `https://<HostName>:9443
         
     2.  Click **Add Collection** and specify the name of the directory and click **Add** .
     
-        ![](../../assets/img/develop/customizations/browse-registry.png)
+        ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
    
         !!! note
             In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs), this directory structure is created automatically when specifying the custom URL through the UI.
@@ -61,7 +62,7 @@ The default URL of WSO2 API Manager Developer Portal is `https://<HostName>:9443
         }
     ```   
     
-    ![](../../assets/img/develop/customizations/create-mapping-file.png)
+    ![]({{base_path}}/assets/img/develop/customizations/create-mapping-file.png)
 
 
 ## Configure per tenant service provider creation for devportal
@@ -72,11 +73,11 @@ By default the developer portal is acting as SAAS app, which is shared among all
 
 2.  In the **Main** menu, click **Browse** under **Resources**.
 
-    ![](../../assets/img/develop/customizations/browse-registry.png)
+    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
     
 3.  Navigate to `/_system/config/apimgt/applicationdata/tenant-conf.json` configuration file.
 
-    ![](../../assets/img/develop/customizations/tenant-conf.png )
+    ![]({{base_path}}/assets/img/develop/customizations/tenant-conf.png )
 
 4.  Edit tenant-conf.json and add following new property to enable per tenant service provider creation for the respective tenant. Then save the content.
 
@@ -84,7 +85,7 @@ By default the developer portal is acting as SAAS app, which is shared among all
       "EnablePerTenantServiceProviderCreation": true
     ```
     
-    ![](../../assets/img/develop/customizations/per-tenant-sp-creation-config.png )
+    ![]({{base_path}}/assets/img/develop/customizations/per-tenant-sp-creation-config.png )
     
 ## Configure the load balancer for custom URLs
 
