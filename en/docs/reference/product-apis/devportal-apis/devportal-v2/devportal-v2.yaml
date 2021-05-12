@@ -3313,7 +3313,7 @@ paths:
   /key-managers:
     get:
       tags:
-        - Key Managers (Collection)
+        - Key Managers
       summary: Get All Key Managers
       description: |
         Get all Key managers

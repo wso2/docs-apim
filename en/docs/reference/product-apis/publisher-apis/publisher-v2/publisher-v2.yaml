@@ -2617,7 +2617,7 @@ paths:
   /apis/{apiId}/graphql-schema:
     get:
       tags:
-        - GraphQL Schema (Individual)
+        - GraphQL Schema
       summary: Get the Schema of a GraphQL API
       description: |
         This operation can be used to retrieve the Schema definition of a GraphQL API.
@@ -2737,7 +2737,7 @@ paths:
   /apis/{apiId}/amznResourceNames:
     get:
       tags:
-        - AWS Lambda (Individual)
+        - AWS Lambda
       summary: Retrieve the ARNs of AWS Lambda Functions
       description: |
         This operation can be use to retrieve ARNs of AWS Lambda function for a given AWS credentials.
@@ -7134,7 +7134,7 @@ paths:
   /api-categories:
     get:
       tags:
-        - API Category (Collection)
+        - API Categories
       summary: Get all API categories
       description: |
         Get all API categories
