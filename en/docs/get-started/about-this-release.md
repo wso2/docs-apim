@@ -657,7 +657,7 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **Streaming Integrator**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/milestone/16?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator/issues).
 
@@ -681,7 +681,7 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 
 **Streaming Integrator Tooling**
 
-- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/milestone/15?closed=1).
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
 

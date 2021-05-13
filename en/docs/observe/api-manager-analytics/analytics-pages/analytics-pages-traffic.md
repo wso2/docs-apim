@@ -28,7 +28,8 @@ The following topics walk you through the main features available for monitoring
 ### API Usage Overtime
 
 This timeline shows the count of API hits for the APIs you selected using the above-mentioned selectors. If multiple APIs are
- selected, the timeline shows each API in a separate line with a legend separating each line.
+ selected, the timeline shows each API in a separate line with a legend separating each line. You can also zoom in on a selected time range by selecting that area in the chart.
+ To restore to the original view use the 'zoom out' button on top right-hand corner of the plot.
  
 ![api usage timeline]({{base_path}}/assets/img/observe/traffic/api-usage-timeline.png)
  
