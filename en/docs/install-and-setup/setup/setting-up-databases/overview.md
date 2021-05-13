@@ -34,7 +34,7 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 
 !!! Note
 
-    To be able to browse the default H2 database, be sure to add the following configuration to the `deployment.toml` file (stored in the `<APIM_HOME>/repository/conf` directory) and restart the server.
+    To be able to browse the default H2 database, be sure to add the following configuration to the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` directory) and restart the server.
 
     ```toml
     [database_configuration]
