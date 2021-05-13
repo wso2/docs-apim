@@ -140,7 +140,7 @@
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
-        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time](/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time).</p>
+        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time).</p>
     </div>
     
 9.  Set the base path to the API client.
@@ -151,7 +151,7 @@
     The base path for the client application is the production (or sandbox) URL of the API. This will be in the form of ```http(s)://<host>:<port>/<context-of-the-api>```. The default ports for HTTP and HTTPS are ```8280``` and ```8243``` respectively.
     
     The context of the API can be found from the API Overview in Developer Portal.
-    ![Context of the API](../../../assets/img/learn/context-of-api.png)
+    ![Context of the API]({{base_path}}/assets/img/learn/context-of-api.png)
 
 10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 

@@ -173,7 +173,7 @@ Example:
 
 ### How can I manage authentication centrally in a clustered environment?
 
-You can enable centralized authentication using a WSO2 Identity Server based [security and identity gateway solution](http://wso2.com/whitepapers/wso2-security-and-identity-gateway-solution/), which [enables SSO](https://is.docs.wso2.com/en/latest/learn/configuring-saml2-single-sign-on-across-different-wso2-products/) (Single Sign On) across all the servers.
+You can enable centralized authentication using a WSO2 Identity Server based [security and identity gateway solution](http://wso2.com/whitepapers/wso2-security-and-identity-gateway-solution/), which [enables SSO](https://is.docs.wso2.com/en/5.10.0/learn/configuring-saml2-single-sign-on-across-different-wso2-products/) (Single Sign On) across all the servers.
 
 ### How can I manage the API permissions/visibility?
 

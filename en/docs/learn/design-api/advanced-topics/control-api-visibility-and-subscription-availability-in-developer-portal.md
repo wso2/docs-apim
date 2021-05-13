@@ -73,7 +73,7 @@ Subscription availability can be one of the following options:
 - **Available to Specific Tenants:** users of the organizations/tenant domains that you specify, as well as the current tenant domain, can subscribe to the API.
 
 The diagram below depicts the relationship between the API's visibility and subscription availability:
-[![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)](/{{base_path}}/assets/img/learn/api-visibility-relationship.png)
+[![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)]({{base_path}}/assets/img/learn/api-visibility-relationship.png)
 
 
 ### Control subscription availability using the API Publisher
@@ -96,7 +96,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 3.  Click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option.
      
-     [ ![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png) ](/{{base_path}}/assets/img/learn/api-subscription-availability.png)
+     [ ![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png) ]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
 4.  Save the API.
 

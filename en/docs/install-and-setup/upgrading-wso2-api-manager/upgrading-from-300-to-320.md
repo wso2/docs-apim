@@ -300,10 +300,16 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.0.0 setup, it is 
     !!! note "NOTE"
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
--   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 3.2.0](#step-2-upgrade-api-manager-to-320)
--   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4-restart-the-wso2-api-m-320-server)
+- [Upgrading API Manager from 3.0.0 to 3.2.0](#upgrading-api-manager-from-300-to-320)
+    - [Preparing for Migration](#preparing-for-migration)
+      - [Disabling versioning in the registry configuration if it was enabled](#disabling-versioning-in-the-registry-configuration-if-it-was-enabled)
+    - [Step 1 - Migrate the API Manager configurations](#step-1---migrate-the-api-manager-configurations)
+    - [Step 2 - Upgrade API Manager to 3.2.0](#step-2---upgrade-api-manager-to-320)
+    - [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3---optionally-migrate-the-configurations-for-wso2-api-m-analytics)
+      - [Step 3.1 - Migrating the Analytics Database](#step-31---migrating-the-analytics-database)
+      - [Step 3.2 - Configure WSO2 API-M Analytics 3.2.0](#step-32---configure-wso2-api-m-analytics-320)
+      - [Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics](#step-33---configure-wso2-api-m-320-for-analytics)
+    - [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4---restart-the-wso2-api-m-320-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -1513,7 +1519,7 @@ Follow the instructions below to move all the existing API Manager configuration
     6.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
         
         !!! note        
-            If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step
+            If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.10.0/setup/migrating-userstore-managers/) before moving to the next step
                     
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity

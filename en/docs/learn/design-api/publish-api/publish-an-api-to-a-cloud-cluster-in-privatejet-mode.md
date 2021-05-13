@@ -16,7 +16,7 @@ Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet
  
 1. Start the API-M server.
 
-2. Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide](/learn/design-api/create-api/create-a-rest-api/) to create a new API. 
+2. Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) to create a new API. 
 
 3. Click on an API that is in the **CREATED** state.
    

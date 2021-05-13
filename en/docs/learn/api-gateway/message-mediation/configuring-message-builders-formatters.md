@@ -156,7 +156,7 @@ The default message builder or message formatter for a given content type can be
 
 ## Custom message builders and formatters
 
-In addition to default message formatters and builders, you can implement your own custom message builder or a formatter for a given content type as described in [Writing a custom Message Builder and Formatter](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/#writing-a-custom-message-builder-and-formatter).
+In addition to default message formatters and builders, you can implement your own custom message builder or a formatter for a given content type as described in [Writing a custom Message Builder and Formatter](https://ei.docs.wso2.com/en/7.1.0/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/#writing-a-custom-message-builder-and-formatter).
 
 To enable the custom message builder or formatter, add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file, specifying the message builder/formatter class names against the content type.
 
