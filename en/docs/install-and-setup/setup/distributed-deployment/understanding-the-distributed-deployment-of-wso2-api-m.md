@@ -1,7 +1,7 @@
 # API-M Distributed Deployment - Overview
 
 Before deploying WSO2 API Manager (WSO2 API-M), let's understand how the WSO2 API-M distributed deployment works.
-According to the recommended [deployment patterns]({{base_path}}/install-and-setup/setup/deployment-overview/#simple-scalable-deployment), a distributed deployment includes API-M server nodes that separately run the [API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles). An API-M profile is a server instance that only runs specific components of the API-M server.
+According to the recommended [deployment patterns]({{base_path}}/install-and-setup/setup/deployment-overview/#simple-scalable-deployment), a distributed deployment includes API-M server nodes that separately run the [API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles). An API-M profile is a runtime instance that only runs specific components of the runtime.
 
 ## API-M Profiles
 
@@ -43,49 +43,9 @@ Listed below are the different profiles available in WSO2 API Manager.
     </tr>
 </table>
 
-## Databases used by API-M profiles
-
-When you run the API-M server as separate profiles, databases are used as shown below.
-
-<table>
-<thead>
-<tr class="header">
-<th><br />
-</th>
-<th><p><strong>API Manager<br />
-database</strong></p>
-<p><code>              apimgtdb             </code></p>
-<p><code>              WSO2_AM_DB             </code></p></th>
-<th><p><strong>Shared Database</strong></p>
-<p><code>                                            shareddb                           </code></p>
-<p><code>              WSO2_SHARED_DB             </code></p></th>
-
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><strong>Control Plane profile</strong></p></td>
-<td><p>Used</p></td>
-<td><p>Used</p></td>
-</tr>
-<tr class="even">
-<td><p><strong>Gateway profile</strong></p></td>
-<td><p>Not used</p></td>
-<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
-
-</tr>
-<tr class="odd">
-<td><strong>Traffic Manager profile</strong></td>
-<td>Used</td>
-<td>Used</td>
-
-</tr>
-</tbody>
-</table>
-
 ## API-M Components
 
-Listed below are the five components in the API-M server. When you run the recommended API-M profiles, the components (from the below list) that are required for operating the functionalities related to each profile are used.
+Listed below are the five components of the API-M runtime and its function. 
 
 <table>
     <tr>
@@ -140,15 +100,5 @@ Listed below are the five components in the API-M server. When you run the recom
 
 ## What's Next?
 
-<<<<<<< HEAD
-<<<<<<< HEAD
--   Find out more about [API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
--   See the instructions on [Configuring a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).
-=======
--   Find out more about running [API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
--   See the instructions on [Configuring a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).
->>>>>>> f670ecf50 (distributed deployment and profiles)
-=======
 -   Find out more about [running API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 -   See the instructions on [configuring a distributed API-M deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup).
->>>>>>> 49f736cfd (resolving comments)
