@@ -305,7 +305,7 @@ But, if registry versioning was enabled by you in WSO2 API-M 3.2.0 setup, it is 
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 4.0.0](#step-2-upgrade-api-manager-to-400)
--   [Step 3 - Restart the WSO2 API-M 3.2.0 server](#step-3-restart-the-wso2-api-m-400-server)
+-   [Step 3 - Restart the WSO2 API-M 4.0.0 server](#step-3-restart-the-wso2-api-m-400-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
