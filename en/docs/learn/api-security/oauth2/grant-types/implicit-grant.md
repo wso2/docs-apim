@@ -88,7 +88,7 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 !!! note
     **Before you begin**
 
-    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/latest/learn/deploying-the-sample-app/#deploy-the-sample-web-app).
+    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.10.0/learn/deploying-the-sample-app/#deploy-the-sample-web-app).
 
 1.  Open a terminal window and add the following entry to the `/etc/hosts` file of your machine to configure the hostname.
    ```
