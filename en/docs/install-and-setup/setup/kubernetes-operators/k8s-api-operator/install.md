@@ -7,12 +7,12 @@
     - Minimum CPU : 2vCPU
     - Minimum Memory : 2GB
    
-## Standalone Installation 
+## Standalone Installation
 
 - Installing the API Operator 
 
 ```shell
-kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0-beta/api-operator-configs.yaml
+kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
 ```
 
 - Verify Installation

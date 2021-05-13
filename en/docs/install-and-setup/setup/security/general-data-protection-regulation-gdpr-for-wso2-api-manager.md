@@ -9,7 +9,7 @@ Follow the instructions below to remove the references of the deleted user ident
 ### Step 1 - Optionally, build the Forget-Me Tool
 
 !!! note
-    - **Skip** this step if you are **only working with WSO2 API Manager and/or WSO2 API Manager Analytics** because you can make use of the pre-packed Forget-Me Tool. 
+    - **Skip** this step if you are **only working with WSO2 API Manager** because you can make use of the pre-packed Forget-Me Tool. 
     
     - This step is **mandatory** in the following scenarios -
          - When you are **working with multiple WSO2 products** and you need to delete the user's identity from all the products at once.
@@ -355,7 +355,3 @@ The tenant ID of the user whose identity references you want to remove.
 </tr>
 </tbody>
 </table>
-
-## GDPR for WSO2 API Manager Analytics
-
-For information on GDPR for API Manager Analytics, see [General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics]({{base_path}}/observe/api-manager-analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics).

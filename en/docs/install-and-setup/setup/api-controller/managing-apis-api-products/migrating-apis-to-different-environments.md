@@ -367,7 +367,7 @@ mentioned gateway environments. If the **deployment environments are not provide
         apictl import api --file <path-to-API-archive> --environment <environment> 
         ```
         ``` bash
-        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skip-cleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision=<rotate-revision>
+        apictl import api --file <path-to-API-archive> --environment <environment> --preserve-provider=<preserve_provider> --update=<update_api> --skip-cleanup=<skip-cleanup> --params <environment-params-file>  --rotate-revision
         ```
 
         !!! info

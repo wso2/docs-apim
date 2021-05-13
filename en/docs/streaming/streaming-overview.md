@@ -110,7 +110,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si-in-vm">Streaming Integrator Installation</a>
+            <a href="{{base_path}}/install-and-setup/install/installing-the-product/installing-si">Streaming Integrator Installation</a>
         </td>
         <td>
             <a href="{{base_path}}/install-and-setup/setup/si-deployment/deployment-guide">Streaming Integrator Deployment</a>

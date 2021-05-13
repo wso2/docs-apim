@@ -1,18 +1,29 @@
-# Publish Integrations to the Service Catalog
+# Publishing Integrations to the API Manager
 
-The **Service Catalog** connects the integation layer and the API management layer of WSO2 API-M 4.0.0. The integration services (REST APIs artifacts) that you develop using WSO2 Integration Studio can be published to the service catalog during deployment. 
+A REST API artifact you create from WSO2 Integration Studio is exposed to consumers when you run it on the Micro Integrator runtime. If you want to control and manage this API, and also expose it to an API marketplace where it becomes discoverable to a wider community of consumers, you need to publish this REST API to the API management layer (API-M runtime) of the product.
 
-This allows API creators to create new API proxies from integration services and expose them to an API marketplace where application developers can discover and use them. An API proxy created from the API Publisher is a managed API. That is, API managers can control the API's lifecycle, apply security, and rate limiting conditions. These API proxies can be monitized and exposed in an API marketplace. Therefore, by using the service catalog, integration services with complex mediation sequences can easily be converted to managed APIs and exposed to an API marketplace.
+Follow the steps given below to publish REST APIs from the Micro Integrator to the API-M runtime.
 
-As an integration developer, be mindful of the following requirements when you develop integrations for the **Service Catalog**:
+!!! tip "Related Tutorials"
+        To try out an end-to-end use case where an integration service is created and used as a managed API, see the tutorial: [Exposing an Integration Service as a Managed API]({{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial).
 
-## Update the service metadata
+## Prerequisites
 
-When you create a REST API artifact from WSO2 Integration Studio, a **resources** folder with metadata files are created as shown below.
+Develop a REST API artifact using WSO2 Integration Studio. This is your integration service with the mediation logic that will run on the Micro Integrator.
+
+!!! Tip
+    For instructions on creating a new integration service, use the following documentation: 
+
+    -   [Developing your First Integration Service]({{base_path}}/integrate/develop/working-with-service-catalog).
+    -   [integration tutorials]({{base_path}}/tutorials/tutorials-overview/#integration-tutorials).
+
+## Step 1 - Update the service metadata
+
+When you create a REST API artifact from WSO2 Integration Studio, a **resources** folder with metadata files is created as shown below. This metadata is used by the API management runtime to generate the API proxy for the service.
 
 <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/metadata-folder-service-catalog.png" width="400">
 
-The service's metadata will be used by the API management runtime to generate the API proxy for the service.
+Update the metadata for your service as explained below.
 
 <table>
     <tr>
@@ -36,17 +47,17 @@ The service's metadata will be used by the API management runtime to generate th
             serviceUrl
         </td>
         <td>
-            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
             You can configure the serviceUrl in the following ways:
             <ul>
                 <li>
                     Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
                 </li>
                 <li>
-                    Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_HOST}/healthcare</code>.
                 </li>
                 <li>
-                    Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                    Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
                 </li>
             </ul>
         </td>
@@ -56,9 +67,9 @@ The service's metadata will be used by the API management runtime to generate th
 !!! Tip
     See the [Service Catalog API documentation]({{base_path}}/reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1/) for more information on the metadata in the YAML file.
 
-## Enable the Service Catalog client
+## Step 2 - Configure the Micro Integrator server
 
-The Micro Integrator contains a client for publishing integrations to the Service Catalog. Be sure to enable the following configurations in the `deployment.toml` file of your Micro Integrator.
+The Micro Integrator contains a client for publishing integrations to the API-M runtime. To enable this client, update the following in the `deployment.toml` file of your Micro Integrator.
 
 ```toml
 [[service_catalog]]
@@ -70,12 +81,16 @@ password = "admin"
 
 See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
-## Start the servers
+## Step 3 - Start the servers
 
-Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). Note that the API-M server should be started before the Micro Integrator. The Service Catalog client in the Micro Integrator publishes the integration services to the API-M layer during server startup.
+Once you have created the integration service and deployed it in the Micro Integrator, you only need to start the two servers (API-M server and the Micro Integrator server). 
 
-## Create an API from a service
+Note that the API-M server should be started before the Micro Integrator. The client in the Micro Integrator publishes the integration services to the API-M layer during server startup.
 
-Once the servers are started and the services are published, you can sign in to the **Publisher** of WSO2 API-M, access the **Service Catalog**, and then create an API for the service.
+## What's Next?
 
-See the instructions on [creating an API using a service]({{base_path}}/design/create-api/create-an-api-using-a-service).
+Once the servers are started and the services are published, you can access the service from the API-M layer, and then proceed to **Create**, **Deploy**, and **Publish** the API as follows:
+
+1. [Create and API ]({{base_path}}/design/create-api/create-an-api-using-a-service) using the integration service.
+2. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) in the API Gateway.
+3. [Publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) to the Developer Portal.

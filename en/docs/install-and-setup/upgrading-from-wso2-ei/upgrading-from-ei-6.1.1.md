@@ -12,18 +12,15 @@ Follow the instructions below to start the migration!
 
 -	Make a backup of the EI 6.1.1 distribution (`<EI_HOME>` folder) to back up the product configurations.
 -	Make a backup of the database used by the current EI 6.1.1 deployment. This backup is necessary in case the migration causes any issues in the existing database.
--	Download and install API-M 4.0.0 in your environment:
+-	[Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the latest Micro Integrator in your environment:
 
 	!!! Tip
 		The home directory of your Micro Integrator will be referred to as `<MI_HOME>` from hereon.
 
-	-	Install the product [using the Installer]({{base_path}}/install-and-setup/install/installing-the-product/install-mi-in-vm-installer).
-	-	Install the product [using the binary distribution]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/install-mi-in-vm-binary).
-
--	Use [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/) to get the latest available updates for your API-M 4.0.0 distribution.
+-	Use [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/) to get the latest available updates for your Micro Integrator distribution.
 
 	!!! Info
-		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment.
+		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment..
 
 ### Migrating the user store
 
@@ -1035,29 +1032,29 @@ for instructions.
 
 First, let's re-encrypt all the internally-encrypted data by using OAEP.
 
-1. Get the latest update (later than the update level released on 18/04/2018) for your existing EI 6.1.1 by using [WSO2 Update Manager](https://updates.docs.wso2.com/en/latest/updates/overview/). This will give you a new EI distribution with the latest updates.
+1. Get the latest update (later than the update level released on 18/04/2018) for your existing EI 6.1.1 by using [WSO2 Updates](https://updates.docs.wso2.com/en/latest/updates/overview/). This will give you a new EI distribution with the latest updates.
 
 	!!! Info
 		Note that you need a valid [WSO2 subscription](https://wso2.com/subscription) to use updates in a production environment.
 		
-2. Connect the WUM-updated EI distribution to your existing databases (which are used for registry data and user management data):
+2. Connect the updated EI distribution to your existing databases (which are used for registry data and user management data):
 
 	??? note "Connecting to the database"
 	
-		1. Open the `master-datasources.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/datasources/` directory) and update the parameters given below.
+		1. Open the `master-datasources.xml` file (stored in the `<UPDATED_EI_6.1.1_HOME>/conf/datasources/` directory) and update the parameters given below.
 		   By default, registry and user management data are stored in one database and is configured in the `master-datasources.xml` file. If you have separate databases for registry and user management data, you may have separate datasource configurations.		
 			-	`driverCalssName`: The class name of the database driver.
 			-	`url`: The URL of the database.
 			-	`username` and `password`: The name and password of the database user.
 		   
-		2. Open the `registry.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf` directory) and specify the datasource name.
+		2. Open the `registry.xml` file (stored in the `<UPDATED_EI_6.1.1_HOME>/conf` directory) and specify the datasource name.
 		   ```xml
 		   <dbConfig name="wso2registry">   
 			   <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
 		   </dbConfig>
 		   ```
         
-        3. If a JDBC user store is used in your ESB, open the `user-mgt.xml` file (stored in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/` directory), and update the following database connection parameters under the `<UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">` section.    
+        3. If a JDBC user store is used in your ESB, open the `user-mgt.xml` file (stored in the `<UPDATED_EI_6.1.1_HOME>/conf/` directory), and update the following database connection parameters under the `<UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">` section.    
 			-	`driverCalssName`: The class name of the database driver.
 			-	`url`: The URL of the database.
 			-	`username` and `password`: The name and password of the database user.
@@ -1066,13 +1063,13 @@ First, let's re-encrypt all the internally-encrypted data by using OAEP.
            
         4. [Encrypt the plain text passwords](https://docs.wso2.com/display/EI660/Encrypting+Passwords+with+Cipher+Tool) that you added to the configuration files (master-datasources.xml, user-mgt.xml, etc.).   
 
-3. Be sure that the [carbon.properties]({{base_path}}/assets/attachments/migration/micro-integrator/carbon.properties) file is included in the `<WUM_UPDATED_EI_6.1.1_HOME>/conf/` directory with the following parameter:
+3. Be sure that the [carbon.properties]({{base_path}}/assets/attachments/migration/micro-integrator/carbon.properties) file is included in the `<UPDATED_EI_6.1.1_HOME>/conf/` directory with the following parameter:
 
     ```text
     org.wso2.CipherTransformation=RSA/ECB/OAEPwithSHA1andMGF1Padding
     ```
 
-4. Start the WUM-updated ESB server of EI 6.1.1. This will re-encrypt the data in the databases.
+4. Start the updated ESB server of EI 6.1.1. This will re-encrypt the data in the databases.
 
 #### Step 2: Run the migration tool
 

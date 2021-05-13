@@ -81,7 +81,7 @@ Each tenant can define their name for the authorization header by following the 
     The tenant wide authorization header customizations take precedence over the server-wide authorization header customizations.
 
 
-1.  Sign in to the [WSO2 API Manager Management Console]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-management-console) with your tenant credentials.
+1.  Sign in to the [WSO2 API Manager Management Console]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-management-console) with your tenant credentials.
      
      `https://<server-host>:9443/carbon`
 
@@ -197,7 +197,7 @@ Each tenant can define their name for the authorization header by following the 
     }
     ```
 
-6.  If you have already published and deployed the APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher) using your tenant credentials, and save and redeploy those APIs.
+6.  If you have already published and deployed the APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher) using your tenant credentials, and save and redeploy those APIs.
 
 ### Customize per API
 
@@ -209,7 +209,7 @@ The API Publisher application allows an API Developer or Product Manager to spec
 
 Follow the instructions below to add a customized authorization header for an API:
 
-1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher).
+1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher).
 `https://<server-host>:9443/publisher         `
 
 2.  When [creating]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime** tab under **Develop -> API Configurations**.

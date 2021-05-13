@@ -52,7 +52,7 @@ Each Gateway environment definition contains details related to a specific Gatew
     https_endpoint = "https://foods.com:8243"
     ```
 
-3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -80,7 +80,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
 #### Create a Gateway environment via the Admin Portal
 
-1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+1. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -171,7 +171,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     https_endpoint = "https://foods.com:8243"
     ```
 
-3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
       This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
@@ -213,7 +213,7 @@ Extract WSO2 API Manager to a new directory. Let's refer to this directory as `A
 
 4. Save and close the `<APIM-HOME-2>/repository/conf/deployment.toml` file. 
 
-5. [Start the second WSO2 API Manager server](({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server)).
+5. [Start the second WSO2 API Manager server](({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server)).
 
 ### Step 3 - Assign the custom hostname to an API
 

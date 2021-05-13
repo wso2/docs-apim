@@ -2,7 +2,6 @@
 
 You can view the analytics related data that is published to the WSO2 API-M Analytics Server via the analytics dashboard portal. In addition, interested parties can fetch this data via REST APIs to external dashboards/applications. The following section explains the usage of the Siddhi Store REST API to achieve the latter mentioned requirement.
 
-
 ## Retrieving records from aggregation tables
 
 WSO2 API-M Analytic Server persists analytics related data in the aggregation tables. You can retrieve data from these tables by executing a cURL command with a Siddhi query that adheres to the following syntax.

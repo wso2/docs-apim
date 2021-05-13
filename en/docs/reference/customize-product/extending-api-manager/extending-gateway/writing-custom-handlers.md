@@ -37,10 +37,6 @@ Let's see what each handler does:
  the token is of type `Production` or `Sandbox` and sets `MessageContext` variables as appropriate.
  - **APIThrottleHandler:** Throttles requests based on the throttling policy specified by the `policyKey` property. 
  Throttling is applied both at the application level as well as subscription level.
- - **APIMgtUsageHandler:** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. 
- This handler only comes to effect if API usage tracking is enabled . 
- See the [Overview of API Analytics]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics) 
- section for more information.
  - **APIMgtGoogleAnalyticsTrackingHandler:** Publishes events to Google Analytics. This handler only comes into effect 
  if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
  - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last 
@@ -101,7 +97,7 @@ before `</Handlers>`.
     logger.log-msg-handler.name = org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler
     logger.log-msg-handler.level = DEBUG
     ```
-    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma separated list of all active loggers. Sample configuration can be seen below.
+    Append the `log-msg-handler` logger name to `loggers` configuration which is a comma-separated list of all active loggers. The sample configuration is given below.
 
     ```
     loggers = log-msg-handler, trace-messages, org-apache-coyote,com-hazelcast
@@ -111,11 +107,6 @@ before `</Handlers>`.
             The logger name `log-msg-handler` can be replaced by any logger-name.
         
 3.  Restart API Manager.
-
-!!! note
-    To perform analytics with the logs, see 
-    [Analyzing the Log Overview]({{base_path}}/observe/api-manager-analytics/analyzing-the-log-overview) .
-
 
 ## Writing a custom handler
 

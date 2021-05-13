@@ -15,11 +15,7 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="rightImage">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JejVjoaAc38?controls=0" 
-            frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
-        </div>
-    </div>
+    </div></br></br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
         <div class="linkWrapper">
@@ -54,7 +50,7 @@ template: templates/single-column.html
             </p>
             <a href='{{base_path}}/get-started/overview'><h4>Read a Short Overview</h4></a>
         </div>
-        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
+        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
             <h3>Concepts</h3>
             <p>
                 The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
@@ -102,7 +98,7 @@ template: templates/single-column.html
                     WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
                 </p>
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature.md';">
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
                 <h4>Getting the Developer Community Involved</h4>
                 <p>
@@ -189,24 +185,28 @@ template: templates/single-column.html
     </div>
     <div class="section05">
         <h3>Deployment</h3>
-        <p>
-            WSO2 API Manager includes multiple components. This allows you set up the API Manager following a range of deployment patterns. This section describes all the possible deployment patterns and guides you how to select the most appropriate pattern based on your requirement.
-        </p>
-        <div class="DeploymentWrapper">
-            <div class="Deploymentlinks">
-                <ul>
-                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'>Deploy API Manager Runtime</a></li>
-                </ul>
+        <div class="linkWrapper">
+            <div class="linkSet2" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying';">
+                ![]({{base_path}}/assets/img/home/intigration.svg)
+                <h4>Deploy the API-M Runtime</h4>
+                <p>
+                    See the instructions on setting up the API-M runtime for your selected deployment pattern. 
+                </p>
             </div>
-            <div class="Deploymentlinks middle">
-                <ul>
-                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'>Deploy the Micro Integrator</a></li>
-                </ul>
+            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
+                ![]({{base_path}}/assets/img/home/proxies.svg)
+                <h4>Deploy the Micro Integrator Runtime</h4>
+                <p>
+                    See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
+                </p>
             </div>
-            <div class="Deploymentlinks last">
-                <ul>
-                    <li><a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'>Deploy the Streaming Integrator</a></li>
-                </ul>
+            <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2';">
+                ![]({{base_path}}/assets/img/home/streaming.svg)
+                <h4>Deploy the Streaming Integrator Runtime</h4>
+                <p>
+                    See the instructions on setting up the Streaming Integrator runtime for your selected deployment pattern.
+                </p>
             </div>
         </div>
     </div>
+</div>

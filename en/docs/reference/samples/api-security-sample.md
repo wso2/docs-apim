@@ -114,9 +114,7 @@ When analysing the audit logs
     ``` java
     [2017-12-22 11:48:14,449] Chris@finance.abc.com@finance.abc.com [1] [AM] INFO -  {"performedBy":"Chris","action":"created","typ":"API","info":"{\"provider\":\"Chris-AT-finance.abc.com\",\"name\":\"Salary_details_API\",\"context\":\"\\\/t\\\/finance.abc.com\\\/salaries\\\/1.0.0\",\"version\":\"1.0.0\"}"}
     ```
-
-These data can be viewed via WSO2 API Manager Analytics server. For more details, see copy\_API Governance.
-
+    
 Assume that the `GET` resource in the Salary API should be restricted for admin role users. Follow the steps below to restrict the resource for a particular role.
 
 1.  Create a scope named `new_scope.` Assign scope to the admin role. 

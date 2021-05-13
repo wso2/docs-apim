@@ -1,7 +1,6 @@
 # Developing Your First Integration Solution
 
-Integration developers need efficient tools to build and test all the integration use cases required by the enterprise before pushing them into a production environment. 
-The following topics will guide you through the process of building and running an example 
+Integration developers need efficient tools to build and test all the integration use cases required by the enterprise before pushing them into a production environment. The following topics will guide you through the process of building and running an example 
 integration use case using WSO2 Integration Studio. 
 This tool contains an embedded WSO2 Micro Integrator instance as well as other capabilities 
 that allows you to conveniently design, develop, and test your integration artifacts before 
@@ -27,7 +26,7 @@ Both the Grand Oak service and Pine Valley service are exposed over the HTTP pro
   http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
   ```
 
-- The Pine Vallery service accepts POST requests in the following service endpoint url:
+- The Pine Vallery service accepts POST requests in the following service endpoint URL:
   ```bash
   http://<HOST_NAME>:<PORT>/pineValley/doctors
   ```
@@ -55,7 +54,7 @@ Let's create an integration project with the required modules (to store artifact
 1.  Open WSO2 Integration Studio and click **New Integration Project** in the **Getting Started** view as shown below.
     <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="New Integration Project" width="700" alt="New Integration Project"/>
 
-3.  In the **New Integration Project** dialog box that opens, enter `Healthcare` for your integration project. This is a <b>maven multi module</b> project.
+3.  In the **New Integration Project** dialog box that opens, enter `Healthcare` as the project name. This is a <b>maven multi module</b> project.
 
     Be sure to leave the <b>Create ESB Configs</b> and <b>Create Composite Exporter</b> check boxes selected as shown below.
 
@@ -65,7 +64,7 @@ Let's create an integration project with the required modules (to store artifact
 
   The integration project with the ESB Config module (`HealthcareConfigs`) and Composite Exporter module (`HealthcareCompositeExporter`) are created as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png" width="300">
+  <a href="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png"><img src="{{base_path}}/assets/img/integrate/developing-first-integration/3-dev-get-started-proj-explorer.png" alt="project folder" width="300"></a>
 
 ### Create Endpoints
 
@@ -311,9 +310,9 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
 
 6. Send a response back to the client :
 
-    To send the response back to the client, we can use the **Respond** mediator. Remove the <b>Drop</b> mediator (which comes with the Aggregate mediator by default) and add the Respond mediator as shown below.
+    To send the response back to the client, we can use the **Respond** mediator. Add the Respond mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png">
     
 The final mediation configuration looks similar to the above diagram.     
 Following is what you will see in the **Source View** of WSO2 Integration Studio.
@@ -385,8 +384,8 @@ The embedded Micro Integrator starts with the deployed artifacts. You will see t
 
 **Before you begin**, be sure to install the Micro Integrator on your machine:
 
-1.  Go to the [website](https://wso2.com/integration/#) to download the Micro Integrator. 
-2.  Click **Download** and see that the installation options are listed. You can either download and run the **installer** or use the **binary** file. The home directory of your Micro Integrator installation will be referred to as `<MI_HOME>` from hereon.
+1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+2.  Extract the ZIP file. This will be the `<MI_HOME>` folder.
 
 Once you have downloaded and set up the Micro Integrator locally, follow the steps given below.
 
@@ -395,38 +394,31 @@ Once you have downloaded and set up the Micro Integrator locally, follow the ste
 2.  **Deploy the Healthcare service**: Copy the exported CAR file of the Healthcare service to the `MI_HOME/repository/deployment/server/carbonapps` directory.
 
 3.  **Start the Micro Integrator**:
-    
-    If you set up the product using the **installer**, follow the steps relevant to your OS as shown below.
 
-    -   On **MacOS/Linux/CentOS**, open a terminal and execute the following command:
-        ```bash
-        sudo wso2mi
-        ```
-    -   On **Windows**, go to **Start Menu -> Programs -> WSO2 -> Micro Integrator**. This will open a terminal and start the Micro Integrator.
+    1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+    2.    Execute one of the commands given below.
 
-    If you set up the product using the **binary** distribution, open a terminal, navigate to the `<MI_HOME>/bin` directory, and execute the command relevant to your OS as shown below.
+          ```bash tab="On MacOS/Linux"
+          ./micro-intgrator.sh
+          ```
 
-    ```bash tab='On MacOS/Linux/CentOS'
-    sh micro-integrator.sh
-    ```
-
-    ```bash tab='On Windows'
-    micro-integrator.bat
-    ```
+          ```bash tab="On Windows"
+          micro-intgrator.bat
+          ```
 
 ## Step 4 - Observe deployed artifacts
 
-Once you have deployed the artifacts and started the Micro Integrator server, you can start the <b>Dashboard</b> to observe details of the deployed artifacts.
+Once you have deployed the artifacts and started the Micro Integrator server, you can [install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) and [start the <b>Dashboard</b>]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) to observe details of the deployed artifacts.
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.png" width="500">
 
-You will be directed to the log-in screen of the Dashboard from your default browser as shown below. Log in using `admin` as the user name and password.
+You will be directed to the sign-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/developing-first-integration/21-dev-get-started-dashboard-login.png">
 
-Once you are logged in, click the required artifact type to view details.
+Once you sign in, click the required artifact type to view details.
 
 <img src="{{base_path}}/assets/img/integrate/developing-first-integration/22-dev-get-started-dashboard-artifact-view.png">
 
@@ -523,6 +515,5 @@ There are two ways to invoke the service:
 
 ## What's Next?
 
-- [Running the Micro Integrator on Containers](../../setup/installation/run_in_containers).
+- [Publish Integrations to the API Manager]({{base_path}}/integrate/develop/working-with-service-catalog).
 - [Writing a unit test for integration artifacts]({{base_path}}/integrate/develop/creating-unit-test-suite).
-- [Developing Your First Siddhi Application](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/quick-start-guide/getting-started/getting-started-guide-overview/).
