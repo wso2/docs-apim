@@ -124,7 +124,7 @@ You can configure alerts as a business rule by using the features listed below.
 3.  Sign in to the Business Rules. (e.g., `https://<API-M_ANALYTICS_HOST>:9643/business-rules`)
 
 4.  You can view the existing business rules that are applied for WSO2 API Manager. Depending on your privileges, you can view, edit, and delete business rules.
-    For more details on working with business rules, see [Managing Business Rules](https://ei.docs.wso2.com/en/latest/streaming-integrator/admin/creating-business-rules-templates/#managing-business-rules).
+    For more details on working with business rules, see [Managing Business Rules](https://ei.docs.wso2.com/en/7.1.0/streaming-integrator/admin/creating-business-rules-templates/#managing-business-rules).
     ![Alerts business rules]({{base_path}}/assets/img/learn/alerts-business-rules.png)
 
 ### Configure alerts via the Publisher

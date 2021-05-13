@@ -205,7 +205,7 @@ In addition to the above error codes, we have engaged Synapse-level
 error codes to the default fault sequence and custom fault sequences
 (e.g., `_token_fault_.xml` ) of the API Manager. For
 information, see [Error
-Handling](https://ei.docs.wso2.com/en/latest/micro-integrator/references/error_handling/) in WSO2
+Handling](https://ei.docs.wso2.com/en/7.1.0/micro-integrator/references/error_handling/) in WSO2
 Enterprise Integrator (WSO2 EI) documentation.
 
 !!! info
