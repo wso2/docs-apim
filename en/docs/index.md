@@ -43,7 +43,7 @@ template: templates/single-column.html
         </div>
     </div>
     <div class="section03">
-        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/key-concepts';">
+        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/overview';">
             <h3>Overview</h3>
             <p>
                 Introduces WSO2 API Manager and quickly describes what it can do.
@@ -188,24 +188,24 @@ template: templates/single-column.html
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying';">
                 ![]({{base_path}}/assets/img/home/intigration.svg)
-                <h4>Deploy the API-M Runtime</h4>
                 <p>
                     See the instructions on setting up the API-M runtime for your selected deployment pattern. 
                 </p>
+                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'><h4>Deploy the API-M Runtime</h4></a>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
                 ![]({{base_path}}/assets/img/home/proxies.svg)
-                <h4>Deploy the Micro Integrator Runtime</h4>
                 <p>
                     See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
                 </p>
+                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'><h4>Deploy the API-M Runtime</h4></a>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2';">
                 ![]({{base_path}}/assets/img/home/streaming.svg)
-                <h4>Deploy the Streaming Integrator Runtime</h4>
                 <p>
                     See the instructions on setting up the Streaming Integrator runtime for your selected deployment pattern.
                 </p>
+                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2'><h4>Deploy the Streaming Integrator Runtime</h4></a>
             </div>
         </div>
     </div>
