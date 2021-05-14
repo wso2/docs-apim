@@ -11,7 +11,7 @@ This widget allows you to generate a custom report with available stats and down
 
 ![custom report]({{base_path}}/assets/img/observe/report/custom-report.png)
 
-Please follow below steps to generate a custom report.
+Follow the steps below to generate a custom report.
 1. From the API selector select an API or set of APIs that you need to download the report for. You also have the option of selecting all APIs.
 2. Then from the application selector you can further filter down the results. If your selected set of APIs are subscribed by multiple applications then all those applications will be selected by default. 
 However, dropdown allows you to select one or subset of those applications.
