@@ -1,6 +1,6 @@
 # Running the Streaming Integrator Runtime
 
-Follow the steps given below to install the WSO2 Streaming Integrator (SI) runtime by using the <b>binary distribution</b>.
+Follow the steps given below to run the WSO2 Streaming Integrator (SI) runtime.
 
 ## Before you begin
 

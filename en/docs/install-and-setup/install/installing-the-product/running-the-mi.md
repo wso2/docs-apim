@@ -1,6 +1,6 @@
 # Running the Micro Integrator Runtime
 
-Follow the steps given below to install the WSO2 Micro Integrator (MI) runtime and its monitoring Dashboard.
+Follow the steps given below to run the WSO2 Micro Integrator (MI) runtime.
 
 ## Before you begin
 
