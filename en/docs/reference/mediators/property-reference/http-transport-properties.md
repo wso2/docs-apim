@@ -271,6 +271,47 @@ appending a context to the target URL in RESTful invocations.
 </tbody>
 </table>
 
+## NON_ERROR_HTTP_STATUS_CODES
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+<tbody>
+<tr class="odd">
+<td><p><strong>Name</strong></p></td>
+<td><p>non.error.http.status.codes</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Possible Values</strong></p></td>
+<td><p>HTTP status code number/comma separated numbers</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Default Behavior</strong></p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Scope</strong></p></td>
+<td><p>axis2</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Description</strong></p></td>
+<td><p>Set the HTTP status code(s) that should be considered as non-error HTTP status code(s) in blocking mode.</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>Example</strong></p></td>
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;property name=<span class="st">&quot;non.error.http.status.codes&quot;</span> value=<span class="st">&quot;403&quot;</span> scope=<span class="st">&quot;axis2&quot; type=<span class="st">&quot;STRING&quot;</span>/&gt;</span></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
 ## HTTP_SC_DESC
 
 <table>
