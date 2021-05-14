@@ -30,7 +30,7 @@ As you can observe, the report will contain:
 - Reporting period: Time period for which the report is generated for
 - Total request count: Total request count received by all selected APIs during the report time period
 
-in the header section. Then the chart will contain below rows.
+The chart will contain the following rows.
 
 - API name: Name of the API
 - Application name: Name of the application and name of the subscriber within brackets
