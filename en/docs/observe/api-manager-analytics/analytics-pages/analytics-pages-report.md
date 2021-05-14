@@ -24,7 +24,7 @@ You can only select a single subscriber for any given set of APIs or All the ava
 
 As you can observe, the report will contain:
 - Generated time: Date and time when the report was generated.
-- Organization: Organization report belongs to. Reports will always be in per organization basis.
+- Organization: The organization the report belongs to. Reports will always be in per organization basis.
 - Environment: Environment report belongs to. Reports will always be in per environment basis.
 - Tenant: Tenant report belongs to. Reports will always be in per tenant basis.
 - Reporting period: Time period for which the report is generated for
