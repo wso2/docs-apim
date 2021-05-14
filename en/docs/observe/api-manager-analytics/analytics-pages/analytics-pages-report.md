@@ -22,7 +22,7 @@ You can only select a single subscriber for any given set of APIs or All the ava
 
 ![custom report sample]({{base_path}}/assets/img/observe/report/custom-report-sample.png)
 
-As you can observer report will contain
+As you can observe, the report will contain:
 - Generated time: Date and time when report was generated
 - Organization: Organization report belongs to. Reports will always be in per organization basis.
 - Environment: Environment report belongs to. Reports will always be in per environment basis.
