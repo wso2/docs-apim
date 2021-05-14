@@ -968,12 +968,17 @@ nav:
                 - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
                 - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
             - Kafka Connector:
-                - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
-                - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
-                - Enabling Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
-                - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
-                - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
-                - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
+                - 'Kafka Overview': 'references/connectors/kafka-connector/kafka-connector-overview.md'
+                - 'Setting up Kafka': 'references/connectors/kafka-connector/setting-up-kafka.md'
+                - 'Enabling Security for Kafka': 'references/connectors/kafka-connector/enabling-security-for-kafka.md'
+                - 3.1.x:
+                    - 'Kafka Example': 'references/connectors/kafka-connector/kafka-connector-producer-example.md'
+                    - 'Kafka Avro Message Example': 'references/connectors/kafka-connector/kafka-connector-avro-producer-example.md'
+                    - 'Kafka Connector Reference': 'references/connectors/kafka-connector/kafka-connector-config.md'
+                - 3.0.x:
+                    - 'Kafka Example': 'references/connectors/kafka-connector/kafka-connector-producer-example.md'
+                    - 'Kafka Connector Reference': 'references/connectors/kafka-connector/3.0.x/kafka-connector-config.md'
+                    - 'Kafka Inbound Endpoint Example': 'references/connectors/kafka-connector/kafka-inbound-endpoint-example.md'
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
                 - Setting up an LDAP Server: reference/connectors/ldap-connector/setting-up-ldap.md
