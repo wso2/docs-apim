@@ -5056,6 +5056,14 @@
                             "default": "5",
                             "possible": "",
                             "description": "User core cache expiration duration"
+                        },
+                        {
+                            "name": "CaseInsensitiveUsername",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Set the value to false for case insensitive JDBC user stores"
                         }
 
                     ]
