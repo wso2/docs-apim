@@ -19,15 +19,14 @@ Time picker is located in the top left hand corner of the analytics dashboard. O
  
  The time picker consists of several pre-defined time intervals. The following image illustrates those predefined time intervals.
  
- ![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-list.png)
+ <img src="{{base_path}}/assets/img/observe/time-picker-list.png" title="APIM Analytics Time Picker List" width="380"/>
  
  You can select any of these pre-defined intervals to view stats relevant to that time frame. However, granularity of
   each time range is pre-defined too and you cannot change the granularity of a pre-defined range. 
   
   If you need to select a custom time range with a custom granularity, you have to use the custom selector that
    is shown below.
-   
-![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-custom.png)
+<img src="{{base_path}}/assets/img/observe/time-picker-custom.png" title="APIM Analytics TIme Picker Custom" width="380"/>  
 
 In the custom picker first you have to select the granularity that you need to view the data. Then from the calendar
  widget you can select the date range and if applicable the clock widget will be also enabled to select the time. However,
