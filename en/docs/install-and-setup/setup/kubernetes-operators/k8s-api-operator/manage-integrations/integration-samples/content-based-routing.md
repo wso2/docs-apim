@@ -173,7 +173,7 @@ Follow the steps given below:
 When the integration is successfully deployed, it should create the `content-routing` integration, `content-routing-deployment`, `content-routing-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `api-operator-ingress` will not be created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
+    The `api-operator-ingress` is not created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration

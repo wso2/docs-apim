@@ -15,7 +15,7 @@ Follow the instructions given below to install and set up the API K8s Operator i
 
 Follow the steps given below to install the operator in standalone mode.
 
-1. Installing the API Operator: 
+1. Install the API Operator: 
 
     ```shell
     kubectl apply -f https://github.com/wso2/k8s-api-operator/releases/download/v2.0.0/api-operator-configs.yaml
@@ -152,7 +152,7 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
             - watch
       ```
 
--  Deploy the `ClusterRoleBinding`
+-  Deploy the `ClusterRoleBinding`:
 
       Be sure to replace `<OPERATOR_DEPLOYED_NAMESPACE>` with the correct value.
 
@@ -172,7 +172,7 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
       apiGroup: rbac.authorization.k8s.io
       ```
 
--  Update API operator to watch the cluster
+-  Update API operator to watch the cluster:
 
       If the operator is already running in the Kubernetes cluster, use the following command to set the `WATCH_CLUSTER_LEVEL` configuration to true in the API operator deployment.
 
