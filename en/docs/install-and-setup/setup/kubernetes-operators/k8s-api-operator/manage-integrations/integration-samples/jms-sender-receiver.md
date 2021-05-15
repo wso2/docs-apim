@@ -293,7 +293,7 @@ Follow the steps given below:
 When the integration is successfully deployed, it should create the `jms-example` integration, `jms-example-deployment`, `jms-example-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
+    The `ei-operator-ingress` is not created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration
