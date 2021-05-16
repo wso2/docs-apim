@@ -119,7 +119,7 @@ Listed below are the log levels that can be configured:
 
 The log pattern of each appender can be changed with the ```layout.pattern``` parameter.
 
-Common Pattern Layout parameter provided by the [Apache logging service](https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout) 
+Common pattern layout parameter provided by the [Apache logging service](https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout) 
 and APIM specific parameters such as `%tenantId`, `%tenantDomain`, `%appName` can be used with the pattern string. 
 
 ```
