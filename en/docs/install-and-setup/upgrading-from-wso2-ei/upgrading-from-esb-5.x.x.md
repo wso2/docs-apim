@@ -1,6 +1,6 @@
-# Migrating from WSO2 ESB 5.0 to WSO2 API-M 4.0.0
+# Migrating from WSO2 ESB 5.0.0 to WSO2 API-M 4.0.0
 
-This guide provides the recommended strategy for upgrading from WSO2 ESB 5.0 to the Micro Integrator of WSO2 API-M 4.0.0.
+This guide provides the recommended strategy for upgrading from WSO2 ESB 5.0.0 to the Micro Integrator of WSO2 API-M 4.0.0.
 
 {!includes/integration/pull-content-migration-esb-mi.md!}
 
@@ -65,8 +65,8 @@ Follow the instructions below to start the migration!
 
 ### Set up the migration
 
--   Make a backup of the ESB 5.0 distribution (`<ESB_HOME>` folder) to back up the product configurations.
--   Make a backup of the database used by the current ESB 5.0 deployment. This backup is necessary in case the migration causes any issues in the existing database.
+-   Make a backup of the ESB 5.0.0 distribution (`<ESB_HOME>` folder) to back up the product configurations.
+-   Make a backup of the database used by the current ESB 5.0.0 deployment. This backup is necessary in case the migration causes any issues in the existing database.
 -   [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi) the latest Micro Integrator in your environment.
 
     !!! Tip
@@ -83,13 +83,13 @@ Follow the instructions below to start the migration!
     Read about [users and roles in the Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) and about how they function. Note the following important facts:
 
     - Users in the Micro Intgrator are categorized as <b>admin</b> users and <b>non-admin</b> users.
-    - All admin users in your existing ESB 5.0 user store will function as admin users in the Micro integrator.
+    - All admin users in your existing ESB 5.0.0 user store will function as admin users in the Micro integrator.
     - Tenant admins are no longer valid because the Micro Integrator does not support multitenancy.
     - **Secondary** user stores are currently not supported in the Micro Integrator.
 
-If you are using an **LDAP user store** with ESB 5.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
+If you are using an **LDAP user store** with ESB 5.0.0, you can simply connect the same to the Micro Integrator of API-M 4.0.0 by updating the configuration details in the Micro Integrator's `deployment.toml` file. 
 
-If you are using a **JDBC user store** with ESB 5.0, you need to first update the database before connecting the same to APIM 4.0.0.
+If you are using a **JDBC user store** with ESB 5.0.0, you need to first update the database before connecting the same to APIM 4.0.0.
 
 Follow the steps given below.
 
@@ -97,7 +97,7 @@ Follow the steps given below.
 
 This step is applicable only if your user store is JDBC. 
 
-There are changes in the database structure (schema) that is used in ESB 5.0. To update the database schema:
+There are changes in the database structure (schema) that is used in ESB 5.0.0. To update the database schema:
 
 1. Download the [database migration scripts]({{base_path}}/assets/attachments/migration/micro-integrator/migration-scripts-esb5.0.0-to-apim4.0.0.zip).
 
@@ -133,7 +133,7 @@ See the instructions on [configuring a user store]({{base_path}}/install-and-set
 !!! Info "Before you begin"
 		Note the following:
 
-	-	The Micro Integrator uses a [file-based registry](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in your WSO2 EI version). 
+	-	The Micro Integrator uses a [file-based registry](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry) instead of a database (which is used in your WSO2 ESB). 
 	-	Your WSO2 ESB registry may have the following partitions: <b>Local</b>, <b>Config</b>, and <b>Gov</b>. However, you only need to migrate the <b>Config</b> and <b>Gov</b> registry partitions. See the instructions on configuring [registry partitions in the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/file_based_registry).
 	-	Message processor tasks stored in the registry should be stored with a new naming convention in the Micro Integrator. Therefore, all entries in the registry with the `MSMP` prefix (which correspond to message processor tasks) should not be migrated to the Micro Integrator. New entries will be automatically created when you start the Micro Integrator server.
 	-	If you have shared the registry of your WSO2 ESB among multiple nodes, you can do the same for the file-based registry of the Micro Integrator. However, note that registry mounting/sharing is only required for [**persisting message processor states** among nodes of the Micro Integrator](../../../install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing).
@@ -414,15 +414,15 @@ The recommended way to create integration artifacts is to use [WSO2 Integration 
 - If you have a custom mediator packed in a CAR, do one of the following:
     - Include all the artifacts (using that mediator) in the same CAR.
     - Alternatively, you can add the JAR of the mediator to the `<MI_HOME>/lib/dropins` folder so that it can be shared by artifacts in multiple CARs.
-- If the artifacts are created using the management console of ESB 5.0, you need to recreate them using WSO2 Integration Studio and package them as a composite application. See the instructions on [packaging artifacts]({{base_path}}/integrate/develop/packaging-artifacts).
+- If the artifacts are created using the management console of ESB 5.0.0, you need to recreate them using WSO2 Integration Studio and package them as a composite application. See the instructions on [packaging artifacts]({{base_path}}/integrate/develop/packaging-artifacts).
 
 !!! Tip
      For testing purposes, you can copy the artifacts to the same folder structure inside the `<MI_HOME>/repository/deployment/server/synapse-configs/default` directory.
 
 ### Migrating deployed Connectors
 
-- If the connector is added to ESB 5.0 via a composite application with the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors), the same can be used in the Micro Integrator seamlessly. Simply copy the CAR file in ESB 5.0 to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
-- If the connector is added to ESB 5.0 via the management console, pack them using the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors) and deploy via a composite application in the Micro Integrator.
+- If the connector is added to ESB 5.0.0 via a composite application with the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors), the same can be used in the Micro Integrator seamlessly. Simply copy the CAR file in ESB 5.0.0 to the `<MI_HOME>/repository/deployment/server/carbonapps` folder.
+- If the connector is added to ESB 5.0.0 via the management console, pack them using the [Connector Exporter Project]({{base_path}}/integrate/develop/creating-artifacts/adding-connectors) and deploy via a composite application in the Micro Integrator.
 
 ### Migrating custom components
 
@@ -445,9 +445,9 @@ Copy the JKS files from the `<ESB_HOME>/repository/resources/security` folder to
 !!! info "Before you begin"
     Note the following:
 
-    -   Configuration management was handled in WSO2 ESB 5.0 versions via multiple files such as `carbon.xml`, `synapse.properties`, and `axis2.xml`.
+    -   Configuration management was handled in WSO2 ESB 5.0.0 versions via multiple files such as `carbon.xml`, `synapse.properties`, and `axis2.xml`.
     -   The Micro Integrator uses a new configuration model where most of the product configurations are managed by a single configuration file named `deployment.toml` (stored in the `<MI_HOME>/conf` directory).
-    -   Log configurations are managed with log4j2 (whereas the ESB 5.0 used log4j), which are configured in the `log4j2.properties` file.
+    -   Log configurations are managed with log4j2 (whereas the ESB 5.0.0 used log4j), which are configured in the `log4j2.properties` file.
 
 The following sections of this document will guide you to migrate the product configurations including log4j.
 
@@ -494,7 +494,7 @@ Given below are the main configurations that have changed in the Micro integrato
 
     If you are using Analytics with your new Micro Integrator solution, you can follow the instructions in [Setting up the Analytics Profile for Observability]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
-Given below are some of the most critical XML configuration files in ESB 5.0. Expand each section to find the TOML configurations corresponding to the XML configurations in the file.
+Given below are some of the most critical XML configuration files in ESB 5.0.0. Expand each section to find the TOML configurations corresponding to the XML configurations in the file.
 
 ??? note "carbon.xml"
 
@@ -1278,7 +1278,7 @@ The complete list of TOML configurations for the Micro Integrator are listed in 
 
 #### Migrating Log4j configurations
 
-WSO2 ESB 5.0 (and all ESB versions prior to EI 6.6.0) use log4j. In the Micro Integrator, the `carbon.logging.jar` file is not included and the `pax-logging-api` is used instead. With this upgrade, the log4j version is also updated to log4j2.
+WSO2 ESB 5.0.0 (and all ESB versions prior to EI 6.6.0) use log4j. In the Micro Integrator, the `carbon.logging.jar` file is not included and the `pax-logging-api` is used instead. With this upgrade, the log4j version is also updated to log4j2.
 
 See the topics given below to configure log4j2 in the Micro Integrator.
 
