@@ -36,7 +36,10 @@ environments:
       mutualSslCerts:
           - tierName: <subscription_tier_name>
             alias: <certificate_alias>
-            path: <certificate_file_path>            
+            path: <certificate_file_path>
+	  policies:
+          - <subscription_policy_1_name>
+          - <subscription_policy_2_name>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
@@ -57,7 +60,10 @@ The following code snippet contains sample configuration of the parameter file.
                 alias: Dev
                 path: ~/.certs/dev.pem 
           gatewayEnvironments:
-              - Production and Sandbox    
+              - Production and Sandbox
+          policies:
+              - Gold
+              - Silver
         - name: test
           endpoints:
               production:
