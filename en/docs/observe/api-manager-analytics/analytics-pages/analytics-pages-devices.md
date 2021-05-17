@@ -13,18 +13,15 @@ The devices page offers you the three additional common controls listed below.
 
 ### API Selector
 Use the **API Selector** to select the APIs for which you want to view analytics. By default, this is set to **All**. You can select desired API from this selector and view results specific to that API.
-
-![api selector]({{base_path}}/assets/img/observe/devices/api-selector.png)
+<img src="{{base_path}}/assets/img/observe/devices/api-selector.png" title="api selector" width="380"/>
 
 ## Page Walk Through
 The following topics walk you through the main features available for monitoring API client devices.
 
 ### Top Platforms Pie Chart
 This chart shows the Operating System Platform wise breakdown of the API clients. Pie chart will only show platforms with a significant amount of requests. Other platforms will be grouped under other category.
-
-![top platforms]({{base_path}}/assets/img/observe/devices/top-platforms.png)
+<img src="{{base_path}}/assets/img/observe/devices/top-platforms.png" title="top platforms" width="380"/>
 
 ### Top User Agents Pie Chart
 This chart shows the User Agent wise breakdown of the API clients. Pie chart will only show user agents with a significant amount of requests. Other platforms will be grouped under other category.
-
-![top user agents]({{base_path}}/assets/img/observe/devices/top-user-agents.png)
+<img src="{{base_path}}/assets/img/observe/devices/top-user-agents.png" title="top user agents" width="380"/>

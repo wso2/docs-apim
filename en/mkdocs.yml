@@ -742,6 +742,7 @@ nav:
                         - Cache Page: observe/api-manager-analytics/analytics-pages/analytics-pages-cache.md
                         - Devices Page: observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md
                         - Alerts Page: observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md
+                        - Report Page: observe/api-manager-analytics/analytics-pages/analytics-pages-report.md
                     - Usecases:
                         - Finding Faulty APIs: observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md
                 - Quality of Service: observe/api-manager-analytics/analytics-qos.md

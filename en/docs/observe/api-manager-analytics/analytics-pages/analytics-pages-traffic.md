@@ -37,15 +37,13 @@ This timeline shows the count of API hits for the APIs you selected using the ab
 
 This widget shows the per-application breakdown of requests for the APIs you selected. You can use the pie chart view or the line chart view. You can switch between the two views using the small icon at the upper-right corner 
 of the widget.
-
-![usage by application]({{base_path}}/assets/img/observe/traffic/usage-by-application.png)
+<img src="{{base_path}}/assets/img/observe/traffic/usage-by-application.png" title="usage by application" width="380"/>
   
 ## API Usage by Backend
 
 This widget shows the per-backend breakdown of requests for the APIs you selected. This is useful when multiple APIs are sharing the same backend, which has traffic restrictions. You can use these stats to proactively scale your backends. You can switch between the two views using the small icon at the upper-right corner 
 of the widget.
-
-![usage by backend]({{base_path}}/assets/img/observe/traffic/usage-by-backend.png)
+<img src="{{base_path}}/assets/img/observe/traffic/usage-by-backend.png" title="usage by backend" width="380"/>
 
 ## API Resource Usage Summary
 
