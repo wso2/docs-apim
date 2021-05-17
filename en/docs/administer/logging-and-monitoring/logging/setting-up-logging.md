@@ -115,6 +115,18 @@ Listed below are the log levels that can be configured:
 | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
 | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.          
 
+###Log pattern layout
+
+The log pattern of each appender can be changed with the ```layout.pattern``` parameter.
+
+Common pattern layout parameter provided by the [Apache logging service](https://logging.apache.org/log4j/2.x/manual/layouts.html#PatternLayout) 
+and APIM specific parameters such as `%tenantId`, `%tenantDomain`, `%appName` can be used with the pattern string. 
+
+```
+appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+```
+
+
 ##Gateway Wire Logs
 
 Gateway wire logs can be configure to monitor the HTTP message flow through API Gateway. Wire logs allow you to track the request headers, request payloads, response headers, response payloads etc of incoming and outgoing http traffic. 
