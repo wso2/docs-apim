@@ -8,6 +8,10 @@ The following information describes how to upgrade your API Manager server **fro
 !!! Attention
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-is-5110) instead of below steps.    
 
+!!! Attention
+    Since on-premise analytics data cannot be migrated to the Cloud, it is required to keep the old analytics server and UI running for required period of time (3 months) after migrating to the new version API-M 4.0.0.
+    New data after the migration will be available in the cloud.
+    
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
