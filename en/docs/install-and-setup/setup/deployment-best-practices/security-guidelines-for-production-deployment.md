@@ -1,10 +1,10 @@
 # Security Guidelines for Production Deployment
 
-Given below are the common security guidelines for deploying a WSO2 product in a **production environment**.
+Given below are the common security guidelines for deploying a WSO2 API Manager in a **production environment**.
 
-In addition, see the [production deployment checklist]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines) and any other product-specific guidelines that might come in the respective product's documentation.
+In addition, see the [production deployment checklist]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines) and any other product-specific guidelines in the respective product's documentation.
 
--   [WSO2 product-level security](#wso2-product-level-security)
+-   [Runtime-level security](#runtime-level-security)
 -   [OS-level security](#os-level-security)
 -   [Network-level security](#network-level-security)
 
@@ -41,7 +41,7 @@ latest product version to receive all the security issues resolved until that pa
 </tr>
 <tr class="even">
 <td><p>Change default keystores</p></td>
-<td><p>Change the default key stores and create new keys for all the cryptographic operations. WSO2 products by default come with a self-signed SSL key. As these keys are public, it is recommended to configure your own keys for security purposes. Consider the following guidelines when creating the keystores:</p>
+<td><p>Change the default key stores and create new keys for all the cryptographic operations. WSO2 products, by default, come with a self-signed SSL key. As these keys are public, it is recommended to configure your own keys for security purposes. Consider the following guidelines when creating the keystores:</p>
 <ul>
 <li><p>Select a key size of at least 2048 bits.</p></li>
 <li><p>Use an SHA256 certificate.</p></li>
@@ -53,7 +53,7 @@ For information on how to create and configure your own keys and keystores, see 
 </tr>
 <tr class="odd">
 <td>Encrypt passwords in configuration files</td>
-<td><p>WSO2 products use a tool, namely <strong>Secure Vault</strong>, to encrypt the plain-text passwords in configuration files.</p>
+<td><p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
 <p>See <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/">Encrypting Passwords in Configuration Files</a> for instructions.</p></td>
 </tr>
 <tr class="even">
@@ -65,7 +65,7 @@ For information on how to create and configure your own keys and keystores, see 
 </tr>
 <tr class="odd">
 <td><p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p></td>
-<td><p>If your product runtimes are connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
+<td><p>If your product runtimes are connecting to an external user store, such as Microsoft Active Directory for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
 <p>
 See <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store/">Configuring a Read-Only LDAP User Store</a> for the API-M runtime.
 </p>
@@ -77,16 +77,16 @@ See <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-sto
 </tr>
 <tr class="odd">
 <td><p>Connect to data stores using a less privileged user</p></td>
-<td><p>When connecting the WSO2 product to external databases or user stores (LDAP), be sure to go through a user who does not have permission to change the data store's schema. Be sure not to use the root user of the data store because all permissions are generally granted to the root user.</p></td>
+<td><p>When connecting the server to external databases or user stores (LDAP), be sure to go through a user who does not have permission to change the data store's schema. Be sure not to use the root user of the data store because all permissions are generally granted to the root user.</p></td>
 </tr>
 <tr class="even">
 <td><p>Configure strong HTTP(S) security</p></td>
 <td>
   <p>To have strong transport-level security, disable SSL protocol versions and enable only TLS protocol 
-versions TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing <code>sslProtocol = "TLS"</code> property, with 
+versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>sslProtocol = "TLS"</code> property with 
 <code>sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"</code> under <code>[transport.https.sslHostConfig
 .properties]</code> in the <code>deployment.toml</code> file. In addition, configure strong ciphers for 
-<code>ThriftAuthenticationService</code>, Tomcat transport and PassThrough transport in the <code>deployment.toml</code> file. See the
+<code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>
 <ul>
   <li><a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring Transport Level Security</a></li>
@@ -96,12 +96,12 @@ versions TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing <code>sslPro
 <strong>Note :</strong>
 <ul>
 <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
-<li>Apply ciphers with 256 bits key length if you have applied the Unlimited strength policy. Note that Unlimited strength policy is recommended.</li>
+<li>Apply ciphers with 256 bit key length if you have applied unlimited strength policy. Note that an unlimited strength policy is recommended.</li>
 <li>Also, consider the following factors when deciding on the ciphers:
 <ul>
 <li>DES/3DES are deprecated and should not be used.</li>
-<li>MD5 should not be used, due to known collision attacks.</li>
-<li>RC4 should not be used, due to crypto-analytical attacks.</li>
+<li>MD5 should not be used due to known collision attacks.</li>
+<li>RC4 should not be used due to crypto-analytical attacks.</li>
 <li>DSS is limited to a small 1024 bit key size.</li>
 <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
 <li>GCM based ciphers are recommended over CBC ciphers.</li>
@@ -114,15 +114,14 @@ versions TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing <code>sslPro
 <td><p>Remove weak ciphers for PassThrough transport</p></td>
 <td>
 <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections 
-using those weak ciphers. For this, <code>PreferredCiphers</code> should be configured for PassThrough transport, 
-within the <code>deployment.toml</code> file in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/</code> directory.
+using those weak ciphers. For this, <code>PreferredCiphers</code> should be configured for the PassThrough transport in the <code>deployment.toml</code> file (stored in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/</code> directory).
 <p>For more information, see <a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring 
 Transport Level Security</a>.</p>
 </tr>
 <tr class="even">
 <td><p>Update the HTTP Response header &quot;Server&quot; value</p></td>
 <td><p>By default, all WSO2 products pass &quot;WSO2 Carbon Server&quot; as the server value in HTTP headers when 
-sending HTTP responses. This means that information about the WSO2 product stack will be exposed through HTTP 
+sending HTTP responses. This means that information about the WSO2 product stack is exposed through HTTP 
 responses. It is recommended to change this by configuring the server name for relevant connectors via 
 <code>deployment.toml</code>.
 <p>For more information, see <a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring 
@@ -130,12 +129,12 @@ Transport Level Security</a>.</p>
 </tr>
 <tr class="odd">
 <td><p>Enabling HTTP Strict Transport Security Headers (HSTS)</p></td>
-<td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your WSO2 server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
-<p>Note that (for WSO2 products based on Carbon 4.4.11 or later versions which implies API-M 2.1.0 and newer) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
+<td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
+<p>Note that (for WSO2 products based on Carbon 4.4.11 or later versions, which implies API-M 2.1.0 and newer) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
 </tr>
 <tr class="even">
 <td><p>Preventing browser caching</p></td>
-<td><p>If there are dynamic pages in your application with sensitive information, you need to prevent browser caching. This can be done by making sure that the applications deployed in your server will return the relevant HTTP response headers.</p>
+<td><p>If there are dynamic pages in your application with sensitive information, you need to prevent browser caching. This can be done by making sure that the applications deployed in your server return the relevant HTTP response headers.</p>
 <p>Note that cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server.</p>
 </tr>
 <tr class="odd">
@@ -192,8 +191,8 @@ sure that hostname verification is enabled in the product startup script (<code
 <td><p>Change default admin credentials</p>
 <p><br />
 </p></td>
-<td><p>All WSO2 products have the Administrator account configured by default. The default user name and password of the administrator account is &quot;admin&quot;. To change the administrator credentials, you need to first sign in to the management console of the product as &quot;admin&quot;, and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
-<p>For more information on how to change the password of the administrator, see <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials">Changing the super admin credentials</a>.</p></td>
+<td><p>The Administrator account is configured by default. The default user name and password of the administrator account is &quot;admin&quot;. To change the administrator credentials, you need to first sign in to the management console of the API-M server as &quot;admin&quot;, and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
+<p>For more information on how to change the password of the administrator in the API-M server, see <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials">Changing the super admin credentials</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Restrict access to the management console</p>
@@ -212,13 +211,13 @@ instead of granting all permission to one administrator, you can distribute the 
 configured in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/log4j2.properties</code> file. Rollover based on a time period can be configured by changing the below configuration (Default value is 1 day).</p>
 <code>appender.CARBON_LOGFILE.policies.time.interval = 1</code>
 <p>You can also configure rollover based on log file size, and also it is possible to limit the number of backup 
-files. For details on how to configure log rotation and manage log growth details in WSO2 API Manager, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
+files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
 </tr>
 <tr class="even">
 <td><p>Prevent log forging</p></td>
 <td><p>Log forging can be identified by appending a UUID to the log message. The conversion character '%u' can be 
 used in the pattern layout to log a UUID. For example, the log pattern can be set as following for <code>AUDIT</code> 
-logs, so that the UUID will be printed at the beginning of each log record.</p>
+logs so that the UUID is printed at the beginning of each log record.</p>
 <code>appender.AUDIT_LOGFILE.layout.pattern = [%u] TID: [%tenantId] [%d] %5p {&#37;c} - %m%ex%n </code>
 <p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/setting-up-logging/">Setting up 
 logging in API Manage</a>.</p></td>
@@ -237,15 +236,16 @@ been removed from Hotspot JVM.</p>
 <td><p>Restrict outbound connections of Publisher node</p>
 <p><br />
 </p></td>
-<td><p>In a WSO2 API-M deployment, WSO2 recommends that you restrict outbound connections of the Publisher node and only allow access to the required internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
+<td><p>In an API-M deployment, it is recommended to restrict outbound connections of the Control Plane node (which contains the Publisher) and only allow access to the internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
+    <p>See the <a href="{{base_path}}/install-and-setup/setup/deployment-overview">API-M deployment</a> documentation for details.</p>
 </td>
 </tr>
 <tr class="odd">
 <td><p>Use a seperate admin user account to login into the system</p>
 <p><br />
 </p></td>
-<td><p>WSO2 recommends that you use two seperate admin user accounts in production, one account for logging into the system and the other one as the system user in configurations (for internal service communications).</p>
-<p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">Super admin configurations</a>.</p>
+<td><p>WSO2 recommends that you use two seperate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
+<p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
 </td>
 </tr>
 </tbody>
@@ -264,24 +264,27 @@ Given below are the security guidelines for the Micro Integrator runtime.
    </thead>
    <tbody>
       <tr class="odd">
-         <td>
-            <p>Apply security updates</p>
-         </td>
-         <td>
-            <p>Micro Integrator security fixes can be taken from one of the following methods.</p>
-            <ul>
-                <li>Using WUM ( WSO2 Update Manager ) to get the latest fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can take the latest security fixes via the WUM security channel.</li>
-                <li><a href="http://wso2.com/security-patch-releases">WSO2 Security Patch Release</a> page has all the security patches for the latest product versions. WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the latest product version to receive all the security fixes.
-</li>           <li><a href="https://docker.wso2.com/tags.php?repo=wso2mi">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
-            </ul>
-         </td>
+         <td><p>Apply security updates</p></td>
+        <td><p>Apply all the security patches relevant to your product version. Use WSO2 Updates to get the latest security patches.</p>
+        <ul>
+        <li>See <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">WSO2 Updates</a> for details.</li>
+        </ul>
+        <p><strong>Note the following:</strong></p>
+        <ul>
+        <li>WSO2 releases security patch notifications monthly via the Support Portal. However, WSO2 issues patches immediately to customers if there are highly 
+        critical issues.</li>
+        <li>WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the 
+        latest product version to receive all the security issues resolved until that particular product release.</li>
+        <li><a href="https://docker.wso2.com/tags.php?repo=wso2mi">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
+        </ul>
+        </td>
       </tr>
       <tr class="even">
          <td>
             <p>Change default keystores</p>
          </td>
          <td>
-            <p>Change the default key stores and create new keys for all the cryptographic operations. WSO2 products by default come with a self-signed SSL key. Since these keys are public, it is recommended to configure your own keys for security purposes. Consider the following guidelines when creating the keystores:</p>
+            <p>Change the default key stores and create new keys for all the cryptographic operations. WSO2 products, by default, come with a self-signed SSL key. Since these keys are public, it is recommended to configure your own keys for security purposes. Consider the following guidelines when creating the keystores:</p>
             <ul>
                <li>
                   <p>Select a key size of at least 2048 bits.</p>
@@ -310,27 +313,25 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>All the default ports used by WSO2 products are listed in <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/#micro-integrator-ports">here</a>. For example, proxy services are exposed over the following ports: 8253 and 8290.</p>
-            <p>To change a default port, update the <code>offset</code> element in the deployment.toml file as explained in <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/">Changing the Default Ports</a> .</p>
-         </td>
+            <p>For information on all the default ports used by WSO2 API Manager, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p>
+            <p>For information on changing a default port, see <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset">Changing the Default Ports with Offset</a>.</p>
+        </td>
       </tr>
-      <!--
-      <tr class="odd">
-         <td>
-            <p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p>
-         </td>
-         <td>
-            <p>If your WSO2 product is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-            <p>For example, see <a href="https://docs.wso2.com/display/ADMIN44x/Configuring+a+Read-Only+LDAP+User+Store">Configuring a Read-Only LDAP User Store</a> under <a href="https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores">Configuring User Stores</a> for instructions.</p>
-         </td>
+      <tr>
+        <td>
+            <p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p>
+        </td>
+        <td>
+            <p>If your product runtimes are connecting to an external user store for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">Configuring a User Store</a> for the Micro Integrator runtime.</p>
+        </td>
       </tr>
-   -->
       <tr class="even">
          <td>
             <p>Always communicate (with external user stores) over TLS</p>
          </td>
          <td>
-            <p>All connections from your WSO2 product to external databases, userstores (LDAP), or other services, should be over TLS, to ensure adequate network-level protection. Therefore, be sure to use external systems (user stores, databases) that are TLS-enabled.</p>
+            <p>All connections from your server to external databases, userstores (LDAP), or other services, should be over TLS, to ensure adequate network-level protection. Therefore, be sure to use external systems (user stores, databases) that are TLS-enabled.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -338,7 +339,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p>Connect to data stores using a less privileged user</p>
          </td>
          <td>
-            <p>When connecting the WSO2 product to external databases or user stores (LDAP), be sure to go through a user who does not have permission to change the data store's schema. Be sure not to use the root user of the data store because all permissions are generally granted to the root user.</p>
+            <p>When connecting the server to external databases or user stores (LDAP), be sure to go through a user who does not have permission to change the data store's schema. Be sure not to use the root user of the data store because all permissions are generally granted to the root user.</p>
          </td>
       </tr>
       <tr class="even">
@@ -351,13 +352,13 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p>Note the following:</p>
             <ul>
                <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
-               <li>Apply ciphers with 256 bits key length if you have applied the Unlimited strength policy. Note that Unlimited strength policy is recommended.</li>
+               <li>Apply ciphers with 256 bit key length if you have applied unlimited strength policy. Note that unlimited strength policy is recommended.</li>
                <li>
                   Also, consider the following factors when deciding on the ciphers:
                   <ul>
                      <li>DES/3DES are deprecated and should not be used.</li>
-                     <li>MD5 should not be used, due to known collision attacks.</li>
-                     <li>RC4 should not be used, due to crypto-analytical attacks.</li>
+                     <li>MD5 should not be used due to known collision attacks.</li>
+                     <li>RC4 should not be used due to crypto-analytical attacks.</li>
                      <li>DSS is limited to a small 1024 bit key size.</li>
                      <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
                      <li>GCM based ciphers are recommended over CBC ciphers.</li>
@@ -372,7 +373,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>deployement.toml</code> file.
-            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-transport-level-security">Configuring Transport-Level Security</a> for instructions.</p>
+            <p>See <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#disabling-weak-ciphers">Disabling Weak Ciphers</a> for instructions.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -458,7 +459,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/">configuring the log4j.properties file</a>.</p>
+            <p>Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/">configuring logs</a> in the Micro Integrator.</p>
          </td>
       </tr>
       <tr class="even">
@@ -542,8 +543,7 @@ documentation.</p></div></td>
 <tr class="odd">
 <td><p>Make regular backups</p></td>
 <td><p>Make sure to back up important files and archive them continuously. For more information, see <a 
-href="{{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#backup-and
--recovery-recommendations">Backup and Recovery Recommendations</a>.</p></td>
+href="{{base_path}}/install-and-setup/setup/deployment-best-practices/backup-recovery">Backup and Recovery Recommendations</a>.</p></td>
 </tr>
 </tbody>
 </table>
