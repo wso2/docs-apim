@@ -4496,7 +4496,7 @@ components:
           enum:
             - PRODUCTION
             - SANDBOX
-          mode:
+        mode:
           type: string
           description: Describe the which mode Application Mapped.
           example: CREATED
@@ -5670,7 +5670,7 @@ components:
       schema:
         type: integer
         default: 0
-      replyLimit:
+    replyLimit:
       name: replyLimit
       in: query
       description: |
