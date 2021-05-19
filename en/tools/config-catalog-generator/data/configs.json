@@ -5009,6 +5009,59 @@
                 }
             ],
             "exampleFile": "user_store.properties.toml"
-        }                                                                                           
+        },
+        {
+            "title": "Custom keystore configurations",
+            "options": [
+                {
+                    "name": "custom_keystore.APIKeyKeyStore",
+                    "required": false,
+                    "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
+                    "params": [                   
+                         {
+                            "name": "file_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore name that is placed inside the <API-M_HOME>/repository/resources/security directory."
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore type."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore password."
+                        },
+                        {
+                            "name": "alias",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore private Key Alias."
+                        },
+                        {
+                            "name": "key_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Private Key Key Password of the Keystore (we recommend to keep both Keystore password and Key Password as same due to known limitations)"
+                        }                                                                                                                                                                                                                                                                            
+                    ]
+                }
+            ],
+            "exampleFile": "custom_keystore.toml"
+        },                                                                                       
     ]
 }
