@@ -1,0 +1,31 @@
+# Choreo Connect Adaptor Configuration Catalog
+
+This document describes all the configuration parameters that are used in WSO2 Choreo Connect Adaptor.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+
+[adapter.server]
+  enabled = true
+  host = "0.0.0.0"
+  port = "9843"
+  tokenTTL = "1h"
+  tokenPrivateKeyPath = "/home/wso2/security/keystore/mg.key"
+  [[adapter.server.users]]
+    username = "admin"
+    password = "$env{adapter_admin_pwd}"
+
+# default vhosts mapping for standalone mode
+[[adapter.vhostMapping]]
+  environment = "Default"
+  vhost = "localhost"
+
+```
+{% set parameters = {'comp': 'adapter'} %}
+{% include "../templates/_configs.njk" %}

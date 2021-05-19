@@ -1,0 +1,3 @@
+[[adapter.vhostMapping]]
+  environment = "Default"
+  vhost = "localhost"

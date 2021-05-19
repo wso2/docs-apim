@@ -1,0 +1,200 @@
+{
+  "configs": [
+    {
+      "title": "Server",
+      "options": [
+        {
+          "name": "server",
+          "required": true,
+          "description": "This includes configurations required for configuring the deployment parameters that are used for identifying the Choreo Connect Adapter REST APIs.",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "possible": "true, false",
+              "description": "Enable/Disable Choreo Connect Adaptor REST API."
+            },
+            {
+              "name": "host",
+              "type": "string",
+              "required": true,
+              "description": "Hostname of the Choreo Connect Adaptor"
+            },
+            {
+              "name": "port",
+              "type": "string",
+              "required": true,
+              "default": "9843",
+              "description": "Port of the Choreo Connect Adaptor"
+            },
+            {
+              "name": "tokenTTL",
+              "type": "string",
+              "required": false,
+              "default": "1h",
+              "description": "Time to live for the Adaptor access token"
+            },
+            {
+              "name": "tokenPrivateKeyPath",
+              "type": "string",
+              "required": false,
+              "default": "/home/wso2/security/keystore/mg.key",
+              "description": "Private key path to use for the token generation"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "server.toml"
+    },
+    {
+      "title": "Keystore",
+      "options": [
+        {
+          "name": "keystore",
+          "required": true,
+          "description": "The configurations of key store used in Choreo Connect Adapter",
+          "params": [
+            {
+              "name": "certPath",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/security/keystore/mg.pem",
+              "description": "Path of the certificate of the Adaptor"
+            },
+            {
+              "name": "keyPath",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/security/keystore/mg.key",
+              "description": "Path of the private key of the Adaptor"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "keystore.toml"
+    },
+    {
+      "title": "Truststore",
+      "options": [
+        {
+          "name": "truststore",
+          "required": true,
+          "description": "The configurations of trust store used in in the Choreo Connect Adapter.",
+          "params": [
+            {
+              "name": "location",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/security/truststore",
+              "description": "The directory path for the trusted certificates of the Choreo Connect Adaptor."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "truststore.toml"
+    },
+    {
+      "title": "Virtual Host Mapping",
+      "options": [
+        {
+          "name": "vhostMapping",
+          "required": false,
+          "description": "Virtual host mappings.",
+          "params": [
+            {
+              "name": "environment",
+              "type": "string",
+              "required": true,
+              "description": "The Adapter environment"
+            },
+            {
+              "name": "vhost",
+              "type": "string",
+              "required": true,
+              "description": "Virtual host to map to the environment"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "vhost_mapping.toml"
+    },
+    {
+      "title": "Consul",
+      "options": [
+        {
+          "name": "consul",
+          "required": false,
+          "description": "Configurations related to Consul",
+          "params": [
+            {
+              "name": "enable",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Enable/Disable consul service."
+            },
+            {
+              "name": "url",
+              "type": "string",
+              "required": true,
+              "description": "connection url of the Consul HTTP API."
+            },
+            {
+              "name": "pollInterval",
+              "type": "integer",
+              "required": false,
+              "default": "5",
+              "description": "The time interval (in seconds) in which the Choreo Connect should fetch updates from the Consul service catalog."
+            },
+            {
+              "name": "aclToken",
+              "type": "string",
+              "required": true,
+              "description": "Access Control Token generated using Consul. You should grant read access to services when creating the token"
+            },
+            {
+              "name": "mgwServiceName",
+              "type": "string",
+              "required": true,
+              "default": "wso2",
+              "description": "Choreo Connect natively integrates with Consul service mesh. Therefore a service name is required to be defined inorder to grant access to other services in mesh. This only need to be defined if service mesh enabled in Consul."
+            },
+            {
+              "name": "serviceMeshEnabled",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Set this to true if service mesh is enabled in Consul"
+            },
+            {
+              "name": "caCertFile",
+              "type": "string",
+              "required": false,
+              "default": "/home/wso2/security/truststore/consul/consul-agent-ca.pem",
+              "description": "This is the optional path to the CA certificate used for Consul communication, defaults to the system bundle if not specified."
+            },
+            {
+              "name": "certFile",
+              "type": "string",
+              "required": false,
+              "default": "/home/wso2/security/truststore/consul/local-dc-client-consul-0.pem",
+              "description": "This is the optional path to the certificate for Consul communication. If this is set, then you also need to set keyFile."
+            },
+            {
+              "name": "keyFile",
+              "type": "string",
+              "required": false,
+              "default": "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem",
+              "description": "This is the optional path to the private key for Consul communication. If this is set, then you need to also set certFile."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "consul.toml"
+    }
+  ]
+}

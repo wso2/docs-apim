@@ -1,0 +1,4 @@
+[enforcer.cache]
+  enabled = true
+  maximumSize = 10000
+  expiryTime = 15

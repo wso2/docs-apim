@@ -1,0 +1,2 @@
+[controlPlane.jmsConnectionParameters]
+  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@localhost:5672?retries='10'&connectdelay='30'"]

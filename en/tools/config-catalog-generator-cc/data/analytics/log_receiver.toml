@@ -1,0 +1,5 @@
+[analytics.enforcer.LogReceiver]
+  port = 18090
+  maxMessageSize = 1000000000
+  maxHeaderLimit = 8192
+  keepAliveTime = 600

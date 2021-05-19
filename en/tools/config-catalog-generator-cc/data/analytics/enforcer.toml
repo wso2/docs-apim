@@ -1,0 +1,3 @@
+[analytics.enforcer.configProperties]
+  authURL = "$env{analytics_authURL}"
+  authToken = "$env{analytics_authToken}"

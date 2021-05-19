@@ -1,0 +1,23 @@
+# Choreo Connect Analytics Configuration Catalog
+
+This document describes all the configurations related to analytics that are used in WSO2 Choreo Connect.
+
+## Instructions for use
+
+Select the configuration sections, parameters, and values that are required for your use and add them to the `config.toml`
+file located in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/`.
+See the example .toml file given below.
+
+```toml
+# This is an example .toml file.
+[analytics]
+  enabled = true
+
+[analytics.enforcer.configProperties]
+  authURL = "$env{analytics_authURL}"
+  authToken = "$env{analytics_authToken}"
+
+```
+
+{% set parameters = {'comp': 'analytics'} %}
+{% include "../templates/_configs.njk" %}
