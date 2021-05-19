@@ -67,11 +67,11 @@ info:
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
-    \ https://<host>:<gateway_port>/token
+    \ https://<host>:<servlet_port>/oauth2/token
     ```
     **Sample request**
     ```
-    curl https://localhost:8243/token -k \
+    curl https://localhost:9443/oauth2/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:api_view apim:api_create"
     ```
@@ -95,7 +95,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d6c31bb7998b3c985d71)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/744fce9d9443510bc75d?action=collection%2Fimport)
   contact:
     name: WSO2
     url: http://wso2.com/products/api-manager/
@@ -138,14 +138,13 @@ paths:
             "provider:wso2" will match an API if the provider of the API contains "wso2".
             "provider:"wso2"" will match an API if the provider of the API is exactly "wso2".
             "status:PUBLISHED" will match an API if the API is in PUBLISHED state.
-            "label:external" will match an API if it contains a Microgateway label called "external".
 
             Also you can use combined modifiers
             Eg.
             name:pizzashack version:v1 will match an API if the name of the API is pizzashack and version is v1.
 
             Supported attribute modifiers are [**version, context, name, status,
-            description, subcontext, doc, provider, label**]
+            description, provider, api-category, tags**]
 
             If no advanced attribute modifier has been specified,  the API names containing
             the search term will be returned as a result.
@@ -416,6 +415,101 @@ paths:
           source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v2/apis/7a2298c4-c905-403f-8fac-38c73301631f"'
       operationId: deleteAPI
+
+  /apis/{apiId}/topics:
+    put:
+      tags:
+        - APIs
+      summary: Update Topics of an Async API
+      description: This operation can be used to update topics of an existing async API.
+      operationId: updateTopics
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: API object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopicList'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with updated API object
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modifed the last time.
+                Used by caches, or in conditional requests (Will be supported in future).
+              schema:
+                type: string
+            Location:
+              description: |
+                The URL of the newly created resource.
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json
+          "https://127.0.0.1:9443/api/am/publisher/v2/apis/7a2298c4-c905-403f-8fac-38c73301631f/topics"'
+
+  /apis/{apiId}/reimport-service:
+    put:
+      tags:
+        - APIs
+      summary: Update the Service that is used to create the API
+      description: This operation can be used to re-import the Service used to create the API
+      operationId: reimportServiceFromCatalog
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with updated API object
+          headers:
+            Location:
+              description: |
+                The URL of the newly created resource.
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v2/apis/ecb5b300-422d-4ee8-88d2-364a0a122238/reimport-service"'
 
   /apis/{apiId}/swagger:
     get:
@@ -1044,6 +1138,12 @@ paths:
           schema:
             type: boolean
             default: false
+        - name: serviceVersion
+          in: query
+          description: Version of the Service that will used in creating new version
+          schema:
+            type: string
+          required: false
         - $ref: '#/components/parameters/apiId-Q'
       responses:
         201:
@@ -1293,6 +1393,749 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-state/pending-tasks"'
       operationId: deleteAPILifecycleStatePendingTasks
 
+  ######################################################
+  # The "API Revisions" resource API
+  ######################################################
+  /apis/{apiId}/revisions:
+
+    #--------------------------------------------
+    # List available revisions of an API
+    #--------------------------------------------
+    get:
+      tags:
+        - API Revisions
+      summary: List Revisions
+      description: |
+        List available revisions of an API
+      operationId: getAPIRevisions
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - name: query
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: |
+            OK.
+            List of API revisions are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionList'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions?query=deployed:true"'
+
+    #--------------------------------------------
+    # Create a new API revision
+    #--------------------------------------------
+    post:
+      tags:
+        - API Revisions
+      summary: Create API Revision
+      description: |
+        Create a new API revision
+      operationId: createAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      requestBody:
+        description: API object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIRevision'
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created APIRevision object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevision'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            -H "Content-Type: application/json" -d @data.json
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions"'
+
+  ######################################################
+  # The "API Revisions" individual resource API
+  ######################################################
+  /apis/{apiId}/revisions/{revisionId}:
+
+    #--------------------------------------------
+    # Get a revision
+    #--------------------------------------------
+    get:
+      tags:
+        - API Revisions
+      summary: Retrieve Revision
+      description: |
+        Retrieve a revision of an API
+      operationId: getAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId'
+      responses:
+        200:
+          description: |
+            OK.
+            An API revision is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevision'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions/e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+    #--------------------------------------------
+    # Delete a revision
+    #--------------------------------------------
+    delete:
+      tags:
+        - API Revisions
+      summary: Delete Revision
+      description: |
+        Delete a revision of an API
+      operationId: deleteAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId'
+      responses:
+        200:
+          description: |
+            OK.
+            List of remaining API revisions are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionList'
+        204:
+          description: |
+            No Content.
+            Successfully deleted the revision
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions/e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /apis/{apiId}/deployments:
+    #--------------------------------------------
+    # List available deployed revision deployment details of an API
+    #--------------------------------------------
+    get:
+      tags:
+        - API Revisions
+      summary: List Deployments
+      description: |
+        List available deployed revision deployment details of an API
+      operationId: getAPIRevisionDeployments
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      responses:
+        200:
+          description: |
+            OK.
+            List of deployed revision deployment details are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionDeploymentList'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments"'
+
+  /apis/{apiId}/deployments/{deploymentId}:
+    #--------------------------------------------
+    # Change Display On Devportal Field
+    #--------------------------------------------
+    put:
+      tags:
+        - API Revisions
+      summary: Update Deployment
+      description: |
+        Update deployment devportal visibility
+      operationId: updateAPIDeployment
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/deploymentId'
+      requestBody:
+        description: Deployment object that needs to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            Created.
+            Successful response with the newly updated APIRevisionDeployment List object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -d @data.json
+                "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments/UHJvZHVjdGlvbiBhbmQgU2FuZGJveA"'
+
+  /apis/{apiId}/deploy-revision:
+    #--------------------------------------------
+    # Deploy a revision
+    #--------------------------------------------
+    post:
+      tags:
+        - API Revisions
+      summary: Deploy Revision
+      description: |
+        Deploy a revision
+      operationId: deployAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId-Q'
+      requestBody:
+        description: Deployment object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            Created.
+            Successful response with the newly deployed APIRevisionDeployment List object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIRevisionDeployment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /apis/{apiId}/undeploy-revision:
+    #--------------------------------------------
+    # Un-Deploy a revision from deployed gateway
+    #--------------------------------------------
+    post:
+      tags:
+        - API Revisions
+      summary: UnDeploy Revision
+      description: |
+        UnDeploy a revision
+      operationId: undeployAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId-Q'
+        - $ref: '#/components/parameters/revisionNum-Q'
+        - name: allEnvironments
+          in: query
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        description: Deployment object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            OK.
+        201:
+          description: |
+            Created.
+            Successful response with the newly undeployed APIRevisionDeploymentList object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIRevisionDeployment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/undeploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /apis/{apiId}/restore-revision:
+
+    #--------------------------------------------------------
+    # Restore a revision to the current API of the API
+    #--------------------------------------------------------
+    post:
+      tags:
+        - API Revisions
+      summary: Restore API Revision
+      description: |
+        Restore a revision to the current API of the API
+      operationId: restoreAPIRevision
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/revisionId-Q'
+      responses:
+        201:
+          description: |
+            Restored.
+            Successful response with the newly restored API object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/restore-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /apis/import-service:
+    post:
+      tags:
+        - APIs
+      summary: Import a Service from Service Catalog
+      description: This operation can be used to create an API from a Service from Service Catalog
+      operationId: importServiceFromCatalog
+      parameters:
+        - name: serviceKey
+          in: query
+          required: true
+          schema:
+            type: string
+          description: ID of service that should be imported from Service Catalog
+          example: Pizzashack-1.0.0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              '$ref': '#/components/schemas/API'
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+            Location header contains the URL of the newly created entity.
+          headers:
+            Location:
+              description: |
+                The URL of the newly created resource.
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v2/apis/import-service?serviceKey=Pizzashack-1.0.0"'
+
+  /apis/{apiId}/comments:
+    get:
+      tags:
+        - Comments
+      summary: Retrieve API Comments
+      description: |
+        Get a list of Comments that are already added to APIs
+      operationId: getAllCommentsOfAPI
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+      responses:
+        200:
+          description: |
+            OK.
+            Comments list is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentList'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_view
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+
+    post:
+      tags:
+        - Comments
+      summary: Add an API Comment
+      operationId: addCommentToAPI
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/parentCommentID'
+      requestBody:
+        description: |
+          Comment object that should to be added
+        content:
+          application/json:
+            schema:
+              title: Post request body
+              type: object
+              properties:
+                content:
+                  type: string
+                  maxLength: 512
+                  description: |
+                    Content of the comment
+                  example: This is a comment
+                category:
+                  type: string
+                  description: |
+                    Category of the comment
+                  example: general
+              required:
+                - content
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+            Location header contains URL of newly created entity.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional request.
+              schema:
+                type: string
+            Location:
+              description: |
+                Location to the newly created Comment.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_write
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"'
+
+  /apis/{apiId}/comments/{commentId}:
+    get:
+      tags:
+        - Comments
+      summary: Get Details of an API Comment
+      description: |
+        Get the individual comment given by a username for a certain API.
+      operationId: getCommentOfAPI
+      parameters:
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+        - $ref: '#/components/parameters/replyLimit'
+        - $ref: '#/components/parameters/replyOffset'
+      responses:
+        200:
+          description: |
+            OK.
+            Comment returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modifed the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_view
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+
+    patch:
+      tags:
+        - Comments
+      summary: Edit a comment
+      description: |
+        Edit the individual comment
+      operationId: editCommentOfAPI
+      parameters:
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/apiId'
+      requestBody:
+        description: |
+          Comment object that should to be updated
+        content:
+          application/json:
+            schema:
+              title: Patch request body
+              type: object
+              properties:
+                content:
+                  type: string
+                  maxLength: 512
+                  description: |
+                    Content of the comment
+                  example: This is a comment
+                category:
+                  type: string
+                  description: |
+                    Category of the comment
+                  example: general
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Comment updated.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional request.
+              schema:
+                type: string
+            Location:
+              description: |
+                Location to the newly created Comment.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_write
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PATCH -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"'
+
+    delete:
+      tags:
+        - Comments
+      summary: Delete an API Comment
+      description: |
+        Remove a Comment
+      operationId: deleteComment
+      parameters:
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Resource successfully deleted.
+          content: {}
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        405:
+          description: |
+            MethodNotAllowed.
+            Request method is known by the server but is not supported by the target resource.
+          content: {}
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_write
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+
+  /apis/{apiId}/comments/{commentId}/replies:
+    get:
+      tags:
+        - Comments
+      summary: Get replies of a comment
+      description: |
+        Get replies of a comment
+      operationId: getRepliesOfComment
+      parameters:
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/If-None-Match'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+      responses:
+        200:
+          description: |
+            OK.
+            Comment returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modifed the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:comment_view
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/publisher/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
+
   /apis/import-openapi:
     post:
       tags:
@@ -1319,6 +2162,9 @@ paths:
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON with API's schema
+                inlineAPIDefinition:
+                  type: string
+                  description: Inline content of the OpenAPI definition
       responses:
         201:
           description: |
@@ -1448,7 +2294,7 @@ paths:
     post:
       tags:
         - APIs
-      summary: Import API Definition
+      summary: Import a GraphQL SDL
       description: |
         This operation can be used to create api from api definition.APIMgtDAOTest
 
@@ -1545,6 +2391,9 @@ paths:
                   type: string
                   description: OpenAPI definition as a file
                   format: binary
+                inlineAPIDefinition:
+                  type: string
+                  description: Inline content of the OpenAPI definition
       responses:
         200:
           description: |
@@ -1768,7 +2617,7 @@ paths:
   /apis/{apiId}/graphql-schema:
     get:
       tags:
-        - GraphQL Schema (Individual)
+        - GraphQL Schema
       summary: Get the Schema of a GraphQL API
       description: |
         This operation can be used to retrieve the Schema definition of a GraphQL API.
@@ -1881,14 +2730,14 @@ paths:
             - apim:api_create
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -F schemaDefinition=@schema.graphql "https://127.0.0.1:9443/api/am/publisher/v2/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/graphql-schema"'
       operationId: updateAPIGraphQLSchema
 
   /apis/{apiId}/amznResourceNames:
     get:
       tags:
-        - AWS Lambda (Individual)
+        - AWS Lambda
       summary: Retrieve the ARNs of AWS Lambda Functions
       description: |
         This operation can be use to retrieve ARNs of AWS Lambda function for a given AWS credentials.
@@ -3284,6 +4133,37 @@ paths:
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v2/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/publish-to-external-stores?externalStoreId=Store123#"'
 
+  /apis/{apiId}/generate-key:
+    post:
+      tags:
+        - APIs
+      summary: Generate internal API Key to invoke APIS.
+      description: |
+        This operation can be used to generate internal api key which used to invoke API.
+      operationId: generateInternalAPIKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      responses:
+        200:
+          description: |
+            OK.
+            apikey generated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_generate_key
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v2/apis/7a2298c4-c905-403f-8fac-38c73301631f/generate-key"'
+
   /apis/export:
     get:
       tags:
@@ -3309,6 +4189,12 @@ paths:
             Version of the API
           schema:
             type: string
+        - name: revisionNumber
+          in: query
+          description: |
+            Revision number of the API artifact
+          schema:
+            type: string
         - name: providerName
           in: query
           description: |
@@ -3330,6 +4216,13 @@ paths:
             Preserve API Status on export
           schema:
             type: boolean
+        - name: latestRevision
+          in: query
+          description: |
+            Export the latest revision of the API
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           description: |
@@ -3374,6 +4267,13 @@ paths:
           in: query
           description: |
             Preserve Original Provider of the API. This is the user choice to keep or replace the API provider
+          required: false
+          schema:
+            type: boolean
+            - name: rotateRevision
+          in: query
+          description: |
+            Once the revision max limit reached, undeploy and delete the earliest revision and create a new revision
           required: false
           schema:
             type: boolean
@@ -3723,6 +4623,56 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v2/throttling-policies/api"'
 
   ######################################################
+  # The "Subscription Throttling Based on Quota Type" resource APIs
+  ######################################################
+  /throttling-policies/streaming/subscription:
+    get:
+      tags:
+        - Throttling Policies
+      summary: Get streaming throttling policies
+      description: |
+        This operation can be used to list the available streaming subscription policies
+      operationId: getSubscriptionThrottlingPolicies
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            List of subscription policies returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests (Will be supported in future).
+              schema:
+                type: string
+            Content-Type:
+              description: The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionPolicyList'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
+          content: {}
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v2/throttling-policies/streaming/subscription?limit=10&offset=0"'
+
+  ######################################################
   # The "Individual Throttling Tier" resource APIs
   ######################################################
   /throttling-policies/{policyLevel}/{policyName}:
@@ -3997,8 +4947,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon
-          -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v2/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates"'
+          -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v2/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates"'
       operationId: addAPIClientCertificate
 
   /apis/{apiId}/client-certificates/{alias}:
@@ -4280,7 +5229,7 @@ paths:
         200:
           description: |
             OK.
-            Alias and Endpoint of the certificate are returned.
+            The Certificate added successfully.
           headers:
             Location:
               description: |
@@ -4308,7 +5257,7 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=alias
-          -F endpoint=https://www.abc.com "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates"'
+          -F "endpoint=https://www.abc.com" "https://127.0.0.1:9443/api/am/publisher/v2/endpoint-certificates"'
       operationId: addEndpointCertificate
 
   /endpoint-certificates/{alias}:
@@ -4386,7 +5335,7 @@ paths:
         200:
           description: |
             OK.
-            Alias and Endpoint of the certificate are returned.
+            The Certificate updated successfully.
           headers:
             Location:
               description: |
@@ -5048,6 +5997,10 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       operationId: getIsAPIProductOutdated
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                "https://127.0.0.1:9443/api/am/publisher/v2/api-products/5bca47e1-8233-46a5-9295-525dca337f33/is-outdated"'
 
   /api-products/{apiProductId}/documents:
     get:
@@ -5455,6 +6408,377 @@ paths:
           -H "Content-Type: multipart/form-data" -F file=@sample.pdf "https://127.0.0.1:9443/api/am/publisher/v2/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3/content"'
       operationId: addAPIProductDocumentContent
 
+  ######################################################
+  # The "API Product Revisions" resource API
+  ######################################################
+  /api-products/{apiProductId}/revisions:
+
+    #--------------------------------------------
+    # List available revisions of an API Product
+    #--------------------------------------------
+    get:
+      tags:
+        - API Product Revisions
+      summary: List Revisions
+      description: |
+        List available revisions of an API Product
+      operationId: getAPIProductRevisions
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - name: query
+          in: query
+          schema:
+            type: string
+      responses:
+        200:
+          description: |
+            OK.
+            List of API Product revisions are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionList'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_product_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions?query=deployed:true"'
+
+    #--------------------------------------------
+    # Create a new API Product revision
+    #--------------------------------------------
+    post:
+      tags:
+        - API Product Revisions
+      summary: Create a new API Product revision
+      description: |
+        Create a new API Product revision
+      operationId: createAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+      requestBody:
+        description: API Product object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIRevision'
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created APIRevision object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevision'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            -H "Content-Type: application/json" -d @data.json
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions"'
+
+  ######################################################
+  # The "API Revisions" individual resource API Product
+  ######################################################
+  /api-products/{apiProductId}/revisions/{revisionId}:
+
+    #--------------------------------------------
+    # Get a revision
+    #--------------------------------------------
+    get:
+      tags:
+        - API Product Revisions
+      summary: Retrieve Revision
+      description: |
+        Retrieve a revision of an API Product
+      operationId: getAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/revisionId'
+      responses:
+        200:
+          description: |
+            OK.
+            An API revision is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevision'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions/e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+    #--------------------------------------------
+    # Delete a revision
+    #--------------------------------------------
+    delete:
+      tags:
+        - API Product Revisions
+      summary: Delete Revision
+      description: |
+        Delete a revision of an API Product
+      operationId: deleteAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/revisionId'
+      responses:
+        200:
+          description: |
+            OK.
+            List of remaining API revisions are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionList'
+        204:
+          description: |
+            No Content.
+            Successfully deleted the revision
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/revisions/e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /api-products/{apiProductId}/deployments:
+    #--------------------------------------------
+    # List available deployed revision deployment details of an API Product
+    #--------------------------------------------
+    get:
+      tags:
+        - API Product Revisions
+      summary: List Deployments
+      description: |
+        List available deployed revision deployment details of an API Product
+      operationId: getAPIProductRevisionDeployments
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+      responses:
+        200:
+          description: |
+            OK.
+            List of deployed revision deployment details are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionDeploymentList'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments"'
+
+  /api-products/{apiProductId}/deployments/{deploymentId}:
+    #--------------------------------------------
+    # Change Display On Devportal Field
+    #--------------------------------------------
+    put:
+      tags:
+        - API Product Revisions
+      summary: Update Deployment
+      description: |
+        Update deployment devportal visibility
+      operationId: updateAPIProductDeployment
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/deploymentId'
+      requestBody:
+        description: Deployment object that needs to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            Created.
+            Successful response with the newly updated APIRevisionDeployment List object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -d @data.json
+                "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments/UHJvZHVjdGlvbiBhbmQgU2FuZGJveA"'
+
+  /api-products/{apiProductId}/deploy-revision:
+    #--------------------------------------------
+    # Deploy a revision
+    #--------------------------------------------
+    post:
+      tags:
+        - API Product Revisions
+      summary: Deploy Revision
+      description: |
+        Deploy an API Product Revision
+      operationId: deployAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/revisionId-Q'
+      requestBody:
+        description: Deployment object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            OK.
+        201:
+          description: |
+            Created.
+            Successful response with the newly deployed APIRevisionDeployment List object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIRevisionDeployment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /api-products/{apiProductId}/undeploy-revision:
+    #--------------------------------------------
+    # Un-Deploy a revision from deployed gateway
+    #--------------------------------------------
+    post:
+      tags:
+        - API Product Revisions
+      summary: UnDeploy Revision
+      description: |
+        UnDeploy an API Product Revision
+      operationId: undeployAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/revisionId-Q'
+        - $ref: '#/components/parameters/revisionNum-Q'
+        - name: allEnvironments
+          in: query
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        description: Deployment object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/APIRevisionDeployment'
+      responses:
+        200:
+          description: |
+            OK.
+        201:
+          description: |
+            Created.
+            Successful response with the newly undeployed APIRevisionDeploymentList object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIRevisionDeployment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+            - apim:api_product_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+                "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/undeploy-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
+  /api-products/{apiProductId}/restore-revision:
+
+    #--------------------------------------------------------
+    # Restore a revision to the Current API of the API Product
+    #--------------------------------------------------------
+    post:
+      tags:
+        - API Product Revisions
+      summary: Restore Revision
+      description: |
+        Restore a revision to the Current API of the API Product
+      operationId: restoreAPIProductRevision
+      parameters:
+        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/revisionId-Q'
+      responses:
+        201:
+          description: |
+            Restored.
+            Successful response with the newly restored API Product object as the entity in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIProduct'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v2/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/restore-revision?revisionId=e0824883-3e86-403a-aec1-22bbc454eb7c"'
+
   /api-products/export:
     get:
       tags:
@@ -5481,6 +6805,12 @@ paths:
             Provider name of the API Product
           schema:
             type: string
+        - name: revisionNumber
+          in: query
+          description: |
+            Revision number of the API Product
+          schema:
+            type: string
         - name: format
           in: query
           description: |
@@ -5496,6 +6826,13 @@ paths:
             Preserve API Product Status on export
           schema:
             type: boolean
+        - name: latestRevision
+          in: query
+          description: |
+            Export the latest revision of the API Product
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           description: |
@@ -5522,7 +6859,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/api-products/export?name=LeasingAPIProduct&version=1.0.0&provider=admin&format=YAML"
+          "https://127.0.0.1:9443/api/am/publisher/v2/api-products/export?name=LeasingAPIProduct&version=1.0.0revisionNumber=2&provider=admin&format=YAML"
           > exportAPIProduct.zip'
       operationId: exportAPIProduct
 
@@ -5538,6 +6875,13 @@ paths:
           in: query
           description: |
             Preserve Original Provider of the API Product. This is the user choice to keep or replace the API Product provider
+          required: false
+          schema:
+            type: boolean
+        - name: rotateRevision
+          in: query
+          description: |
+            Once the revision max limit reached, undeploy and delete the earliest revision and create a new revision
           required: false
           schema:
             type: boolean
@@ -5784,290 +7128,13 @@ paths:
           source: 'curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v2/tenants/wso2.com"'
 
-  ####################################################
-  # Publisher Alerts management REST API
-  ####################################################
-  /alert-types:
-    get:
-      tags:
-        - Alerts
-      summary: |
-        Get the list of API Publisher alert types.
-      description: |
-        This operation is used to get the list of supportd alert types for the 'publisher' agent.
-      operationId: getPublisherAlertTypes
-      responses:
-        200:
-          description: |
-            OK.
-            The list of publisher alert types are returned.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertTypesList'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/alert-types"'
-
-  /alert-subscriptions:
-    get:
-      tags:
-        - Alert Subscriptions
-      summary: |
-        Get the List of API Publisher Alert Types Subscribed by the User
-      description: |
-        This operation is used to get the list of subscribed alert types by the user.
-      operationId: getSubscribedAlertTypes
-      responses:
-        200:
-          description: |
-            OK.
-            The list of subscribed alert types are returned.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertsInfo'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/alert-subscriptions"'
-
-    put:
-      tags:
-        - Alert Subscriptions
-      summary: |
-        Subscribe to the Selected Tlert types by the User
-      description: |
-        This operation is used to get the list of subscribed alert types by the user.
-      operationId: subscribeToAlerts
-      requestBody:
-        description: The alerts list and the email list to subscribe.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AlertsInfo'
-        required: true
-      responses:
-        201:
-          description: |
-            OK.
-            Successful response with the newly subscribed alerts.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertsInfoResponse'
-        400:
-          $ref: '#/components/responses/BadRequest'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v2/alert-subscriptions"'
-
-    delete:
-      tags:
-        - Alert Subscriptions
-      summary: |
-        Unsubscribe User from All the Alert Types
-      description: |
-        This operation is used to unsubscribe the respective user from all the alert types.
-      operationId: unsubscribeAllAlerts
-      responses:
-        200:
-          description: |
-            OK.
-            The user is unsubscribed from the alerts successfully.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content: {}
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/alert-subscriptions"'
-
-  /alerts/{alertType}/configurations:
-    get:
-      tags:
-        - Alert Configuration
-      summary: |
-        Get All AbnormalRequestsPerMin Alert Configurations
-      description: |
-        This operation is used to get all configurations of the AbnormalRequestsPerMin alert type.
-      operationId: getAllAlertConfigs
-      parameters:
-        - $ref: '#/components/parameters/alertType'
-      responses:
-        200:
-          description: |
-            OK.
-            The Devportal alert configuration.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertConfigList'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/alerts/{alertType}/configurations"'
-
-  /alerts/{alertType}/configurations/{configurationId}:
-    put:
-      tags:
-        - Alert Configuration
-      summary: |
-        Add AbnormalRequestsPerMin Alert Configurations.
-      description: |
-        This operation is used to add configuration for the AbnormalRequestsPerMin alert type.
-      operationId: addAlertConfig
-      parameters:
-        - $ref: '#/components/parameters/alertType'
-        - $ref: '#/components/parameters/configurationId'
-      requestBody:
-        description: Configuration for AbnormalRequestCount alert type
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AlertConfigInfo'
-        required: true
-      responses:
-        201:
-          description: |
-            Created.
-            Successful response with newly created object as entity.
-            Location header contains URL of newly created entity.
-          headers:
-            Location:
-              description: |
-                The location of the newly created entity.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertConfig'
-        400:
-          $ref: '#/components/responses/BadRequest'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-
-    delete:
-      tags:
-        - Alert Configuration
-      summary: |
-        Delete the Selected Configuration from AbnormalRequestsPerMin Alert Type.
-      description: |
-        This operation is used to delete configuration from the AbnormalRequestsPerMin alert type.
-      operationId: deleteAlertConfig
-      parameters:
-        - $ref: '#/components/parameters/alertType'
-        - $ref: '#/components/parameters/configurationId'
-      responses:
-        200:
-          description: |
-            OK.
-            The alert config is deleted successfully.
-          content: {}
-        400:
-          $ref: '#/components/responses/BadRequest'
-        404:
-          $ref: '#/components/responses/NotFound'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:pub_alert_manage
-
-  ######################################################
-  # The "Label Collection" resource API
-  ######################################################
-  /labels:
-    get:
-      tags:
-        - Label Collection
-      summary: Get all Registered Labels
-      description: |
-        Get all registered Labels
-      responses:
-        200:
-          description: |
-            OK.
-            Labels returned
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LabelList'
-      security:
-        - OAuth2Security:
-            - apim:api_view
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/labels"'
-      operationId: getLabels
-
   ######################################################
   # The "API Category Collection" resource API
   ######################################################
   /api-categories:
     get:
       tags:
-        - API Category (Collection)
+        - API Categories
       summary: Get all API categories
       description: |
         Get all API categories
@@ -6359,89 +7426,326 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v2/key-managers"'
       operationId: getAllKeyManagers
 
-  ######################################################
-  # The "Deployments" resource APIs
-  ######################################################
-  /deployments:
-    get:
+  /apis/validate-asyncapi:
+    post:
       tags:
-        - Deployments
-      summary: Retrieve Deployment Environments Details
-      description: |
-        This operation can be used to retrieve cloud clusters information defines in tenant-conf.json file.
-
-        With that you can deploy an API to selected cloud environments.
-      operationId: deploymentsGet
-      responses:
-        200:
-          description: |
-            OK. Successful response with the list of deployment environments information in the body.
-          headers:
-            Content-Type:
-              description: |
-                The content type of the body.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeploymentList'
-        400:
-          $ref: '#/components/responses/BadRequest'
-        404:
-          $ref: '#/components/responses/NotFound'
-        500:
-          $ref: '#/components/responses/InternalServerError'
-      security:
-        - OAuth2Security:
-            - apim:api_view
-      x-code-samples:
-        - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/deployments"'
-
-  /apis/{apiId}/deployments:
-    get:
-      tags:
-        - DeploymentStatus
-      summary: Retrieve Deployment Status Details
-      description: |
-        This operation can be used to retrieve the status of deployments in cloud clusters.
-
-        With that you can get the status of the deployed APIs in cloud environments.
-      operationId: deploymentsGetStatus
+        - Validation
+      summary: Validate an AsyncAPI Specification
+      description:
+        This operation can be used to validate and AsyncAPI Specification and retrieve a summary. Provide either 'url'
+        or 'file' to specify the definition.
+      operationId: validateAsyncAPISpecification
       parameters:
-        - $ref: '#/components/parameters/apiId'
+        - name: returnContent
+          in: query
+          description:
+            Specify whether to return the full content of the AsyncAPI specification in the response. This is only
+            applicable when using url based validation
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                url:
+                  type: string
+                  description: AsyncAPI definition url
+                file:
+                  type: string
+                  description: AsyncAPI definition as a file
+                  format: binary
       responses:
         200:
-          description: |
-            OK. Successful response with the list of deployment environments information in the body.
+          description:
+            OK.
+            API definition validation information is returned
           headers:
             Content-Type:
-              description: |
+              description:
                 The content type of the body.
               schema:
                 type: string
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeploymentStatusList'
+                $ref: '#/components/schemas/AsyncAPISpecificationValidationResponse'
         400:
           $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
-        500:
-          $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
-            - apim:api_view
+            - apim:api_create
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@streetlights.yml
+                "https://127.0.0.1:9443/api/am/publisher/v2/apis/validate-asyncapi?returnContent=true"'
+
+
+  /apis/import-asyncapi:
+    post:
+      tags:
+        - APIs
+      summary: import an AsyncAPI Specification
+      description:
+        This operation can be used to create and API from the AsyncAPI Specification. Provide either 'url' or 'file'
+        to specify the definition.
+
+        Specify additionalProperties with **at least** API's name, version, context and endpointConfig.
+      operationId: importAsyncAPISpecification
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  type: string
+                  description: Definition to upload as a file
+                  format: binary
+                url:
+                  type: string
+                  description: Definition url
+                additionalProperties:
+                  type: string
+                  description: Additional attributes specified as a stringified JSON with API's schema
+      responses:
+        201:
+          description:
+            Created. Successful response with the newly created object as entity in the body.
+            Location header contains URL of newly created entity.
+          headers:
+            Etag:
+              description:
+                Entity Tag of the respons resource. Used by caches, or in conditional requests (Will be supported in the future).
+              schema:
+                type: string
+            Location:
+              description:
+                The URL of the newly created resource.
+              schema:
+                type: string
+            Content-type:
+              description:
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+      security:
+        - OAuth2Security:
+            - apim:api_create
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v2/apis/92bc1330-1848-4fe8-b992-c792186c212e/deployments/"'
+                -F file=@streetlights.yml "https://127.0.0.1:9443/api/am/publisher/v2/apis/import-asyncapi"'
 
+    /apis/{apiId}/asyncapi:
+      get:
+        tags:
+          - APIs
+        summary: Get AsyncAPI definition
+        description: |
+          This operation can be used to retrieve the AsyncAPI definition of an API.
+        parameters:
+          - $ref: '#/components/parameters/apiId'
+          - $ref: '#/components/parameters/If-None-Match'
+        responses:
+          200:
+            description: |
+              OK.
+              Requested AsyncAPI definition of the API is returned
+            headers:
+              ETag:
+                description: |
+                  Entity Tag of the response resource. Used by caches, or in conditional requests (Willl= be supported in future).
+                schema:
+                  type: string
+              Last-Modified:
+                description: |
+                  Date and time the resource has beed modified the last time.
+                  Used by caches, or in conditional request (Will be supported in future).
+                schema:
+                  type: string
+              Content-Type:
+                description: |
+                  The content type of the body.
+                schema:
+                  type: string
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: ""
+          304:
+            description: |
+              Not Modified.
+              Empty body because the client has already the latest version of the requested resource (Will be supported in future).
+            content: { }
+          404:
+            $ref: '#/components/responses/NotFound'
+          406:
+            $ref: '#/components/responses/NotAcceptable'
+        security:
+          - OAuth2Security:
+              - apim:api_view
+        x-code-samples:
+          - lang: Curl
+            source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v2/apis/01234567-0123-0123-0123-012345678901/asyncapi"'
+
+      put:
+        tags:
+          - APIs
+        summary: Update AsyncAPI definition
+        description: |
+          This operation can be used to update the AsyncAPI definition of an existing API. AsyncAPI definition to be updated is passed as a form data parameter 'apiDefinition'.
+        parameters:
+          - $ref: '#/components/parameters/apiId'
+          - $ref: '#/components/parameters/If-Match'
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                properties:
+                  apiDefinition:
+                    type: string
+                    description: AsyncAPI definition of the API
+                  url:
+                    type: string
+                    description: AsyncAPI definition URL of the API
+                  file:
+                    type: string
+                    description: AsyncAPI definition as a file
+                    format: binary
+        responses:
+          200:
+            description: |
+              OK.
+              Successful response with updated AsyncAPI definition
+            headers:
+              ETag:
+                description: |
+                  Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+                schema:
+                  type: string
+              Last-Modified:
+                description: |
+                  Date and time the resource has beed modified the last time.
+                  Use =d by caches, or in conditional requests (Will be supported in future).
+                schema:
+                  type: string
+              Location:
+                description: |
+                  The URL of the newly created resource.
+                schema:
+                  type: string
+              Content-Type:
+                description: |
+                  The content type of the body.
+                schema:
+                  type: string
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: ""
+          400:
+            $ref: '#/components/responses/BadRequest'
+          403:
+            $ref: '#/components/responses/Forbidden'
+          404:
+            $ref: '#/components/responses/NotFound'
+          412:
+            $ref: '#/components/responses/PreconditionFailed'
+        security:
+          - OAuth2Security:
+              - apim:api_create
+        x-code-samples:
+          - lang: Curl
+            source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -F file=@streetlights.yml "https://127.0.0.1:9443/api/am/publisher/v2/apis/01234567-0123-0123-0123-012345678901/asyncapi"'
 components:
   schemas:
+    Comment:
+      title: Comment
+      required:
+        - content
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 943d3002-000c-42d3-a1b9-d6559f8a4d49
+        content:
+          maxLength: 512
+          type: string
+          example: This is a comment
+        createdTime:
+          type: string
+          readOnly: true
+          example : 2021-02-11-09:57:25
+        createdBy:
+          type: string
+          readOnly: true
+          example: admin
+        updatedTime:
+          type: string
+          readOnly: true
+          example : 2021-02-12-19:57:25
+        category:
+          type: string
+          readOnly: true
+          default: general
+          example : general
+        parentCommentId:
+          type: string
+          readOnly: true
+          example: 6f38aea2-f41e-4ac9-b3f2-a9493d00ba97
+        entryPoint:
+          type: string
+          readOnly: true
+          enum: [devPortal, publisher]
+        commenterInfo:
+          $ref: '#/components/schemas/CommenterInfo'
+        replies:
+          $ref: '#/components/schemas/CommentList'
+    CommentList:
+      title: Comments List
+      type: object
+      properties:
+        count:
+          type: integer
+          readOnly: true
+          description: |
+            Number of Comments returned.
+          example: 1
+        list:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Comment'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    CommenterInfo:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: David
+        fullName:
+          type: string
+          example: John David
     APIList:
       title: API List
       type: object
@@ -6512,6 +7816,55 @@ components:
           type: array
           items:
             type: string
+        createdTime:
+          type: string
+          example : 2021-02-11 09:57:25
+        updatedTime:
+          type: string
+          example : 2021-02-11 09:57:25
+
+    Topic:
+      title: Topic object
+      required:
+        - name
+        - mode
+        - description
+      type: object
+      properties:
+        id:
+          type: string
+          description: id
+          readOnly: true
+          example: 1222344
+        name:
+          maxLength: 50
+          minLength: 1
+          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+\[\]\/]*$)'
+          type: string
+          example: PizzaShackAPI
+        mode:
+          maxLength: 32766
+          type: string
+          example: This is a simple API for Pizza Shack online pizza delivery store.
+        description:
+          maxLength: 32766
+          type: string
+          example: This is a simple API for Pizza Shack online pizza delivery store.
+    TopicList:
+      title: Topic List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of Topics returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/Topic'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     API:
       title: API object
       required:
@@ -6529,7 +7882,7 @@ components:
         name:
           maxLength: 50
           minLength: 1
-          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+]*$)'
+          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+\[\]\/]*$)'
           type: string
           example: PizzaShackAPI
         description:
@@ -6545,7 +7898,7 @@ components:
           maxLength: 30
           minLength: 1
           type: string
-          pattern: '^[^~!@#;:%^*()+={}|\\<>"'',&/$]+$'
+          pattern: '^[^~!@#;:%^*()+={}|\\<>"'',&/$\[\]\s+\/]+$'
           example: 1.0.0
         provider:
           maxLength: 50
@@ -6564,25 +7917,30 @@ components:
           type: string
           readOnly: true
           example: /apimgt/applicationdata/wsdls/admin--soap1.wsdl
-        testKey:
-          type: string
-          readOnly: true
-          example: 8swdwj9080edejhj
         responseCachingEnabled:
           type: boolean
           example: true
         cacheTimeout:
           type: integer
           example: 300
-        destinationStatsEnabled:
-          type: string
-          example: Disabled
         hasThumbnail:
           type: boolean
           example: false
         isDefaultVersion:
           type: boolean
           example: false
+        isRevision:
+          type: boolean
+          example: false
+        revisionedApiId:
+          type: string
+          description: |
+            UUID of the api registry artifact
+          readOnly: true
+          example: 01234567-0123-0123-0123-012345678901
+        revisionId:
+          type: integer
+          example: 1
         enableSchemaValidation:
           type: boolean
           example: false
@@ -6594,7 +7952,7 @@ components:
         type:
           type: string
           description: The api creation type to be used. Accepted values are HTTP,
-            WS, SOAPTOREST, GRAPHQL
+            WS, SOAPTOREST, GRAPHQL, WEBSUB, SSE
           example: HTTP
           default: HTTP
           enum:
@@ -6603,6 +7961,8 @@ components:
             - SOAPTOREST
             - SOAP
             - GRAPHQL
+            - WEBSUB
+            - SSE
         transport:
           type: array
           description: |
@@ -6638,6 +7998,7 @@ components:
             - apim:api_publish
         authorizationHeader:
           type: string
+          pattern: '(^[^~!@#;:%^*()+={}|\\<>"'',&$\s+]*$)'
           description: |
             Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
             in tenant or system level will be used.
@@ -6678,33 +8039,6 @@ components:
           example: []
           items:
             type: string
-        endpointSecurity:
-          $ref: '#/components/schemas/APIEndpointSecurity'
-        gatewayEnvironments:
-          type: array
-          description: |
-            List of gateway environments the API is available
-          example:
-            - Production and Sandbox
-          items:
-            type: string
-          x-otherScopes:
-            - apim:api_publish
-        deploymentEnvironments:
-          type: array
-          description: |
-            List of selected deployment environments and clusters
-          items:
-            $ref: '#/components/schemas/DeploymentEnvironments'
-          x-otherScopes:
-            - apim:api_publish
-        labels:
-          type: array
-          description: |
-            Labels of micro-gateway environments attached to the API.
-          example: []
-          items:
-            type: string
         mediationPolicies:
           type: array
           example:
@@ -6734,10 +8068,17 @@ components:
           items:
             type: string
         additionalProperties:
-          type: object
-          additionalProperties:
-            type: string
+          type: array
           description: Map of custom properties of API
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+              display:
+                type: boolean
           x-otherScopes:
             - apim:api_publish
         monetization:
@@ -6766,6 +8107,8 @@ components:
             - apim:api_publish
         corsConfiguration:
           $ref: '#/components/schemas/APICorsConfiguration'
+        websubSubscriptionConfiguration:
+          $ref: '#/components/schemas/WebsubSubscriptionConfiguration'
         workflowStatus:
           type: string
           example: APPROVED
@@ -6922,9 +8265,124 @@ components:
           description: |
             API Key Managers
           readOnly: true
+        serviceInfo:
+          type: object
+          properties:
+            key:
+              type: string
+              example: PetStore-1.0.0
+            name:
+              type: string
+              example: PetStore
+            version:
+              type: string
+              example: 1.0.0
+            outdated:
+              type: boolean
+              example: false
+        advertiseInfo:
+          $ref: '#/components/schemas/AdvertiseInfo'
       x-scopes:
         - apim:api_create
         - apim:api_import_export
+    #-----------------------------------------------------
+    # The API Revision resource
+    #-----------------------------------------------------
+    APIRevision:
+      title: API Info object with basic API details
+      properties:
+        displayName:
+          type: string
+          readOnly: true
+          example: REVISION 1
+        id:
+          type: string
+          readOnly: true
+          example: c26b2b9b-4632-4ca4-b6f3-521c8863990c
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          example: removed a post resource
+        createdTime:
+          readOnly: true
+          type: string
+          format: date-time
+        apiInfo:
+          $ref: '#/components/schemas/APIRevisionAPIInfo'
+        deploymentInfo:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/APIRevisionDeployment'
+
+    #-----------------------------------------------------
+    # The API Revision - API Info resource
+    #-----------------------------------------------------
+    APIRevisionAPIInfo:
+      title: API Info object with basic Revisioned API details
+      readOnly: true
+      properties:
+        id:
+          type: string
+          example: 01234567-0123-0123-0123-012345678901
+
+    #-----------------------------------------------------
+    # The API Revision List resource
+    #-----------------------------------------------------
+    APIRevisionList:
+      title: API Revisions List
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of API revisions returned
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIRevision'
+    #-----------------------------------------------------
+    # The API Revision Deployment List resource
+    #-----------------------------------------------------
+    APIRevisionDeploymentList:
+      title: API Revision to Deployment mapped object with basic API deployment details
+      properties:
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIRevisionDeployment'
+    #-----------------------------------------------------
+    # The API Revision Deployment resource
+    #-----------------------------------------------------
+    APIRevisionDeployment:
+      title: APIRevisionDeployment Info object with basic API deployment details
+      properties:
+        revisionUuid:
+          readOnly: true
+          maxLength: 255
+          minLength: 0
+          type: string
+          example: c26b2b9b-4632-4ca4-b6f3-521c8863990c
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+          example: default
+        vhost:
+          maxLength: 255
+          minLength: 1
+          # hostname regex as per RFC 1123 (http://tools.ietf.org/html/rfc1123) and appended *
+          pattern: '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$'
+          type: string
+          example: mg.wso2.com
+        displayOnDevportal:
+          type: boolean
+          example: true
+        deployedTime:
+          readOnly: true
+          type: string
+          format: date-time
     AuditReport:
       title: Resource for Audit Report
       type: object
@@ -7054,13 +8512,18 @@ components:
         enableSchemaValidation:
           type: boolean
           example: false
-        enableStore:
+        isRevision:
           type: boolean
-          example: true
-        testKey:
+          example: false
+        revisionedApiProductId:
           type: string
+          description: |
+            UUID of the api product registry artifact
           readOnly: true
-          example: 8swdwj9080edejhj
+          example: 01234567-0123-0123-0123-012345678901
+        revisionId:
+          type: integer
+          example: 1
         responseCachingEnabled:
           type: boolean
           example: true
@@ -7106,21 +8569,13 @@ components:
           example: []
           items:
             type: string
-        gatewayEnvironments:
-          type: array
-          description: |
-            List of gateway environments the API Product is available
-          example:
-            - Production and Sandbox
-          items:
-            type: string
         apiType:
           type: string
           description: The API type to be used. Accepted values are API, APIPRODUCT
           example: APIPRODUCT
           enum:
-          - API
-          - APIPRODUCT
+            - API
+            - APIPRODUCT
         transport:
           type: array
           description: |
@@ -7181,9 +8636,17 @@ components:
           x-otherScopes:
             - apim:api_publish
         additionalProperties:
-          type: object
           additionalProperties:
-            type: string
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+              display:
+                type: boolean
           description: Map of custom properties of API
         monetization:
           $ref: '#/components/schemas/APIMonetizationInfo'
@@ -7637,6 +9100,11 @@ components:
             Maximum number of requests which can be sent within a provided unit time
           format: int64
           example: 50
+        dataUnit:
+          description: |
+            Unit of data allowed to be transfered. Allowed values are "KB", "MB" and "GB"
+          type: string
+          example: KB
         unitTime:
           type: integer
           format: int64
@@ -7644,6 +9112,22 @@ components:
         timeUnit:
           type: string
           example: min
+        rateLimitCount:
+          type: integer
+          default: 0
+          description: Burst control request count
+          example: 10
+        rateLimitTimeUnit:
+          type: string
+          description: Burst control time unit
+          example: min
+        quotaPolicyType:
+          type: string
+          description: Default quota limit type
+          enum:
+            - REQUESTCOUNT
+            - BANDWIDTHVOLUME
+          example: REQUESTCOUNT
         tierPlan:
           type: string
           description: |
@@ -7664,6 +9148,25 @@ components:
             type: string
           description: Properties of a tier plan which are related to monetization
           example: {}
+
+      SubscriptionPolicyList:
+      title: Subscription policy list
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of Tiers returned.
+          example: 1
+        list:
+          type: array
+          description: |
+            Array of SubscriptionPolicies
+          items:
+            $ref: '#/components/schemas/SubscriptionPolicy'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
     SubscriptionList:
       title: Subscription List
       type: object
@@ -7706,6 +9209,267 @@ components:
             - ON_HOLD
             - REJECTED
             - TIER_UPDATE_PENDING
+  ThrottlePolicy:
+    title: Generic Throttling Policy
+    required:
+      - policyName
+    type: object
+    properties:
+      policyId:
+        type: string
+        description: Id of policy
+        readOnly: true
+        example: 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93
+      policyName:
+        maxLength: 60
+        minLength: 1
+        type: string
+        description: Name of policy
+        example: 30PerMin
+      displayName:
+        type: string
+        description: Display name of the policy
+        example: 30PerMin
+        maxLength: 512
+      description:
+        maxLength: 1024
+        type: string
+        description: Description of the policy
+        example: Allows 30 request per minute
+      isDeployed:
+        type: boolean
+        description: Indicates whether the policy is deployed successfully or not.
+        default: false
+      type:
+        type: string
+        description: Indicates the type of throttle policy
+    discriminator:
+      propertyName: type
+    GraphQLQuery:
+      title: GraphQL Query
+      type: object
+      properties:
+        graphQLMaxComplexity:
+          type: integer
+          description: Maximum Complexity of the GraphQL query
+          example: 400
+        graphQLMaxDepth:
+          type: integer
+          description: Maximum Depth of the GraphQL query
+          example: 10
+    ThrottleLimitBase:
+      title: Throttle Limit Base
+      required:
+        - timeUnit
+        - unitTime
+      type: object
+      properties:
+        timeUnit:
+          type: string
+          description: Unit of the time. Allowed values are "sec", "min", "hour",
+            "day"
+          example: min
+        unitTime:
+          type: integer
+          description: Time limit that the throttling limit applies.
+          example: 10
+    ThrottleLimit:
+      title: Throttle Limit
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: |
+            Type of the throttling limit. Allowed values are "REQUESTCOUNTLIMIT" and "BANDWIDTHLIMIT".
+            Please see schemas of "RequestCountLimit" and "BandwidthLimit" throttling limit types in
+            Definitions section.
+          example: REQUESTCOUNTLIMIT
+          enum:
+            - REQUESTCOUNTLIMIT
+            - BANDWIDTHLIMIT
+            - EVENTCOUNTLIMIT
+        requestCount:
+          $ref: '#/components/schemas/RequestCountLimit'
+        bandwidth:
+          $ref: '#/components/schemas/BandwidthLimit'
+        eventCount:
+          $ref: '#/components/schemas/EventCountLimit'
+    MonetizationInfo:
+      title: API monetization details object
+      required:
+        - monetizationPlan
+        - properties
+      type: object
+      properties:
+        monetizationPlan:
+          type: string
+          description: Flag to indicate the monetization plan
+          example: FixedRate
+          enum:
+            - FIXEDRATE
+            - DYNAMICRATE
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+          description: Map of custom properties related to each monetization plan
+    BandwidthLimit:
+      title: Bandwidth Limit object
+      allOf:
+        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - required:
+            - dataAmount
+            - dataUnit
+          type: object
+          properties:
+            dataAmount:
+              type: integer
+              description: Amount of data allowed to be transfered
+              format: int64
+              example: 1000
+            dataUnit:
+              type: string
+              description: Unit of data allowed to be transfered. Allowed values are
+                "KB", "MB" and "GB"
+              example: KB
+    RequestCountLimit:
+      title: Request Count Limit object
+      allOf:
+        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - required:
+            - requestCount
+          type: object
+          properties:
+            requestCount:
+              type: integer
+              description: Maximum number of requests allowed
+              format: int64
+              example: 30
+    EventCountLimit:
+      title: Event Count Limit object
+      allOf:
+        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - required:
+            - eventCount
+          type: object
+          properties:
+            eventCount:
+              type: integer
+              description: Maximum number of events allowed
+              format: int64
+              example: 3000
+    SubscriptionPolicy:
+      title: Subscription Throttling Policy
+      allOf:
+        - required:
+            - defaultLimit
+          type: object
+          properties:
+            policyId:
+              type: int
+              description: Id of policy
+              example: 1
+            uuid:
+              type: string
+              description: policy uuid
+              example: 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93
+            policyName:
+              maxLength: 60
+              minLength: 1
+              type: string
+              description: Name of policy
+              example: 30PerMin
+            displayName:
+              type: string
+              description: Display name of the policy
+              example: 30PerMin
+              maxLength: 512
+            description:
+              maxLength: 1024
+              type: string
+              description: Description of the policy
+              example: Allows 30 request per minute
+            isDeployed:
+              type: boolean
+              description: Indicates whether the policy is deployed successfully or not.
+              default: false
+            tenantId:
+              type: int
+              description: Throttling policy tenant domain id
+              example: -1234
+            tenantDomain:
+              type: string
+              description: Throttling policy tenant domain
+              example: carbon.super
+            defaultLimit:
+              $ref: '#/components/schemas/ThrottleLimit'
+            rateLimitCount:
+              type: integer
+              description: Burst control request count
+              example: 10
+            rateLimitTimeUnit:
+              type: string
+              description: Burst control time unit
+              example: min
+            subscriberCount:
+              type: integer
+              description: Number of subscriptions allowed
+              example: 10
+            customAttributes:
+              type: array
+              description: |
+                Custom attributes added to the Subscription Throttling Policy
+              example: [ ]
+              items:
+                $ref: '#/components/schemas/CustomAttribute'
+            stopOnQuotaReach:
+              type: boolean
+              description: |
+                This indicates the action to be taken when a user goes beyond the allocated quota. If checked, the user's requests will be dropped. If unchecked, the requests will be allowed to pass through.
+              default: false
+            billingPlan:
+              type: string
+              description: |
+                define whether this is Paid or a Free plan. Allowed values are FREE or COMMERCIAL.
+              example: FREE
+            permissions:
+              $ref: '#/components/schemas/SubscriptionThrottlePolicyPermission'
+    CustomAttribute:
+      title: Name-Value pair
+      required:
+        - name
+        - value
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the custom attribute
+          example: customAttr1
+        value:
+          type: string
+          description: Value of the custom attribute
+          example: value1
+    SubscriptionThrottlePolicyPermission:
+      title: SubscriptionThrottlePolicyPermission
+      required:
+        - permissionType
+        - roles
+      type: object
+      properties:
+        permissionType:
+          type: string
+          example: deny
+          enum:
+            - ALLOW
+            - DENY
+        roles:
+          type: array
+          example:
+            - Internal/everyone
+          items:
+            type: string
     APIMonetizationUsage:
       title: API monetization usage object
       type: object
@@ -7715,1095 +9479,1087 @@ components:
           additionalProperties:
             type: string
           description: Map of custom properties related to monetization usage
-    APIRevenue:
-      title: API revenue data object
-      type: object
-      properties:
+      APIRevenue:
+        title: API revenue data object
+        type: object
         properties:
-          type: object
-          additionalProperties:
-            type: string
-          description: Map of custom properties related to API revenue
-    MediationPolicy:
-      title: Mediation Policy
-      required:
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          example: 69ea3fa6-55c6-472e-896d-e449dd34a824
-        name:
-          type: string
-          example: log_in_message
-        type:
-          type: string
-          example: in
-        shared:
-          type: boolean
-          example: true
-    Error:
-      title: Error object returned with 4XX HTTP Status
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-          description: Error message.
-        description:
-          type: string
-          description: |
-            A detail description about the error message.
-        moreInfo:
-          type: string
-          description: |
-            Preferably an url with more details about the error.
-        error:
-          type: array
-          description: |
-            If there are more than one error list them out.
-            For example, list out validation errors by each field.
-          items:
-            $ref: '#/components/schemas/ErrorListItem'
-    ErrorListItem:
-      title: Description of individual errors that may have occurred during a request.
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-          description: |
-            Description about individual errors occurred
-        description:
-          type: string
-          description: |
-            A detail description about the error message.
-    Environment:
-      title: Environment
-      required:
-        - endpoints
-        - name
-        - serverUrl
-        - showInApiConsole
-        - type
-      type: object
-      properties:
-        name:
-          type: string
-          example: Production and Sandbox
-        type:
-          type: string
-          example: hybrid
-        serverUrl:
-          type: string
-          example: https://localhost:9443/services/
-        showInApiConsole:
-          type: boolean
-          example: true
-        endpoints:
-          $ref: '#/components/schemas/EnvironmentEndpoints'
-    EnvironmentList:
-      title: Environment List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of Environments returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Environment'
-    EnvironmentEndpoints:
-      title: Environment Endpoints
-      type: object
-      properties:
-        http:
-          type: string
-          description: HTTP environment URL
-          example: http://localhost:8280
-        https:
-          type: string
-          description: HTTPS environment URL
-          example: https://localhost:8243
-        ws:
-          type: string
-          description: WS environment URL
-          example: http://localhost:9099
-        wss:
-          type: string
-          description: WSS environment URL
-          example: https://localhost:8099
-    FileInfo:
-      title: File Information including meta data
-      type: object
-      properties:
-        relativePath:
-          type: string
-          description: relative location of the file (excluding the base context and
-            host of the Publisher API)
-          example: apis/01234567-0123-0123-0123-012345678901/thumbnail
-        mediaType:
-          type: string
-          description: media-type of the file
-          example: image/jpeg
-    APIMaxTps:
-      type: object
-      properties:
-        production:
-          type: integer
-          format: int64
-          example: 1000
-        sandbox:
-          type: integer
-          format: int64
-          example: 1000
-    APIEndpointSecurity:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Accepts one of the following, basic or digest.
-          example: BASIC
-          enum:
-            - BASIC
-            - DIGEST
-        username:
-          type: string
-          example: admin
-        password:
-          type: string
-          example: password
-    APIBusinessInformation:
-      type: object
-      properties:
-        businessOwner:
-          maxLength: 120
-          type: string
-          example: businessowner
-        businessOwnerEmail:
-          type: string
-          example: businessowner@wso2.com
-          pattern: '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
-        technicalOwner:
-          maxLength: 120
-          type: string
-          example: technicalowner
-        technicalOwnerEmail:
-          type: string
-          example: technicalowner@wso2.com
-    APICorsConfiguration:
-      type: object
-      properties:
-        corsConfigurationEnabled:
-          type: boolean
-          default: false
-        accessControlAllowOrigins:
-          type: array
-          items:
-            type: string
-        accessControlAllowCredentials:
-          type: boolean
-          default: false
-        accessControlAllowHeaders:
-          type: array
-          items:
-            type: string
-        accessControlAllowMethods:
-          type: array
-          items:
-            type: string
-      description: |
-        CORS configuration for the API
-    Endpoint:
-      title: Endpoints
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            UUID of the Endpoint entry
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          type: string
-          description: |
-            name of the Endpoint entry
-          example: Endpoint 1
-        endpointConfig:
-          type: object
           properties:
-            endpointType:
+            type: object
+            additionalProperties:
               type: string
-              example: FAIL_OVER
-              enum:
-                - SINGLE
-                - LOAD_BALANCED
-                - FAIL_OVER
-            list:
-              type: array
-              items:
-                $ref: '#/components/schemas/EndpointConfig'
-        endpointSecurity:
-          type: object
-          properties:
-            enabled:
-              type: boolean
-              example: false
-            type:
+            description: Map of custom properties related to API revenue
+      MediationPolicy:
+        title: Mediation Policy
+        required:
+          - name
+        type: object
+        properties:
+          id:
+            type: string
+            example: 69ea3fa6-55c6-472e-896d-e449dd34a824
+          name:
+            type: string
+            example: log_in_message
+          type:
+            type: string
+            example: in
+          shared:
+            type: boolean
+            example: true
+      Error:
+        title: Error object returned with 4XX HTTP Status
+        required:
+          - code
+          - message
+        type: object
+        properties:
+          code:
+            type: integer
+            format: int64
+          message:
+            type: string
+            description: Error message.
+          description:
+            type: string
+            description: |
+              A detail description about the error message.
+          moreInfo:
+            type: string
+            description: |
+              Preferably an url with more details about the error.
+          error:
+            type: array
+            description: |
+              If there are more than one error list them out.
+              For example, list out validation errors by each field.
+            items:
+              $ref: '#/components/schemas/ErrorListItem'
+      ErrorListItem:
+        title: Description of individual errors that may have occurred during a request.
+        required:
+          - code
+          - message
+        type: object
+        properties:
+          code:
+            type: string
+          message:
+            type: string
+            description: |
+              Description about individual errors occurred
+          description:
+            type: string
+            description: |
+              A detail description about the error message.
+      Environment:
+        title: Environment
+        required:
+          - endpoints
+          - name
+          - serverUrl
+          - showInApiConsole
+          - type
+        type: object
+        properties:
+          name:
+            type: string
+            example: default
+          displayName:
+            type: string
+            example: Default
+          type:
+            type: string
+            example: hybrid
+          serverUrl:
+            type: string
+            example: https://localhost:9443/services/
+          showInApiConsole:
+            type: boolean
+            example: true
+          vhosts:
+            type: array
+            items:
+              $ref: '#/components/schemas/VHost'
+      EnvironmentList:
+        title: Environment List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of Environments returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/Environment'
+      VHost:
+        title: Virtual Host
+        type: object
+        properties:
+          host:
+            type: string
+            example: mg.wso2.com
+          httpContext:
+            type: string
+            example: pets
+          httpPort:
+            type: integer
+            example: 80
+          httpsPort:
+            type: integer
+            example: 443
+          wsPort:
+            type: integer
+            example: 9099
+          wssPort:
+            type: integer
+            example: 8099
+          websubHttpPort:
+            type: integer
+            example: 9021
+          websubHttpsPort:
+            type: integer
+            example: 8021
+      FileInfo:
+        title: File Information including meta data
+        type: object
+        properties:
+          relativePath:
+            type: string
+            description: relative location of the file (excluding the base context and
+              host of the Publisher API)
+            example: apis/01234567-0123-0123-0123-012345678901/thumbnail
+          mediaType:
+            type: string
+            description: media-type of the file
+            example: image/jpeg
+      APIMaxTps:
+        type: object
+        properties:
+          production:
+            type: integer
+            format: int64
+            example: 1000
+          sandbox:
+            type: integer
+            format: int64
+            example: 1000
+
+      APIBusinessInformation:
+        type: object
+        properties:
+          businessOwner:
+            maxLength: 120
+            type: string
+            example: businessowner
+          businessOwnerEmail:
+            type: string
+            example: businessowner@wso2.com
+            pattern: '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+          technicalOwner:
+            maxLength: 120
+            type: string
+            example: technicalowner
+          technicalOwnerEmail:
+            type: string
+            example: technicalowner@wso2.com
+
+      WebsubSubscriptionConfiguration:
+        type: object
+        properties:
+          enable:
+            type: boolean
+            default: false
+            description: Toggle enable WebSub subscription configuration
+          secret:
+            type: string
+            description: Secret key to be used for subscription
+          signingAlgorithm:
+            type: string
+            description: The algorithm used for signing
+          signatureHeader:
+            type: string
+            description: The header uses to send the signature
+
+      APICorsConfiguration:
+        type: object
+        properties:
+          corsConfigurationEnabled:
+            type: boolean
+            default: false
+          accessControlAllowOrigins:
+            type: array
+            items:
               type: string
-              example: basic
-            username:
+          accessControlAllowCredentials:
+            type: boolean
+            default: false
+          accessControlAllowHeaders:
+            type: array
+            items:
               type: string
-              example: basic
-            password:
+          accessControlAllowMethods:
+            type: array
+            items:
               type: string
-              example: basic
-        maxTps:
-          type: integer
-          description: Endpoint max tps
-          format: int64
-          example: 1000
-        type:
-          type: string
-          example: http
-    EndpointConfig:
-      title: Endpoint Configuration
-      type: object
-      properties:
-        url:
-          type: string
-          description: |
-            Service url of the endpoint
-          example: http://localhost:8280
-        timeout:
-          type: string
-          description: |
-            Time out of the endpoint
-          example: "1000"
-        attributes:
-          type: array
-          items:
+        description: |
+          CORS configuration for the API
+      Endpoint:
+        title: Endpoints
+        type: object
+        properties:
+          id:
+            type: string
+            description: |
+              UUID of the Endpoint entry
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            type: string
+            description: |
+              name of the Endpoint entry
+            example: Endpoint 1
+          endpointConfig:
             type: object
             properties:
-              name:
+              endpointType:
                 type: string
-                example: Suspension time
-              value:
-                type: string
-                example: 2s
-    EndpointList:
-      title: Endpoint List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of Endpoints returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Endpoint'
-    Scope:
-      title: Scope
-      required:
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            UUID of the Scope. Valid only for shared scopes.
-          readOnly: true
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          maxLength: 255
-          minLength: 1
-          type: string
-          description: |
-            name of Scope
-          example: apim:api_view
-        displayName:
-          maxLength: 255
-          type: string
-          description: |
-            display name of Scope
-          example: api_view
-        description:
-          maxLength: 512
-          type: string
-          description: |
-            description of Scope
-          example: This Scope can used to view Apis
-        bindings:
-          type: array
-          description: |
-            role bindings list of the Scope
-          example:
-            - admin
-            - Internal/creator
-            - Internal/publisher
-          items:
-            type: string
-        usageCount:
-          type: integer
-          description: |
-            usage count of Scope
-          readOnly: true
-          example: 3
-    SharedScopeUsage:
-      title: SharedScopeUsage
-      required:
-        - id
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            UUID of the Scope. Valid only for shared scopes.
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          type: string
-          description: |
-            name of Scope
-          example: apim:api_view
-        usedApiList:
-          type: array
-          description: |
-            API list which have used the shared scope
-          items:
-            $ref: '#/components/schemas/SharedScopeUsedAPIInfo'
-    SharedScopeUsedAPIInfo:
-      title: API object using shared scope
-      required:
-        - context
-        - name
-        - version
-      type: object
-      properties:
-        name:
-          type: string
-          example: CalculatorAPI
-        context:
-          type: string
-          example: CalculatorAPI
-        version:
-          type: string
-          example: 1.0.0
-        provider:
-          type: string
-          description: |
-            If the provider value is not given user invoking the api will be used as the provider.
-          example: admin
-        usedResourceList:
-          type: array
-          description: |
-            Resource list which have used the shared scope within this API
-          items:
-            $ref: '#/components/schemas/SharedScopeUsedAPIResourceInfo'
-    SharedScopeUsedAPIResourceInfo:
-      title: API resource object using shared scope
-      type: object
-      properties:
-        target:
-          type: string
-          example: /add
-        verb:
-          type: string
-          example: POST
-    APIScope:
-      title: APIScope
-      required:
-        - scope
-      type: object
-      properties:
-        scope:
-          $ref: '#/components/schemas/Scope'
-        shared:
-          type: boolean
-          description: |
-            States whether scope is shared. This will not be honored when updating/adding scopes to APIs or when
-            adding/updating Shared Scopes.
-          example: true
-    APIOperations:
-      title: Operation
-      type: object
-      properties:
-        id:
-          type: string
-          example: postapiresource
-        target:
-          type: string
-          example: /order/{orderId}
-        verb:
-          type: string
-          example: POST
-        authType:
-          type: string
-          example: Application & Application User
-          default: Any
-        throttlingPolicy:
-          type: string
-          example: Unlimited
-        scopes:
-          type: array
-          example: []
-          items:
-            type: string
-        usedProductIds:
-          type: array
-          example: []
-          items:
-            type: string
-        amznResourceName:
-          type: string
-          example: ""
-        amznResourceTimeout:
-          type: integer
-    ScopeList:
-      title: Scope List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of Scopes returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Scope'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    ExternalStore:
-      title: External Store
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            The external store identifier, which is a unique value.
-          example: Store123#
-        displayName:
-          type: string
-          description: |
-            The name of the external API Store that is displayed in the Publisher UI.
-          example: UKStore
-        type:
-          type: string
-          description: |
-            The type of the Store. This can be a WSO2-specific API Store or an external one.
-          example: wso2
-        endpoint:
-          type: string
-          description: |
-            The endpoint URL of the external store
-          example: http://localhost:9764/store
-    APIExternalStore:
-      title: API External Store
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            The external store identifier, which is a unique value.
-          example: Store123#
-        lastUpdatedTime:
-          type: string
-          description: |
-            The recent timestamp which a given API is updated in the external store.
-          example: 2019-09-09T13:57:16.229
-    APIExternalStoreList:
-      title: API External Store List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of external stores returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIExternalStore'
-    ExternalStoreList:
-      title: External Store List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of external stores returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExternalStore'
-    Certificates:
-      title: Certificates
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 1
-        certificates:
-          type: array
-          items:
-            $ref: '#/components/schemas/CertMetadata'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-      description: Representation of a list of certificates
-    CertMetadata:
-      title: Certificate
-      type: object
-      properties:
-        alias:
-          type: string
-          example: wso2carbon
-          description: Alias for the certificate
-        endpoint:
-          type: string
-          example: www.abc.com
-          description: Endpoint to which the certificate should be applied
-      description: Representation of the details of a certificate
-    CertificateInfo:
-      title: Certificate information
-      type: object
-      properties:
-        status:
-          type: string
-          example: Active
-        validity:
-          $ref: '#/components/schemas/CertificateValidity'
-        version:
-          type: string
-          example: V3
-        subject:
-          type: string
-          example: CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK
-    CertificateValidity:
-      title: Certificate Valid period
-      type: object
-      properties:
-        from:
-          type: string
-          example: 12-12-2017
-        to:
-          type: string
-          example: 01-01-2019
-    ClientCertificates:
-      title: Client Certificates
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 1
-        certificates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClientCertMetadata'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-      description: Representation of a list of client certificates
-    ClientCertMetadata:
-      title: Client certificate meta data
-      type: object
-      properties:
-        alias:
-          type: string
-          example: wso2carbon
-        apiId:
-          type: string
-          example: 64eca60b-2e55-4c38-8603-e9e6bad7d809
-        tier:
-          type: string
-          example: Gold
-      description: Meta data of certificate
-    Label:
-      title: Label
-      required:
-        - name
-      type: object
-      properties:
-        name:
-          type: string
-          example: marketing_store
-        description:
-          type: string
-          example: Public microgateway for marketing
-        access_urls:
-          type: array
-          example: https://localhost:9095
-          items:
-            type: string
-    LabelList:
-      title: Label List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of Labels returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    LifecycleState:
-      title: Lifecycle State
-      type: object
-      properties:
-        state:
-          type: string
-          example: Created
-        checkItems:
-          type: array
-          items:
+                example: FAIL_OVER
+                enum:
+                  - SINGLE
+                  - LOAD_BALANCED
+                  - FAIL_OVER
+              list:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EndpointConfig'
+          endpointSecurity:
             type: object
             properties:
-              name:
-                type: string
-                example: Deprecate old versions after publishing the API
-              value:
+              enabled:
                 type: boolean
                 example: false
-              requiredStates:
-                type: array
-                example: []
-                items:
+              type:
+                type: string
+                example: basic
+              username:
+                type: string
+                example: basic
+              password:
+                type: string
+                example: basic
+          maxTps:
+            type: integer
+            description: Endpoint max tps
+            format: int64
+            example: 1000
+          type:
+            type: string
+            example: http
+      EndpointConfig:
+        title: Endpoint Configuration
+        type: object
+        properties:
+          url:
+            type: string
+            description: |
+              Service url of the endpoint
+            example: http://localhost:8280
+          timeout:
+            type: string
+            description: |
+              Time out of the endpoint
+            example: "1000"
+          attributes:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
                   type: string
-        availableTransitions:
-          type: array
-          items:
+                  example: Suspension time
+                value:
+                  type: string
+                  example: 2s
+      EndpointList:
+        title: Endpoint List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of Endpoints returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/Endpoint'
+      Scope:
+        title: Scope
+        required:
+          - name
+        type: object
+        properties:
+          id:
+            type: string
+            description: |
+              UUID of the Scope. Valid only for shared scopes.
+            readOnly: true
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            maxLength: 255
+            minLength: 1
+            type: string
+            description: |
+              name of Scope
+            example: apim:api_view
+          displayName:
+            maxLength: 255
+            type: string
+            description: |
+              display name of Scope
+            example: api_view
+          description:
+            maxLength: 512
+            type: string
+            description: |
+              description of Scope
+            example: This Scope can used to view Apis
+          bindings:
+            type: array
+            description: |
+              role bindings list of the Scope
+            example:
+              - admin
+              - Internal/creator
+              - Internal/publisher
+            items:
+              type: string
+          usageCount:
+            type: integer
+            description: |
+              usage count of Scope
+            readOnly: true
+            example: 3
+      SharedScopeUsage:
+        title: SharedScopeUsage
+        required:
+          - id
+          - name
+        type: object
+        properties:
+          id:
+            type: string
+            description: |
+              UUID of the Scope. Valid only for shared scopes.
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            type: string
+            description: |
+              name of Scope
+            example: apim:api_view
+          usedApiList:
+            type: array
+            description: |
+              API list which have used the shared scope
+            items:
+              $ref: '#/components/schemas/SharedScopeUsedAPIInfo'
+      SharedScopeUsedAPIInfo:
+        title: API object using shared scope
+        required:
+          - context
+          - name
+          - version
+        type: object
+        properties:
+          name:
+            type: string
+            example: CalculatorAPI
+          context:
+            type: string
+            example: CalculatorAPI
+          version:
+            type: string
+            example: 1.0.0
+          provider:
+            type: string
+            description: |
+              If the provider value is not given user invoking the api will be used as the provider.
+            example: admin
+          usedResourceList:
+            type: array
+            description: |
+              Resource list which have used the shared scope within this API
+            items:
+              $ref: '#/components/schemas/SharedScopeUsedAPIResourceInfo'
+      SharedScopeUsedAPIResourceInfo:
+        title: API resource object using shared scope
+        type: object
+        properties:
+          target:
+            type: string
+            example: /add
+          verb:
+            type: string
+            example: POST
+      APIScope:
+        title: APIScope
+        required:
+          - scope
+        type: object
+        properties:
+          scope:
+            $ref: '#/components/schemas/Scope'
+          shared:
+            type: boolean
+            description: |
+              States whether scope is shared. This will not be honored when updating/adding scopes to APIs or when
+              adding/updating Shared Scopes.
+            example: true
+      APIOperations:
+        title: Operation
+        type: object
+        properties:
+          id:
+            type: string
+            example: postapiresource
+          target:
+            type: string
+            example: /order/{orderId}
+          verb:
+            type: string
+            example: POST
+          authType:
+            type: string
+            example: Application & Application User
+            default: Any
+          throttlingPolicy:
+            type: string
+            example: Unlimited
+          scopes:
+            type: array
+            example: []
+            items:
+              type: string
+          usedProductIds:
+            type: array
+            example: []
+            items:
+              type: string
+          amznResourceName:
+            type: string
+            example: ""
+          amznResourceTimeout:
+            type: integer
+          payloadSchema:
+            type: string
+            example: ""
+          uriMapping:
+            type: string
+            example: ""
+      ScopeList:
+        title: Scope List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of Scopes returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/Scope'
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+      ExternalStore:
+        title: External Store
+        type: object
+        properties:
+          id:
+            type: string
+            description: |
+              The external store identifier, which is a unique value.
+            example: Store123#
+          displayName:
+            type: string
+            description: |
+              The name of the external API Store that is displayed in the Publisher UI.
+            example: UKStore
+          type:
+            type: string
+            description: |
+              The type of the Store. This can be a WSO2-specific API Store or an external one.
+            example: wso2
+          endpoint:
+            type: string
+            description: |
+              The endpoint URL of the external store
+            example: http://localhost:9764/store
+      APIExternalStore:
+        title: API External Store
+        type: object
+        properties:
+          id:
+            type: string
+            description: |
+              The external store identifier, which is a unique value.
+            example: Store123#
+          lastUpdatedTime:
+            type: string
+            description: |
+              The recent timestamp which a given API is updated in the external store.
+            example: 2019-09-09T13:57:16.229
+      APIExternalStoreList:
+        title: API External Store List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of external stores returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/APIExternalStore'
+      ExternalStoreList:
+        title: External Store List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of external stores returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/ExternalStore'
+      Certificates:
+        title: Certificates
+        type: object
+        properties:
+          count:
+            type: integer
+            example: 1
+          certificates:
+            type: array
+            items:
+              $ref: '#/components/schemas/CertMetadata'
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+        description: Representation of a list of certificates
+      CertMetadata:
+        title: Certificate
+        type: object
+        properties:
+          alias:
+            type: string
+            example: wso2carbon
+            description: Alias for the certificate
+          endpoint:
+            type: string
+            example: www.abc.com
+            description: Endpoint to which the certificate should be applied
+        description: Representation of the details of a certificate
+      CertificateInfo:
+        title: Certificate information
+        type: object
+        properties:
+          status:
+            type: string
+            example: Active
+          validity:
+            $ref: '#/components/schemas/CertificateValidity'
+          version:
+            type: string
+            example: V3
+          subject:
+            type: string
+            example: CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK
+      CertificateValidity:
+        title: Certificate Valid period
+        type: object
+        properties:
+          from:
+            type: string
+            example: 12-12-2017
+          to:
+            type: string
+            example: 01-01-2019
+      ClientCertificates:
+        title: Client Certificates
+        type: object
+        properties:
+          count:
+            type: integer
+            example: 1
+          certificates:
+            type: array
+            items:
+              $ref: '#/components/schemas/ClientCertMetadata'
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+        description: Representation of a list of client certificates
+      ClientCertMetadata:
+        title: Client certificate meta data
+        type: object
+        properties:
+          alias:
+            type: string
+            example: wso2carbon
+          apiId:
+            type: string
+            example: 64eca60b-2e55-4c38-8603-e9e6bad7d809
+          tier:
+            type: string
+            example: Gold
+        description: Meta data of certificate
+
+      LifecycleState:
+        title: Lifecycle State
+        type: object
+        properties:
+          state:
+            type: string
+            example: Created
+          checkItems:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Deprecate old versions after publishing the API
+                value:
+                  type: boolean
+                  example: false
+                requiredStates:
+                  type: array
+                  example: []
+                  items:
+                    type: string
+          availableTransitions:
+            type: array
+            items:
+              type: object
+              properties:
+                event:
+                  type: string
+                  example: Publish
+                targetState:
+                  type: string
+                  example: Published
+      LifecycleHistory:
+        title: Lifecycle history item list
+        type: object
+        properties:
+          count:
+            type: integer
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/LifecycleHistoryItem'
+      LifecycleHistoryItem:
+        title: Lifecycle history item
+        type: object
+        properties:
+          previousState:
+            type: string
+            example: Created
+          postState:
+            type: string
+            example: Published
+          user:
+            type: string
+            example: admin
+          updatedTime:
+            type: string
+            format: dateTime
+            example: 2019-02-31T23:59:60Z
+      WorkflowResponse:
+        title: workflow Response
+        required:
+          - workflowStatus
+        type: object
+        properties:
+          workflowStatus:
+            type: string
+            description: |
+              This attribute declares whether this workflow task is approved or rejected.
+            example: APPROVED
+            enum:
+              - CREATED
+              - APPROVED
+              - REJECTED
+              - REGISTERED
+          jsonPayload:
+            type: string
+            description: |
+              Attributes that returned after the workflow execution
+            example: null
+          lifecycleState:
+            $ref: '#/components/schemas/LifecycleState'
+      OpenAPIDefinitionValidationResponse:
+        title: OpenAPI Definition Validation Response
+        required:
+          - isValid
+        type: object
+        properties:
+          isValid:
+            type: boolean
+            description: |
+              This attribute declares whether this definition is valid or not.
+            example: true
+          content:
+            type: string
+            description: |
+              OpenAPI definition content.
+          info:
             type: object
             properties:
-              event:
+              name:
                 type: string
-                example: Publish
-              targetState:
+                example: PetStore
+              version:
                 type: string
-                example: Published
-    LifecycleHistory:
-      title: Lifecycle history item list
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/LifecycleHistoryItem'
-    LifecycleHistoryItem:
-      title: Lifecycle history item
-      type: object
-      properties:
-        previousState:
-          type: string
-          example: Created
-        postState:
-          type: string
-          example: Published
-        user:
-          type: string
-          example: admin
-        updatedTime:
-          type: string
-          format: dateTime
-          example: 2019-02-31T23:59:60Z
-    WorkflowResponse:
-      title: workflow Response
-      required:
-        - workflowStatus
-      type: object
-      properties:
-        workflowStatus:
-          type: string
-          description: |
-            This attribute declares whether this workflow task is approved or rejected.
-          example: APPROVED
-          enum:
-            - CREATED
-            - APPROVED
-            - REJECTED
-            - REGISTERED
-        jsonPayload:
-          type: string
-          description: |
-            Attributes that returned after the workflow execution
-          example: null
-        lifecycleState:
-          $ref: '#/components/schemas/LifecycleState'
-    OpenAPIDefinitionValidationResponse:
-      title: OpenAPI Definition Validation Response
-      required:
-        - isValid
-      type: object
-      properties:
-        isValid:
-          type: boolean
-          description: |
-            This attribute declares whether this definition is valid or not.
-          example: true
-        content:
-          type: string
-          description: |
-            OpenAPI definition content.
-        info:
-          type: object
-          properties:
-            name:
-              type: string
-              example: PetStore
-            version:
-              type: string
-              example: 1.0.0
-            context:
-              type: string
-              example: /petstore
-            description:
-              type: string
-              example: A sample API that uses a petstore as an example to demonstrate
-                swagger-2.0 specification
-            openAPIVersion:
-              type: string
-              example: 3.0.0
-            endpoints:
-              type: array
-              description: |
-                contains host/servers specified in the OpenAPI file/URL
-              items:
+                example: 1.0.0
+              context:
                 type: string
-                example: https://localhost:9443/am/sample/pizzashack/v1/api/
-          description: |
-            API definition information
-        errors:
-          type: array
-          description: |
-            If there are more than one error list them out.
-            For example, list out validation errors by each field.
-          items:
-            $ref: '#/components/schemas/ErrorListItem'
-    WSDLValidationResponse:
-      title: WSDL Definition Validation Response
-      required:
-        - isValid
-      type: object
-      properties:
-        isValid:
-          type: boolean
-          description: |
-            This attribute declares whether this definition is valid or not.
-          example: true
-        errors:
-          type: array
-          description: |
-            If there are more than one error list them out.
-            For example, list out validation errors by each field.
-          items:
-            $ref: '#/components/schemas/ErrorListItem'
-        wsdlInfo:
-          type: object
-          properties:
-            version:
-              type: string
-              description: |
-                WSDL version
-              example: "1.1"
-            endpoints:
-              type: array
-              description: |
-                A list of endpoints the service exposes
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    description: Name of the endpoint
-                    example: StockQuoteSoap
-                  location:
-                    type: string
-                    description: Endpoint URL
-                    example: http://www.webservicex.net/stockquote.asmx
-          description: Summary of the WSDL including the basic information
-    GraphQLValidationResponse:
-      title: GraphQL API definition validation Response
-      required:
-        - errorMessage
-        - isValid
-      type: object
-      properties:
-        isValid:
-          type: boolean
-          description: |
-            This attribute declares whether this definition is valid or not.
-          example: true
-        errorMessage:
-          type: string
-          description: |
-            This attribute declares the validation error message
-        graphQLInfo:
-          type: object
-          properties:
-            operations:
-              type: array
-              items:
-                $ref: '#/components/schemas/APIOperations'
-            graphQLSchema:
-              $ref: '#/components/schemas/GraphQLSchema'
-          description: Summary of the GraphQL including the basic information
-    ApiEndpointValidationResponse:
-      title: API Endpoint url validation response
-      required:
-        - statusCode
-        - statusMessage
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          description: HTTP status code
-          example: 200
-        statusMessage:
-          type: string
-          description: string
-          example: OK
-        error:
-          type: string
-          description: |
-            If an error occurs, the error message will be set to this property.
-            If not, this will remain null.
-          example: null
-    ThreatProtectionPolicyList:
-      title: Threat Protection Policy List
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThreatProtectionPolicy'
-    ThreatProtectionPolicy:
-      title: Threat Protection Policy Schema
-      required:
-        - name
-        - policy
-        - type
-      type: object
-      properties:
-        uuid:
-          type: string
-          description: Policy ID
-        name:
-          type: string
-          description: Name of the policy
-        type:
-          type: string
-          description: Type of the policy
-        policy:
-          type: string
-          description: policy as a json string
-    SearchResultList:
-      title: Unified Search Result List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of results returned.
-          example: 1
-        list:
-          type: array
-          items:
-            type: object
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    SearchResult:
-      title: Search Result
-      required:
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          type: string
-          example: TestAPI
-        type:
-          type: string
-          example: API
-          enum:
-            - DOC
-            - API
-            - APIProduct
-        transportType:
-          type: string
-          description: Accepted values are HTTP, WS, SOAPTOREST, GRAPHQL
-      discriminator:
-        propertyName: name
-    APISearchResult:
-      title: API Result
-      allOf:
-        - $ref: '#/components/schemas/SearchResult'
-        - type: object
-          properties:
-            description:
-              type: string
-              description: A brief description about the API
-              example: A calculator API that supports basic operations
-            context:
-              type: string
-              description: A string that represents the context of the user's request
-              example: CalculatorAPI
-            version:
-              type: string
-              description: The version of the API
-              example: 1.0.0
-            provider:
-              type: string
-              description: |
-                If the provider value is not given, the user invoking the API will be used as the provider.
-              example: admin
-            status:
-              type: string
-              description: This describes in which status of the lifecycle the API is
-              example: CREATED
-            thumbnailUri:
-              type: string
-              example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
-    APIProductSearchResult:
-      title: API Result
-      allOf:
-        - $ref: '#/components/schemas/SearchResult'
-        - type: object
-          properties:
-            description:
-              type: string
-              description: A brief description about the API
-              example: A calculator API that supports basic operations
-            context:
-              type: string
-              description: A string that represents the context of the user's request
-              example: CalculatorAPI
-            version:
-              type: string
-              description: The version of the API Product
-              example: 1.0.0
-            provider:
-              type: string
-              description: |
-                If the provider value is not given, the user invoking the API will be used as the provider.
-              example: admin
-            status:
-              type: string
-              description: This describes in which status of the lifecycle the APIPRODUCT
-                is
-              example: PUBLISHED
-            thumbnailUri:
-              type: string
-              example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
-    APIMonetizationInfo:
-      title: API monetization object
-      required:
-        - enabled
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          description: Flag to indicate the monetization status
-          example: true
+                example: /petstore
+              description:
+                type: string
+                example: A sample API that uses a petstore as an example to demonstrate
+                  swagger-2.0 specification
+              openAPIVersion:
+                type: string
+                example: 3.0.0
+              endpoints:
+                type: array
+                description: |
+                  contains host/servers specified in the OpenAPI file/URL
+                items:
+                  type: string
+                  example: https://localhost:9443/am/sample/pizzashack/v1/api/
+            description: |
+              API definition information
+          errors:
+            type: array
+            description: |
+              If there are more than one error list them out.
+              For example, list out validation errors by each field.
+            items:
+              $ref: '#/components/schemas/ErrorListItem'
+      WSDLValidationResponse:
+        title: WSDL Definition Validation Response
+        required:
+          - isValid
+        type: object
         properties:
-          type: object
-          additionalProperties:
+          isValid:
+            type: boolean
+            description: |
+              This attribute declares whether this definition is valid or not.
+            example: true
+          errors:
+            type: array
+            description: |
+              If there are more than one error list them out.
+              For example, list out validation errors by each field.
+            items:
+              $ref: '#/components/schemas/ErrorListItem'
+          wsdlInfo:
+            type: object
+            properties:
+              version:
+                type: string
+                description: |
+                  WSDL version
+                example: "1.1"
+              endpoints:
+                type: array
+                description: |
+                  A list of endpoints the service exposes
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Name of the endpoint
+                      example: StockQuoteSoap
+                    location:
+                      type: string
+                      description: Endpoint URL
+                      example: http://www.webservicex.net/stockquote.asmx
+            description: Summary of the WSDL including the basic information
+      GraphQLValidationResponse:
+        title: GraphQL API definition validation Response
+        required:
+          - errorMessage
+          - isValid
+        type: object
+        properties:
+          isValid:
+            type: boolean
+            description: |
+              This attribute declares whether this definition is valid or not.
+            example: true
+          errorMessage:
             type: string
-          description: Map of custom properties related to monetization
-    DocumentSearchResult:
-      title: Document Result
-      allOf:
-        - $ref: '#/components/schemas/SearchResult'
-        - type: object
+            description: |
+              This attribute declares the validation error message
+          graphQLInfo:
+            type: object
+            properties:
+              operations:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIOperations'
+              graphQLSchema:
+                $ref: '#/components/schemas/GraphQLSchema'
+            description: Summary of the GraphQL including the basic information
+      ApiEndpointValidationResponse:
+        title: API Endpoint url validation response
+        required:
+          - statusCode
+          - statusMessage
+        type: object
+        properties:
+          statusCode:
+            type: integer
+            description: HTTP status code
+            example: 200
+          statusMessage:
+            type: string
+            description: string
+            example: OK
+          error:
+            type: string
+            description: |
+              If an error occurs, the error message will be set to this property.
+              If not, this will remain null.
+            example: null
+      ThreatProtectionPolicyList:
+        title: Threat Protection Policy List
+        type: object
+        properties:
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/ThreatProtectionPolicy'
+      ThreatProtectionPolicy:
+        title: Threat Protection Policy Schema
+        required:
+          - name
+          - policy
+          - type
+        type: object
+        properties:
+          uuid:
+            type: string
+            description: Policy ID
+          name:
+            type: string
+            description: Name of the policy
+          type:
+            type: string
+            description: Type of the policy
+          policy:
+            type: string
+            description: policy as a json string
+      SearchResultList:
+        title: Unified Search Result List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of results returned.
+            example: 1
+          list:
+            type: array
+            items:
+              type: object
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+      SearchResult:
+        title: Search Result
+        required:
+          - name
+        type: object
+        properties:
+          id:
+            type: string
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            type: string
+            example: TestAPI
+          type:
+            type: string
+            example: API
+            enum:
+              - DOC
+              - API
+              - APIProduct
+          transportType:
+            type: string
+            description: Accepted values are HTTP, WS, SOAPTOREST, GRAPHQL
+        discriminator:
+          propertyName: name
+      APISearchResult:
+        title: API Result
+        allOf:
+          - $ref: '#/components/schemas/SearchResult'
+          - type: object
+            properties:
+              description:
+                type: string
+                description: A brief description about the API
+                example: A calculator API that supports basic operations
+              context:
+                type: string
+                description: A string that represents the context of the user's request
+                example: CalculatorAPI
+              version:
+                type: string
+                description: The version of the API
+                example: 1.0.0
+              provider:
+                type: string
+                description: |
+                  If the provider value is not given, the user invoking the API will be used as the provider.
+                example: admin
+              status:
+                type: string
+                description: This describes in which status of the lifecycle the API is
+                example: CREATED
+              thumbnailUri:
+                type: string
+                example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
+      APIProductSearchResult:
+        title: API Result
+        allOf:
+          - $ref: '#/components/schemas/SearchResult'
+          - type: object
+            properties:
+              description:
+                type: string
+                description: A brief description about the API
+                example: A calculator API that supports basic operations
+              context:
+                type: string
+                description: A string that represents the context of the user's request
+                example: CalculatorAPI
+              version:
+                type: string
+                description: The version of the API Product
+                example: 1.0.0
+              provider:
+                type: string
+                description: |
+                  If the provider value is not given, the user invoking the API will be used as the provider.
+                example: admin
+              status:
+                type: string
+                description: This describes in which status of the lifecycle the APIPRODUCT
+                  is
+                example: PUBLISHED
+              thumbnailUri:
+                type: string
+                example: /apis/01234567-0123-0123-0123-012345678901/thumbnail
+      APIMonetizationInfo:
+        title: API monetization object
+        required:
+          - enabled
+        type: object
+        properties:
+          enabled:
+            type: boolean
+            description: Flag to indicate the monetization status
+            example: true
           properties:
-            docType:
+            type: object
+            additionalProperties:
               type: string
-              example: HOWTO
-              enum:
-                - HOWTO
-                - SAMPLES
-                - PUBLIC_FORUM
-                - SUPPORT_FORUM
-                - API_MESSAGE_FORMAT
-                - SWAGGER_DOC
-                - OTHER
-            summary:
-              type: string
-              example: Summary of Calculator Documentation
-            sourceType:
-              type: string
-              example: INLINE
-              enum:
-                - INLINE
-                - URL
-                - FILE
-            sourceUrl:
-              type: string
-              example: ""
-            otherTypeName:
-              type: string
-              example: ""
-            visibility:
-              type: string
-              example: API_LEVEL
-              enum:
-                - OWNER_ONLY
-                - PRIVATE
-                - API_LEVEL
-            apiName:
-              type: string
-              description: The name of the associated API
-              example: TestAPI
-            apiVersion:
-              type: string
-              description: The version of the associated API
-              example: 1.0.0
-            apiProvider:
-              type: string
-              example: admin
-            apiUUID:
-              type: string
-            associatedType:
-              type: string
-    MockResponsePayloadList:
-      title: Mock Response Payload list
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/MockResponsePayloadInfo'
-    MockResponsePayloadInfo:
-      title: Mock Response Payload info object
-      type: object
-      properties:
-        path:
-          type: string
-          description: path of the resource
-          example: /menu
-        content:
-          type: string
-          description: new modified code
-          example: "var accept = \"\\\"\"+mc.getProperty('AcceptHeader')+\"\\\"\"\
+            description: Map of custom properties related to monetization
+      DocumentSearchResult:
+        title: Document Result
+        allOf:
+          - $ref: '#/components/schemas/SearchResult'
+          - type: object
+            properties:
+              docType:
+                type: string
+                example: HOWTO
+                enum:
+                  - HOWTO
+                  - SAMPLES
+                  - PUBLIC_FORUM
+                  - SUPPORT_FORUM
+                  - API_MESSAGE_FORMAT
+                  - SWAGGER_DOC
+                  - OTHER
+              summary:
+                type: string
+                example: Summary of Calculator Documentation
+              sourceType:
+                type: string
+                example: INLINE
+                enum:
+                  - INLINE
+                  - URL
+                  - FILE
+                  - MARKDOWN
+              sourceUrl:
+                type: string
+                example: ""
+              otherTypeName:
+                type: string
+                example: ""
+              visibility:
+                type: string
+                example: API_LEVEL
+                enum:
+                  - OWNER_ONLY
+                  - PRIVATE
+                  - API_LEVEL
+              apiName:
+                type: string
+                description: The name of the associated API
+                example: TestAPI
+              apiVersion:
+                type: string
+                description: The version of the associated API
+                example: 1.0.0
+              apiProvider:
+                type: string
+                example: admin
+              apiUUID:
+                type: string
+              associatedType:
+                type: string
+      MockResponsePayloadList:
+        title: Mock Response Payload list
+        type: object
+        properties:
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/MockResponsePayloadInfo'
+      MockResponsePayloadInfo:
+        title: Mock Response Payload info object
+        type: object
+        properties:
+          path:
+            type: string
+            description: path of the resource
+            example: /menu
+          content:
+            type: string
+            description: new modified code
+            example: "var accept = \"\\\"\"+mc.getProperty('AcceptHeader')+\"\\\"\"\
             ;\nvar responseCode = mc.getProperty('query.param.responseCode');\nvar\
             \ responseCodeStr = \"\\\"\"+responseCode+\"\\\"\";\nvar responses = [];\n\
             \nif (!responses[200]) {\n responses [200] = [];\n}\nresponses[200][\"\
@@ -8826,516 +10582,356 @@ components:
             ]);\n} else if (accept === \"application/xml\") {\n mc.setProperty('CONTENT_TYPE',\
             \ 'application/xml');\n mc.setProperty('HTTP_SC', responseCodeStr);\n\
             \ mc.setPayloadXML(responses[responseCode][\"application/xml\"]);\n}"
-        verb:
-          type: string
-          example: POST
-    ResourcePolicyList:
-      title: Resource policy List
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourcePolicyInfo'
-        count:
-          type: integer
-          description: |
-            Number of policy resources returned.
-          example: 1
-    ResourcePolicyInfo:
-      title: Resource policy Info object with conversion policy resource details.
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            UUID of the resource policy registry artifact
-          readOnly: true
-          example: 01234567-0123-0123-0123-012345678901
-        httpVerb:
-          type: string
-          description: HTTP verb used for the resource path
-          example: get
-        resourcePath:
-          type: string
-          description: A string that represents the resource path of the api for the
-            related resource policy
-          example: checkPhoneNumber
-        content:
-          type: string
-          description: The resource policy content
-          example: <header description="SOAPAction" name="SOAPAction" scope="transport"
-            value="http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber"/>
-    Settings:
-      title: SettingsDTO
-      type: object
-      properties:
-        devportalUrl:
-          type: string
-          description: The Developer Portal URL
-          example: https://localhost:9443/devportal
-        environment:
-          type: array
-          items:
-            $ref: '#/components/schemas/Environment'
-        scopes:
-          type: array
-          example:
-            - apim:api_create
-            - apim:api_publish
-          items:
+          verb:
             type: string
-        monetizationAttributes:
-          type: array
-          example: []
-          items:
-            $ref: '#/components/schemas/MonetizationAttribute'
-        securityAuditProperties:
-          type: object
-          properties: {}
-        externalStoresEnabled:
-          type: boolean
-          description: |
-            Is External Stores configuration enabled
-          example: true
-        docVisibilityEnabled:
-          type: boolean
-          description: |
-            Is Document Visibility configuration enabled
-          example: false
-        crossTenantSubscriptionEnabled:
-          type: boolean
-          description: |
-            Is Cross Tenant Subscriptions Enabled
-          example: false
-          default: false
-        deployments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Deployments'
-    SecurityAuditAttribute:
-      title: SecurityAuditAttributeDTO
-      type: object
-      properties:
-        isGlobal:
-          type: boolean
-          example: false
-        overrideGlobal:
-          type: boolean
-          example: false
-        apiToken:
-          type: string
-          example: b1267ytf-b7gc-4aee-924d-ece81241efec
-        collectionId:
-          type: string
-          example: 456ef957-5a79-449f-83y3-9027945d3c60
-        baseUrl:
-          type: string
-    WSDLInfo:
-      title: WSDL information of the API. This is only available if the API is a SOAP
-        API.
-      type: object
-      properties:
-        type:
-          type: string
-          description: Indicates whether the WSDL is a single WSDL or an archive in
-            ZIP format
-          enum:
-            - WSDL
-            - ZIP
-    Pagination:
-      title: Pagination
-      type: object
-      properties:
-        offset:
-          type: integer
-          example: 0
-        limit:
-          type: integer
-          example: 1
-        total:
-          type: integer
-          example: 10
-        next:
-          type: string
-          description: |
-            Link to the next subset of resources qualified.
-            Empty if no more resources are to be returned.
-        previous:
-          type: string
-          description: |
-            Link to the previous subset of resources qualified.
-            Empty if current subset is the first subset returned.
-    MonetizationAttribute:
-      title: Monetization attribute object
-      type: object
-      properties:
-        required:
-          type: boolean
-          description: |
-            Is attribute required
-          example: true
-        name:
-          type: string
-          description: |
-            Name of the attribute
-        displayName:
-          type: string
-          description: |
-            Display name of the attribute
-        description:
-          type: string
-          description: |
-            Description of the attribute
-        hidden:
-          type: boolean
-          description: |
-            Is attribute hidden
-        default:
-          type: string
-          description: |
-            Default value of the attribute
-    Tenant:
-      title: Tenant
-      type: object
-      properties:
-        domain:
-          type: string
-          description: tenant domain
-          example: wso2.com
-        status:
-          type: string
-          description: current status of the tenant active/inactive
-          example: active
-    TenantList:
-      title: Tenant list
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of tenants returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tenant'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    AlertTypesList:
-      title: Alert Types List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: The number of alerts
-          example: 3
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertType'
-    AlertType:
-      title: Alert Type
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The alert Id
-          example: 1
-        name:
-          type: string
-          description: The name of the alert.
-          example: AbnormalRequestTime
-        requireConfiguration:
-          type: boolean
-          description: Whether the alert type require additional configurations.
-          example: true
-    Alert:
-      title: Alert
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The alert Id
-          example: 1
-        name:
-          type: string
-          description: The name of the alert.
-          example: AbnormalRequestsPerMin
-        configuration:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertConfig'
-    AlertsInfo:
-      title: Alerts Info
-      type: object
-      properties:
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alert'
-        emailList:
-          type: array
-          items:
+            example: POST
+      ResourcePolicyList:
+        title: Resource policy List
+        type: object
+        properties:
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/ResourcePolicyInfo'
+          count:
+            type: integer
+            description: |
+              Number of policy resources returned.
+            example: 1
+      ResourcePolicyInfo:
+        title: Resource policy Info object with conversion policy resource details.
+        type: object
+        properties:
+          id:
             type: string
-    AlertsInfoResponse:
-      title: Alerts Info Response
-      type: object
-      properties:
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alert'
-        emailList:
-          type: array
-          items:
+            description: |
+              UUID of the resource policy registry artifact
+            readOnly: true
+            example: 01234567-0123-0123-0123-012345678901
+          httpVerb:
             type: string
-        failedConfigurations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertConfig'
-    AlertConfigList:
-      title: Alert Configuration List
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertConfig'
-    AlertConfig:
-      title: Alert Configuration
-      type: object
-      properties:
-        configurationId:
-          type: string
-          description: The alert config subscription id.
-          example: UGl6emFTaGFja0FQSSsxLjAuMCtEZWZhdWx0QXBwbGljYXRpb24K
-        configuration:
-          type: object
-          additionalProperties:
+            description: HTTP verb used for the resource path
+            example: get
+          resourcePath:
             type: string
-          description: The config parameters.
-          example:
-            apiName: PizzaShackAPI
-            apiVersion: 1.0.0
-            applicationName: DefaultApplication
-            requestConunt: "12"
-    AlertConfigInfo:
-      title: Alert Configuration Info
-      type: object
-      additionalProperties:
-        type: string
-      description: The config parameters.
-      example:
-        apiName: PizzaShackAPI
-        apiVersion: 1.0.0
-        applicationName: DefaultApplication
-        requestConunt: "12"
-    APICategory:
-      title: API Category
-      required:
-        - name
-      type: object
-      properties:
-        id:
-          type: string
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          type: string
-          example: Finance
-        description:
-          type: string
-          example: Finance related APIs
-    APICategoryList:
-      title: API Category List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of API categories returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/APICategory'
-    KeyManagerInfo:
-      title: Key Manager Info
-      required:
-        - name
-        - type
-      type: object
-      properties:
-        id:
-          type: string
-          example: 01234567-0123-0123-0123-012345678901
-        name:
-          type: string
-          example: WSO2 IS
-        displayName:
-          type: string
-          description: |
-            display name of Keymanager
-          example: Keymanager1
-        type:
-          type: string
-          example: IS
-        description:
-          type: string
-          example: This is a key manager for Developers
-        enabled:
-          type: boolean
-          example: true
-        additionalProperties:
-          type: array
-          items:
+            description: A string that represents the resource path of the api for the
+              related resource policy
+            example: checkPhoneNumber
+          content:
+            type: string
+            description: The resource policy content
+            example: <header description="SOAPAction" name="SOAPAction" scope="transport"
+              value="http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber"/>
+      Settings:
+        title: SettingsDTO
+        type: object
+        properties:
+          devportalUrl:
+            type: string
+            description: The Developer Portal URL
+            example: https://localhost:9443/devportal
+          environment:
+            type: array
+            items:
+              $ref: '#/components/schemas/Environment'
+          scopes:
+            type: array
+            example:
+              - apim:api_create
+              - apim:api_publish
+            items:
+              type: string
+          monetizationAttributes:
+            type: array
+            example: []
+            items:
+              $ref: '#/components/schemas/MonetizationAttribute'
+          securityAuditProperties:
             type: object
             properties: {}
-    KeyManagerList:
-      title: Key Manager List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of Key managers returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyManagerInfo'
-    DeploymentList:
-      title: Deployment List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Number of deployment clusters returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/Deployments'
-    Deployments:
-      title: Deployments
-      required:
-        - clusters
-        - name
-      type: object
-      properties:
-        name:
-          type: string
-          example: Kubernetes
-        clusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeploymentClusterInfo'
-    DeploymentClusterInfo:
-      title: DeploymentClusterInfo
-      required:
-        - accessURL
-        - clusterName
-        - displayName
-        - properties
-      type: object
-      properties:
-        clusterName:
-          type: string
-          example: minikube
-        accessURL:
-          type: string
-          example: https://api.com
-        displayName:
-          type: string
-          example: kubernetes-minikube
+          externalStoresEnabled:
+            type: boolean
+            description: |
+              Is External Stores configuration enabled
+            example: true
+          docVisibilityEnabled:
+            type: boolean
+            description: |
+              Is Document Visibility configuration enabled
+            example: false
+          crossTenantSubscriptionEnabled:
+            type: boolean
+            description: |
+              Is Cross Tenant Subscriptions Enabled
+            example: false
+            default: false
+
+      SecurityAuditAttribute:
+        title: SecurityAuditAttributeDTO
+        type: object
         properties:
-          type: object
+          isGlobal:
+            type: boolean
+            example: false
+          overrideGlobal:
+            type: boolean
+            example: false
+          apiToken:
+            type: string
+            example: b1267ytf-b7gc-4aee-924d-ece81241efec
+          collectionId:
+            type: string
+            example: 456ef957-5a79-449f-83y3-9027945d3c60
+          baseUrl:
+            type: string
+      WSDLInfo:
+        title: WSDL information of the API. This is only available if the API is a SOAP
+          API.
+        type: object
+        properties:
+          type:
+            type: string
+            description: Indicates whether the WSDL is a single WSDL or an archive in
+              ZIP format
+            enum:
+              - WSDL
+              - ZIP
+      Pagination:
+        title: Pagination
+        type: object
+        properties:
+          offset:
+            type: integer
+            example: 0
+          limit:
+            type: integer
+            example: 1
+          total:
+            type: integer
+            example: 10
+          next:
+            type: string
+            description: |
+              Link to the next subset of resources qualified.
+              Empty if no more resources are to be returned.
+          previous:
+            type: string
+            description: |
+              Link to the previous subset of resources qualified.
+              Empty if current subset is the first subset returned.
+      MonetizationAttribute:
+        title: Monetization attribute object
+        type: object
+        properties:
+          required:
+            type: boolean
+            description: |
+              Is attribute required
+            example: true
+          name:
+            type: string
+            description: |
+              Name of the attribute
+          displayName:
+            type: string
+            description: |
+              Display name of the attribute
+          description:
+            type: string
+            description: |
+              Description of the attribute
+          hidden:
+            type: boolean
+            description: |
+              Is attribute hidden
+          default:
+            type: string
+            description: |
+              Default value of the attribute
+      Tenant:
+        title: Tenant
+        type: object
+        properties:
+          domain:
+            type: string
+            description: tenant domain
+            example: wso2.com
+          status:
+            type: string
+            description: current status of the tenant active/inactive
+            example: active
+      TenantList:
+        title: Tenant list
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of tenants returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/Tenant'
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+      AdvertiseInfo:
+        title: API Advertise info object with advertise details
+        type: object
+        properties:
+          advertised:
+            type: boolean
+            example: true
+          originalDevPortalUrl:
+            type: string
+            example: https://localhost:9443/devportal
+          apiOwner:
+            type: string
+            example: admin
+          vendor:
+            type: string
+            default: WSO2
+            enum:
+              - WSO2
+              - AWS
+      APICategory:
+        title: API Category
+        required:
+          - name
+        type: object
+        properties:
+          id:
+            type: string
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            type: string
+            example: Finance
+          description:
+            type: string
+            example: Finance related APIs
+      APICategoryList:
+        title: API Category List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of API categories returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/APICategory'
+      KeyManagerInfo:
+        title: Key Manager Info
+        required:
+          - name
+          - type
+        type: object
+        properties:
+          id:
+            type: string
+            example: 01234567-0123-0123-0123-012345678901
+          name:
+            type: string
+            example: WSO2 IS
+          displayName:
+            type: string
+            description: |
+              display name of Keymanager
+            example: Keymanager1
+          type:
+            type: string
+            example: IS
+          description:
+            type: string
+            example: This is a key manager for Developers
+          enabled:
+            type: boolean
+            example: true
           additionalProperties:
+            type: array
+            items:
+              type: object
+              properties: {}
+      KeyManagerList:
+        title: Key Manager List
+        type: object
+        properties:
+          count:
+            type: integer
+            description: |
+              Number of Key managers returned.
+            example: 1
+          list:
+            type: array
+            items:
+              $ref: '#/components/schemas/KeyManagerInfo'
+
+      APIKey:
+        title: API Key details to invoke APIs
+        type: object
+        properties:
+          apikey:
             type: string
-    DeploymentStatusList:
-      title: DeploymentStatus List
-      type: object
-      properties:
-        count:
-          type: integer
-          description: |
-            Status of the deployments returned.
-          example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeploymentStatus'
-    DeploymentStatus:
-      title: DeploymentStatus
-      required:
-        - clusters
-        - type
-      type: object
-      properties:
-        type:
-          type: string
-          example: Kubernetes
-        clusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeploymentClusterStatus'
-    DeploymentClusterStatus:
-      title: DeploymentClusterStatus
-      required:
-        - clusterName
-        - healthStatus
-        - podsRunning
-      type: object
-      properties:
-        clusterName:
-          type: string
-          example: Minikube
-        podsRunning:
-          type: integer
-        healthStatus:
-          type: array
-          items:
-            $ref: '#/components/schemas/PodStatus'
-    DeploymentEnvironments:
-      title: DeploymentEnvironments
-      required:
-        - clusterName
-        - type
-      type: object
-      properties:
-        type:
-          type: string
-          example: Kubernetes
-        clusterName:
-          type: array
-          example:
-            - minikube
-          items:
+            description: API Key
+            example: eyJoZWxsbyI6IndvcmxkIn0=.eyJ3c28yIjoiYXBpbSJ9.eyJ3c28yIjoic2lnbmF0dXJlIn0=
+          validityTime:
+            type: integer
+            format: int32
+            example: 3600
+      AsyncAPISpecificationValidationResponse:
+        title: AsyncAPI Specification Validation Response
+        required:
+          - isValid
+        type: object
+        properties:
+          isValid:
+            type: boolean
+            description:
+              This attribute declares whether this definition is valid or not.
+            example: true
+          content:
             type: string
-    PodStatus:
-      title: PodStatus
-      required:
-        - name
-        - ready
-        - status
-      type: object
-      properties:
-        name:
-          type: string
-          example: petStore-677bb7cc65-shb2f
-        ready:
-          type: string
-          example: 1/1
-        status:
-          type: string
-          example: running
-        creationTimestamp:
-          type: string
-          example: 2020-05-12T06:12:00Z
+            description:
+              AsyncAPI specification content
+          info:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Streetlights
+              version:
+                type: string
+                example: 1.0.0
+              context:
+                type: string
+                example: /streetlights
+              description:
+                type: string
+                example: A sample API that uses a streetlights as an example to demonstrate AsyncAPI specifications
+              asyncAPIVersion:
+                type: string
+                example: 2.0
+              protocol:
+                type: string
+                example: WEBSUB
+              endpoints:
+                type: array
+                description:
+                  contains host/servers specified in the AsyncAPI file/URL
+                items:
+                  type: string
+                  example: "https://localhost:9443/am/sample/pizzashack/v1/api/"
+            description:
+              API definition information
+          errors:
+            type: array
+            description:
+              If there are more than one error list them out.
+              For example, list out validation error by each field.
+            items:
+              $ref: '#/components/schemas/ErrorListItem'
   responses:
     BadRequest:
       description: Bad Request. Invalid request or validation error.
@@ -9452,6 +11048,45 @@ components:
             moreInfo: ""
             error: []
   parameters:
+    replyLimit:
+      name: replyLimit
+      in: query
+      description: |
+        Maximum size of replies array to return.
+      schema:
+        type: integer
+        default: 25
+    replyOffset:
+      name: replyOffset
+      in: query
+      description: |
+        Starting point within the complete list of replies.
+      schema:
+        type: integer
+        default: 0
+    commentId:
+      name: commentId
+      in: path
+      description: |
+        Comment Id
+      required: true
+      schema:
+        type: string
+    parentCommentID:
+      name: replyTo
+      in: query
+      description: |
+        ID of the perent comment.
+      schema:
+        type: string
+    includeCommenterInfo:
+      name: includeCommenterInfo
+      in: query
+      description: |
+        Whether we need to display commentor details.
+      schema:
+        type: boolean
+        default : false
     apiId:
       name: apiId
       in: path
@@ -9512,6 +11147,27 @@ components:
       required: true
       schema:
         type: string
+      apiName-Q:
+      name: name
+      in: query
+      description: |
+        Name of the API
+      schema:
+        type: string
+    apiVersion-Q:
+      name: version
+      in: query
+      description: |
+        Version of the API
+      schema:
+        type: string
+    apiProvider-Q:
+      name: providerName
+      in: query
+      description: |
+        Provider name of the API
+      schema:
+        type: string
     documentId:
       name: documentId
       in: path
@@ -9557,6 +11213,42 @@ components:
       in: query
       description: |
         Subscription Id
+      required: true
+      schema:
+        type: string
+
+    # API Revision Identifier
+    # Specified as part of the path expression
+    revisionId:
+      name: revisionId
+      in: path
+      description: |
+        Revision ID of an API
+      required: true
+      schema:
+        type: string
+
+    # API Revision Identifier
+    # Specified as part of the query string
+    revisionId-Q:
+      name: revisionId
+      in: query
+      description: |
+        Revision ID of an API
+      schema:
+        type: string
+    revisionNum-Q:
+      name: revisionNumber
+      in: query
+      description: |
+        Revision Number of an API
+      schema:
+        type: string
+    deploymentId:
+      name: deploymentId
+      in: path
+      description: |
+        Base64 URL encoded value of the name of an environment
       required: true
       schema:
         type: string
@@ -9641,7 +11333,7 @@ components:
       name: scopeId
       in: path
       description: |
-        Scope name (Base 64 encoded value of Scope Name)
+        Scope name
       required: true
       schema:
         type: string
@@ -9718,6 +11410,12 @@ components:
       required: true
       schema:
         type: string
+      tierQuotaType:
+      name: tierQuotaType
+      description: Filter the subscription base on tier quota type
+      in: query
+      schema:
+        type: string
   requestBodies:
     threatProtectionPolicy:
       description: |
@@ -9741,7 +11439,6 @@ components:
             apim:api_publish: Publish API
             apim:subscription_view: View Subscription
             apim:subscription_block: Block Subscription
-            apim:external_services_discover: Discover External Services
             apim:threat_protection_policy_create: Create threat protection policies
             apim:threat_protection_policy_manage: Update and delete threat protection policies
             apim:document_create: Create API documents
@@ -9761,3 +11458,7 @@ components:
             apim:app_import_export: Import and export applications related operations
             apim:api_import_export: Import and export APIs related operations
             apim:api_product_import_export: Import and export API Products related operations
+            apim:api_generate_key: Generate Internal Key
+            apim:admin: Manage all admin operations
+            apim:comment_view: Read permission to comments
+            apim:comment_write: Write permission to comments
