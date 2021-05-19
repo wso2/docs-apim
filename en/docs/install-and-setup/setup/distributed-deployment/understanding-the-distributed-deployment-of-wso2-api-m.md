@@ -22,7 +22,7 @@ Listed below are the different profiles available in WSO2 API Manager.
         </td>
         <td>
             <p>Only starts the components related to the API Gateway.</p>
-<p>Use this when the API Gateway acts as a worker node in a cluster. This profile starts the backend features for data processing and communicates with the management node.</p>
+            <p>This profile starts the back-end features for data processing.</p>
         </td>
     </tr>
     <tr>
