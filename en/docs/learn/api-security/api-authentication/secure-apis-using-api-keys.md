@@ -173,6 +173,27 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
      api_key_alias = "<alias-name>"
      ```
 
+### Configuring custom keystores
+
+To configure custom keystores, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+     
+```
+[custom_keystore.APIKeyKeyStore]
+file_name = "apikeysigner.jks"
+type = "JKS"
+password = "wso2carbon"
+alias = "apikeysigner"
+key_password = "wso2carbon"
+```
+
+To configure a custom keystore to use and sign the API keys in the Devportal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file. 
+     
+```
+[apim.devportal] 
+api_key_keystore = "APIKeyKeyStore" 
+api_key_alias = "custom_alias"
+```
+
 ### API key restriction for IP address and HTTP referrer
 
 After issuing an API key for an application, it can be used by anyone to invoke an API subscribed to the application. However, if an unauthorized party gets hold of the token, they can create unnecessary invocations to the APIs. To prevent this issue, you can define the authorized parties when generating a token. 
