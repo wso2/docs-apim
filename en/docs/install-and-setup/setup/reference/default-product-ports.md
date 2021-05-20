@@ -230,7 +230,7 @@ Listed below are the ports used by the Streaming Integrator and its components w
                   <code>7711</code>
             </td>
             <td>
-                  Thrift SSL port for secure transport where the client is authenticated.
+                  Thrift SSL port for the secure transport where the client is authenticated.
             </td>
          </tr>
          <tr>
@@ -246,7 +246,7 @@ Listed below are the ports used by the Streaming Integrator and its components w
                   <code>9711 </code>
             </td>
             <td>
-                  Binary SSL port for secure transport where the client is authenticated.
+                  Binary SSL port for the secure transport where the client is authenticated.
             </td>
          </tr>
       </table>
@@ -367,7 +367,7 @@ Listed below are the ports used by the Streaming Integrator and its components w
                   <code>9090</code>
             </td>
             <td>
-                  Specify the port of the node for the `advertisedPort` parameter in the `liveSync` section. The HTTP netty transport port is considered the default port.
+                  The port of the node for the <code>advertisedPort</code> parameter in the <code>liveSync</code> section. The HTTP netty transport port is considered the default port.
             </td>
          </tr>
          <tr>
@@ -380,9 +380,9 @@ Listed below are the ports used by the Streaming Integrator and its components w
          </tr>
       </table>
 
-      **Multi Datacenter High-Availability Deployment**:
+      **Multi Datacenter High-Availability Deployment**
 
-      In addition to the ports used in clustering setups (i.e. a minimum HA deployment or a scalable cluster), the port given below is required.
+      In addition to the ports used in clustering setups (i.e. a minimum HA deployment or a scalable cluster), the following port is required:
 
       <table>
          <tr>
