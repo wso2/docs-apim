@@ -154,7 +154,7 @@ The default port offset in each of the WSO2 Streaming Integrator components is `
 
 #### Changing the Binary and Thrift ports
 
-You can offset the binary and thrift ports by configuring the offset parameter in the `<SI_HOME>|<SI_TOOLING_HOME>/conf/server/deployment.yaml` file. 
+You can offset the binary and thrift ports by configuring the offset parameter in the `<SI_HOME>|<SI_TOOLING_HOME>|<SI_DASHBOARD_HOME>/conf/server/deployment.yaml` file. 
 
 The following is a sample configuration:
 
