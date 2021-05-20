@@ -425,11 +425,11 @@ Given below are the security guidelines for the Micro Integrator runtime.
       </tr>
       <tr class="even">
          <td>
-            <p>Change default admin credentials</p>
+            <p>Verify super admin credentials</p>
             <p><br /></p>
          </td>
          <td>
-            <p>Change the <code>deployment.toml</code> with following configuration to change the admin password</p>
+            <p>The user name and password of the super administrator of your Micro Integrator (the first administrator) is created by adding the following configuration to the <code>deployment.toml</code> file. When you go into production, be sure to manually check your user store and ensure that unwanted super admin records are removed.</p>
             <div class="code panel pdl" style="border-width: 1px;">
              <div class="codeContent panelContent pdl">
                 <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -440,7 +440,13 @@ Given below are the security guidelines for the Micro Integrator runtime.
 <span id="cb6-1"><a href="#cb6-1"></a>create_admin_account = true</span></code></pre>
                 </div>
              </div>
-            </div>                              
+            </div>     
+            <p> Note that you can easily use the management API to <b>add, update, and delete</b> admins and regular users in the user store. However, the super admin users created from the <code>deployment.toml</code> file should be managed manually.</p>
+            <p>See the following topics for instructions to correctly create your administrators and other users in the Micro Integrator.</p>       
+            <ul>
+               <li><a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/">Configuring a User Store</a> for the Micro Integrator.</li>
+               <li><a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users/">Managing Users</a> for the Micro Integrator.</li>
+            </ul>                   
          </td>
       </tr>
       <tr class="even">
