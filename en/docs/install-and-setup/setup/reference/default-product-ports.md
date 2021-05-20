@@ -2,15 +2,15 @@
 
 This page describes the default ports used by each runtime of WSO2 API Manager.
 
-!!! Attention
-    **Note** that it is recommended to disable the HTTP transport in an API Manager production setup. Using the `Bearer` token over HTTP is a violation of the OAuth specification and can lead to security vulnerabilities.
-
 !!! Note
-    If you change the default runtime ports with a port offset, most of the runtime ports change automatically based on the offset.
+    If you [change the default runtime ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset) with a port offset, most of the runtime ports change automatically based on the offset.
 
 ## API-M ports
 
 Listed below are the ports used by the API-M runtime when the [port offset]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#configuring-the-port-offset) is 0.
+
+!!! Info
+    See the instructions on [changing the default MI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-api-m-ports).
 
 <table>
     <tr>
@@ -139,6 +139,9 @@ Listed below are the ports used by the API-M runtime when the [port offset]({{ba
 
 By default, the Micro Integrator is **internally** configured with a port offset of 10. Listed below are the ports that are effective in the Micro Integrator by default (due to the internal port offset of 10).
 
+!!! Info
+    See the instructions on [changing the default MI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-mi-ports).
+
 <table>
     <tr>
         <th>
@@ -196,6 +199,210 @@ By default, the Micro Integrator is **internally** configured with a port offset
     </tr>
 </table>
 
+## Streaming Integrator Ports
+
+Listed below are the ports used by the Streaming Integrator and its components when the port offset is `0`.
+
+!!! Info
+    See the instructions on [changing the default SI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-si-ports).
+
+-  Thrift and Binary ports:
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>7611</code>
+            </td>
+            <td>
+                  Thrift TCP port to receive events from clients.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>7711</code>
+            </td>
+            <td>
+                  Thrift SSL port for secure transport where the client is authenticated.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9611</code>
+            </td>
+            <td>
+                  Binary TCP port to receive events from clients.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9711 </code>
+            </td>
+            <td>
+                  Binary SSL port for secure transport where the client is authenticated.
+            </td>
+         </tr>
+      </table>
+
+
+-  Netty ports:
+
+    **Streaming Integrator runtime**
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>9090</code>
+            </td>
+            <td>
+                  HTTP netty transport.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9443</code>
+            </td>
+            <td>
+                  HTTPS netty transport.
+            </td>
+         </tr>
+      </table>
+
+    **Streaming Integrator Tooling runtime**:
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>9390</code>
+            </td>
+            <td>
+                  HTTP netty transport.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9743</code>
+            </td>
+            <td>
+                  HTTPS netty transport.
+            </td>
+         </tr>
+      </table>
+
+    **Streaming Integrator Dashboard**:
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>9290</code>
+            </td>
+            <td>
+                  HTTP netty transport.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9643</code>
+            </td>
+            <td>
+                  HTTPS netty transport.
+            </td>
+         </tr>
+      </table>
+
+-  Streaming Integrator clustering ports:
+
+      **Minimum High Availability (HA) Deployment**
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>9090</code>
+            </td>
+            <td>
+                  HTTP netty transport.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9090</code>
+            </td>
+            <td>
+                  Specify the port of the node for the `advertisedPort` parameter in the `liveSync` section. The HTTP netty transport port is considered the default port.
+            </td>
+         </tr>
+         <tr>
+            <td>
+                  <code>9443</code>
+            </td>
+            <td>
+                  HTTPS netty transport.
+            </td>
+         </tr>
+      </table>
+
+      **Multi Datacenter High-Availability Deployment**:
+
+      In addition to the ports used in clustering setups (i.e. a minimum HA deployment or a scalable cluster), the port given below is required.
+
+      <table>
+         <tr>
+            <th>
+                  Default Port
+            </th>
+            <th>
+                  Description
+            </th>
+         </tr>
+         <tr>
+            <td>
+                  <code>9092</code>
+            </td>
+            <td>
+                  Ports of the two separate instances of the broker deployed in each data center (e.g., `bootstrap.servers= 'host1:9092, host2:9092'. The default is `9092` where the external kafka servers start.).
+            </td>
+         </tr>
+      </table>
+
 ## Random ports
 
 Certain ports are randomly opened during server startup. This is due to the specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
@@ -203,37 +410,3 @@ Certain ports are randomly opened during server startup. This is due to the spec
 -   A random TCP port will open at server startup because the `-Dcom.sun.management.jmxremote` property is set in the server startup script. This property is used for the JMX monitoring facility in JVM.
 
 -   A random UDP port is opened at server startup due to the log4j appender (`SyslogAppender`), which is configured in the `<PRODUCT_HOME>/repository/conf/log4j2.properties` file.
-
-## Disabling HTTP Transports
-
-API Manager has two HTTP transports. See below for instructions on how to disable the following:
-
-1.  Passthru (API Traffic) Transport
-2.  Servlet (UI Traffic and Admin service access) Transport
-
-### Disabling Passthrough Transport
-
-Add the following configuration in the `deployment.toml` file which resides in the `<API-M_HOME>/repository/conf` directory.
-
-``` toml
-[transport.passthru_http.listener]
-enable = false
-```
-
-### Disabling Servlet Transport
-
-1.  Open the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
-2.  Locate the Connector with port 9763 as shown below:
-
-    **HTTP Transport Receiver**
-
-    ``` xml
-    <Connector protocol="org.apache.coyote.http11.Http11NioProtocol" port="9763"
-        ...
-    />
-    ```
-
-3.  Comment out the HTTP connector section.
-
-!!! Note
-    You need to restart the server for these changes to take effect.
