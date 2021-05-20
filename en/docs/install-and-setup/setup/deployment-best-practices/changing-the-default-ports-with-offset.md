@@ -150,46 +150,87 @@ listenerConfigurations:
 
 ## Changing the default SI ports
 
-The default port offset in each of the WSO2 Streaming Integrator components is `0`. The components include the Streaming Integrator runtime, Tooling, and the Dashboard.
+The default port offsets in the WSO2 Streaming Integrator (SI) runtime and the Streaming Integrator **Tooling** runtime is `0` and `3` respectively.
 
 #### Changing the Binary and Thrift ports
 
-You can offset the binary and thrift ports by configuring the offset parameter in the `<SI_HOME>|<SI_TOOLING_HOME>|<SI_DASHBOARD_HOME>/conf/server/deployment.yaml` file. 
+To offset the binary and thrift ports:
 
-The following is a sample configuration:
+1.  Open the `deployment.toml` file of the SI runtime or the SI Tooling runtime.
+    
+    !!! Info
+        The file is stored in the `<SI_HOME>|<SI_TOOLING_HOME>/conf/server/deployment.yaml` directory. 
 
-```yaml
-# Carbon Configuration Parameters
-wso2.carbon:
-    # value to uniquely identify a server
-id: wso2-si
-    # server name
-name: WSO2 Streaming Integrator
-    # server type
-type: wso2-si
-    # ports used by this server
-ports:
-    # port offset
-    offset: 1
-```
+2.  Update the port offset parameter:
+
+    ```yaml tab="SI Runtime Configuration"
+    # Carbon Configuration Parameters
+    wso2.carbon:
+        # value to uniquely identify a server
+    id: wso2-si
+        # server name
+    name: WSO2 Streaming Integrator
+        # server type
+    type: wso2-si
+        # ports used by this server
+    ports:
+        # port offset
+        offset: 0
+    ```
+
+    ```yaml tab="Tooling Runtime Configuration"
+    # Carbon Configuration Parameters
+    wso2.carbon:
+        # value to uniquely identify a server
+    id: wso2-si
+        # server name
+    name: WSO2 Streaming Integrator Tooling
+        # ports used by this server
+    ports:
+        # port offset
+        offset: 3
+    ```
 
 #### Changing the default Netty ports
 
-You can offset the default netty ports by updating the required parameters in the `<SI_HOME>|<SI_TOOLING_HOME>|<SI_DASHBOARD_HOME>/conf/server/deployment.yaml` file. 
+To change the default netty ports: 
 
-The following is a sample configuration:
+1.  Open the `deployment.toml` file of the SI runtime or the SI Tooling runtime.
+    
+    !!! Info
+        The file is stored in the `<SI_HOME>|<SI_TOOLING_HOME>/conf/server/deployment.yaml` directory. 
 
-```yaml
-wso2.transport.http:
-    transportProperties:
-    listenerConfigurations:
-    -
-    id: "default"
-    port: 9390
-    -
-    id: "msf4j-https"
-    port: 9743
-```
+2.  Update the port offset parameter:
+
+    ```yaml tab="SI Runtime"
+    wso2.transport.http:
+        transportProperties:
+        ........
+        listenerConfigurations:
+        -
+        id: "default"
+        host: "0.0.0.0"
+        port: 9090
+        -
+        id: "msf4j-https"
+        host: "0.0.0.0"
+        port: 9443
+    ```
+
+    ```yaml tab="SI Tooling"
+    wso2.transport.http:
+        transportProperties:
+        ........
+        listenerConfigurations:
+        -
+        id: "default"
+        host: "0.0.0.0"
+        port: 9387
+        -
+        id: "msf4j-https"
+        host: "0.0.0.0"
+        port: 9740
+    ```
 
 ## What's Next?
 
