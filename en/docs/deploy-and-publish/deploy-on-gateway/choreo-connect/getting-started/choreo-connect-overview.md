@@ -8,7 +8,7 @@ The WSO2 Choreo Connect is a lightweight message processor for APIs. The Choreo 
 
 ## Choreo Connect Components
 
-Choreo Connect comprises of the following three components.
+Choreo Connect consists of the following three components.
 
 ### 1. Router
 
