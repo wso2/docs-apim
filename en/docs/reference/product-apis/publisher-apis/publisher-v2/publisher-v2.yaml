@@ -420,8 +420,8 @@ paths:
     put:
       tags:
         - APIs
-      summary: Update Topics of an Async API
-      description: This operation can be used to update topics of an existing async API.
+      summary: Update topics of a Streaming API
+      description: This operation can be used to update topics of an existing Streaming API.
       operationId: updateTopics
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -447,7 +447,7 @@ paths:
             Last-Modified:
               description: |
                 Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Location:
@@ -1140,7 +1140,7 @@ paths:
             default: false
         - name: serviceVersion
           in: query
-          description: Version of the Service that will used in creating new version
+          description: Version of the service that is used when creating a new version
           schema:
             type: string
           required: false
@@ -1595,7 +1595,7 @@ paths:
         - API Revisions
       summary: Update Deployment
       description: |
-        Update deployment devportal visibility
+        Update deployment
       operationId: updateAPIDeployment
       parameters:
         - $ref: '#/components/parameters/apiId'
@@ -2017,7 +2017,7 @@ paths:
                 type: string
             Location:
               description: |
-                Location to the newly created Comment.
+                Location to the newly created comment.
               schema:
                 type: string
           content:
@@ -2158,7 +2158,7 @@ paths:
                   format: binary
                 url:
                   type: string
-                  description: Definition url
+                  description: API Definition URL
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON with API's schema
@@ -2235,7 +2235,7 @@ paths:
                   format: binary
                 url:
                   type: string
-                  description: WSDL Definition url
+                  description: WSDL Definition URL
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON
@@ -2331,7 +2331,7 @@ paths:
           headers:
             ETag:
               description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Location:
@@ -2375,7 +2375,7 @@ paths:
           in: query
           description: |
             Specify whether to return the full content of the OpenAPI definition in the response. This is only
-            applicable when using url based validation
+            applicable when using URL based validation
           schema:
             type: boolean
             default: false
@@ -2386,7 +2386,7 @@ paths:
               properties:
                 url:
                   type: string
-                  description: OpenAPI definition url
+                  description: OpenAPI definition URL
                 file:
                   type: string
                   description: OpenAPI definition as a file
@@ -2425,14 +2425,14 @@ paths:
     post:
       tags:
         - Validation
-      summary: Check Whether Given Endpoint URL is Valid
+      summary: Check whether the given endpoint URL is valid
       description: |
-        Using this operation, it is possible check whether the given API endpoint url is a valid url
+        Using this operation, it is possible check whether the given API endpoint URL is a valid URL
       operationId: validateEndpoint
       parameters:
         - name: endpointUrl
           in: query
-          description: API endpoint url
+          description: API endpoint URL
           required: true
           schema:
             type: string
@@ -2535,7 +2535,7 @@ paths:
               properties:
                 url:
                   type: string
-                  description: Definition url
+                  description: Definition URL
                 file:
                   type: string
                   description: Definition to upload as a file
@@ -2571,7 +2571,7 @@ paths:
     post:
       tags:
         - Validation
-      summary: Validate GraphQL API Definition and Retrieve a Summary
+      summary: Validate GraphQL API definition and retrieve a summary
       description: |
         This operation can be used to validate a graphQL definition and retrieve a summary.
       requestBody:
@@ -4293,7 +4293,7 @@ paths:
               properties:
                 file:
                   type: string
-                  description: Zip archive consisting on exported api configuration
+                  description: Zipped archive that consists on the exported API configuration
                   format: binary
       responses:
         200:
@@ -4368,7 +4368,7 @@ paths:
         304:
           description: |
             Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
+            Empty body because the client has already the latest version of the requested resource (Will be supported in the future).
           content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
@@ -4390,7 +4390,7 @@ paths:
         - API Monetization
       summary: Get Details of a Pending Invoice for a Monetized Subscription with Metered Billing.
       description: |
-        This operation can be used to get details of a pending invoice for a monetized subscription with meterd billing.
+        This operation can be used to get details of a pending invoice for a monetized subscription with metered billing.
       parameters:
         - $ref: '#/components/parameters/subscriptionId'
       responses:
@@ -4406,7 +4406,7 @@ paths:
                 type: string
             Last-Modified:
               description: Date and time the resource has been modified the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Content-Type:
@@ -4500,13 +4500,13 @@ paths:
             ETag:
               description: |
                 Entity Tag of the blocked subscription.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Last-Modified:
               description: |
                 Date and time the subscription has been blocked.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
           content: {}
@@ -4544,13 +4544,13 @@ paths:
             ETag:
               description: |
                 Entity Tag of the unblocked subscription.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Last-Modified:
               description: |
                 Date and time the subscription has been unblocked.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
           content: {}
@@ -4596,7 +4596,7 @@ paths:
             ETag:
               description: |
                 Entity Tag of the response resource.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Content-Type:
@@ -4914,7 +4914,7 @@ paths:
                   description: Alias for the certificate
                 tier:
                   type: string
-                  description: api tier to which the certificate should be applied.
+                  description: The API tier to which the certificate should be applied.
         required: true
       responses:
         200:
@@ -5078,7 +5078,7 @@ paths:
         200:
           description: |
             OK.
-            The Certificate deleted successfully.
+            The certificate was deleted successfully.
           headers:
             Content-Type:
               description: |
@@ -5385,7 +5385,7 @@ paths:
         200:
           description: |
             OK.
-            The Certificate deleted successfully.
+            The certificate was deleted successfully.
           headers:
             Content-Type:
               description: |
@@ -5494,7 +5494,7 @@ paths:
         304:
           description: |
             Not Modified.
-            Empty body because the client has already the latest version of the requested resource (Will be supported in future).
+            Empty body because the client has already the latest version of the requested resource (Will be supported in the future).
           content: {}
         406:
           $ref: '#/components/responses/NotAcceptable'
@@ -5539,7 +5539,7 @@ paths:
           headers:
             ETag:
               description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Content-Type:
@@ -5588,7 +5588,7 @@ paths:
           headers:
             ETag:
               description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Location:
@@ -5627,7 +5627,7 @@ paths:
         - API Products
       summary: Get Details of an API Product
       description: |
-        Using this operation, you can retrieve complete details of a single API Product. You need to provide the Id of the API to retrive it.
+        Using this operation, you can retrieve complete details of a single API Product. You need to provide the ID of the API to retrieve it.
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/Accept'
@@ -5646,7 +5646,7 @@ paths:
             Last-Modified:
               description: |
                 Date and time the resource has been modifed the last time.
-                Used by caches, or in conditional requests (Will be supported in future).
+                Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Content-Type:
@@ -5747,7 +5747,7 @@ paths:
         - API Products
       summary: Delete an API Product
       description: |
-        This operation can be used to delete an existing API Product proving the Id of the API Product.
+        This operation can be used to delete an existing API Product proving the ID of the API Product.
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/If-Match'
@@ -5901,7 +5901,7 @@ paths:
         - API Products
       summary: Get Swagger Definition
       description: |
-        This operation can be used to retrieve the swagger definition of an API.
+        This operation can be used to retrieve the OpenAPI definition of an API.
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/Accept'
@@ -6008,7 +6008,7 @@ paths:
         - API Product Documents
       summary: Get a List of Documents of an API Product
       description: |
-        This operation can be used to retrive a list of documents belonging to an API Product by providing the id of the API Product.
+        This operation can be used to retrive a list of documents belonging to an API Product by providing the ID of the API Product.
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/limit'
@@ -6273,7 +6273,7 @@ paths:
 
            _Sample cURL_ : `curl -k -H "Authorization:Bearer 579f0af4-37be-35c7-81a4-f1f1e9ee7c51" -F inlineContent=@"docs.txt" -X POST "https://localhost:9443/api/am/publisher/v2/apis/995a4972-3178-4b17-a374-756e0e19127c/documents/43c2bcce-60e7-405f-bc36-e39c0c5e189e/content`
         2. **FILE type**:
-           The file will be downloaded with the related content type (eg. `application/pdf`)
+           The file will be downloaded with the related content type (e.g., `application/pdf`)
         3. **URL type**:
             The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
@@ -6339,7 +6339,7 @@ paths:
         - API Product Documents
       summary: Upload the Content of an API Product Document
       description: |
-        Thid operation can be used to upload a file or add inline content to an API Product document.
+        This operation can be used to upload a file or add inline content to an API Product document.
 
         **IMPORTANT:**
         * Either **file** or **inlineContent** form data parameters should be specified at one time.
@@ -6608,7 +6608,7 @@ paths:
         - API Product Revisions
       summary: Update Deployment
       description: |
-        Update deployment devportal visibility
+        Update deployment Developer Portal visibility
       operationId: updateAPIProductDeployment
       parameters:
         - $ref: '#/components/parameters/apiProductId'
@@ -6881,7 +6881,7 @@ paths:
         - name: rotateRevision
           in: query
           description: |
-            Once the revision max limit reached, undeploy and delete the earliest revision and create a new revision
+            Once the revision max limit is reached, undeploy and delete the earliest revision and create a new revision
           required: false
           schema:
             type: boolean
@@ -7110,7 +7110,7 @@ paths:
         - Tenants
       summary: Check Whether the Given Tenant already Exists
       description: |
-        Using this operation, user can check whether a given tenant exists or not.
+        Using this operation, the user can check whether a given tenant exists or not.
       operationId: getTenantExistence
       parameters:
         - $ref: '#/components/parameters/tenantDomain'
@@ -7440,7 +7440,7 @@ paths:
           in: query
           description:
             Specify whether to return the full content of the AsyncAPI specification in the response. This is only
-            applicable when using url based validation
+            applicable when using URL based validation
           schema:
             type: boolean
             default: false
@@ -7451,7 +7451,7 @@ paths:
               properties:
                 url:
                   type: string
-                  description: AsyncAPI definition url
+                  description: AsyncAPI definition URL
                 file:
                   type: string
                   description: AsyncAPI definition as a file
@@ -7506,7 +7506,7 @@ paths:
                   format: binary
                 url:
                   type: string
-                  description: Definition url
+                  description: Definition URL
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON with API's schema
@@ -7565,7 +7565,7 @@ paths:
           headers:
             ETag:
               description: |
-                Entity Tag of the response resource. Used by caches, or in conditional requests (Willl= be supported in future).
+                Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in the future).
               schema:
                 type: string
             Last-Modified:
@@ -7845,11 +7845,11 @@ components:
         mode:
           maxLength: 32766
           type: string
-          example: This is a simple API for Pizza Shack online pizza delivery store.
+          example: This is a simple API for the Pizza Shack online pizza delivery store.
         description:
           maxLength: 32766
           type: string
-          example: This is a simple API for Pizza Shack online pizza delivery store.
+          example: This is a simple API for the Pizza Shack online pizza delivery store.
     TopicList:
       title: Topic List
       type: object
@@ -8028,7 +8028,7 @@ components:
             - apim:api_publish
         visibleRoles:
           type: array
-          description: The user roles that are able to access the API in Devportal
+          description: The user roles that are able to access the API in Developer Portal
           example: []
           items:
             type: string
@@ -9368,7 +9368,7 @@ components:
           properties:
             policyId:
               type: integer
-              description: Id of policy
+              description: ID of the policy
               example: 1
             uuid:
               type: string
@@ -9396,7 +9396,7 @@ components:
               default: false
             tenantId:
               type: integer
-              description: Throttling policy tenant domain id
+              description: Throttling policy tenant domain ID
               example: -1234
             tenantDomain:
               type: string
@@ -9431,7 +9431,7 @@ components:
             billingPlan:
               type: string
               description: |
-                define whether this is Paid or a Free plan. Allowed values are FREE or COMMERCIAL.
+                Defines whether this is Paid or a Free plan. Allowed values are FREE or COMMERCIAL.
               example: FREE
             permissions:
               $ref: '#/components/schemas/SubscriptionThrottlePolicyPermission'

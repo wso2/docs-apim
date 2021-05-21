@@ -1122,7 +1122,7 @@ paths:
                 type: string
             Location:
               description: |
-                Location to the newly created Comment.
+                Location to the newly created comment.
               schema:
                 type: string
           content:
@@ -1240,9 +1240,9 @@ paths:
       tags:
         - Topics
       summary: |
-        Get a list of available topics for a given async API
+        Get a list of available topics for a given Streaming API
       description: |
-        This operation will provide a list of topics available for a given Async API, based on the provided API ID.
+        This operation will provide a list of topics available for a given Streaming API, based on the provided API ID.
       parameters:
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/requestedTenant'
@@ -3092,10 +3092,10 @@ paths:
       tags:
         - Webhooks
       summary: |
-        Get available web hook subscriptions for a given application.
+        Get available WebHook subscriptions for a given application.
       description: |
-        This operation will provide a list of web hook topic subscriptions for a given application. If the api id is provided
-        results will be filtered by the api Id.
+        This operation will provide a list of WebHook topic subscriptions for a given application. If the API ID is provided
+        results will be filtered by the API ID.
       parameters:
         - $ref: '#/components/parameters/applicationId-Q'
         - $ref: '#/components/parameters/apiId-Q'
@@ -3345,7 +3345,7 @@ paths:
         - GraphQL Policies
       summary: Get the Complexity Related Details of an API
       description: |
-        This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
+        This operation can be used to retrieve complexity related details belonging to an API by providing the API ID.
       parameters:
         - $ref: '#/components/parameters/apiId'
       responses:
@@ -4153,13 +4153,13 @@ components:
           type: string
           example: publisher
     WebhookSubscriptionList:
-      title: Subscribed Webhook List
+      title: Subscribed WebHook List
       type: object
       properties:
         count:
           type: integer
           description: |
-            Number of webhook subscriptions returned.
+            Number of WebHook subscriptions returned.
           example: 1
         list:
           type: array
@@ -4498,14 +4498,14 @@ components:
             - SANDBOX
         mode:
           type: string
-          description: Describe the which mode Application Mapped.
+          description: Specify as to which mode the application is mapped.
           example: CREATED
           enum:
             - MAPPED
             - CREATED
         groupId:
           type: string
-          description: Application group id (if any).
+          description: Application group ID (if any).
           example: "2"
         token:
           $ref: '#/components/schemas/ApplicationToken'
