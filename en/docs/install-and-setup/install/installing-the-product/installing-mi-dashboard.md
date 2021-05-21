@@ -7,6 +7,19 @@ Follow the steps given below to install the Micro Integrator (MI) Dashboard.
 1.  Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Other Resources/MI Dashboard** to download the MI Dashboard as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the Micro Integrator Dashboard, which will hereafter be referred to as `<MI-DASHBOARD_HOME>`.
 
+!!! info
+    To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder of each server instance.
+    ```
+    [dashboard_config]
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    heartbeat_interval = 5
+    group_id = "mi_dev"
+    node_id = "dev_node_2"
+    ```
+    For more information, see [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard/#step-2-configure-the-mi-servers).
+
+
+
 ## Setting up JAVA_HOME
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
