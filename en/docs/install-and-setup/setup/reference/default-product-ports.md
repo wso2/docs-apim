@@ -201,7 +201,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
 
 ## Streaming Integrator Ports
 
-Listed below are the ports used by the Streaming Integrator and its components when the port offset is `0`.
+Listed below are the default ports used by the Streaming Integrator runtime and the Streaming Integrator Tooling runtime. The defualt port offset in these runtimes are `0` and `3` respectively.
 
 !!! Info
     See the instructions on [changing the default SI ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-si-ports).
@@ -252,7 +252,7 @@ Listed below are the ports used by the Streaming Integrator and its components w
       </table>
 
 
--  Netty ports:
+-  Management ports:
 
     **Streaming Integrator runtime**
 
@@ -305,35 +305,6 @@ Listed below are the ports used by the Streaming Integrator and its components w
          <tr>
             <td>
                   <code>9743</code>
-            </td>
-            <td>
-                  HTTPS netty transport.
-            </td>
-         </tr>
-      </table>
-
-    **Streaming Integrator Dashboard**:
-
-      <table>
-         <tr>
-            <th>
-                  Default Port
-            </th>
-            <th>
-                  Description
-            </th>
-         </tr>
-         <tr>
-            <td>
-                  <code>9290</code>
-            </td>
-            <td>
-                  HTTP netty transport.
-            </td>
-         </tr>
-         <tr>
-            <td>
-                  <code>9643</code>
             </td>
             <td>
                   HTTPS netty transport.
