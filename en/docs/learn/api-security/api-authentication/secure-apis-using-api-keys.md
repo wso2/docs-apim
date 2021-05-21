@@ -175,6 +175,8 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
 
 ### Configuring custom keystores
 
+We can also configure and use a custom Keystore in API Manager to sign the API Keys. Given below is a sample TOML configuration to configure a custom Keystore in the API Manager server. For more information, refer the [Configuration Catalog]({{base_path}}//reference/config-catalog/) for more details.
+
 To configure custom keystores, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
      
 ```
@@ -186,6 +188,7 @@ alias = "apikeysigner"
 key_password = "wso2carbon"
 ```
 
+If you have generated a custom Keystore and wanted to use the specific to sign the API Keys, it is required to configure the following TOML configurations to point which Keystore and the certs should be used. Given below is a sample TOML configuration referring to use custom Keystore named `APIKeyKeyStore` and the cert with alias `apikeysigner`.
 To configure a custom keystore to use and sign the API keys in the Devportal node, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file. 
      
 ```

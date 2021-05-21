@@ -5024,7 +5024,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The Keystore name that is placed inside the <API-M_HOME>/repository/resources/security directory."
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <APIM_HOME>/repository/resources/security directory)"
                         },
                         {
                             "name": "type",
@@ -5048,7 +5048,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The Keystore private Key Alias."
+                            "description": "Private key alias of the Keystore."
                         },
                         {
                             "name": "key_password",
@@ -5056,7 +5056,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The Private Key Key Password of the Keystore (we recommend to keep both Keystore password and Key Password as same due to known limitations)"
+                            "description": "The private key password of the Keystore (recommend keeping both Keystore password and Key Password as same due to known limitations)"
                         }                                                                                                                                                                                                                                                                            
                     ]
                 }
