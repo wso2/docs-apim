@@ -26,14 +26,15 @@ Here, for simplicity, the service is already created and exported as a Composite
 2. Uncomment the volume section under _mi-runtime_  in docker-compose.yml and provide the temporary directory location replacing the `<SourceLocation>` tag.
 
     ```
-    # volumes:
+    volumes:
+      - ./dockerfiles/conf/mi:/home/wso2carbon/wso2-config-volume
     #   - <SourceLocation>:/home/wso2carbon/sample
     ```
 
 
 3. To send the email, you need to have a SMTP server.
 
-    Uncomment the following environment variables under `_mi-runtime_` and fill in the details.
+    Uncomment the following environment variables under `mi-runtime` and fill in the details.
 
 
     ```
@@ -46,19 +47,16 @@ Here, for simplicity, the service is already created and exported as a Composite
     ```
 
 
-4. After that, you need to add the `EmailService` CApp to the Micro Integrator in the setup. To do that uncomment the following line in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
-
-    ```
-    # # Uncomment when trying out Guaranteed Message Delivery Scenario
-    # COPY carbonapps/RailCoFileEmailServiceCompositeExporter_1.0.0-SNAPSHOT.car ${WSO2_SERVER_HOME}/repository/deployment/server/carbonapps/
-    ```
-
+4. After that, you need to add the `EmailService` CApp to the Micro Integrator in the setup. To do that copy the 
+   `RailCoFileEmailServiceCompositeExporter_1.0.0-SNAPSHOT.car` found inside `dockerfiles/micro-integrator/carbonapps`
+   to `dockerfiles/conf/mi/repository/deployment/server/carbonapps`.
 
 5. Now you can restart the Micro Integrator.
 
 	`docker-compose up -d --build mi-runtime`
 
-6. Once restarted, you can place the .csv file into the `**in`** directory inside your temporary location. You can use the `train-entry-sample.csv` file found inside `<REPO_HOME>/resources` directory for this purpose. 
+6. Once restarted, you can place the .csv file into the `in` directory inside your temporary location. 
+   You can use the `train-entry-sample.csv` file found inside `/resources` directory for this purpose. 
 
     Once added, the file will be picked by Micro Integrator and sent as an Email to the address that is configured above. 
 
