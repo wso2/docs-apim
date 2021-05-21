@@ -150,11 +150,13 @@ listenerConfigurations:
 
 ## Changing the default SI ports
 
-The default port offsets in the WSO2 Streaming Integrator (SI) runtime and the Streaming Integrator **Tooling** runtime is `0` and `3` respectively.
+The default port offsets in the WSO2 Streaming Integrator (SI) runtime and the Streaming Integrator **Tooling** runtime are `0` and `3` respectively. 
 
 #### Changing the Binary and Thrift ports
 
-To offset the binary and thrift ports:
+To offset the default ports in the SI runtime and SI Tooling runtime, you need to offset the **binary** and **thrift** ports.
+
+Follow the steps given below.
 
 1.  Open the `deployment.toml` file of the SI runtime or the SI Tooling runtime.
     
@@ -193,44 +195,50 @@ To offset the binary and thrift ports:
 
 #### Changing the default Netty ports
 
-To change the default netty ports: 
+Shown below are the default Netty ports of the SI runtime and the SI Tooling runtime when you have a [default port offset](#changing-the-binary-and-thrift-ports) for these runtimes.
+
+!!! Note   
+    If you [change the default offset](#changing-the-binary-and-thrift-ports), the netty ports are affected.
+
+```yaml tab="SI Runtime"
+wso2.transport.http:
+    transportProperties:
+    ........
+    listenerConfigurations:
+    -
+    id: "default"
+    host: "0.0.0.0"
+    port: 9090
+    -
+    id: "msf4j-https"
+    host: "0.0.0.0"
+    port: 9443
+```
+
+```yaml tab="SI Tooling"
+wso2.transport.http:
+    transportProperties:
+    ........
+    listenerConfigurations:
+    -
+    id: "default"
+    host: "0.0.0.0"
+    port: 9387
+    -
+    id: "msf4j-https"
+    host: "0.0.0.0"
+    port: 9740
+```
+
+To change the Netty ports:
 
 1.  Open the `deployment.toml` file of the SI runtime or the SI Tooling runtime.
     
     !!! Info
         The file is stored in the `<SI_HOME>|<SI_TOOLING_HOME>/conf/server/deployment.yaml` directory. 
 
-2.  Update the port offset parameter:
-
-    ```yaml tab="SI Runtime"
-    wso2.transport.http:
-        transportProperties:
-        ........
-        listenerConfigurations:
-        -
-        id: "default"
-        host: "0.0.0.0"
-        port: 9090
-        -
-        id: "msf4j-https"
-        host: "0.0.0.0"
-        port: 9443
-    ```
-
-    ```yaml tab="SI Tooling"
-    wso2.transport.http:
-        transportProperties:
-        ........
-        listenerConfigurations:
-        -
-        id: "default"
-        host: "0.0.0.0"
-        port: 9387
-        -
-        id: "msf4j-https"
-        host: "0.0.0.0"
-        port: 9740
-    ```
+2.  Update the listener ports.
+    
 
 ## What's Next?
 
