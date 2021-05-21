@@ -570,7 +570,7 @@ This section provides a list of security guidelines for configuring the network
 <td><p>Create a failover setup</p>
 <p><br />
 </p></td>
-<td>In the cloud native deployment, high-availability should be achieved via the container orchestration system ( Ex: Kubernetes ). 
+<td>In the cloud native deployment, high-availability should be achieved via the container orchestration system (e.g., Kubernetes ). 
 <p>In a VM deployment, there should be atleast two nodes with the failover configuration. When your servers are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
 </td>
 </tr>
