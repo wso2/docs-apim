@@ -423,15 +423,7 @@
                             "required": true,
                             "default": "Production and Sandbox",
                             "possible": "",
-                            "description": "User can add preferred values and should not be changed once configured."
-                        },
-                        {
-                            "name": "display_name",
-                            "type": "string",
-                            "required": false,
-                            "default": "<name> of the environment",
-                            "possible": "",
-                            "description": "User can add preferred set a name to display"
+                            "description": "User can add preferred values as the name."
                         },
                         {
                             "name": "type",
@@ -1805,20 +1797,20 @@
                             "description": "Password used to authenticate the mail server."
                         },
                         {
-                            "name": "signature",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "Signature of the sender account."
-                        },
-                        {
                             "name": "hostname",
                             "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Signature of the sender account."
                         },
                         {
                             "name": "port",
@@ -5064,33 +5056,57 @@
             "exampleFile": "user_store.properties.toml"
         },
         {
-            "title": "Global handler configurations",
+            "title": "Custom keystore configurations",
             "options": [
                 {
-                    "name": "synapse_handlers.custom_handler_name",
+                    "name": "custom_keystore.APIKeyKeyStore",
                     "required": false,
-                    "description": "configuration used to define or enable disable global handler.",
-                    "params": [
+                    "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
+                    "params": [                   
                          {
-                            "name": "enabled",
-                            "type": "boolean",
+                            "name": "file_name",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Enable or disable a defined global handler."
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <APIM_HOME>/repository/resources/security directory)"
                         },
                         {
-                            "name": "class",
+                            "name": "type",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Fully qualified class name of the global handler."
-                        }
+                            "description": "The Keystore type."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore password."
+                        },
+                        {
+                            "name": "alias",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Private key alias of the Keystore."
+                        },
+                        {
+                            "name": "key_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The private key password of the Keystore (recommend keeping both Keystore password and Key Password as same due to known limitations)"
+                        }                                                                                                                                                                                                                                                                            
                     ]
                 }
             ],
-            "exampleFile": "synapse_handlers.toml"
-        }
+            "exampleFile": "custom_keystore.toml"
+        }                                                                                    
     ]
 }
