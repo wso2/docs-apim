@@ -96,7 +96,7 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
 <strong>Note :</strong>
 <ul>
 <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
-<li>Apply ciphers with 256 bit key length if you have applied unlimited strength policy. Note that an unlimited strength policy is recommended.</li>
+<li>Apply ciphers with 256 bit key length if you have applied the "Unlimited" strength policy. Note that an unlimited strength policy is recommended.</li>
 <li>Also, consider the following factors when deciding on the ciphers:
 <ul>
 <li>DES/3DES are deprecated and should not be used.</li>
