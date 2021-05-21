@@ -13,7 +13,7 @@ Be sure to go through the [Recommendations for setting up keystores](../../confi
 There are two ways to create keystores for WSO2 API Manager. You can either generate a keystore using an already existing public key certificate (CA-signed), or you can create the public key certificate at the time of generating the keystore. See the instructions given below.
 
 !!! note
-    Wildcard certificates are supported to match **any single domain component name only**. Component fragments not being validated is a limitation. For example, `*.a.com` is matched with `name.a.com` but not with `n*.a.com`.
+    Wildcard certificates are supported to match **any single domain component name only**. Component fragments not being validated is a limitation. For example, `name.a.com` is matched with `*.a.com` but not with `n*.a.com`.
 
 ### Creating a keystore using an existing certificate
 
