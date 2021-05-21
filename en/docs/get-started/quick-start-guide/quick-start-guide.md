@@ -1,6 +1,4 @@
-# Quick Start Guide
-
-## Design your first API
+# Quick Start Guide - API Proxy
 
 This section is a step-by-step guide to create, publish, and invoke an API using the **WSO2 API Manager (WSO2 API-M)** Publisher and Developer Portal.
 

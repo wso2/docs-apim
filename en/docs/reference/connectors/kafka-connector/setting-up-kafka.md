@@ -13,6 +13,14 @@ To configure the Kafka connector, copy the following client libraries from the `
 * [zkclient-0.10.jar](https://mvnrepository.com/artifact/com.101tec/zkclient/0.10)
 * [zookeeper-3.4.10.jar](https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper/3.4.10)
 
+Copy the following additional client libraries to the `<MI_HOME>/lib` directory (can be copied from the Confluent platform):
+
+* [avro-1.8.1.jar](https://mvnrepository.com/artifact/org.apache.avro/avro/1.8.1)
+* [common-config-5.4.0.jar](https://mvnrepository.com/artifact/io.confluent/common-config/5.4.0)
+* [common-utils-5.4.0.jar](https://mvnrepository.com/artifact/io.confluent/common-utils/5.4.0)
+* [kafka-avro-serializer-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer/5.3.0)
+* [kafka-schema-registry-client-5.3.0.jar](https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client/5.3.0)
+
 Navigate to <KAFKA_HOME> and run the following command to start the ZooKeeper server:
 
 ```bash

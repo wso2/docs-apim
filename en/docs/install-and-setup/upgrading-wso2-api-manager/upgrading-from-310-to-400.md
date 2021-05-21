@@ -9,7 +9,7 @@ The following information describes how to upgrade your API Manager server **fro
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.11.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5110).    
 
 !!! Attention
-    If you are using WSO2 API Manager Analytics. Please contact WSO2 Team for migration purposes.
+    As the on-premise analytics data cannot be migrated to the Cloud, you need to maintain the old analytics server and keep the UI running for as long as you need that data (e.g., 3 months) after migrating to the new version of analytics in WSO2 API-M 4.0.0.
   
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -2319,6 +2319,7 @@ Follow the instructions below to move all the existing API Manager configuration
         [indexing]
         re_indexing = 1
         ```
+        Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
 
         !!! info 
              If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes

@@ -1,4 +1,5 @@
 # K8s Deployment Sample 2: Content Based Routing
+
 Let's define a content-based routing scenario using WSO2 Micro Integrator and deploy it on your Kubernetes environment.
 
 ## Prerequisites
@@ -6,9 +7,9 @@ Let's define a content-based routing scenario using WSO2 Micro Integrator and de
 -   Install and set up [WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 -   Install a [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.11+** client. Alternatively, you can [run Kubernetes locally via Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
 -   Install [Docker](https://docs.docker.com/).
--   Install the [Kubernetes API Operator](https://operatorhub.io/operator/api-operator).
+-   Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).
 
-## Step 1: Create the integration solution
+## Step 1 - Create the integration solution
 
 Let's use the <b>Content Routing</b> integration template in WSO2 Integration Studio:
 
@@ -19,13 +20,13 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 
 3.  Give a project name and click <b>Finish</b>.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-sample-project.png">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-sample-project.png" width="400" alt="k8s project structure">
 
 5.  Create a **Kubernetes Project** inside the integration project. 
 
     1.  Right-click the <b>content-routing-sample</b> project, go to **New -> Kubernetes Exporter**:
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.png" alt="Create Kubernetes Project">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.png" width="500" alt="Create Kubernetes Project">
 
     2.  In the **Kubernetes Exporter Information for K8s EI Operator** dialog box that opens, enter the following details:
 
@@ -101,9 +102,9 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 
 Your integration project with the <b>content routing</b> sample is now ready to be deployed in Kubernetes.
 
-<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-content-routing-sample-project.png">
+<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-content-routing-sample-project.png" width="400" alt="k8s project structure">
 
-## Step 2: Build and Push the Docker image 
+## Step 2 - Build and Push the Docker image 
 
 !!! Note
     Be sure to start your Docker instance before building the image. If Docker is not started, the build process will fail. 
@@ -135,19 +136,16 @@ There are two ways to build a Docker image of the integration solution and push 
 
     3.  In the dialog box that opens, enter the credentials of your Docker registry to which the image should be pushed.
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" width="500" alt="docker registry credentials">
 
     4.  Click <b>Push Image</b>.
 
 Run the `docker image ls` command to verify that the Docker image is created.
     
-## Step 3: Deploy the solution in K8s
+## Step 3 - Deploy the solution in K8s
 
 !!! Info
-    **Before you begin**:
-
-    -   Be sure that the [system requrements]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#prerequisites-system-requirements) are in place.
-    -   The [EI Kubernetes Operator]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#install-the-ei-k8s-operator) should be installed in your kubernetes environment.
+    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your kubernetes environment.
 
 Follow the steps given below:
 
@@ -175,7 +173,7 @@ Follow the steps given below:
 When the integration is successfully deployed, it should create the `content-routing` integration, `content-routing-deployment`, `content-routing-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `api-operator-ingress` will not be created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#disable-ingress-controller).
+    The `api-operator-ingress` is not created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration
@@ -199,7 +197,7 @@ NAME                   HOSTS                      ADDRESS     PORTS     AGE
 api-operator-ingress   wso2ei.ingress.wso2.com    10.0.2.15   80, 443   2m
 ```
 
-## Step 4: Test the deployment
+## Step 4 - Test the deployment
 
 Let's invoke the service without going through the ingress controller.
 
