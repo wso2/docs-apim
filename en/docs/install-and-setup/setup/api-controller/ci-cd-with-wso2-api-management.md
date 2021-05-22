@@ -19,4 +19,4 @@ API Developers and Publishers work with a version control system, which acts as 
 See the following topics for instructions:
 
 -   [Building a CI/CD Pipeline for APIs using the CLI]({{base_path}}/install-and-setup/setup/api-controller/cicd-using-cli)
--   [Building a CI/CD Pipeline for APIs using Jenkins]({{base_Path}}/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach)
+-   [Building a CI/CD Pipeline for APIs using Jenkins]({{base_path}}/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach)
