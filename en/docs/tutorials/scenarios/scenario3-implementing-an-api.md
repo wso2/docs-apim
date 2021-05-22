@@ -33,25 +33,19 @@ curl -X GET 'http://localhost:8290/metrics'
 
 If the service catalog is enabled in Micro Integrator, it will automatically push the API artifacts, Swagger definition to the API Manager during startup, which you can view in the API Manager Service Catalog.
 
-To enable the service catalog, uncomment the following section in the deployment.toml found inside `dockerfiles/mi/conf/`.
+To enable the service catalog, uncomment the following section in the Dockerfile found inside `<REPO_HOME>/dockerfiles/micro-integrator/`.
 
-```
-[[service_catalog]]
-apim_host = "https://api-manager:9443"
-enable = true
-username = "jill@railco.com"
-password = "user123"
-```
+`COPY deployment.toml ${WSO2_SERVER_HOME}/conf/`
 
-To apply the config, restart the Micro Integrator by running the following command. This will restart the Micro Integrator container.
+This will add the new config file to setup. To apply the config, restart the Micro Integrator by running the following command. This will restart the Micro Integrator container.
 
-_`docker-compose restart mi-runtime`_
+_`docker-compose up -d --build mi-runtime`_
 
 Once started, you can observe the following log in Micro Integrator.
 
 `{ServiceCatalogUtils} - Successfully updated the service catalog`
 
-You can view the API entry in the API Manager by visiting the following URL. Log on as `jill@railco.com` (Password : `user123`).
+You can view the API entry in the API Manager by visiting the following URL. Log on as jill@railco.com.
 
 [https://localhost:9443/publisher/service-catalog](https://localhost:9443/publisher/service-catalog)
 
