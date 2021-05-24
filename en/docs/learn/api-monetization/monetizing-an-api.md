@@ -516,17 +516,16 @@ When working with API Monetization that involves dynamic business plans (usage-b
             );
         
             CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
-                    POLICY_ID INTEGER DEFAULT NEXTVAL('AM_POLICY_PLAN_MAPPING'),
+                    POLICY_ID SERIAL PRIMARY KEY,
                     POLICY_UUID VARCHAR(256),
                     PRODUCT_ID VARCHAR(512),
                     PLAN_ID VARCHAR(512),
                     FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-        
             );
         
             CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
                         POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_PLATFORM_CUSTOMERS'),
-                ID SERIAL,
+                ID SERIAL PRIMARY KEY,
                 SUBSCRIBER_ID INTEGER NOT NULL,
                 TENANT_ID INTEGER NOT NULL,
                 CUSTOMER_ID VARCHAR(256) NOT NULL,    
