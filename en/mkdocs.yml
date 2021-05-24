@@ -233,6 +233,7 @@ nav:
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
                     - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
+                    - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploy an API:
                     - Deploy an API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                     - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
@@ -282,6 +283,9 @@ nav:
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
+                - Troubleshooting:
+                    - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
+                - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
         - Publish on Developer Portal: 
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
@@ -1189,17 +1193,6 @@ nav:
             - Java Documentation: reference/java-documentation.md
         - Best Practices:
             - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
-        - Samples:
-            - API Development Sample:
-                - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
-                - Collaborative API Development Sample: reference/samples/api-development-sample/collaborative-api-development-sample.md
-                - Development of Developer Optimized APIs Sample: reference/samples/api-development-sample/development-of-developer-optimized-apis-sample.md
-            - API Governance Sample: reference/samples/api-governance-sample.md
-            - API Lifecycle Management Sample: reference/samples/api-lifecycle-management-sample.md
-            - API Rate Limiting Sample: reference/samples/api-rate-limiting-sample.md
-            - API Rate Monetization Sample: reference/samples/api-rate-monetization-sample.md
-            - API Security Sample: reference/samples/api-security-sample.md
-            - API Versioning Sample: reference/samples/api-versioning-sample.md
         - Guides:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
@@ -1412,7 +1405,7 @@ nav:
                 - Distributed Deployment:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                    - Running the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
                 - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md

@@ -7,11 +7,11 @@ Let's define a JMS (sender and receiver) scenario using WSO2 Micro Integrator an
 -   Install and set up [WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 -   Install a [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.11+** client. Alternatively, you can [run Kubernetes locally via Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
 -   Install [Docker](https://docs.docker.com/).
--   Install the [Kubernetes API Operator](https://operatorhub.io/operator/api-operator).
+-   Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).
 
 -   Deploy an ActiveMQ pod inside your Kubernetes cluster.
 
-## Step 1: Create the integration solution
+## Step 1 - Create the integration solution
 
 Follow the steps given below.
 
@@ -22,11 +22,11 @@ Follow the steps given below.
 
 3.  In the <b>New Integration Project</b> dialog box, give a name for the integration project and select the following check boxes: <b>Create ESB Configs</b>, <b>Create Composite Exporter</b>, and <b>Create Kubernetes Exporter</b>.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/esb-config.png" alt="Create ESB Config Project">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/esb-config.png" width="500" alt="Create ESB Config Project">
 
 4.  Click <b>Next</b> and enter the following details for your <b>Kubernetes Exporter</b>.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-proj-k8s.png" alt="Create Kubernetes Project">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/integration-proj-k8s.png" width="500" alt="Create Kubernetes Project">
 
     <table>
             <tr>
@@ -99,7 +99,7 @@ Follow the steps given below.
 
     1.  Right-click <b>ESB Config</b> in the project explorer, go to **New -> Proxy Service** and create a custom proxy service named `JmsSenderListener`. 
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/custom-proxy-service-jms.png" alt="Create ESB Config Project">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/custom-proxy-service-jms.png" width="500" alt="Create ESB Config Project">
 
     2.  You can then use the **Source View** to copy the following configuration.
 
@@ -175,9 +175,9 @@ Follow the steps given below.
 
 Finally, the created Maven Multi Module project should look as follows:
 
-<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/jms_example_project.png" alt="Hello World Project">
+<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/jms_example_project.png" width="400" alt="Hello World Project">
 
-## Step 2: Update JMS configurations
+## Step 2 - Update JMS configurations
 
 1.  Uncomment the following two commands in the Dockerfile inside the Kubernetes project.
     ```bash
@@ -238,7 +238,7 @@ Finally, the created Maven Multi Module project should look as follows:
     class="org.apache.axis2.transport.jms.JMSSender"
     ```  
 
-## Step 3: Build and Push the Docker image
+## Step 3 - Build and Push the Docker image
 
 !!! Note
     Be sure to start your Docker instance before building the image. If Docker is not started, the build process will fail.
@@ -270,19 +270,16 @@ There are two ways to build a Docker image of the integration solution and push 
 
     3.  In the dialog box that opens, enter the credentials of your Docker registry to which the image should be pushed.
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" width="500" alt="docker registry credentials">
 
     4.  Click <b>Push Image</b>.
 
 Run the `docker image ls` command to verify that the Docker image is created.
 
-## Step 4: Deploy the solution in K8s
+## Step 4 - Deploy the solution in K8s
 
 !!! Info
-    **Before you begin**:
-
-    -   Be sure that the [system requrements]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#prerequisites-system-requirements) are in place.
-    -   The [ Kubernetes API Operator]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#install-the-ei-k8s-operator) should be installed in your kubernetes environment.
+    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your kubernetes environment.
 
 Follow the steps given below:
 
@@ -296,7 +293,7 @@ Follow the steps given below:
 When the integration is successfully deployed, it should create the `jms-example` integration, `jms-example-deployment`, `jms-example-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#disable-ingress-controller).
+    The `ei-operator-ingress` is not created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration
@@ -322,6 +319,6 @@ api-operator-ingress   wso2ei.ingress.wso2.com    10.0.2.15   80, 443   2m
 
 This will create a new queue called **queue** in ActiveMQ. 
 
-## Step 5: Test the deployment
+## Step 5 - Test the deployment
      
 Send a message to this queue. The proxy service you added in **step 3** above will listen to this message and send that message to a new queue called **secondQueue**.

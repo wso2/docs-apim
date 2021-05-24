@@ -227,7 +227,7 @@ The service's metadata is used by the API management runtime to generate the API
                     Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
                 </li>
                 <li>
-                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_HOST}/healthcare</code>.
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
                 </li>
                 <li>
                     Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
