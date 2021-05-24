@@ -35,6 +35,7 @@ Follow the steps given below to start the server.
           ```bash tab="On Windows"
           micro-intgrator.bat
           ```
+          
       -   To start the server in background mode:
 
           ```bash tab="On macOS/Linux"
