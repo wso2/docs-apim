@@ -35,6 +35,14 @@ Follow the steps given below.
        dashboard.bat
        ```
 
+       ```bash tab="On macOS/Linux"
+       sh dashboard.sh
+       ```
+
+       ```bash tab="On Windows"
+       dashboard.bat
+       ```
+
 ## Accessing the dashboard
 
 Once you have [started the dashboard server](#starting-the-dashboard-server), you can access the dashboard using the following URL:
