@@ -6,7 +6,7 @@ The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manage
 
 Follow the steps given below to get started:
 
-1.  Go to the [**WSO2 API Manager** website](https://wso2.com/integration/) -> **Download** -> **Other Resources**, and click **APICTL**.
+1.  Go to the [**WSO2 API Manager** website](https://wso2.com/api-manager/) -> **TRY IT NOW** -> **Tooling**, and click **APICTL**.
 
 2.  Extract the downloaded distribution and initialize apictl by executing the following command from your terminal.
 
