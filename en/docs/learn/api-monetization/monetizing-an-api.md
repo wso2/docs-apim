@@ -516,7 +516,6 @@ When working with API Monetization that involves dynamic business plans (usage-b
             );
         
             CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
-                    POLICY_ID SERIAL,
                     POLICY_UUID VARCHAR(256),
                     PRODUCT_ID VARCHAR(512),
                     PLAN_ID VARCHAR(512),
