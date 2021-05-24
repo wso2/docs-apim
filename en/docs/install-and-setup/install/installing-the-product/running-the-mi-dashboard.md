@@ -34,16 +34,29 @@ Follow the steps given below before you start.
 
 Follow the steps given below.
 
-1.    Open a terminal and navigate to the `<MI-DASHBOARD_HOME>/bin` folder.
-2.    Execute one of the commands given below.
+1.    Open a command prompt as explained below.
 
-      ```bash tab="On MacOS/Linux"
-      ./dashboard.sh
-      ```
+      <table>
+            <tr>
+                  <th>On <b>Linux/macOS</b></td>
+                  <td>Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.</td>
+            </tr>
+            <tr>
+                  <th>On <b>Windows</b></td>
+                  <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
+            </tr>
+      </table>     
 
-      ```bash tab="On Windows"
-      dashboard.bat
-      ```
+2.    Navigate to the `<MI-DASHBOARD_HOME>/bin` folder from your command line.
+3.    Execute one of the commands given below.
+
+       ```bash tab="On macOS/Linux"
+       sh dashboard.sh
+       ```
+
+       ```bash tab="On Windows"
+       dashboard.bat
+       ```
 
 ## Accessing the dashboard
 
