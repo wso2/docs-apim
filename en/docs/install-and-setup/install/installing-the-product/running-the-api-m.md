@@ -21,10 +21,6 @@ Follow the steps given below to start the server.
             <th>On <b>Windows</b></td>
             <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
         </tr>
-        <tr>
-            <th>On <b>Solaris</b></td>
-            <td>Click <b>Launch &gt;Run Applications</b>, type <b>dtterm</b> at the prompt, and then press <b>Enter</b>.</td>
-        </tr>
     </table>     
 
 2.  Navigate to the `<API-M_HOME>/bin` folder from your command line.
@@ -32,7 +28,7 @@ Follow the steps given below to start the server.
 
     -   To start the server:
 
-        ```bash tab="On MacOS/Linux/Solaris"
+        ```bash tab="On MacOS/Linux"
         sh api-manager.sh
         ```
 
@@ -42,41 +38,13 @@ Follow the steps given below to start the server.
 
     -   To start the server in background mode:
 
-        ```bash tab="On macOS/Linux/Solaris"
+        ```bash tab="On macOS/Linux"
         sh api-manager.sh start
         ```
 
         ```bash tab="On Windows"
         api-manager.bat --start
         ```
-
-    !!! Info
-        If you are starting the product in service/nohup mode in Solaris, do the following:
-
-        1. Update the `<API-M_HOME>/bin/api-manager.sh` file as follows:
-
-            1.  Search for the following occurrences: 
-                    
-                    ```bash
-                    nohup sh "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &
-                    ```
-
-            2.  Replace those occurrences with the following: 
-                
-                    ```bash
-                    nohup bash "$CARBON_HOME"/bin/api-manager.sh $args > /dev/null 2>&1 &
-                    ```
-
-                !!! Tip
-                    The only change is replacing `sh` with `bash`.
-
-        2. Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `api-manager.sh` script or you can run the following command from the command line:
-
-             ```bash
-             export PATH=/usr/xpg4/bin/sh:$PATH
-             ```
-
-        3. Start the server.
 
 When the server starts successfully, the following log is printed: `"WSO2 Carbon started in 'n' seconds"`
 
@@ -86,13 +54,14 @@ When you start the API-M runtime, all of its web portals are started. You will s
 
 ![API-M server startup log]({{base_path}}/assets/img/setup-and-install/running-product-mgt-console-url.png)
 
-You can use these URLs to access the web portals on this computer from any other computer connected to the LAN. When accessing the portals from the same server where it is installed, you can type `localhost` instead of the IP address.
+Note that the server is running on `localhost` by default. You can use these URLs to access the web portals on your computer from any other computer connected to the LAN. When accessing the portals from the same computer where it is installed, you can use `localhost` instead of the IP address.
 
 !!! Info  
-    The server is running on `localhost` by default. To change the default hostname and default port see the following topics:
+    To change the default hostname/port and to secure the API-M portals, see the following topics:
 
     - [Changing the API-M hostname]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m)
     - [Changing the default API-M ports]({{base_path}}/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/#changing-the-default-api-m-ports)
+    - [Securing API-M Web Portals]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals)
 
 To sign in to each web portal:
 
@@ -111,12 +80,12 @@ To sign in to each web portal:
 -   To stop the API-M server standalone application, go to the terminal and press <i>Ctrl+C</i>.
 -   To stop the API-M server in background mode:
 
-    ```bash tab="On macOS/Linux/Solaris"
+    ```bash tab="On macOS/Linux"
     sh api-manager.sh stop
     ```
 
     ```bash tab="On Windows"
-    api-manager.bat stop
+    api-manager.bat --stop
     ```
 
 !!! Tip
@@ -128,7 +97,7 @@ To sign in to each web portal:
 
 ## Troubleshooting server startup errors
 
--   If you are in a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bind address in `<API-M_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+-   If you are in a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bind-address in `<API-M_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
 -   If you are on a Mac OS, you may encounter the following startup error with similar logs.
 
     ```bash
@@ -153,5 +122,5 @@ To sign in to each web portal:
 
 ## See Also
 
--   [Installing as a Windows Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/)
--   [Installing as a Linux Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service/)
+-   [Running API-M as a Windows Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/)
+-   [Running API-M as a Linux Service]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service/)
