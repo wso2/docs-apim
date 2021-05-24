@@ -524,7 +524,6 @@ When working with API Monetization that involves dynamic business plans (usage-b
             );
         
             CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_PLATFORM_CUSTOMERS'),
                 ID SERIAL,
                 SUBSCRIBER_ID INTEGER NOT NULL,
                 TENANT_ID INTEGER NOT NULL,
@@ -534,7 +533,6 @@ When working with API Monetization that involves dynamic business plans (usage-b
             );
         
             CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SHARED_CUSTOMERS'),
                 ID SERIAL,
                 APPLICATION_ID INTEGER NOT NULL,
                 API_PROVIDER VARCHAR(256) NOT NULL,
@@ -547,7 +545,6 @@ When working with API Monetization that involves dynamic business plans (usage-b
             );
         
             CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SUBSCRIPTIONS'),
                 ID SERIAL,
                 SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
                 SUBSCRIBED_API_ID INTEGER NOT NULL,
