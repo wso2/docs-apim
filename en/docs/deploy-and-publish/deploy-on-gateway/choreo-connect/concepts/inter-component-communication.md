@@ -1,8 +1,8 @@
 # Communnication between the Components
 
-Communication between internal components of Choreo Connect (adapter, enforcer, router and apim control plane) are secured via mutual ssl.
+Communication between internal components of Choreo Connect (Adapter, Enforcer, Router and API-M control plane) are secured via mutual ssl.
 
-Each component has it's private-public key pair and truststore. In adapter's case, it's configured using the `config.toml` file as below.
+Each component has its private-public key pair and truststore. In the adapter's case, it is configured using the `config.toml` file as indicated below.
 
 ```toml
     [adapter.keystore] 
@@ -39,12 +39,12 @@ If it is required to change the private certificate of a component, follow the s
    
 2. Copy the private key and certificate (in PEM format) into `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/keystore` directory.
 
-    Ex: To change the certificate of Adapter component, copy the new certificate to `<CHOREO-CONNECT_HOME>/resources/adapter/security/keystore` directory.
+    E.g., To change the certificate of Adapter component, copy the new certificate to `<CHOREO-CONNECT_HOME>/resources/adapter/security/keystore` directory.
 
 3. If the certificate/ key name is changed, edit the corresponding configuration in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/conf/config.toml` file. Otherwise, use the same name as `mg.pem` and `mg.key` for the new certificate and key.
 
 4. Copy the public certificate (in PEM format) into the other two components. `<CHOREO-CONNECT_HOME>/resources/<COMPONENT>/security/truststore`
 
-    Ex: Copy the certificate to `<CHOREO-CONNECT_HOME>/resources/enforcer/security/keystore` and `<CHOREO-CONNECT_HOME>/resources/router/security/keystore`
+    E.g., Copy the certificate to `<CHOREO-CONNECT_HOME>/resources/enforcer/security/keystore` and `<CHOREO-CONNECT_HOME>/resources/router/security/keystore`
 
 5. Restart the components.

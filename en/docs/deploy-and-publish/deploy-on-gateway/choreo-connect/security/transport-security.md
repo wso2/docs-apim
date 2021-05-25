@@ -7,7 +7,7 @@ When using endpoints secured with self signed certificates, the public certifica
 If the certificate is not provided explicitly, the Choreo Connect router will use the default trusted certificates stored in, `/etc/ssl/certs/ca-certificates.crt`.
 
 ## Configuration
-The following are the default configurations for a gateway instance. Add the following configuration block to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/conf/config.toml` to change default values.
+The following are the default configurations for a Gateway instance. Add the following configuration block to the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/conf/config.toml` to change default values.
 
 ``` toml tab="config.toml"
     [router.upstream.tls]
@@ -22,7 +22,7 @@ The following are the default configurations for a gateway instance. Add the fol
 
 |Heading|Description|
 |-------|-----------|
-|router.upstream.tls|These are used to configure SSL properties for the upstream cluters (backend endpoints).|
+|router.upstream.tls|These are used to configure SSL properties for the upstream clusters (backend endpoints).|
 
 | Sub Heading| Description                      | Default value|
 |------------|----------------------------------|--------------|
@@ -34,11 +34,11 @@ The following are the default configurations for a gateway instance. Add the fol
 |disableSslVerification|Disable SSL verification with backend clusters|`false`|
 
 ### Add a Certificate to Choreo Connect Router as a Trusted Certificate
-Choreo Connect supports certificates in `pem` format. The trusted certificates are added as a single file which contains all the certificates.
+Choreo Connect supports certificates in `pem` format. The trusted certificates are added as a single file that contains all the certificates.
 To add a new certificate please follow the steps below.
 
 !!!Important
-    Mount the default certificate location of the Choreo Connect router in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/docker-compose.yaml` file. This will allow modifying the certificates easily without loggin to the container.
+    Mount the default certificate location of the Choreo Connect router in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect or choreo-connect-with-apim/docker-compose.yaml` file. This will allow modifying the certificates easily without logging in to the container.
 
     ``` tab="Example"
     router:
@@ -76,7 +76,7 @@ To add a new certificate please follow the steps below.
 
 ## Adding Certificates to Specific Cluters
 
-The above section explains how a certificate can be added to the Choreo Connect router's global trusted certificates. But, if the certificate should be added only to a specific API backend, it could be done as follows.
+The above section explains how a certificate can be added to the Choreo Connect router's global trusted certificates. However, if the certificate should be added only to a specific API backend, it could be done as follows.
 
 #### via API Manager
 
