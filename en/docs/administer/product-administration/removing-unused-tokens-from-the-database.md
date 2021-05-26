@@ -106,3 +106,35 @@ GO
 ```
 
 Replace `WSO2AM_DB` with the name of your API Manager database in the above script.
+
+## Registry database cleanup
+
+Creating and updating APIs, adding tags and ratings cause different registry properties to be added to the Registry database(Registry DB) in WSO2 API-M. When `Registry Versioning` is enabled, older properties are persisted in the database leading to unnecessary record growth in the Registry tables in the database. This directly affects the performance of the product if the number of records increase beyond a certain amount. Due to this limitation, registry versioning is disabled by default in WSO2 API Manager 3.0.0 onwards to prevent unnecessary database growth.
+
+In WSO2 API-M versions preceding 3.0.0 (2.x.x and 1.x.x), `Registry Versioning` is enabled by default, therefore we have to cleanup the Registry DB if there are large tables with millions of records.
+
+!!! info
+    You can always take a backup of the Registry database before the cleanup as a precaution for any issues that might occur during cleanup.
+
+!!! note "Before you begin..."
+    Remember to shut down the server and stop any DB transactions before the database cleanup. This is to prevent any inconsistencies that could happen with new data that gets added to the DB during the cleanup.
+
+The Cleanup scripts for the Registry DB tables are given below.
+
+#### REG_LOG Table Cleanup
+
+!!! example "DB Types: H2, DB2, MySQL, MSSQL, Oracle and Postgresql."
+    ``` sql
+    CREATE TABLE REG_LOG_IDS_TO_KEEP (
+             REG_LOG_ID INTEGER,
+             REG_TENANT_ID INTEGER
+    );
+    
+    INSERT INTO REG_LOG_IDS_TO_KEEP (REG_LOG_ID, REG_TENANT_ID)
+    SELECT MAX(REG_LOG_ID) AS REG_LOG_ID, REG_TENANT_ID FROM REG_LOG GROUP BY REG_PATH, REG_TENANT_ID;
+    
+    DELETE FROM REG_LOG WHERE REG_LOG_ID NOT IN (SELECT REG_LOG_ID FROM REG_LOG_IDS_TO_KEEP);
+    DROP TABLE REG_LOG_IDS_TO_KEEP;
+    
+    DELETE FROM REG_LOG WHERE REG_ACTION = 7;
+    ```
