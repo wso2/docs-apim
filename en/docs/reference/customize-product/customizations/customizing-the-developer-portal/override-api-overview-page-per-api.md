@@ -1,21 +1,14 @@
 # Override API Overview page per API
 
-It is possible to display a custom Overview content for any API by adding a document by following the steps given bellow.
+It is possible to display a custom Overview content for any API by following the steps given below.
 
-1. Login to API Publisher go to documents tab of the API you want to override.Login to the API Publisher and go to the `Documents` tab of the API that you want to override.
+1. Login to the API Publisher and go to the `Develop` --> `Portal Configurations` -->  `Basic Info` section of the API that you want to override.
 
-2. Create a new document with the following settings.
-    ![override api overview page per api publisher]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-publisher1.png) 
+2. Click **Edit description** to open the embedded editor.
+    ![override api overview page per api publisher]({{base_path}}/assets/img/reference/customizations/override-api-overview-page/override-api-overview-page-per-api-publisher1.png)
 
-    | Input Name | Input Value |
-    | -- | -- |
-    | Name | Custom Overview |
-    | Summary | summary about the overview page for financeAPI1 |
-    | Type | Other |
-    | Other Document Type | _overview |
-    | Source | Markdown |
-
-3. Click the save button and select **ADD CONTENT** from the dialog box.
+3. Select the **Markdown** option to switch to the Markdown editor.
+    ![override api overview page per api publisher]({{base_path}}/assets/img/reference/customizations/override-api-overview-page/override-api-overview-page-per-api-publisher2.png)
 
 4. Add the markdown content.
 
@@ -33,10 +26,12 @@ It is possible to display a custom Overview content for any API by adding a docu
     | type | `___type___` |
     | version | `___version___` |
 
-    ![override api overview page per api publisher]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-publisher2.png) 
+    ![override api overview page per api publisher]({{base_path}}/assets/img/reference/customizations/override-api-overview-page/override-api-overview-page-per-api-publisher3.png)
 
     Above screen demonstrates the use of `___name___` key to display API name within the markdown content.
 
-    Overview for the selected API will be rendered from the markdown content in the developer portal.
+5. Click **Update Content**. Then click **Save** at the bottom of the `Design Configurations` form.
 
-    ![override api overview page per api devportal]({{base_path}}/assets/img/learn/override-api-overview-page-per-api-devportal.png) 
+6. Go to the Developer Portal and select the API for which the markdown content was added. Overview for the selected API will be rendered from the markdown content.
+
+    ![override api overview page per api devportal]({{base_path}}/assets/img/reference/customizations/override-api-overview-page/override-api-overview-page-per-api-devportal.png)
