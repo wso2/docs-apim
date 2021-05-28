@@ -14,8 +14,8 @@ Develop a REST API artifact using WSO2 Integration Studio. This is your integrat
 !!! Tip
     For instructions on creating a new integration service, use the following documentation: 
 
-    -   [Developing your First Integration Service]({{base_path}}/integrate/develop/working-with-service-catalog).
-    -   [integration tutorials]({{base_path}}/tutorials/tutorials-overview/#integration-tutorials).
+    -   [Developing your First Integration Service]({{base_path}}/integrate/develop/integration-development-kickstart).
+    -   [Integration Tutorials]({{base_path}}/tutorials/tutorials-overview/#integration-tutorials).
 
 ## Step 1 - Update the service metadata
 
@@ -47,17 +47,17 @@ Update the metadata for your service as explained below.
             serviceUrl
         </td>
         <td>
-            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{host}</code> and <code>{port}</code> values are parameterized with placeholders.</br></br>
+            This is the URL of the API when it gets deployed in the Micro Integrator. You (as the integration developer) may not know this URL during development. Therefore, you can parameterize the URL to be resolved later using environment variables. By default, the <code>{MI_HOST}</code> and <code>{MI_PORT}</code> values are parameterized with placeholders.</br></br>
             You can configure the serviceUrl in the following ways:
             <ul>
                 <li>
                     Add the complete URL without parameters. For example: <code>http://localhost:8290/healthcare</code>.</br>
                 </li>
                 <li>
-                    Parameterize using the host and port combination. For example: <code>http://{host}:{port}/healthcare</code>.
+                    Parameterize using the host and port combination. For example: <code>http://{MI_HOST}:{MI_PORT}/healthcare</code>.
                 </li>
                 <li>
-                    Parameterize using a preconfigured URL. For example: <code>http://{url}/healthcare</code>.
+                    Parameterize using a preconfigured URL. For example: <code>http://{MI_URL}/healthcare</code>.
                 </li>
             </ul>
         </td>

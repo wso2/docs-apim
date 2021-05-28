@@ -35,6 +35,21 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Yes</td>
         </tr>
         <tr>
+            <td>schemaRegistryUrl</td>
+            <td>The URL of the confluent schema registry, only applicable when dealing with apache avro serializer class..</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>basicAuthCredentialsSource</td>
+            <td>The source of basic auth credentials (e.g. USER_INFO, URL), when schema registry is secured to use basic auth..</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>basicAuthUserInfo</td>
+            <td>The relevant basic auth credentials (should be used with basicAuthCredentialsSource).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>acks</td>
             <td>The number of acknowledgments that the producer requires for the leader to receive before considering a request to be complete.</td>
             <td>Optional</td>
@@ -338,7 +353,33 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         <sslKeyPassword>test1234</sslKeyPassword>
     </kafkaTransport.init>
     ```
+    **Sample configurations for dealing with Apache Avro Serialization**
 
+    Given below is a sample configuration to create a producer for Kafka Avro Serialization,
+    
+    ````xml
+    <kafkaTransport.init>
+        <name>Sample_Kafka</name>
+        <bootstrapServers>localhost:9092</bootstrapServers>
+        <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>
+        <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
+        <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
+    </kafkaTransport.init>
+    ````
+    
+    Sample init configuration when confluent schema registry is secured with basic auth,
+    
+    ````xml
+    <kafkaTransport.init>
+        <name>Sample_Kafka</name>
+        <bootstrapServers>localhost:9092</bootstrapServers>
+        <keySerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</keySerializerClass>
+        <valueSerializerClass>io.confluent.kafka.serializers.KafkaAvroSerializer</valueSerializerClass>
+        <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
+        <basicAuthCredentialsSource>USER_INFO</basicAuthCredentialsSource>
+        <basicAuthUserInfo>admin:admin</basicAuthUserInfo>
+    </kafkaTransport.init>
+    ````
 ---
 
 ### Publishing messages to Kafka
@@ -361,6 +402,41 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>The partition number of the topic.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>key</td>
+            <td>Key of the kafka message.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>keySchema</td>
+            <td>Schema of the provided key (applicable only with Kafka Avro Serialization).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>keySchemaId</td>
+            <td>Schema id of the key schema that is stored in the confluent schema registry (applicable only with Kafka Avro Serialization).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>The kafka value/message.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>valueSchema</td>
+            <td>Schema of the Kafka value (applicable only with Kafka Avro Serialization).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>valueSchemaId</td>
+            <td>Schema id of the value schema that is stored in the confluent schema registry (applicable only with Kafka Avro Serialization).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>Content-Type</td>
+            <td>The Content-Type of the message.</td>
+            <td>Optional</td>
+        </tr>
     </table>
 
     If required, you can add [custom headers](https://cwiki.apache.org/confluence/display/KAFKA/A+Case+for+Kafka+Headers) to the records in publishMessage operation:
@@ -377,4 +453,26 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         <partitionNo>partitionNo</partitionNo>
         <topicName.Content-Type>Value</topicName.Content-Type>
     </kafkaTransport.publishMessage>
+    ```
+    When dealing with Avro Serialization the key and value parameters can be configured as:
+    
+    ```xml
+    <kafkaTransport.publishMessages>
+       <topic>topicName</topic>
+       <key>key of the message</key>
+       <keySchema>schema of the configured key</keySchema>
+       <value>value of the message</value>
+       <valueSchema>schema of the configured value</valueSchema>
+    </kafkaTransport.publishMessages>
+    ```
+    Sample configuration to retrieve the key/value schema from the Confluent Schema Registry:
+    
+    ```xml
+    <kafkaTransport.publishMessages>
+       <topic>topicName</topic>
+       <key>key of the message</key>
+       <keySchemaId>schemaId of the configured key</keySchema>
+       <value>value of the message</value>
+       <valueSchemaId>schemaId of the configured value</valueSchema>
+    </kafkaTransport.publishMessages>
     ```

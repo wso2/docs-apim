@@ -1,12 +1,11 @@
-# Integration Quick Start Guide
+# Quick Start Guide - Integration
 
 Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment. 
 
 ## Before you begin
 
-1. Go to the [website](https://wso2.com/api-management/) to download WSO2 Micro Integrator and WSO2 Integration Studio. 
-
-    When you click **Download**, the installation options will be listed. For this quick start, you can either download and run the **installer**, or use the **binary** file.
+1. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
+2. Go to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
 
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
@@ -18,7 +17,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 
 This is a simple service orchestration scenario. The scenario is about a basic healthcare system where the Micro Integrator is used to integrate two back-end hospital services to provide information to the client.
 
-Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated for a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
+Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated to a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
 ![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
 
@@ -68,7 +67,7 @@ Go to the `<mi-qsg-home>` directory. The following project files and executable 
 
       <details>
                 <summary>HealthcareAPI.xml</summary>
-    	    ```xml
+            ```xml
             <?xml version="1.0" encoding="UTF-8"?>
             <api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
                 <resource methods="GET" uri-template="/doctor/{doctorType}">
@@ -110,7 +109,7 @@ Go to the `<mi-qsg-home>` directory. The following project files and executable 
                     <faultSequence/>
                 </resource>
             </api>
-    	    ```    
+            ```    
       </details>
       
       
@@ -164,37 +163,27 @@ java -jar DoctorInfo-JDK11.jar
 
 Copy the CAR file of the healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
-!!! Note
-    If you [set up the product](#before-you-begin) using the **installer**, the `<MI_HOME>` [location]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#accessing-the-home-directory) is specific to your OS.
-
 #### Start the Micro Integrator
 
-If you set up the product using the **installer**, follow the steps relevant to your OS as shown below.
+Follow the steps relevant to your OS as shown below.
 
--   On **MacOS/Linux/CentOS**, open a terminal and execute the following command:
+1. Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+2. Execute the relevant command:
 
-    ```bash
-    sudo wso2mi
+    ```bash tab='On MacOS/Linux/CentOS'
+    sh micro-integrator.sh
     ```
-    
--   On **Windows**, go to **Start Menu -> Programs -> WSO2 -> Micro Integrator**. This will open a terminal and start the Micro Integrator.
 
-If you set up the product using the **binary** file, open a terminal, navigate to the `<MI_HOME>/bin` directory, and execute the command relevant to your OS as shown below.
-
-```bash tab='On MacOS/Linux/CentOS'
-sh micro-integrator.sh
-```
-
-```bash tab='On Windows'
-micro-integrator.bat
-```
+    ```bash tab='On Windows'
+    micro-integrator.bat
+    ```
 
 #### (Optional) Start the Dashboard
 
-If you want to view the integrations artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
+If you want to view the integration artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
-- Running the [MI dashboard using the installer]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#running-the-mi-dashboard)
-- Running the [MI dashboard using the binary]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/#running-the-mi-dashboard)
+1.  [Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the MI dashboard.
+2.  [Start]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) the MI dashboard.
 
 #### Invoke the healthcare service
 
@@ -237,44 +226,61 @@ Upon invocation, you should be able to observe the following response:
 
 ## Step 3 - Exposing an Integration Service as a Managed API
 
-After developing your Integration using WSO2 Micro Integrator, you can choose to expose it as a Managed API using WSO2 API Manager.
+The REST API you deployed in the Micro Integrator is an **integration service** for the API Manager. Now, let's look at how you can expose the integration service to the API Management layer and generate a managed API by using the service.
 
-Integration services are made discoverable to the API Management layer via the Service Catalog so that API proxies can directly be created using them.
+First, let's start the API-M runtime:
 
-For this part of the tutorial you need WSO2 API Manager.
-
-1.  Download and set up [WSO2 API Manager 4.0.0](https://wso2.com/api-management/).
-2.  Start WSO2 API Manager by navigating to the /bin directory using the command-line and execute the following command `api-manager.bat --run` (for Windows) or `sh api-manager.sh` (for Linux/Mac)
-
-You need to add the following configuration to `<MI_HOME>/conf/deployment.toml` file.
-
-!!! Tip
-    The default username and password for connecting to the API gateway is `admin`.
-
-
-```toml
-[[service_catalog]]
-apim_host = "https://localhost:9443"
-enable = true
-username = "admin"
-password = "admin"
-```
+1.  Go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
+2.  Extract the ZIP file.
+3.  Start WSO2 API Manager:
     
-Now if you restart Micro Integrator, you can observe that the Integration Service will be added to the Services of API Manager.
-You will see the following in the server start up log.
+    1.  Open a terminal and navigate to the `<API-M_HOME>/bin` folder. 
+    2.  Execute the relevant command:
+        
+        ```bash tab="On MacOS/Linux"
+        ./api-manager.sh
+        ```
+        
+        ```bash tab="On Windows"
+        api-manager.bat
+        ```
 
-```bash
-Successfully updated the service catalog
-```
+Update and start the Micro Integrator runtime:
 
-Once you have services deployed, you can view the list of available services by accessing the Service Catalog menu in WSO2 API Manager. 
+1. Add the following configuration to the `<MI_HOME>/conf/deployment.toml` file of the Micro Integrator.
 
-1. Click on the **Hamburger Icon** in the top left corner of the web page.
-2. Select the **Service Catalog** Menu.
+    !!! Tip
+        The default username and password for connecting to the API gateway is `admin`.
 
-Here you will not see an onboarding page but a listing of the deployed services as follows. You can **view** and **search** for all the deployed services from this interface. To search for services, click on the search icon on the top right corner of the listing table shown in the diagram below.
 
-![Service Catalog Listing Page]({{base_path}}/assets/img/integrate/service-catalog/service-catalog-qsg.png)
+    ```toml
+    [[service_catalog]]
+    apim_host = "https://localhost:9443"
+    enable = true
+    username = "admin"
+    password = "admin"
+    ```
+    
+2.  Restart the Micro Integrator.
+
+    You will see the following in the server start-up log.
+
+    ```bash
+    Successfully updated the service catalog
+    ```
+
+Let's access the integration service from the **API Publisher**:
+
+1. Sign in to the **API Publisher**: `https://localhost:9443/publisher`
+
+    !!! Tip
+        Use `admin` as the user name and password.
+
+2. Click the **Hamburger Icon** in the upper-left of the **Publisher**.
+3. Select the **Services** from the menu.
+4. See that the `HealthcareAPI` is listed as a service.
+
+You can now proceed to [create a managed API]({{base_path}}/design/create-api/create-an-api-using-a-service) using this service.
 
 ## What's next?
 
