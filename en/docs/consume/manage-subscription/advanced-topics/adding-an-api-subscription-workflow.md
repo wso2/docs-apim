@@ -13,19 +13,18 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
 
     ![]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
 
-2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor. Also specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
+2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
-    ``` 
-    <WorkFlowExtensions>
+     ``` 
+     <WorkFlowExtensions>
         ...
         <!--SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationSimpleWorkflowExecutor"/-->
         <SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationApprovalWorkflowExecutor"/>
         ...
-    </WorkFlowExtensions>
-    ```
+     </WorkFlowExtensions>
+     ```
 
-    The subscription creation Approval Workflow Executor is now engaged.
-
+     The subscription creation Approval Workflow Executor is now engaged.
 
 3.  Go to the API Devportal credentials page and subscribe to an API. If the approval workflow is enabled then after subscribing you will see the subscription status as **ON_HOLD**.
 

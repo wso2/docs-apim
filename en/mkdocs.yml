@@ -53,9 +53,9 @@ nav:
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/architecture.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: get-started/quick-start-guide/quick-start-guide.md
-                - Quick Start Guide Integration: get-started/quick-start-guide/integration-qsg.md
-                - Quick Start Guide Streaming: get-started/quick-start-guide/streaming-qsg.md
+                - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
+                - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
+                - Quick Start Guide Streaming: get-started/streaming-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
@@ -233,6 +233,7 @@ nav:
                     - Subscription Validation: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/subscription-validation.md
                     - Choreo Connect with Tenants: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-with-tenants.md
                     - Supported Template Patterns: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/template-patterns-for-choreo-connect.md
+                    - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploy an API:
                     - Deploy an API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                     - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
@@ -244,6 +245,7 @@ nav:
                         - Enforcer: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/enforcer-configurations.md
                         - Router: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/router-configurations.md
                         - Control Plane: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/control-plane-configurations.md
+                        - Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/analytics-configurations.md
                 - Endpoints:
                     - Endpoint Types: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/endpoint-types.md
                     - Defining Endpoints in an OpenAPI Definition: deploy-and-publish/deploy-on-gateway/choreo-connect/endpoints/defining-endpoints-in-an-openapi-definition.md
@@ -282,7 +284,8 @@ nav:
                 - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
-        - Publish on Developer Portal: 
+                - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+        - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
             - Importing APIs from AWS API-Gateway to the WSO2 APIM: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
@@ -732,15 +735,18 @@ nav:
                         - Configuring Microgateway: observe/api-manager-analytics/configure-analytics/configure-microgateway.md
                         - Configuring API Gateway: observe/api-manager-analytics/configure-analytics/configure-synapse-gateway.md
                     - Working with Organizations: observe/api-manager-analytics/configure-analytics/working-with-organizations.md
+                    - Working with Alerts: observe/api-manager-analytics/configure-analytics/configure-alerts.md
                 - Viewing APIM analytics:
                     - Pages:
                         - Introduction: observe/api-manager-analytics/analytics-pages/analytics-pages-introduction.md
                         - Overview Page: observe/api-manager-analytics/analytics-pages/analytics-pages-overview.md
                         - Traffic Page: observe/api-manager-analytics/analytics-pages/analytics-pages-traffic.md
                         - Errors Page: observe/api-manager-analytics/analytics-pages/analytics-pages-errors.md
+                        - Latency Page: observe/api-manager-analytics/analytics-pages/analytics-pages-latency.md
                         - Cache Page: observe/api-manager-analytics/analytics-pages/analytics-pages-cache.md
                         - Devices Page: observe/api-manager-analytics/analytics-pages/analytics-pages-devices.md
                         - Alerts Page: observe/api-manager-analytics/analytics-pages/analytics-pages-alerts.md
+                        - Report Page: observe/api-manager-analytics/analytics-pages/analytics-pages-report.md
                     - Usecases:
                         - Finding Faulty APIs: observe/api-manager-analytics/analytics-usecases/finding-faulty-apis.md
                 - Quality of Service: observe/api-manager-analytics/analytics-qos.md
@@ -800,7 +806,6 @@ nav:
                 - Developer Portal API v2: reference/product-apis/devportal-apis/devportal-v2/devportal-v2.md
             - Admin APIs:
                 - Admin APIs v2: reference/product-apis/admin-apis/admin-v2/admin-v2.md
-                - Admin APIs v0.17: reference/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
             - Gateway APIs:
                 - Gateway v1: reference/product-apis/gateway-apis/gateway-v1/gateway-v1.md
             - Service Catalog APIs:
@@ -971,8 +976,13 @@ nav:
                 - Kafka Overview: reference/connectors/kafka-connector/kafka-connector-overview.md
                 - Setting up Kafka: reference/connectors/kafka-connector/setting-up-kafka.md
                 - Enabling Security for Kafka: reference/connectors/kafka-connector/enabling-security-for-kafka.md
-                - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
-                - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
+                - 3.1.x:
+                    - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                    - Kafka Avro Message Example: reference/connectors/kafka-connector/kafka-connector-avro-producer-example.md
+                    - Kafka Connector Reference: reference/connectors/kafka-connector/kafka-connector-config.md
+                - 3.0.x:
+                    - Kafka Example: reference/connectors/kafka-connector/kafka-connector-producer-example.md
+                    - Kafka Connector Reference: reference/connectors/kafka-connector/3.0.x/kafka-connector-config.md
                 - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md
             - LDAP Connector:
                 - LDAP Overview: reference/connectors/ldap-connector/ldap-connector-overview.md
@@ -1183,17 +1193,6 @@ nav:
             - Java Documentation: reference/java-documentation.md
         - Best Practices:
             - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
-        - Samples:
-            - API Development Sample:
-                - Managing APIs Sample: reference/samples/api-development-sample/managing-apis-sample.md
-                - Collaborative API Development Sample: reference/samples/api-development-sample/collaborative-api-development-sample.md
-                - Development of Developer Optimized APIs Sample: reference/samples/api-development-sample/development-of-developer-optimized-apis-sample.md
-            - API Governance Sample: reference/samples/api-governance-sample.md
-            - API Lifecycle Management Sample: reference/samples/api-lifecycle-management-sample.md
-            - API Rate Limiting Sample: reference/samples/api-rate-limiting-sample.md
-            - API Rate Monetization Sample: reference/samples/api-rate-monetization-sample.md
-            - API Security Sample: reference/samples/api-security-sample.md
-            - API Versioning Sample: reference/samples/api-versioning-sample.md
         - Guides:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
@@ -1298,6 +1297,7 @@ nav:
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                     - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
+                    - Securing Web Portals: install-and-setup/setup/security/securing-api-m-web-portals.md
                 - Configuring Userstores:
                     - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                     - Configuring Primary User Stores:
@@ -1406,7 +1406,7 @@ nav:
                 - Distributed Deployment:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configuring a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                    - Running the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
             - Deploying the Micro Integrator:
                 - Configuring a Micro Integrator Cluster: install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei.md
                 - Deployment Synchronization: install-and-setup/setup/mi-setup/deployment/deployment_synchronization.md
@@ -1420,17 +1420,17 @@ nav:
             - Deploying on Kubernetes:
                 - API-M on K8s:
                     - Deploying API-M on K8s using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-                    - Deploying API-M on K8s using the Operator: install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator.md
                 - Micro Integrator on K8s:
                     - Micro Integrator Deployment Patterns on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns.md
                     - Deploying the Micro Integrator on K8s: install-and-setup/setup/mi-setup/deployment/kubernetes_deployment.md
                 - APIs and Integrations on K8s:
                     - Installing the API K8s Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/install.md
-                    - Deploying APIs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - Deploying APIs using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments.md
+                    - Deploying Integrations using the Operator: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
+                    - Deploying Integrations using Helm Resources: install-and-setup/setup/mi-setup/deployment/deploying-micro-integrator-with-helm.md
                     - API Deployment Samples:
                         - Sample 1 - Target Endpoint: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-1-target-endpoint.md
                         - Sample 2 - Deployment Params and Certs: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-samples/sample-2-deployment-params-and-certs.md
-                    - Deploying Integrations: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments.md
                     - Integration Deployment Samples:
                         - Sample 1 - Hello World: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md
                         - Sample 2 - Message Routing: install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md
@@ -1690,6 +1690,192 @@ plugins:
               'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
               'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
               'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.2.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
+              'install-and-setup/install/installing-the-product/installing-the-product.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
+              'install-and-setup/install/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
+              'install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
+              'install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
+              'install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
+              'install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service/'
+              'install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service/'
+              'install-and-setup/install/running-the-product.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/running-the-api-m/'
+              'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
+              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/test-a-websub-api/'
+              'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'
+              'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
+              'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
+              'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
+              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+              'getting-started/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/overview/'
+              'getting-started/basic-architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/key-concepts/'
+              'getting-started/key-concepts.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/architecture/'
+              'getting-started/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/quick-start-guide/quick-start-guide/'
+              'getting-started/about-this-release.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/about-this-release/'
+              'get-started/quick-start-guide/quick-start-guide.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/api-manager-quick-start-guide/'
+              'get-started/quick-start-guide/integration-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/integration-quick-start-guide/'
+              'get-started/quick-start-guide/streaming-qsg.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/streaming-quick-start-guide/'
+              'learn/design-api/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'
+              'learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
+              'learn/design-api/create-api/create-a-graphql-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-a-graphql-api/'
+              'learn/design-api/create-api/create-a-websocket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-websocket-streaming-api/'
+              'learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
+              'learn/design-api/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
+              'learn/design-api/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+              'learn/api-gateway/overview-of-the-api-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway/'
+              'learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests/'
+              'learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/creating-and-uploading-using-integration-studio/'
+              'learn/api-gateway/message-mediation/adding-dynamic-endpoints.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-dynamic-endpoints/'
+              'learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/removing-specific-request-headers-from-response/'
+              'learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend/'
+              'learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls/'
+              'learn/api-gateway/message-mediation/disabling-message-chunking.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/disabling-message-chunking/'
+              'learn/api-gateway/message-mediation/transforming-api-message-payload.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/transforming-api-message-payload/'
+              'learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-non-blocking-send-operation/'
+              'learn/api-gateway/message-mediation/adding-a-class-mediator.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/adding-a-class-mediator/'
+              'learn/api-gateway/message-mediation/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters/'
+              'learn/api-gateway/response-caching.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching/'
+              'learn/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/'
+              'learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway/'
+              'learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway/'
+              'learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway/'
+              'learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
+              'learn/api-gateway/maintaining-separate-production-and-sandbox-gateways.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/'
+              'learn/api-gateway/scaling-the-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway/'
+              'learn/api-gateway/api-gateways-with-dedicated-backends.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends/'
+              'learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
+              'learn/api-microgateway/grouping-apis-with-labels.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview/'
+              'learn/design-api/publish-api/publish-an-api.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/publish-on-dev-portal/publish-an-api/'
+              'learn/design-api/publish-api/publish-through-multiple-api-gateways.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/'
+              'learn/design-api/publish-api/publish-to-multiple-external-api-stores.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/'
+              'learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+              'learn/design-api/create-api/adding-custom-properties-to-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/adding-custom-properties-to-apis/'
+              'learn/design-api/create-api/change-api-thumbnail.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/change-api-thumbnail/'
+              'learn/design-api/mock-api/create-a-mock-api-with-an-inline-script.md': 'https://apim.docs.wso2.com/en/4.0.0/design/prototype-api/create-a-mock-api-with-an-inline-script/'
+              'learn/design-api/create-api-product/api-product-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api-product/api-product-overview/'
+              'learn/design-api/create-api-product/create-api-product.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api-product/create-api-product/'
+              'learn/design-api/endpoints/endpoint-types.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-types/'
+              'learn/design-api/endpoints/endpoint-security/basic-auth.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/basic-auth/'
+              'learn/design-api/endpoints/endpoint-security/digest-auth.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/digest-auth/'
+              'learn/design-api/endpoints/endpoint-security/oauth-2.0.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/endpoint-security/oauth-2.0/'
+              'learn/design-api/endpoints/high-availability-for-endpoints.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/high-availability-for-endpoints/'
+              'learn/design-api/endpoints/resiliency/endpoint-timeouts.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/endpoint-timeouts/'
+              'learn/design-api/endpoints/resiliency/endpoint-suspension.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/endpoint-suspension/'
+              'learn/design-api/endpoints/resiliency/prevent-api-suspension.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/resiliency/prevent-api-suspension/'
+              'learn/design-api/endpoints/certificates.md': 'https://apim.docs.wso2.com/en/4.0.0/design/endpoints/certificates/'
+              'learn/design-api/lifecycle-management/api-lifecycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/api-lifecycle/'
+              'learn/design-api/lifecycle-management/customize-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/customize-api-life-cycle/'
+              'learn/design-api/lifecycle-management/extending-the-api-life-cycle.md': 'https://apim.docs.wso2.com/en/4.0.0/design/lifecycle-management/extending-the-api-life-cycle/'
+              'learn/design-api/api-versioning/create-a-new-api-version.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/create-a-new-api-version/'
+              'learn/design-api/api-versioning/deprecate-the-old-version.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/deprecate-the-old-version/'
+              'learn/design-api/api-versioning/backward-compatibility.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/backward-compatibility/'
+              'learn/design-api/api-versioning/enabling-notifications.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-versioning/enabling-notifications/'
+              'learn/design-api/api-documentation/add-api-documentation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-documentation/add-api-documentation/'
+              'learn/design-api/api-documentation/search-documentation/add-new-search-keyword.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-documentation/search-documentation/add-new-search-keyword/'
+              'learn/api-security/api-authentication/api-authentication-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/api-authentication-overview/'
+              'learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/'
+              'learn/api-security/api-authentication/secure-apis-using-api-keys.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-api-keys/'
+              'learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-mutual-ssl/'
+              'learn/api-security/api-authentication/secure-apis-using-basic-authentication.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/secure-apis-using-basic-authentication/'
+              'learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
+              'learn/api-security/authorization/api-authorization.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/authorization/api-authorization/'
+              'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
+              'learn/api-security/authorization/role-based-access-control-using-xacml.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/authorization/role-based-access-control-using-xacml/'
+              'learn/api-security/configuring-api-security-audit.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/configuring-api-security-audit/'
+              'learn/api-security/api-request-response-schema-validation/json-schema-validator.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-request-response-schema-validation/json-schema-validator/'
+              'learn/api-security/oauth2/access-token-types/jwt-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/access-token-types/jwt-tokens/'
+              'learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/'
+              'learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/oauth2-scopes/scope-whitelisting/'
+              'learn/tutorials/create-and-publish-a-graphql-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-a-graphql-api/'
+              'learn/tutorials/create-and-publish-awslambda-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/create-and-publish-awslambda-api/'
+              'learn/tutorials/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/expose-a-soap-service-as-a-rest-api/'
+              'learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/edit-an-api-by-modifyng-the-api-definition/'
+              'learn/tutorials/create-and-publish-websocket-api.md': 'https://apim.docs.wso2.com/en/4.0.0/tutorials/streaming-api/create-and-publish-websocket-api/'
+              'learn/analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/viewing-api-statistics/monitoring-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/viewing-api-statistics/business-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/viewing-api-statistics/api-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/viewing-api-statistics/application-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/monthly-api-usage-report.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/alert-types.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/configuring-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/configuring-keystores-in-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/managing-dashboard-permissions.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/integrating-with-google-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/purging-analytics-data.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/default-ports-of-wso2-api-m-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/creating-custom-widgets-in-analytics-dashboards.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/customizing-analytics-dashboards.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/white-labeling-tenants.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/adding-third-party-non-osgi-libraries.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/publishing-custom-data.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/analytics/analytics-event-streams-and-aggregations.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager-analytics/overview-of-api-analytics/'
+              'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
+              'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/security/user-account-management/'
+              'learn/api-security/oauth2/grant-types/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/overview/'
+              'learn/api-security/oauth2/grant-types/password-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/password-grant/'
+              'learn/api-security/oauth2/grant-types/client-credentials-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/client-credentials-grant/'
+              'learn/api-security/oauth2/grant-types/authorization-code-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/authorization-code-grant/'
+              'learn/api-security/oauth2/grant-types/jwt-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/jwt-grant/'
+              'learn/api-security/oauth2/grant-types/refresh-token-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/refresh-token-grant/'
+              'learn/api-security/oauth2/grant-types/saml-extension-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/saml-extension-grant/'
+              'learn/api-security/oauth2/grant-types/kerberos-oauth2-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/kerberos-oauth2-grant/'
+              'learn/api-security/oauth2/grant-types/ntlm-grant.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/grant-types/ntlm-grant/'
+              'learn/api-security/oauth2/token-revocation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-revocation/'
+              'learn/api-security/oauth2/token-expiration.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-expiration/'
+              'learn/api-security/oauth2/token-persistence.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/token-persistence/'
+              'learn/api-security/oauth2/encrypting-oauth2-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/encrypting-oauth2-tokens/'
+              'learn/api-security/oauth2/hashing-oauth-keys.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/hashing-oauth-keys/'
+              'learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/provisioning-out-of-band-oauth-clients/'
+              'learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/oauth2/securing-oauth-token-with-hmac-validation/'
+              'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/threat-protection/bot-detection/'
+              'learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager/'
+              'learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect/'
+              'learn/rate-limiting/introducing-throttling-use-cases.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/introducing-throttling-use-cases/'
+              'learn/rate-limiting/adding-new-throttling-policies.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/adding-new-throttling-policies/'
+              'learn/rate-limiting/setting-throttling-limits.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/setting-throttling-limits/'
+              'learn/rate-limiting/access-control.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/access-control/'
+              'learn/rate-limiting/enforce-throttling-and-resource-access-policies.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/enforce-throttling-and-resource-access-policies/'
+              'learn/rate-limiting/setting-maximum-backend-throughput-limits.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/setting-maximum-backend-throughput-limits/'
+              'learn/api-security/threat-protection/bot-detection.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/threat-protection/bot-detection/'
+              'learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager/'
+              'learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect/'
+              'learn/rate-limiting/introducing-throttling-use-cases.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/introducing-throttling-use-cases/'
+              'learn/rate-limiting/adding-new-throttling-policies.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/adding-new-throttling-policies/'
+              'learn/rate-limiting/setting-throttling-limits.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/setting-throttling-limits/'
+              'learn/rate-limiting/access-control.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/access-control/'
+              'learn/rate-limiting/enforce-throttling-and-resource-access-policies.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/enforce-throttling-and-resource-access-policies/'
+              'learn/rate-limiting/setting-maximum-backend-throughput-limits.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/setting-maximum-backend-throughput-limits/'
+              'learn/rate-limiting/graphql-api/overview-query-limits-for-graphql.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/graphql-api/overview-query-limits-for-graphql/'
+              'learn/rate-limiting/graphql-api/query-depth-limitation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/graphql-api/query-depth-limitation/'
+              'learn/rate-limiting/graphql-api/query-complexity-limitation.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/graphql-api/query-complexity-limitation'
+              'learn/rate-limiting/advanced-topics/custom-throttling.md': 'https://apim.docs.wso2.com/en/4.0.0/design/rate-limiting/advanced-topics/custom-throttling/'
+              'learn/api-monetization/monetizing-an-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/api-monetization/monetizing-an-api/'
+              'learn/design-api/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal/'
+              'learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'
+              'learn/design-api/advanced-topics/enabling-cors-for-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/enabling-cors-for-apis/'
+              'learn/design-api/advanced-topics/adding-an-api-state-change-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/adding-an-api-state-change-workflow/'
+              'learn/design-api/advanced-topics/block-subscription-to-an-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/advanced-topics/block-subscription-to-an-api/'
+              'install-and-setup/setup/deployment-patterns.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/deployment-overview/'
+              'learn/api-controller/getting-started-with-wso2-api-controller.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/'
+              'learn/api-controller/importing-apis-via-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/cicd-using-cli/'
+              'learn/api-controller/migrating-apis-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/'
+              'learn/api-controller/migrating-api-products-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/'
+              'learn/api-controller/migrating-applications-to-different-environments.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments/'
+              'learn/api-controller/ci-cd-with-wso2-api-management.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/'
+              'learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/'
+              'learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/'
+              'learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/'
+              'learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/'
+              'learn/api-controller/advanced-topics/configuring-different-endpoint-types.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types/'
+              'learn/api-controller/advanced-topics/configuring-git-integration.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration/'
+              'learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+              'learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
+              'learn/kubernetes-operators/k8s-wso2am-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator/'
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
@@ -1703,7 +1889,7 @@ plugins:
               'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store/'
               'administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/'
               'administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager/'
-              'administer/product-administration/multitenancy/introduction-to-multitenancy.md' : 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/introduction-to-multitenancy/'
+              'administer/product-administration/multitenancy/introduction-to-multitenancy.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/introduction-to-multitenancy/'
               'administer/product-administration/multitenancy/managing-tenants.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/managing-tenants/'
               'administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/configuring-the-tenant-loading-policy/'
               'administer/product-administration/monitoring/logging/setting-up-logging.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/setting-up-logging/'
@@ -1756,16 +1942,79 @@ plugins:
               'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
               'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analytics-event-streams-and-aggregations/'
-              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/next/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
-              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/next/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
-              'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/next/consume/collaboration/interact-with-the-community/'
-              'design/create-api/create-a-streaming-api-from-an-asyncapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/'
-              'design/create-api/test-a-websub-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-streaming-api/test-a-websub-api/'
-              'design/create-api/create-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api/'
-              'design/create-api/create-a-rest-api-from-an-openapi-definition.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
-              'design/create-api/expose-a-soap-service-as-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api/'
-              'design/create-api/generate-rest-api-from-soap-backend.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/generate-rest-api-from-soap-backend/'
-              'design/create-api/test-a-rest-api.md': 'https://apim.docs.wso2.com/en/4.0.0/design/create-api/create-rest-api/test-a-rest-api/'
+              'deploy/choreo-connect/quick-start-with-kubernetes.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy/choreo-connect/get-started-with-kubernetes-for-choreo-connect/'
+              'deploy/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md': 'https://apim.docs.wso2.com/en/4.0.0/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/'
+              'consume/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/collaboration/interact-with-the-community/'
+              'learn/consume-api/discover-apis/search.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/discover-apis/search/'
+              'learn/consume-api/discover-apis/api-recommendations.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/discover-apis/api-recommendations/'
+              'learn/consume-api/manage-application/create-application.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/create-application/'
+              'learn/consume-api/manage-application/generate-keys/generate-api-keys.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/generate-keys/generate-api-keys/'
+              'learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens/'
+              'learn/consume-api/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/generate-keys/obtain-access-token/access-tokens-per-device/'
+              'learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time/'
+              'learn/consume-api/manage-application/generate-keys/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/generate-keys/revoke-oauth2-application/'
+              'learn/consume-api/manage-application/sharing-applications/sharing-applications.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/sharing-applications/sharing-applications/'
+              'learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/advanced-topics/add-custom-attributes-to-applications/'
+              'learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/advanced-topics/changing-the-owner-of-an-application/'
+              'learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/advanced-topics/adding-an-application-creation-workflow/'
+              'learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow/'
+              'learn/consume-api/manage-subscription/subscribe-to-an-api.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-subscription/subscribe-to-an-api/'
+              'learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow/'
+              'learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow/'
+              'learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/'
+              'learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console/'
+              'learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console/'
+              'learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/'
+              'learn/consume-api/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/collaboration/interact-with-the-community'
+              'learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/generate-sdks-in-dev-portal/'
+              'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md' : 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
+              'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/recover-password/'
+              'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/change-dev-portal-password/'
+              'develop/product-apis/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/product-apis/overview/'
+              'develop/product-apis/advanced-configurations.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/product-apis/advanced-configurations/'
+              'develop/extending-api-manager/extending-key-management/extending-key-validation.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation/'
+              'develop/extending-api-manager/extending-key-management/extending-scope-validation.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation/'
+              'develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface/'
+              'develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types/'
+              'develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway/'
+              'develop/extending-api-manager/extending-gateway/writing-custom-handlers.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers/'
+              'develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine/'
+              'develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension/'
+              'develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows/'
+              'develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants/'
+              'develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster/'
+              'develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows/'
+              'develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks/'
+              'develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2/'
+              'develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso/'
+              'develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/'
+              'develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
+              'develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md'
+              'develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
+              'develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
+              'develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/'
+              'develop/customizations/customizing-the-developer-portal/enable-or-disable-rating.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating/'
+              'develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page/'
+              'develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud/'
+              'develop/customizations/customizing-the-developer-portal/enable-or-disable-footer.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer/'
+              'develop/customizations/customizing-the-developer-portal/enable-or-disable-banner.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner/'
+              'develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu/'
+              'develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section/'
+              'develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header/'
+              'develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/'
+              'develop/customizations/overriding-the-publisher-portal-theme.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/overriding-the-publisher-portal-theme/'
+              'develop/customizations/log-in-to-the-dev-portal-using-social-media.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media/'
+              'develop/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal/'
+              'develop/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-user-signup-in-developer-portal/'
+              'develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants/'
+              'develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher/'
+              'develop/customizations/adding-a-user-signup-workflow.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/adding-a-user-signup-workflow/'
+              'develop/customizations/adding-internationalization.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/adding-internationalization/'
+              'develop/customizations/advanced-ui-customization.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/customize-product/customizations/advanced-ui-customization/'
+              'develop/wso2-admin-services.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/wso2-admin-services/'
+              'develop/working-with-the-source-code.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/working-with-the-source-code/'
+              'develop/java-documentation.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/java-documentation/'
 
     # Extra
 extra_css:

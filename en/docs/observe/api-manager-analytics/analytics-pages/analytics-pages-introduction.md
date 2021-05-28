@@ -1,9 +1,15 @@
 # Analytics Pages Introduction
-The new cloud analytics portal consists of several pages where pages are divided based on different stats (e.g., traffic
-, latency). There are a set of common controls that enable you to govern the data shown in pages. Each page will refer these
- common controls and page specific controls to visualize the information requested by the user.
+The new cloud analytics portal consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
+You can use these pages to get the complete business analytics on your API management system. 
+
+See the topics given below to get an overview of the main capabilities of **Analytics Pages**.
+   
+Let's start with the common controls that govern Analytics pages. See the related links in each topic given below for more details.
  
 ## Common Controls
+These are the common controls that enable you to govern the data shown in Analytics pages. Each page uses these common controls and page-specific controls to visualize the information requested by the user. 
+
+Explained below are these common controls and their usage.
 ### Time Picker
 ![APIM Analytics TIme Picker]({{base_path}}/assets/img/observe/time-picker.png)
 
@@ -13,15 +19,14 @@ Time picker is located in the top left hand corner of the analytics dashboard. O
  
  The time picker consists of several pre-defined time intervals. The following image illustrates those predefined time intervals.
  
- ![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-list.png)
+ <img src="{{base_path}}/assets/img/observe/time-picker-list.png" title="APIM Analytics Time Picker List" width="380"/>
  
  You can select any of these pre-defined intervals to view stats relevant to that time frame. However, granularity of
   each time range is pre-defined too and you cannot change the granularity of a pre-defined range. 
   
   If you need to select a custom time range with a custom granularity, you have to use the custom selector that
    is shown below.
-   
-![APIM Analytics TIme Picker List]({{base_path}}/assets/img/observe/time-picker-custom.png)
+<img src="{{base_path}}/assets/img/observe/time-picker-custom.png" title="APIM Analytics TIme Picker Custom" width="380"/>  
 
 In the custom picker first you have to select the granularity that you need to view the data. Then from the calendar
  widget you can select the date range and if applicable the clock widget will be also enabled to select the time. However,
@@ -92,10 +97,11 @@ This page displays information about OS platforms and HTTP Agents end users are 
   
 ### Alerts Page
 
-This page illustrates information related to alerts issued by the system. You can use this page as a health monitoring
- dashboard and make it visible to whole team. Using the page you can get more information about issues alerts. This page
-  will serve as the starting point for all issued alerts. For more information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts) documentation.
+This page shows the information related to business alerts issued by the system for your currently selected
+environment and organization. You can use this page as a health monitoring dashboard and make it visible to
+the whole team. You can use this page to drill down on each alert and discover possible anomalies or errors in your published APIs.
+
+For more information, see [Alerts Page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts)
   
 ### Reports Page
 

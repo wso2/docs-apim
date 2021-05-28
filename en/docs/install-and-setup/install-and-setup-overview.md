@@ -54,7 +54,7 @@ To set up the API Manager component, see the following topics.
 <table>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/deployment-overview">Applying WSO2 WUM Updates</a>
+        <a href="{{base_path}}/administer/updating-wso2-api-manager">Applying WSO2 WUM Updates</a>
     </th>
     <td>
         Explains how to get the latest updates that are available for a particular release of the API Manager.
