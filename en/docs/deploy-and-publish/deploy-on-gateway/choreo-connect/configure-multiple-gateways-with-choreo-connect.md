@@ -1,13 +1,13 @@
 # Configure Multiple Gateways with Choreo Connect
 
-Choreo Connect supports the configuration of multiple gateways with APIM or stand-alone mode. Basically, there are two types of deployments to setup multiple gateways.
+Choreo Connect supports the configuration of multiple Gateways with API Manager or in stand-alone mode. There are two types of deployments to setup multiple Gateways.
 
 1. [Single adapter pattern](#single-adapter-pattern)
 2. [Distributed adapter pattern](#distributed-adapter-pattern)
 
 ## Single adapter pattern
 
-You can use single adapter pattern to expose multiple gateway environments through a single adapter.
+You can use single adapter pattern to expose multiple Gateway environments through a single adapter.
 
 ![]({{base_path}}/assets/img/deploy/mgw/single-adapter-pattern.png)
 
@@ -200,8 +200,8 @@ For instance, if you are configuring a single adapter for two environments "chor
 
 3. Start Choreo Connect deployment from docker-compose.
 
-4. Add the gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
+4. Add the Gateway environments "choreo-connect-1" and "choreo-connect-2" from the Gateways in the APIM admin portal.
 
     ![]({{base_path}}/assets/img/deploy/mgw/add-gateway-environment.png)
 
-5. Deploy the API on the defined gateway.
+5. Deploy the API on the defined Gateway.
