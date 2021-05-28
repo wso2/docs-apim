@@ -1,5 +1,6 @@
 # Transport Security
 
+Transport Security is a point-to-point security mechanism that can be used for authentication, message intergrity and confidentiality. Valid Digital certificates are required when running secure HTTP transport (HTTPS) using secure socket layer (SSL).
 ## Using secured backends with Choreo Connect
 
 When using endpoints secured with self signed certificates, the public certificate of the backend should be added as trusted certificate to the router.
