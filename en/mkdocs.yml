@@ -284,10 +284,11 @@ nav:
                 - Configure Caching: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-caching.md
                 - Passing End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/choreo-connect/passing-enduser-attributes-to-the-backend-via-choreo-connect.md
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
+                - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - Troubleshooting:
                     - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
                 - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
-        - Publish on Developer Portal: 
+        - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
             - Importing APIs from AWS API-Gateway to the WSO2 APIM: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
