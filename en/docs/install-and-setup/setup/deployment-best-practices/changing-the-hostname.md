@@ -22,13 +22,13 @@ Follow the steps given below.
         hostname = "am.dev.wso2.com"
         ```
     
-        `{hostname}` - Hostname or IP address of the machine hosting this server. This will become part of the End Point Reference of the services deployed on this server instance.
+        Replace `{hostname}` with the  Hostname or IP address of the machine hosting this server. This becomes part of the **endpoint** reference of the services deployed on this server instance.
     
     3. Configure the Developer Portal URL, which is used to access the Developer Portal via the Publisher. 
 
         Uncomment the following configuration and define the `hostname`.
 
-        ```
+        ```toml
         [apim.devportal]
         url = "https://<hostname>:${mgt.transport.https.port}/devportal"
         ```
@@ -39,9 +39,19 @@ Follow the steps given below.
 
 3.  Restart the server.
 
-    !!! warning
+4.  Map the hostname alias to its IP address in the `/etc/hosts` file of your system as shown below.
 
-        After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
+    !!! Info
+        You need this when the host is internal or not resolved by a DNS,
+
+    ```java
+    127.0.0.1       localhost
+    <ip_address>    <hostname>
+    ```
+
+!!! Warning
+
+    After you change the hostname, if you encounter login failures when trying to access the API Publisher and API Developer Portal with the error `Registered callback does not match with the provided url`, see ['Registered callback does not match with the provided url' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error) in the Troubleshooting guide.
 
 ## Changing the Micro Integrator hostname
 

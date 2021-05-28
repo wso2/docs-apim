@@ -1296,6 +1296,7 @@ nav:
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                     - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
+                    - Securing Web Portals: install-and-setup/setup/security/securing-api-m-web-portals.md
                 - Configuring Userstores:
                     - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
                     - Configuring Primary User Stores:
