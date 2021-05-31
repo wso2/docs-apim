@@ -237,7 +237,7 @@ nav:
                     - Choreo Connect Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/choreo-connect-analytics.md
                 - Deploy an API:
                     - Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview.md
-                    - Deploy via API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/depoly-api-via-apim.md
+                    - Deploy via API Manager: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim.md
                     - Deploy via apictl: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl.md
                     - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
                 - Configurations:

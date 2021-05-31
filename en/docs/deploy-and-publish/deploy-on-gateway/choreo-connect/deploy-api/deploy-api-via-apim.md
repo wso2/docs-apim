@@ -3,7 +3,7 @@
 ## Step 1 - Configure Choreo Connect with API Manager
 
 - To start Choreo Connect with an existing API Manager instance, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configuring-choreo-connect-with-api-manager)
-- To start a complete deployment setup that includes an API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/)
+- To start a complete deployment setup that includes an API Manager instance and a Choreo Connect instance already configured to work with API Manager, follow the steps [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-docker-with-apim)
 ## Step 2 - Create an API in API Manager
 
 Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
