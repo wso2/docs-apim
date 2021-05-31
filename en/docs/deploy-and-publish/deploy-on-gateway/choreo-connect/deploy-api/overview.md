@@ -2,7 +2,7 @@
 
 There are two ways to add an API to Choreo Connect.
 
-1. [Via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/depoly-api-via-apim)
+1. [Via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apim)
 
     By enabling the Control Plane Event Hub in the Choreo Connect configuration file, the APIs deployed in API Manager will automatically be available in Choreo Connect. 
 
