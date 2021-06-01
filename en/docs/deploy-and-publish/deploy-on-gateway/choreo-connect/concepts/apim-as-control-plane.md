@@ -1,11 +1,11 @@
-# Choreo Connect with API Manager as Control Plane.
+# Choreo Connect with API Manager as Control Plane
 
 Choreo Connect can connect to API Manager running on cloud or on-premise as its control plane. Choreo Connect can be configured to connect with
 APIM control plane, therefore the user actions like API deploying, application creation, key generation, subscription creation etc are received by the Choreo Connect seamlessly.
 
 [![]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)
 
-## Configure Choreo Connect with API Manager
+## Configuring Choreo Connect with API Manager
 
 !!! info
     **Before you begin**
@@ -49,10 +49,10 @@ In the `[controlPlane.eventHub]` section,
 
     In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab.
 
-### Step 3 - Start the Choreo Connect
+### Step 3 - Start Choreo Connect
 
-Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
-    
+Now, let's start Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
+
 ``` bash
 docker-compose up -d
 ```
