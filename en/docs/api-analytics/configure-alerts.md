@@ -1,6 +1,6 @@
 # Working with Alerts
 
-One of the most useful features in API cloud analytics is alerting. You can configure several types of alerts and receive alerts within the portal. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
+Analytics portal allow configuring Alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
 
 You can configure alerts for each environment within your organization separately. Alerts are configured per API and you can also modify/remove already-added alert configurations.
 
