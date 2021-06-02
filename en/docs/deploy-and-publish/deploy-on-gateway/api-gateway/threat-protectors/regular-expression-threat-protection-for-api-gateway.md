@@ -86,7 +86,7 @@ regex\_policy in sequence.
 3.  Select **Edit** in the message mediation bar and select **Common Policies** .
 4.  Select `regex_policy` from the drop-down menu for Common Policies.
 
-    [ ![]({{base_path}}/assets/img/learn/mediation-regex-policy.png) ]({{base_path}}/assets/img/learn/mediation-regex-policy.png)
+    <a href="{{base_path}}/assets/img/learn/mediation-regex-policy.png"><img src="{{base_path}}/assets/img/learn/mediation-regex-policy.png" width="70%" alt="Select Regex policy from the drop-down menu"></a> 
     
 4.  Scroll down the page and click **Save** to save the changes.
 
