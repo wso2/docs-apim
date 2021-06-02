@@ -10,6 +10,10 @@ Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet
 
 ## Enabling PrivateJet mode
 
+####Installation Prerequisites
+
+Kubernetes v1.12 or v1.14
+
 Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs in cloud clusters. (Ex: Kubernetes)
 
 1. Install and setup [Kubernetes API Operator](https://github.com/wso2/k8s-api-operator/tree/v1.2.2/docs/GettingStarted/quick-start-guide.md#step-3-install-api-operator). 
