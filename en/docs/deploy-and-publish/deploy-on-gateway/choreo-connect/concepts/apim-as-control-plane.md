@@ -34,7 +34,7 @@ In the `[controlPlane.eventHub]` section,
  ``` yaml
  [controlPlane.eventHub]
   enabled = true
-  serviceUrl = "https://192.168.1.94:9443/"
+  serviceUrl = "https://<apim-ip>:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
   environmentLabels = ["Default"]
@@ -42,7 +42,7 @@ In the `[controlPlane.eventHub]` section,
   skipSSLVerification=true
   # Message broker connection URL of the control plane
   [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@192.168.1.94:5672?retries='10'&connectdelay='30'"]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@<apim-ip>:5672?retries='10'&connectdelay='30'"]
  ``` 
 
 !!! tip
