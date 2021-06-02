@@ -25,7 +25,7 @@ Follow the instructions below to register your on-premise environment:
 
      [![Settings Menu]({{base_path}}/assets/img/observe/settings-menu.png)]({{base_path}}/assets/img/observe/settings-menu.png)
 
-3. If you are a member of multiple organizations select the appropriate organization from the top left-hand corner. 
+3. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner. 
    
      For more information on handling users with role-based access control in organizations, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/role-based-access-control).
 
