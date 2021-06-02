@@ -1,4 +1,5 @@
-# Analytics Pages Introduction
+# Introduction to the Analytics Dashboard
+
 The new cloud analytics portal consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
 You can use these pages to get the complete business analytics on your API management system. 
 
@@ -10,16 +11,16 @@ Let's start with the common controls that govern Analytics pages. See the relate
 These are the common controls that enable you to govern the data shown in Analytics pages. Each page uses these common controls and page-specific controls to visualize the information requested by the user. 
 
 Explained below are these common controls and their usage.
-### Time Picker
-![APIM Analytics TIme Picker]({{base_path}}/assets/img/observe/time-picker.png)
 
-Time picker is located in the top left hand corner of the analytics dashboard. Once you choose a given time frame
-, all dashboards will use that time range when you move between different pages. However, if you reload the page then
- the time picker will revert to the default setting, which is 'Past 24 Hours'.
+### Time Picker
+
+<a href="{{base_path}}/assets/img/observe/time-picker.png"><img src="{{base_path}}/assets/img/observe/time-picker.png" alt="APIM Analytics TIme Picker"></a>
+
+Time picker is located in the top left hand corner of the analytics dashboard. Once you choose a given time frame, all dashboards will use that time range when you move between different pages. However, if you reload the page then the time picker will revert to the default setting, which is 'Past 24 Hours'.
  
- The time picker consists of several pre-defined time intervals. The following image illustrates those predefined time intervals.
+The time picker consists of several pre-defined time intervals. The following image illustrates those predefined time intervals.
  
- <img src="{{base_path}}/assets/img/observe/time-picker-list.png" title="APIM Analytics Time Picker List" width="380"/>
+<a href="{{base_path}}/assets/img/observe/time-picker-list.png"><img src="{{base_path}}/assets/img/observe/time-picker-list.png" title="APIM Analytics Time Picker List" width="20%"/></a>
  
  You can select any of these pre-defined intervals to view stats relevant to that time frame. However, granularity of
   each time range is pre-defined too and you cannot change the granularity of a pre-defined range. 
@@ -32,15 +33,14 @@ In the custom picker first you have to select the granularity that you need to v
  widget you can select the date range and if applicable the clock widget will be also enabled to select the time. However,
   there are certain restrictions applied on the range that you can view based on the selected granularity
   . Restrictions are based on the length of the selected range and time from current date to starting date of
-   selected range. Time picker will automatically apply these restrictions. If you need to look at the restrictions
-    in details, please visit deep dive section of our docs.
+   selected range. Time picker will automatically apply these restrictions.
     
 ### Environment Picker
 
 ![APIM Analytics Environment Picker List]({{base_path}}/assets/img/observe/environment-picker.png)
 
 This widget allows you to select the environment you need to view statistics for. When you are 
-[Registering for Analytics]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics) 
+[Registering for Analytics]({{base_path}}/api-analytics/getting-started-guide/#step-2-register-your-environment) 
 at the On-Prem Key generation step, you are required to provide a 'Key Name'. This serves as your environment name
 . Suppose you have two different environments for two different business units of your organization. In such a case
  you can generate two On-Premise Keys and add them to respective Gateways of each deployment. Once that is done
@@ -61,39 +61,36 @@ Tenant Picker will be enabled if your selected environment uses multi-tenancy. I
 
 ### Overview Page
 This is the welcome page of the analytics portal. This page will mainly display a quick overview of the whole
- deployment. This page is targeted towards providing business users with a quick overview. For more information
-  please refer [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-overview) 
-  documentation.
+ deployment. This page is targeted towards providing business users with a quick overview. For more information, see [Viewing the API Analytics Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
   
 ### Traffic Page
 This page displays all traffic related information available in the system such as API Usage, Application Usage
-, Resource Usage, etc. For more information please refer 
-[this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-traffic) documentation.
+, Resource Usage, etc. For more information, see 
+[Viewing API Analytics on Traffic]({{base_path}}/api-analytics/viewing/analytics-pages-traffic).
 
 ### Errors Page
 The error page displays analytics stats related to erroneous API calls that happened within the system. It will include error
  categorization based on the error type and then further drills down into sub types. This page can be used as the
-  starting point for debugging API errors. For more information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-erros) documentation.
+  starting point for debugging API errors. For more information, see 
+  [Viewing API Analytics on Errors]({{base_path}}/api-analytics/viewing/analytics-pages-errors).
   
 ### Latency Page 
 This page illustrates API latency related information such as slowest APIs, latency by category, etc. This page is a
  good starting point if you are investigating about slowness of the system of any particular API. For more
-  information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-latency) documentation.
+  information, see  
+  [Viewing API Analytics on Latencies]({{base_path}}/api-analytics/viewing/analytics-pages-latency).
   
 ### Cache Page
 This page visualizes details on API caching functionality including cache hit rate, hit percentage, etc. You can use
  this page to decide the effectiveness of API caching and also as additional information when investigating API
-  slowness. For more information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-cache) documentation.
+  slowness.
   
 ### Devices Page
 
 This page displays information about OS platforms and HTTP Agents end users are using to invoke the APIs. You can use
  this page to get an idea of the distribution of your user-base and improve your APIs to match the audience. For
-  more information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-devices) documentation.
+  more information, see 
+  [Viewing API Analytics on Devices]({{base_path}}/api-analytics/viewing/analytics-pages-devices).
   
 ### Alerts Page
 
@@ -101,11 +98,11 @@ This page shows the information related to business alerts issued by the system 
 environment and organization. You can use this page as a health monitoring dashboard and make it visible to
 the whole team. You can use this page to drill down on each alert and discover possible anomalies or errors in your published APIs.
 
-For more information, see [Alerts Page]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-alerts)
+For more information, see [Viewing API Analytics on Alerts]({{base_path}}/api-analytics/viewing/analytics-pages-alerts).
   
 ### Reports Page
 
 This page allows you to download monthly usage reports for your system. There are pre-configured reports to get
  system wide stats and a custom report generator to generate reports based on a subset of APIs/applications. For more
-  information please refer 
-  [this]({{base_path}}/observe/api-manager-analytics/analytics-pages/analytics-pages-report) documentation.
+  information, see 
+  [Download Reports on API Analytics]({{base_path}}/api-analytics/viewing/analytics-pages-report).
