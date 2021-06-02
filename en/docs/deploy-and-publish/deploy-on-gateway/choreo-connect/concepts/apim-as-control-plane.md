@@ -27,8 +27,8 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 In the `[controlPlane.eventHub]` section,
 
  - set `enabled` to true
- - update `serviceUrl` with the IP and the port of API Manager
- - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the default value `"Production and Sandbox"` as it is.
+ - update `serviceUrl` and `eventHub` endpoints with with the IP of API Manager. (Search for `apim` and replace them with the IP. Or else, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
  Example
  ``` yaml
@@ -37,12 +37,12 @@ In the `[controlPlane.eventHub]` section,
   serviceUrl = "https://192.168.1.94:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
-  environmentLabels = ["Production and Sandbox"]
+  environmentLabels = ["Default"]
   retryInterval = 5
   skipSSLVerification=true
   # Message broker connection URL of the control plane
   [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@192.168.1.94:5672?retries='10'&connectdelay='30'"]
  ``` 
 
 !!! tip
