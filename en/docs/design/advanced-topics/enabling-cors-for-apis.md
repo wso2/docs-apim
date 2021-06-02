@@ -88,7 +88,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
 5.  Click **Save**.
 
-     [![Configure CORS properties]({{base_path}}/assets/img/learn/configure-cors-properties.png)]({{base_path}}/assets/img/learn/configure-cors-properties.png)
+     <a href="{{base_path}}/assets/img/learn/configure-cors-properties.png"><img src="{{base_path}}/assets/img/learn/configure-cors-properties.png" width="70%" alt="Configure CORS properties"></a> 
 
 
 You have successfully enabled CORS for a specific API.
