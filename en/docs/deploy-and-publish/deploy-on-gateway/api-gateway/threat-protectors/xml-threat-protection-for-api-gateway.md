@@ -102,8 +102,6 @@ in sequence.
 
 -   Select `xml_validator` from the drop-down menu for Common Policies.
 
-    ![]({{base_path}}/assets/img/learn/mediation-xml-validator.png)
-
     <a href="{{base_path}}/assets/img/learn/mediation-xml-validator.png"><img src="{{base_path}}/assets/img/learn/mediation-xml-validator.png" width="70%" alt="Select XML validator from the drop-down menu"></a> 
 
     
