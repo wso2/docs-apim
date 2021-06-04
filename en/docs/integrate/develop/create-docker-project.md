@@ -216,7 +216,7 @@ To <b>build</b> and <b>push</b> the Docker image:
 
     In the dialog box that opens, provide the details of your Docker registry as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png">
+    <a href="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png"><img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" width="70%"></a>
 
     When the image is pushed to the registry, you will see the following message.
 
