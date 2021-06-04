@@ -356,5 +356,5 @@ The data service should now have the resource added.
 ## Tutorials
 
 <li>
-	See the tutorial on <a href="{{base_path}}/integrate/tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
+	See the tutorial on <a href="{{base_path}}/tutorials/integration-tutorials/sending-a-simple-message-to-a-datasource">data integration</a>
 </li>
