@@ -337,7 +337,7 @@ The data service should now have the resource added.
 		<a href="{{base_path}}/integrate/examples/data_integration/json-with-data-service">Exposing Data in JSON Format</a>
 	</li>
 	<li>
-		<a href="{{base_path}}/integrate/examples/data_integration/odata-service">Using and OData Service</a>
+		<a href="{{base_path}}/integrate/examples/data_integration/odata-service">Using an OData Service</a>
 	</li>
 	<li>
 		<a href="{{base_path}}/integrate/examples/data_integration/nested-queries-in-data-service">Using Nested Data Queries</a>
