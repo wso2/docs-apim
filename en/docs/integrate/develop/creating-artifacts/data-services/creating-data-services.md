@@ -189,7 +189,7 @@ You can configure output result parameters for the query using this section.
 
 		1. Click **Add New** to open the **Add Output Mapping** page.
 
-			<img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png" width="50%">
+			<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png" width="50%"></a>
 
 		2. Enter the following output element details.
 
