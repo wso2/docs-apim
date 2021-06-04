@@ -1196,6 +1196,7 @@ nav:
             - Java Documentation: reference/java-documentation.md
         - Best Practices:
             - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
+        - Accessibility Compliance: reference/accessibility-compliance.md
         - Guides:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
