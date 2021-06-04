@@ -1,6 +1,6 @@
 # Working with Alerts
 
-Analytics portal allow configuring Alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
+The Analytics Portal allows you to configure alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
 
 You can configure alerts for each environment within your organization separately. Alerts are configured per API and you can also modify/remove already-added alert configurations.
 
