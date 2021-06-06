@@ -1,6 +1,6 @@
-# Deploy API to Choreo Connect with Virtual Hosts 
+# Deploy API to Choreo Connect with Virtual Hosts
 
-There are two ways to add an API to the Choreo Connect.
+There are two ways to add an API to Choreo Connect. For more info refer {{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/overview/
 
 1. [Via API Manager](#via-api-manager)
 2. [Via the API Controller (apictl)](#via-the-api-controller-apictl)
@@ -9,7 +9,7 @@ There are two ways to add an API to the Choreo Connect.
     **Before you begin**
 
     This guide assumes that you already have a Choreo Connect instance that is up and running.
-    If not, checkout the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-with-apim)
+    If not, refer to the [Quick Start Guide]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/quick-start-guide/quick-start-guide-with-apim)
     on how to install and run Choreo Connect. To learn more about Choreo Connect, have a look at the
     [Overview of Choreo Connect]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/choreo-connect-overview). 
 
@@ -36,7 +36,7 @@ Let's define virtual hosts (VHosts) in API Manager server instance by editing th
     ``` 
 ### Step 2 - Configure Choreo Connect with API Manager
 
-Please refer [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
+Refer to [documentation on how to configure Choreo Connect with API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/concepts/apim-as-control-plane/#configure-choreo-connect-with-api-manager).
 
 ### Step 3 - Create an API in API Manager
 
@@ -44,18 +44,18 @@ Follow the steps [here]({{base_path}}/design/create-api/create-rest-api/create-a
 
 ### Step 4 - Deploy the API in API Manager
 
-The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you could easily deploy the API you just created.
-When deploying the API select the Virtual Host you defined earlier (i.e. `us.wso2.com`).
+The guide [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) will explain how you can easily deploy the API you just created.
+When deploying the API, select the Virtual Host you defined earlier (i.e. `us.wso2.com`).
 
-You have successfully deployed the API to the choreo connect with the VHost `us.wso2.com`!
+You have successfully deployed the API to Choreo Connect with the VHost `us.wso2.com`.
 
-To invoke the API jump to the steps [here](#invoke-the-api).
+To invoke the API, skip to the steps [here](#invoke-the-api).
 
-## Via the API Controller (apictl) 
+## Via the API Controller (apictl)
 
-Follow the all steps except **Deploy API** in the (Deploy API to Choreo Connect with apictl)[{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-the-cli-tool-apictl].
+Follow the all steps except **Deploy API** in the (Deploy an API via apictl documentation)[{{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-via-apictl/].
 
-Before deploying the API project lets edit the file `deployment_environments.yaml`.
+Before deploying the API project, edit the file `deployment_environments.yaml`.
 
 ```yaml
 type: deployment_environments
@@ -68,7 +68,7 @@ data:
 ```
 
 !!! info
-    When configuring multiple Choreo Connect gateway environments, you have to configure the default VHost of the particular environment.
+    When configuring multiple Choreo Connect Gateway environments, you have to configure the default VHost of the particular environment.
     
     ```toml tab="Format"
     # default vhosts mapping for standalone mode
@@ -87,8 +87,8 @@ data:
       vhost = "sg.wso2.com"
     ```
     
-    If the vhost is not declared in the API project, the API is deployed with the default vhost of the environment.
-    For exammple, an API project with following `deployment_environments.yaml` will be deployed to following.
+    If the VHost is not declared in the API project, the API is deployed with the default VHost of the environment.
+    For exammple, an API project with following `deployment_environments.yaml` will be deployed to the following.
     - Environment: Default - Vhost: us.wso2.com
     - Environment: sg-region - Vhost: sg.wso2.com
     - Environment: uk-region - API is not deployed to this environment becuase it is not configured in `[[adapter.vhostMapping]]`.

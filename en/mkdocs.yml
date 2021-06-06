@@ -235,7 +235,7 @@ nav:
                 - Deploy an API:
                     - Deploy an API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect.md
                     - Deploy a WebSocket API in Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-web-socket-api.md
-                    - Deploy an API in Choreo Connect with Virtual Hosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect-with-virtual-hosts.md
+                    - Deploy an API with Virtual Hosts: deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-with-virtual-hosts.md
                 - Configurations:
                     - Configuration Overview: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configuration-overview.md
                     - Configuring Log4j2 Properties: deploy-and-publish/deploy-on-gateway/choreo-connect/configurations/configure-log4j.md
