@@ -12,6 +12,8 @@ To see the Kafka Connector, navigate to the [connector store](https://store.wso2
 
 | Connector Version | Supported product versions |
 | ------------- |-------------|
+| 3.1.0    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 |
+| 3.0.0    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 |
 | 2.0.9    | APIM 4.0.0, EI 7.1.0, EI 7.0.x EI 6.6.0 EI 6.5.0 |
 
 For older versions, see the details in the connector store.
@@ -20,11 +22,24 @@ For older versions, see the details in the connector store.
 
 The Kafka connector allows you to access the Kafka Producer API from the integration sequence and acts as a message producer that facilitates message publishing. The Kafka connector sends messages to the Kafka brokers. 
 
+Follow the topics given below to get started with the Kafka connector.
+
 * **[Setting up Kafka]({{base_path}}/reference/connectors/kafka-connector/setting-up-kafka/)**: This includes instructions on setting up Kafka and Zookeeper.
 
 * **[Enabling Security for Kafka]({{base_path}}/reference/connectors/kafka-connector/enabling-security-for-kafka/)**: This includes a variety of security-related details that will be used to secure Kafka.
 
 * **[Kafka Connector Example]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-producer-example/)**: This example demonstrates how to send messages to a Kafka broker via Kafka topics. 
+
+The following topics are specific to connector version 3.1.0 and later version:
+
+!!! Tip
+    Apache Avro Message type is supported from connector version 3.1.0 onwards.
+
+* **[Kafka Connector Avro Message Producer Example](kafka-connector-avro-producer-example.md)**: This example demonstrates how to send Apache Avro messages to a Kafka broker via Kafka topics.  
+
+* **[Kafka Connector Reference](kafka-connector-config.md)**: This documentation provides a reference guide for the Kafka Connector.
+
+The following topic is specific to connector version 3.0.0 and earlier versions:
 
 * **[Kafka Connector Reference]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/)**: This documentation provides a reference guide for the Kafka Connector.
 

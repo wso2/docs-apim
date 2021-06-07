@@ -15,7 +15,7 @@ Choreo API-M Analytics can be used to fulfil the stats and analytics needs of th
 ## Step 1: Set up analytics
 
 !!! info "Before you begin..."
-    You need to be a registered user to follow the steps below. Refer, [Register for Analytics]({{base_path}}/observe/api-manager-analytics/configure-analytics/register-for-analytics/) for instructions.
+    You need to be a registered user to follow the steps below. Refer the [Analytics Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide/) for instructions.
 
 To configure analytics, 
 

@@ -13608,6 +13608,25 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         <p>User core cache expiration duration</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>CaseInsensitiveUsername</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set the value to false for case insensitive JDBC user stores</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

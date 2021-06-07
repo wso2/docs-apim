@@ -11,7 +11,7 @@ Purging alert related tables
 Data Purging is enabled by default for all the aggregation tables. However, you can purge data in certain alert tables, namely `APIMIpAccessSummary` and `APIMIpAccessAlertCount` tables, which have the potential to grow quickly like aggregation tables. Follow the instructions below to purge the data in the latter mentioned alert tables.
 
 1. Configure WSO2 API Manager (WSO2 API-M) with WSO2 API-M Analytics, and start WSO2 API-M Analytics, WSO2 API Manager, and the WSO2 API-M Analytics Dashboard node in the latter mentioned order.
-    For more information, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics).
+    For more information, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics).
 
 2.  Access the Business Rules via the WSO2 API-M Analytics dashboard. `https://<HOSTNAME>:<DASHBOARD_PORT>/business-rules`
 

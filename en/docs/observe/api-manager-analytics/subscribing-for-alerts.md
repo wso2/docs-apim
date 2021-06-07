@@ -5,7 +5,7 @@ You can subscribe to events as a system administrator or as a API publisher/subs
 !!! info
     Before you begin, make sure that you have done the following
     
-    - Configure Analytics for API Manager. For instructions, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/configuring-apim-analytics/).
+    - Configure Analytics for API Manager. For instructions, see [Configuring APIM Analytics]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics/).
     - Enable alerts in API-M Analytics. For instructions, see [Enable alerts]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#enable-alerts).
     - Configure the sender email address in in API-M Analytics. For instructions, see [Configure sender email alerts]({{base_path}}/observe/api-manager-analytics/configuring-alerts/#configure-sender-email-alerts).
 

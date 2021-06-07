@@ -618,6 +618,15 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 <hr style="border:8px solid gray"> </hr>
 
+## Choreo Connect
+
+The Choreo Connect is a lightweight gateway for APIs. It is used for message security, transport security, routing, and other common API Management related quality of services. It can collect information required for usage metering and throttling capabilities. The Choreo Connect natively supports scaling in highly decentralized environments including microservice architecture.
+
+#### New features
+
+Please see the [supported features]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/getting-started/supported-features/)
+
+
 ## **Kubernetes API Operator**
 
 Microservices are increasingly being deployed on Kubernetes. As a result, it is important to expose these microservices as well documented, easy to consume, managed APIs so that they can be used to develop great applications. The API operator for Kubernetes makes APIs a first-class citizen in the Kubernetes ecosystem. Similar to deploying microservices, you can now use this operator to deploy APIs for individual microservices or compose several microservices into individual APIs. With this, users can expose their microservice as managed APIs in the Kubernetes environment without any additional work.
@@ -684,6 +693,11 @@ WSO2 API Manager 4.0.0 is based on WSO2 Carbon 4.6.1 and is expected to be compa
 - Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/streaming-integrator-tooling/issues?q=is%3Aissue+is%3Aclosed+label%3A4.0.0).
 
 - Known Issues - All the open issues pertaining to WSO2 API Manager 4.0.0 are reported [here](https://github.com/wso2/streaming-integrator-tooling/issues).
+
+**Choreo Connect**
+
+- Fixed Issues - See [details of all the changes including improvements, and bug fixes in this release](https://github.com/wso2/product-microgateway/issues?q=is%3Aissue+project%3Awso2%2Fproduct-microgateway%2F8+is%3Aclosed+label%3AType%2FImprovement++)
+- Known Issues - All the open issues are reported [here](https://github.com/wso2/product-microgateway/issues?q=is%3Aopen+is%3Aissue+label%3Aenvoy-gw).
 
 **Kubernetes API Operator**
 

@@ -114,12 +114,34 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 ### Step 3 - Start the MI servers
 
-[Start the MI servers]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi) connected to the dashboard.
+Follow the steps given below.
+
+1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+2.    Execute one of the commands given below.
+
+      ```bash tab="On MacOS/Linux"
+      ./micro-intgrator.sh
+      ```
+
+      ```bash tab="On Windows"
+      micro-intgrator.bat
+      ```
 
 ### Step 4 - Start the MI Dashboard
 
-[Start the Dashboard]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard).
+Follow the steps given below.
 
+1.    Open a terminal and navigate to the `<MI-DASHBOARD_HOME>/bin` folder.
+2.    Execute one of the commands given below.
+
+      ```bash tab="On MacOS/Linux"
+      ./dashboard.sh
+      ```
+
+      ```bash tab="On Windows"
+      dashboard.bat
+      ```
+      
 ### Step 5 - Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
@@ -144,7 +166,8 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
             </th>
             <td>
                 The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
+                <b>Note</b>: This should be a valid username that is saved in the Micro Integrator server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
+                See <a href="{{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore">configuring user stores</a> for information.
             </td>
         </tr>
         <tr>
@@ -152,7 +175,7 @@ Once you have [set up and started the dashboard](#setting-up-the-dashboard), you
                 Password
             </th>
             <td>
-                The password of the username.
+                The password of the user name. By default, 'admin' is the user name and password. 
             </td>
         </tr>
     </table> 

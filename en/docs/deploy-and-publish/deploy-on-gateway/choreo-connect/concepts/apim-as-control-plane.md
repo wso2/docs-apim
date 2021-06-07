@@ -1,11 +1,11 @@
-# Choreo Connect with API Manager as Control Plane.
+# Choreo Connect with API Manager as Control Plane
 
 Choreo Connect can connect to API Manager running on cloud or on-premise as its control plane. Choreo Connect can be configured to connect with
 APIM control plane, therefore the user actions like API deploying, application creation, key generation, subscription creation etc are received by the Choreo Connect seamlessly.
 
 [![]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)]({{base_path}}/assets/img/deploy/mgw/mgw_overview.png)
 
-## Configure Choreo Connect with API Manager
+## Configuring Choreo Connect with API Manager
 
 !!! info
     **Before you begin**
@@ -27,32 +27,32 @@ Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` 
 In the `[controlPlane.eventHub]` section,
 
  - set `enabled` to true
- - update `serviceUrl` with the IP and the port of API Manager
- - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the default value `"Production and Sandbox"` as it is.
+ - update `serviceUrl` and `eventHub` endpoints with with the IP of API Manager. (Search for `apim` and replace them with the IP. Or else, add an entry to the `/etc/hosts` file as `<ip-of-apim> apim`)
+ - if you want to use a Gateway Environment other than the default, update `environmentLabels` with the name of the new Gateway Environment. If not, leave the value `"Default"` as it is.
 
  Example
  ``` yaml
  [controlPlane.eventHub]
   enabled = true
-  serviceUrl = "https://192.168.1.94:9443/"
+  serviceUrl = "https://<apim-ip>:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
-  environmentLabels = ["Production and Sandbox"]
+  environmentLabels = ["Default"]
   retryInterval = 5
   skipSSLVerification=true
   # Message broker connection URL of the control plane
   [controlPlane.eventHub.jmsConnectionParameters]
-    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'"]
+    eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@<apim-ip>:5672?retries='10'&connectdelay='30'"]
  ``` 
 
 !!! tip
 
     In API Manager, a new Gateway Environment can be created from the Admin Portal (available at `https:<apim-host>:<apim-port>/admin`) **Gateways** tab.
 
-### Step 3 - Start the Choreo Connect
+### Step 3 - Start Choreo Connect
 
-Now, let's start the Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
-    
+Now, let's start Choreo Connect. Navigate to `CHOREO-CONNECT_HOME/docker-compose/choreo-connect` and execute the following command.
+
 ``` bash
 docker-compose up -d
 ```
