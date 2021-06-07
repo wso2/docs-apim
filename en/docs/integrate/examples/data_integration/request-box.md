@@ -121,11 +121,11 @@ Let's send a request with multiple transactions to the data service:
 
 3. Invoke the **request_box** under **request_box_exampleSOAP12Binding** with the following request body:
 
-   !!! Tip
-       Note that we are sending two transactions with details of two employees.
+       !!! Tip
+           Note that we are sending two transactions with details of two employees.
 
-      ```xml
-      <dat:request_box xmlns:p="http://ws.wso2.org/dataservice">
+       ```xml
+       <dat:request_box xmlns:p="http://ws.wso2.org/dataservice">
             <!--Exactly 1 occurrence-->
             <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
                   <!--Exactly 1 occurrence-->
@@ -144,8 +144,8 @@ Let's send a request with multiple transactions to the data service:
                   <!--Exactly 1 occurrence-->
                   <xs:EmployeeNumber xmlns:xs="http://ws.wso2.org/dataservice">1003</xs:EmployeeNumber>
             </selectEmployeeOp>
-      </dat:request_box>
-      ```
+       </dat:request_box>
+       ```
 
 You will see the following response received by SoapUI:
 

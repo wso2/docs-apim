@@ -8,15 +8,15 @@ content, the API request is considered as a threat and it is blocked and rejecte
 from activities that make the system vulnerable.  You can configure your own restriction patterns to thwart various 
 attacks such as the following:
 
--   Javascript Injection
+-   JavaScript Injection
 -   Server-side Include Injection
 -   XPath Injection
 -   Java Exception Injection
 -   XPath Abbreiviated Syntax Injection
 
-### Blacklisting patterns
+### Denying request patterns
 
-We recommend the following patterns for blacklisting.
+We recommend the following patterns for denying requests.
 
 <table>
     <thead>
@@ -57,7 +57,7 @@ We recommend the following patterns for blacklisting.
             </td>
         </tr>
         <tr class="odd">
-            <td>Javascript Exception</td>
+            <td>JavaScript Exception</td>
             <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
         </tr>
         <tr class="even">
@@ -86,7 +86,7 @@ regex\_policy in sequence.
 3.  Select **Edit** in the message mediation bar and select **Common Policies** .
 4.  Select `regex_policy` from the drop-down menu for Common Policies.
 
-    [ ![]({{base_path}}/assets/img/learn/mediation-regex-policy.png) ]({{base_path}}/assets/img/learn/mediation-regex-policy.png)
+    <a href="{{base_path}}/assets/img/learn/mediation-regex-policy.png"><img src="{{base_path}}/assets/img/learn/mediation-regex-policy.png" width="70%" alt="Select Regex policy from the drop-down menu"></a> 
     
 4.  Scroll down the page and click **Save** to save the changes.
 
