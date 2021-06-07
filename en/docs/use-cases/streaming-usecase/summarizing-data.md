@@ -45,6 +45,74 @@ Observe the following in the above Siddhi application:
 - Siddhi query
 
     The Siddhi query gets the production events from the `ProductionStream` stream, calculates the total and the average, and aggregates them every `sec...year`. This means the production total and the average is calculated per second, per minute, per hour, per day, per month, and per year.
+    
+* Persisted Aggregations.
+
+  With Persisted aggregation, the aggregation for higher granularities will be executing on top of the database at the end of each time granularity(Day - at the end of the day, Month - at the end of the month, Year - at the end of the year).
+  This is the recommended approach if the aggregation group by elements have lots of unique combinations.
+
+  * Enabling Persisted Aggregation
+
+    The persisted aggregation can be enabled by adding the @persistedAggregation(enable="true") annotation on top of the aggregation definition.
+    Furthermore, in order to execute the aggregation query, the cud function which is there in siddhi-store-rdbms is used. So in order to enable the "cud" operations, please add the following configuration on the deployment.yaml file.
+
+    ```
+       siddhi:
+         extensions:
+           -
+             extension:
+               name: cud
+               namespace: rdbms
+               properties:
+                 perform.CUD.operations: true
+    ```
+
+    In order to use persisted aggregation, A datasource needs to configured through deployment.yaml file and it should be pointed out in @store annotation of the aggregation definition.
+
+    Furthermore when using persisted aggregation with MySQL, please provide the aggregation processing timezone in JDBC URL since by default MySQL database will use server timezone for some time-related conversions which are there in an aggregation query.
+
+    ```
+        jdbc:mysql://localhost:3306/TEST_DB?useSSL=false&tz=useLegacyDatetimeCode=false&serverTimezone=UTC
+    ```
+
+    Also when using persisted aggregation with Oracle, add below configuration in the datasource configuration,
+
+    ```
+    connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+       
+    eg:
+       
+     - name: APIM_ANALYTICS_DB
+       description: "The datasource used for APIM statistics aggregated data."
+       jndiConfig:
+         name: jdbc/APIM_ANALYTICS_DB
+         definition:
+           type: RDBMS
+           configuration:
+             jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
+             username: 'root'
+             password: '123'
+             driverClassName: oracle.jdbc.OracleDriver
+             maxPoolSize: 50
+             idleTimeout: 60000
+             connectionTestQuery: SELECT 1 FROM DUAL
+             connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+             validationTimeout: 30000
+             isAutoCommit: false
+               
+    ```
+    For an example please refer to the following query which will be executed on the database to update the table for below sample Aggregation ,
+
+    ```
+    @persistedAggregation(enable="true")
+    define aggregation ResponseStreamAggregation
+    from processedResponseStream
+    select api, version, apiPublisher, applicationName, protocol, consumerKey, userId, context, resourcePath, responseCode, 
+        avg(serviceTime) as avg_service_time, avg(backendTime) as avg_backend_time, sum(responseTime) as total_response_count, time1, epoch, eventTime
+    group by api, version, apiPublisher, applicationName, protocol, consumerKey, userId, context, resourcePath, responseCode, time1, epoch
+    aggregate by eventTime every min;
+    
+    ```
 
 ### Retrieving previously calculated aggregations for selected time granularities
 
