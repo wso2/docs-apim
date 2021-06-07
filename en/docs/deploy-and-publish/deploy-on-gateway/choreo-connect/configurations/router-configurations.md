@@ -78,7 +78,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>host for Listener of Router.</p>
+                                        <p>Host for Listener of Router.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -229,7 +229,7 @@ See the example .toml file given below.
                             <code>[keystore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configurations of key store used in Choreo Connect Adapter
+                                The configurations of key store used in Choreo Connect Router.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -249,7 +249,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the certificate of the Adaptor</p>
+                                        <p>Path of the certificate of the Router.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -268,7 +268,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the private key of the Adaptor</p>
+                                        <p>Path of the private key of the Router.</p>
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +351,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Allowed origins. set this to [*] allow all origins.</p>
+                                        <p>Allowed origins. Set this to [*] allow all origins.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -532,7 +532,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If specified, the TLS listener will only support the specified [cipher list]() when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3)</p>
+                                        <p>If specified, the TLS listener will only support the specified [cipher list]() when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3).</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -551,7 +551,7 @@ allowCredentials = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path to trusted certificates</p>
+                                        <p>Path to trusted certificates.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -572,7 +572,7 @@ allowCredentials = false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable Verifying host name</p>
+                                        <p>Enable/Disable Verifying host name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -593,7 +593,7 @@ allowCredentials = false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Disable SSL verification</p>
+                                        <p>Disable SSL verification.</p>
                                     </div>
                                 </div>
                             </div>

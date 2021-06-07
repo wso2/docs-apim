@@ -14,34 +14,34 @@
               "required": true,
               "default": "true",
               "possible": "true, false",
-              "description": "Enable/Disable Choreo Connect Adaptor REST API."
+              "description": "Enable/Disable Choreo Connect Adapter REST API."
             },
             {
               "name": "host",
               "type": "string",
               "required": true,
-              "description": "Hostname of the Choreo Connect Adaptor"
+              "description": "Hostname of the Choreo Connect Adapter."
             },
             {
               "name": "port",
               "type": "string",
               "required": true,
               "default": "9843",
-              "description": "Port of the Choreo Connect Adaptor"
+              "description": "Port of the Choreo Connect Adapter."
             },
             {
               "name": "tokenTTL",
               "type": "string",
               "required": false,
               "default": "1h",
-              "description": "Time to live for the Adaptor access token"
+              "description": "Time to live for the Adapter access token."
             },
             {
               "name": "tokenPrivateKeyPath",
               "type": "string",
               "required": false,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Private key path to use for the token generation"
+              "description": "Private key path to use for the token generation."
             }
           ]
         }
@@ -54,21 +54,21 @@
         {
           "name": "keystore",
           "required": true,
-          "description": "The configurations of key store used in Choreo Connect Adapter",
+          "description": "The configurations of key store used in Choreo Connect Adapter.",
           "params": [
             {
               "name": "certPath",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.pem",
-              "description": "Path of the certificate of the Adaptor"
+              "description": "Path of the certificate of the Adapter."
             },
             {
               "name": "keyPath",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Path of the private key of the Adaptor"
+              "description": "Path of the private key of the Adapter."
             }
           ]
         }
@@ -81,14 +81,14 @@
         {
           "name": "truststore",
           "required": true,
-          "description": "The configurations of trust store used in in the Choreo Connect Adapter.",
+          "description": "The configurations of trust store used in the Choreo Connect Adapter.",
           "params": [
             {
               "name": "location",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/truststore",
-              "description": "The directory path for the trusted certificates of the Choreo Connect Adaptor."
+              "description": "The directory path for the trusted certificates of the Choreo Connect Adapter."
             }
           ]
         }
@@ -107,13 +107,13 @@
               "name": "environment",
               "type": "string",
               "required": true,
-              "description": "The Adapter environment"
+              "description": "The Adapter environment."
             },
             {
               "name": "vhost",
               "type": "string",
               "required": true,
-              "description": "Virtual host to map to the environment"
+              "description": "Virtual host to map to the environment."
             }
           ]
         }
@@ -126,7 +126,7 @@
         {
           "name": "consul",
           "required": false,
-          "description": "Configurations related to Consul",
+          "description": "Configurations related to Consul.",
           "params": [
             {
               "name": "enable",
@@ -140,7 +140,7 @@
               "name": "url",
               "type": "string",
               "required": true,
-              "description": "connection url of the Consul HTTP API."
+              "description": "Connection url of the Consul HTTP API."
             },
             {
               "name": "pollInterval",
@@ -153,7 +153,7 @@
               "name": "aclToken",
               "type": "string",
               "required": true,
-              "description": "Access Control Token generated using Consul. You should grant read access to services when creating the token"
+              "description": "Access Control Token generated using Consul. You should grant read access to services when creating the token."
             },
             {
               "name": "mgwServiceName",

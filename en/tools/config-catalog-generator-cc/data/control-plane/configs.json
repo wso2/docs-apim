@@ -6,7 +6,7 @@
         {
           "name": "controlPlane",
           "required": true,
-          "description": "This includes configurations required for configuring the Choreo Connect's Control Plane",
+          "description": "This includes configurations required for configuring the Choreo Connect's Control Plane.",
           "params": [
             {
               "name": "enabled",
@@ -27,14 +27,14 @@
               "type": "string",
               "required": true,
               "default": "admin",
-              "description": "Username of the API Manager user"
+              "description": "Username of the API Manager user."
             },
             {
               "name": "password",
               "type": "string",
               "required": true,
               "default": "$env{cp_admin_pwd}",
-              "description": "Password of the API Manager user"
+              "description": "Password of the API Manager user."
             },
             {
               "name": "environmentLabels",

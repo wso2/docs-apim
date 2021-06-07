@@ -20,28 +20,28 @@
               "type": "integer",
               "required": false,
               "default": "1000000000",
-              "description": "Maximum message size in bytes"
+              "description": "Maximum message size in bytes."
             },
             {
               "name": "maxHeaderLimit",
               "type": "integer",
               "required": false,
               "default": "8192",
-              "description": "Maximum header size in bytes"
+              "description": "Maximum header size in bytes."
             },
             {
               "name": "keepAliveTime",
               "type": "integer",
               "required": false,
               "default": "600",
-              "description": "Keep alive time in seconds for connection with the router via external authz service"
+              "description": "Keep alive time in seconds for connection with the router via external authz service."
             },
             {
               "name": "tokenPrivateKeyPath",
               "type": "string",
               "required": false,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Private key path to use for the token generation"
+              "description": "Private key path to use for the token generation."
             }
           ]
         }
@@ -61,28 +61,28 @@
               "type": "integer",
               "required": true,
               "default": "400",
-              "description": "Minimum number of workers to keep alive"
+              "description": "Minimum number of workers to keep alive."
             },
             {
               "name": "maxSize",
               "type": "integer",
               "required": false,
               "default": "500",
-              "description": "Maximum pool size"
+              "description": "Maximum pool size."
             },
             {
               "name": "keepAliveTime",
               "type": "integer",
               "required": false,
               "default": "600",
-              "description": "Timeout in seconds for idle threads waiting for work"
+              "description": "Timeout in seconds for idle threads waiting for work."
             },
             {
               "name": "queueSize",
               "type": "integer",
               "required": false,
               "default": "1000",
-              "description": "Queue size of the worker threads"
+              "description": "Queue size of the worker threads."
             }
           ]
         }
@@ -95,21 +95,21 @@
         {
           "name": "apimCredentials",
           "required": true,
-          "description": "The credentials of the API Manager",
+          "description": "The credentials of the API Manager.",
           "params": [
             {
               "name": "username",
               "type": "string",
               "required": true,
               "default": "admin",
-              "description": "Username"
+              "description": "Username."
             },
             {
               "name": "password",
               "type": "string",
               "required": true,
               "default": "$env{apim_admin_pwd}",
-              "description": "Password"
+              "description": "Password."
             }
           ]
         }
@@ -143,7 +143,7 @@
               "type": "integer",
               "required": true,
               "default": "15",
-              "description": "Expiry time in seconds"
+              "description": "Expiry time in minutes."
             }
           ]
         }
@@ -162,7 +162,7 @@
               "name": "enable",
               "type": "boolean",
               "required": true,
-              "description": "Enable/Disable backend JWT generation"
+              "description": "Enable/Disable backend JWT generation."
             },
             {
               "name": "encoding",
@@ -170,7 +170,7 @@
               "required": false,
               "default": "base64",
               "possible": "base64, base64url",
-              "description": "Encoding of the JWT"
+              "description": "Encoding of the JWT."
             },
             {
               "name": "claimDialect",
@@ -184,7 +184,7 @@
               "type": "boolean",
               "required": false,
               "default": "false",
-              "description": "Remap the OIDC claims into the configured dialect"
+              "description": "Remap the OIDC claims into the configured dialect."
             },
             {
               "name": "header",
@@ -213,28 +213,28 @@
               "type": "string",
               "required": false,
               "default": "org.wso2.carbon.apimgt.common.gateway.jwtgenerator.APIMgtGatewayJWTGeneratorImpl",
-              "description": "Custom JWT generator"
+              "description": "Custom JWT generator."
             },
             {
               "name": "claimsExtractorImpl",
               "type": "string",
               "required": false,
               "default": "org.wso2.carbon.apimgt.impl.token.ExtendedDefaultClaimsRetriever",
-              "description": "Custom Claim Retriever to add custom claims into JWT"
+              "description": "Custom Claim Retriever to add custom claims into JWT."
             },
             {
               "name": "publicCertificatePath",
               "type": "string",
               "required": false,
               "default": "/home/wso2/security/truststore/mg.pem",
-              "description": "Public certificate for generated JWT"
+              "description": "Public certificate for generated JWT."
             },
             {
               "name": "privateKeyPath",
               "type": "string",
               "required": false,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Private key path used for JWT generation"
+              "description": "Private key path used for JWT generation."
             }
           ]
         }
@@ -269,7 +269,7 @@
               "required": false,
               "default": "base64",
               "possible": "base64,base64url",
-              "description": "Encoding of the JWT"
+              "description": "Encoding of the JWT."
             },
             {
               "name": "claimDialect",
@@ -344,14 +344,14 @@
               "type": "string",
               "required": true,
               "default": "admin",
-              "description": "Username"
+              "description": "Username."
             },
             {
               "name": "password",
               "type": "string",
               "required": true,
               "default": "$env{enforcer_admin_pwd}",
-              "description": "Password"
+              "description": "Password."
             }
           ]
         }
@@ -364,21 +364,21 @@
         {
           "name": "security.authHeader",
           "required": false,
-          "description": "Configurations related to Authorization header",
+          "description": "Configurations related to Authorization header.",
           "params": [
             {
               "name": "enableOutboundAuthHeader",
               "type": "boolean",
               "required": true,
               "default": "false",
-              "description": "Remove authorization header from backend request"
+              "description": "Remove authorization header from backend request."
             },
             {
               "name": "authorizationHeader",
               "type": "string",
               "required": true,
               "default": "authorization",
-              "description": "Header name which authorization token coming from the downstream client"
+              "description": "Header name for the authorization token coming from the downstream client"
             }
           ]
         }
@@ -397,13 +397,13 @@
               "name": "name",
               "type": "string",
               "required": true,
-              "description": "Provide unique name for the JWT issuer"
+              "description": "Provide unique name for the JWT issuer."
             },
             {
               "name": "certificateAlias",
               "type": "string",
               "required": false,
-              "description": "Alias name given in Enforcer truststore for the public certificate of the JWT issuer. "
+              "description": "Alias name given in Enforcer truststore for the public certificate of the JWT issuer."
             },
             {
               "name": "jwksURL",
@@ -428,7 +428,7 @@
               "name": "certificateFilePath",
               "type": "string",
               "required": false,
-              "description": "Certificate Filepath within Enforcer"
+              "description": "Certificate Filepath within Enforcer."
             }
           ]
         }
@@ -441,7 +441,7 @@
         {
           "name": "throttling",
           "required": false,
-          "description": "Configurations related to Throttling",
+          "description": "Configurations related to Throttling.",
           "params": [
             {
               "name": "enableGlobalEventPublishing",
@@ -489,21 +489,21 @@
         {
           "name": "throttling.publisher",
           "required": true,
-          "description": "Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager",
+          "description": "Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager.",
           "params": [
             {
               "name": "username",
               "type": "string",
               "required": true,
               "default": "admin",
-              "description": "Username"
+              "description": "Username."
             },
             {
               "name": "password",
               "type": "string",
               "required": true,
               "default": "$env{tm_admin_pwd}",
-              "description": "Password"
+              "description": "Password."
             }
           ]
         }
@@ -516,21 +516,21 @@
         {
           "name": "throttling.publisher.urlGroup",
           "required": true,
-          "description": "Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups",
+          "description": "Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups.",
           "params": [
             {
               "name": "receiverURLs",
               "type": "string",
               "required": true,
               "default": "tcp://localhost:9611",
-              "description": "Receiver URLs"
+              "description": "Receiver URLs."
             },
             {
               "name": "authURLs",
               "type": "string",
               "required": true,
               "default": "ssl://localhost:9711",
-              "description": "Auth URLs"
+              "description": "Auth URLs."
             }
           ]
         }
@@ -543,42 +543,42 @@
         {
           "name": "throttling.publisher.pool",
           "required": false,
-          "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations",
+          "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations.",
           "params": [
             {
               "name": "maxIdleDataPublishingAgents",
               "type": "integer",
               "required": false,
               "default": "1000",
-              "description": "Maximum idle number of connections"
+              "description": "Maximum idle number of connections."
             },
             {
               "name": "initIdleObjectDataPublishingAgents",
               "type": "integer",
               "required": false,
               "default": "200",
-              "description": "Minimum idle number of connections"
+              "description": "Minimum idle number of connections."
             },
             {
               "name": "publisherThreadPoolCoreSize",
               "type": "integer",
               "required": false,
               "default": "200",
-              "description": "Thread pool core size"
+              "description": "Thread pool core size."
             },
             {
               "name": "publisherThreadPoolMaximumSize",
               "type": "integer",
               "required": false,
               "default": "1000",
-              "description": "The maximum size of the thread pool"
+              "description": "The maximum size of the thread pool."
             },
             {
               "name": "publisherThreadPoolKeepAliveTime",
               "type": "integer",
               "required": false,
               "default": "200",
-              "description": "The timeframe after which the publisher thread pool is terminated in seconds"
+              "description": "The timeframe after which the publisher thread pool is terminated in seconds."
             }
           ]
         }
@@ -591,21 +591,21 @@
         {
           "name": "throttling.publisher.agent",
           "required": true,
-          "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations",
+          "description": "Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations.",
           "params": [
             {
               "name": "sslEnabledProtocols",
               "type": "string",
               "required": true,
               "default": "TLSv1.2",
-              "description": "SSL Protocols"
+              "description": "SSL Protocols."
             },
             {
               "name": "ciphers",
               "type": "string",
               "required": true,
               "default": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256  ,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_DSS_WITH_AES_128_GCM_SHA256  ,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA, TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA, SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA,TLS_EMPTY_RENEGOTIATION_INFO_SCSV",
-              "description": "ciphers"
+              "description": "Ciphers."
             },
             {
               "name": "queueSize",

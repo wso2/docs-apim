@@ -13,7 +13,7 @@
               "type": "string",
               "required": true,
               "default": "0.0.0.0",
-              "description": "host for Listener of Router."
+              "description": "Host for Listener of Router."
             },
             {
               "name": "securedListenerHost",
@@ -68,21 +68,21 @@
         {
           "name": "keystore",
           "required": true,
-          "description": "The configurations of key store used in Choreo Connect Adapter",
+          "description": "The configurations of key store used in Choreo Connect Router.",
           "params": [
             {
               "name": "certPath",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.pem",
-              "description": "Path of the certificate of the Adaptor"
+              "description": "Path of the certificate of the Router."
             },
             {
               "name": "keyPath",
               "type": "string",
               "required": true,
               "default": "/home/wso2/security/keystore/mg.key",
-              "description": "Path of the private key of the Adaptor"
+              "description": "Path of the private key of the Router."
             }
           ]
         }
@@ -108,7 +108,7 @@
               "name": "allowOrigins",
               "type": "list of strings",
               "required": true,
-              "description": "Allowed origins. set this to [*] allow all origins."
+              "description": "Allowed origins. Set this to [*] allow all origins."
             },
             {
               "name": "allowMethods",
@@ -169,14 +169,14 @@
               "type": "string",
               "required": false,
               "default": "ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA, AES128-GCM-SHA256, AES128-SHA, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES256-SHA, AES256-GCM-SHA384, AES256-SHA",
-              "description": "If specified, the TLS listener will only support the specified [cipher list]() when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3)"
+              "description": "If specified, the TLS listener will only support the specified [cipher list]() when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3)."
             },
             {
               "name": "trustedCertPath",
               "type": "string",
               "required": true,
               "default": "/etc/ssl/certs/ca-certificates.crt",
-              "description": "Path to trusted certificates"
+              "description": "Path to trusted certificates."
             },
             {
               "name": "verifyHostName",
@@ -184,7 +184,7 @@
               "required": true,
               "default": "true",
               "possible": "true, false",
-              "description": "Enable/Disable Verifying host name"
+              "description": "Enable/Disable Verifying host name."
             },
             {
               "name": "disableSslVerification",
@@ -192,7 +192,7 @@
               "required": false,
               "default": "false",
               "possible": "true, false",
-              "description": "Disable SSL verification"
+              "description": "Disable SSL verification."
             }
           ]
         }

@@ -90,7 +90,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum message size in bytes</p>
+                                        <p>Maximum message size in bytes.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -109,7 +109,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum header size in bytes</p>
+                                        <p>Maximum header size in bytes.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -128,7 +128,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Keep alive time in seconds for connection with the router via external authz service</p>
+                                        <p>Keep alive time in seconds for connection with the router via external authz service.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -147,7 +147,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Private key path to use for the token generation</p>
+                                        <p>Private key path to use for the token generation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Minimum number of workers to keep alive</p>
+                                        <p>Minimum number of workers to keep alive.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -225,7 +225,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum pool size</p>
+                                        <p>Maximum pool size.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -244,7 +244,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Timeout in seconds for idle threads waiting for work</p>
+                                        <p>Timeout in seconds for idle threads waiting for work.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -263,7 +263,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Queue size of the worker threads</p>
+                                        <p>Queue size of the worker threads.</p>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +300,7 @@ See the example .toml file given below.
                             <code>[apimCredentials]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The credentials of the API Manager
+                                The credentials of the API Manager.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -320,7 +320,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Username</p>
+                                        <p>Username.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -339,7 +339,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Password</p>
+                                        <p>Password.</p>
                                     </div>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Expiry time in seconds</p>
+                                        <p>Expiry time in minutes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -502,7 +502,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable backend JWT generation</p>
+                                        <p>Enable/Disable backend JWT generation.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -523,7 +523,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Encoding of the JWT</p>
+                                        <p>Encoding of the JWT.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -561,7 +561,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Remap the OIDC claims into the configured dialect</p>
+                                        <p>Remap the OIDC claims into the configured dialect.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -639,7 +639,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Custom JWT generator</p>
+                                        <p>Custom JWT generator.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -658,7 +658,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Custom Claim Retriever to add custom claims into JWT</p>
+                                        <p>Custom Claim Retriever to add custom claims into JWT.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -677,7 +677,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Public certificate for generated JWT</p>
+                                        <p>Public certificate for generated JWT.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -696,7 +696,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Private key path used for JWT generation</p>
+                                        <p>Private key path used for JWT generation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -799,7 +799,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Encoding of the JWT</p>
+                                        <p>Encoding of the JWT.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1010,7 +1010,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Username</p>
+                                        <p>Username.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1029,7 +1029,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Password</p>
+                                        <p>Password.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1066,7 +1066,7 @@ See the example .toml file given below.
                             <code>[security.authHeader]</code>
                             
                             <p>
-                                Configurations related to Authorization header
+                                Configurations related to Authorization header.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1086,7 +1086,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Remove authorization header from backend request</p>
+                                        <p>Remove authorization header from backend request.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1105,7 +1105,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Header name which authorization token coming from the downstream client</p>
+                                        <p>Header name for the authorization token coming from the downstream client</p>
                                     </div>
                                 </div>
                             </div>
@@ -1168,7 +1168,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Provide unique name for the JWT issuer</p>
+                                        <p>Provide unique name for the JWT issuer.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1187,7 +1187,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Alias name given in Enforcer truststore for the public certificate of the JWT issuer. </p>
+                                        <p>Alias name given in Enforcer truststore for the public certificate of the JWT issuer.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1263,7 +1263,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Certificate Filepath within Enforcer</p>
+                                        <p>Certificate Filepath within Enforcer.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1305,7 +1305,7 @@ See the example .toml file given below.
                             <code>[throttling]</code>
                             
                             <p>
-                                Configurations related to Throttling
+                                Configurations related to Throttling.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1438,7 +1438,7 @@ See the example .toml file given below.
                             <code>[throttling.publisher]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager
+                                Throttling configurations related to event publishing using a binary connection. The following are credentials required to establish connection between Traffic Manager.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1458,7 +1458,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Username</p>
+                                        <p>Username.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1477,7 +1477,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Password</p>
+                                        <p>Password.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1514,7 +1514,7 @@ See the example .toml file given below.
                             <code>[throttling.publisher.urlGroup]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups
+                                Throttling configurations related to event publishing using a binary connection. The following are Receiver URL and the authentication URL of the Traffic manager node/nodes. You can provide multiple URL groups.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1534,7 +1534,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Receiver URLs</p>
+                                        <p>Receiver URLs.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1553,7 +1553,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Auth URLs</p>
+                                        <p>Auth URLs.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1593,7 +1593,7 @@ See the example .toml file given below.
                             <code>[throttling.publisher.pool]</code>
                             
                             <p>
-                                Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations
+                                Throttling configurations related to event publishing using a binary connection. The following are data publisher object pool configurations.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1613,7 +1613,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Maximum idle number of connections</p>
+                                        <p>Maximum idle number of connections.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1632,7 +1632,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Minimum idle number of connections</p>
+                                        <p>Minimum idle number of connections.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1651,7 +1651,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Thread pool core size</p>
+                                        <p>Thread pool core size.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1670,7 +1670,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The maximum size of the thread pool</p>
+                                        <p>The maximum size of the thread pool.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1689,7 +1689,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The timeframe after which the publisher thread pool is terminated in seconds</p>
+                                        <p>The timeframe after which the publisher thread pool is terminated in seconds.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1743,7 +1743,7 @@ See the example .toml file given below.
                             <code>[throttling.publisher.agent]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations
+                                Throttling configurations related to event publishing using a binary connection. The following are data publisher agent configurations.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1763,7 +1763,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>SSL Protocols</p>
+                                        <p>SSL Protocols.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1782,7 +1782,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>ciphers</p>
+                                        <p>Ciphers.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

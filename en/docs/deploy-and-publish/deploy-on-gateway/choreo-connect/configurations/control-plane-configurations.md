@@ -46,7 +46,7 @@ See the example .toml file given below.
                             <code>[controlPlane]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This includes configurations required for configuring the Choreo Connect's Control Plane
+                                This includes configurations required for configuring the Choreo Connect's Control Plane.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -104,7 +104,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Username of the API Manager user</p>
+                                        <p>Username of the API Manager user.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -123,7 +123,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Password of the API Manager user</p>
+                                        <p>Password of the API Manager user.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

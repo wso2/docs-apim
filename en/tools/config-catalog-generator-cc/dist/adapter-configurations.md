@@ -83,7 +83,7 @@ See the example .toml file given below.
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable/Disable Choreo Connect Adaptor REST API.</p>
+                                        <p>Enable/Disable Choreo Connect Adapter REST API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -102,7 +102,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Hostname of the Choreo Connect Adaptor</p>
+                                        <p>Hostname of the Choreo Connect Adapter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -121,7 +121,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port of the Choreo Connect Adaptor</p>
+                                        <p>Port of the Choreo Connect Adapter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -140,7 +140,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time to live for the Adaptor access token</p>
+                                        <p>Time to live for the Adapter access token.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -159,7 +159,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Private key path to use for the token generation</p>
+                                        <p>Private key path to use for the token generation.</p>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@ See the example .toml file given below.
                             <code>[keystore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configurations of key store used in Choreo Connect Adapter
+                                The configurations of key store used in Choreo Connect Adapter.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -216,7 +216,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the certificate of the Adaptor</p>
+                                        <p>Path of the certificate of the Adapter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -235,7 +235,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Path of the private key of the Adaptor</p>
+                                        <p>Path of the private key of the Adapter.</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +271,7 @@ See the example .toml file given below.
                             <code>[truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configurations of trust store used in in the Choreo Connect Adapter.
+                                The configurations of trust store used in the Choreo Connect Adapter.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -291,7 +291,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The directory path for the trusted certificates of the Choreo Connect Adaptor.</p>
+                                        <p>The directory path for the trusted certificates of the Choreo Connect Adapter.</p>
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Adapter environment</p>
+                                        <p>The Adapter environment.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -368,7 +368,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Virtual host to map to the environment</p>
+                                        <p>Virtual host to map to the environment.</p>
                                     </div>
                                 </div>
                             </div>
@@ -414,7 +414,7 @@ See the example .toml file given below.
                             <code>[consul]</code>
                             
                             <p>
-                                Configurations related to Consul
+                                Configurations related to Consul.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -455,7 +455,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>connection url of the Consul HTTP API.</p>
+                                        <p>Connection url of the Consul HTTP API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -493,7 +493,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Access Control Token generated using Consul. You should grant read access to services when creating the token</p>
+                                        <p>Access Control Token generated using Consul. You should grant read access to services when creating the token.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
