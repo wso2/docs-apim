@@ -725,34 +725,46 @@ Deploy, Update, Undepoly an apictl project to/from Choreo Connect.
 -   Usage
 
     ```bash
-    apictl mg [subcommand] [argument] [flag]
+    apictl mg [command] [flags]
     ```
 
--   Subcommands
+-   Commands
 
     <table>
         <tr>
             <th>
-                <code>add</code>
+                <code>add env</code>
             </th>
             <td>
-                Adds a Choreo Connect environment.
+                Adds a Choreo Connect environment. <br>
+                Examples: <br>
+                apictl mg add env prod --adapter https://localhost:9843 <br> <br>
+                Note: The flag --adapter (-a) is mandatory and it has to specify the microgateway adapter url.
             </td>
         </tr>
         <tr>
             <th>
-                <code>deploy</code>
+                <code>deploy api</code>
             </th>
             <td>
-                Deploy an API (apictl project) in Choreo Connect.
+                Deploy an API (apictl project) in Choreo Connect. <br>
+                Examples: <br>
+                apictl mg deploy api -e dev -f petstore <br> <br>
+                Note: The flags --environment (-e), --file (-f) are mandatory. The user needs to be logged in to use this command.
             </td>
         </tr>
         <tr>
             <th>
-                <code>get</code>
+                <code>get apis</code>
             </th>
             <td>
-                List APIs deployed in the Choreo Connect environment.
+                Display a list of the APIs in a Choreo Connect Adapter environment. <br>
+                Examples: <br>
+                apictl mg get apis --environment dev <br>
+                apictl mg get apis -q type:http --environment dev -l 100 <br>
+                apictl mg get apis -q type:ws --environment dev <br> <br>
+                Note: The flags --environment (-e) is mandatory. The flags (-l) apis count and (-q) api type are optional.
+                The user needs to be logged in to use this command.
             </td>
         </tr>
         <tr>
@@ -760,7 +772,12 @@ Deploy, Update, Undepoly an apictl project to/from Choreo Connect.
                 <code>login</code>
             </th>
             <td>
-                Log in to the Choreo Connect environment.
+                Log in to the Choreo Connect environment. <br>
+                Examples: <br>
+                apictl mg login dev -u admin -p admin <br>
+                apictl mg login dev -u admin <br>
+                cat ~/.mypassword | apictl mg login dev -u admin --password-stdin <br> <br>
+                Note: Credentials should be provided using the flags --username (-u), --password string (-p), --password-stdin to get password from stdin.
             </td>
         </tr>
         <tr>
@@ -768,23 +785,33 @@ Deploy, Update, Undepoly an apictl project to/from Choreo Connect.
                 <code>logout</code>
             </th>
             <td>
-                Log out from the Choreo Connect environment.
+                Log out from the Choreo Connect environment.<br>
+                Examples: <br>
+                apictl mg logout dev
             </td>
         </tr>
         <tr>
             <th>
-                <code>remove</code>
+                <code>remove env</code>
             </th>
             <td>
-                Remove an environment from the Choreo Connect environment.
+                Remove an environment from the Choreo Connect environment. <br>
+                Examples: <br>
+                apictl remove env prod 
             </td>
         </tr>
         <tr>
             <th>
-                <code>undeploy</code>
+                <code>undeploy api</code>
             </th>
             <td>
-                Undeploy an API in Choreo Connect.
+                Undeploy an API in Choreo Connect. <br>
+                Examples: <br>
+                apictl mg undeploy api --environment dev -n petstore -v 0.0.1 <br>
+                apictl mg undeploy api -n petstore -v 0.0.1 -e dev --vhost www.pets.com <br>
+                apictl mg undeploy api -n SwaggerPetstore -v 0.0.1 --environment dev <br> <br>
+                Note: The flags --name (-n), --version (-v), --environment (-e) are mandatory. 
+                The user needs to be logged in to use this command.                
             </td>
         </tr>
     </table>

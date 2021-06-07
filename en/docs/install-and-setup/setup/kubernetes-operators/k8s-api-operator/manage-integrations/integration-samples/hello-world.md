@@ -6,24 +6,24 @@ Let's define a basic Hello World scenario using WSO2 Micro Integrator and deploy
 -   Install and set up [WSO2 Integration Studio]({{base_path}}/integrate/develop/installing-wso2-integration-studio).
 -   Install a [Kubernetes](https://kubernetes.io/docs/setup/) cluster and **v1.11+** client. Alternatively, you can [run Kubernetes locally via Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
 -   Install [Docker](https://docs.docker.com/).
--   Install the [Kubernetes API Operator](https://operatorhub.io/operator/api-operator).
+-   Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).
 
-## Step 1: Create the integration solution
+## Step 1 - Create the integration solution
 
-Let's use an integration template in WSO2 Integration Studio to generate a sample integration solution that will return a 'Hello World' response when invoked.
+Let's use an integration template in WSO2 Integration Studio to generate a sample integration solution that returns a 'Hello World' response when invoked.
 
 1.	Open WSO2 Integration Studio.
 2.	In the <b>Getting Started</b> view, select the <b>Hello kubernetes</b> template.
 
-	<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-hello-world-template.png">
+	<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-hello-world-template.png" alt="getting started view">
 
 3.	Give a project name and click <b>Finish</b>. 
 
 This generates the complete integration project with the 'Hello World' solution, which is ready to be deployed in Kubernetes.
 
-<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/hello-k8s-sample-project.png">
+<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/hello-k8s-sample-project.png" width="400" alt="k8s project structure">
 
-## Step 2: Build and Push the Docker image
+## Step 2 - Build and Push the Docker image
 
 !!! Note
 	Be sure to start your Docker instance before building the image. If Docker is not started, the build process will fail. 
@@ -57,19 +57,16 @@ There are two ways to build a Docker image of the integration solution and push 
 	4.	Click <b>Build & Push</b> to build the image and push to the Docker registry.
 	5.	In the dialog box that opens, enter the credentials of your Docker registry to which the image should be pushed.
 
-	    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" alt="docker registry credentials">
+	    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/docker-registry-credentials.png" width="500" alt="docker registry credentials">
 
 	6.	Click <b>Push Image</b>.
 
 Run the `docker image ls` command to verify that the Docker image is created.
     
-## Step 3: Deploy the solution in K8s
+## Step 3 - Deploy the solution in K8s
 
 !!! Info
-    **Before you begin**:
-
-    -	Be sure that the [system requrements]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#prerequisites-system-requirements) are in place.
-    -	The [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#install-the-ei-k8s-operator) should be installed in your kubernetes environment.
+    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your kubernetes environment.
 
 Follow the steps given below.
 
@@ -97,7 +94,7 @@ Follow the steps given below.
 When the integration is successfully deployed, it should create the `hello-world` integration, `hello-world-deployment`, `hello-world-service`, and `ei-operator-ingress` as follows:
 
 !!! Tip
-    The `ei-operator-ingress` will not be created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment#disable-ingress-controller).
+    The `ei-operator-ingress` is not created if you have [disabled the ingress controller]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/#disable-ingress-controller-creation).
 
 ```bash
 kubectl get integration
@@ -121,7 +118,7 @@ NAME                  HOSTS                      ADDRESS     PORTS     AGE
 api-operator-ingress  wso2ei.ingress.wso2.com    10.0.2.15   80, 443   2m
 ```
 
-## Step 4: Test the deployment
+## Step 4 - Test the deployment
 
 Let's invoke the service without going through the ingress controller.
 

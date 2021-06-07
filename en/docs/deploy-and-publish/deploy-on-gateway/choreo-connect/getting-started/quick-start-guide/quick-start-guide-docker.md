@@ -8,6 +8,9 @@ Make sure to install and set up [Docker](https://www.docker.com).
 
 ### Step 1 - Download and setup Choreo Connect distribution zip and APICTL (Command Line Tool)
 
+!!! note
+    For more information on APICTL commands, follow the [API Controller (APICTL) documentation]({{base_path}}/reference/apictl/wso2-api-controller/#apictl-mg).  
+
 #### Step 1.1 - Download and Install APICTL
 
 APICTL is a CLI tool which can be used to deploy undeploy APIs into Choreo Connect clusters.
