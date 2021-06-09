@@ -54,7 +54,7 @@ The local entry is created in the `src/main/synapse-config/local-entries` folder
 
 Open the new local entry artifact from the project explorer. You can use the **Form** view or the **Source** view to update message processor properties.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/new-local-entry-form-view.png" width="700">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/new-local-entry-form-view.jpg" width="700">
 
 ### Using a local entry
 

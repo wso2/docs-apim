@@ -99,7 +99,7 @@ Follow the steps given below.
 
     1.  Right-click <b>ESB Config</b> in the project explorer, go to **New -> Proxy Service** and create a custom proxy service named `JmsSenderListener`. 
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/custom-proxy-service-jms.png" width="500" alt="Create ESB Config Project">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/custom-proxy-service-jms.jpg" width="500" alt="Create ESB Config Project">
 
     2.  You can then use the **Source View** to copy the following configuration.
 

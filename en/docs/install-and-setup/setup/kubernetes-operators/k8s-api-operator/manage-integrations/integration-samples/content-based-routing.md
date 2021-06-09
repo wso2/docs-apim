@@ -26,7 +26,7 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 
     1.  Right-click the <b>content-routing-sample</b> project, go to **New -> Kubernetes Exporter**:
 
-        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.png" width="500" alt="Create Kubernetes Project">
+        <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-proj.jpg" width="500" alt="Create Kubernetes Project">
 
     2.  In the **Kubernetes Exporter Information for K8s EI Operator** dialog box that opens, enter the following details:
 

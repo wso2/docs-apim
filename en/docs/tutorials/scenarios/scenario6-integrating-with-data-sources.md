@@ -16,7 +16,7 @@ With WSO2 Micro Integrator Data Services, users can integrate with different Dat
 
 To develop a service in Micro Integrator, you can use WSO2 Integration Studio. 
 
-<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_dataservice.png" alt="Integration Studio Dataservice View" title="Integration Studio Dataservice View" width="80%" />
+<img src="{{base_path}}/assets/img/tutorials/scenarios/integration_studio_dataservice.jpg" alt="Integration Studio Dataservice View" title="Integration Studio Dataservice View" width="80%" />
 
 ## Step 2: Expose data via API Manager
 

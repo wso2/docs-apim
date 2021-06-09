@@ -175,7 +175,7 @@ Let's create an HTTP endpoint to represent the Hospital Service.
 1. Right click on **Sample Services Configs** module in the Project Explorer and select **Add or Remove Connector/Module**.
 2. Select **Add Connector/module** and click **Next**. You are now connected to the [WSO2 Connector store](https://store.wso2.com).
 3. Find **Email** from the list of connectors and click the **Download** button (for the Email connector). 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.jpg" width="500">
 
 4. Click **Finish**.
    The connector is now downloaded to your workspace in WSO2 Integration Studio and the connector operations are available in the Email Connector palette.  
