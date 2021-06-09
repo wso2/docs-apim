@@ -133,7 +133,7 @@ To view statistics relating to a specific table, click on the relevant table nam
 
 The **RDBMS Table Statistics** dashboard opens with statistics specific to the selected table.
 
-![RDBMS Table Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/rdbms-table-statistics.png)
+![RDBMS Table Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/rdbms-table-statistics.jpg)
         
 ### Viewing Kafka statistics
     

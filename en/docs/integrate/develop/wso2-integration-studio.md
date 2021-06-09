@@ -92,7 +92,7 @@ The Console view displays a variety of console types depending on the type of de
 -   **Stacktrace Console**: Well-formatted Java stack trace with hyperlinks to specific source code locations.
 -   **CVS Console**: Displays output from CVS operations.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.jpg" width="800">
 
 ## HTTP Client
 

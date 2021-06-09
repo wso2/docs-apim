@@ -16,7 +16,7 @@ See the following topics for information and instructions:
 
 Cluster dashboards visualize the overall statistics relating to your Micro Integrator cluster. We can view information related to our MI cluster. 
 
-![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.png)
+![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)
 
 ### Downloading the dashboard
 
@@ -64,7 +64,7 @@ This dashboard serves the following purposes:
 
 This displays statistics specific to a selected node.
 
-![Node Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.png)
+![Node Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.jpg)
 
 ### Downloading the dashboard
 
