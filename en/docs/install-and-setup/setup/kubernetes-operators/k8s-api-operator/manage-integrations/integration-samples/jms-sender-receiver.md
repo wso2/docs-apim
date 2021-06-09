@@ -18,7 +18,7 @@ Follow the steps given below.
 1.  Open WSO2 Integration Studio.
 2.  In the <b>Getting Started</b> view, click <b>New Integration Project</b>
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/getting-started-integration-proj.png">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/getting-started-integration-proj.jpg">
 
 3.  In the <b>New Integration Project</b> dialog box, give a name for the integration project and select the following check boxes: <b>Create ESB Configs</b>, <b>Create Composite Exporter</b>, and <b>Create Kubernetes Exporter</b>.
 

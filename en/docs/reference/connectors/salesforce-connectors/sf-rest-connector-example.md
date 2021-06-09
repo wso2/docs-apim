@@ -35,13 +35,13 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `salesforcerest` and API context as `/salesforcerest`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configure a sequence for the create operation
 
 Create the sequence needed to create Salesforce object. We will create two defined sequences called `create.xml` and  `retrieve.xml` to create an account and retrieve data. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
   
-<img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.png" title="Adding a Sequnce" width="500" alt="Adding a Sequnce"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequnce" width="500" alt="Adding a Sequnce"/>
 
 Now follow the steps below to add configurations to the sequence.
     

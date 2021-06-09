@@ -22,7 +22,7 @@ You can access the Amazon S3 service using the root user credentials but these c
 
   1. Go to the AWS Management Console.
      
-     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.jpg" title="AWS Management Console" width="800" alt="AWS Management Console"/>
   
   2. Hover over your company name in the right top menu and click "My Security Credentials".
 
@@ -30,7 +30,7 @@ You can access the Amazon S3 service using the root user credentials but these c
   
   3. Scroll to the "Access Keys" section.
   
-     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.jpg" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
   
   4. Click on "Create New Access Key".
   5. Copy both the Access Key ID (YOUR_AMAZON_S3_KEY) and Secret Access Key (YOUR_AMAZON_S3_SECRET).
@@ -52,7 +52,7 @@ You can access the Amazon S3 service using the root user credentials but these c
   
   5. Click on Create Access Key.
         
-     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.jpg" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
      
   6. Click on Show User Security Credentials. Copy and paste the Access Key ID and Secret Access Key values, or click on Download Credentials to download the credentials in a CSV (file).
      

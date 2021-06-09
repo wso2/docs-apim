@@ -231,7 +231,7 @@ Install JBoss EAP server and create a message queue within the server.
 6.  Log in to the Management Console using **admin** as both the username and password. In the **Profile** menu, click **Messaging ->
     Destinations** and you will be able to see the queue you added in Step 4 in the **Queues/Topics** section.
 
-    [![sample queue]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.png)]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.png)
+    [![sample queue]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.jpg)]({{base_path}}/assets/img/integrate/broker-configs/hornetq/sample-queue.jpg)
 
 Now you have configured the JBoss EAP Server. The next section describes how to configure the Micro Integrator to listen and fetch messages from the queue that you created above.
 
@@ -261,7 +261,7 @@ Now you have configured the JBoss EAP Server. The next section describes how to 
     !!! Note
         After copying the `jboss-client.jar` file from the `EAP_HOME/bin/client` directory to the `MI_HOME/lib` directory, be sure to remove the `javax.jms` package from the `jboss-client.jar` file.
 
-        [![delete package]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.png)]({{base_path}}/assets/img/assets/img/integrate/broker-configs/hornetq/delete-package.png)
+        [![delete package]({{base_path}}/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)]({{base_path}}/assets/img/assets/img/integrate/broker-configs/hornetq/delete-package.jpg)
 
 Now you have configured WSO2 Micro Integrator with HornetQ embedded in a JBoss EAP server.
 

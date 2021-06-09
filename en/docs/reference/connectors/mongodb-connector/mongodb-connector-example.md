@@ -48,7 +48,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 2.  Right-click the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3.  Provide the API name as `MongoConnector` and the API context as `/mongodbconnector`.
 

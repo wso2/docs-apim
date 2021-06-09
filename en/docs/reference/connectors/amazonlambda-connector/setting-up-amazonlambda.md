@@ -21,7 +21,7 @@ You can access the Amazon Lambda service using the root user credentials but the
 
   1. Go to the AWS Management Console.
      
-     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.png" title="AWS Management Console" width="800" alt="AWS Management Console"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/aws-management-console.jpg" title="AWS Management Console" width="800" alt="AWS Management Console"/>
   
   2. Hover over your company name in the right top menu and click "My Security Credentials".
 
@@ -29,7 +29,7 @@ You can access the Amazon Lambda service using the root user credentials but the
   
   3. Scroll to the "Access Keys" section.
   
-     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.png" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-accesskey-using-root-account.jpg" title="Create accesskey using root account" width="800" alt="Create accesskey using root account"/>
   
   4. Click on "Create New Access Key".
   5. Copy both the Access Key ID (YOUR_AMAZON_LAMBDA_KEY) and Secret Access Key (YOUR_AMAZON_LAMBDA_SECRET).
@@ -51,7 +51,7 @@ You can access the Amazon Lambda service using the root user credentials but the
   
   5. Click on Create Access Key.
         
-     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.png" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/create-access-key-using-iam.jpg" title="Create access key using IAM" width="800" alt="Create access key using IAM"/>
      
   6. Click on Show User Security Credentials. Copy and paste the Access Key ID and Secret Access Key values, or click on Download Credentials to download the credentials in a CSV (file).
      
@@ -63,7 +63,7 @@ You can access the Amazon Lambda service using the root user credentials but the
   2. Click **Services** tab on left top of the screen.
   3. Select **Storage** and click **S3**.
   
-     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-services.png" title="Select amazon services" width="800" alt="Select amazon services"/>
+     <img src="{{base_path}}/assets/img/integrate/connectors/amazon-services.jpg" title="Select amazon services" width="800" alt="Select amazon services"/>
 
   4. Create a bucket.
   

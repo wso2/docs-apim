@@ -12,7 +12,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2tok
    <img src="{{base_path}}/assets/img/integrate/connectors/new-connected-app.png" title="Add new connected app" width="800"/> 
 
 4. On the **New Connected App** page, fill the required fields as listed below.<br>
-   <img src="{{base_path}}/assets/img/integrate/connectors/create-connected-app.png" title="Create new connected app" width="800"/> 
+   <img src="{{base_path}}/assets/img/integrate/connectors/create-connected-app.jpg" title="Create new connected app" width="800"/> 
 
     * Fill in **Connected App Name**, **API Name**, and **Contact Email** under **Basic Information**.
 
@@ -30,7 +30,7 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2tok
 6. Navigate to **Connected Apps** (Apps > App Manager) list, and click the App that you have just created, and then click on **View**.
 
 7. Go to **API (Enable OAuth Settings)**, and note down the **Consumer Key** and **Consumer Secret**.<br>
-   <img src="{{base_path}}/assets/img/integrate/connectors/connected-app.png" title="Connected app" width="800"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/connected-app.jpg" title="Connected app" width="800"/>
    
 8. On the page that opens, click the **Edit** button. Under **OAuth policies**, select All users may self-authorize in the Permitted Users list, and then click the **Save** button.   
 

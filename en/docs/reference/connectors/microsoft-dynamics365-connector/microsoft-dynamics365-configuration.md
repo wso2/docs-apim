@@ -41,7 +41,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
      
     6. Now you have successfully created an Azure app. Double click the app and you will see its details as shown below. Copy the value of the **Application (client) ID** and **Directory (tenant) ID**.
         
-       <img src="{{base_path}}/assets/img/integrate/connectors/application-id.png" title="Application ID" width="800" alt="Application ID"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/application-id.jpg" title="Application ID" width="800" alt="Application ID"/>
   
     7. You need to give permission to the app to access Dynamics 365. Navigate to **View API permissions**. 
     
@@ -49,7 +49,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
     
     8. Click **Add a permission**. 
     
-       <img src="{{base_path}}/assets/img/integrate/connectors/add-permission.png" title="Add a permission" width="800" alt="Add a permission"/>  
+       <img src="{{base_path}}/assets/img/integrate/connectors/add-permission.jpg" title="Add a permission" width="800" alt="Add a permission"/>  
            
     9. Then select **Dynamics CRM**.     
     
@@ -69,7 +69,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
     
     13. Now you need to create secret keys. Navigate to **Certificates & secrets**.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/certificate-and-secrets.png" title="Create certificate and secrets" width="800" alt="Create certificate and secrets"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/certificate-and-secrets.jpg" title="Create certificate and secrets" width="800" alt="Create certificate and secrets"/> 
     
     14. Click **New client secrets**.
     
@@ -77,11 +77,11 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
      
     15. Add **Description** and **Expires** values. Click **Add** and copy the value.    
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/add-client-secret.png" title="Add client secret" width="800" alt="Add client secret"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/add-client-secret.jpg" title="Add client secret" width="800" alt="Add client secret"/>
     
     16. Search **Users** inside the Azure Active Directory and Create **New user** (this user would be linked to the Application User, which is created in the Dynamics 365 CRM).    
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/add-new-user.png" title="Create new user" width="800" alt="Create new user"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/add-new-user.jpg" title="Create new user" width="800" alt="Create new user"/>
         
     17. Fill all mandatory fields and click **Create**.    
        

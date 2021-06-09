@@ -74,7 +74,7 @@ Let's create two Endpoint artifacts for the two healthcare services:
 
 1.  Right-click `HealthcareConfigs` and go to **New** → **Endpoint** to open the **New Endpoint Artifact** dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/4-dev-get-started-select-endpoint.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/4-dev-get-started-select-endpoint.jpg" width="500">
     
 2.  In the <b>New Endpoint Artifact</b> dialog box that opens, select **Create a New Endpoint** and click **Next**.
 3.  For the ‘Grand Oak hospital service’, let’s use the following values:
@@ -291,7 +291,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
     
     Drag the Aggregate mediator and drop it next to the Clone mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/15-dev-get-started-aggregate-mediator.png">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/15-dev-get-started-aggregate-mediator.jpg">
    
     Specify values for the required Aggregate mediator properties.
 
@@ -312,7 +312,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
 
     To send the response back to the client, we can use the **Respond** mediator. Add the Respond mediator as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.png">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/16-dev-get-started-drop-mediator.jpg">
     
 The final mediation configuration looks similar to the above diagram.     
 Following is what you will see in the **Source View** of WSO2 Integration Studio.
@@ -370,7 +370,7 @@ There are several ways to deploy and run the integration scenario.
 
 1. Right-click `HealthcareCompositeExporter` and click **Export Project Artifacts and Run**.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/17-dev-get-started-build-and-run-1.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/17-dev-get-started-build-and-run-1.jpg" width="500">
 
 2. You will see the following dialog box. Select the `HealthcareConfigs` folder in the artifact list and click **Finish**.
 
@@ -412,7 +412,7 @@ Once you have deployed the artifacts and started the Micro Integrator server, yo
 
 If you are running the embedded Micro Integrator, click <b>Open Monitoring Dashboard</b> in the <b>Runtime Services</b> tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/developing-first-integration/20-dev-get-started-open-dashboard.jpg" width="500">
 
 You will be directed to the sign-in screen of the Dashboard from your default browser as shown below. Sign in using `admin` as the user name and password.
 
