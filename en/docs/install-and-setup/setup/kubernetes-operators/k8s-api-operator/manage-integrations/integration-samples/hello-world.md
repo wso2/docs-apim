@@ -15,7 +15,7 @@ Let's use an integration template in WSO2 Integration Studio to generate a sampl
 1.	Open WSO2 Integration Studio.
 2.	In the <b>Getting Started</b> view, select the <b>Hello kubernetes</b> template.
 
-	<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-hello-world-template.png" alt="getting started view">
+	<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-hello-world-template.jpg" alt="getting started view">
 
 3.	Give a project name and click <b>Finish</b>. 
 

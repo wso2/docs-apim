@@ -125,7 +125,7 @@ To view detailed statistics of a specific database, click on that database.
 
 The **RDBMS Statistics** dashboard opens with RDBMS statistics specific to the selected database.
 
-![Database Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/database-statistics.png)
+![Database Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/database-statistics.jpg)
 
 To view statistics relating to a specific table, click on the relevant table name in the **RDBMS Table** table.
 

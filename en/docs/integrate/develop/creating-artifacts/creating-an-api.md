@@ -152,7 +152,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 When you open the REST API from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.jpg" width="800">
 
 Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
 

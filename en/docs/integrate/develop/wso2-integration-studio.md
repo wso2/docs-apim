@@ -10,7 +10,7 @@ When you open WSO2 Integration Studio, you will see the **Getting Started** view
 
 You can also click the <img src="{{base_path}}/assets/img/integrate/workbench/icon-getting-started-workbench.png" width="20"> icon at the top-right of the workbench to open the **Project Explorer** alongside the **Getting Started** tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.jpg" width="800">
 
 To get started, you need to first create the required project directories. Alternatively, you can use an integration sample, which will generate the required projects and files for a specific use case.
 
@@ -50,7 +50,7 @@ To get started, you need to first create the required project directories. Alter
 
 Once you have created the required set of projects and artifacts, you can start working with the project directories and artifact editors shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.jpg" width="800">
 
 ## Project Explorer
 

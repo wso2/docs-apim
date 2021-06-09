@@ -80,7 +80,7 @@ Click **Resources** to navigate to the resources page.
 
 You will notice that all the API resources are created automatically when the OpenAPI URL is specified.
    
-[![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)
+[![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)
 
 ### API Definition
 
