@@ -27,7 +27,7 @@ Follow these steps to create a new local entry.
 
 1.  Right-click the [ESB Config project]({{base_path}}/integrate/develop/create-integration-project/#esb-config-project) and go to **New → Local Entry** to open the **New Local Entry** dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/select-local-entry.png">
+    <img src="{{base_path}}/assets/img/integrate/create_artifacts/new_local_entry/select-local-entry.jpg">
 
 4.  Select **Create a New Local Entry** and click **Next**.
 

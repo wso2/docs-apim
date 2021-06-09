@@ -271,7 +271,7 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 !!! Note
     If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.jpg" width="800">
 
 ## Examples
 

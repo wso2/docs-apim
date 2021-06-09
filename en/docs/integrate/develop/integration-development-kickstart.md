@@ -276,7 +276,7 @@ go to **New** → **REST API** to open the **API Artifact Creation Options** dia
     Note the `$1` in the Payload format. It denotes a parameter that can get a value assigned dynamically. The value for the parameters needs to be assigned using Arguments **(Args)**. 
     **Args** can be added using the **PayloadFactoryArgument** dialog box, which appears when you click the (<img src="{{base_path}}/assets/img/integrate/tutorials/common/plus-icon.png" width="20">) sign.
 
-    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/14-dev-get-started-payloadfactory-expression.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/developing-first-integration/14-dev-get-started-payloadfactory-expression.jpg" width="700">
         
     In the `PayloadFactoryArgument` dialog box, select **Expression** as the **Argument Type**, and click **Argument Expression**. You will then see the **Expression Selector** dialog box. Enter **$ctx:uri.var.doctorType** as the value for the expression.
     
