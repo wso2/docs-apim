@@ -7,7 +7,7 @@
 To bundle a Connector into a CApp, a `Connector Exporter Project` is required. 
 
 1. Navigate to **File** -> **New** -> **Other** -> **WSO2** -> **Extensions** -> **Project Types** -> **Connector Exporter Project**.<br> 
-  <img src="{{base_path}}/assets/img/integrate/connectors/connector-exporter-project-1.png" title="Add Connector Exporter Project" width="400" alt="Add Connector Exporter Project" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/connector-exporter-project-1.jpg" title="Add Connector Exporter Project" width="400" alt="Add Connector Exporter Project" />
 
 2. Enter a name for the Connector Exporter Project. 
 
@@ -17,7 +17,7 @@ To bundle a Connector into a CApp, a `Connector Exporter Project` is required.
 4. Now you need to add the Connector to Connector Exporter Project that you just created. Right-click the Connector Exporter Project and select, **New** -> **Add Remove Connectors** -> **Add Connector** -> **Add from Workspace** -> **Connector**
 
 5. Once you are directed to the workspace, it displays all the connectors that exist in the workspace. You can select the relevant connector and click **Ok**. 
-  <img src="{{base_path}}/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.png" title="Selecting Connector from Workspace" width="400" alt="Selecting Connector from Workspace" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.jpg" title="Selecting Connector from Workspace" width="400" alt="Selecting Connector from Workspace" />
 
 ### Creating a Composite Application Project
 
@@ -27,7 +27,7 @@ To export the `Integration Project` as a CApp, a `Composite Application Project`
 
 1. Right-click the Composite Application Project and click **Export Composite Application Project**.
 
-  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.png" title="Export as a Carbon Application" width="400" alt="Export as a Carbon Application" />
+  <img src="{{base_path}}/assets/img/integrate/connectors/capp-project1.jpg" title="Export as a Carbon Application" width="400" alt="Export as a Carbon Application" />
 
 2. Select an **Export Destination** where you want to save the .car file. 
 

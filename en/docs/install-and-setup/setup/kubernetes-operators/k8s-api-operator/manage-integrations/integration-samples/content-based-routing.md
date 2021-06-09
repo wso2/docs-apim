@@ -16,7 +16,7 @@ Let's use the <b>Content Routing</b> integration template in WSO2 Integration St
 1.  Open WSO2 Integration Studio.
 2.  In the <b>Getting Started</b> view, select the <b>Content Based Routing</b> template.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-template.png">
+    <img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/content-routing-template.jpg">
 
 3.  Give a project name and click <b>Finish</b>.
 

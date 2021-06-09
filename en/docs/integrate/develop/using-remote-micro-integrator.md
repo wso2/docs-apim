@@ -41,7 +41,7 @@ However, when your solutions are ready to be moved to your production environmen
 1.  To deploy the C-App project to your server, select the composite application from the list, click <b>Add</b> to move it to the configured list, and then click <b>Finish</b>.
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-add-capps.png" width="500">
 
-2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
+2.  On the <b>Servers</b> tab, note that the server is currently stopped. Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon on the tool bar. If prompted to save changes to any of the artifact files you created earlier, click <b>Yes</b>.
 
     <img src="{{base_path}}/assets/img/integrate/testing-integrations/new-server-start.png" width="500">   
 

@@ -20,7 +20,7 @@ Following diagram shows the overall solution. The user creates a bucket, stores 
 
 To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-diagram.png" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-s3-diagram.jpg" title="Overview of Amazon S3 use case" width="800" alt="Amazon S3 use case"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -35,7 +35,7 @@ Follow these steps to set up the Integration Project and import AmazonS3 connect
 {!reference/connectors/importing-connector-to-integration-studio.md!} 
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API.
-   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Specify the API name as `S3ConnectorTestAPI` and API context as `/s3connector`. You can go to the source view of the XML configuration file of the API and copy the following configuration.
 
@@ -299,7 +299,7 @@ We can use Curl or Postman to try the API. The testing steps are provided for cu
     </CompleteMultipartUploadResult>
     ```
     Navigate to AWS S3 console and click on the bucket `wso2engineers`. You will note that a file has been created with the name `Julian.txt`. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.png" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/amazons3-bucket-upload.jpg" title="Upload object to Amazon S3 bucket" width="800" alt="Upload object to Amazon S3 bucket"/>
 
 ### Read objects from Amazon S3 bucket
 

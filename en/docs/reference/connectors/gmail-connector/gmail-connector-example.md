@@ -16,7 +16,7 @@ If you do not want to configure this yourself, you can simply [get the project](
 {!reference/connectors/importing-connector-to-integration-studio.md!}
 
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3. Follow these steps to [configure the Gmail API]({{base_path}}/reference/connectors/gmail-connector/configuring-gmail-api/) and obtain the Client Id, Client Secret, Access Token and Refresh Token. 
 

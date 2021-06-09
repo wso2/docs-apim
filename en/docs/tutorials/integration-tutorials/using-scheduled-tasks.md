@@ -21,7 +21,7 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
@@ -38,7 +38,7 @@ You will now see the projects listed in the **Project Explorer**.
 #### Creating the Sequence
 
 1.  In the **Project Explorer**, right click **ScheduleDefaultTaskConfigs** project, and click **New** → **Sequence**.  
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/1-select-sequence.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/1-select-sequence.jpg" width="500">
 2.  Click **Create New Sequence** and click **Next**.
 3.  Enter **InjectXMLSequence** as the sequence name and click **Finish**.  
     <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/2-enter-sequence-artifact.png" width="500">  
@@ -81,7 +81,7 @@ Shown below is the complete source configuration of the Sequence (i.e., the `Inj
 #### Creating the Scheduled Task
 
 1. In the **Project Explorer**, right click **ScheduleDefaultTask**, and click **New → Scheduled Task**.
-    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/4-create-task.png"> 
+    <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/4-create-task.jpg"> 
 
 2. Select **Create a New Scheduled Task Artifact** and click **Next**.
     <img src="{{base_path}}/assets/img/integrate/tutorials/scheduled-tasks/5-task-artifact-creation-options.png" width="500"> 

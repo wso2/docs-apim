@@ -24,7 +24,7 @@ All four operations are exposed via an `bigquery-testAPI` API. The API with the 
 
 The following diagram shows the overall solution. User can invoke the table schema level details from the `gettabledetails` resource. Using the response details, the API caller can insert data into the created table. If users need to retrieve table data from a specified set of rows, they need to invoke the `getdetails` resource. Finally `/runQuery` resource runs an SQL query (BigQuery) and returns results back to the API caller.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-example.png" title="BigQuery connector example" width="800" alt="BigQuery connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/bigquery-example.jpg" title="BigQuery connector example" width="800" alt="BigQuery connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -42,7 +42,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `bigquery-testAPI` and API context as `/resources`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configuring the API
 

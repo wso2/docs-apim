@@ -6,7 +6,7 @@ WSO2 Integration Studio is your development environment for designing, developin
 
 When you open WSO2 Integration Studio, you will see the **Getting Started** view in the tool's workbench. 
 
-<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
 
 You can also click the <img src="{{base_path}}/assets/img/integrate/workbench/icon-getting-started-workbench.png" width="20"> icon at the top-right of the workbench to open the **Project Explorer** alongside the **Getting Started** tab as shown below.
 
@@ -21,7 +21,7 @@ To get started, you need to first create the required project directories. Alter
         </th>
         <td>
             <p>Use the links on the <b>Getting Started</b> view to create the required projects. These project directories are saved to your workspace and they can later be accessed from the <a href="#project-explorer">Project Explorer</a> view of WSO2 Integration Studio.</p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
         </td>
     </tr>
     <tr id="templates">
@@ -32,7 +32,7 @@ To get started, you need to first create the required project directories. Alter
             <p>
                 The <b>Getting Started</b> view lists a set of sample projects and integration artifacts that represent common integration scenarios. You can use these to explore WSO2 Micro Integrator and to try out common integration use cases. The <a href="#sample-guide">sample guide</a> will provide instructions on how to run the samples.
             </p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.jpg" width="800">
         </td>
     </tr>
     <tr id="template-guide">
