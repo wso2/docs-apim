@@ -318,4 +318,4 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
      [![auth0 success]({{base_path}}/assets/img/administer/auth0-success.png)]({{base_path}}/assets/img/administer/auth0-success.png)
 
 !!! tip
-     If you want to generate the tokens with scopes, those scopes should have been defined in Auth0 as mentioned in <a href="#step1-4">Step 1 - (4)</a>.
+     If you want to generate the tokens with scopes, those scopes should have been defined in Auth0 as mentioned in <a href="#step1-4">Step 1 - (4)</a> .
