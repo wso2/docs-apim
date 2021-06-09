@@ -387,7 +387,7 @@ To try out the four sample queries given above, follow the steps below:
     
     The above simulation results in the following logs.
     
-    ![Summarization Logs]({{base_path}}/assets/img/streaming/processing-data/summary-logs.png)
+    ![Summarization Logs]({{base_path}}/assets/img/streaming/processing-data/summary-logs.jpg)
     
 ### Supported methods of summarization
 

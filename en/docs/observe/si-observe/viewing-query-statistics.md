@@ -1,6 +1,6 @@
 # Viewing Sink Statistics
 
-![Query statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/query_statistics_dashboard.png)
+![Query statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/query_statistics_dashboard.jpg)
 
 ## Query Statistics Summary Table
 

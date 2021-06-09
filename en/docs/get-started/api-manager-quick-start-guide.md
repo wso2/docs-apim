@@ -359,5 +359,5 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
          - [Subscribe to the API via the Developer Portal and generate keys](#subscribe)
          - [Invoke the API with the generated keys](#invoke)
 
-    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
+    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.jpg)]({{base_path}}/assets/img/get_started/qsg-petstore-response.jpg)
    

@@ -156,7 +156,7 @@ When you open the REST API from the **Config** project in the project explorer, 
 
 Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.jpg" width="800">
 
 You can also use the [**Source** view](#using-the-source-view) or the [**Swagger** editor](#using-the-swagger-editor) to update the API configuration.
 

@@ -25,7 +25,7 @@ An Integration project is a maven multi module project, which will contain all t
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
