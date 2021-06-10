@@ -1,9 +1,9 @@
-## HTTP Status Codes
+# HTTP Status Codes
 
 When REST API requests are sent to carryout various actions, various HTTP status codes will be returned based on the state of the action (success or failure) and the HTTP method (`POST, GET, PUT, DELETE`) executed. The following are the definitions of the various HTTP status codes that are returned.
 
 
-### HTTP status codes indicating successful delivery
+## HTTP status codes indicating successful delivery
 
 | Code | Code Summary | Description                                                                                                                                                                                                                       |
 |------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -12,7 +12,7 @@ When REST API requests are sent to carryout various actions, various HTTP status
 | 204  | No content   | HTTP request was successfully processed. No content will be returned. Generally used as a response to a successful `             DELETE            ` REST API HTTP method.                                                        |
 | 202  | Accepted     | HTTP request was accepted for processing, but the processing has not been completed. This generally occurs when your successful in trying to undeploy an application.                                                             |
 
-### Error HTTP status codes
+## Error HTTP status codes
 
 | Code | Code Summary          | Description                                                                                                                                                                                                                                 |
 |------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
