@@ -181,11 +181,11 @@ Mock services give the opportunity to simulate the actual endpoint.
         
         - If you are trying to mock an endpoint `http://petstore.com/pets`, the wizard should look like below now.
         
-        ![Mock Service with one sub context]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-context-sample.PNG) 
+        ![Mock Service with one sub context]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-context-sample.png) 
         
         - If you are going to mock the same endpoint with an additional sub context (e.g., `http://petstore.com/pets/id` ), you can add it to the same mock service as shown below. 
         
-        ![Mock Service with additional sub Contexts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-subcontext-sample.PNG) 
+        ![Mock Service with additional sub Contexts]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/mockservice-subcontext-sample.png) 
 
 Once you have entered the required details, click **Add**. It will list the resource under the **Add Service Resource** table with **Sub Context** and **Method**. After that click **Finish** to create a Mock Service. It will locate under the **test → resources → mock-services** directory.
 
