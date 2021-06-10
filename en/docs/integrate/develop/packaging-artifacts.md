@@ -1,4 +1,4 @@
-# Packaging Synapse artifacts
+# Packaging Synapse Artifacts
 
 To package Synapse artifacts, you need to create a Composite Application Project. Use one of the following methods:
 
