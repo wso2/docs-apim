@@ -85,11 +85,11 @@ Let's send a request with multiple transactions to the data service:
 
 3. Update the **addEmployeeOp** operation (under **batch_requesting_sampleSOAP11Binding**) with the request body as shown below:
 
-   !!! Tip
-       In this example, we are sending two transactions with details of two employees.
+       !!! Tip
+           In this example, we are sending two transactions with details of two employees.
 
-    ```xml
-    <p:addEmployeeOp_batch_req xmlns:p="http://ws.wso2.org/dataservice">
+       ```xml
+       <p:addEmployeeOp_batch_req xmlns:p="http://ws.wso2.org/dataservice">
           <!--1 or more occurrences-->
           <addEmployeeOp xmlns="http://ws.wso2.org/dataservice">
              <!--Exactly 1 occurrence-->
@@ -120,7 +120,7 @@ Let's send a request with multiple transactions to the data service:
              <xs:Officecode xmlns:xs="http://ws.wso2.org/dataservice">01</xs:Officecode>
           </addEmployeeOp>
        </p:addEmployeeOp_batch_req>
-    ```
+       ```
     
 4.  Invoke the **addEmployeeOp** operation.
 

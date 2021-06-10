@@ -21,11 +21,11 @@ An Integration project is a maven multi module project, which will contain all t
 1.  Open **WSO2 Integration Studio**.
 2.  Click **New Integration Project** in the **Getting Started** tab as shown below. 
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-simple-message-project.jpg" width="500">
 
 3.  Enter `SampleServices` as the project name and select the following check boxes to create the required modules.
     -   **Create ESB Configs**
@@ -175,7 +175,7 @@ Let's create an HTTP endpoint to represent the Hospital Service.
 1. Right click on **Sample Services Configs** module in the Project Explorer and select **Add or Remove Connector/Module**.
 2. Select **Add Connector/module** and click **Next**. You are now connected to the [WSO2 Connector store](https://store.wso2.com).
 3. Find **Email** from the list of connectors and click the **Download** button (for the Email connector). 
-    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.png" width="500">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/119132294/import-gmail-connector.jpg" width="500">
 
 4. Click **Finish**.
    The connector is now downloaded to your workspace in WSO2 Integration Studio and the connector operations are available in the Email Connector palette.  

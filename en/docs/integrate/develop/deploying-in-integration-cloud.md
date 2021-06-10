@@ -15,7 +15,7 @@ how to host a solution on Integration Cloud, follow the steps below:
     1.  Open **WSO2 Integration Studio**. In the **Getting Started** page,
         click the **Hello World Service** template to start creating a
         new application based on this template.  
-        ![Cloud]({{base_path}}/assets/img/integrate/create_project/integration_cloud/1.hello_world_service.png)
+        ![Cloud]({{base_path}}/assets/img/integrate/create_project/integration_cloud/1.hello_world_service.jpg)
     2.  In the **Create Project Using Hello World Service Template**
         dialog box, enter a name for the application. In this example,
         let's enter **HelloWorldApps** as the name.  
@@ -29,7 +29,7 @@ how to host a solution on Integration Cloud, follow the steps below:
         The purpose of this step is to change the default values. You can skip it if required.
 
     1.  In the left navigator, open the `HelloWorldApps/src/main/synapse-config/api/HelloWorld.xml` file. Then click on the **PayloadFactory** icon to open the **Payload Factory Mediator** configuration in the **Properties** tab.
-        ![Cloud]({{base_path}}/assets/img/integrate/create_project/integration_cloud/3.open_properties.png)
+        ![Cloud]({{base_path}}/assets/img/integrate/create_project/integration_cloud/3.open_properties.jpg)
 
     2.  In the **Payload** field, replace the existing value  with `{"data": "HelloWorld"}`.
 

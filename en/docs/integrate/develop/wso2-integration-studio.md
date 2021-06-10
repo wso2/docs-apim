@@ -6,11 +6,11 @@ WSO2 Integration Studio is your development environment for designing, developin
 
 When you open WSO2 Integration Studio, you will see the **Getting Started** view in the tool's workbench. 
 
-<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
 
 You can also click the <img src="{{base_path}}/assets/img/integrate/workbench/icon-getting-started-workbench.png" width="20"> icon at the top-right of the workbench to open the **Project Explorer** alongside the **Getting Started** tab as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-getting-started.jpg" width="800">
 
 To get started, you need to first create the required project directories. Alternatively, you can use an integration sample, which will generate the required projects and files for a specific use case.
 
@@ -21,7 +21,7 @@ To get started, you need to first create the required project directories. Alter
         </th>
         <td>
             <p>Use the links on the <b>Getting Started</b> view to create the required projects. These project directories are saved to your workspace and they can later be accessed from the <a href="#project-explorer">Project Explorer</a> view of WSO2 Integration Studio.</p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-view.jpg" width="800">
         </td>
     </tr>
     <tr id="templates">
@@ -32,7 +32,7 @@ To get started, you need to first create the required project directories. Alter
             <p>
                 The <b>Getting Started</b> view lists a set of sample projects and integration artifacts that represent common integration scenarios. You can use these to explore WSO2 Micro Integrator and to try out common integration use cases. The <a href="#sample-guide">sample guide</a> will provide instructions on how to run the samples.
             </p>
-            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.png" width="800">
+            <img src="{{base_path}}/assets/img/integrate/workbench/getting-started-templates.jpg" width="800">
         </td>
     </tr>
     <tr id="template-guide">
@@ -50,7 +50,7 @@ To get started, you need to first create the required project directories. Alter
 
 Once you have created the required set of projects and artifacts, you can start working with the project directories and artifact editors shown below.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-working-project.jpg" width="800">
 
 ## Project Explorer
 
@@ -92,7 +92,7 @@ The Console view displays a variety of console types depending on the type of de
 -   **Stacktrace Console**: Well-formatted Java stack trace with hyperlinks to specific source code locations.
 -   **CVS Console**: Displays output from CVS operations.
 
-<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/workbench/workbench-console.jpg" width="800">
 
 ## HTTP Client
 

@@ -10,7 +10,7 @@ This development strategy enables you to first design the **experience APIs** in
 
 Integration developers will then use the Swagger definition of the experience APIs and implement the **process APIs** that contains the integration logic as well as the **system APIs** that directly interact with internal and external systems.
 
-<a href="{{base_path}}/assets/img/integrate/api-led-integration/api-first.png"><img src="{{base_path}}/assets/img/integrate/api-led-integration/api-first.png" alt="api-first integration development"></a>
+<a href="{{base_path}}/assets/img/integrate/api-led-integration/api-first.jpg"><img src="{{base_path}}/assets/img/integrate/api-led-integration/api-first.jpg" alt="api-first integration development"></a>
 
 The high-level steps are as follows:
 
@@ -35,7 +35,7 @@ The high-level steps are as follows:
 
 With this development strategy, integration developers will first create the **process APIs** (with the integration logic) or the **system APIs**. These integration services are published to the service catalog in the API management layer. API creators will then convert these integration APIs to **experience APIs**.
 
-<a href="{{base_path}}/assets/img/integrate/api-led-integration/integration-first.png"><img src="{{base_path}}/assets/img/integrate/api-led-integration/integration-first.png" alt="api-first integration development"></a>
+<a href="{{base_path}}/assets/img/integrate/api-led-integration/integration-first.jpg"><img src="{{base_path}}/assets/img/integrate/api-led-integration/integration-first.jpg" alt="api-first integration development"></a>
 
 The high-level steps are as follows:
 

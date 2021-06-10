@@ -32,7 +32,7 @@ For more information about these operations, please refer to the [Amazon DynamoD
 
 The following diagram shows the overall solution. The user creates a table, stores some employee details (items) into the table, and then receives it back. To invoke each operation, the user uses the same API. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-connector-example.png" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamoDB-connector-example.jpg" title="Amazon DynamoDB connector example" width="800" alt="Amazon DynamoDB connector example"/>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 
@@ -50,7 +50,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 First create an API, which will be where we configure the integration logic. Right click on the created Integration Project and select, **New** -> **Rest API** to create the REST API. Specify the API name as `amazonDynamoDBAPI` and API context as `/resources`.
     
-<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 #### Configuring the API
 
@@ -62,7 +62,7 @@ Now follow the steps below to add resources to the API.
     
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `init` operation into the Design pane.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init.png" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init.jpg" title="Drag and drop init operation" width="500" alt="Drag and drop init operation"/>   
     
     2. Add the property values into the `init` operation as shown below. Replace the `region`, `accessKeyId`, `secretAccessKey`, `blocking` with your values.
         
@@ -71,13 +71,13 @@ Now follow the steps below to add resources to the API.
        - **secretAccessKey** : The AWS accessKeyId of the user account to generate the signature.
        - **blocking** : Boolean type, this property helps the connector perform blocking invocations to AmazonDynamoDB. 
     
-        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init-operation.png" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-api-init-operation.jpg" title="Add values to the init operation" width="800" alt="Add values to the init operation"/>
 
 2. Set up the createTable operation.
 
     1. Navigate into the **Palette** pane and select the graphical operations icons listed under **Amazondynamodb Connector** section. Then drag and drop the `createTable` operation into the Design pane.
            
-        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/>    
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table.jpg" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/>    
 
     2. The createTable operation creates a new table. Table names must be unique within each region. The `createTable` operation parameters are listed here.
                
@@ -89,7 +89,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above five parameter values come as a user inputs.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table-parameters.png" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-create-table-parameters.jpg" title="Drag and drop create table operation" width="500" alt="Drag and drop create table operation"/> 
     
     3. To get the input values in to the API we can use the [property mediator]({{base_path}}/reference/mediators/property-mediator). Navigate into the **Palette** pane and select the graphical mediators icons listed under the **Mediators** section. Then drag and drop the `Property` mediators into the Design pane as shown below.
     
@@ -260,7 +260,7 @@ Now follow the steps below to add resources to the API.
         
         While invoking the API, the above two parameter values (key, tableName) come as a user inputs.
         
-        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-item-parameters.png" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
+        <img src="{{base_path}}/assets/img/integrate/connectors/amazon-dynamodb-drag-and-drop-delete-item-parameters.jpg" title="Drag and drop put items table operation" width="500" alt="Drag and drop put items table operation"/> 
     
     3. Then drag and drop the `Property` mediators into the Design pane as mentioned in the `addtable` operation. The parameters available for configuring the Property mediator are as follows.
                 

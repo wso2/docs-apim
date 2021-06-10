@@ -7,7 +7,7 @@ WSO2 Integration Studio contains an embedded Micro Integrator instance, which yo
 Once you have the [integration artifacts packaged]({{base_path}}/integrate/develop/packaging-artifacts) in a composite application, you can deploy and run them in the embedded Micro Integrator using a single click. 
 
 1.  Select the composite application in the project explorer.
-2.  Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon in the menu palette to open the <b>Run As</b> dialog box.
+2.  Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon in the menu palette to open the <b>Run As</b> dialog box.
 
 3. Select <b>Run on Micro Integrator</b> and click <b>OK</b>.
 
@@ -28,11 +28,11 @@ Use the <b>Runtime Services</b> tab in WSO2 Integration Studio to view the endpo
 
 When you [deploy tha artifacts and start](#deploy-and-run-artifacts-in-the-embedded-server) the embedded Micro Integrator, the <b>Console</b> tab prints the server startup logs and the <b>Runtime Services</b> tab will open as shown below. 
 
-<img src="{{base_path}}/assets/img/integrate/testing-integrations/deployed-endpoints.png">
+<img src="{{base_path}}/assets/img/integrate/testing-integrations/deployed-endpoints.jpg">
 
 If you have closed the tab and you want to open it again, go to <b>Window -> Show View -> Other</b> and select <b>Runtime Services</b>.
 
-<img src="{{base_path}}/assets/img/integrate/testing-integrations/show-deployed-endpoints.png" width="300">
+<img src="{{base_path}}/assets/img/integrate/testing-integrations/show-deployed-endpoints.jpg" width="300">
 
 ## Update (embedded) server configs and libraries
 
@@ -66,7 +66,7 @@ This will run the Cipher Tool internally and encrypt the secrets. The plain-text
 Hot deployment is enabled in the Micro Integrator by default. This allows you to redeploy artifacts without restarting the server. However, if you have applied changes to the server configurations and libraries, the server will restart.
 
 1.	Select the composite application that contains your artifacts.
-2.	Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.png" width="20"> icon in the menu palette.
+2.	Click the <img src="{{base_path}}/assets/img/integrate/common/play-head-icon.jpg" width="20"> icon in the menu palette.
 
 ## Injecting environment variables to embedded Micro Integrator
 

@@ -27,7 +27,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 ## Creating the Integration Logic
 
 1. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+   <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 2. Provide the API name as Email Connector and the API context as `/emailconnector`.
 

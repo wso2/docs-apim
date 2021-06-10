@@ -125,7 +125,7 @@ To view detailed statistics of a specific database, click on that database.
 
 The **RDBMS Statistics** dashboard opens with RDBMS statistics specific to the selected database.
 
-![Database Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/database-statistics.png)
+![Database Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/database-statistics.jpg)
 
 To view statistics relating to a specific table, click on the relevant table name in the **RDBMS Table** table.
 
@@ -133,7 +133,7 @@ To view statistics relating to a specific table, click on the relevant table nam
 
 The **RDBMS Table Statistics** dashboard opens with statistics specific to the selected table.
 
-![RDBMS Table Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/rdbms-table-statistics.png)
+![RDBMS Table Statistics]({{base_path}}/assets/img/streaming/managing-wso2-dashboards/rdbms-table-statistics.jpg)
         
 ### Viewing Kafka statistics
     

@@ -152,11 +152,11 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
 
 When you open the REST API from the **Config** project in the project explorer, you will see the default **Design** view as shown below.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-design-view.jpg" width="800">
 
 Drag and drop the required integration artifacts from the **Palette** to the API resource and design the integration flow.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/graphical-editor.jpg" width="800">
 
 You can also use the [**Source** view](#using-the-source-view) or the [**Swagger** editor](#using-the-swagger-editor) to update the API configuration.
 
@@ -271,7 +271,7 @@ Click the **Swagger Editor** tab to view the Swagger definition of your API. You
 !!! Note
     If you have added a custom Swagger definition to the API, note that this view displays the API's default Swagger definition and not the custom Swagger definition that you added.
 
-<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.png" width="800">
+<img src="{{base_path}}/assets/img/integrate/create_artifacts/new_api/api-artifact-swagger-view.jpg" width="800">
 
 ## Examples
 

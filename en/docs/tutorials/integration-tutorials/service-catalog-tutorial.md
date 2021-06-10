@@ -42,7 +42,7 @@ Follow the instructions given in this section to create and configure the requir
 2.  Open **WSO2 Integration Studio**.
 3.  Click **New Integration Project** in the **Getting Started** tab as shown below.
 
-    <img src="{{base_path}}/assets/img/integrate/create_project/create-integration-project.png" width="700">
+    <img src="{{base_path}}/assets/img/integrate/tutorials/common/create-integration-project.jpg" width="700">
 
     This will open the <b>New Integration Project</b> dialog box.
 

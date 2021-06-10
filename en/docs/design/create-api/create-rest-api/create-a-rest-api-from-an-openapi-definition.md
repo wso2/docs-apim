@@ -80,7 +80,7 @@ Click **Resources** to navigate to the resources page.
 
 You will notice that all the API resources are created automatically when the OpenAPI URL is specified.
    
-[![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)
+[![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)
 
 ### API Definition
 
@@ -119,7 +119,7 @@ You will notice that all the API resources are created automatically when the Op
     ```
 4.  After removing the security tags, click **Update Contents** to save the changes.
      
-     [![]({{base_path}}/assets/img/learn/update-content-pet-store.png)]({{base_path}}/assets/img/learn/update-content-pet-store.png)
+     [![]({{base_path}}/assets/img/learn/update-content-pet-store.jpg)]({{base_path}}/assets/img/learn/update-content-pet-store.jpg)
 
 ### Endpoints
 

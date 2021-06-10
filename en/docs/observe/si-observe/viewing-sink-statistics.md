@@ -1,6 +1,6 @@
 # Viewing Query Statistics
 
-![Sink statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/sink_statistics_dashboard.png)
+![Sink statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/sink_statistics_dashboard.jpg)
 
 This dashboard displays the following information for your current WSO2 Streaming Integrator deployment:
 

@@ -34,7 +34,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 1. Follow these steps to [Configure Google Sheets API]({{base_path}}/reference/connectors/google-spreadsheet-connector/get-credentials-for-google-spreadsheet/) and obtain the Client Id, Client Secret, Access Token, and Refresh Token.  
 
 2. Right click on the created Integration Project and select, -> **New** -> **Rest API** to create the REST API. 
-    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.png" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/adding-an-api.jpg" title="Adding a Rest API" width="800" alt="Adding a Rest API"/>
 
 3. Provide the API name as `SpreadsheetAPI` and the API context as `/insert`.
 
@@ -121,7 +121,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 15. Create the next API resource, which is `/read`. From this, we are going to read the specified spreadsheet data. Use the URL template as `/read`. The method will be POST. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.png" title="Adding an API resource" width="800" alt="Adding an API resource"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/apiresource.jpg" title="Adding an API resource" width="800" alt="Adding an API resource"/>
 
 16. Let's create `readData.xml` sequence. The complete XML configuration looks as below. 
 ```xml
