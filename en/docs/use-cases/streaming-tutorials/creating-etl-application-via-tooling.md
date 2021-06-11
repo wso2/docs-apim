@@ -68,7 +68,7 @@ In this tutorial, let's create the same Siddhi application created in [Performin
 
 - Download and install [Streaming Integrator Tooling](https://wso2.com/integration/streaming-integrator/#)
         
-- Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Instaling Siddhi Connectors]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
+- Download and install the [siddhi-io-cdc](https://siddhi-io.github.io/siddhi-io-cdc/) extension. For instructions, see [Downloading and Installing Siddhi Connectors]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
 
 ## Step 1: Design the Siddhi application with ETL functionality
 
