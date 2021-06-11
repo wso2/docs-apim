@@ -113,7 +113,7 @@ Dynamics 365 authentication is recommended only through Azure AD (for online ins
        
     7. Click **Security** -> **Users**.   
         
-       <img src="{{base_path}}/assets/img/integrate/connectors/MSdynamics365-Users.png" title="Dynamics365 users" width="800" alt="Dynamics365 users"/>
+       <img src="{{base_path}}/assets/img/integrate/connectors/msdynamics365-users.png" title="Dynamics365 users" width="800" alt="Dynamics365 users"/>
     
     8. Choose **Application Users** in the view filter.Select -> **New**.
     
