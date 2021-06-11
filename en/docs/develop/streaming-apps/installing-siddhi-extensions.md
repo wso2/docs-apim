@@ -3,7 +3,7 @@
 Streaming Integrator Tooling uses Siddhi extensions to connect with various data sources. Siddhi extensions can be installed or un-installed using the Extension Installer.
 
 !!!Tip
-    The Extension Installer can install/un-install extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-Installing-Siddhi-Extensions).
+    The Extension Installer can install/un-install extensions within Streaming Integrator Tooling. When deploying Siddhi applications in Streaming Integrator Server, these have to be manually done. For more information, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
 
 ## Managing Siddhi extensions
 
