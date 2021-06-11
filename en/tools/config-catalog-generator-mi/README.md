@@ -21,5 +21,5 @@ This is a tool to generate the markdown file of the Micro Integrator server's co
     
 6. Go to the `dist/` folder: A markdown file named `config-catalog.md` is created.
 7. **Important**: Rename the `config-catalog.md` file to `config-catalog-mi.md`.
-8. Copy the `config-catalog-mi.md` file to the `docs-apim/en/docs/eference` folder.
+8. Copy the `config-catalog-mi.md` file to the `docs-apim/en/docs/reference` folder.
 

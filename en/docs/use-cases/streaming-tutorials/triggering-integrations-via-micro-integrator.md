@@ -19,7 +19,7 @@ To understand this, consider a scenario where the Streaming Integrator receives 
     - **For Windows**     : `extension-installer.bat install grpc`
     - **For Linux/MacOS** : `./extension-installer.sh install grpc`
     
-   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/downloading-and-installing-siddhi-extensions).
+   Then restart WSO2 Streaming Integrator for the installation to be effective. For detailed instructions to install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
 
 
 ## Step 1: Configure the Streaming Integrator
