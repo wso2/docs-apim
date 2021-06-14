@@ -1,0 +1,24 @@
+{
+  "name": "gen-config-page",
+  "version": "5.8.0",
+  "description": "WSO2 Documentation Config Page Generate Script",
+  "private": false,
+  "author": "WSO2",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^7.0.1",
+    "nunjucks": "^3.2.2",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  }
+}

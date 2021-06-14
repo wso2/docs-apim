@@ -1,0 +1,5 @@
+[enforcer.authService.threadPool]
+  coreSize = 400
+  maxSize = 500
+  keepAliveTime = 600
+  queueSize = 1000
