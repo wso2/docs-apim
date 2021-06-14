@@ -111,7 +111,7 @@ The dialog box displays all the dependencies that need to be manually installed.
 
 Configurations of extensions are loaded from the `<SI_HOME>/wso2/server/resources/extensionsInstaller/extensionDependencies.json` configuration file.
 
-When you are working with [custom extensions]({{base_path}}/admin/writing-Custom-Siddhi-Extensions#writing-custom-siddhi-extensions), and if you want a custom extension to be installable from the Extension Installer, you need to add the configuration of the extension to this configuration file.
+When you are working with [custom extensions]({{base_path}}/streaming/connectors/writing-custom-siddhi-extensions/), and if you want a custom extension to be installable from the Extension Installer, you need to add the configuration of the extension to this configuration file.
 
 The configuration of an extension is a JSON object that looks as follows:
 
