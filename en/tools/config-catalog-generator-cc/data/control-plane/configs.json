@@ -1,0 +1,86 @@
+{
+  "configs": [
+    {
+      "title": "control Plane Configurations",
+      "options": [
+        {
+          "name": "controlPlane",
+          "required": true,
+          "description": "This includes configurations required for configuring the Choreo Connect's Control Plane",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "description": "Enable/Disable Choreo Connect Control plane."
+            },
+            {
+              "name": "serviceUrl",
+              "type": "string",
+              "required": true,
+              "default": "https://localhost:9443/",
+              "description": "Service URL of the API Manager."
+            },
+            {
+              "name": "username",
+              "type": "string",
+              "required": true,
+              "default": "admin",
+              "description": "Username of the API Manager user"
+            },
+            {
+              "name": "password",
+              "type": "string",
+              "required": true,
+              "default": "$env{cp_admin_pwd}",
+              "description": "Password of the API Manager user"
+            },
+            {
+              "name": "environmentLabels",
+              "type": "list of strings",
+              "required": true,
+              "default": "[Default]",
+              "description": "Environment labels list."
+            },
+            {
+              "name": "retryInterval",
+              "type": "integer",
+              "required": false,
+              "default": "5",
+              "description": "Connection retry interval."
+            },
+            {
+              "name": "skipSSLVerification",
+              "type": "boolean",
+              "required": false,
+              "default": "true",
+              "description": "Skip SSL verification."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "cp.toml"
+    },
+    {
+      "title": "JMS connection Configurations",
+      "options": [
+        {
+          "name": "jmsConnectionParameters",
+          "required": true,
+          "description": "Message broker connection of the control plane.",
+          "params": [
+            {
+              "name": "eventListeningEndpoints",
+              "type": "string",
+              "required": true,
+              "default": "[\"amqp://admin:$env{cp_admin_pwd}@localhost:5672?retries='10'&connectdelay='30'\"]",
+              "description": "Message broker connection URL of the control plane."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "cp_jms.toml"
+    }
+  ]
+}

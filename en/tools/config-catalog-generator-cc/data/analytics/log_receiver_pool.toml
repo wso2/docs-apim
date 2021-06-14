@@ -1,0 +1,6 @@
+[analytics.enforcer.LogReceiver.threadPool]
+    coreSize = 10
+    maxSize = 100
+    #keep alive time of threads in seconds
+    keepAliveTime = 600
+    queueSize = 1000
