@@ -1,0 +1,6 @@
+[enforcer.throttling.publisher.pool]
+  maxIdleDataPublishingAgents = 1000
+  initIdleObjectDataPublishingAgents = 200
+  publisherThreadPoolCoreSize = 200
+  publisherThreadPoolMaximumSize = 1000
+  publisherThreadPoolKeepAliveTime = 200
