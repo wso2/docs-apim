@@ -138,7 +138,7 @@ Follow the steps given below.
    
      ```toml
      [apim.sync_runtime_artifacts.gateway]
-     gateway_labels =["Production and Sandbox"]
+     gateway_labels =["Default"]
      ```  
 
 4.  Enable JSON Web Token (JWT) if required.
@@ -260,7 +260,7 @@ Follow the steps given below.
     allow_credentials = false
 
     [apim.sync_runtime_artifacts.gateway]
-    gateway_labels =["Production and Sandbox"]
+    gateway_labels =["Default"]
     ```
 
 ### Configure the Control Plane nodes
@@ -278,7 +278,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
         
     ``` toml tab="Gateway with HA"
     [[apim.gateway.environment]]
-    name = "Production and Sandbox"
+    name = "Default"
     type = "hybrid"
     display_in_api_console = true
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -291,7 +291,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     ``` toml tab="Single Gateway"
     [[apim.gateway.environment]]
-    name = "Production and Sandbox"
+    name = "Default"
     type = "hybrid"
     display_in_api_console = true
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
@@ -354,7 +354,7 @@ Follow the steps given below.
 
             ``` toml
             [[apim.gateway.environment]]
-            name = "Production and Sandbox"
+            name = "Default"
             type = "hybrid"
             ```
 
@@ -433,7 +433,7 @@ Follow the steps given below.
         password= "$ref{super_admin.password}"
 
         [[apim.gateway.environment]]
-        name = "Production and Sandbox"
+        name = "Default"
         type = "hybrid"
         ```
 
