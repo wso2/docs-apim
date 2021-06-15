@@ -84,7 +84,7 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
     https_endpoint = "https://localhost:8244"
 
     [[apim.gateway.environment]]
-    name = "Production and Sandbox"
+    name = "Default"
     type = "hybrid"
     display_in_api_console = true
     description = "Hybrid Gateway Environment"

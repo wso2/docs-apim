@@ -56,7 +56,7 @@ Sample configuration for `eventListeningEndpoints` for JMS reciever can be defin
   serviceUrl = "https://apim:9443/"
   username="admin"
   password="$env{cp_admin_pwd}"
-  environmentLabels = ["Production and Sandbox"]
+  environmentLabels = ["Default"]
   retryInterval = 5
   skipSSLVerification=true
   # Message broker connection URL of the control plane
