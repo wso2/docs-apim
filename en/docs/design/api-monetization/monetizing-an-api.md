@@ -104,7 +104,7 @@ Let's use the
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
+        Add full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows. The configuration for our sample implementation is provided in the example tab below.
 
         ``` json tab="Format"
         [apim.monetization]
@@ -132,14 +132,12 @@ Let's use the
         url = "jdbc:mysql://<DBHost>:<Port>/<DBName>?autoReconnect=true"
         username = "xxx"
         password = "yyy"
-        defaultAutoCommit = "false"
-        driverClassName = "com.mysql.jdbc.Driver"
-        maxActive = "50"
-        maxWait = "60000"
-        testOnBorrow = "true"
-        validationQuery = "SELECT 1"
-        validationInterval = "30000"
         ```
+        !!! info
+            If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
+            ``` java
+            driver="com.mysql.cj.jdbc.Driver"
+            ```       
 
     3.  Navigate to the `<API-M_HOME>/dbscripts/apimgt/` directory and execute the database script that corresponds to the database management system that you are working on.
          
