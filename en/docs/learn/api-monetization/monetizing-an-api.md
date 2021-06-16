@@ -196,6 +196,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
          ``` json tab="Example"
          [apim.monetization]
+         monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
          ```
 
 2.  Configure the database.
@@ -208,7 +209,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
         
          Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `database.apim_db` section. Make sure to add the parameters based on your setup.
 
-        ``` java
+         ``` java
          [database.apim_db]
          type = "mysql"
          url = "jdbc:mysql://<DBHost>:<Port>/<DBName>?autoReconnect=true"
