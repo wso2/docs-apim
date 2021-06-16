@@ -104,7 +104,7 @@ Let's use the
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Add full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows. The configuration for our sample implementation is provided in the example tab below.
+        Add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows. The configuration for our sample implementation is provided in the example tab below.
 
         ``` json tab="Format"
         [apim.monetization]
