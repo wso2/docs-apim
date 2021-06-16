@@ -320,7 +320,7 @@ Therefore,
 Error code = 101504 + 3 = 101507
 
 These Transport error codes are used in [Advanced Configurations of
-Endpoints](/../../../../learn/design-api/endpoints/endpoint-types/)
+Endpoints]({{base_path}}/design/endpoints/endpoint-types/)
 .
 
 ### Custom error messages

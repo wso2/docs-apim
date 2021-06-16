@@ -1,0 +1,203 @@
+{
+  "configs": [
+    {
+      "title": "Router",
+      "options": [
+        {
+          "name": "router",
+          "required": true,
+          "description": "The configurations required for router to route the traffic from different clients to services.",
+          "params": [
+            {
+              "name": "listenerHost",
+              "type": "string",
+              "required": true,
+              "default": "0.0.0.0",
+              "description": "host for Listener of Router."
+            },
+            {
+              "name": "securedListenerHost",
+              "type": "string",
+              "required": true,
+              "default": "0.0.0.0",
+              "description": "Host for secured listener of Router."
+            },
+            {
+              "name": "listenerPort",
+              "type": "string",
+              "required": true,
+              "default": "9090",
+              "description": "Port for listener of Router."
+            },
+            {
+              "name": "securedListenerPort",
+              "type": "string",
+              "required": true,
+              "default": "9095",
+              "description": "Port for secured listener of Router."
+            },
+            {
+              "name": "systemHost",
+              "type": "string",
+              "required": true,
+              "default": "localhost",
+              "description": "The system hostname for system API resources (eg: /testkey and /health)."
+            },
+            {
+              "name": "clusterTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": "20",
+              "description": "The timeout for new network connections to hosts in the cluster in seconds."
+            },
+            {
+              "name": "enforcerResponseTimeoutInSeconds",
+              "type": "integer",
+              "required": false,
+              "default": "20",
+              "description": "The timeout for response coming from enforcer to route per API request."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "router.toml"
+    },
+    {
+      "title": "Keystore",
+      "options": [
+        {
+          "name": "keystore",
+          "required": true,
+          "description": "The configurations of key store used in Choreo Connect Adapter",
+          "params": [
+            {
+              "name": "certPath",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/security/keystore/mg.pem",
+              "description": "Path of the certificate of the Adaptor"
+            },
+            {
+              "name": "keyPath",
+              "type": "string",
+              "required": true,
+              "default": "/home/wso2/security/keystore/mg.key",
+              "description": "Path of the private key of the Adaptor"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "keystore.toml"
+    },
+    {
+      "title": "CORS",
+      "options": [
+        {
+          "name": "cors",
+          "required": false,
+          "description": "Cors configurations",
+          "params": [
+            {
+              "name": "enabled",
+              "type": "boolean",
+              "required": true,
+              "possible": "true, false",
+              "description": "Enable CORS configurations globally for all endpoints and APIs deployed in Choreo Connect Router"
+            },
+            {
+              "name": "allowOrigins",
+              "type": "list of strings",
+              "required": true,
+              "description": "Allowed origins. set this to [*] allow all origins."
+            },
+            {
+              "name": "allowMethods",
+              "type": "list of strings",
+              "required": true,
+              "description": "The content for the access-control-allow-methods header."
+            },
+            {
+              "name": "allowHeaders",
+              "type": "list of strings",
+              "required": true,
+              "description": "The content for the access-control-allow-headers header."
+            },
+            {
+              "name": "exposeHeaders",
+              "type": "list of strings",
+              "required": true,
+              "description": "The content for the access-control-expose-headers header."
+            },
+            {
+              "name": "allowCredentials",
+              "type": "boolean",
+              "required": true,
+              "default": "false",
+              "description": "Specifies whether the resource allows credentials."
+            }
+          ]
+        }
+      ],
+      "exampleFile": "cors.toml"
+    },
+    {
+      "title": "Upstream TLS",
+      "options": [
+        {
+          "name": "upstream.tls",
+          "required": false,
+          "description": "The configurations for SSL configuration related to the backend connection in Choreo Connect.",
+          "params": [
+            {
+              "name": "minimumProtocolVersion",
+              "type": "string",
+              "required": false,
+              "default": "TLS1_1",
+              "possible": "TLSv1_0, TLSv1_1, TLSv1_2, TLSv1_3",
+              "description": "Minimum TLS protocol version."
+            },
+            {
+              "name": "maximumProtocolVersion",
+              "type": "string",
+              "required": false,
+              "default": "TLS1_2",
+              "possible": "TLSv1_0, TLSv1_1, TLSv1_2, TLSv1_3",
+              "description": "Maximum TLS protocol version."
+            },
+            {
+              "name": "ciphers",
+              "type": "string",
+              "required": false,
+              "default": "ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA, AES128-GCM-SHA256, AES128-SHA, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES256-SHA, AES256-GCM-SHA384, AES256-SHA",
+              "description": "If specified, the TLS listener will only support the specified [cipher list]() when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3)"
+            },
+            {
+              "name": "trustedCertPath",
+              "type": "string",
+              "required": true,
+              "default": "/etc/ssl/certs/ca-certificates.crt",
+              "description": "Path to trusted certificates"
+            },
+            {
+              "name": "verifyHostName",
+              "type": "boolean",
+              "required": true,
+              "default": "true",
+              "possible": "true, false",
+              "description": "Enable/Disable Verifying host name"
+            },
+            {
+              "name": "disableSslVerification",
+              "type": "boolean",
+              "required": false,
+              "default": "false",
+              "possible": "true, false",
+              "description": "Disable SSL verification"
+            }
+          ]
+        }
+      ],
+      "exampleFile": "upstream_tls.toml"
+    }
+  ]
+}

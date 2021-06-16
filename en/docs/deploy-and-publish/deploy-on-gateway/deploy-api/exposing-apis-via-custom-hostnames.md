@@ -24,7 +24,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
     ```toml
     [[apim.gateway.environment]]
-    name = "Production and Sandbox"
+    name = "Default"
     ...
     display_name = "US Region"
     type = "hybrid"

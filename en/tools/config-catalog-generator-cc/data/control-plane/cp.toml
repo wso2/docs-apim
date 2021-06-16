@@ -1,0 +1,8 @@
+[controlPlane]
+  enabled = false
+  serviceUrl = "https://docker.for.mac.localhost:9443/"
+  username="admin"
+  password="$env{cp_admin_pwd}"
+  environmentLabels = ["Default"]
+  retryInterval = 5
+  skipSSLVerification=true
