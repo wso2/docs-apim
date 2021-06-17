@@ -108,8 +108,8 @@ However, for debugging purposes or recovery purposes, you can use the [Gateway R
     undeploying the artifacts with the REST API resource in one Gateway node will not undeploy from the entire cluster. 
 
 !!! tip
-    Even though the artifacts are not getting saved to the file system, if we add a valid xml with the relevent run time artifacts(retrieved from the [Gateway REST API](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts)) to the  `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory,
-    it will undeploy the current Artifact and deploy the API from the file system. This can be used to debug the behavior of the artifact. However this is not recommended as it can cause inconsistencies in the runtime artifacts.
+    Even though the artifacts are not getting saved to the file system, if we add a valid XML with the relevant runtime artifacts (retrieved from the [Gateway REST API]({{base_path}}/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts)) to the  `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory,
+    it will undeploy the current artifact and deploy the API from the file system. This can be used to debug the behavior of the artifact. However this is not recommended as it can cause inconsistencies in the runtime artifacts.
 
 #### Database configurations
 
@@ -157,29 +157,28 @@ The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` d
 
 ## FAQ About Inbuilt Artifact Synchronizer
 
-### In this architecture, does the Gateway requires a database connection?
-No. Gateway does not need to connect with the database to pull the artifacts. It requests from the Traffic Manager and Traffic Manager connects with the database. In this architecture
-Traffic Manager plays a vital roles and maintain the connections with the database.
+**In this architecture, does the Gateway require a database connection?**
+No. Gateway does not need to connect with the database to pull the artifacts. It requests from the Traffic Manager and Traffic Manager connects with the database. In this architecture Traffic Manager plays a vital role and maintains the connections with the database.
 
-### If 1st request (i.e saving artifacts to DB) failed and 2nd request (i.e events to TM) success, what will happen? Is this working as a transactional base? (optimistic or pessimistic)
-This will not happen as the event to the Traffic Manager with the published Gateway label will only be sent after a successful DB update. 2nd request will not be sent if the 1st step fails.
+**If the first request (i.e., saving artifacts to DB) failed and the second request (i.e., events to TM) succeeded, what will happen?**
+This will not happen as the event to the Traffic Manager with the published Gateway label will only be sent after a successful DB update. The second request will not be sent if the first step fails.
 
-### If (1) success (2) success but (3) failed in between, whats sort of recovery procedure TM would follow to make sure Gateways received all the events?
-Since we are sending the events through JMS topics, it is guaranteed that the events will be received by the Gateway if it is subscribed. Since JMS guarantees the delivery of the message, we haven't implemented a recovery procedure during these steps.
+**If the first two requests succeed but third request fails in between, whats sort of recovery procedure TM would follow to make sure Gateways received all the events?**
+Since we are sending the events through JMS topics, it is guaranteed that the events will be received by the Gateway if it is subscribed. Since JMS guarantees the delivery of the message, we have not implemented a recovery procedure during these steps.
 However if the Gateway is down and could not receive the event, next startup will sync with the database, pull the latest artifacts and deploy.
 
-### If (1) success, (2) success (3) success (4) failing indefinitely, and whats the immediate recovery option?
-If 4 fails, the received event will not deploy or undeploy the API in the Gateway. You can use the Gateway Rest API to redeploy the artifact in the Gateway node. Restarting the server will also resolve all the missing events and update the Gateway status to the latest.
+**If the first three requests succeed and the fourth fails indefinitely, and whats the immediate recovery option?**
+If forth request fails, the received event will not deploy or undeploy the API in the Gateway. You can use the Gateway Rest API to redeploy the artifact in the Gateway node. Restarting the server will also resolve all the missing events and update the Gateway status to the latest.
 
-### How are the Traffic Manager execution plans are handled in this version. Is the DBSaver/DBRetriever handle Traffic Manager or ESB artifacts ?
+**How are the Traffic Manager execution plans handled in this version? Does the DBSaver/DBRetriever handle Traffic Manager or ESB artifacts?**
 In APIM 3.2.0, we only support the Gateway Runtime Artifacts (Synapse Configurations). Execution plan support is provided in APIM 4.0.0 version.
 
-### Suppose all the above artifact are to be saved/retrieved from DB instead of file system by Gateway. During API Consumption if DB is not working, will the Gateway fail?
+**Suppose all the above artifact are to be saved/retrieved from DB instead of file system by Gateway. During API Consumption if DB is not working, will the Gateway fail?**
 No. Gateway will store all the artifacts in memory once it deploys an API. Database connection is required only if the artifact is updated or undeployed. If DB is not working, latest change to API will not get affect. However previous state of the API will preserve in the Gateway and function as it was before.
 
-### When there are multiple TM nodes across DCs and a certain TM is receiving the notification of an API publishing from Publisher. However the DB is not updated yet via replication. What would happen?
+**When there are multiple TM nodes across DCs and a certain TM is receiving the notification of an API publishing from Publisher. However the DB is not updated yet via replication. What would happen?**
 In such cases, we can add a delay between the request 3 and 4. You can configure this delay with `event_waiting_time` configuration in Gateway profile.
 
-### There is a call going to "internel/data/v1" URL. What is that?
+**There is a call going to "internel/data/v1" URL. What is that?**
 This is the internal REST API deployed in TM node. Gateway use this API to request artifacts from the TM.
 
