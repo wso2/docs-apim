@@ -86,6 +86,6 @@ Now a user with custom permissions to access and manage Admin Portal has been cr
 
 ## Step 4 - Sign in to the Admin Portal
 
-Sign in to Admin Portal (`https://<API-M_host>:<API-M_port>/admin`) as the user that you created in <a href="step2">Step 2</a>, and use `admin`/`admin` as the credentials. 
+Sign in to Admin Portal (`https://<API-M_host>:<API-M_port>/admin`) as the user that you created in <a href="{{base_path}}/administer/managing-users-and-roles/managing-users-for-admin-portal/#step2">Step 2</a>, and use `admin`/`admin` as the credentials. 
 
 Now you will be able to sign in and perform specific operations in the Admin Portal with this user.
