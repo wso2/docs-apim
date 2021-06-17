@@ -20,7 +20,7 @@ You need to mount the following directories of the two nodes to the shared file 
 
 #### Overview
 
-Currently, in a multi-gateway environment, Synapse artifacts such as API velocity definitions, sequences, local entries, and endpoints are saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs. These artifacts have to be synced between all the gateway nodes using an artifact synchronizing mechanism such as NFS or Rsync.
+Currently, in a multi-gateway environment, Synapse artifacts such as API synapse definitions, sequences, local entries, and endpoints are saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs. These artifacts have to be synced between all the gateway nodes using an artifact synchronizing mechanism such as NFS or Rsync.
 
 When using NFS, you need to manage additional components that bring in changes to the current architecture. Therefore, an inbuilt artifact synchronization solution has been introduced. This inbuilt Artifact Synchronizer can be configured to store these Synapse artifacts to an extension point (configured persistent storage).
 
@@ -101,7 +101,7 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
 #### Retrieve artifacts from the storage
 
 Once the Inbuilt Artifact Synchronizer is enabled, runtime artifacts will no longer be saved to the file system (`<API-M_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs). Instead they will be saved as blobs in the database.
-However, for debugging purposes or recovery purposes, you can use the [Gateway REST API](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts) to view artifacts, redeploy artifacts or undeploy artifacts. 
+However, for debugging purposes or recovery purposes, you can use the [Gateway REST API]({{base_path}}/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts) to view artifacts, redeploy artifacts or undeploy artifacts. 
 
 !!! note
     Please note that Gateway REST API operations are local to that gateway deployment. If there are multiple gateway nodes in the cluster,
@@ -169,7 +169,7 @@ Since we are sending the events through JMS topics, it is guaranteed that the ev
 However if the gateway is down and could not receive the event, next startup will sync with the database, pull the latest artifacts and deploy.
 
 ### If (1) success, (2) success (3) success (4) failing indefinitely, and whats the immediate recovery option?
-If 4 fails, the received event will not deploy or undeploy the API in the gateway. You can use the [Gateway Rest API](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/ReDeploy-API) to redeploy the artifact in the gateway node. Restarting the server will also resolve all the missing events and update the gateway status to the latest.
+If 4 fails, the received event will not deploy or undeploy the API in the gateway. You can use the Gateway Rest API to redeploy the artifact in the gateway node. Restarting the server will also resolve all the missing events and update the gateway status to the latest.
 
 ### How are the Traffic Manager execution plans are handled in this version. Is the DBSaver/DBRetriever handle Traffic Manager or ESB artifacts ?
 In APIM 3.2.0, we only support the Gateway Runtime Artifacts (Synapse Configurations). Execution plan support is provided in APIM 4.0.0 version.
