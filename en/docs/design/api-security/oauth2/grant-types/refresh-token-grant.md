@@ -22,7 +22,7 @@ The diagram below illustrates the refresh token grant flow.
 
 To use this grant type, you need a refresh token, using which you can get a new access token and a refresh token. This can be done by issuing a REST call to the Token API through a REST client like cURL, with the following parameters:
 
--   The Token API URL is [https://localhost:8243/token](https://localhost:8243/login) , assuming that both the client and the Gateway are running on the same server.
+-   The Token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login) , assuming that both the client and the Gateway are running on the same server.
 -   payload 
 ```
     "grant_type=refresh_token&refresh_token=<refresh-token>"
@@ -38,11 +38,11 @@ Replace `<base64(client-id:client-secret)>` as appropriate.
 For example, the following cURL command can be used to access the Token API.
 
 ``` java tab="Format"
-curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic SVpzSWk2SERiQjVlOFZLZFpBblVpX2ZaM2Y4YTpHbTBiSjZvV1Y4ZkM1T1FMTGxDNmpzbEFDVzhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+curl -k -d "grant_type=refresh_token&refresh_token=<refresh-token>" -H "Authorization: Basic SVpzSWk2SERiQjVlOFZLZFpBblVpX2ZaM2Y4YTpHbTBiSjZvV1Y4ZkM1T1FMTGxDNmpzbEFDVzhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
 ``` java tab="Example"
-curl -k -d "grant_type=refresh_token&refresh_token=3154090c-37f1-3268-90f9-8bd84daf135c" -H "Authorization: Basic UXk3RUZfVEtMbEVLWTlVRFpiWHVscVA4ZVVBYTpKSWN3VTlIX1hGUFdTcW1RQmllZ3lJUzRKazhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+curl -k -d "grant_type=refresh_token&refresh_token=3154090c-37f1-3268-90f9-8bd84daf135c" -H "Authorization: Basic UXk3RUZfVEtMbEVLWTlVRFpiWHVscVA4ZVVBYTpKSWN3VTlIX1hGUFdTcW1RQmllZ3lJUzRKazhh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
 You receive a response similar to the following:

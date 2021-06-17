@@ -22,7 +22,7 @@ The client can request an access token using only its client credentials with th
     ```
 
     ``` java tab="Example"
-    curl -k -d "grant_type=client_credentials" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token -v
+    curl -k -d "grant_type=client_credentials" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
     ```
 
     **Response**
@@ -50,11 +50,11 @@ The client can request an access token using only its client credentials with th
     The following command can be used to obtain the access token by specifying the scope.
 
     ``` java tab="Format"
-    curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <ConsumerKey:ConsumerSecret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <ConsumerKey:ConsumerSecret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
     
     ``` java tab="Example"
-    curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
 
@@ -77,11 +77,11 @@ The client can request an access token using only its client credentials with th
     You can set a validity period for access tokens through a cURL command. Pass the <code>validity_period</code> parameter as shown in the example below.
 
     ``` java tab="Format"
-    curl -X POST -k -H "Authorization: Basic <Base64(clientId:clientSecret)>" -d "grant_type=client_credentials&validity_period=<custom_validity_time_in_seconds>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token -v
+    curl -X POST -k -H "Authorization: Basic <Base64(clientId:clientSecret)>" -d "grant_type=client_credentials&validity_period=<custom_validity_time_in_seconds>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
     ```
     
     ``` java tab="Example"
-    curl -X POST -k -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -d "grant_type=client_credentials&validity_period=3200" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token -v
+    curl -X POST -k -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -d "grant_type=client_credentials&validity_period=3200" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -v
     ```
     
 !!! note "Support for refresh token grant - No"
