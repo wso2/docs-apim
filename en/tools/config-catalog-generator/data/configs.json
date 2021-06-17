@@ -3113,7 +3113,7 @@
                             "name": "listener.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3145,7 +3145,7 @@
                             "name": "listener.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3209,7 +3209,7 @@
                             "name": "sender.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3241,7 +3241,7 @@
                             "name": "sender.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3626,7 +3626,7 @@
                             "name": "sender.trust_store.location",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The file path to the truststore that stores the trusted digital certificates for websocket use cases. By default, the product's trust store is configured for this purpose."
                         },
@@ -5077,7 +5077,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The name of the Keystore (the Keystore file should be placed inside <APIM_HOME>/repository/resources/security directory)"
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
                         },
                         {
                             "name": "type",
