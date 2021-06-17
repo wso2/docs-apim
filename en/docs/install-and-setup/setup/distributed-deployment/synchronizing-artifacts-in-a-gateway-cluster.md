@@ -20,7 +20,7 @@ You need to mount the following directories of the two nodes to the shared file 
 
 #### Overview
 
-Currently, in a multi-gateway environment, Synapse artifacts such as API synapse definitions, sequences, local entries, and endpoints are saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs. These artifacts have to be synced between all the gateway nodes using an artifact synchronizing mechanism such as NFS or Rsync.
+Currently, in a multi-gateway environment, Synapse artifacts such as API synapse definitions, sequences, local entries, and endpoints are saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs. These artifacts have to be synced between all the Gateway nodes using an artifact synchronizing mechanism such as NFS or Rsync.
 
 When using NFS, you need to manage additional components that bring in changes to the current architecture. Therefore, an inbuilt artifact synchronization solution has been introduced. This inbuilt Artifact Synchronizer can be configured to store these Synapse artifacts to an extension point (configured persistent storage).
 
@@ -33,9 +33,9 @@ The behaviour of the inbuilt Artifact Synchronizer in different scenarios is des
 1. If an API is published, edited, or removed, the Synapse artifact corresponding to the API will be stored/updated in the storage through the configured extension point.
 2. An event will be sent to Traffic Manager (TM) using event notifiers with the API Name, UUID, and the Gateway label of the API.
 3. In a distributed deployment, Gateways are subscribed to the Traffic Manager. The API Gateway will filter out the events by the Gateway label. 
-4. Gateway will request for the artifacts related to the event received from the Traffic manager.
+4. The Gateway will request for the artifacts related to the event received from the Traffic Manager.
 5. Traffic Manager will connect to the database and fetch the artifacts.
-6. Gateway will receive the artifacts and deploy. If the API is already deployed in the gateway, It will first undeploy it and redeploy with the retrieved artifacts
+6. The Gateway will receive the artifacts and deploy. If the API is already deployed in the Gateway, it will first undeploy the API and redeploy with the retrieved artifacts.
 
 #### Artifact synchronization at API Gateway startup
 
@@ -47,7 +47,7 @@ Gateways are subscribed to the Traffic Manager. There is an extension in the Gat
 
 ### Gateway Labels and Environments
 
-If you need to deploy an API in a specific gateway, you could use either [Gateway Labels]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#gateway-labels) or [Gateway Environments]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways) to expose that particular Gateway. 
+If you need to deploy an API in a specific Gateway, you could use either [Gateway Labels]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#gateway-labels) or [Gateway Environments]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways) to expose that particular Gateway. 
 
 
 ### Configuring the Inbuilt Artifact Synchronizer
@@ -72,8 +72,8 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
     |publish_directly_to_gateway| If `publish_directly_to_gateway = true`, then the artifacts will be published to the Gateway directly. If `publish_directly_to_gateway = false`, then the Published API details will be notified to the Traffic Manager through events.|
 
 !!! info  
-    `publish_directly_to_gateway` parameter is introduced to preserve the previous `Gateway Environment` experience. In previous versions, to deploy the gateway runtime artifacts, publisher portal directly invokes the Gateway admin service (given as server url) with the deployment artifacts.
-    Once we enable the Inbuilt Artifact Syncronizer, if  `publish_directly_to_gateway = false`  is given, even for the gateways exposed in Publisher as `Gateway Environments` will have to subscribe to the Gateway Label (Environment name) and will wait until the traffic manager event to pull the artifact. 
+    `publish_directly_to_gateway` parameter is introduced to preserve the previous `Gateway Environment` experience. In previous versions, to deploy the Gateway runtime artifacts, Publisher portal directly invokes the Gateway admin service (given as server url) with the deployment artifacts.
+    Once we enable the Inbuilt Artifact Syncronizer, if  `publish_directly_to_gateway = false`  is given, even for the gateways exposed in Publisher as `Gateway Environments` will have to subscribe to the Gateway Label (Environment name) and will wait until the Traffic Manager event to pull the artifact. 
     
 #### Gateway profile configurations
 
@@ -104,8 +104,8 @@ Once the Inbuilt Artifact Synchronizer is enabled, runtime artifacts will no lon
 However, for debugging purposes or recovery purposes, you can use the [Gateway REST API]({{base_path}}/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts) to view artifacts, redeploy artifacts or undeploy artifacts. 
 
 !!! note
-    Please note that Gateway REST API operations are local to that gateway deployment. If there are multiple gateway nodes in the cluster,
-    undeploying the artifacts with the REST API resource in one gateway node will not undeploy from the entire cluster. 
+    Please note that Gateway REST API operations are local to that Gateway deployment. If there are multiple Gateway nodes in the cluster,
+    undeploying the artifacts with the REST API resource in one Gateway node will not undeploy from the entire cluster. 
 
 !!! tip
     Even though the artifacts are not getting saved to the file system, if we add a valid xml with the relevent run time artifacts(retrieved from the [Gateway REST API](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/gateway-apis/gateway-v1/gateway-v1/#tag/Get-API-Artifacts)) to the  `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory,
@@ -158,18 +158,18 @@ The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` d
 ## FAQ About Inbuilt Artifact Synchronizer
 
 ### In this architecture, does the Gateway requires a database connection?
-No. Gateway does not need to connect with the database to pull the artifacts. It requests from the Traffic manager and traffic manager connects with the database. In this architecture
-traffic manager plays a vital roles and maintain the connections with the database.
+No. Gateway does not need to connect with the database to pull the artifacts. It requests from the Traffic Manager and Traffic Manager connects with the database. In this architecture
+Traffic Manager plays a vital roles and maintain the connections with the database.
 
 ### If 1st request (i.e saving artifacts to DB) failed and 2nd request (i.e events to TM) success, what will happen? Is this working as a transactional base? (optimistic or pessimistic)
-This will not happen as the event to the TM with the published gateway label will only be sent after a successful DB update. 2nd request will not be sent if the 1st step fails.
+This will not happen as the event to the Traffic Manager with the published Gateway label will only be sent after a successful DB update. 2nd request will not be sent if the 1st step fails.
 
 ### If (1) success (2) success but (3) failed in between, whats sort of recovery procedure TM would follow to make sure Gateways received all the events?
-Since we are sending the events through JMS topics, it is guaranteed that the events will be received by the gateway if it is subscribed. Since JMS guarantees the delivery of the message, we haven't implemented a recovery procedure during these steps.
-However if the gateway is down and could not receive the event, next startup will sync with the database, pull the latest artifacts and deploy.
+Since we are sending the events through JMS topics, it is guaranteed that the events will be received by the Gateway if it is subscribed. Since JMS guarantees the delivery of the message, we haven't implemented a recovery procedure during these steps.
+However if the Gateway is down and could not receive the event, next startup will sync with the database, pull the latest artifacts and deploy.
 
 ### If (1) success, (2) success (3) success (4) failing indefinitely, and whats the immediate recovery option?
-If 4 fails, the received event will not deploy or undeploy the API in the gateway. You can use the Gateway Rest API to redeploy the artifact in the gateway node. Restarting the server will also resolve all the missing events and update the gateway status to the latest.
+If 4 fails, the received event will not deploy or undeploy the API in the Gateway. You can use the Gateway Rest API to redeploy the artifact in the Gateway node. Restarting the server will also resolve all the missing events and update the Gateway status to the latest.
 
 ### How are the Traffic Manager execution plans are handled in this version. Is the DBSaver/DBRetriever handle Traffic Manager or ESB artifacts ?
 In APIM 3.2.0, we only support the Gateway Runtime Artifacts (Synapse Configurations). Execution plan support is provided in APIM 4.0.0 version.
@@ -182,5 +182,4 @@ In such cases, we can add a delay between the request 3 and 4. You can configure
 
 ### There is a call going to "internel/data/v1" URL. What is that?
 This is the internal REST API deployed in TM node. Gateway use this API to request artifacts from the TM.
-
 
