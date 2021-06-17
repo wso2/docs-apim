@@ -69,7 +69,7 @@ Follow the instructions given below to configure the Fogerock Authorization Serv
      </table>
   
    
-    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)]({{base_path}}/assets/img/administer/forgerock-createOauthProvider.png)
+    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
 5. Navigate to **Root Realm** -> **Service Provider** -> **OAuth2 Provider** and click on the **Advanced** tab.
 
