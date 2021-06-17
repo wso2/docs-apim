@@ -47,7 +47,7 @@ Gateways are subscribed to the Traffic Manager. There is an extension in the Gat
 
 ### Gateway Labels and Environments
 
-If you need to deploy an API in a specific gateway, you could use either [Gateway Labels]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#gateway-labels) or [Gateway Environments](https://apim.docs.wso2.com/en/3.2.0/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways) to expose that particular Gateway. 
+If you need to deploy an API in a specific gateway, you could use either [Gateway Labels]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#gateway-labels) or [Gateway Environments]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways) to expose that particular Gateway. 
 
 
 ### Configuring the Inbuilt Artifact Synchronizer
