@@ -148,7 +148,7 @@ Now you have a registered identity provider and as well as a service provider wi
         If the tenant domain is `wso2.com`, the access token endpoint will be as follows:
 
         ``` java
-        Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
+        Access Token Endpoint: https://localhost:9443/oauth2/token?tenantDomain=wso2.com
         ```
 
     You would now have received the response from the token endpoint of WSO2 API-M. The response would contain the access token, refresh token, expiry time, scope and token type.
