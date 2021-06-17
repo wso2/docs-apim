@@ -162,7 +162,13 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="even">
       <td>Client Registration Endpoint </td>
       <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-        e.g., https://localhost:9444/keymanager-operations/dcr/register</p></td>
+        e.g., https://localhost:9444/keymanager-operations/dcr/register</p></br>
+          <p>If you have set the following as a well known endpoint, you need to set the Client Registration Endpoint as https://localhost:9444/keymanager-operations/dcr/register</p>
+          <ol>
+               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
+               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
+          </ol></p>
+      </td>
       <td>Optional if the well-known URI is provided.</td>
       </tr>
       <tr class="odd">
@@ -186,7 +192,13 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="even">
       <td>Userinfo Endpoint</td>
       <td><p>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
-      e.g., https://localhost:9444/oauth2/userinfo?schema=openid</p></td>
+      e.g., https://localhost:9444/oauth2/userinfo?schema=openid</p>
+          <p>If you have set the following as a well known endpoint, you need to set the Userinfo Endpoint as https://localhost:9444/oauth2/userinfo?schema=openid</p>
+          <ol>
+               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
+               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
+          </ol></p>      
+      </td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
@@ -198,7 +210,13 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       <tr class="even">
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
-      e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</td>
+      e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes
+          <p>If you have set the following as a well known endpoint, you need to set the Scope Management Endpoint as https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</p>
+          <ol>
+               <li>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</li>
+               <li>https://localhost:9444/oauth2/token/.well-known/openid-configuration</li>
+          </ol></p>      
+      </td>
       <td>Mandatory</td>
       </tr>
       <tr class="odd">
