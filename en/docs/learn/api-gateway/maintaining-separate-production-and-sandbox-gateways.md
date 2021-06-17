@@ -69,4 +69,24 @@ If you work with Gateways in different geographical locations, configuring mult
 !!! info
     Note that in addition to the configuration mentioned above, all the other required configuration for Publisher and other Components should be done. If you are using a multi-tenanted setup, would need to share the registry database mount with the Gateway Sandbox and Production nodes.
 
+### Gateway Labels
+
+Similar to Gateway Environments, you can use `Gateway Labels` to expose a particular Gateway. Once you expose an Gateway, you can choose from the API Publisher Portal, the API Gateways that the API should be deployed.
+In previous versions of APIM, Gateway Labels were only used with Micro Gateway and not with the synapse Gateway.
+With APIM 3.2.0 release, Gateway Labels acts similar to Gateway Environment in the architecture. Even though Gateway environments are added through a configuration as explained above, 
+Gateway Labels can be added dynamically from the [admin portal]({{base_path}}/learn/api-microgateway/grouping-apis-with-labels/#step-1-create-a-microgateway-label).
+
+However Gateway Labels only works if you have enabled artifact synchronization of Gateway runtime artifacts with Inbuilt Artifact Synchronizer. The Publisher-Subscriber architecture
+in the Inbuilt Artifact Synchronizer deploys the artifacts to the Gateways defined with Gateway Labels. For more information, see [Inbuilt Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/#inbuilt-artifact-synchronization)
+
+Once you define a Gateway Label, Gateway deployment has to subscribe to that Label. Gateway deployment to Gateway Label has a many to many relationship. One Gateway deployment can subscribe to multiple Labels and One label can be subscribed by multiple Gateway deployments.
+Once the API publisher publish the API by selecting a Gateway Label, Publisher node will publish this event to all the Gateways in the deployment through Traffic Manager. If the Gateway is subscribed to that API Label, it will retrieve the artifact and deploy.
+
+!!! tip
+    If you need to horizontally scale the Gateway cluster by adding a new Gateway node, you just need to subscribe to the same set of Labels and start the Gateway server. In the startup, Gateway will pull all the artifacts relevant to it's subscribed labels and deploy.
+
+
+!!! info
+    In this architecture, Gateway Environments and Gateway Labels acts in a similar way. Defined `Gateway Environment Name (Eg:"Production and Sandbox"` will be used as the Label name.
+
 
