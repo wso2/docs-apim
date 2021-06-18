@@ -1,11 +1,12 @@
 # Error Handling
 
 ### Error Codes
-When there are errors in the runtime, Router responds with specific error codes to identify the exact error. Following is a list of error codes and the descriptions. To find more about above error codes, check [Envoy's response flags documentation](https://www.envoyproxy.io/docs/envoy/v1.18.2/configuration/observability/access_log/usage#config-access-log-format-response-flags).
+
+In the event of errors occurring during runtime, the Router responds with specific error codes to identify the exact error. The table below lists and describes such error codes. To find more about above error codes, see [Envoy's response flags documentation](https://www.envoyproxy.io/docs/envoy/v1.18.2/configuration/observability/access_log/usage#config-access-log-format-response-flags).
 
 | Error Code | Envoy Error Code | Description                                  |
 |------------|------------------|----------------------------------------------|
-| 102500     | UAEX             | Router couldn't connect to Enforcer          |
+| 102500     | UAEX             | Router couldn't connect to the Enforcer      |
 | 102503     | UF               | Upstream connection failed                   |
 | 102504     | UT               | Upstream connection timeout                  |
 | 102505     | UO               | Upstream overflow                            |
