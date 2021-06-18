@@ -289,6 +289,9 @@ nav:
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                - Troubleshooting:
+                    - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
+                    - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
