@@ -138,6 +138,12 @@ Listed below are the five components in the API-M server. When you run the recom
     </tr>
 </table>
 
+## Understanding the distributed deployment
+
+The following diagram depicts how the Control Plane, Traffic Manager and Gateway profiles communicate in a distributed deployment setup, and also the database connections of each node.
+
+[![Distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
+
 ## What's Next?
 
 -   Find out more about [running API-M profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
