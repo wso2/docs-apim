@@ -175,7 +175,11 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
 
 ### Configuring custom keystores
 
+<<<<<<< HEAD
 You can also configure and use a custom Keystore in API Manager to sign the API Keys. Given below is a sample TOML configuration to configure a custom Keystore in the API Manager server. For more information, refer the [Configuration Catalog]({{base_path}}//reference/config-catalog/) for more details.
+=======
+You can also configure and use a custom Keystore in API Manager to sign the API Keys. Given below is a sample TOML configuration to configure a custom Keystore in the API Manager server. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+>>>>>>> 4cc235f87... Update en/docs/learn/api-security/api-authentication/secure-apis-using-api-keys.md
 
 To configure custom keystores, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.
      
