@@ -5101,7 +5101,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The private key password of the Keystore (recommend keeping both Keystore password and Key Password as same due to known limitations)"
+                            "description": "The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations)."
                         }                                                                                                                                                                                                                                                                            
                     ]
                 }
