@@ -1,3 +1,7 @@
+---
+title: Viewing API Analytics on Traffic - API Manager Documentation 4.0.0
+---
+
 # Viewing API Analytics on Traffic
 
 This page shows information related to the traffic that goes through your API management system. This includes API usage, Application usage, Resource usage, etc. You can use this page to investigate the usage of APIs and Applications, traffic patterns, etc.

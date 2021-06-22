@@ -1,3 +1,7 @@
+---
+title: Viewing API Analytics on Latencies - API Manager Documentation 4.0.0
+---
+
 # Viewing API Analytics on Latencies
 
 The latency page shows information related to the latency of API calls within the API management deployment. You can view a summary of the slowest APIs and then drill down into the API view for further analysis. Use this page as the starting point for debugging API slowness. 

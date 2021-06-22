@@ -1,4 +1,8 @@
-# Getting Started
+---
+title: API Analytics Getting Started Guide - API Manager Documentation 4.0.0
+---
+
+# API Analytics Getting Started Guide
 
 API Manager offers analytics as a cloud service. Therefore, you need to register with the analytics cloud in order to use API Manager Analytics. Follow the instructions below to get started with analytics:
 
