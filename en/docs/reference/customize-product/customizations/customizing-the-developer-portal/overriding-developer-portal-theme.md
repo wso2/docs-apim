@@ -1,23 +1,25 @@
 # Overriding Developer Portal Theme
 
-There are mainly 2 ways to customize and override the developer portal theme. 
+There are mainly two ways to customize and override the developer portal theme. 
 
-1. Theming using `defaultTheme.js`
+1. Theming using `userTheme.js`
 2. Overriding React components
 
-In this section, we will cover the first method which is the easiest way to change the appearance of Developer portal.
+In this section, we will cover the first method which is the simplest way to change the appearance of Developer portal.
 
 For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
-You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
+You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/app/data/defaultTheme.js`. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal. 
-Using the above file as reference, you can override the parameters defined in the above file by altering `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+Using the above file as reference, you can add new properties to `userTheme.js` configurations and override the default parameters defined in the above default theme.
+The `userTheme.js` file is located in following path in the API Manager server directory.
+`<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
-    You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
+    You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.js` file.
     The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file.
 
 Example:
@@ -71,7 +73,7 @@ The following documents describe some of the most commonly used customizations, 
 1.  Download the sample theme here [sample-theme.zip]({{base_path}}/assets/attachments/learn/sample-theme.zip). 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
-     You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `defaultTheme.json` file name remains the same.
+     You can make the changes required to `userTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `userTheme.json` file name remains the same.
      Uses of resources in `login` folder will be discussed in [Applying thems for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
 
       ```
