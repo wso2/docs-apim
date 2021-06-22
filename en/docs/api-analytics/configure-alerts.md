@@ -1,4 +1,8 @@
-# Working with Alerts
+---
+title: Configuring Alerts for API Analytics - API Manager Documentation 4.0.0
+---
+
+# Configuring Alerts for API Analytics
 
 The Analytics Portal allows you to configure alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find.
 

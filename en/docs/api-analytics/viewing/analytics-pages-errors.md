@@ -1,3 +1,7 @@
+---
+title: Viewing API Analytics on Errors - API Manager Documentation 4.0.0
+---
+
 # Viewing API Analytics on Errors
 
 The error page shows information related to erroneous API calls that are received by your API management deployment. The errors are categorization based on the error type. You can further drill down using the error subtypes. Use this page as the starting point for debugging any API errors. 

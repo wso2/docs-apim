@@ -1,3 +1,7 @@
+---
+title: Viewing the API Analytics Overview - API Manager Documentation 4.0.0
+---
+
 # Viewing the API Analytics Overview
 
 [![overview page full]({{base_path}}/assets/img/analytics/overview/overview-page-full.png)]({{base_path}}/assets/img/analytics/overview/overview-page-full.png)

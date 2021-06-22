@@ -1,3 +1,7 @@
+---
+title: Configure the API Gateway - API Manager Documentation 4.0.0
+---
+
 # Configure the API Gateway
 
 API Analytics is delivered via the API Analytics Cloud. Therefore, the API Manager Gateway needs to be configured to publish analytics data into the cloud.

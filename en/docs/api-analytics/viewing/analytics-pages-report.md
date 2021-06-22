@@ -1,3 +1,7 @@
+---
+title: Download Reports on API Analytics - API Manager Documentation 4.0.0
+---
+
 # Download Reports on API Analytics
 
 This page allows you to download monthly usage reports for your system. There are pre-configured reports to get

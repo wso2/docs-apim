@@ -1,4 +1,8 @@
-# Analytics Architecture
+---
+title: API Analytics Architecture - API Manager Documentation 4.0.0
+---
+
+# API Analytics Architecture
 
 The following diagram illustrates the basic architecture of the Analytics solution.
 

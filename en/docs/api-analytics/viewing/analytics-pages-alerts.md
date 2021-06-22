@@ -1,3 +1,7 @@
+---
+title: Viewing API Analytics on Alerts - API Manager Documentation 4.0.0
+---
+
 # Viewing API Analytics on Alerts
 
 This page shows information related to business alerts issued by APIM analytics for your currently selected
