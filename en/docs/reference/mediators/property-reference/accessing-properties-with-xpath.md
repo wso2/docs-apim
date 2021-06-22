@@ -200,7 +200,9 @@ Syntax:
 
 #### file scope
 
-You can retrieve properties defined in the `file.properties` configuration file using the following syntax.
+You can retrieve properties defined in the `file.properties` configuration file using the following syntax. Properties 
+in the file are reloaded periodically according to the time interval defined by the `file.properties.sync.interval` 
+System property in Seconds.
 
 Syntax:  
 `get-property('file', String propertyName)`
