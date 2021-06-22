@@ -161,7 +161,7 @@ Once you have signed in to the analytics portal server, click the **Enterprise I
     !!! note
         You can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
 
-![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132335.png "Opening the Analytics dashboard for integration component")  
+![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/miDashboard.png "Opening the Analytics dashboard for integration component")  
       
 ### Statistics overview
 
