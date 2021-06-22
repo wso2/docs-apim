@@ -154,7 +154,14 @@ Follow the steps given below.
 
 Once you have signed in to the analytics portal server, click the **Enterprise Integrator Analytics** icon shown below to open the portal.  
 
-![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132335.png "Opening the Analytics dashboard for integration component")  
+!!! info
+    - The Analytics Portal has been renamed to Micro Integrator Analytics as it contains MI related analytics.
+    - You need to get the [latest product updates](https://updates.docs.wso2.com/en/latest/updates/overview/) for your product to view these changes in the current version of WSO2 API-M. This change is available as a product update in Integrator Analytics 7.1.0 from June 18, 2021 onwards.
+
+    !!! note
+        You can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
+
+![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/mi-dashboard.png)  
       
 ### Statistics overview
 
