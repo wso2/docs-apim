@@ -77,4 +77,4 @@ apictl mg deploy api -f <path_to_the_API_project_just_created>/petstore -e dev -
 {! ./includes/invoke-api-with-jwt.md !}
 
 <!-- brought the following here because the path becomes relative when included in the includes folder -->
-Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md) for more details.
+Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.
