@@ -152,9 +152,9 @@ Follow the steps given below.
 
 ## Viewing the Analytics Portal
 
-Once you have signed in to the analytics portal server, click the **Enterprise Integrator Analytics** icon shown below to open the portal.  
+Once you have signed in to the analytics portal server, click the **Micro Integrator Analytics** icon shown below to open the portal.  
 
-![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132335.png "Opening the Analytics dashboard for integration component")  
+![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/mi-dashboards.png "Opening the Analytics dashboard for integration component")  
       
 ### Statistics overview
 
