@@ -8,6 +8,12 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 -   [Using the JWT grant](#using-the-jwt-grant)
 -   [JWT Bearer Grant](#jwt-bearer-grant)
 
+!!! Note
+    Before you begin, execute the following script in the relevant database. This is done to include a missing column that is required when working with JWT.
+    ```
+    ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD IS_CONSENTED BOOLEAN DEFAULT TRUE
+    ```
+
 ## Configuring the JWT grant
 
 ### Step 1 - Obtain a JWT from an external Identity Provider 
