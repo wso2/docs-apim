@@ -9,7 +9,7 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 -   [JWT Bearer Grant](#jwt-bearer-grant)
 
 !!! Note
-    Before you begin, update the database schema in the `<API-M_HOME>/dbscripts/h2.sql` file to include a missing column that is required when working with JWT.
+    Before you begin, update the database schema in all the database scripts found in the `<API-M_HOME>/dbscripts/` directory to include a missing column that is required when working with JWT.
     ```
     ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD IS_CONSENTED BOOLEAN DEFAULT TRUE
     ```
