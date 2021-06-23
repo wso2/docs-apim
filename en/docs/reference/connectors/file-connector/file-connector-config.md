@@ -2463,6 +2463,23 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Yes (If <b>Add Restul To</b> is "Message Property")
             </td>
         </tr>
+        <tr>
+            <td>
+                Update Last Modified Timestamp
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                Specify whether to update the last modified timestamp of the file.</br>
+            </td>
+            <td>
+                true
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response** 
