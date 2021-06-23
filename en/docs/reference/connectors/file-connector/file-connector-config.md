@@ -2465,13 +2465,13 @@ The following operations allow you to work with the File Connector version 4. Cl
         </tr>
         <tr>
             <td>
-                Update Last Modified Timestamp. This is avalable from version 4.0.4.
+                Update Last Modified Timestamp.
             </td>
             <td>
                 Boolean
             </td>
             <td>
-                Specify whether to update the last modified timestamp of the file.</br>
+                Specify whether to update the last modified timestamp of the file. This is avalable from version 4.0.4.</br>
             </td>
             <td>
                 true
