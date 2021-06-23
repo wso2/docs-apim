@@ -2465,7 +2465,7 @@ The following operations allow you to work with the File Connector version 4. Cl
         </tr>
         <tr>
             <td>
-                Update Last Modified Timestamp
+                Update Last Modified Timestamp. This is avalable from version 4.0.4.
             </td>
             <td>
                 Boolean
