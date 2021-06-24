@@ -1609,3 +1609,9 @@ html .md-footer-meta.md-typeset a,
  .floatRight .md-tabs__item{
      padding-right: 0;
  }
+
+ @media screen and (min-width: 1220px) and (max-width: 1306px)  {
+    .md-content, .md-nav {
+        margin-top: 40px;
+    }
+ }
