@@ -423,15 +423,7 @@
                             "required": true,
                             "default": "Production and Sandbox",
                             "possible": "",
-                            "description": "User can add preferred values and should not be changed once configured."
-                        },
-                        {
-                            "name": "display_name",
-                            "type": "string",
-                            "required": false,
-                            "default": "<name> of the environment",
-                            "possible": "",
-                            "description": "User can add preferred set a name to display"
+                            "description": "User can add preferred values as the name."
                         },
                         {
                             "name": "type",
@@ -1805,20 +1797,20 @@
                             "description": "Password used to authenticate the mail server."
                         },
                         {
-                            "name": "signature",
-                            "type": "string",
-                            "required": false,
-                            "default": "",
-                            "possible": "",
-                            "description": "Signature of the sender account."
-                        },
-                        {
                             "name": "hostname",
                             "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
                             "description": "The SMTP server to connect to."
+                        },
+                        {
+                            "name": "signature",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Signature of the sender account."
                         },
                         {
                             "name": "port",
@@ -3121,7 +3113,7 @@
                             "name": "listener.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3153,7 +3145,7 @@
                             "name": "listener.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3217,7 +3209,7 @@
                             "name": "sender.key_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2carbon.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2carbon.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for securing the HTTP passthrough connection. By default, the keystore file of the primary keystore is enabled for this purpose."
                         },
@@ -3249,7 +3241,7 @@
                             "name": "sender.trust_store.file_name",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The path to the keystore file that is used for storing the trusted digital certificates. By default, the product's trust store is configured for this purpose."
                         },
@@ -3634,7 +3626,7 @@
                             "name": "sender.trust_store.location",
                             "type": "string",
                             "required": true,
-                            "default": "APIM_HOME/repository/resources/security/wso2truststore.jks",
+                            "default": "API-M_HOME/repository/resources/security/wso2truststore.jks",
                             "possible": "-",
                             "description": "The file path to the truststore that stores the trusted digital certificates for websocket use cases. By default, the product's trust store is configured for this purpose."
                         },
@@ -5064,33 +5056,57 @@
             "exampleFile": "user_store.properties.toml"
         },
         {
-            "title": "Global handler configurations",
+            "title": "Custom keystore configurations",
             "options": [
                 {
-                    "name": "synapse_handlers.custom_handler_name",
+                    "name": "custom_keystore.APIKeyKeyStore",
                     "required": false,
-                    "description": "configuration used to define or enable disable global handler.",
-                    "params": [
+                    "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
+                    "params": [                   
                          {
-                            "name": "enabled",
-                            "type": "boolean",
+                            "name": "file_name",
+                            "type": "string",
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Enable or disable a defined global handler."
+                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
                         },
                         {
-                            "name": "class",
+                            "name": "type",
                             "type": "string",
-                            "required": true,
+                            "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "Fully qualified class name of the global handler."
-                        }
+                            "description": "The Keystore type."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The Keystore password."
+                        },
+                        {
+                            "name": "alias",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Private key alias of the Keystore."
+                        },
+                        {
+                            "name": "key_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations)."
+                        }                                                                                                                                                                                                                                                                            
                     ]
                 }
             ],
-            "exampleFile": "synapse_handlers.toml"
-        }
+            "exampleFile": "custom_keystore.toml"
+        }                                                                                    
     ]
 }
