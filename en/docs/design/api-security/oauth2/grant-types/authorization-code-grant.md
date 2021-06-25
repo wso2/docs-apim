@@ -54,7 +54,7 @@ grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA&redirect_uri=https%3A%
 
 The `/token` endpoint responds in the same way like in password grant type.
 
-Note that if you are using a separate server for authentication (e.g., a distributed API Manager setup or an instance of WSO2 Identity Server as the authentication server), be sure to give the full URL of the authentication server as given below, in the `<APIM_HOME>/repository/conf/deployment.toml` file. The default configuration has a relative path, which works in a standalone API Manager setup:
+Note that if you are using a separate server for authentication (e.g., a distributed API Manager setup or an instance of WSO2 Identity Server as the authentication server), be sure to give the full URL of the authentication server as given below, in the `<API-M_HOME>/repository/conf/deployment.toml` file. The default configuration has a relative path, which works in a standalone API Manager setup:
 
 ```
 [authentication.endpoints]
@@ -149,7 +149,7 @@ The steps below show how access tokens are generated for the authorization code 
     [![Copy Access Token]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)]({{base_path}}/assets/img/learn/oauth-authorization-code-accesstoken.png)
         
 !!! tip
-    If you want to **disable the Authorization Code grant type** in the API-M instance, add the following entry to the `deployment.toml` file in the `<APIM_HOME>/repository/conf/` folder.
+    If you want to **disable the Authorization Code grant type** in the API-M instance, add the following entry to the `deployment.toml` file in the `<API-M_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.authorization_code]
