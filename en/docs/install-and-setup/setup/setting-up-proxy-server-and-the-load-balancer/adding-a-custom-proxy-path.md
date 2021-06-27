@@ -85,7 +85,7 @@ reverse proxy server fronting the back-end service.
 
     1. Create /etc/nginx/sites-available and /etc/nginx/sites-enabled. 
     2. Open /etc/nginx/nginx.conf
-    3. Add `include /etc/nginx/sites-enabled/*;` in to the http block.
+    3. Add `include /etc/nginx/sites-enabled/*;` into the http block.
 
 
 8.  Now, create a symbolic between the "sites-enabled" directory and
@@ -186,7 +186,7 @@ proxyPort = 443
 Open the following file.
 `repository/resources/conf/templates/repository/conf/tomcat/carbon/WEB-INF/web.xml.j2`
 
-Add the configuration bellow with same level as other `<context-param>` nodes.
+Add the configuration below with the same level as other `<context-param>` nodes.
 ```xml
 <context-param>
       <param-name>contextPath</param-name>
