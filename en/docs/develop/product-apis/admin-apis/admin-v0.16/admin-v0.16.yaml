@@ -1705,6 +1705,68 @@ paths:
 
 
 ######################################################
+# The "Application Collection" resource APIs
+######################################################
+  /applications/{applicationId}:
+
+#-----------------------------------------------------
+# Retrieve an application by application id
+#-----------------------------------------------------
+    get:
+      x-scope: apim:app_owner_change
+      x-wso2-request: |
+        GET https://localhost:9443/api/am/admin/v0.16/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b
+        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
+      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v0.16/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b\""
+      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n         \"groupId\": \"\",\n         \"owner\": \"admin\",\n           \"applicationId\": \"890a4f4d-09eb-4877-a323-57f6ce2ed79b\",\n         \"status\": \"APPROVED\",\n         \"name\": \"app1\"\n}"
+      summary: |
+        Retrieve/Search applications by application id
+      description: |
+        This operation can be used to retrieve an application by providing the application id.
+      parameters:
+        - $ref: '#/parameters/applicationId'
+      tags:
+        - Application (Individual)
+      responses:
+        200:
+          description: |
+            OK.
+            Application info returned.
+          schema:
+            $ref: '#/definitions/ApplicationInfo'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: |
+            Not Found.
+            Requested Application does not exist.
+          schema:
+            $ref: '#/definitions/Error'
+        406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: |
+            Internal Server Error.
+            Error in fetching Application.
+          schema:
+            $ref: '#/definitions/Error'
+
+
+
+######################################################
 # The "Change Owner" Function resource API
 ######################################################
   /applications/{applicationId}/change-owner:
