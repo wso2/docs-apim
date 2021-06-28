@@ -1717,7 +1717,10 @@ paths:
       x-wso2-request: |
         GET https://localhost:9443/api/am/admin/v0.16/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v0.16/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b\""
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/admin/v0.16/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n         \"groupId\": \"\",\n         \"owner\": \"admin\",\n           \"applicationId\": \"890a4f4d-09eb-4877-a323-57f6ce2ed79b\",\n         \"status\": \"APPROVED\",\n         \"name\": \"app1\"\n}"
       summary: |
         Get Details of an Application
