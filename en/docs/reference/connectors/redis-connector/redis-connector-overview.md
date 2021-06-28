@@ -13,6 +13,8 @@ To see the available Redis connector, navigate to the [connector store](https://
 | Connector version | Supported product versions |
 | ------------- |------------- |
 |  1.0.1        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+|  2.1.0        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
+|  2.2.0        |  APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 For older versions, see the details in the connector store.
 
