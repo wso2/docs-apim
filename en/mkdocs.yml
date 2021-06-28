@@ -1009,7 +1009,12 @@ nav:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
                 - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
-                - Redis Reference: reference/connectors/redis-connector/redis-connector-reference.md
+                - 2.2.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
+                - 2.1.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.1.x/redis-connector-reference.md
+                - 1.0.1:
+                      - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
             - Salesforce Connectors:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
                 - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
