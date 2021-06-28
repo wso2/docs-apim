@@ -1726,7 +1726,7 @@ paths:
       parameters:
         - $ref: '#/parameters/applicationId'
       tags:
-        - Application (Individual)
+        - Application
       responses:
         200:
           description: |
