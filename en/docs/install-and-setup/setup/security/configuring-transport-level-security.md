@@ -104,6 +104,25 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 enable = false
 ```
 
+
+!!! Note
+    Comment out or remove the `http_endpoint` entry in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder). This is done to avoid an error that occurs when adding the above configuration.
+    ```
+    [[apim.gateway.environment]]
+        name = "Default"
+        type = "hybrid"
+        display_in_api_console = true
+        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+        show_as_token_endpoint_url = true
+        service_url = "https://localhost:${mgt.transport.https.port}/services/"
+        username= "${admin.username}"
+        password= "${admin.password}"
+        ws_endpoint = "ws://gw.am.wso2.com:9099"
+        wss_endpoint = "wss://gw.am.wso2.com:8099"
+        http_endpoint = "http://gw.am.wso2.com:${http.nio.port}"
+        https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
+    ```
+
 ### Disabling Servlet Transport
 
 1.  Open the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
