@@ -756,6 +756,9 @@ nav:
                 #- Analytics API Guide: api-analytics/analytics-api-guide.md
                 #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
             - Architecture: api-analytics/architecture.md
+        - MI Analytics:
+            - Set up: mi-analytics/setting-up-mi-analytics.md
+            - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager Observability:
@@ -777,8 +780,6 @@ nav:
             - Observability:
                 - Cloud Native Observability Solution:
                   - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
-                - Classic Observability Solution:
-                  - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
                 - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
                 - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
             - Metrics:
@@ -1380,7 +1381,6 @@ nav:
                     - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
                     - Setting up Cloud-Native Observability for a VM Deployment: install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md
                     - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
-                    - Setting up Classic Observability Deployment: install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md
                     - Configuring Logs:
                         - Enabling Logs for a Component: install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
@@ -2048,6 +2048,8 @@ plugins:
               #'observe/api-manager-analytics/querying-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/analytics-api-guide/'
               #'observe/api-manager-analytics/troubleshooting-analytics.md': 
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/getting-started-guide/'
+              'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/using-the-analytics-dashboard/'
+              'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/setting-up-mi-analytics/'
 
     # Extra
 extra_css:

@@ -1,8 +1,12 @@
-# Using the EI Analytics Portal
+---
+title: Access the MI Analytics Portal - API Manager Documentation 4.0.0
+---
 
-Let's use **EI Analytics** to view and monitor **statistics** and **message tracing**.
+# Access the MI Analytics Portal
 
-You can monitor the following statistics and more through the EI Analytics portal:
+Let's use **MI Analytics** to view and monitor **statistics** and **message tracing**.
+
+You can monitor the following statistics and more through the MI Analytics portal:
 
 - Request Count
 - Overall TPS
@@ -18,38 +22,31 @@ You can monitor the following statistics and more through the EI Analytics porta
 
 ## Before you begin
 
--   Set up the [EI Analytics deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
--   Note the following server directories in your deployment.
+-   Set up the [MI Analytics deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
+
+-   Note the following server directory in your deployment.
 
     <table>
         <tr>
             <th>
-                EI_ANALYTICS_HOME
+                `<MI_ANALYTICS_HOME>`
             </th>
             <td>
-                This is the root folder of your EI Analytics installation.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                EI_7.1.0_HOME
-            </th>
-            <td>
-                This is the root folder of your EI 7.1.0 installation.
+                This is the root folder of your MI Analytics installation.
             </td>
         </tr>
     </table>
 
-## Starting the servers
+## Step 1 - Start the servers
 
 Let's start the servers in the given order.
 
-### Starting the Analytics Server
+### Step 1.1 - Start the Analytics Server
 
 !!! Note
     Be sure to start the **Analytics** server before [starting the Micro Integrator](#starting-the-micro-integrator).
 
-1.  Open a terminal and navigate to the `<EI_ANALYTICS_HOME>/bin` directory.
+1.  Open a terminal and navigate to the `<MI_ANALYTICS_HOME>/bin` directory.
 2.  Start the Analytics server by executing the following command:
 
     ```bash tab='On MacOS/Linux/Centos'
@@ -60,13 +57,13 @@ Let's start the servers in the given order.
     server.bat
     ```
 
-### Starting the Micro Integrator
+### Step 1.2 - Start the Micro Integrator
 
 Once you have [started the Analytics Server](#starting-the-analytics-server), you can [start the Micro Integrator]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi/).
 
-### Starting the Analytics Portal
+### Step 1.3 - Start the Analytics Portal
 
-1.  Open a terminal and navigate to the `<EI_ANALYTICS_HOME>/bin` directory.
+1.  Open a terminal and navigate to the `<MI_ANALYTICS_HOME>/bin` directory.
 2.  Start the Analytics Portal's runtime by executing the following command:
 
     ```bash tab='On MacOS/Linux/Centos'
@@ -80,9 +77,9 @@ Once you have [started the Analytics Server](#starting-the-analytics-server), yo
 In a new browser window or tab, open the Analytics portal using the following URL: https://localhost:9645/analytics-dashboard. 
 Use `admin` for both the username and password.
 
-<img src="{{base_path}}/assets/img/integrate/ei-analytics/dashboard-login.png" width="500">
+<img src="{{base_path}}/assets/img/integrate/mi-analytics/dashboard-login.png" width="500">
 
-## Publishing statistics to the Portal
+## Step 2 - Publish statistics to the Portal
 
 Let's **test this solution** by running the [service chaining]({{base_path}}/tutorials/integration-tutorials/exposing-several-services-as-a-single-service) tutorial. When the artifacts deployed in the Micro Integrator are invoked, the statistics will be available in the portal. 
 
@@ -150,9 +147,7 @@ Follow the steps given below.
 
     3.  Now, shut down the back-end service and send two more requests.
 
-## Viewing the Analytics Portal
-
-Once you have signed in to the analytics portal server, click the **Enterprise Integrator Analytics** icon shown below to open the portal.  
+## Step 3 - View the Analytics Portal
 
 !!! info
     - The Analytics Portal has been renamed to Micro Integrator Analytics as it contains MI related analytics.
@@ -161,36 +156,38 @@ Once you have signed in to the analytics portal server, click the **Enterprise I
     !!! note
         You can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
 
-![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/ei-analytics/119132315/mi-dashboard.png)  
+Once you have signed in to the Analytics Portal server, click the **Micro Integrator Analytics** icon shown below to open the portal.
+
+[![Opening the Analytics dashboard for the integration component]({{base_path}}/assets/img/integrate/mi-analytics/119132315/mi-dashboard.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/mi-dashboard.png)
       
 ### Statistics overview
 
 View the statistics overview for all the integration artifacts that have published statistics:  
 
-![ESB total request count]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132316.png "ESB total request count")
+[![ESB total request count]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132316.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132316.png)
 
 ### Transactions per second
 
 The number of transactions handled by the Micro Integrator per second is mapped on a graph as follows.
 
-![ESB overall TPS]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132326.png "ESB overall TPS")
+[![ESB overall TPS]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132326.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132326.png)
 
 ### Overall message count
 The success rate and the failure rate of the messages received by the Micro Integrator during the last hour are mapped in a graph as follows.  
 
-![ESB overall message count]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132325.png "ESB overall message count")
+[![ESB overall message count]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132325.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132325.png)
 
 ### Top APIs by request
 
 The `HealthcareAPI` REST API is displayed under **TOP APIS BY REQUEST COUNT** as follows.  
 
-![Top APIs by request count]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132324.png "Top APIs by request count")
+[![Top APIs by request count]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132324.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132324.png)
 
 ### Endpoints by request
 
 The three endpoints used for the message mediation are displayed under **Top Endpoints by Request Count** as shown below.  
 
-![Top endpoints by request count]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132318.png "Top endpoints by request count")
+[![Top endpoints by request count]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132318.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132318.png)
 
 ### Per API requests
 
@@ -199,28 +196,28 @@ In the Top APIS BY Request COUNT gadget, click `HealthcareAPI` to open the **OVE
 -   The **API Request Count** gadget shows the total number of
     requests handled by the `StockQuoteAPI`
     REST API during the last hour:  
-    ![Total request per API]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132323.png "Total request per API")
+    [![Total request per API]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132323.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132323.png)
 -   The **API** **Message Count** gadget maps the number of
     successful messages as well as failed messages at different
     times within the last hour in a graph as shown below.  
-    ![API message count]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132322.png "API message count")  
+    [![API message count]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132322.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132322.png)
 -   The **API** **Message Latency** gadget shows the speed with
     which the messages are processed by mapping the amount of time
     taken per message at different times within the last hour as
     shown below.  
-    ![API message latency]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132321.png "API message latency")  
+    [![API message latency]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132321.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132321.png) 
 -   The **Messages** gadget lists all the the messages handled by
     the `StockQuoteAPI` REST API during the
     last hour with the following property details as follows.  
-    ![Message per API]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132320.png "Message per API")
+    [![Message per API]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132320.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132320.png)
 -   The **Message Flow** gadget illustrates the order in which the
     messages handled by the `StockQuoteAPI`
     REST API within the last hour passed through all the mediation
     sequences, mediators and endpoints that were included in the
     message flow as shown below.  
-    ![Message flow per API]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132319.png "Message flow per API") 
+    [![Message flow per API]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132319.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132319.png)
 
-### Per Endpoint requests
+### Per endpoint requests
 
 In the **Top Endpoints by Request Count** gadget, click one of the endpoints to view simillar statistics per endpoint.
 
@@ -230,10 +227,10 @@ In the **Top Endpoints by Request Count** gadget, click one of the endpoints to 
 
 You can also navigate to any of the artifacts by using the top-left menu as shown below. For example, to view the statistics of a specific endpoint, click **Endpoint** and search for the required endpoint.  
 
-![Dashboard navigation menu]({{base_path}}/assets/img/integrate/ei-analytics/119132315/119132317.png "Dashboard navigation menu")
+![Dashboard navigation menu]({{base_path}}/assets/img/integrate/mi-analytics/119132315/per-endpoint-requests.png "Dashboard navigation menu")
 
 ### Message tracing
 
-When you go to the [Analytics portal](#starting-the-analytics-portal) the message details will be logged as follows:
+When you go to the [Analytics Portal](#step-13-start-the-analytics-portal) the message details will be logged as follows:
 
-![Message tracing per API]({{base_path}}/assets/img/integrate/ei-analytics/119132315/message-tracing.png "Message tracing per API")
+![Message tracing per API]({{base_path}}/assets/img/integrate/mi-analytics/119132315/message-tracing.png "Message tracing per API")
