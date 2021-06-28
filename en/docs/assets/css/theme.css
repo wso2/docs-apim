@@ -723,6 +723,7 @@ html .md-footer-meta.md-typeset a,
     display: flex;
     width: 100%;
     max-width: 100%;
+    align-items: center;
 }
 .md-footer-nav__title {
     font-size: .75rem;
