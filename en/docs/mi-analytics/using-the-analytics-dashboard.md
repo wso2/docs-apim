@@ -6,7 +6,7 @@ title: Access the MI Analytics Portal - API Manager Documentation 4.0.0
 
 Let's use **MI Analytics** to view and monitor **statistics** and **message tracing**.
 
-You can monitor the following statistics and more through the MI Analytics portal:
+You can monitor the following statistics and more through the MI Analytics Portal:
 
 - Request Count
 - Overall TPS
@@ -74,7 +74,7 @@ Once you have [started the Analytics Server](#starting-the-analytics-server), yo
     portal.bat
     ```
 
-In a new browser window or tab, open the Analytics portal using the following URL: https://localhost:9645/analytics-dashboard. 
+In a new browser window or tab, open the Analytics Portal using the following URL: https://localhost:9645/analytics-dashboard. 
 Use `admin` for both the username and password.
 
 <img src="{{base_path}}/assets/img/integrate/mi-analytics/dashboard-login.png" width="500">
