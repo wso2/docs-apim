@@ -1679,6 +1679,13 @@ paths:
                users only at a migration process.
           required: false
           type: string
+        - name: applicationName
+          in: query
+          description: |
+            Application Name
+            Also can search by providing a part of an application name.
+          required: false
+          type: string
       tags:
         - Application (Collection)
       responses:
