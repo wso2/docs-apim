@@ -758,7 +758,7 @@ nav:
             - Architecture: api-analytics/architecture.md
         - MI Analytics:
             - Set up: mi-analytics/setting-up-mi-analytics.md
-            - Access the Dashboard: mi-analytics/using-the-analytics-dashboard.md
+            - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager Observability:
