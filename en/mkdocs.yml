@@ -546,6 +546,7 @@ nav:
           - Error Handling: troubleshooting/error-handling.md
           - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
           - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
+          - Configuring XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
           - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
           - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
 
