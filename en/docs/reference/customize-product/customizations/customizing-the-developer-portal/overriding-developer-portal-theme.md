@@ -149,10 +149,10 @@ The path format to the `custom-logo.png` image within the tenant domain theme is
 ```js
 "logo": "/site/public/tenant_themes/<tenant-domain>/apim/images/custom-logo.png",
 ```
-The path to the `custom-logo.png` image within the `kim@testorg.com` tenant domain theme is as follows:
+The path to the `custom-logo.png` image within the `testorg.com` tenant domain theme is as follows:
 
 ```js
-"logo": "/site/public/tenant_themes/kim@testorg.com/apim/images/custom-logo.png",
+"logo": "/site/public/tenant_themes/testorg.com/apim/images/custom-logo.png",
 ```
 
 The following defines the logo image from an external URL.
