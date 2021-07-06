@@ -2054,7 +2054,7 @@ plugins:
               'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/setting-up-mi-analytics/'
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/apim-architecture/'
               'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/api-analytics-architecture/'
-              'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts.md'
+              'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts/'
 
     # Extra
 extra_css:
