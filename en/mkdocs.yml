@@ -51,7 +51,7 @@ nav:
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
-          - Architecture: get-started/architecture.md
+          - Architecture: get-started/apim-architecture.md
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
                 - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
@@ -748,20 +748,21 @@ nav:
                 - Latency: api-analytics/viewing/analytics-pages-latency.md
                 #- TODO Cache: api-analytics/viewing/analytics-pages-cache.md
                 - Devices: api-analytics/viewing/analytics-pages-devices.md
-                - Alerts: api-analytics/viewing/analytics-pages-alerts.md
+                - Alerts: api-analytics/viewing/view-api-analytics-on-alerts.md
                 - Download Reports: api-analytics/viewing/analytics-pages-report.md
                 #- Usecases:
                     #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
                 #- Quality of Service: api-analytics/qos.md
                 #- Analytics API Guide: api-analytics/analytics-api-guide.md
                 #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
-            - Architecture: api-analytics/architecture.md
+            - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - Set up: mi-analytics/setting-up-mi-analytics.md
             - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
-        - API Manager Observability:
+        - API Manager:
+            #- Enabling Observability: 
             - Monitoring Logs:
                 - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -773,7 +774,7 @@ nav:
             - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
             - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
-        - Micro Integrator Observability:
+        - Micro Integrator Profile:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
             - Using the Management API: observe/mi-observe/working-with-management-api.md
@@ -789,7 +790,7 @@ nav:
                 - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
                 - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
                 - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
-        - Monitoring the Streaming Integrator:
+        - Streaming Integrator Profile:
               - Configuring Grafana Dashboards: observe/si-observe/setting-up-grafana-dashboards.md
               - Managing Grafana Dashboards: observe/si-observe/managing-grafana-dashboards.md
               - Monitoring Streaming Components:
@@ -2051,6 +2052,9 @@ plugins:
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/getting-started-guide/'
               'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/using-the-analytics-dashboard/'
               'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/setting-up-mi-analytics/'
+              'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/apim-architecture/'
+              'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/api-analytics-architecture/'
+              'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts/'
 
     # Extra
 extra_css:
