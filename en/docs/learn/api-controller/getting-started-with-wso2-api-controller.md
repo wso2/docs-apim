@@ -443,7 +443,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use combined modifiers. When using combined modifiers make sure to separate them with space. 
+                **label**.  You can also use combined modifiers. When using combined modifiers, make sure to separate them with space. 
                 **Example:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
