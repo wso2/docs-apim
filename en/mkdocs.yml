@@ -748,7 +748,7 @@ nav:
                 - Latency: api-analytics/viewing/analytics-pages-latency.md
                 #- TODO Cache: api-analytics/viewing/analytics-pages-cache.md
                 - Devices: api-analytics/viewing/analytics-pages-devices.md
-                - Alerts: api-analytics/viewing/analytics-pages-alerts.md
+                - Alerts: api-analytics/viewing/view-api-analytics-on-alerts.md
                 - Download Reports: api-analytics/viewing/analytics-pages-report.md
                 #- Usecases:
                     #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
@@ -762,7 +762,7 @@ nav:
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager:
-            - Enabling Observability: 
+            #- Enabling Observability: 
             - Monitoring Logs:
                 - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
