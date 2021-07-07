@@ -427,7 +427,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 apictl list apis --environment production --limit 15 --insecure
                 ```    
                 ```go
-                apictl list apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
+                apictl list apis --environment production --query provider:Alice name:PizzaShackAPI version:2.0.0 --insecure
                 ```  
 
         -   **Response**
@@ -443,7 +443,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use combined modifiers.  
+                **label**.  You can also use combined modifiers. When using combined modifiers, make sure to separate them with space. 
                 **Example:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
@@ -485,7 +485,7 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 apictl list api-products --environment production --insecure
                 ```    
                 ```go
-                apictl list api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
+                apictl list api-products --environment production --query provider:Alice name:CreditAPIProduct context:"/creditapiproduct" --limit 25 --insecure
                 ```  
 
         -   **Response**
@@ -704,10 +704,10 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev -k
             ```
             ```bash
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+            apictl change-status api --action "Publish" --name PizzaShackAPI --version 1.0.0 --environment production --insecure
             ```    
             ```go
-            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+            apictl change-status api --action "Demote to Created" --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
             ```  
 
     -   **Response**
