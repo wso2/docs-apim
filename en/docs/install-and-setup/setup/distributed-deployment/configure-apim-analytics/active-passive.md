@@ -111,14 +111,11 @@ cluster.config section of the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml
         (e.g., groupId: group-1).
     - Enter the ID of the class that defines the coordination strategy for the cluster as shown in the example below.
         e.g., coordinationStrategyClass: org.wso2.carbon.cluster.coordinator.rdbms.RDBMSCoordinationStrategy
-    - In the strategyConfig section, enter information as follows:
-        - For clustering of the two nodes to take place
-        - datasource - Enter the name of the configured datasource shared by the nodes in the cluster as shown in 
-                             the example below. Data handled by the cluster are persisted here.
+    - In the `strategyConfig` section, enter information as follows:
+        - datasource - Enter the name of the configured datasource shared by the nodes in the cluster as shown in the example below. Data handled by the cluster are persisted here.
                 
             Following is a sample datasource configuration for a MySQL datasource that should appear under the 
-            dataSources section of the `wso2.datasources` section in the  `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`.
-            For detailed instructions of how to configure a datasource, see Configuring Datasources.
+            datasources section of the `wso2.datasources` section in the  `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`.
             
             ```     
                 #Sample MySQL datasource
@@ -162,7 +159,7 @@ cluster.config section of the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml
                   eventPollingInterval: 5000
             ```
                  
-4. Next add the deployment.config section to the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file with following 
+1. Next add the deployment.config section to the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file with following 
 configurations (HA configuration)
     - To enable 2 node minimum HA, set the type property to "ha".
     - passiveNodeDetailsWaitTimeOutMillis - Time in milliseconds to wait till passive node details gets available in 
