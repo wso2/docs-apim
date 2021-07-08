@@ -53,7 +53,7 @@ To install and set up the API-M servers:
 
 You can create the required databases for the API-M deployment in a separate server and point to the databases from the respective nodes. 
 
-For information, see [Installing and Configuring the Databases]({{base_path}}/install-and-setup/setting-up-databases/overview/).
+For information, see [Installing and Configuring the Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/).
 
 ## Step 3 - Configure your deployment with production hardening
 
