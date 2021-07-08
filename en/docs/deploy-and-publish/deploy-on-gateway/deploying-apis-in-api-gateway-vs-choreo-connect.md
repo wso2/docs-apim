@@ -10,7 +10,7 @@ Choreo Connect and the "traditional" API Gateway can be compared in different as
 
 #### Design and deployment comparison
 
-|Design/ Deployment       |Choreo Connect                                       |API Gateway                        |
+| **Design/ Deployment**       | **Choreo Connect**                                       | **API Gateway**                        |
 |-------------------------|---------------------------------------------------------|-----------------------------------|
 |Architecture             |Designed for microservices                               |Designed for monolith              |
 |Horizontal Scaling       |Scales independently as the runtime does not have a direct dependency on other components. Security and throttling validations are done within Choreo Connect.                           |  Scaling can be done with other components. For example, the traffic manager (one node per dedicated cluster of gateway nodes ) and key manager can be scaled along with the gateway.|
@@ -25,27 +25,26 @@ Choreo Connect and the "traditional" API Gateway can be compared in different as
 
 API Gateway and Choreo Connect both support different security mechanisms.
 
-| Security Mechanism           | Choreo Connect                                              | API Gateway                       |
+| **Security Mechanism**           | **Choreo Connect**                                              | **API Gateway**                       |
 |------------------------------|:-------------------------------------------------------------:|:---------------------------------:|
-| Oauth2 opaque tokens         | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) |
-| Oauth2 self-contained tokens | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) |
-| Mutual SSL                   | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) |
-| Basic Auth                   | Config based supported, can not plug user stores                      | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) |
-| API Keys                     | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) |
+| Oauth2                        | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Mutual SSL                   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| Basic Auth                   | Config based supported, can not plug user stores                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
+| API Keys                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) |
 
 #### Feature Comparison
 
-|   Feature                                                  | Choreo Connect                                                                        |          API Gateway                                                                |
+|   **Feature**                                                  | **Choreo Connect**                                                                        |          **API Gateway**                                                                |
 |----------------------------------------------------|:-------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
-| SOAP backends                                      | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| REST APIs                                          | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| JMS backends                                       | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| GraphQL APIs                                       | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| GRPC Services                                      | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) |
-| Web socket APIs                                    | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| Custom mediation/transformation                    | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| Advance throttling (header, IP, query param, jwt claims) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| Advance throttling (based on bandwidth) | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| Schema validation                                  | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| JWT revocation                                     | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   |
-| Per resource Endpoints                             | ![(tick)]({{base_path}}/assets/img/getting-started/check.svg)   | ![(error)]({{base_path}}/assets/img/getting-started/error.svg) |
+| SOAP backends                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| REST APIs                                          | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| JMS backends                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| GraphQL APIs                                       | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| GRPC Services                                      | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |
+| Web socket APIs                                    | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Custom mediation/transformation                    | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advance throttling (header, IP, query param, jwt claims) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Advance throttling (based on bandwidth) | ![(No)]({{base_path}}/assets/img/deploy/error.svg) | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Schema validation                                  | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| JWT revocation                                     | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   |
+| Per resource Endpoints                             | ![(Yes)]({{base_path}}/assets/img/deploy/check.svg)   | ![(No)]({{base_path}}/assets/img/deploy/error.svg) |
