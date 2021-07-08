@@ -1976,7 +1976,7 @@ plugins:
               'learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/'
               'learn/consume-api/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/collaboration/interact-with-the-community'
               'learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/generate-sdks-in-dev-portal/'
-              'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md' : 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
+              'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
               'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/recover-password/'
               'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/change-dev-portal-password/'
               'develop/product-apis/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/product-apis/overview/'
