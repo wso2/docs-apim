@@ -28,9 +28,9 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 #### API Analytics
 
-[![API Analytics]({{base_path}}/assets/img/get_started/analytics.png)]({{base_path}}/assets/img/get_started/analytics.png)
+- For information on the architecture, see [API Analytics Architecture]({{base_path}}/api-analytics/api-analytics-architecture/)
 
-Monitoring and analytics of APIs deployed on WSO2 API Manager are provided by the WSO2 API Manager Analytics component. This component includes different types of dashboards to provide more detailed different statistical views of your APIs. Furthermore, you can secure your system by configuring alerts and notifications on pre-determined events to identify any unusual behaviors in near real-time.  For more information, see [Working with Analytics]({{base_path}}/observe/api-manager-analytics/overview-of-api-analytics).
+- For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/api-analytics/getting-started-guide/).
 
 ## Data Plane
 
