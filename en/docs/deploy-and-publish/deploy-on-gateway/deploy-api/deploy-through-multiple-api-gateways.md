@@ -100,7 +100,7 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
     !!! tip
             If you have multiple Gateways that support one type of key (e.g., when there are two Gateways that support the production keys, as seen in the above code snippet.), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API **Try Out** tab, which is in the Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
 
-    [![API tryout tab]({{base_path}}/assets/img/learn/api-tryout-tab.png)]({{base_path}}/assets/img/learn/api-tryout-tab.png)
+    [![API tryout tab]({{base_path}}/assets/img/learn/devportal-tryout-multiple-gateways.png)]({{base_path}}/assets/img/learn/devportal-tryout-multiple-gateways.png)
 
     !!! note
         To stop a given Gateway environment from being displayed in the API Try Out tab, you can set the `display_in_api_console` attribute to `false` in the `apim.gateway.environment` element, which is in the `deployment.toml` file.
@@ -117,30 +117,34 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
      Make sure to start instance 1 first before starting the other two instances.
 
 7.  Sign in to the API Publisher in the **first** WSO2 API-M instance and click to edit an API.
-
-     <img src="{{base_path}}/assets/img/learn/new-devportal-app.png" alt="Developer Portal" title="Developer Portal" width="35%" />
-     <a name="step8"> </a>
+    
+    [![Edit an application]({{base_path}}/assets/img/learn/pizzashak-api-publisher.png)]({{base_path}}/assets/img/learn/pizzashak-api-publisher.png)
      
-8.  Click **Manage**, and expand the **API Gateways** section.
+8.  Click **Deployments** and click **Deploy New Revision**.
 
-     Note that the two Gateway environments are listed there.
+    [![Edit an application]({{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png)]({{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png)
+    
+    Note that the two Gateway environments are listed there
 
-     [![]({{base_path}}/assets/img/learn/api-gateways.png)]({{base_path}}/assets/img/learn/api-gateways.png)
+    [![Edit an application]({{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png)]({{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png)
 
-9.  Select both Gateways and click **Save and Publish** in order to be able to publish to both the Gateways that correspond to the API.
+9.  Select both gateways and click deploy.
+    
+    [![Edit an application]({{base_path}}/assets/img/learn/multiple-gateways-revision-dialog-filled.png)]({{base_path}}/assets/img/learn/multiple-gateways-revision-dialog-filled.png)
 
 10. Sign in to the Developer Portal (of the **first** instance) and click on the respective API to open it.
-    [![]({{base_path}}/assets/img/learn/dev-portal-apis.png)]({{base_path}}/assets/img/learn/dev-portal-apis.png)
-
-     In the **Overview** tab that corresponds to the API, note that it has two sets of URLs for the two Gateway instances:
-
-     [![]({{base_path}}/assets/img/learn/api-overview-tab.png)]({{base_path}}/assets/img/learn/api-overview-tab.png)
+    
+    [![]({{base_path}}/assets/img/learn/pizzashack-api-devportal.png)]({{base_path}}/assets/img/learn/pizzashack-api-devportal.png)
+     
+    In the **Overview** tab that corresponds to the API, note that it has two sets of URLs for the two Gateway instances:
+    
+    [![]({{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png)]({{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png)
 
 You have successfully published an API to the API Developer Portals through multiple Gateway environments.
 
 ## Step 2 - Generated the keys for the applications
 
-Use the following sample cURL command to generate an access token for the Gateway URL of the initially published Gateway Environments, which was listed in API Publisher in [step 8](#step8), using the Password Grant type. 
+Use the following sample cURL command to generate an access token for the Gateway URL of the initially published Gateway Environments, which was listed in API Publisher in step 10, using the Password Grant type.
 
 [![]({{base_path}}/assets/img/learn/generate-access-tokens.png)]({{base_path}}/assets/img/learn/generate-access-tokens.png)
 
