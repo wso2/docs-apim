@@ -276,8 +276,8 @@ synchronization can take place effectively even if the Siddhi applications are a
     
 2. Start both servers by navigating to  `<APIM_ANALYTICS_HOME>/bin` and issuing the following command:
     ```
-    For Windows: server.bat 
-    For Linux : ./server.sh
+    For Windows: worker.bat 
+    For Linux : ./worker.sh
     ```    
     If the cluster is correctly configured, the following CLI logs can be viewed without any error logs:
         
