@@ -84,7 +84,8 @@ Follow the  instructions below to set up a MySQL database:
         ``` java
         GRANT ALL ON apim_db.* TO 'apimadmin'@'localhost';
         ```
-    ``` java
+
+        ``` java
         CREATE USER 'sharedadmin'@'localhost' IDENTIFIED BY 'sharedadmin';
         ```
 
@@ -92,13 +93,13 @@ Follow the  instructions below to set up a MySQL database:
         GRANT ALL ON shared_db.* TO 'sharedadmin'@'localhost';
         ```        
 
-1.  After you have finalized the permissions, reload all the privileges.
+2.  After you have finalized the permissions, reload all the privileges.
 
     ``` java
     FLUSH PRIVILEGES;
     ```
 
-1.  Log out from the MySQL command prompt.
+3.  Log out from the MySQL command prompt.
 
     ``` java
     quit;
