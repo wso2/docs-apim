@@ -31,7 +31,8 @@ The time picker consists of several pre-defined time intervals. The following im
   
   If you need to select a custom time range with a custom granularity, you have to use the custom selector that
    is shown below.
-<img src="{{base_path}}/assets/img/observe/time-picker-custom.png" title="APIM Analytics TIme Picker Custom" width="380"/>  
+
+<a href="{{base_path}}/assets/img/observe/time-picker-custom.png"><img src="{{base_path}}/assets/img/observe/time-picker-custom.png" title="APIM Analytics TIme Picker Custom" width="380"/></a>  
 
 In the custom picker first you have to select the granularity that you need to view the data. Then from the calendar
  widget you can select the date range and if applicable the clock widget will be also enabled to select the time. However,
@@ -41,7 +42,7 @@ In the custom picker first you have to select the granularity that you need to v
     
 ### Environment Picker
 
-![APIM Analytics Environment Picker List]({{base_path}}/assets/img/observe/environment-picker.png)
+[![APIM Analytics Environment Picker List]({{base_path}}/assets/img/observe/environment-picker.png)]({{base_path}}/assets/img/observe/environment-picker.png)
 
 This widget allows you to select the environment you need to view statistics for. When you are 
 [Registering for Analytics]({{base_path}}/api-analytics/getting-started-guide/#step-2-register-your-environment) 
@@ -53,7 +54,7 @@ at the On-Prem Key generation step, you are required to provide a 'Key Name'. Th
    
 ### Tenant Picker
 
-![APIM Analytics Tenant Picker List]({{base_path}}/assets/img/observe/tenant-picker.png)
+[![APIM Analytics Tenant Picker List]({{base_path}}/assets/img/observe/tenant-picker.png)]({{base_path}}/assets/img/observe/tenant-picker.png)
 
 Tenant Picker will be enabled if your selected environment uses multi-tenancy. If multi-tenancy is enabled then using
  this picker you have to select the tenant that you need to observe analytics data. When tenancy is enabled

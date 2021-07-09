@@ -1,13 +1,13 @@
 ---
-title: Viewing API Analytics on Devices - API Manager Documentation 4.0.0
+title: View API Analytics on Devices - API Manager Documentation 4.0.0
 ---
 
-# Viewing API Analytics on Devices
+# View API Analytics on Devices
 
 This page displays information about Operating System platforms and HTTP Agents end users are using to invoke the APIs. You can use
  this page to get an idea of the distribution of your user-base and improve your APIs to match the audience.
 
-![devices page full]({{base_path}}/assets/img/analytics/devices/devices-page-full.png)
+[![devices page full]({{base_path}}/assets/img/analytics/devices/devices-page-full.png)]({{base_path}}/assets/img/analytics/devices/devices-page-full.png)
 
 See the topics given below to get details of the available widgets.
 

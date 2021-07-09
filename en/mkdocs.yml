@@ -741,15 +741,15 @@ nav:
                     - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
                     #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
             - Viewing API Analytics:
-                - Introduction: api-analytics/viewing/analytics-pages-introduction.md
-                - Overview: api-analytics/viewing/analytics-pages-overview.md
-                - Traffic: api-analytics/viewing/analytics-pages-traffic.md
-                - Errors: api-analytics/viewing/analytics-pages-errors.md
-                - Latency: api-analytics/viewing/analytics-pages-latency.md
+                - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
+                - Overview: api-analytics/viewing/view-overview-of-api-analytics.md
+                - Traffic: api-analytics/viewing/view-api-analytics-on-traffic.md
+                - Errors: api-analytics/viewing/view-api-analytics-on-errors.md
+                - Latency: api-analytics/viewing/view-api-analytics-on-latency.md
                 #- TODO Cache: api-analytics/viewing/analytics-pages-cache.md
-                - Devices: api-analytics/viewing/analytics-pages-devices.md
+                - Devices: api-analytics/viewing/view-analytics-on-devices.md
                 - Alerts: api-analytics/viewing/view-api-analytics-on-alerts.md
-                - Download Reports: api-analytics/viewing/analytics-pages-report.md
+                - Download Reports: api-analytics/viewing/download-api-analytics-reports.md
                 #- Usecases:
                     #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
                 #- Quality of Service: api-analytics/qos.md
@@ -2048,6 +2048,13 @@ plugins:
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/apim-architecture/'
               'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/api-analytics-architecture/'
               'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts/'
+              'api-analytics/viewing/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/introduction-to-api-analytics-dashboard/'
+              'api-analytics/viewing/analytics-pages-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-overview-of-api-analytics/'
+              'api-analytics/viewing/analytics-pages-traffic.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-traffic/'
+              'api-analytics/viewing/analytics-pages-errors.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-errors/'
+              'api-analytics/viewing/analytics-pages-latency.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-latency/'
+              'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
+              'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
 
     # Extra
 extra_css:
