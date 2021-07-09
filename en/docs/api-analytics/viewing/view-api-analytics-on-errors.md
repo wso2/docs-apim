@@ -1,12 +1,12 @@
 ---
-title: Viewing API Analytics on Errors - API Manager Documentation 4.0.0
+title: View API Analytics on Errors - API Manager Documentation 4.0.0
 ---
 
-# Viewing API Analytics on Errors
+# View API Analytics on Errors
 
 The error page shows information related to erroneous API calls that are received by your API management deployment. The errors are categorization based on the error type. You can further drill down using the error subtypes. Use this page as the starting point for debugging any API errors. 
 
-![error page full]({{base_path}}/assets/img/analytics/error/error-page-full.png)
+[![error page full]({{base_path}}/assets/img/analytics/error/error-page-full.png)]({{base_path}}/assets/img/analytics/error/error-page-full.png)
 
 See the topics given below to get details of the available widgets.
 
@@ -14,7 +14,7 @@ See the topics given below to get details of the available widgets.
 
 The Error page offers you the three additional common controls listed below.
 
-![common controls]({{base_path}}/assets/img/analytics/error/common-controls.png)
+[![common controls]({{base_path}}/assets/img/analytics/error/common-controls.png)]({{base_path}}/assets/img/analytics/error/common-controls.png)
 
 ### API Selector
 Use the **API Selector** to select the APIs for which you want to view analytics. By default, this is set to **All**. You can select one or multiple APIs from this selector and view the aggregated result.
@@ -49,13 +49,13 @@ The following topics walk you through the main features available for monitoring
 This graph shows the error category distribution over time for the selected period. Use the controllers (explained above) to select the APIs to which this content applies.
 When you select multiple APIs, the error count is grouped by the category.
 
-![error category graph]({{base_path}}/assets/img/analytics/error/error-category-graph.png)
+[![error category graph]({{base_path}}/assets/img/analytics/error/error-category-graph.png)]({{base_path}}/assets/img/analytics/error/error-category-graph.png)
 
 #### Errors by Category Table   
 This table provides further information about the errors such as application details and the error reason. For some authentication errors, the application name is not available.
 You can use this table to get more concrete information about the errors of your API management system and then start the problem isolation process.
 
-![error category table]({{base_path}}/assets/img/analytics/error/error-category-table.png)
+[![error category table]({{base_path}}/assets/img/analytics/error/error-category-table.png)]({{base_path}}/assets/img/analytics/error/error-category-table.png)
 
 ### Status Code Mode
 The following topics walk you through the main features available for monitoring errors under **Status Code** mode.
@@ -64,18 +64,18 @@ The following topics walk you through the main features available for monitoring
 This graph shows the distribution of HTTP status codes (of the errors) over time for the selected period. Use the controllers (explained above) to select the APIs and status code groups to which this content applies.
 When you select multiple APIs, the error count is grouped by the status code group.
 
-![error by status code]({{base_path}}/assets/img/analytics/error/error-by-status-code.png)
+[![error by status code]({{base_path}}/assets/img/analytics/error/error-by-status-code.png)]({{base_path}}/assets/img/analytics/error/error-by-status-code.png)
 
 #### Proxy Errors Heatmap
 Proxy errors heatmap shows the HTTP response codes of errors that are sent to the client by the API Gateway. Each status code is shown against the selected APIs.
 The cell color is determined by the number of errors belonging to each status code. The cell color is red for higher numbers and white for lower numbers.
 Use this chart to further drill down on error code groups that you identified with the **Errors by Status Code** graph.
 
-![proxy error heatmap]({{base_path}}/assets/img/analytics/error/proxy-error-heatmap.png)
+[![proxy error heatmap]({{base_path}}/assets/img/analytics/error/proxy-error-heatmap.png)]({{base_path}}/assets/img/analytics/error/proxy-error-heatmap.png)
 
 #### Target Errors Heatmap
 Target errors heatmap shows the HTTP response codes of errors that are received by the API Gateway from the backend. Each status code is shown against the selected APIs.
 The cell color is determined by the number of errors belonging to each status code. The cell color is red for higher numbers and white for lower numbers.
 Use this chart to further drill down on error code groups that you identified with the **Errors by Status Code** graph.
 
-![target error heatmap]({{base_path}}/assets/img/analytics/error/target-error-heatmap.png)
+[![target error heatmap]({{base_path}}/assets/img/analytics/error/target-error-heatmap.png)]({{base_path}}/assets/img/analytics/error/target-error-heatmap.png)

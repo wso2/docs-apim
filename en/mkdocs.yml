@@ -2048,6 +2048,13 @@ plugins:
               'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/apim-architecture/'
               'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/api-analytics-architecture/'
               'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts/'
+              'api-analytics/viewing/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/introduction-to-api-analytics-dashboard/'
+              'api-analytics/viewing/analytics-pages-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-overview-of-api-analytics/'
+              'api-analytics/viewing/analytics-pages-traffic.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-traffic/'
+              'api-analytics/viewing/analytics-pages-errors.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-errors/'
+              'api-analytics/viewing/analytics-pages-latency.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-latency/'
+              'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
+              'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/docs-apim/en/docs/api-analytics/viewing/download-api-analytics-reports/'
 
     # Extra
 extra_css:
