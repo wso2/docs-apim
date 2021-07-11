@@ -125,18 +125,29 @@ enable = false
 
 ### Disabling Servlet Transport
 
-1.  Open the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
-2.  Locate the Connector with port 9763 as shown below:
+Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
 
-    **HTTP Transport Receiver**
+```toml
+[transport.http]
+enable = false
+```
+### Disabling the Websocket Transport
 
-    ``` xml
-    <Connector protocol="org.apache.coyote.http11.Http11NioProtocol" port="9763"
-        ...
-    />
-    ```
+Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
 
-3.  Comment out the HTTP connector section.
+```toml
+[apim.ws]
+enable = false
+```
+
+### Disabling the WebHook Transport
+
+Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
+
+```toml
+[apim.webhooks.http]
+enable = false
+```
 
 ## What's Next?
 
