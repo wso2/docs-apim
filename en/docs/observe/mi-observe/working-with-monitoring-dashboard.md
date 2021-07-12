@@ -120,11 +120,11 @@ Follow the steps given below.
 2.    Execute one of the commands given below.
 
       ```bash tab="On MacOS/Linux"
-      ./micro-intgrator.sh
+      ./micro-integrator.sh
       ```
 
       ```bash tab="On Windows"
-      micro-intgrator.bat
+      micro-integrator.bat
       ```
 
 ### Step 4 - Start the MI Dashboard
