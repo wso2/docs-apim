@@ -421,7 +421,6 @@ nav:
                 #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
                 #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
                 - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
-            - Running on WSO2 Integration Cloud: integrate/develop/deploying-in-integration-cloud.md
             - Advanced Development Tasks:
                 - Injecting Parameters: integrate/develop/injecting-parameters.md
                 - Changing the Endpoint of a Deployed Service: integrate/develop/advanced-development/changing-the-endpoint-of-deployed-service.md
