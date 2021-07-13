@@ -421,7 +421,7 @@
                             "name": "name",
                             "type": "string",
                             "required": true,
-                            "default": "Production and Sandbox",
+                            "default": "Default",
                             "possible": "",
                             "description": "User can add preferred values as the name."
                         },
