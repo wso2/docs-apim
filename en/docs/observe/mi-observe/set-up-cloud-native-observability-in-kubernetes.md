@@ -1,4 +1,8 @@
-# Setting up Cloud-Native Observability on Kubernetes
+---
+title: Set up Cloud-Native Observability on Kubernetes - WSO2 API Manager 4.0.0
+---
+
+# Set up Cloud-Native Observability on Kubernetes Getting Started Guide
 
 Follow the instructions given below to set up a cloud-native observability solution in a Kubernetes environment. 
 
@@ -9,7 +13,7 @@ To streamline the deployment of the cloud native observability solution in Kuber
 - Set up a Kubernetes cluster. For instructions, see [Kubernetes Documentation](https://kubernetes.io/docs/home/).
 - Install Helm in the client machine.
 
-## Setting up the observability deployment
+## Set up the observability deployment
 
 When you deployed the solution on a VM, you first set up the minimum deployment (with metrics monitoring capability) and then added log processing and message tracing capabilities (as add ons). However, when you deploy on Kubernetes, you must first select the required observability capabilities, and then deploy all the related technologies and configurations in one step. 
 
@@ -84,9 +88,9 @@ This deployment installs Jaeger-Operator. To install the Jaeger deployment, foll
     - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.	
     - Be sure to check the performance tests and scaling requirements before including tracing in production deployments . Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
 
-##### Configuring Grafana to visualize tracing information
+##### Configure Grafana to visualize tracing information
 
-The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment), it is not required to add it manually. However to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
+The Helm chart configures the Jaeger data source automatically. Therefore, unlike in Setting up [Cloud Native Observability in a Virtual Machine]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm), it is not required to add it manually. However to configure the links into Jaeger UI from the service-level dashboards, you need to perform the following steps:
 
 1. Access Grafana via `localhost:3000` and sign in.
 2. Navigate to the settings section of the service level dashboard by clicking the cog wheel icon in the top right corner.
@@ -132,13 +136,13 @@ To install the cloud native observability solution with logging and tracing capa
     
 The above step deploys the complete deployment and displays instructions to access the dashboards. This deployment allows you to access Prometheus, Grafana, and Jaeger UIs.
 
-## Setting up the Micro Integrator deployment
+## Set up the Micro Integrator deployment
 
 To integrate with the observability deployment, you are required to perform the following three main tasks in containers:
 
-### Enabling observability for the Micro Integrator
+### Enable observability for the Micro Integrator
 
-- **Engaging the statistics publishing handler**
+- **Enable the statistics publishing handler**
 
     Add the following lines in the `<PATH>/deployment.toml`file in the Kubernetes project *before* creating your micro integrator image.
     
@@ -148,9 +152,13 @@ To integrate with the observability deployment, you are required to perform the 
     class="org.wso2.micro.integrator.observability.metric.handler.MetricHandler"
     ``` 
     
+<<<<<<< HEAD:en/docs/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
     For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns/).
+=======
+    For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]<LINK>.
+>>>>>>> 1f531d7c8 (fixes observability structure):en/docs/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes.md
 
-- **Enabling the metrics endpoint**
+- **Enable the metrics endpoint**
 
     Set an environment variable in the Kubernetes resource definition. You can either add that at the time of creating the project using the wizard. Alternatively, you can open the <PATH>/integration_cr.yaml file in the Kubernetes project and add the following under the spec tag.
     
@@ -160,7 +168,7 @@ To integrate with the observability deployment, you are required to perform the 
         value: "-DenablePrometheusApi=true"
     ```
 
-- **Enabling discovery for Prometheus**
+- **Enable discovery for Prometheus**
 
     This allows Prometheus to discover Micro Integrator targets through service discovery methods. To achieve this, set the following pod level annotations to the Micro Integrator pod.
     
@@ -168,20 +176,20 @@ To integrate with the observability deployment, you are required to perform the 
     - `prometheus.io.wso2/port: "9201"`
     - `prometheus.io.wso2/scrape: "true"`
 
-### Configuring the Micro Integrator to publish logs
+### Configure the Micro Integrator to publish logs
 
 !!! Tip
     This step is only required if you have log processing capabilities in your observability deployment.
     
 Once the above tasks are completed, the container that is being deployed through the integration Kubernetes resource emits metric data, and the Observability deployment can discover and start without further configuration.
 
-**Configuring pods to parse logs through Fluent-bit**
+**Configure pods to parse logs through Fluent-bit**
 
 To do this, set the following pod level annotation to the Micro Integrator pod.
 
 `fluentbit.io/parser: wso2`
 
-### Configuring the Micro Integator to publish tracing information
+### Configure the Micro Integator to publish tracing information
 
 !!! Tip
     This step is only required if you have message tracing capabilities in your observability deployment.

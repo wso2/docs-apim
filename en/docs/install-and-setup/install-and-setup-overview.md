@@ -723,10 +723,10 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment">Setting up Cloud-Native Observability on a VM</a>
+            <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
         </li>
         <li>
-            <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes">Setting up Cloud-Native Observability on Kubernetes</a>
+            <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment">Setting up Classic Observability Deployment</a>
@@ -738,7 +738,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties">Configuring Logs</a>
+                <a href="{{base_path}}/observe/mi-observe/logs/configure-log4j-properties">Configuring Logs</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>

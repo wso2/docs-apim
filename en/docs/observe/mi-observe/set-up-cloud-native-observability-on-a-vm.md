@@ -1,14 +1,18 @@
-# Setting up Cloud-Native Observability on a VM
+---
+title: Set up Cloud-Native Observability on a VM - WSO2 API Manager 4.0.0
+---
 
-Follow the instructions given below to set up a cloud-native observability solution for your Micro Integrator deployment in a VM environment. 
+# Set up Cloud-Native Observability on a VM Getting Started Guide
 
-You need to start with the [minimum deployment](#setting-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#integrating-the-log-processing-add-on) and [message tracing](#integrating-the-message-tracing-add-on) capabilities to your solution.
+Follow the instructions given below to set up a cloud-native observability solution for your Micro Integrator (MI) deployment in a VM environment. 
 
-## Setting up the minimum deployment
+You need to start with the [minimum deployment](#step-1-set-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on) capabilities to your solution.
+
+## Step 1 - Set up the minimum deployment
 
 The minimum cloud-native observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
 
-### Setting up Prometheus
+### Step 1.1 - Set up Prometheus
 
 To set up the Prometheus server:
 
@@ -51,14 +55,14 @@ To set up the Prometheus server:
     
     *Server is ready to receive web requests.*
 
-### Setting up Grafana
+### Step 1.2 - Set up Grafana
 
 To set up the Grafana server:
 
 1.  Download and install [Grafana](https://grafana.com/grafana/download/7.1.1). 
 
     !!! Info
-        Following the instructions (for your operating system) on the Grafana web site.
+        Following the instructions (for your operating system) on the Grafana website.
 
 2. Start you Grafana server.
 
@@ -66,11 +70,11 @@ To set up the Grafana server:
         The procedure to start Grafana depends on your operating system and the installation process. For example, If your operating system is Mac OS and you have installed Grafana via Homebrew, you start Grafana by issuing the `brew services start grafana` command.
 
 3.  Access the Grafana UI from the `localhost:3000` URL. 
-4.  Sign in using `admin` as both the user name and the password.
+4.  Sign in using `admin` as both the username and the password.
 
-### Importing dashboards to Grafana
+### Step 1.3 - Import dashboards to Grafana
 
-The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize EI statistics.
+The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize MI statistics.
 
 You can directly import the required dashboards to Grafana using the <b>dashboard ID</b>:
 
@@ -86,7 +90,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
     The **Import** dialog box opens as follows.
     
-    ![Import Dashboards dialog box]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png)
+    [![Import Dashboards dialog box]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png)
     
 3. Click **Upload.json file**. Then browse for one of the dashboards that you downloaded as a JSON file.
 
@@ -104,7 +108,7 @@ In a [clustered deployment]({{base_path}}/install-and-setup/setup/mi-setup/deplo
 In a clustered deployment, you can view the list of Micro Integrator instances in your Micro Integrator cluster under **MI Nodes** in the **WSO2 Node Metrics** dashboard.
 -->
 
-### Setting up the Micro Integrator
+### Step 1.4 - Set up the Micro Integrator
 
 To enable observability for the Micro Integrator servers, add the following Synapse handler to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder).
 
@@ -118,9 +122,9 @@ After applying the above change, you can start the Micro Integrator with the fol
 -DenablePrometheusApi=true
 ```
 
-## Integrating the Log Processing add-on
+## Step 2 - Optionally, integrate the Log Processing add-on
 
-Once you have successfully set up the [minimum deployment](#setting-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
+Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the log processing add-on to process logs. To achieve this, you can use Grafana Loki-based logging stack.
 
 A Loki-based logging stack consists of three components:
 
@@ -128,9 +132,9 @@ A Loki-based logging stack consists of three components:
 - **loki** is the main server that stores logs and processes queries.
 - **Grafana** queries and displays the logs.
 
-To set up Fluent Bit and Grafana Loki, follow the topics below.
+Follow the steps below to set up Fluent Bit and Grafana Loki:
 
-### Setting up Fluent Bit
+### Step 2.1 - Set up Fluent Bit
 
 To set up Fluent Bit:
 
@@ -217,13 +221,13 @@ To set up Fluent Bit:
 
      `fluent-bit -e <location of out_loki.so file> -c <fluentbit.conf file path>`
      
-When Fluent Bit is successfully installed, you will see a log message.
+     When Fluent Bit is successfully installed, you will see a log message.
     
-### Setting up the Loki server
+### Step 2.2 - Set up the Loki server
 
-After successfully setting up Fluent Bit, you need to set up Grafana Loki. Grafana Loki aggregates and processes the logs from Fluent Bit. 
+Grafana Loki aggregates and processes the logs from Fluent Bit. 
 
-To set up Grafana Loki:
+Follow the instructions below to set up Grafana Loki:
 
 1. Download Loki v1.6.1 from the [`grafana/loki` Git repository](https://github.com/grafana/loki/blob/v1.5.0/docs/installation/local.md).
 
@@ -284,18 +288,22 @@ To set up Grafana Loki:
       retention_period: 0s
     ```
    
- 3. Unzip the file you downloaded in step 1. The directory that is created as a result is referred to as `<GrafanaLoki_Home>` from hereon.
+ 1. Unzip the file you downloaded in step 1. 
+     
+     The directory that is created as a result is referred to as `<GrafanaLoki_Home>` from hereon.
  
- 4. Open a new terminal and navigate to `<GrafanaLoki_Home>`. 
- 5. Execute the following command:
+ 2. Open a new terminal and navigate to `<GrafanaLoki_Home>`. 
+ 3. Execute the following command:
  
-    `./loki-darwin-amd64 -config.file=./loki-local-config.yaml`
+    ```
+    ./loki-darwin-amd64 -config.file=./loki-local-config.yaml
+    ```
 
-### Configuring Grafana to visualize logs
+### Step 2.3 - Configure Grafana to visualize logs
 
-In order to configure Grafana to display logs, you need to add Loki as a datasource in Grafana. 
+Follow the steps given below to add Loki as a datasource in Grafana.
 
-Follow the steps given below.
+You need to do this in order to configure Grafana to display logs.
 
 1. Start you Grafana server.
 
@@ -306,17 +314,19 @@ Follow the steps given below.
 
 3. In the **Data Sources** section, click **Add your first data source**. In the **Add data source** page that appears, click **Select** for **Loki**.
 
-    ![Select Loki as Data Source]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png)
+     [![Select Loki as Data Source]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png){: style="width:80%"}]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png)
 
 4. In the **Add data source** page -> **Settings** tab, update the configurations for Loki.
     
-5. Click **Save & Test**. If the datasource is successfully configured, it is indicated via a message.
+5. Click **Save & Test**. 
+   
+     If the datasource is successfully configured, it is indicated via a message.
 
-## Integrating the Message Tracing add-on
+## Step 3 - Optionally, integrate the Message Tracing add-on
 
-Once you have successfully set up the [minimum deployment](#setting-up-the-minimum-deployment), you need to set up the message tracing add-on using Jaeger.
+Once you have successfully set up the [minimum deployment](#step-1-set-up-the-minimum-deployment), you need to set up the message tracing add-on using Jaeger.
 
-### Setting up Jaeger
+### Step 3.1 - Set up Jaeger
 
 Download and install [Jaeger](https://www.jaegertracing.io/download/).
 
@@ -324,9 +334,9 @@ Download and install [Jaeger](https://www.jaegertracing.io/download/).
 
     - There are some limitations in the Jaeger client, which by default uses a UDP sender as mentioned in [the Jaeger documentation](https://www.jaegertracing.io/docs/1.22/client-libraries/). If the payload size exceeds 65 KB, spans might get lost in the Jaeger console. 
     - Jaeger [sampler types](https://www.jaegertracing.io/docs/1.22/sampling/) can also play a major role in tracing. Depending on the TPS, the sampler type should be carefully chosen.
-    - In general, before including tracing in production deployments it is essential to look into performance tests and scaling requirements. Refer the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/) for details on how to achieve better performance. 
+    - In general, before including tracing in production deployments it is essential to look into performance tests and scaling requirements. For details on how to achieve better performance, see the [Jaeger performance tuning guide](https://www.jaegertracing.io/docs/1.22/performance-tuning/). 
 
-### Setting up the Micro Integrator
+### Step 3.2 - Set up the Micro Integrator
 
 To configure the Micro Integrator to publish tracing information, follow steps given below:
 
@@ -361,7 +371,7 @@ To configure the Micro Integrator to publish tracing information, follow steps g
     ```
     `SERVICE_NAME` is set to `WSO2-SYNAPSE` by default.
 
-### Configuring Grafana to visualize tracing data
+### Step 3.3 - Configure Grafana to visualize tracing data
 
 In order to configure Grafana to display tracing information, follow the steps given below.
 
@@ -371,17 +381,17 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click the **Configuration** icon in the left menu and then click **Data Sources**.
     
-        ![Open Data sources]({{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png)
+        [![Open Data sources]({{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png)
         
     3. Click **Add data source** to open the **Add data source** page where all the available data source types are displayed. Here, click **Jaeger**.
     
-        ![Select Jaeger]({{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png)
+        [![Select Jaeger]({{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png
         
         This opens the **Data Sources/Jaeger** dialog box. 
         
     4. In the **Data Sources/Jaeger** dialog box, enter the URL of the Jaeger query component in the **URL** field in the `http://host:port` format as shown below.
     
-        ![Enter Basic Jaeger Information]({{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png)
+        [![Enter Basic Jaeger Information]({{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png)
         
     5. Click **Save and Test**. If the data source is successfully configured, it is indicated via a message.
   
@@ -392,11 +402,11 @@ In order to configure Grafana to display tracing information, follow the steps g
     
     2. Click **Variable**. This opens the following view.
     
-        ![Variables view]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)
+         [![Variables view]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png)
         
     3. Edit the JaegerHost variable and provide your Jaeger query component hostname and port in the `host:port` syntax as shown below.
     
-        ![constant options]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)
+        [![Constant options]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png)
         
     4. Click **Save**
     
@@ -404,8 +414,8 @@ In order to configure Grafana to display tracing information, follow the steps g
     
 Once Grafana is successfully configured to visualize statistics, you should be correctly redirected to the Jaeger UI from the Response Time widget of each service-level dashboard as shown below.
     
-![jaeger ui]({{base_path}}/assets/img/integrate/-dashboard/jaeger-ui.png)
+[![jaeger ui]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png){: style="width:40%"}]({{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png)
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
+If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards/).

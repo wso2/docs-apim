@@ -117,7 +117,7 @@ Please refer to the reference documentation of the connector for details.
 
 Connector implementations will have DEBUG and TRACE level logs. You can enable them to see in detail what is going on with the connector. 
 
-* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/mi-observe/logs/configuring_log4j_properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
+* See [Configuring Log4j2 Properties section of the documentation]({{base_path}}/observe/mi-observe/logs/configure-log4j-properties/) on how to enable DEBUG logs specifically for a Java package and on how to view the logs.
 
 * To get the package name of the connector implementation, refer the [How to contribute section of the overview page of connector documentation]({{base_path}}/reference/connectors/connectors-overview/#contribute-to-the-connector-project). 
 

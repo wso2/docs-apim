@@ -1,5 +1,5 @@
 ---
-title: API Analytics Getting Started Guide - API Manager Documentation 4.0.0
+title: API Analytics Getting Started Guide - WSO2 API Manager 4.0.0
 ---
 
 # API Analytics Getting Started Guide

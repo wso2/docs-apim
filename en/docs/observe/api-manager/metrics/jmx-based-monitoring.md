@@ -2,11 +2,11 @@
 
 Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX, is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adapters.
 
-## Configuring JMX in a WSO2 product
+## Configure JMX in a WSO2 product
 
 JMX is enabled in WSO2 products by default, which ensures that the JMX server starts automatically when you start a particular product.  Additionally, you can enable JMX separately for the various datasources that are used by the product. Once JMX is enabled, you can log in to the JConsole tool and monitor your product as explained in the [next section](#monitoring-a-wso2-product-with-jconsole).
 
-### Configuring JMX ports for the server
+### Configure JMX ports for the server
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below configuration into 
 `<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can 
@@ -18,7 +18,7 @@ update them as required.
  rmi_server_port = 11111
 ````
 
-### Disabling JMX for the server
+### Disable JMX for the server
 
 You can disable the JMX server for your product by adding the `rmi_server_start` property with value `false` into 
 `<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below.
@@ -27,7 +27,7 @@ You can disable the JMX server for your product by adding the `rmi_server_start`
  rmi_server_start=false
 ````
 
-### Enabling JMX for a datasource
+### Enable JMX for a datasource
 
 You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` XML file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
 
@@ -58,11 +58,11 @@ TODO: Update with TOML configuration with jmxEnabled=true
 </datasource>
 ```
 
-## Monitoring a WSO2 product with JConsole
+## Monitor a WSO2 product with JConsole
 
 JConsole is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 and newer versions. You can find this tool inside your `<JDK_HOME>/bin` directory. 
 
-### Starting the WSO2 product with JMX
+### Start the WSO2 product with JMX
 
 First, start the WSO2 product:
 
@@ -147,7 +147,7 @@ Once the product server is started, you can start the JConsole tool as follows:
 
      [![MBeans]({{base_path}}/assets/img/administer/mbeans.png)]({{base_path}}/assets/img/administer/mbeans.png)
 
-### Using the ServerAdmin MBean
+### ServerAdmin MBean
 
 When you go to the **MBeans** tab in the JConsole, the **ServerAdmin** MBean will be listed under the "org.wso2.carbon" domain as shown below.
 
@@ -175,7 +175,7 @@ The **ServerAdmin** MBean has the following operations:
 
 [![Operations]({{base_path}}/assets/img/administer/operations.png)]({{base_path}}/assets/img/administer/operations.png)
 
-### Using the ServiceAdmin MBean
+### ServiceAdmin MBean
 
 This MBean is used for administering services deployed in your product. Its attributes are as follows:
 
@@ -196,7 +196,7 @@ The operations available in the ServiceAdmin MBean:
 
 ![Operation invocation]({{base_path}}/assets/img/administer/operation-invocation.png)]({{base_path}}/assets/img/administer/operation-invocation.png)
 
-### Using the StatisticsAdmin MBean
+### StatisticsAdmin MBean
 
 This MBean is used for monitoring system and server statistics. Its attributes are as follows:
 
@@ -230,7 +230,7 @@ Operations available in the **Statistics** MBean:
 
 [![Statistics mbean]({{base_path}}/assets/img/administer/statistics-mbean.png)]({{base_path}}/assets/img/administer/statistics-mbean.png)
 
-### Using the DataSource MBean
+### DataSource MBean
 
 If you have [JMX enabled for a datasource connected to the product](#JMX-BasedMonitoring-EnablingJMXforadatasource), you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
 
@@ -240,11 +240,11 @@ If you have [JMX enabled for a datasource connected to the product](#JMX-BasedMo
 
 [![Attributes mbeans]({{base_path}}/assets/img/administer/attributes-mbeans.png)]({{base_path}}/assets/img/administer/attributes-mbeans.png)
 
-### Using product-specific MBeans
+### Product-specific MBeans
 
 The WSO2 product that you are using may have product-specific MBeans enabled for monitoring and managing specific functions. See the documentation for your product for detailed instructions on such product-specific MBeans.
 
-## Monitoring a WSO2 product with Jolokia
+## Monitor a WSO2 product with Jolokia
 
 [Jolokia](https://jolokia.org) is a JMX-HTTP bridge, which is an alternative to JSR-160 connectors. It is an agent-based approach that supports many platforms. In addition to basic JMX operations, it enhances JMX monitoring with unique features like bulk requests and fine-grained security policies.
 
@@ -259,10 +259,10 @@ Follow the steps below to use Jolokia to monitor a WSO2 product.
 
 3.  Start the WSO2 product server.
 
-Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
+     Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
 
--   List all available MBeans: <http://localhost:9763/jolokia/list> (Change the appropriate hostname and port accordingly.)
--   WSO2 ESB MBean: <http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections>
--   Reading Heap Memory: <http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage>
+     -   List all available MBeans: <http://localhost:9763/jolokia/list> (Change the appropriate hostname and port accordingly.)
+     -   WSO2 ESB MBean: <http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections>
+     -   Reading Heap Memory: <http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage>
 
-For more information on the JMX MBeans that are available in WSO2 products, see [Monitoring a WSO2 product with JConsole](#using-the-serviceadmin-mbean).
+     For more information on the JMX MBeans that are available in WSO2 products, see [Monitoring a WSO2 product with JConsole](#using-the-serviceadmin-mbean).

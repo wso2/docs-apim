@@ -1,11 +1,16 @@
-# Monitoring Audit Logs
+---
+title: Monitor Audit Logs - WSO2 API Manager 4.0.0
+---
+
+# Monitor Audit Logs
 
 Auditing is a primary requirement when it comes to monitoring production servers. For examples, DevOps need to have a clear mechanism for identifying who did what, and to filter possible system violations or breaches.
 Audit logs or audit trails contain a set of log entries that describe a sequence of actions that occurred over a period of time. Audit logs allow you to trace all the actions of a single user, or all the actions or changes introduced to a certain module in the system etc. over a period of time. For example, it captures all the actions of a single user from the first point of logging in to the server. 
 By default the audit logs that get created when running WSO2 API-M are stored in the `audit
 .log` file, which is located in the `<API-M_HOME>/repository/logs` directory.
 
-##Configuring Audit Logs
+## Configure Audit Logs
+
 Audit logs are enabled by default in WSO2 API Manager (WSO2 API-M) via the following configurations, which are in the `<API-M-HOME>/repository/conf/log4j2.properties` file. 
 
     ``` 
@@ -53,5 +58,4 @@ In WSO2 API-M, audit logs can be enabled for the following user actions in the P
 | Delete an application           | `[2017-06-07 22:45:59,093]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\"}"}`|
 | Subscribe to an application     | `[2017-06-07 22:36:48,826]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"DefaultApplication\",\"tier\":\"Gold\",\"provider\":\"admin\",\"api_name\":\"PhoneVerification\",\"application_id\":1}"}` |
 | Unsubscribe from an application | `[2017-06-07 22:38:08,277]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Subscription","info":"{\"application_name\":\"DefaultApplication\",\"provider\":\"admin\",\"api_name\":\"PhoneVerification\",\"application_id\":1}"}`|
-
 

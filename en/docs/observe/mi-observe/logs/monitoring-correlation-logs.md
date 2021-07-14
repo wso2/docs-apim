@@ -252,4 +252,4 @@ The detail recorded in a log entry is described below.
 
 ## Configuring correlation logs (Optional)
 
-See the [configuring correlation logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/#correlations-logs) section for details.
+See the [configuring correlation logs]({{base_path}}/observe/mi-observe/logs/configure-log4j-properties/#correlations-logs) section for details.

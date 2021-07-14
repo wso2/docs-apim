@@ -1282,7 +1282,7 @@ WSO2 ESB 5.0.0 (and all ESB versions prior to EI 6.6.0) use log4j. In the Micro 
 
 See the topics given below to configure log4j2 in the Micro Integrator.
 
--   [Log4j2 properties]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties)
+-   [Log4j2 properties]({{base_path}}/observe/mi-observe/logs/configure-log4j-properties)
 -   [Correlation logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/)
 -   [Wire logs]({{base_path}}/integrate/develop/using-wire-logs)
 -   [Service-level logs]({{base_path}}/integrate/develop/enabling-logs-for-services)
@@ -1322,7 +1322,7 @@ Follow the instructions given below if you have used a **custom log4j component*
         <commons.logging.version.range>[1.2.0,2.0.0)</commons.logging.version.range>
         ```
 
-4.  Follow the instructions on [configuring log4j2]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) to register the Appenders and Loggers.
+4.  Follow the instructions on [configuring log4j2]({{base_path}}/observe/mi-observe/logs/configure-log4j-properties) to register the Appenders and Loggers.
 
 ### Migrating encrypted passwords
 

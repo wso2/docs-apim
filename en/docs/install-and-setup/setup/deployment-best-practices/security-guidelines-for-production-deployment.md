@@ -472,7 +472,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/">configuring logs</a> in the Micro Integrator.</p>
+            <p>Read about <a href="{{base_path}}/observe/mi-observe/logs/configure-log4j-properties/">configuring logs</a> in the Micro Integrator.</p>
          </td>
       </tr>
       <tr class="even">

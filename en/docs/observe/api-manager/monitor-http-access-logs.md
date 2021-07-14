@@ -1,14 +1,20 @@
-# Monitoring HTTP Access Logs
+---
+title: Monitor HTTP Access Logs - WSO2 API Manager 4.0.0
+---
+
+# Monitor HTTP Access Logs
 
 HTTP access logs help you monitor your application's usage with information such as the persons who access it, how many hits it received, what the errors are, etc. This information is useful for troubleshooting errors. 
 
 In API Manager, access logs can be configured for both servlet transport and PassThrough or NIO transports in API Gateway.
 
--   [Configuring access logs for the HTTP Servlet transport](#configuring-access-logs-for-the-http-servlet-transport)
--   [Configuring access logs for PassThrough or NIO transports in API Gateway](#configuring-access-logs-for-passthrough-or-nio-transports-in-api-gateway)
+- [Monitor HTTP Access Logs](#monitor-http-access-logs)
+  - [Configure access logs for the HTTP Servlet transport](#configure-access-logs-for-the-http-servlet-transport)
+  - [Configure access logs for PassThrough or NIO transports in API Gateway](#configure-access-logs-for-passthrough-or-nio-transports-in-api-gateway)
+    - [Supported log pattern formats for the PassThrough transport](#supported-log-pattern-formats-for-the-passthrough-transport)
 
 
-##Configuring access logs for the HTTP Servlet transport
+## Configure access logs for the HTTP Servlet transport
 
 In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analyzing operational/admin-level access details. 
 
@@ -27,7 +33,7 @@ Following is a sample of access log entries which can be monitored via `<APIM_HO
 
 As the runtime of WSO2 API Manager   is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport:
 
-##Configuring access logs for PassThrough or NIO transports in API Gateway
+## Configure access logs for PassThrough or NIO transports in API Gateway
 
 By default, access logs related to service/API invocation are disabled for performance reasons in the above products. You should enable these access log only for troubleshooting errors. 
 
@@ -181,7 +187,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 
 6.  Invoke an API in API Gateway. Then, navigate to `<APIM_HOME>/repository/logs/` directory and you will see a newly created log file called `http_gw.log` which contain API invocation related access logs.
 
-###Supported log pattern formats for the PassThrough transport
+### Supported log pattern formats for the PassThrough transport
 
 <table>
 <thead>

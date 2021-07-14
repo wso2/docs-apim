@@ -1,4 +1,8 @@
-# Viewing Cloud Native Observability Dashboards
+---
+title: View Cloud Native Observability Statistics - WSO2 API Manager 4.0.0
+---
+
+# View Cloud Native Observability Statistics
 
 Let's use the **dashboards** from the cloud-native observability deployment to monitor **statistics** from your integration artifacts.
 
@@ -8,21 +12,20 @@ Set up the suitable cloud-native observability deployment. The dashboards descri
 
 See the following topics for information and instructions:
 
--	Learn about the [observability deployment strategy]({{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy).
--	Setting up [cloud-native observability for a VM environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment).
--	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes).
+-	Setting up [cloud-native observability for a VM environment]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm).
+-	Setting up [cloud-native observability for a Kubernetes environment]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes).
 
 ## Cluster dashboard
 
 Cluster dashboards visualize the overall statistics relating to your Micro Integrator cluster. We can view information related to our MI cluster. 
 
-![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)
+[![Cluster Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-cluster-dashboard.jpg)
 
 ### Downloading the dashboard
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Cluster Metrics](https://grafana.com/grafana/dashboards/12783).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment).
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment on a VM]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm).
 
 ### Statistic types
 
@@ -64,13 +67,13 @@ This dashboard serves the following purposes:
 
 This displays statistics specific to a selected node.
 
-![Node Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.jpg)
+[![Node Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.jpg)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-node-metrics.jpg)
 
 ### Downloading the dashboard
 
 You can download the dashboard from the [Grafana Labs - WSO2 Integration Node Metrics](https://grafana.com/grafana/dashboards/12887).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment).
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment on a VM]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm).
 
 ### Statistic types
 
@@ -111,13 +114,13 @@ The purposes of this dashboard are as follows:
 
 In the Proxy service dashboard, we can view information related to a specific Proxy service.
 
-![Proxy Service Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-proxy-services-dashboard.png)
+[![Proxy Service Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-proxy-services-dashboard.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-proxy-services-dashboard.png)
 
 ### Downloading the dashboard
 
 You can download the dashboard from the [Grafana Labs - WSO2 Proxy Service Metrics](https://grafana.com/grafana/dashboards/12889).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment).
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment on a VM]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm).
 
 ### Statistic types
 
@@ -153,13 +156,13 @@ The purposes of this dashboard is as follows:
 
 This dashboard displays overall statistics related to a specific API. 
 
-![API Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-api-services-dashboard.png)
+[![API Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-api-services-dashboard.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-api-services-dashboard.png)
 
 ### Downloading the dashboard
 
 You can download the dashboard from the [Grafana Labs - WSO2 API Metrics](https://grafana.com/grafana/dashboards/12888).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment on a VM]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm)
 
 ### Statistic types
 
@@ -193,13 +196,13 @@ The following is the list of widgets displayed in this dashboard.
 
 At a given time, the Inbound endpoint dashboard displays the overall statistics related to a selected endpoint. we can view information related to a specific Inbound endpoint. We can download this dashboard from here. In this dashboard, it will show us Up Time, All Request Count, Successful Request Count, Error Count, Error Percentage, Deployed Node Count, Request Rate, Error Rate and Response Time.
 
-![Inbound Endpoint Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
+[![Inbound Endpoint Metrics Dashboard]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-inbound-endpoint-metrics-dashboard.png)
 
 ### Downloading the dashboard
 
 You can download the dashboard from the [Grafana Labs - WSO2 Inbound Endpoint Metrics](https://grafana.com/grafana/dashboards/12890).
 
-For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment)
+For instructions to set up this dashboard, see [Setting Up the Cloud Native Observability Deployment on a VM]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm)
 
 ### Statistic types
 

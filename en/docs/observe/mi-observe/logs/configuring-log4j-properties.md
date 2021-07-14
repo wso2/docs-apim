@@ -1,4 +1,8 @@
-# Configuring Logs
+---
+title: Configure Logs - WSO2 API Manager 4.0.0
+---
+
+# Configure Logs
 
 ## Introduction
 
@@ -75,7 +79,7 @@ appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CAR
 
 Once the appenders are defined, a logger can refer the appender by using the `appenderRef.APPENDER_NAME.ref` element. You can also attach several appenders to one logger. For example, see how the [<b>root logger</b>](#root-logs) is linked to three appenders. Also, see how [other loggers](#configuring-log4j2-logs) in the `log4j2.properties` file are configured to use appenders.
 
-## Configuring Log4j2 Logs
+## Configure Log4j2 Logs
 
 The list below shows some of the main loggers (excluding the [root logger](#root-logger)) that are configured by default in the Micro Integrator. Open the `log4j2.properties` file to see the complete list.
 
@@ -159,7 +163,7 @@ Listed below are the default log destinations (appenders) used by the root logge
 
 ### Service Logs
 
-This logger generates logs for services deployed in the Micro Integrator. It refers the `SERVICE_LOGFILE` appender and prints logs to the `MI_HOME/repository/logs/wso2-mi-service.log` file.
+This logger generates logs for services deployed in the Micro Integrator. It refers the `SERVICE_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-service.log` file.
 
 !!! Note
     If you want to have separate log files for individual services, you need to add loggers for each service and then specify appenders for the loggers. Note that the service name has to be suffixed to `SERVICE_LOGGER` as follows:
@@ -194,7 +198,7 @@ appender.SERVICE_LOGFILE.strategy.max = 20
 
 ### API Logs
 
-This logger generates logs for APIs deployed in the Micro Integrator. It refers the `API_LOGFILE` appender and prints logs to the `MI_HOME/repository/logs/wso2-mi-api.log` file.
+This logger generates logs for APIs deployed in the Micro Integrator. It refers the `API_LOGFILE` appender and prints logs to the `<MI_HOME>/repository/logs/wso2-mi-api.log` file.
 
 !!! Note
     If you want to have separate log files for individual APIs, you need to add loggers for each API and then specify appenders for the loggers. Note that the service name has to be suffixed to `SERVICE_LOGGER` as follows:
@@ -375,7 +379,7 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
 
 See the instructions on [using wire logs to debug]({{base_path}}/integrate/develop/using-wire-logs) your integration solution during development.
 
-## Configuring HTTP Access Logs
+## Configure HTTP Access Logs
 
 Access logs related to service/API invocations are enabled by default in the Micro Integrator. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
 
@@ -384,7 +388,7 @@ By default, access logs are printed to the `http_acces_.log` file (stored in the
 -   <b>Logger Name</b>: PassThroughAccess
 -   <b>Logger Class</b>: org.apache.synapse.transport.http.access
 
-### Customizing the Access Log Format
+### Customize the Access Log Format
 
 You can customize the format of this access log by changing the following property values in the `MI_HOME/conf/access-log.properties` configuration file. If this file does not exist in the product by default, you can create a new file.
 
@@ -609,7 +613,7 @@ You can customize the format of this access log by changing the following proper
 </tbody>
 </table>
 
-## Updating the Log4j2 Log Level
+## Update the Log4j2 Log Level
 
 You can <b>dynamically</b> update the log level for a specific logger by using the Micro Integrator [dashboard](#using-the-dashboard) or [CLI](#using-the-cli). If you change the wire log configuration directly from the `log4j2.properties` file (without using the dashboard or CLI), the Micro Integrator needs to be restarted for the changes to become effective.
 
@@ -626,7 +630,7 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
     | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
     | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.                                                                                                                                                    |
 
-### Using the dashboard
+### View logs via the dashboard
 
 1.  Sign in to the [Micro Integrator dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard).
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Logging Management</b> window.
@@ -635,14 +639,14 @@ You can <b>dynamically</b> update the log level for a specific logger by using t
 
 3.  Use the <b>Search</b> option to find the required logger, and change the log level as shown above.
 
-### Using the CLI
+### View logs via the CLI
 
 1.  Download and set up the [API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 2.  Issue commands to view logs for the required Micro Integrator artifacts. For more information, see [Managing Integrations with apictl]({{base_path}}/install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl).
 
 
-## Updating the Threshold Level
+## Update the Threshold Level
 
 The threshold value filters log entries based on the [log level](#updating-the-log4j2-log-level). This value is set for the log appender in the `log4j2.properties` file. For example, a threshold set to 'WARN' allows the log entry to pass into the appender. If its level is 'WARN', 'ERROR' or 'FATAL', other entries will be discarded. This is the minimum log level at which you can log a message.
 
@@ -652,7 +656,7 @@ Shown below is how the log level is set to DEBUG for the `CARBON_LOGFILE` append
 appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 ```
 
-## Updating the Log4j2 Log Pattern
+## Update the Log4j2 Log Pattern
 
 The log pattern defines the output format of the log file. This is the layout pattern that describes the log message format.
 
@@ -682,7 +686,7 @@ You can hide the 'Current Params' in the printed logs by passing the following s
 -Ddss.disable.current.params=true \
 ```
 
-## Using Custom Log Appenders
+## Use Custom Log Appenders
 
 Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
 

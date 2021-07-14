@@ -1,3 +1,7 @@
+---
+title: Micro Integrator Observability Overview - WSO2 API Manager 4.0.0
+---
+
 # Micro Integrator Observability Overview
 
 This section explains how to set up the observability solutions and perform management tasks for the Micro Integrator.
@@ -6,15 +10,15 @@ This section explains how to set up the observability solutions and perform mana
 
 There are two observability solutions for the Micro Integrator; The cloud-native observability deployment and the classic observability deployment.
 
-<img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/>
+<a href="{{base_path}}/assets/img/integrate/observability/observability-mi.png"><img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="650" alt="Observability Solution"/></a>
 
 The cloud-native and classic observability solution are suitable for the following combination of operations.
 
 <table>
     <tr>
-        <th>Observability solution</th>
-        <th>Operations</th>
-        <th>Description</th>
+        <th><b>Observability solution</b></th>
+        <th><b>Operations</b></th>
+        <th><b>Description</b></th>
     </tr>
     <tr>
         <td>Kubernetes cloud-native solution</td>
@@ -53,7 +57,7 @@ The cloud-native and classic observability solution are suitable for the followi
     </tr>
 </table>
 
-* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
+* For instructions to set up the above observability solutions, see [Setting Up the cloud-native observability solutions]({{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm) or [Setting up classic observability solution]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
 * For more information on how to use the cloud-native solution, see [Cloud Native Observability Solution]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
 

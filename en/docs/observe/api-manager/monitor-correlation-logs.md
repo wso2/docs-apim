@@ -1,4 +1,8 @@
-# Working with Observability
+---
+title: Monitor Correlation Logs - WSO2 API Manager 4.0.0
+---
+
+# Monitor Correlation Logs
 
 Observability in WSO2 API Manager (WSO2 API-M) is really important to debug issues in a short period. WSO2 API-M facilitates observability by logging the following important points of the system with the time taken to achieve them. 
 
@@ -11,23 +15,22 @@ Furthermore, when observability is enabled in WSO2 API-M, a random correlation I
 !!! note
     Observability is not enabled by default as it slightly impacts WSO2 API Manager's performance.
 
-### Enabling observability on WSO2 API-M
+# Enabling correlation logs
 
-Enabling observability is simple in the new API Manager. All that needs to be done is to find the following system property in the product startup script (stored in the `<API-M_HOME>/bin/` directory) and set it to true. By default, this is set to false.
+Enabling observability is simple in the new API Manager. All that needs to be done is to find the following system property in the product startup script (stored in the `<API-M_HOME>/bin/` directory) and set it to `true`. By default, this is set to `false`.
+
 ```java
 -DenableCorrelationLogs=true
 ```
 
 !!! tip
-    Alternatively, observability can be enabled at the time of starting the WSO2 API-M server as follows:
+    Alternatively, you can enable observability at the time of starting the WSO2 API-M server as follows:
     
-    Linux/Mac OS
-    ```java
+    ```java tab="Linux/Mac OS"
     sh api-manager.sh -DenableCorrelationLogs=true start
     ```
 
-    Windows
-    ```java
+    ```java tab="Windows"
     api-manager.bat --run -DenableCorrelationLogs=true start
     ```
 

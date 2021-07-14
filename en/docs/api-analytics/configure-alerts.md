@@ -1,5 +1,5 @@
 ---
-title: Configuring Alerts for API Analytics - API Manager Documentation 4.0.0
+title: Configuring Alerts for API Analytics - WSO2 API Manager 4.0.0
 ---
 
 # Configuring Alerts for API Analytics
