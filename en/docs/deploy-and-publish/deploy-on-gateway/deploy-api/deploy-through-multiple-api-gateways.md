@@ -117,28 +117,28 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
      Make sure to start instance 1 first before starting the other two instances.
 
 7.  Sign in to the API Publisher in the **first** WSO2 API-M instance and click to edit an API.
-    
-    <img src="{{base_path}}/assets/img/learn/pizzashak-api-publisher.png" title="Pizza Shack Publisher" width="450" height="550" alt="Pizza Shack Publisher"/>
+
+    <a href="{{base_path}}/assets/img/learn/pizzashak-api-publisher.png"><img src="{{base_path}}/assets/img/learn/pizzashak-api-publisher.png" title="Pizza Shack Publisher" width="450" height="550" alt="Pizza Shack Publisher"/></a>
      
 8.  Click **Deployments** and click **Deploy New Revision**.
 
-    <img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="Api Revisions Multiple Gateways" width="900" height="500" alt="Api Revisions Multiple Gateways"/>
+    <a href="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png"><img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="Api Revisions Multiple Gateways" width="900" height="500" alt="Api Revisions Multiple Gateways"/></a>
     
     Note that the two Gateway environments are listed there
 
-    <img src="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png" title="Multiple Gateways Dialog" width="550" height="550" alt="Multiple Gateways Dialog"/>
+    <a href="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png"><img src="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog.png" title="Multiple Gateways Dialog" width="550" height="550" alt="Multiple Gateways Dialog"/></a>
 
 9.  Select both gateways and click deploy.
 
-    <img src="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog-filled.png" title="Filled Multiple Gateways Dialog" width="550" height="550" alt="Filled Multiple Gateways Dialog"/>
+    <a href="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog-filled.png"><img src="{{base_path}}/assets/img/learn/multiple-gateways-revision-dialog-filled.png" title="Filled Multiple Gateways Dialog" width="550" height="550" alt="Filled Multiple Gateways Dialog"/></a>
 
 10. Sign in to the Developer Portal (of the **first** instance) and click on the respective API to open it.
 
-    <img src="{{base_path}}/assets/img/learn/pizzashack-api-devportal.png" title="Dev Portal Pizza Shack" width="450" height="550" alt="Dev Portal Pizza Shack"/>
+    <a href="{{base_path}}/assets/img/learn/pizzashack-api-devportal.png"><img src="{{base_path}}/assets/img/learn/pizzashack-api-devportal.png" title="Dev Portal Pizza Shack" width="450" height="550" alt="Dev Portal Pizza Shack"/></a>
      
     In the **Overview** tab that corresponds to the API, note that it has two sets of URLs for the two Gateway instances:
 
-    <img src="{{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png" title="Multiple Gateways Deploy Overview" width="700" height="400" alt="Multiple Gateways Deploy Overview"/>
+    <a href="{{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png"><img src="{{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png" title="Multiple Gateways Deploy Overview" width="700" height="400" alt="Multiple Gateways Deploy Overview"/></a>
 
 You have successfully published an API to the API Developer Portals through multiple Gateway environments.
 
