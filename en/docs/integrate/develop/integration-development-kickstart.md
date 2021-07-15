@@ -8,7 +8,7 @@ deploying them in your production environment.
 
 ## What you'll build
 
-We are going to use the same use case we considered in the [Quick Start Guide](../../overview/quick-start-guide). 
+We are going to use the same use case we considered in the [Quick Start Guide]({{base_path}}/get-started/integration-quick-start-guide). 
 In the quick start guide, we just executed the already-built integration scenario. 
 Here, we are going to build the integration scenario from scratch. Let’s recall the 
 business scenario:

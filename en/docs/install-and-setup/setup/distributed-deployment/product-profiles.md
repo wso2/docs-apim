@@ -31,7 +31,7 @@ Listed below are the startup commands for starting each of the API-M profiles.
         <td>
             Gateway Profile
         </td>
-        <td><pre><code>-Dprofile=gateway</code></pre></td>
+        <td><pre><code>-Dprofile=gateway-worker</code></pre></td>
     </tr>
     <tr>
         <td>
@@ -43,7 +43,7 @@ Listed below are the startup commands for starting each of the API-M profiles.
         <td>
             Traffic Manager Profile
         </td>
-        <td><pre><code>Dprofile=traffic-manager</code></pre></td>
+        <td><pre><code>-Dprofile=traffic-manager</code></pre></td>
     </tr>
 </table>
 

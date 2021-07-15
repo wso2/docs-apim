@@ -24,13 +24,13 @@ WSO2 products are shipped with scripts for creating the required tables in all t
 
 **Changing the default database:** You simply have to set up new physical databases, point the product server to the new databases by updating the relevant configuration files, and create the required tables using the scripts provided in the product pack. See the following topics for instructions:
 
--   [Changing to MySQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql)
--   [Changing to Oracle]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle)
--   [Changing to MSSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql)
--   [Changing to Oracle RAC]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac)
--   [Changing to PostgreSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql)
--   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
--   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
+-   [Changing to MySQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql)
+-   [Changing to Oracle]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle)
+-   [Changing to MSSQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql)
+-   [Changing to Oracle RAC]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac)
+-   [Changing to PostgreSQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql)
+-   [Changing to IBM DB2]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
+-   [Changing to MariaDB]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
 
 !!! Note
 

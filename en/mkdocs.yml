@@ -51,7 +51,7 @@ nav:
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
-          - Architecture: get-started/architecture.md
+          - Architecture: get-started/apim-architecture.md
           - Quick Start Guide:
                 - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
                 - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
@@ -289,6 +289,9 @@ nav:
                 - Custom Claims Mapping: deploy-and-publish/deploy-on-gateway/choreo-connect/support-custom-claims-mapping.md
                 - Configure Multiple Gateways with Choreo Connect: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-multiple-gateways-with-choreo-connect.md
                 - Configure Analytics: deploy-and-publish/deploy-on-gateway/choreo-connect/configure-analytics.md
+                - Troubleshooting:
+                    - Enabling Debug Logs: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/adding-debug-logs.md
+                    - Error Handling: deploy-and-publish/deploy-on-gateway/choreo-connect/troubleshooting/error-handling.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
@@ -418,7 +421,6 @@ nav:
                 #- Monitoring Service-Level Logs: integrate/develop/enabling-logs-for-services.md
                 #- Monitoring API-Level Logs: integrate/develop/enabling-logs-for-api.md
                 - Endpoint Tracing: integrate/develop/endpoint-trace-logs.md
-            - Running on WSO2 Integration Cloud: integrate/develop/deploying-in-integration-cloud.md
             - Advanced Development Tasks:
                 - Injecting Parameters: integrate/develop/injecting-parameters.md
                 - Changing the Endpoint of a Deployed Service: integrate/develop/advanced-development/changing-the-endpoint-of-deployed-service.md
@@ -738,24 +740,28 @@ nav:
                     - API Gateway: api-analytics/gateways/configure-synapse-gateway.md
                     #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
             - Viewing API Analytics:
-                - Introduction: api-analytics/viewing/analytics-pages-introduction.md
-                - Overview: api-analytics/viewing/analytics-pages-overview.md
-                - Traffic: api-analytics/viewing/analytics-pages-traffic.md
-                - Errors: api-analytics/viewing/analytics-pages-errors.md
-                - Latency: api-analytics/viewing/analytics-pages-latency.md
+                - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
+                - Overview: api-analytics/viewing/view-overview-of-api-analytics.md
+                - Traffic: api-analytics/viewing/view-api-analytics-on-traffic.md
+                - Errors: api-analytics/viewing/view-api-analytics-on-errors.md
+                - Latency: api-analytics/viewing/view-api-analytics-on-latency.md
                 #- TODO Cache: api-analytics/viewing/analytics-pages-cache.md
-                - Devices: api-analytics/viewing/analytics-pages-devices.md
-                - Alerts: api-analytics/viewing/analytics-pages-alerts.md
-                - Download Reports: api-analytics/viewing/analytics-pages-report.md
+                - Devices: api-analytics/viewing/view-analytics-on-devices.md
+                - Alerts: api-analytics/viewing/view-api-analytics-on-alerts.md
+                - Download Reports: api-analytics/viewing/download-api-analytics-reports.md
                 #- Usecases:
                     #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
                 #- Quality of Service: api-analytics/qos.md
                 #- Analytics API Guide: api-analytics/analytics-api-guide.md
                 #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
-            - Architecture: api-analytics/architecture.md
+            - Architecture: api-analytics/api-analytics-architecture.md
+        - MI Analytics:
+            - Set up: mi-analytics/setting-up-mi-analytics.md
+            - Access the Portal: mi-analytics/using-the-analytics-dashboard.md
     - Observe:
         - Observability Overview: observe/observe-overview.md
-        - API Manager Observability:
+        - API Manager:
+            #- Enabling Observability: 
             - Monitoring Logs:
                 - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
                 - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
@@ -767,15 +773,13 @@ nav:
             - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
             - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
-        - Micro Integrator Observability:
+        - Micro Integrator Profile:
             - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
             - Using the Management API: observe/mi-observe/working-with-management-api.md
             - Observability:
                 - Cloud Native Observability Solution:
                   - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
-                - Classic Observability Solution:
-                  - Using the EI Analytics Dashboard: observe/mi-observe/using-the-analytics-dashboard.md
                 - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
                 - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
             - Metrics:
@@ -785,7 +789,7 @@ nav:
                 - Starting TCPMon: observe/mi-observe/tcp/starting_tcp_mon.md
                 - Message Monitoring with TCPMon: observe/mi-observe/tcp/message_monitoring_with_tcpmon.md
                 - Other Usages of TCPMon: observe/mi-observe/tcp/other_usages_of_tcpmon.md
-        - Monitoring the Streaming Integrator:
+        - Streaming Integrator Profile:
               - Configuring Grafana Dashboards: observe/si-observe/setting-up-grafana-dashboards.md
               - Managing Grafana Dashboards: observe/si-observe/managing-grafana-dashboards.md
               - Monitoring Streaming Components:
@@ -1006,7 +1010,12 @@ nav:
                 - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
                 - Setting up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
                 - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
-                - Redis Reference: reference/connectors/redis-connector/redis-connector-reference.md
+                - 2.2.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
+                - 2.1.x:
+                      - Redis Connector Reference: reference/connectors/redis-connector/2.1.x/redis-connector-reference.md
+                - 1.0.1:
+                      - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
             - Salesforce Connectors:
                 - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
                 - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
@@ -1207,6 +1216,7 @@ nav:
               - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+              - Configuring XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
               - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
         - FAQ: reference/faq.md
@@ -1372,7 +1382,6 @@ nav:
                     - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
                     - Setting up Cloud-Native Observability for a VM Deployment: install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md
                     - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
-                    - Setting up Classic Observability Deployment: install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md
                     - Configuring Logs:
                         - Enabling Logs for a Component: install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
@@ -1683,19 +1692,12 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/'
               'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
               'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
-              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/overview/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql.md':    'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac/'
               'install-and-setup/product-compatibility.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/reference/product-compatibility/'
               'install-and-setup/performance-tuning-and-test-results/tuning-performance.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/tuning-performance/'
               'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
               'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
               'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.2.0/design/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
+              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/setting-up-databases/overview/'              
               'install-and-setup/install/installing-the-product/installing-the-product.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
               'install-and-setup/install/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
               'install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
@@ -1973,7 +1975,7 @@ plugins:
               'learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/'
               'learn/consume-api/collaboration/use-the-community-features.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/collaboration/interact-with-the-community'
               'learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/generate-sdks-in-dev-portal/'
-              'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md' : 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
+              'learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/generating-sdks/write-a-client-application-using-the-sdk/'
               'learn/user-account-management/recover-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/recover-password/'
               'learn/user-account-management/change-dev-portal-password.md': 'https://apim.docs.wso2.com/en/4.0.0/consume/user-account-management/change-dev-portal-password/'
               'develop/product-apis/overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/product-apis/overview/'
@@ -2040,6 +2042,19 @@ plugins:
               #'observe/api-manager-analytics/querying-apim-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/analytics-api-guide/'
               #'observe/api-manager-analytics/troubleshooting-analytics.md': 
               'observe/api-manager-analytics/overview-of-api-analytics.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/getting-started-guide/'
+              'observe/mi-observe/using-the-analytics-dashboard.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/using-the-analytics-dashboard/'
+              'install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/mi-analytics/setting-up-mi-analytics/'
+              'get-started/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/get-started/apim-architecture/'
+              'api-analytics/architecture.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/api-analytics-architecture/'
+              'api-analytics/viewing/analytics-pages-alerts.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-alerts/'
+              'api-analytics/viewing/analytics-pages-introduction.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/introduction-to-api-analytics-dashboard/'
+              'api-analytics/viewing/analytics-pages-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-overview-of-api-analytics/'
+              'api-analytics/viewing/analytics-pages-traffic.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-traffic/'
+              'api-analytics/viewing/analytics-pages-errors.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-errors/'
+              'api-analytics/viewing/analytics-pages-latency.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-latency/'
+              'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
+              'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
+              'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
 
     # Extra
 extra_css:

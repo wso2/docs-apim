@@ -8,6 +8,12 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 -   [Using the JWT grant](#using-the-jwt-grant)
 -   [JWT Bearer Grant](#jwt-bearer-grant)
 
+!!! Note
+    Before you begin, execute the following script in the relevant database. This is done to include a missing column that is required when working with JWT.
+    ```
+    ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD IS_CONSENTED BOOLEAN DEFAULT TRUE
+    ```
+
 ## Configuring the JWT grant
 
 ### Step 1 - Obtain a JWT from an external Identity Provider 
@@ -148,7 +154,7 @@ Now you have a registered identity provider and as well as a service provider wi
         If the tenant domain is `wso2.com`, the access token endpoint will be as follows:
 
         ``` java
-        Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
+        Access Token Endpoint: https://localhost:9443/oauth2/token?tenantDomain=wso2.com
         ```
 
     You would now have received the response from the token endpoint of WSO2 API-M. The response would contain the access token, refresh token, expiry time, scope and token type.

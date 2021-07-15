@@ -340,4 +340,4 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 ## What's Next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [Jira Connector Configuration](jira-connector-config.md) documentation for all operation details of the connector.
+* To customize this example for your own scenario, see [Jira Connector Configuration]({{base_path}}/reference/connectors/jira-connector/jira-connector-config) documentation for all operation details of the connector.

@@ -27,21 +27,21 @@ The following section describes the flow involved in exchanging a Kerberos ticke
     Format 1 :
     
     ``` java tab="Format"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ``` 
     
     ``` java tab="Example"
-    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```   
 
     Format 2 :
 
     ``` java tab="Format"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
     
     ``` java tab="Example"
-    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```  
 
     **cURL Response**

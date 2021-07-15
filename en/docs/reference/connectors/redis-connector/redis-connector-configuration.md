@@ -8,7 +8,8 @@ Before you start configuring the Redis connector, you need the WSO2 integration 
 
 To configure the Redis connector, download the following client libraries from the given locations and copy to the `<PRODUCT_HOME>/lib` directory.
 
-* [jedis-2.1.0.jar](https://mvnrepository.com/artifact/redis.clients/jedis/2.1.0)
+* For Redis connector v1.0.1 - [jedis-2.1.0.jar](https://mvnrepository.com/artifact/redis.clients/jedis/2.1.0)
+* For Redis connector v2.1.x and above - [jedis-3.6.0.jar](https://mvnrepository.com/artifact/redis.clients/jedis/3.6.0)
 
 ## Setting up the Redis server 
 
