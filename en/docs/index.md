@@ -15,6 +15,9 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
+        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
+        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
     </div></br></br>
     <div class="section02">
         <h3>Quick Start Guide</h3>
@@ -69,24 +72,21 @@ template: templates/single-column.html
         <h3>APIM Scenarios</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario1-create-rest-api';">
-                #![Create REST API from an OpenAPI Definition]({{base_path}}/assets/img/home/landing-page/create-rest-api-from-an-openapi-definition.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/create-rest-api-from-an-openapi-definition.svg" width:25%" alt="Create REST API from an OpenAPI Definition">
+                <img src="{{base_path}}/assets/img/home/landing-page/create-rest-api-from-an-openapi-definition.svg" width="25%" alt="Create REST API from an OpenAPI Definition">
                 <h4>Create REST API from an OpenAPI Definition</h4>
                 <p>
                     Create an API in WSO2 API Manager that maps to an OpenAPI definition. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario2-access-control';">
-                #![Engage Access Control to the API]({{base_path}}/assets/img/home/landing-page/engage-access-control-to-the-api.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/engage-access-control-to-the-api.svg" width:25%" alt="Engage Access Control to the API">
+                <img src="{{base_path}}/assets/img/home/landing-page/engage-access-control-to-the-api.svg" width="25%" alt="Engage Access Control to the API">
                 <h4>Engage Access Control to the API</h4>
                 <p>
                     Configure your API so that it is visible only to selected users.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario3-implementing-an-api';">
-                #![Implementing an API]({{base_path}}/assets/img/home/landing-page/implementing-an-api.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/implementing-an-api.svg" width:25%" alt="Implementing an API">
+                <img src="{{base_path}}/assets/img/home/landing-page/implementing-an-api.svg" width="25%" alt="Implementing an API">
                 <h4>Implementing an API</h4>
                 <p>
                     You can implement the business logic to call three backends that provide metrics, aggregate the response, and present it to the client as one response.
@@ -95,24 +95,21 @@ template: templates/single-column.html
         </div>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario4-user-signup-approval-flow';">
-                #![Signing up a New User]({{base_path}}/assets/img/home/landing-page/signing-up-a-new-user.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/signing-up-a-new-user.svg" width:25%" alt="Signing up a New User">
+                <img src="{{base_path}}/assets/img/home/landing-page/signing-up-a-new-user.svg" width="25%" alt="Signing up a New User">
                 <h4>Signing up a New User</h4>
                 <p>
                     WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature';">
-                #![Getting the Developer Community Involved]({{base_path}}/assets/img/home/landing-page/getting-the-developer-community-involved.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/getting-the-developer-community-involved.svg" width:25%" alt="Getting the Developer Community Involved">
+                <img src="{{base_path}}/assets/img/home/landing-page/getting-the-developer-community-involved.svg" width="25%" alt="Getting the Developer Community Involved">
                 <h4>Getting the Developer Community Involved</h4>
                 <p>
                     WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario6-integrating-with-data-sources';">
-                #![Integrating with Data Sources]({{base_path}}/assets/img/home/landing-page/integrating-with-data-sources.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/integrating-with-data-sources.svg" width:25%" alt="Integrating with Data Sources">
+                <img src="{{base_path}}/assets/img/home/landing-page/integrating-with-data-sources.svg" width="25%" alt="Integrating with Data Sources">
                 <h4>Integrating with Data Sources</h4>
                 <p>
                     When you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service.
@@ -121,24 +118,21 @@ template: templates/single-column.html
         </div>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario7-analytics';">
-                #![Analytics]({{base_path}}/assets/img/home/landing-page/analytics.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/analytics.svg" width:25%" alt="Analytics">
+                <img src="{{base_path}}/assets/img/home/landing-page/analytics.svg" width="25%" alt="Analytics">
                 <h4>Analytics</h4>
                 <p>
                     Choreo API Manager Analytics can be used to fulfil the stats and analytics needs of the API Manager. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario8-rate-limiting';">
-                #![Rate limiting]({{base_path}}/assets/img/home/landing-page/rate-limiting.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/rate-limiting.svg" width:25%" alt="Rate limiting">
+                <img src="{{base_path}}/assets/img/home/landing-page/rate-limiting.svg" width="25%" alt="Rate limiting">
                 <h4>Rate limiting</h4>
                 <p>
                     WSO2 API Manager provides various levels of rate limiting to control the number of transactions at any given time.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario9-realtime-data';">
-                #![Realtime Data with WebSocket API]({{base_path}}/assets/img/home/landing-page/realtime-data-with-websocket-api.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/realtime-data-with-websocket-api.svg" width:25%" alt="Realtime Data with WebSocket API">
+                <img src="{{base_path}}/assets/img/home/landing-page/realtime-data-with-websocket-api.svg" width="25%" alt="Realtime Data with WebSocket API">
                 <h4>Realtime Data with WebSocket API</h4>
                 <p>
                     WSO2 Streaming Integrator (SI) is a streaming data processing server that integrates realtime streaming data and takes action based on the streaming data.
@@ -147,24 +141,21 @@ template: templates/single-column.html
         </div>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario10-notifications-webhooks';">
-                #![Notifications Using Webhooks]({{base_path}}/assets/img/home/landing-page/notifications-using-webhooks.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/notifications-using-webhooks.svg" width:25%" alt="Notifications Using WebHooks">
+                <img src="{{base_path}}/assets/img/home/landing-page/notifications-using-webhooks.svg" width="25%" alt="Notifications Using WebHooks">
                 <h4>Notifications Using WebHooks</h4>
                 <p>
                     The API Manager enables you to provide information as webhooks so that companies can subscribe to these notifications without continuously polling. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario11-graphql';">
-                #![GraphQL Support]({{base_path}}/assets/img/home/landing-page/graphql-support.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/graphql-support.svg" width:25%" alt="GraphQL Support">
+                <img src="{{base_path}}/assets/img/home/landing-page/graphql-support.svg" width="25%" alt="GraphQL Support">
                 <h4>GraphQL Support</h4>
                 <p>
                     WSO2 API Manager supports creating GraphQL APIs using the GraphQL schema.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario12-message-delivery';">
-                #![Guaranteed Message Delivery]({{base_path}}/assets/img/home/landing-page/guaranteed-message-delivery.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/guaranteed-message-delivery.svg" width:25%" alt="Guaranteed Message Delivery">
+                <img src="{{base_path}}/assets/img/home/landing-page/guaranteed-message-delivery.svg" width="25%" alt="Guaranteed Message Delivery">
                 <h4>Guaranteed Message Delivery</h4>
                 <p>
                     Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store.
@@ -173,23 +164,21 @@ template: templates/single-column.html
         </div>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario13-integrate-with-connectors';">
-                #![Integrate with Services via Connectors]({{base_path}}/assets/img/home/landing-page/integrate-with-services-via-connectors.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/integrate-with-services-via-connectors.svg" width:25%" alt="Integrate with Services via Connectors">
+                <img src="{{base_path}}/assets/img/home/landing-page/integrate-with-services-via-connectors.svg" width="25%" alt="Integrate with Services via Connectors">
                 <h4>Integrate with Services via Connectors</h4>
                 <p>
                     When you integrate systems in your organization, it is also necessary to integrate with third-party systems to enhance your services. This is possible via Connectors. 
                 </p>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario14-external-key-manager';">
-                <img src="{{base_path}}/assets/img/home/landing-page/external-key-manager-support.svg" width:25%" alt="External Key Manager Support">
+                <img src="{{base_path}}/assets/img/home/landing-page/external-key-manager-support.svg" width="25%" alt="External Key Manager Support">
                 <h4>External Key Manager Support</h4>
                 <p>
                     WSO2 API Manager comes with external key manager connectors to various identity providers such as Okta, Auth0, Keycloak, etc. Additionally, you can write a custom Key Manager implementation.
                 </p>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
-                #![Other]({{base_path}}/assets/img/home/landing-page/other.svg){: style="width:25%"}
-                <img src="{{base_path}}/assets/img/home/landing-page/other.svg" width:25%" alt="Other">
+                <img src="{{base_path}}/assets/img/home/landing-page/other.svg" width="25%" alt="Other">
                 <h4>Other</h4>
                 <p>
                     Look through the available tutorials for more product capabilities.
@@ -201,7 +190,6 @@ template: templates/single-column.html
         <h3>Deployment</h3>
         <div class="linkWrapper">
             <div class="linkSet2" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying';">
-                #![Deployment]({{base_path}}/assets/img/home/integration.svg)
                 <img src="{{base_path}}/assets/img/home/integration.svg" alt="Deployment">
                 <p>
                     See the instructions on setting up the API-M runtime for your selected deployment pattern. 
@@ -209,7 +197,6 @@ template: templates/single-column.html
                 <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'><h4>Deploy the API Manager Runtime</h4></a>
             </div>
             <div class="linkSet2 middle" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1';">
-                #![]({{base_path}}/assets/img/home/proxies.svg)
                 <img src="{{base_path}}/assets/img/home/proxies.svg" alt="Proxies">
                 <p>
                     See the instructions on setting up the Micro Integrator runtime for your selected deployment pattern.
@@ -217,7 +204,6 @@ template: templates/single-column.html
                 <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_1'><h4>Deploy the Micro Integrator Runtime</h4></a>
             </div>
             <div class="linkSet2 last" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying_2';">
-                #![]({{base_path}}/assets/img/home/streaming.svg)
                 <img src="{{base_path}}/assets/img/home/streaming.svg" alt="Streaming">
                 <p>
                     See the instructions on setting up the Streaming Integrator runtime for your selected deployment pattern.
