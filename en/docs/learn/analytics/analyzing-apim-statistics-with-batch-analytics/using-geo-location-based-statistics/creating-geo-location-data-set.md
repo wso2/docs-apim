@@ -17,14 +17,17 @@ Follow the procedure below in order to create a Geo Location dataset to use when
     ```shell
     sh update-geolocation-data.sh
     ```      
+    !!! tip "For Windows"
+        If you are using Windows OS, download and install the Windows Subsystem for Linux from [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Use the `update-geolocation-data.sh` given for Linux above.
+
 
     -   Enter the path to the extracted GeoLite2-City-Blocks-IPv4 directory which you downloaded first, as the response for **Enter path to GeoLite2-City-Blocks-IPv4 directory:**
 
-        E.g :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
+        E.g, :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
 
     -   Enter the path to geoip2-csv-converter directory as the response for **Enter path to geoip2-csv-converter home directory:**
 
-        E.g :  /&lt;PATH\_TO&gt;/geoip2-csv-converter-v1.1.0
+        E.g, :  /&lt;PATH\_TO&gt;/geoip2-csv-converter-v1.1.0
 
     -   After executing the script, you will find the `final.csv` file inside your current directory.
 
