@@ -754,25 +754,33 @@ nav:
     - Observe:
         - Observability Overview: observe/observe-overview.md
         - API Manager:
-            #- Enabling Observability: 
-            - Monitoring Logs:
-                - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
-                - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
-                - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
-                - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
-                - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
-            - Working with Observability: administer/logging-and-monitoring/monitoring/working-with-observability.md
-            - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md
-            - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
-            - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
-            - Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
+            - Logs:
+                - Correlation Logs: observe/api-manager/monitor-correlation-logs.md
+                - HTTP Access Logs: observe/api-manager/monitor-http-access-logs.md
+                - Audit Logs: observe/api-manager/monitor-audit-logs.md
+            - Traces:
+                - OpenTracing: observe/api-manager/traces/monitor-with-opentracing.md
+            - Metrics:
+                - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
+            #WIP - Temp disabled as we need to change the location of these pages
+            #- Monitoring Logs:
+            #    - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
+            #    - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
+            #    - Masking sensitive information in logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+            #- Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
+            #- Monitoring Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Micro Integrator Profile:
-            - Micro Integrator Observability Overview: observe/mi-observe/mi-observability-overview.md
+            - Cloud-Native Observability:
+                - Overview: observe/mi-observe/mi-observability-overview.md
+                - Getting Started Guide - VM Deployment: observe/mi-observe/set-up-cloud-native-observability-on-a-vm.md
+                - Getting Started Guide - K8s Deployment: observe/mi-observe/set-up-cloud-native-observability-in-kubernetes.md
+                - View Statistics: observe/mi-observe/cloud-native-observability-dashboards.md
+            - Classic Observability:
+                - Logs: 
+                    - Configure Logs: observe/mi-observe/logs/configure-log4j-properties.md
             - Micro Integrator Dashboard: observe/mi-observe/working-with-monitoring-dashboard.md
             - Using the Management API: observe/mi-observe/working-with-management-api.md
             - Observability:
-                - Cloud Native Observability Solution:
-                  - Viewing Cloud Native Observability Dashboards: observe/mi-observe/cloud-native-observability-dashboards.md
                 - Monitoring Logs: observe/mi-observe/logs/monitoring_logs.md
                 - Monitoring Message Round Trip: observe/mi-observe/logs/monitoring-correlation-logs.md
             - Metrics:
@@ -1382,8 +1390,6 @@ nav:
                 - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
                 - Observability:
                     - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
-                    - Setting up Cloud-Native Observability for a VM Deployment: install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md
-                    - Setting up Cloud-Native Observability for a K8s Deployment: install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md
                     - Configuring Logs:
                         - Enabling Logs for a Component: install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs.md
                         - Configuring Logs: install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
@@ -2055,6 +2061,16 @@ plugins:
               'api-analytics/viewing/analytics-pages-latency.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-latency/'
               'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
               'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
+              'administer/logging-and-monitoring/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager/monitor-correlation-logs/'
+              'administer/logging-and-monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager/monitor-http-access-logs/'
+              'administer/logging-and-monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager/monitor-audit-logs/'
+              'administer/logging-and-monitoring/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager/traces/monitor-with-opentracing/'
+              'administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/api-manager/metrics/jmx-based-monitoring/'
+              'observe/mi-observe/mi-observability-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/mi-observe/micro-integrator-observability-overview/'
+              'install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/mi-observe/set-up-cloud-native-observability-on-a-vm/'
+              'install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes/'
+              'install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/mi-observe/logs/configure-log4j-properties/'
+              #'en/docs/install-and-setup/setup/mi-setup/observability/logs/enable-logs-for-a-component.md'
               'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
               'streaming/connectors/connectors-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/connectors-overview/'
               'streaming/connectors/downloading-and-installing-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/'
