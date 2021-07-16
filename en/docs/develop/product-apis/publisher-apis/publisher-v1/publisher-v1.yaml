@@ -7247,6 +7247,30 @@ definitions:
             },
             "production_endpoints":       {
               "url": "https://localhost:9443/am/sample/pizzashack/v1/api/"
+            },
+            "endpoint_security": {
+              "sandbox": {
+                "password": null,
+                "tokenUrl": "http://localhost:9443/token",
+                "clientId": "cid123",
+                "clientSecret": "cs123",
+                "customParameters": "{}",
+                "type": "OAUTH",
+                "grantType": "CLIENT_CREDENTIALS",
+                "enabled": true,
+                "username": null
+              },
+              "production": {
+                "password": null,
+                "tokenUrl": "http://localhost:9443/token",
+                "clientId": "cid123",
+                "clientSecret": "cs123",
+                "customParameters": "{}",
+                "type": "OAUTH",
+                "grantType": "CLIENT_CREDENTIALS",
+                "enabled": true,
+                "username": null
+              }
             }
           }
       endpointImplementationType:
