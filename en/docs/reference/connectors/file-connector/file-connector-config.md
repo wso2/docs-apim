@@ -1027,6 +1027,25 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                File Pattern
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The pattern (regex) of the files to be moved. </br>
+                <b>Example</b>: <code>[a-zA-Z][a-zA-Z]*.(txt|xml|jar)</code>.</br>
+                Available in file-connector <b>v4.0.5</b> and above
+            </td>
+            <td>
+                -
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response**
