@@ -2036,6 +2036,24 @@ The following operations allow you to work with the File Connector version 4. Cl
                 No
             </td>
         </tr>
+        <tr>
+            <td>
+                Response Format
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                Format to list the files in response. 
+                <b>Possible Values</b>: Hierarchical, Flat.
+            </td>
+            <td>
+                Hierarchical
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     **Response** 
