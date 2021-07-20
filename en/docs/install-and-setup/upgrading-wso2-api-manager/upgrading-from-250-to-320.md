@@ -2402,14 +2402,10 @@ Follow the instructions below to move all the existing API Manager configuration
         [user_store]
         type = "database"
         ```
+    6. It is recommended to migrate your user stores to the new user store managers with the unique ID capabilities. This provides a significat improvement in performance. Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.10.0/setup/migrating-userstore-managers/) before moving to the next step.
     
-    6.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
+    7.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
     
-        !!! note
-             If you are using a read-only user store manager, it is optional to migrate your user store manager, but if it is a read-write user store manager it is recommended to do this migration.
-             
-             If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.10.0/setup/migrating-userstore-managers/) before moving to the next step.
-
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
         ```
@@ -2447,7 +2443,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
-    7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+    8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
         -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
