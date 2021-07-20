@@ -6,7 +6,7 @@ title: Publishing Analytics Events to External Systems - API Manager Documentati
 
 ## Introduction
 
-It is possible to log and publish analytics events to external systems. This will guide you on how to create a sample to log analytics events and to publish those logged events to an external system. For the demonstration purpose we have selected ELK as the external system.
+Instead of publishing analytics events to the cloud, It is also possible to log the same events and publish them to external systems. This guide will explain the steps required to do it. For demonstration purposes, we have selected ELK as the external system.
 
 This section will cover the steps required to create a sample, configure the created sample with WSO2 API-M and publish them to an external System (ELK).
 
@@ -15,6 +15,8 @@ This section will cover the steps required to create a sample, configure the cre
 You have to create a new `Java/Maven project`. 
 
 With the use of `WSO2 Analytics Publisher` extension which is available at `WSO2 nexus` repository it is possible to create the sample. Created sample can be used to log and publish analytics events to external systems.
+
+There is an already [created sample](https://github.com/wso2/samples-apim/tree/master/analytics-event-publisher) and if you wish to use that sample instead of developing the sample from scratch, then you can ignore the steps of creating the sample and start from [here]({{base_path}}/api-analytics/samples/publishing-analytics-events-to-external-systems/#build-the-project).
 
 This section will cover how to configure the `pom.xml`, class implementations and building the created sample.
 
@@ -178,7 +180,7 @@ Add bellow configurations after the loggers,
 
 ## Visualizing Logs
 
-WSO2 API-M logs are structured in a way that we can easily plug them in to a commercially available tool in order to visualize them. As a result this gives the capability to monitor analytics traffic for a particular API. For this purpose ELK is selected.
+WSO2 API-M logs are structured in a way that we can easily plug them into a log visualization tool in order to visualize them. As a result, this gives the capability to monitor analytics traffic for a particular API. For this purpose, ELK is selected.
 
 ### Configuring ELK
 
