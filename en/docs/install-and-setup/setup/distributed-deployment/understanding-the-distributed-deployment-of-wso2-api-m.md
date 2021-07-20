@@ -256,6 +256,14 @@ In the following diagram, the five components are set up in a distributed deploy
             Use Dev Portal portal REST APIs
          </td>
     </tr>
+    <tr class="even">
+    <td>Publisher</td>
+    <td>Key Manager</td>
+    <td>9443</td>
+         <td>
+            Scope Management (Create,Update,Delete)
+         </td>
+    </tr>
     </tbody>
     </table>
     **Open port for Load balancer/User**
