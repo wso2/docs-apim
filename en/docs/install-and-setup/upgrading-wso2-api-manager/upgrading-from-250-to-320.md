@@ -2406,7 +2406,9 @@ Follow the instructions below to move all the existing API Manager configuration
     6.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
     
         !!! note
-             If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.10.0/setup/migrating-userstore-managers/) before moving to the next step 
+             If you are using a read-only user store manager, it is optional to migrate your user store manager, but if it is a read-write user store manager it is recommended to do this migration.
+             
+             If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/5.10.0/setup/migrating-userstore-managers/) before moving to the next step.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
