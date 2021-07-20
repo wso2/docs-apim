@@ -228,7 +228,7 @@ Filebeat comes with pre-built Kibana dashboards and UIs for visualizing log data
 
 [Launch Kibana and discover](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#view-data) log data.
 
-Once you have followed and completed above steps successfully you will be able to visualize log data as shown below,
+Once you have followed and completed the above steps successfully, you will be able to visualize log data as shown below,
 
 ![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs_listed_in_kibana.png)
 
