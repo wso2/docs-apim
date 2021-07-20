@@ -216,7 +216,7 @@ Replace `<API-M HOME>` with the location of your `API-M Home` directory.
 
 [Set up](https://www.elastic.co/guide/en/beats/filebeat/7.13/filebeat-installation-configuration.html#setup-assets) assets
 
-In case of a failure with the above command use below to set up assets,
+In case of a failure with the above command, use below to set up assets,
 
     filebeat -e
 
