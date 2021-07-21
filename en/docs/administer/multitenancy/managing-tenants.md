@@ -5,6 +5,7 @@
 You can add a new tenant in the management console and then view it by following the procedure below. In order to add a new tenant, you should be logged in as a super user.
 
 1.  Click **Add New Tenant** in the **Configure** tab of the management console.
+    
     ![]({{base_path}}/assets/img/administer/configure-tenants.png)
     
 2.  Enter the tenant information in **Register A New Organization** screen as follows, and click **Save** .
@@ -42,7 +43,7 @@ When you create multiple tenants in an API Manager deployment, the API developer
 
     -   Click the **Go To Public Dev Portal** option available in the Navigation bar, go to the `domain1.com` developer portal, log in to it and subscribe to its APIs.
     [![]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)
-    -   You can also browse the other tenant developer portals listed in the public developer portal. But, within other tenant developer portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions]({{base_path}}/consume/manage-subscription/subscribe-to-an-api.md) .
+    -   You can also browse the other tenant developer portals listed in the public developer portal. But, within other tenant developer portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) .
 
     !!! info
         A tenant can be deleted through the `RemoteTenantManager` Admin Service. Admin service operations can be invoked using a SOAP client such as SOAP UI. Follow the steps below to do the configurations using SOAP UI.
