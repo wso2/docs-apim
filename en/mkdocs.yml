@@ -2054,7 +2054,6 @@ plugins:
               'api-analytics/viewing/analytics-pages-latency.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-api-analytics-on-latency/'
               'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
               'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
-              'api-analytics/samples/publishing-analytics-events-to-external-systems.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/samples/publishing-analytics-events-to-external-systems/'
               'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
 
     # Extra
