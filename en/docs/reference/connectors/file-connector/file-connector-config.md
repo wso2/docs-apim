@@ -42,6 +42,48 @@ There are different connection configurations that can be used for the above pro
     sftp://myusername:mypassword@somehost/pub/downloads/somefile.tgz
     ```
 
+!!! Tip
+    There are instances where errors occur when using .csv files and the output is encoded. To overcome this, add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+
+    [[custom_message_formatters]]
+    content_type = "text/csv"
+    class = "org.apache.axis2.format.PlainTextFormatter"
+
+    [[custom_message_builders]]
+    content_type = "text/csv"
+    class = "org.apache.axis2.format.PlainTextBuilder"
+
+    ```
+
+    Also, you need to modify your proxy service as indicated below.
+
+    ```xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sequence name="proxyDeployingSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+        <property name="slotNumber" value="1"/>
+        <property expression="get-property(&quot;SYSTEM_DATE&quot;, &quot;mm&quot;)" name="currentMin" scope="default" type="STRING"/>
+        <file.read configKey="slotFileConnection">
+            <path>/csv/slot.csv</path>
+            <readMode>Specific Line</readMode>
+            <startLineNum>0</startLineNum>
+            <endLineNum>0</endLineNum>
+            <lineNum>{get-property('currentMin')}</lineNum>
+            <contentType>text/csv</contentType>
+            <includeResultTo>Message Property</includeResultTo>
+            <resultPropertyName>slotNumber</resultPropertyName>
+            <enableStreaming>false</enableStreaming>
+            <enableLock>false</enableLock>
+        </file.read>
+        <log level="custom">
+            <property name="slott" expression="get-property('slotNumber')"/>
+        </log>
+    </sequence>
+
+    ```
+
 ### Common configs to all connection types
 
 <table>
