@@ -34,4 +34,4 @@ Whenever a new event occurs in API Manager such as an API being deployed, API Ma
 {! ./includes/invoke-api-with-jwt.md !}
 
 <!-- brought the following here because the path becomes relative when included in the includes folder -->
-Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt.md) for more details.
+Refer to [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt) for more details.

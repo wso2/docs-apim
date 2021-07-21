@@ -4,7 +4,8 @@ You can share an API with application developers who are subscribed to the Devel
 
 The following diagram illustrates the process involved when an API Publisher publishes to multiple Developer Portals.
 
-<img src="{{base_path}}/assets/img/learn/publish-to-multiple-developer-portals.png" alt="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" title="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" width="75%" />
+<img src="{{base_path}}/assets/img/learn/publish-to-multiple-developer-portals.png" alt="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" title="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" width="45%" />
+
 
 <a name="step8"> </a>
 
@@ -47,14 +48,15 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 5.  Navigate to  **Main > Resources > Browse**.
 
-    ![Menu option to navigate to the Browse option]({{base_path}}/assets/img/learn/navigate-main-resources.png)
+    <img src="{{base_path}}/assets/img/learn/navigate-main-resources.png" alt="Menu option to navigate to the Browse option" title="Menu option to navigate to the Browse option" width="60%" />
     
      The Registry opens.
 
 
-6.  Navigate to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` file.
+6.  Navigate to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` file. Test
 
      ![Navigating to the external-api-stores.xml file]({{base_path}}/assets/img/learn/browse-to-external-api-stores.png)
+
 
 7.  Click **Edit as Text**, uncomment the `<StoreURL>` element under the `<ExternalAPIStores>` element, and add the details of each external API Developer Portal that you need to publish APIs to.
 
