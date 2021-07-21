@@ -1,10 +1,9 @@
-# Running API Manager as a Windows Service
+# Running API Manager 3.2.0 Analytics as a Windows Service
 
 !!! note
     **Before you begin:**
 
     -   See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on your OS.
-
 
 ### Prerequisites
 
@@ -13,6 +12,30 @@
 
 !!! important
     Please note that JDK 11 might not be compatible with YAJSW 11.03. Use JDK 8 for YAJSW 11.03 and JDK 11 for YAJSW 12.14.
+
+### Setting up API Analytics as a Windows Service
+
+Use the following steps to install APIM-Analytics-3.2.0 as a Windows Service.
+
+1. Download the `wrapperconfs.zip` file and unzip it.
+
+2. Alter the `pax-logging.properties` file with the following entry of each dashboard and worker profiles of the Analytics server. The file `pax-logging.properties` will be in the location `<wso2am-analytics-3.2.0>/conf/<PROFILE>/etc` directory.
+
+    ```
+    org.ops4j.pax.logging.log4j2.config.file=${carbon.home}/conf/${wso2.runtime}/log4j2.xml 
+    ```
+
+3. Create a directory for YAJSW.
+
+4. Create two subdirectories for worker and dashboard in the YAJSW directory created in step 3.
+
+5. Download the `yajsw-stable-12.14.zip` file from [here](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-12.14/) and extract it.
+
+6. Copy the extracted `yajsw-stable-12.14` to each of the two subdirectories created in step 4. This can be another version of yajsw.
+
+7. Copy the `wrapper.conf` file for each service (worker and dashboard) to their corresponding `<yajsw-stable-12.14>/conf` directories. For example, the worker `wrapper.conf` needs to be copied to `<YAJSW>/worker/yajsw-stable-12.14/conf` directory.
+
+8. Set environment variable for `<Analytics_home>` and `<JAVA_HOME>`.
 
 ### Setting up the YAJSW wrapper configuration file
 
@@ -189,7 +212,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 
 ### Working with the WSO2CARBON service
 
-To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
+To install the Carbon-based WSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
 installService.bat

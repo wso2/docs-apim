@@ -32,6 +32,18 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
     wrapper.java.classpath.3 = ${carbon_home}/repository/components/plugins/commons-lang_2.6.0.wso2v1.jar 
     ```
 
+!!! tip
+    You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
+
+    ```bash 
+    "Error 2: The system cannot find the file specified" 
+    ```
+
+    This can be resolved by providing the "complete java path" for the wrapper.java.command as follows.
+
+    ```bash
+    wrapper.java.command = ${JAVA_HOME}/bin/java
+    ```
 
 **Minimal wrapper.conf configuration**
 
