@@ -120,7 +120,7 @@ Follow the steps given below.
         traffic_manager_auth_urls = ["ssl://control-plane-2-host:9711"]
         
         [apim.throttling]
-        service_url = "https://[Traffic-Manager-LB-Host]/services/"
+        service_url = "https://[Control-Panel-LB-Host]/services/"
         throttle_decision_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
         ```
         
@@ -282,7 +282,6 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     type = "hybrid"
     display_in_api_console = true
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
     ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
     wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
     http_endpoint = "http://[API-Gateway-LB-Host]"
@@ -295,7 +294,6 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     type = "hybrid"
     display_in_api_console = true
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
     ws_endpoint = "ws://[API-Gateway-host-or-IP]:9099"
     wss_endpoint = "wss://[API-Gateway-host-or-IP]:8099"
     http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
@@ -324,6 +322,17 @@ In a typical distributed deployment, all API-M components (excluding the API-M G
 1.  Set up a new API-M server node to run the Traffic Manager profile.
 2.  Configure the Traffic Manager nodes should communicate with the Control Plane.
 3.  Configure the Key Manager, Publisher, and Developer Portal components in the Control Plane to communicate with the Traffic Manager.
+4. Configure the Gateway to communicate with the Traffic Manager along with a single Control Plane. The following configurations should be added.
+
+    ``` toml
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://traffic-manager:9611"]
+    traffic_manager_auth_urls = ["ssl://traffic-manager:9711"]
+
+    [apim.throttling]
+    service_url = "https://traffic-manager-host:${mgt.transport.https.port}/services/"
+    throttle_decision_endpoints = ["tcp://traffic-manager:5672"]
+    ```
 
 <a href="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png" width="500"></a>
 
@@ -343,7 +352,7 @@ Follow the steps given below.
             password = "$ref{super_admin.password}"
             ```
                 
-            ``` toml tab="Single Key Manager"
+            ``` toml tab="Control Plane"
             [apim.key_manager]
             service_url = "https://[control-plane-host]:${mgt.transport.https.port}/services/"
             username = "$ref{super_admin.username}"
