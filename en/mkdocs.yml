@@ -824,6 +824,7 @@ nav:
             - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
             - API-M Config Catalog: reference/config-catalog.md
             - MI Config Catalog: reference/config-catalog-mi.md
+            - MI Dashboard Config Catalog: reference/config-catalog-mi-dashboard.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
         - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
