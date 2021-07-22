@@ -183,113 +183,31 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 
 ###Supported log pattern formats for the PassThrough transport
 
-<table>
-<thead>
-<tr class="header">
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>%a</code></pre></td>
-<td><p>Remote IP address</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%A</code></pre></td>
-<td><p>Local IP address</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%b</code></pre></td>
-<td><p>Bytes sent, excluding HTTP headers, or '-' if zero</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%B</code></pre></td>
-<td><p>Bytes sent, excluding HTTP headers</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%c</code></pre></td>
-<td><p>Cookie value</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%C</code></pre></td>
-<td><p>Accept header</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%e</code></pre></td>
-<td><p>Accept Encoding</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%E</code></pre></td>
-<td><p>Transfer Encoding</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%h</code></pre></td>
-<td><p>Remote host name (or IP address if enableLookups for the connector is false)</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%l</code></pre></td>
-<td><p>Remote logical username from identd (always returns '-')</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%L</code></pre></td>
-<td><p>Accept Language</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%k</code></pre></td>
-<td><p>Keep Alive</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%m</code></pre></td>
-<td><p>Request method (GET, POST, etc.)</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%n</code></pre></td>
-<td><p>Content Encoding</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%r</code></pre></td>
-<td><p>Request Element</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%s</code></pre></td>
-<td><p>HTTP status code of the response</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%t</code></pre></td>
-<td><p>Date and time, in Common Log Format</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%T</code></pre></td>
-<td><p>Time taken to process the request in seconds.</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%u</code></pre></td>
-<td><p>Remote user that was authenticated (if any), else '-'</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%U</code></pre></td>
-<td><p>Requested URL path</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%v</code></pre></td>
-<td><p>Local server name</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%V</code></pre></td>
-<td><p>Vary Header</p></td>
-</tr>
-<tr class="even">
-<td><pre><code>%x</code></pre></td>
-<td><p>Connection Header</p></td>
-</tr>
-<tr class="odd">
-<td><pre><code>%Z</code></pre></td>
-<td><p>Server Header</p></td>
-</tr>
-</tbody>
-</table>
+|Attribute|Description|Corrected|
+|:------:|-----------|-------|
+|%a|Remote IP address|User Agent|
+|%A|Local IP address||
+|%b|Bytes sent, excluding HTTP headers, or '-' if zero||
+|%B|Bytes sent, excluding HTTP headers||
+|%c|Cookie value||
+|%C|Accept header||
+|%e|Accept Encoding||
+|%E|Transfer Encoding||
+|%f||Referer|
+|%h|Remote host name (or IP address if enableLookups for the connector is false)||
+|%l|Remote logical username from identd (always returns '-')||
+|%L|Accept Language||
+|%k|Keep Alive||
+|%m|Request method (GET, POST, etc.)||
+|%n|Content Encoding||
+|%r|Request Element||
+|%s|HTTP status code of the response||
+|%S|Accept Chatset|Accept Charset|
+|%t|Date and time, in Common Log Format||
+|%T|Time taken to process the request in seconds.|Content Type|
+|%u|Remote user that was authenticated (if any), else '-'||
+|%U|Requested URL path||
+|%v|Local server name||
+|%V|Vary Header||
+|%x|Connection Header||
+|%Z|Server Header||
