@@ -25,7 +25,6 @@ Each Gateway environment definition contains details related to a specific Gatew
     ```toml
     [[apim.gateway.environment]]
     name = "Default"
-    ...
     display_name = "US Region"
     type = "hybrid"
     display_in_api_console = true
