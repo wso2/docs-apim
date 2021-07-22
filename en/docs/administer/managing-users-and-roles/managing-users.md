@@ -21,7 +21,7 @@ Follow the steps below to create users and assign them to roles via the Manageme
     !!! tip
             The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
 
-4.  Select the roles you want to assign to the user. In this example, we assign the `creator` role defined in the [previous section](managing-user-roles.md). For details on adding roles, see [Create user roles.]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/#create-user-roles)
+4.  Select the roles you want to assign to the user. In this example, we assign the `creator` role defined in the [previous section]({{base_path}}/administer/managing-users-and-roles/managing-user-roles). For details on adding roles, see [Create user roles.]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/#create-user-roles/)
 
     [![Add roles to user]({{base_path}}/assets/img/administer/add-roles-to-user.png)]({{base_path}}/assets/img/administer/add-roles-to-user.png)
 

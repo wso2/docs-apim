@@ -4314,4 +4314,4 @@ The following is a sample proxy service that illustrates how to connect to the J
 </proxy>        
 ```
 
-**Note**: For more information on how this works in an actual scenario, see [Jira Connector Example](jira-connector-example.md).
+**Note**: For more information on how this works in an actual scenario, see [Jira Connector Example]({{base_path}}/reference/connectors/jira-connector/jira-connector-example/).
