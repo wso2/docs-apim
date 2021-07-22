@@ -7,7 +7,7 @@ Follow the instructions below to publish analytics data to the analytics cloud v
      [apim.analytics]
      enable = true
      config_endpoint = "https://analytics-event-auth.choreo.dev/auth/v1"
-     auth_token = “<use token that you generate>”
+     auth_token = "<use token that you generate>"
      ```
 
       <div class="admonition note">
