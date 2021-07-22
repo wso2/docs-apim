@@ -62,7 +62,7 @@ The project is now initialized. A directory with the name "petstore" has been cr
     ```
 
 !!! info
-    -   For more information on the API project directory that gets created, see [APICTL Getting Sterted]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
+    -   For more information on the API project directory that gets created, see [Getting Started with WSO2 API Controller]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller).
 
 ### Step 3 - Start Choreo Connect
 
@@ -127,7 +127,7 @@ apictl mg deploy api -f petstore -e dev -k
 #### Step 5.1 - Obtain a token
 
 After the APIs are exposed via WSO2 Choreo Connect, you can invoke an API with a valid token(JWT) or using a test key.  
-Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-Choreo Connect/security/generate-a-test-jwt.md) for more details.
+Let's use WSO2 Choreo Connect's test key endpoint to obtain an test key in order to access the API. Refer [Generate a Test JWT]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/security/generate-a-test-jwt/) for more details.
 
 ``` java tab="Sample Token"
     TOKEN=$(curl -X POST "https://localhost:9095/testkey" -d "scope=read:pets" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -v)

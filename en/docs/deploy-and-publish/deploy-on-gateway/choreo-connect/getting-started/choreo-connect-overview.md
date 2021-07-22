@@ -31,7 +31,7 @@ The adapter is the component that is responsible for that. Adapter will pass the
 There are two different ways API can be received by the adapter.
 
 1. Adapter can receive an API from APIM control plane(publisher)
-2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md)
+2. Adapter can receive APIs via pushing the API project from the command line tool [APICTL]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller)
 
 Choreo Connect can be used mainly in the follwoing two modes.
 
