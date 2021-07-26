@@ -31,4 +31,4 @@ Then open the `/Users/foo/productioninserts.csv` file. The following record shou
 ![Updated File]({{base_path}}/assets/img/streaming/quick-start-guide-101/updated-file.png)
     
 !!! tip "What's Next?"
-    Now you can try extending the `SweetFactoryApp` Siddhi application to perform more streaming integration activities. To try this, proceed to [Step 5: Update the Siddhi Application](update-the-siddhi-application.md).
+    Now you can try extending the `SweetFactoryApp` Siddhi application to perform more streaming integration activities. To try this, proceed to [Step 5: Update the Siddhi Application]({{base_path}}/streaming/getting-started/update-the-siddhi-application).

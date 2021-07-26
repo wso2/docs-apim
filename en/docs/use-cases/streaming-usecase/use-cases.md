@@ -50,5 +50,5 @@ The following guides cover the supporting tasks that can be performed by WSO2 St
 
 - [Metrics (Monitoring )]({{base_path}}/admin/monitoring-si-performance-via-grafana)
 
-- [Query API]({{base_path}}/ref/store-APIs.md)
+- [Query API]({{base_path}}/ref/store-APIs)
  
