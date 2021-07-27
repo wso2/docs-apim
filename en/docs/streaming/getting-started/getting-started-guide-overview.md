@@ -19,10 +19,10 @@ WSO2 Streaming Integrator allows data to be received from multiple sources such 
 
 To understand how Streaming Integration is performed via the WSO2 Streaming Integrator, follow the sections below.
 
-[**Step 1: Download Streaming Integrator and Dependencies**](download-install-and-start-si.md)<br/><br/>
-[**Step 2: Create the Siddhi Application**](create-the-siddhi-application.md)<br/><br/>
-[**Step 3: Deploy the Siddhi Application**](deploy-siddhi-application.md)<br/><br/>
-[**Step 4: Run the Siddhi Application**](test-siddhi-application.md)<br/><br/>
-[**Step 5: Update the Siddhi Application**](update-the-siddhi-application.md)<br/><br/>
-[**Step 6: Handle Errors**](handle-errors.md)<br/><br/>
-[**Step 7: Monitor Statistics**](monitor-statistics.md)<br/><br/>
+- [**Step 1: Download Streaming Integrator and Dependencies**]({{base_path}}/streaming/getting-started/download-install-and-start-si)
+- [**Step 2: Create the Siddhi Application**]({{base_path}}/streaming/getting-started/create-the-siddhi-application)
+- [**Step 3: Deploy the Siddhi Application**]({{base_path}}/streaming/getting-started/deploy-siddhi-application)
+- [**Step 4: Run the Siddhi Application**]({{base_path}}/streaming/getting-started/test-siddhi-application)
+- [**Step 5: Update the Siddhi Application**]({{base_path}}/streaming/getting-started/update-the-siddhi-application)
+- [**Step 6: Handle Errors**]({{base_path}}/streaming/getting-started/handle-errors)
+- [**Step 7: Monitor Statistics**]({{base_path}}/streaming/getting-started/monitor-statistics)
