@@ -15,8 +15,12 @@ The diagram below illustrates the refresh token grant flow.
 
 ![]({{base_path}}/assets/img/learn/oauth-refresh-token-diagram.png)
 
--   [Generating a new access token and refresh token](#generating-a-new-access-token-and-refresh-token)
--   [Revoking a refresh token](#revoking-a-refresh-token)
+- [Refresh Token Grant](#refresh-token-grant)
+      - [Flow](#flow)
+    - [Generating a new access token and refresh token](#generating-a-new-access-token-and-refresh-token)
+    - [Revoking a refresh token](#revoking-a-refresh-token)
+      - [Option 1](#option-1)
+      - [Option 2](#option-2)
 
 ### Generating a new access token and refresh token
 
@@ -66,7 +70,7 @@ The above REST response grants you a renewed access token along with a refresh t
 
 ### Revoking a refresh token
 
-After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:8243/revoke>.
+After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:9443/oauth2/revoke>.
 
 #### Option 1
 
@@ -77,11 +81,11 @@ The parameters required to invoke the following API are as follows:
 - <code>base64Encode(clientId:clientSecret)</code> - Use a [base64 encoder](https://www.base64encode.org/) to encode your client ID and client secret in the format - `<clientId>:<clientSecret>`.
 
 ``` java tab="Format"
-curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/revoke
+curl -k -v -d "token=<refresh_token_to_be_revoked>" -H "Authorization: Basic <base64Encode(clientId:clientSecret)>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
 ```
 
 ``` java tab="Example"
-curl -k -v -d "token=c8e8eec2-0092-3ac6-b23f-ef7492f345a6" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/revoke
+curl -k -v -d "token=c8e8eec2-0092-3ac6-b23f-ef7492f345a6" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
 ```
 
 **Response**
@@ -119,11 +123,11 @@ The parameters required to invoke the following API are as follows:
 - `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then it will only searches in the respective token key space, hence the token revokation process is much faster.
 
 ``` java tab="Format"
-curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:8243/revoke
+curl -k -v -d "token=<refresh_token_to_be_revoked>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:9443/oauth2/revoke
 ```
 
 ``` java tab="Example"
-curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refresh_token" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/revoke
+curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refresh_token" -H "Authorization: Basic OVRRNVJLZWFhVGZGeUpRSkRzam9aZmp4UkhjYTpDZnJ3ZXRual9ZOTdSSzFTZWlWQWx1aXdVVmth" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/revoke
 ```
 
 **Response**
