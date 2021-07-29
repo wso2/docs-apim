@@ -2,7 +2,7 @@
 
 The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
 
-This document describes all the configuration parameters that are used in WSO2 API Manager. 
+This document describes all the configuration parameters that are used in WSO2 API Manager.
 
 ## Instructions for use
 
@@ -2672,7 +2672,7 @@ enable_token_hashing = false</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:8243/revoke</code></span>
+                                            <span class="param-default-value">Default: <code>https://localhost:9443/oauth2/revoke</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>Valid URL for revocation endpoint.</code></span>
