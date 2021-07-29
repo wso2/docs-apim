@@ -982,7 +982,7 @@
                             "name": "revoke_endpoint",
                             "type": "string",
                             "required": false,
-                            "default": "https://localhost:8243/revoke",
+                            "default": "https://localhost:9443/oauth2/revoke",
                             "possible": "Valid URL for revocation endpoint.",
                             "description": "Token revocation endpoint used in the API Developer Portal"
                         },
