@@ -46,7 +46,7 @@ You have now successfully exported the certificates for mutual SSL.
 
 ## Configure API Manager to enable dynamic SSL profiles
 
-To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need to create a new XML file `<APIM_HOME>/repository/deployment/server/multi_ssl_profiles.xml` (this path is configurable) and copy the below configuration into it. This will configure client-truststore.jks as Trust Store for all connections to &lt;localhost:port&gt; .
+To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need to create a new XML file `<APIM_HOME>/repository/deployment/server/sslprofiles.xml` and copy the below configuration into it. This will configure client-truststore.jks as Trust Store for all connections to &lt;localhost:port&gt; .
 
 ``` java
 <parameter name="customSSLProfiles">
@@ -88,6 +88,9 @@ interval = 3600000
 [transport.passthru_https.sender.parameters]
 HostnameVerifier = "AllowAll"
 ```
+
+!!! Tip
+    The "interval" parameter is there so that we can configure how often the SSL profiles file is read by the server to make the newly added certs affected without a server restart.
 
 Now both the backend service and ESB is configured to use default key stores and API Manager is configured to load dynamic SSL profiles. Restart API Manager.
 
