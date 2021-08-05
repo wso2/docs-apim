@@ -60,8 +60,8 @@ The properties configured under each health checker will be available for each h
 This health checker returns the status of the user stores available in the system. You can configure the user stores to be monitored by adding the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```
-[carbon_health_check.health_checker.data_source_health_checker]
-enable =false
+[carbon_health_check.health_checker.super_tenant_health_checker]
+enable = true
 order = 98
 
 [carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -218,7 +218,7 @@ Follow the instructions below to add a custom health checker:
     ```
     [carbon_health_check] 
     enable = true
-    
+
     [carbon_health_check.health_checker.data_source_health_checker]
     enable = true
     pool_usage_limit_percentage = "80"
@@ -226,20 +226,20 @@ Follow the instructions below to add a custom health checker:
 
     [carbon_health_check.health_checker.data_source_health_checker.properties]
     'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
-    
-    [carbon_health_check.health_checker.data_source_health_checker]
-    enable =false
+
+    [carbon_health_check.health_checker.super_tenant_health_checker]
+    enable = true
     order = 98
 
     [carbon_health_check.health_checker.super_tenant_health_checker.properties]
     'monitored.user.stores' = "primary" 
-    
+
     [[health_checker]] 
     name = "customChecker" 
     order = "87"
     [health_checker.properties] 
     property1 = "property-1-value" 
-    property2 = "property-2-value" 
+    property2 = "property-2-value"
     ```
 
 ## Error responses
