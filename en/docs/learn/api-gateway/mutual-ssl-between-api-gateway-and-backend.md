@@ -78,6 +78,11 @@ To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need 
 </profile>
 </parameter>
 ```
+
+The `<server>` config refers to the endpoint related to SSL validation. Port number needs to be implicitly mentioned in the config to work.
+- Correct : `<server>www.google.com:443<server>`
+- Incorrect : `<server>www.google.com<server>`
+
 To enable dynamic loading of this configuration, add the below configurations to the `<API-M_HOME>/repository/conf/deployment.toml` file (Make sure to set the above file’s path as the value for the `file_path` field under `[transport.passthru_https.sender.ssl_profile]`).
 
 ``` toml
