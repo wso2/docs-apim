@@ -34,8 +34,8 @@ Follow the steps given below before you start.
 
 !!! note "Before you begin"
 	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
-	-   By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
-	-	See the documentation of your Identity provider for instructions on setting up OpenID Connect.
+	-       By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
+	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
 
 Follow the steps given below to connect the Micro Integrator Dashboard to your Identity provider.
 
