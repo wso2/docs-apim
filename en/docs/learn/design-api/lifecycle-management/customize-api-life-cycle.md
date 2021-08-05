@@ -187,16 +187,16 @@ Follow the steps below to add a new state to the default life cycle.
         -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
 
     !!! info
-        By default following lifecycle diagram is added in Publisher portal to show the state changes.
+        By default, the following lifecycle diagram is added in the Publisher portal to show the state changes.
 
         ![]({{base_path}}/assets/img/learn/lifecycle-image.png)
 
-        If you want to change the lifecycle image in Publisher, you can follow the steps mentioned below:
-
-        -   Search for **lifeCycleImage** in `defaultTheme.js` file resides in `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/site/public/conf` directory and uncomment it.
-        -   Replace the path with correct path of image. For instance,
-
-                lifeCycleImage: '/publisher/site/public/images/custom-lifecycle.png,
+        If you want to change the lifecycle image in Publisher, modify the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/userThemes.js` file by adding the following line.
+        ```
+        custom: {
+                    lifeCycleImage: '/publisher/site/public/images/lifecycle.png',  
+                },
+        ```
 
     !!! Tip "For Advanced Customization"
         If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced UI Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
