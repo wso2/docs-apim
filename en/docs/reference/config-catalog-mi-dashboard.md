@@ -390,7 +390,13 @@ jwt_issuer = "https://localhost/oauth2"
 resource_server_URLs = ["https://localhost:9743"]
 sign_in_redirect_URL = "https://localhost:9743/sso"
 admin_group_attribute = "groups"
-admin_groups = ["admin", "tester"]</code></pre>
+admin_groups = ["admin", "tester"]
+
+[[sso.authorization_request.params]]
+key = "app_id"
+value = "C123d"
+
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -777,6 +783,65 @@ admin_groups = ["admin", "tester"]</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Use this paramater to specify the requested scopes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>user_name_attribute</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type array"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>&quot;sub&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this paramater to specify the attribute you need to use as the user name in the dashboard.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[sso.authorization_request.params]]</code>
+                            <p>
+                                This configuration header is required for defining custom parameters that needs to be sent with the Authorization request to the Identity Provider.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this parameter to specify the key of the parameter you want to send with the authorization request.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>value</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this parameter to specify the value of the parameter you want to send with the authorization request.</p>
                                     </div>
                                 </div>
                             </div>
