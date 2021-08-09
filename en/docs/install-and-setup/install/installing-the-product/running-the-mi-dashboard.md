@@ -34,6 +34,7 @@ Follow the steps given below before you start.
 
 !!! note "Before you begin"
 	-	Upgrade Micro Integrator Dashboard to version 4.0.1 or above to enable this feature.
+	-	Upgrade Micro Integrator to version 4.0.0.5 or above to use File based User Store for Authorization.
 	-       By default, the Micro Inetgrator user store is used to authenticate users. The following instructions are applicable only if you want to enable Single Sign-On.
 	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
 
