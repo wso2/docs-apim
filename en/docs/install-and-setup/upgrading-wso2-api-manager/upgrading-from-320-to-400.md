@@ -1559,6 +1559,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Migrate the API Manager artifacts.
 
+    !!! Note
+        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it set as “Default” in APIM 4.0.0.
+    
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        ```
+
     You have to run the following migration client to update the API Manager artifacts.
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_4.0.0_HOME>` folder.
@@ -1631,6 +1639,7 @@ Follow the instructions below to move all the existing API Manager configuration
         [indexing]
         re_indexing = 1
         ```
+        
         Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
 
         !!! info 
