@@ -53,6 +53,21 @@ Log growth in [Carbon logs]({{base_path}}/administer/product-administration/moni
     appender.CARBON_LOGFILE.strategy.max   
     ```
 
+    !!! Note
+        This will only work with size-based rolling approach. For time-based rolling approach, you need to add the following configuration in order to delete the older files for this to work.
+
+        ```
+        appender.CARBON_LOGFILE.strategy.action.type = Delete
+        appender.CARBON_LOGFILE.strategy.action.basepath = ${sys:carbon.home}/repository/logs/
+        appender.CARBON_LOGFILE.strategy.action.maxdepth = 1
+        appender.CARBON_LOGFILE.strategy.action.condition.type = IfLastModified
+        appender.CARBON_LOGFILE.strategy.action.condition.age = 3D
+        appender.CARBON_LOGFILE.strategy.action.PathConditions.type = IfFileName
+        appender.CARBON_LOGFILE.strategy.action.PathConditions.glob = wso2carbon-*
+        ```
+
+        You can change the `appender.CARBON_LOGFILE.strategy.action.condition.age` parameter to accept files that are as old or older than the specified duration.
+
 #### Managing the growth of audit log files
 
 -   Rollover based on a time period can be configured by changing `appender.AUDIT_LOGFILE.policies.time.interval` value in days(Default value is 1 day).

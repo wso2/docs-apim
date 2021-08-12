@@ -3223,8 +3223,10 @@ Follow the instructions below to move all the existing API Manager configuration
     3. Add the following configuration in `<API-M_4.0.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
+        
         [indexing]
         re_indexing= 1
+        
         ```
         
         Note that you need to increase the value of `re_indexing` by one each time you need to re-index.
