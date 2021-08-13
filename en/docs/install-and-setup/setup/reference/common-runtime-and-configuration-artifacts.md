@@ -22,12 +22,10 @@ These are directories in API Manager that includes deployable files, which are v
 !!! info
     Shared Artifacts
 
-    The following artifacts can be shared among API Manager nodes
+    The following artifacts can be shared among API Manager nodes.
 
-    1. `<API-M_HOME>/repository/deployment/server/synapse-configs`
-    2. `<API-M_HOME>/repository/deployment/server/executionplans`
-    3. `<API-M_HOME>/repository/deployment/server/userstores` (Optional)
-    4. `<API-M_HOME>/repository/tenants`
+    1. `<API-M_HOME>/repository/deployment/server/userstores` (Optional)
+    2. `<API-M_HOME>/repository/tenants`
 
 
 ### Persistent Configuration Artifacts
