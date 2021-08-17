@@ -99,11 +99,11 @@ The complete results can be found [here](https://github.com/wso2/micro-integrato
 The following results compare the throughput against the number of concurrent users in each scenario.
 ##### Direct Proxy
 
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" />
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-proxy-tp.png" alt="Direct Proxy Throughput" title="Direct Proxy Throughput" width="70%" />
 
 ##### Direct API
 
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png alt="Direct API Throughput" title="Direct API Throughput" width="70%" />
+<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/mi/direct-api-tp.png" alt="Direct API Throughput" title="Direct API Throughput" width="70%" />
 
 ##### CBR Transport Header Proxy
 
