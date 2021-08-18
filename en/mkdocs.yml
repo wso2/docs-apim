@@ -1213,6 +1213,7 @@ nav:
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Troubleshooting:
               - Error Handling: troubleshooting/error-handling.md
+              - Error Handling in Micro Integrator: troubleshooting/error-handling-mi.md
               - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
