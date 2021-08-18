@@ -34,7 +34,7 @@ The instructions below explain how plain text passwords in configuration files c
        truststrore_password = "[wso2carbon]"
        ```
     
-3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret(<alias>)` in order to refer to the encrypted password instead of the plain text password. 
+3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` in order to refer to the encrypted password instead of the plain text password. 
 
      Note that the `alias` has to be the alias value that you configured in the above step as the mapping of the actual password. 
 
