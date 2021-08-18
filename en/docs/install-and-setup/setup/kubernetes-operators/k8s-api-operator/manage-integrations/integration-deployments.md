@@ -73,7 +73,7 @@ Given below are the main steps your will follow when you deploy integration solu
           value: "https://reqres.in/api"
         - name: SECRET_USERNAME
           valueFrom:
-            secretKeyRef:
+            secretRef:
               name: backend-user
               key: backend-username
         - name: CONFIGMAP_USERNAME
@@ -84,7 +84,7 @@ Given below are the main steps your will follow when you deploy integration solu
       envFrom:
         - configMapRef:
             name: CONFIG_MAP_NAME
-        - secretKeyRef:
+        - secretRef:
             name: SECRET_NAME   
     ```
 
