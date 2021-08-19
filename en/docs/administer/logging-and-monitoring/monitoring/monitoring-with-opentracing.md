@@ -66,7 +66,19 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
 
 
 ## Enabling Log Tracing
-1. Copy the following configuration into the `deployment.toml` file.
+1. Navigate to the `<APIM_HOME>/conf/log4j2.properties` file and locate the following configuration.
+
+    ```
+    logger.trace.name = trace
+    ```
+    
+2. Change the above configuration as follows.
+    
+    ```
+    logger.trace.name = tracer
+    ```
+
+3. Copy the following configuration into the `deployment.toml` file.
 
     ```toml
     [apim.open_tracer]
@@ -74,7 +86,7 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
     log_tracer.enable = true
     ```
 
-2. Start the server.
+4. Start the server.
 
     After you invoke the APIs you will be able to see tracing data in the `wso2-apimgt-open-tracing.log` in the `<API-M_HOME>/repository/logs` folder.
 
