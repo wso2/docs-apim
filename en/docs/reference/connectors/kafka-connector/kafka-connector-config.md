@@ -476,3 +476,21 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
        <valueSchemaId>schemaId of the configured value</valueSchema>
     </kafkaTransport.publishMessages>
     ```
+
+### Error codes related to Kafka Connector
+
+!!!note
+    With Kafka connector v3.1.2 and above, when an error occurs one of the following errors will get set to the message context. Refer [Generic Properties]({{base_path}}/reference/mediators/property-reference/generic-properties/#error_code) for details on how to access these error properties.
+
+
+| **Error Code** |   **Detail**                                             |
+|----------------|----------------------------------------------------------|
+| 700501         | Connection error.                                        |
+| 700502         | Invalid configuration.                                   |
+| 700503         | Error while serializing the Avro message in the producer.|
+| 700504         | Illegal type is used in an Avro message.                 |
+| 700505         | Error while building Avro schemas.                       |
+| 700506         | Error while parsing schemas and protocols.               |
+| 700507         | Expected contents of a union cannot be resolved.         |
+| 700508         | The request message cannot be processed.                 |
+| 700509         | Any other Kafka related error.                           |
