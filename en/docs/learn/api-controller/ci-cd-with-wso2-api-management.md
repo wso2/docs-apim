@@ -39,7 +39,7 @@ _________________
 Let us check out the basic building blocks for creating a CI/CD pipeline with WSO2 API-M in sequential order.
 
 <a name="A"></a>
-### (A.) - Prepare the environments
+### Step A - Prepare the environments
 
 1.  Download and install WSO2 API Manager 3.2.0 in your environments.
      
@@ -69,7 +69,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
     For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
 
 <a name="B"></a>
-### (B.) - Create and Publish an API in a lower environment
+### Step B - Create and Publish an API in a lower environment
 
 Now, you have added two different environments. Our end goal is to automate the API migration between the `dev` and `prod` environments. Therefore, first, the API should be published in the `dev` environment using the API Publisher in WSO2 API Manager. 
 For more information on deploying an API in the API Manager, see the [Quick Start Guide](http://localhost:8000/getting-started/quick-start-guide/).   
@@ -98,7 +98,7 @@ For this example, let's use the [Swagger Petstore - OpenAPI 3.0](https://petstor
      [![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)
 
 <a name="C"></a>
-### (C.) - Export an API from a lower environment
+### Step C - Export an API from a lower environment
 
 The **apictl** can export an API as an archive from a lower environment (i.e., dev), which contains all the information to recreate the API on another upper environment (i.e., prod).
 
@@ -128,7 +128,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 `SwaggerPetstore-1.0.0`. Rename it to `SwaggerPetstore` for easy reference.
 
 <a name="D"></a>
-### (D.) - Initialize the project using a Swagger/OpenAPI specification
+### Step D - Initialize the project using a Swagger/OpenAPI specification
 
 Execute the following command to directly generate the `PetstoreAPI` project using a Swagger/OpenAPI specification. (You can download the Swagger/OpenAPI specification from [here](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/yaml/petstore.yaml).)
 
@@ -147,7 +147,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 [Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 <a name="E"></a>
-### (E.) - Prepare an API project for CI/CD
+### Step E - Prepare an API project for CI/CD
 
 1. Copy this directory into your Version Control Repository.
     
@@ -191,7 +191,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 3.  Commit the project to the version control system.        
 
 <a name="F"></a>
-### (F.) - Import the API to an upper environment
+### Step F - Import the API to an upper environment
 
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. 
 The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks.  
@@ -211,8 +211,9 @@ The repository that you committed the project in the above step <a href="#E">E</
     !!! example
         ```bash
         $ apictl vcs init
-        Successfully initialized GIT repository
         ```
+        
+        **Response**: Successfully initialized GIT repository
 
     Once `vcs init` command is executed, a new file `vcs.yaml` will be created in the root location of the repository. 
     
@@ -226,11 +227,14 @@ The repository that you committed the project in the above step <a href="#E">E</
     !!! example
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**: 
         Projects to Deploy (1)
 
         APIs (1) ...
         1: [save]		SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
-        ```
+        
 
 4.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
 
@@ -243,12 +247,15 @@ The repository that you committed the project in the above step <a href="#E">E</
     !!! example
         ```bash
         $ apictl vcs deploy -e prod
+        ```
+        
+        **Response**: 
         Deploying Projects (1)...
 
         APIs (1) ...
         1: SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
         Successfully imported API
-        ```
+        
 
     The above command will detect the target environment and provision the API to it.
 
@@ -257,8 +264,9 @@ The repository that you committed the project in the above step <a href="#E">E</
     !!! example
         ```bash
         $ apictl vcs deploy -e prod
-        Everything is up-to-date
         ```
+        **Response**: Everything is up-to-date
+        
 
 5.  Adding a new API to the Git repository
 
@@ -272,22 +280,27 @@ The repository that you committed the project in the above step <a href="#E">E</
 
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**:
         Projects to Deploy (1)
 
         APIs (1) ...
         1: [save]		Pizzashack-1.0.0: (Pizzashack-1.0.0)
-        ```
+        
 
     4.  Run `vcs deploy` command to deploy the new API to the production environment.
 
         ```bash
         $ apictl vcs deploy -e prod
+        ```
+        **Response**:
         Deploying Projects (1)...
 
         APIs (1) ...
         1: Pizzashack-1.0.0: (Pizzashack-1.0.0)
         Successfully imported API
-        ```
+        
 
         Here, **apictl** will deploy only the new API **Pizzashack-1.0.0** without re-deploying the other unchanged API **SwaggerPetstore-1.0.0**.
 
@@ -347,7 +360,7 @@ You can use the following alternative approach to promote a single API via CI/CD
     -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
 <a name="G"></a>
-### (G.) - Get keys for an API/API Product
+### Step G - Get keys for an API/API Product
 
 Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API or an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) by subscribing to it using a new application created by CTL:
 
@@ -395,7 +408,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
     - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
     - When running the above command, if you have not specified the --version (-v), the tool will consider the version as 1.0.0 by default. If you have specified the version, then that value will be considered.
 
-### (H.) - Extending a CI/CD pipeline to support API Products
+### Step H - Extending a CI/CD pipeline to support API Products
 
 For example, let's consider there is an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
@@ -404,9 +417,12 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
     ```bash
     $ apictl export api-product -n PetsInfo -e dev
     
+    ```
+    
+    **Response**:
     Successfully exported API Product!
     Find the exported API Product at /home/wso2user/.wso2apictl/exported/api-products/dev/PetsInfo_1.0.0.zip
-    ```
+    
 
 2.  Extract the exported API Product Project.
 
@@ -417,34 +433,43 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
     !!! example
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**: 
         Projects to Deploy (1)
 
         API Products (1) ...
         1: [save]		PetsInfo-1.0.0: (PetsInfo-1.0.0)
-        ```
+        
 
     !!! important
         If you haven't initialized the repository with API Controller, you will get the below error.
         
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**:
         apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
         Exit status 1
-        ```
+        
 
-        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+        Make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
 
 3.  Import the **PetsInfo** Product into the production environment by running the following sample command.
 
     !!! example
         ```bash
         $ apictl vcs deploy -e prod
+        ```
+        
+        **Response**:
         Deploying Projects (1)...
 
         API Products (1) ...
         1: PetsInfo-1.0.0: (PetsInfo-1.0.0)
         Successfully imported API Product
-        ```
+        
 
     The above command will detect the target environment and create the **PetsInfo** Product in the target environment.
     
@@ -475,7 +500,7 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
     !!! tip
         Multiple API product projects can be promoted through CI/CD by committing them to the same repository.
 
-### (I.) - Extending a CI/CD pipeline to support applications
+### Step I - Extending a CI/CD pipeline to support applications
 
 Let's assume that the **PetsApp** application is in the development environment which is already subscribed to the **SwaggerPetstore** API.
 
@@ -484,9 +509,12 @@ Let's assume that the **PetsApp** application is in the development environment 
     ```bash
     $ apictl export-app --name PetsApp --owner david -e dev --withKeys
 
+    ```
+    
+    **Response**:
     Successfully exported Application!
     Find the exported Application at /home/wso2user/.wso2apictl/exported/apps/dev/david_PetsApp.zip
-    ```
+    
 
 2.  Extract the exported Application Project.
 3.  Commit the project to the same git repository.
@@ -495,34 +523,43 @@ Let's assume that the **PetsApp** application is in the development environment 
     !!! example
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**:
         Projects to Deploy (1)
 
         Applications (1) ...
         1: [save]		PetsApp: (PetsApp)
-        ```
+        
 
     !!! important
         If you haven't initialized the repository with API Controller, you will get the below error.
         
         ```bash
         $ apictl vcs status -e prod
+        ```
+        
+        **Response**: 
         apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
         Exit status 1
-        ```
+        
 
-        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+        Make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
 
 3.  Import the **PetsApp** Application into the production environment by running the following sample command.
 
     !!! example
         ```bash
         $ apictl vcs deploy -e prod
+        ```
+        
+        **Response**:
         Deploying Projects (1)...
 
         Applications (1) ...
         1: PetsApp: (PetsApp)
         Successfully imported Application
-        ```
+        
 
     The above command will detect the target environment and create the application in the target environment.
 
