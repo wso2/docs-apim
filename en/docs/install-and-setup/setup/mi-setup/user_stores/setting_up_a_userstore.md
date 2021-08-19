@@ -269,4 +269,4 @@ If you are already using a JDBC user store (database) with another WSO2 product 
 
 ## What's next?
 
-See [Managing Users]{{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) for instructions on adding, deleting, or viewing users in the user store.
+See [Managing Users]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) for instructions on adding, deleting, or viewing users in the user store.
