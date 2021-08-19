@@ -8,7 +8,7 @@ You can implement your own Secure Vault configurations by changing the default *
 
 Some of the important elements in the secure vault implementation, which are used in Carbon products for encrypting plain text passwords are as follows:
 
--   **Secret Repository:** This is used to store the secret values (encrypted values). T he `cipher-text.properties` file, located in the `<PRODUCT_HOME>/repository/conf/security` folder is the default file based secret repository used by the Secret Manager in your Carbon product. Note that, currently, Secure Vault only implements file based secret repositories. The Secret Repository stores aliases vs. their actual secrets in encrypted format (encrypted via a key in keystore). Any secret repositories can be written by implementing the `SecretRepository` and `SecretRepositoryProvider` classes. 
+-   **Secret Repository:** This is used to store the secret values (encrypted values). The `cipher-text.properties` file, located in the `<PRODUCT_HOME>/repository/conf/security` folder is the default file based secret repository used by the Secret Manager in your Carbon product. Note that, currently, Secure Vault only implements file based secret repositories. The Secret Repository stores aliases vs. their actual secrets in encrypted format (encrypted via a key in keystore). Any secret repositories can be written by implementing the `SecretRepository` and `SecretRepositoryProvider` classes. 
 
 -   **Secret Manager:** The Secret Manager initializes the Secret Repository and the keystore configured for the Carbon server. The secrets stored in the Secret Repository are accessed using the aliases. The keystore is required to create the decryption crypto, which can be used to resolve encrypted secret values.
 

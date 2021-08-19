@@ -102,9 +102,7 @@ system such as Network File System (NFS) or any other shared file system that is
 You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
 
 1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
-2.  `<APIM_HOME>/repository/deployment/server/executionplans` - Includes siddhi queries related to event processing logic.
-3.  `<APIM_HOME>/repository/deployment/server/synapse-configs` - Includes API gateway configuration files.
-4.  `<APIM_HOME>/repository/tenants` - If tenancy is been used.
+2.  `<APIM_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).

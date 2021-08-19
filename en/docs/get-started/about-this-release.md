@@ -46,6 +46,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
     **Virtual Host** enables you to deploy an API or API Product Revision to a Gateway with a custom hostname. Gateway environments and its virtual hosts can be managed via the Admin Portal, and the API Publisher can choose a host when deploying an API Revision or API Product Revision. 
 
+- **TLSv1.3 support for API Gateway**
+
+    API Gateway supports TLSv1.3 protocol and can be enabled to provide a stronger transport-level security.
+
 <!--
 
 - Changes to Publisher API/UI to support Streaming APIs
@@ -134,6 +138,10 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
     Data Service Call mediator allows you to invoke data service operations from a mediation sequence without introducing an HTTP call (using the Call or Send mediators) 
     to access the data service.  This improves the server performance because the data service is accessed directly without going through the HTTP transport.
+    
+- **TLSv1.3 support for HTTP transport**
+
+    The HTTP transport has been improved to support TLSv1.3 protocol to provide a stronger transport-level security.
 
 ### Compare this release with the Micro Integrator of WSO2 EI 7.x
 

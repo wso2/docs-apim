@@ -232,7 +232,7 @@ href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tes
 been removed from Hotspot JVM.</p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Restrict outbound connections of Publisher node</p>
 <p><br />
 </p></td>
@@ -246,6 +246,13 @@ been removed from Hotspot JVM.</p>
 </p></td>
 <td><p>WSO2 recommends that you use two seperate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
 <p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
+</td>
+</tr>
+<tr class="even">
+<td><p>Defining callback URL regular expression</p>
+<p><br />
+</p></td>
+<td><p>For password recovery, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.</p>
 </td>
 </tr>
 </tbody>

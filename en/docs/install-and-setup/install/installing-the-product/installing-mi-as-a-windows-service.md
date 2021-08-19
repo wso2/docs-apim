@@ -22,6 +22,19 @@ YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` fi
 !!! Info
     WSO2 recommends Yet Another Java Service Wrapper (YAJSW) version 12.14. If you are running on JDK 11, previous versions of YAJSW will not be compatible.
 
+!!! tip
+    You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
+
+    ```bash 
+    "Error 2: The system cannot find the file specified" 
+    ```
+
+    This can be resolved by providing the "complete java path" for the wrapper.java.command as follows.
+
+    ```bash
+    wrapper.java.command = ${JAVA_HOME}/bin/java
+    ```
+
 ## Installing the service
 
 Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt, and execute the following command: 

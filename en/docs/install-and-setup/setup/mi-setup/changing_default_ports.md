@@ -44,7 +44,7 @@ By default, the Micro Integrator is **internally** configured with a port offset
 			If required, you can manually change the HTTP port in the <code>deployment.toml</code> file (stored in the <code>MI_HOME/conf</code> folder) as shown below.</br></br>
 			<div>
 				<code>[mediation]</code></br>
-				<code>internal.http.api.port = http_port </code></br>
+				<code>internal_http_api_port = http_port </code></br>
 			</div></br>
 			<b>Note</b>: With the default internal port offset, the effective port will be <code>http_port + 10</code>.
 		</td>

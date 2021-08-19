@@ -558,6 +558,17 @@ view the output as follows:
 
     {"newValue" : "<pqr>abc</pqr>"}
 
+If you want to evaluate a valid JSON object as a string, you need to use `literal="true"` in the PayloadFactoryMediator as indicated below,
+
+```
+<payloadFactory media-type="json">
+    <format> { "message":{ "payload": "$1" } } 
+    </format>
+    <args>
+        <arg evaluator="xml" expression="$ctx:jsonPayload" literal="true" />
+    </args>
+</payloadFactory> 
+```
 
 ### Adding a custom SOAP header
 

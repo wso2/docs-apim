@@ -81,7 +81,9 @@ The Gateway configuration process varies based on the Gateway that you are using
 
 ## Step 4 - View the Analytics Dashboards
 
-Invoke APIs and sign in to the Analytics Portal to view the dashboards. For more detailed information on the Analytics Portal dashboards and their usage, see the [Analytics Portal Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
+Invoke APIs and sign in to the Analytics Portal [https://analytics.choreo.dev/](https://analytics.choreo.dev/) to view the dashboards.
+
+For more detailed information on the Analytics Portal dashboards and their usage, see the [Analytics Portal Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
 
 ## What's Next?
 

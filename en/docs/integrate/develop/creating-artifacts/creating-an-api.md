@@ -71,7 +71,7 @@ Follow the instructions given below to create a new [REST API]({{base_path}}/ref
                 </td>
                 <td>
                     <b>Required</b>.</br>
-                    The context for the REST API. For example, <code>/healthcare</code>.
+                    The context for the REST API. For example, <code>/healthcare</code>. Note that it is not recommended to use the same API context in multiple APIs. The API context should be unique for each API. It is also not recommended to use "/service" as API context because it is preserved for Proxy services.
                 </td>
             </tr>
             <tr>
