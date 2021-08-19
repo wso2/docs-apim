@@ -1,6 +1,6 @@
 # Enforce Throttling and Resource Access Policies
 
-**Throttling** allows you to limit the number of hits to an API during a given period, typically to protect your APIs from security attacks and your backend services from overuse, regulate traffic according to infrastructure limitations and to regulate usage for monetization. For information on different levels of throttling in WSO2 API Manager (WSO2 API-M), see [Throttling tiers](_Setting_Throttling_Limits_) .
+**Throttling** allows you to limit the number of hits to an API during a given period, typically to protect your APIs from security attacks and your backend services from overuse, regulate traffic according to infrastructure limitations and to regulate usage for monetization. For information on different levels of throttling in WSO2 API Manager (WSO2 API-M), see [Throttling tiers]({{base_path}}/design/rate-limiting/setting-throttling-limits/) .
 
 !!! note
     This tutorial uses the `PhoneVerification` API, which has one resource, GET and POST methods to access it and a throttling policy enforced.
@@ -34,4 +34,4 @@ After you created, published, and subscribed to the API, let's see how the API G
      Note the response that appears in the API Console. As we used a valid phone number in this example, the response returns as valid.
     ![](../../assets/img/learn/learn-throttling-query-response.png)
     Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
-    ![](../../assets/img/learn/learn-throttling-error-response.png)
+    [![]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)
