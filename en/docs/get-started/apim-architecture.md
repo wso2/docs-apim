@@ -1,6 +1,10 @@
 # Architecture and Key Components
 
+The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it comprises of. 
+
 [![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture-2.png)]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture-2.png)
+
+The API Manager consists of an API management layer and an integration layer where the above components all fit into and mesh together to address the various use cases of the product. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes. For details on deployment patterns, see [Deployment Overview]({{base_path}}/install-and-setup/setup/deployment-overview/). The pattern you use would depend on the workload of each component and the traffic that is expected for each of the components and runtimes.
 
 ## Management Plane
 
