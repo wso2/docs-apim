@@ -42,7 +42,7 @@ You can restrict access to the management console of the API-M runtime by bindin
 
     The `RemoteAddrValve` Tomcat valve defined in this file will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
 
--   To control access to all web applications deployed in your server, add the IP addresses to the `<APIM-M_HOME>/repository/conf/context.xml` file as follows:
+-   To control access to all web applications deployed in your server, add the IP addresses to the `<APIM-M_HOME>/repository/conf/tomcat/context.xml` file as follows:
 
     ```xml
     <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<IP-address-01>|<IP-address-02>|<IP-address-03>"/>
