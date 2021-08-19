@@ -58,7 +58,7 @@ Now, you have created a new REST API successfully.
 
     1. Click delete, as shown below, to remove all the existing resources.
 
-          [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)
+          [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
     2. Add a new resource.
           1. Select **POST** as HTTP Verb.

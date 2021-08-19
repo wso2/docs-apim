@@ -107,7 +107,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
           1. Click delete, as shown below, to remove all the existing resources.
 
-              [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)
+              [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
           2. Click **(+)** to add a new resource.
          
