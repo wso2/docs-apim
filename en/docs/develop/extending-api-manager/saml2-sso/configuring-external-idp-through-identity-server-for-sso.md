@@ -4,6 +4,17 @@
     Please follow [Configuring Identity Server as IDP for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso) to configure WSO2 Identity Server.
     This guide will assume you have already followed the above tutorial and configured the Identity Server as IDP for SSO.
 
+!!! info
+    When configuring SSO for the API Manager Developer Portal and Publisher via an external IDP in a distributed setup, you need to update the Developer Portal and Publisher nodes with the following configuration by pointing the Key Manager endpoints.
+    
+    ```
+    [apim.idp]
+    server_url = "https://<KM_HOSTNAME>"
+    authorize_endpoint = "https://<KM_HOSTNAME>:<PORT>/oauth2/authorize"
+    oidc_logout_endpoint = "https:/<KM_HOSTNAME>:<PORT>/oidc/logout"
+    oidc_check_session_endpoint = "https://<KM_HOSTNAME>:<PORT>/oidc/checksession"
+    ```
+
 1. Add a new Identity Provider in WSO2 Identity Server. For more details on configuring external IDPs in WSO2 IS, see [Adding and Configuring an Identity Provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-an-identity-provider/) .
 
     -   **Identity Provider Name**: ExternalIS
