@@ -193,7 +193,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 <tbody>
 <tr class="odd">
 <td><pre><code>%a</code></pre></td>
-<td><p>Remote IP address</p></td>
+<td><p>User Agent</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%A</code></pre></td>
@@ -220,74 +220,78 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 <td><p>Accept Encoding</p></td>
 </tr>
 <tr class="even">
+<td><pre><code>%f</code></pre></td>
+<td><p>Referer</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%E</code></pre></td>
 <td><p>Transfer Encoding</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%h</code></pre></td>
 <td><p>Remote host name (or IP address if enableLookups for the connector is false)</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%l</code></pre></td>
 <td><p>Remote logical username from identd (always returns '-')</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%L</code></pre></td>
 <td><p>Accept Language</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%k</code></pre></td>
 <td><p>Keep Alive</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%m</code></pre></td>
 <td><p>Request method (GET, POST, etc.)</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%n</code></pre></td>
 <td><p>Content Encoding</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%r</code></pre></td>
 <td><p>Request Element</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%s</code></pre></td>
 <td><p>HTTP status code of the response</p></td>
 </tr>
-<tr class="odd">
-<td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
-</tr>
 <tr class="even">
+<td><pre><code>%S</code></pre></td>
+<td><p>Accept Charset</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%t</code></pre></td>
 <td><p>Date and time, in Common Log Format</p></td>
 </tr>
-<tr class="odd">
-<td><pre><code>%T</code></pre></td>
-<td><p>Time taken to process the request in seconds.</p></td>
-</tr>
 <tr class="even">
+<td><pre><code>%T</code></pre></td>
+<td><p>Content Type</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%u</code></pre></td>
 <td><p>Remote user that was authenticated (if any), else '-'</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%U</code></pre></td>
 <td><p>Requested URL path</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%v</code></pre></td>
 <td><p>Local server name</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%V</code></pre></td>
 <td><p>Vary Header</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%x</code></pre></td>
 <td><p>Connection Header</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%Z</code></pre></td>
 <td><p>Server Header</p></td>
 </tr>

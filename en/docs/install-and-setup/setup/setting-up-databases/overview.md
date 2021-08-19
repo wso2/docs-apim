@@ -2,6 +2,8 @@
 
 WSO2 API Manager is shipped with an H2 database for storing data. These default databases are located in the `<API-M_HOME>/repository/database` directory of the product pack.
 
+When setting up databases, you need to ensure that the setup matches the distributed deployment pattern that you implement. For more information, see [Understanding the Distributed Deployment of API Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/).
+
 ## Default databases
 
 Explained below are the default databases which will be used within API Manager.

@@ -107,7 +107,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
           1. Click delete, as shown below, to remove all the existing resources.
 
-              [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
+              [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)]({{base_path}}/assets/img/learn/delete-all-exisiting-resources.png)
 
           2. Click **(+)** to add a new resource.
          
@@ -141,7 +141,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
      Click **API Definition**. The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
 
-     [![REST API definition]({{base_path}}/assets/img/learn/api-definiton-rest.png)]({{base_path}}/assets/img/learn/api-definiton-rest.png)
+     [![REST API definition]({{base_path}}/assets/img/learn/api-definition-rest.png)]({{base_path}}/assets/img/learn/api-definition-rest.png)
 
 Now, you have successfully created and configured a REST API. Next, let's [Publish your API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
 

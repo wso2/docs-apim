@@ -754,6 +754,7 @@ nav:
                 #- Quality of Service: api-analytics/qos.md
                 #- Analytics API Guide: api-analytics/analytics-api-guide.md
                 #- Troubleshooting Analytics: add this infor in the main troubleshooting page GW> Analytics
+            - Publishing Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Architecture: api-analytics/api-analytics-architecture.md
         - MI Analytics:
             - Set up: mi-analytics/setting-up-mi-analytics.md
@@ -823,6 +824,7 @@ nav:
             - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
             - API-M Config Catalog: reference/config-catalog.md
             - MI Config Catalog: reference/config-catalog-mi.md
+            - MI Dashboard Config Catalog: reference/config-catalog-mi-dashboard.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
         - API Kubernetes Operator: reference/k8s-operators/k8s-api-operator.md
         - Connectors:
@@ -1213,6 +1215,7 @@ nav:
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Troubleshooting:
               - Error Handling: troubleshooting/error-handling.md
+              - Error Handling in Micro Integrator: troubleshooting/error-handling-mi.md
               - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
               - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
               - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
@@ -1883,7 +1886,6 @@ plugins:
               'learn/api-controller/advanced-topics/configuring-git-integration.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration/'
               'learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
               'learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/k8s-operators/k8s-api-operator/'
-              'learn/kubernetes-operators/k8s-wso2am-operator.md': 'https://apim.docs.wso2.com/en/4.0.0/install-and-setup/setup/kubernetes-operators/k8s-wso2am-operator/'
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'

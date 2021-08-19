@@ -148,7 +148,7 @@ To integrate with the observability deployment, you are required to perform the 
     class="org.wso2.micro.integrator.observability.metric.handler.MetricHandler"
     ``` 
     
-    For more information about the Micro Integrator Kubernetes development flow, see [MI kubernetes guide]<LINK>.
+    For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns/).
 
 - **Enabling the metrics endpoint**
 
@@ -206,7 +206,7 @@ agent_host = Agent_hostname
 
 These settings enable the tracing data instrumentation and publishing to a jaeger instance.
 
-For more information about the Micro Integrator Kubernetes development flow, see [MI kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
+For more information about the Micro Integrator Kubernetes development flow, see [MI Kubernetes guide]({{base_path}}/install-and-setup/setup/mi-setup/deployment/kubernetes_deployment_patterns).
 
 ## What's Next?
 

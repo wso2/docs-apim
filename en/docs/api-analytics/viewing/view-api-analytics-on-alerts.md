@@ -15,5 +15,21 @@ To use this page, be sure to configure alerts and have API invocations that trig
  alerts for your API. 
 
 !!! Tip
-     By default, alerts are not enabled for API analytics. 
+     Alerts are retained only for a period of 1 week.
 
+## Page Walk Through
+
+The following topics walk you through the main features available for viewing API alerts.
+
+### Top APIs by Alert Count
+
+This will show a pie chart and a table to visualize the alert distribution during the last week. 
+
+
+[![Top APIs by Alert Count]({{base_path}}/assets/img/analytics/alerts/top-apis-by-alert-count.png)]({{base_path}}/assets/img/analytics/alerts/top-apis-by-alert-count.png)
+
+### Alert Summary
+
+This table will list down each alert generated during the last week. The message of the alert can be viwed by expanding the arrow icon on the details column. The dropdowns can be used to filter alerts based on type and API.
+
+[![Alert Summary]({{base_path}}/assets/img/analytics/alerts/alert-summary.png)]({{base_path}}/assets/img/analytics/alerts/alert-summary.png)
