@@ -93,7 +93,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 Given below is a summary of the performance result for each of the scenarios used for the tests.
-The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/b06581ed31fceaa32c01a03a63a107141a68cb2b/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/micro-integrator/blob/6785a17e617b91fd1e3127e96e51ae45879c1c3b/performance/benchmarks/summary.md).
 
 #### Throughput (requests/sec) vs. concurrent users
 The following results compare the throughput against the number of concurrent users in each scenario.
