@@ -8,7 +8,7 @@ The WSO2 in-place updates tool allows you to update your currently used product 
 For more information, see [Using WSO2 In-Place Updates](https://docs.wso2.com/display/updates100/Using+WSO2+In-Place+Updates)
 
 !!! note
-    WSO2 recommends all users to shift to the new WSO2 Updates 2.0 model to alleviate from future updates challenges. See [WUM/In-place updates decommission plan](https://updates.docs.wso2.com/en/latest/updates/wum-decommission/) for more information.
+    WSO2 recommends all users to shift to the new WSO2 Updates 2.0 model to alleviate from future updates challenges. For more information, see [WUM/In-place updates decommission plan](https://updates.docs.wso2.com/en/latest/updates/wum-decommission/).
 
 ##WSO2 Updates 2.0
 You should manually merge the updated configuration files or use a tool like Puppet. You should store backups with the custom configurations in your system, in case you have to restore later.
