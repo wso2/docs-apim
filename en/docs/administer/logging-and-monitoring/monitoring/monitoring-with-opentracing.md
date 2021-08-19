@@ -71,6 +71,7 @@ For more information, see [Open Tracer Configurations]({{base_path}}/reference/c
     ```
     logger.trace.name = trace
     ```
+    
 2. Change the above configuration as follows.
     
     ```
