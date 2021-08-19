@@ -1,6 +1,6 @@
 # Architecture and Key Components
 
-[![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture-3.png)]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture-3.png)
+[![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture.png)]({{base_path}}/assets/img/get_started/architecture/wso2-apim-architecture.png)
 
 ## Management Plane
 
