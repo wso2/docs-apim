@@ -1,6 +1,6 @@
 # Managing Users
 
-See the topics given below to understand **user management** in the Micro Integrator of EI 7.1.0.
+See the topics given below to understand **user management** in the Micro Integrator.
 
 ## User credentials in the MI
 
