@@ -34,4 +34,4 @@ After you created, published, and subscribed to the API, let's see how the API G
      Note the response that appears in the API Console. As we used a valid phone number in this example, the response returns as valid.
     ![](../../assets/img/learn/learn-throttling-query-response.png)
     Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
-    ![](../../assets/img/learn/learn-throttling-error-response.png)
+    [![]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)
