@@ -312,6 +312,28 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
         In the below configuration, the database defined as `am_db` is the same database which is defined under `[database.apim_db]` configuration in the **deployment.toml** file of the WSO2 API Manager.
         <hr>
         **If you are configuring the `AM_DB` databases in Oracle**, apart from the following configurations, you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to the `AM_DB` datasource that you configured with Oracle.
+         In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
+         
+         ``` java
+         - name: APIM_ANALYTICS_DB
+           description: "The datasource used for APIM statistics aggregated data."
+           jndiConfig:
+             name: jdbc/APIM_ANALYTICS_DB
+             definition:
+               type: RDBMS
+               configuration:
+                 jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
+                 username: 'root'
+                 password: '123'
+                 driverClassName: oracle.jdbc.OracleDriver
+                 minIdle: 5
+                 maxPoolSize: 50
+                 idleTimeout: 60000
+                 connectionTestQuery: SELECT 1 FROM DUAL
+                 connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+                 validationTimeout: 30000
+                 isAutoCommit: false
+         ```
     
     ``` yaml
      A sample for MySQL is shown below.
