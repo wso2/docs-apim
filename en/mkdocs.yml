@@ -1466,6 +1466,7 @@ nav:
                         - Tuning the VFS Transport: install-and-setup/setup/mi-setup/performance_tuning/tuning-the-vfs-transport.md
                         - Tuning the RabbitMQ Transport: install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning.md
                         - Tuning the Inbound Endpoints: install-and-setup/setup/mi-setup/performance_tuning/tuning-inbound-endpoints.md
+            - WSO2 Installation Options: install-and-setup/setup/installation-options.md
         - CI/CD:
             - CI/CD - Integrations:
                 - CI/CD for Integrations - Overview: install-and-setup/setup/mi-setup/deployment/mi-cicd-overview.md
