@@ -3464,7 +3464,7 @@ Follow the instructions below to move all the existing API Manager configuration
 7.  Migrate the API Manager artifacts.
 
     !!! Note
-        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it set as “Default” in APIM 4.0.0.
+        Modify the `[apim.gateway.environment]` tag in the `<API-M_HOME>/repository/conf/deployment.toml` file, the name should change to "Production and Sandbox". By default, it is set as `Default` in API Manager 4.0.0.
     
         ```toml
         [[apim.gateway.environment]]
