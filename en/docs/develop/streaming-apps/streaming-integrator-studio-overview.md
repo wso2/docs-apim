@@ -2,15 +2,18 @@
 
 The Streaming Integrator Tooling is a developer tool that is shipped with the Streaming Integrator to develop Siddhi applications. It provides four interfaces to develop Siddhi applications.
 
--   **Source View** : This allows you to write Siddhi applications
+- **Source View** : This allows you to write Siddhi applications
     in the Siddhi Query Language. This supports auto-completion and
     tracking syntax errors.
-
--   **Design View** :This interface visualizes the event flow of a
+- **Design View** :This interface visualizes the event flow of a
     Siddhi application, and allows you to compose the applications by
     dragging and dropping Siddhi components to a graph.
-    
--   **Wizard View**: This is a wizard with a page for each component of a Siddhi application that displays the relevant configuration parameters as fields. This wizard can be directly accessed from the [Welcome Page](#welcome-page). Only ETL (Extract, Transform, Load) applications can be created/viewed in this interface. For a Siddhi application to be considered an ETL application, it must include all of the following components:<br/><br/> - A source configuration<br/><br/> - A sink configuration (the sink type can be any of the [supported sink types](https://siddhi.io/en/v5.1/docs/query-guide/#sink) other than `log`)<br/><br/> - A Siddhi query that performs a transformation. <br/><br/> For more information, see [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling).
+- **Wizard View**: This is a wizard with a page for each component of a Siddhi application that displays the relevant configuration parameters as fields. This wizard can be directly accessed from the [Welcome Page](#welcome-page). Only ETL (Extract, Transform, Load) applications can be created/viewed in this interface. For a Siddhi application to be considered an ETL application, it must include all of the following components:<br/>
+      - A source configuration.
+      - A sink configuration (the sink type can be any of the [supported sink types](https://siddhi.io/en/v5.1/docs/query-guide/#sink) other than `log`).
+      - A Siddhi query that performs a transformation. 
+         
+         For more information, see [Creating an ETL Application via SI Tooling tutorial]({{base_path}}/use-cases/streaming-tutorials/creating-etl-application-via-tooling).
 
 -   **Async API View**: This interface allows you to generate an asynchronous API definition from a Siddhi application that includes a source/sink of the `websocket-server`, `webhooks` or `sse` type. Once an API definition is generated, you can also edit it in this interface. It displays the API definition in code format in the left panel, and as a form in the right panel. For more information about accessing this view and creating/editing an asynchronous API definition in this view, see [Generating and Viewing Asynchronous API Definitions]({{base_path}}/develop/streaming-apps/working-with-the-async-api-view)
 
@@ -27,11 +30,13 @@ To start and access the Streaming Integrator Tooling, follow the steps below:
     -   For Windows: `tooling.bat`
     -   For Linux: `./tooling.sh`
 
-2.  Access the Streaming Integrator Tooling via the `http://localhost:/editor`
-    URL. The Streaming Integrator Tooling opens as shown below.
+2.  Access the Streaming Integrator Tooling via the `http://localhost:9390/editor`
+    URL. 
+    
+     The Streaming Integrator Tooling opens as shown below.
 
     !!! info
-        The default URL is `http://localhost:9390/editor`. If required, you can change the host name (i.e., `localhost`) or the web UI application name (i.e., `editor`). For instructions, see [Changing the Host Name and Context Path of SI Tooling]({{base_path}}/setup/change-hostname-and-context-path).
+        If required, you can change the host name (i.e., `localhost`) or the web UI application name (i.e., `editor`) in the Streaming Integrator Tooling URL. For instructions, see [Changing the Host Name and Context Path of SI Tooling]({{base_path}}/setup/change-hostname-and-context-path).
     
 
 ## Welcome Page
@@ -72,7 +77,7 @@ following:
 
 ## Menu items
 
-This section explains the options that are available in the **File** ,
+This section explains the options that are available in the **File**,
 **Edit** and **Run** menus.
 
 #### File menu Items
@@ -90,7 +95,7 @@ The **File** menu includes the following options.
 -   **Open File** 
     Click this to open a Siddhi file that is already saved in the `workspace` directory of the Streaming Integrator 
     Tooling. If the file is already opened in a new tab, clicking **Open** does not open it again. The default path to 
-    the `workspace` directory is `<SI_Home>/wso2/server/deployment`.         ` .  
+    the `workspace` directory is `<SI_HOME>/wso2/server/deployment`.  
       
     When a Siddhi file is opened, its source view is displayed by default.  
     ![The source view of a Siddhi application]({{base_path}}/assets/img/streaming/streaming-integrator-studio-overview/siddhi-app-source-view.png)  
@@ -364,5 +369,3 @@ For more information about templated variables, see [Siddhi Documentation - Sidd
 -   **Revert icon**  
     Click this to revert the unsaved changes in the Siddhi application
     that is currently being created/edited.
-
-
