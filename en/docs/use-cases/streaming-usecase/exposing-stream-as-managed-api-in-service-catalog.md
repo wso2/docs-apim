@@ -37,15 +37,25 @@ insert  into LowProductionAlertStream;
 
 ## Step 4 - Generate the AsyncAPI definition
 
-Enter the following Streaming API related details to generate an AsyncAPI definition based on the Streaming Backend server details, and add the AsyncAPI definition to the Siddhi application. For more information, see [Generating and Viewing AsyncAPI Definitions]({{base_path}}/develop/streaming-apps/working-with-the-async-api-view).
+Enter the Streaming API related details to generate an AsyncAPI definition based on the Streaming Backend server details, and add the AsyncAPI definition to the Siddhi application. 
+
+1. To view AsyncAPI definitions, you need to click **Async API View**. The Async API View is accessible only for Siddhi applications that have one or more sources/sinks of the websocket-server, webhooks or sse type.
+
+2. Enter the following Streaming API related details to generate an AsyncAPI definition.
       
-| **Field**                                            | **Value**                             |
-|------------------------------------------------------|---------------------------------------|
-| **Title**                                            | `SweetProductionApp`                  |
-| **Version**                                          | `1.0.0`                               |
-| **Description**                                      | `Consumes events of sweet production` |
-| **Select Source or Sink type to Generate Async API** | Select **websocket-server**           |
-| **Sources**                                          | Select **SweetProductionStream**      |
+   | **Field**                                            | **Value**                             |
+   |------------------------------------------------------|---------------------------------------|
+   | **Title**                                            | `SweetProductionApp`                  |
+   | **Version**                                          | `1.0.0`                               |
+   | **Description**                                      | `Consumes events of sweet production` |
+   | **Select Source or Sink type to Generate Async API** | Select **websocket-server**           |
+   | **Sources**                                          | Select **SweetProductionStream**      |
+
+3. Click **Generate Async API** to generate the AsyncAPI definition.
+
+4. Click **Add Async API** to add the generated AsyncAPI definition to the Siddhi application.
+
+For more information, see [Generating and Viewing AsyncAPI Definitions]({{base_path}}/develop/streaming-apps/working-with-the-async-api-view).
 
 The following is the AsyncAPI definition that gets generated.
 
