@@ -35,11 +35,14 @@ select *
 insert  into LowProductionAlertStream;   
 ```
 
+!!! tip
+    For more information on the configurations and what they mean, refer to [Create a Siddhi application]({{base_path}}/develop/streaming-apps/creating-a-siddhi-application/).
+
 ## Step 4 - Generate the AsyncAPI definition
 
 Enter the Streaming API related details to generate an AsyncAPI definition based on the Streaming Backend server details, and add the AsyncAPI definition to the Siddhi application. 
 
-1. To view AsyncAPI definitions, you need to click **Async API View**. The Async API View is accessible only for Siddhi applications that have one or more sources/sinks of the websocket-server, webhooks or sse type.
+1. To view AsyncAPI definitions, you need to click **Async API View**. The Async API View is accessible only for Siddhi applications that have one or more sources/sinks of the `websocket-server`, `webhooks`, or `sse` type.
 
 2. Enter the following Streaming API related details to generate an AsyncAPI definition.
       
