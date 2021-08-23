@@ -28,7 +28,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 1. First let's create postRecord sequence and ReadRecord sequences. Right click on the created Integration Project and select, -> **New** -> **Sequence** to create the Sequence. 
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequence" width="800" alt="Adding a Sequence"/>
+    <a href="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg"><img src="{{base_path}}/assets/img/integrate/connectors/add-sequence.jpg" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
 
 2. Provide the Sequence name as PostRecord. You can go to the source view of the XML configuration file of the API and copy the following configuration. 
     ```xml
