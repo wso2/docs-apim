@@ -301,7 +301,7 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/integrate/d
             "objectClass":"inetOrgPerson",
             "attributes":"mail,uid,givenName,manager,objectGUID",
             "filters":{
-                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz"},
+                "manager":"cn=sales-group,ou=sales,dc=example,dc=com","uid":"rajjaz","createTimestamp >":"20210412000000.0Z"},
             "onlyOneReference":"false"
         }
     }
