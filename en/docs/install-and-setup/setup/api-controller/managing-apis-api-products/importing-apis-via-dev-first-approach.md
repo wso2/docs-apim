@@ -434,7 +434,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--environment` or `-e` : Environment to which the API should be imported.   
         -   Optional :  
             `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
-            `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API.   
+            `--skip-deployments` : Skip the deployment environments specified in the project and only update the current API of the API.   
             `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`.   
             `--update` : Update an existing API or create a new API in the importing environment.    
             `--params` : Provide a API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
@@ -457,17 +457,17 @@ After editing the mandatory fields in the API Project, you can import the API to
     !!! note
         **Changes to the import command with the revision support for APIs**  
         
-        - From WSO2 API-M 4.0.0 onwards, you have to create a new revision in order to deploy an API in an gateway environment and 
-            **only a revision can be deployed in a gateway environment**. 
-        - With the import command of the apictl, if the API project has specified the deployment environments, import 
-            will first **update the working copy of the API**.
-        - If the number of revisions created for that API **does not exceed the max revision limit of 5**, a new revision
-            of that API will be created and that revision will be deployed in the specified gateway environments.
-        - If the max revision numbers is reached, imported API will **only update the working copy** and not be deployed 
-            in the specified gateway environments.
-        - You can use `--rotate-revision` flag with the import command and if the max revision limit reached, import
+        - From WSO2 API-M 4.0.0 onwards, you have to create a new revision in order to deploy an API in a Gateway environment and 
+            **only a revision can be deployed in a Gateway environment**. 
+        - With the import command of the apictl, if the API project has specified the deployment environments, the import 
+            will first **update the current API of the API**.
+        - If the number of revisions created for that API **do not exceed the max revision limit of 5**, a new revision
+            of that API will be created and that revision will be deployed in the specified Gateway environments.
+        - If the max revision numbers are reached, the imported API will **only update the current API** and not be deployed 
+            in the specified Gateway environments.
+        - You can use the `--rotate-revision` flag with the import command and if the max revision limit is reached, the import
             operation will **delete the earliest revision for that API and create a new revision**. This new revision will be
-            deployed in the specified gateway environments.
+            deployed in the specified Gateway environments.
 
     !!!note
         `apictl import-api` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl import api` as shown above.
