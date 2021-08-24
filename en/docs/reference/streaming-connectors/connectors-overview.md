@@ -4,7 +4,7 @@ WSO2 Streaming Integrator is powered by Siddhi. Siddhi supports an extension arc
 
 ## Purpose
 
-Streaming Integration use cases may require a wide range of functionalities. Extensions are supported because it is not possible to have all this functionality within the Siddhi core. If the functionality covered by the supported extensions have gaps when addressing the requirements of your use cases, you can [write a custom extension]({{base_path}}/streaming/connectors/writing-custom-siddhi-extensions).
+Streaming Integration use cases may require a wide range of functionalities. Extensions are supported because it is not possible to have all this functionality within the Siddhi core. If the functionality covered by the supported extensions have gaps when addressing the requirements of your use cases, you can [write a custom extension]({{base_path}}/reference/streaming-connectors/writing-custom-siddhi-extensions).
 
 All extensions have a namespace. This is used to identify the relevant extensions together, and to let you specifically call the extension.
 
@@ -50,7 +50,7 @@ Siddhi supports the following extension types:
 
 - **Window**
 
-    This allows events to be collected, generated, dropped and expired anytime without altering the event format based on the given input parameters, similar to any other Window operator.
+    This allows events to be collected, generated, dropped, and expired anytime without altering the event format based on the given input parameters, similar to any other Window operator.
     
     This is implemented by extending `io.siddhi.core.query.processor.stream.window.WindowProcessor`.
     
@@ -70,13 +70,13 @@ Siddhi supports the following extension types:
 
 - **Stream Processor**
 
-    This allows events to be collected, generated, dropped and expired anytime by altering the event format. Altering the event format is done by adding one or more attributes to it based on the given input parameters.
+    This allows events to be collected, generated, dropped, and expired anytime by altering the event format. Altering the event format is done by adding one or more attributes to it based on the given input parameters.
     
     This is implemented by extending `io.siddhi.core.query.processor.stream.StreamProcessor`.
     
     e.g., `custom:perMinResults(<parameter>, <parameter>, ...)`
     
-    Here, the `perMinResults` function of the `custom` extension returns all events by adding one or more attributes to the events based on the conversion logic. Altered events are output every minute regardless of event arrivals.
+    Here, the `perMinResults` function of the `custom` extension returns all events by adding one or more attributes to the events based on the conversion logic. Altered events are sent as output every minute regardless of event arrivals.
 
 - **Sink**
 
@@ -142,5 +142,5 @@ For the complete list of pre-written Siddhi extensions that are currently availa
 
 ## Further References
 
-- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/streaming/connectors/installing-siddhi-extensions).
-- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions.md).
+- For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/).
+- If you want to install/uninstall one or more Siddhi extensions in Streaming Integrator Tooling, see [Installing Siddhi Extensions]({{base_path}}/develop/streaming-apps/installing-siddhi-extensions/).
