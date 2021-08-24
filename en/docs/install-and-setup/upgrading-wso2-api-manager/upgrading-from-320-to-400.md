@@ -1566,6 +1566,14 @@ Follow the instructions below to move all the existing API Manager configuration
         [[apim.gateway.environment]]
         name = "Production and Sandbox"
         ```
+    !!! Info
+        If you have changed the name of the gateway environment in your older version, then when migrating, make sure
+        that you change the `[apim.gateway.environment]` tag accordingly. For example, if your gateway environment was named `Test` in the `<OLD_API-M_HOME>/repository/conf/api-manager.xml` file, you have to change the toml config as shown below.
+
+        ```toml
+        [[apim.gateway.environment]]
+        name = "Test"
+        ``` 
 
     You have to run the following migration client to update the API Manager artifacts.
 
