@@ -113,7 +113,7 @@ The rest of the files are runtime configurations for eslint, jest, webpack, npm.
 
 #### Overriding the API Documentation and Overview components
 
-```sh
+```
 override
 └── src
     ├── Readme.txt
@@ -128,7 +128,7 @@ override
 
 #### Adding new files to the override folder
 
-```sh
+```
 override
 └── src
     ├── Readme.txt
@@ -145,13 +145,13 @@ override
 
 You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
 
-```sh
+```
 import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
 A bundler error occurs if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
-```sh
+```
 import NewFile from './NewFile.jsx';
 ```
 
@@ -247,7 +247,7 @@ Let's see how you can override and display a custom API listing page.
 
     If you see a tree of `<Anonymous>` tags, it means that you are running a production build. It's hard to identify the relevant components with a production build. Make sure to run a development build running the following command.
 
-    ```sh
+    ```
     npm run build:dev
     ```
 
