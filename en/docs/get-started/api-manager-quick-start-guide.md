@@ -5,9 +5,15 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 ### Before you begin...
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
-   For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+     
+     For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
+
 2. [Download version 4.0.0 of WSO2 API-M](https://wso2.com/api-management/).
-3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command `api-manager.bat --run` (for Windows) or `sh api-manager.sh` (for Linux).
+
+3. Start WSO2 API-M by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command.
+
+     - `api-manager.bat --run` (for Windows)
+     - `sh api-manager.sh` (for Linux)
 
 ### What you'll build
 
@@ -21,17 +27,22 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 Follow the instructions below to create and publish an API via the Publisher Portal of WSO2 API-M.
 
-1. Navigate to the Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials (The below home screen will be displayed).
+1. Navigate to the Publisher Portal.
+   
+     [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     
+2. Sign in with **`admin/admin`** as the credentials.
                                                  
-    [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
+     [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-2. Create an API.
+3. Create an API.
 
      Let's use a mock REST service to create a REST API from scratch.
  
-     A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as (`http://run.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Note that we are using the HTTP protocol instead of HTTPS.
+     A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
 
-     - Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
+    !!! tip
+        Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
          `{"hello": "world"}`
     
@@ -75,7 +86,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
      </tr>
      </table>
      
-     ![[Create an API]({{base_path}}/assets/img/get_started/api-create.png)]({{base_path}}/assets/img/get_started/api-create.png)
+     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
         
 6. Click **Create & Publish**.
 
@@ -188,7 +199,7 @@ Follow the instructions below to invoke the previously created API with the gene
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-5. Then click **Execute**.
+5. Click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
@@ -201,44 +212,45 @@ __Congratulations!__ You have successfully created your first API, subscribed to
 ## Automate API development and deployment
 
 Let's look at how you can use **WSO2 API Controller (apictl)** which is the command-line tool to move APIs, 
-API Products, and Applications across WSO2 API-M environments and to perform CI/CD operations. 
-(For more information, see [Getting Started with WSO2 API Controller (apictl)]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/))
+API Products, and Applications across WSO2 API-M environments and to perform CI/CD operations.
 
 ### Before you begin...
 
-1. Download the apictl version 4.0.0 (or the latest of the 4.x family) based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/) from under the **Dev-Ops Tooling** section.
+1. [Make sure that WSO2 API Manager (WSO2 API-M) 4.0.0 is started]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
-2. Extract the ZIP to a preferred location.
+2. Download the apictl.
 
-     This location will be referred to as the `apictl` directory.
+     1. Navigate to the [API Manager Tooling page](https://wso2.com/api-management/tooling/).
 
-3. To use the command line tool to navigate to the `apictl` directory.
+     2. Download the apictl version 4.0.0 (or the latest of the 4.x family) based your operating system from the **API Controller Tooling** section.
+ 
+     3. Extract the ZIP to a preferred location.
 
-    !!!warn
-        If you have previously used an apictl old version, 
-        backup and remove the `/home/<user>/.wso2apictl` directory 
-        and reconfigure the environments using the commands as explained below.
+         This location will be referred to as the `apictl` directory.
+
+     4. Navigate to the `apictl` directory.
         
-     Execute the following command to view the available operations.
+        !!! warning
+            **If you have previously used an apictl old version**, backup and remove the `/home/<user>/.wso2apictl` directory.
 
-     ``` bash
-     ./apictl --help
-     ```   
+     5. Optionally, execute the following command to view the available operations.
 
-4. Point the apictl to the instance of WSO2 API-M in which you want to deploy APIs.
+         ``` bash
+         ./apictl --help
+         ```   
 
-    Execute the following command to add an environment.
+3. Point the apictl to the instance of WSO2 API-M in which you want to deploy APIs.
+
+     Execute the following command to add an environment for this purpose.
      
-    !!!note
-        It is assumed that WSO2 API-M is run locally (localhost) using the default ports.
+    !!! note
+        - In the following command it is assumed that WSO2 API-M is run locally (localhost) using the default ports.
+        - For more information on adding environments using different flag combinations, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
     
     ``` bash
     ./apictl add env dev \
              --apim https://localhost:9443
     ```
-
-     For more information on adding environments using different flag combinations,
-     see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
    
      On successfully executing this command, you should see the following message.
 
@@ -265,9 +277,9 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
      Open README file to learn more
      ```   
     
-    !!! note
+    !!! tip
 
-        Use the following command to view the various options related to initializing a project.
+        Optionally, use the following command to view the various options related to initializing a project.
 
         ```bash
         ./apictl init --help
@@ -277,7 +289,9 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
      1. Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). 
      
-     2. Open the `api.yaml` file. (Alternatively, You can use a text editor to open this file as well.)
+     2. Open the `api.yaml` file.
+         
+         Alternatively, you can use a text editor to open this file as well.
    
      3. Change the values of the following attributes as shown below and save the file.
 
@@ -304,9 +318,10 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
      Navigate back to the `apictl` directory and execute the following command:
 
-    !!! Info
+    !!! note
 
-        If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on WSO2 API-M. You can use the default admin credentials as **`admin/admin`**.
+        - If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on WSO2 API-M. 
+        - You can use the default admin credentials as **`admin/admin`**.
 
      ``` bash
      ./apictl import api --file ./PetstoreAPI --environment dev
@@ -316,48 +331,53 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
 2. Browse the Publisher and the Developer Portals to view the API details.
 
-     - [https://localhost:9443/publisher](https://localhost:9443/publisher)
+     - Publisher - [https://localhost:9443/publisher](https://localhost:9443/publisher)
 
          [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
 
-     - [https://localhost:9443/devportal](https://localhost:9443/devportal)
+     - Developer Portals - [https://localhost:9443/devportal](https://localhost:9443/devportal)
 
          [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 
 ### Step 3 - Invoke the API
 
+<a name="step3.1"></a>
+
 1. Generate an access token using apictl.
 
-    Navigate back to the `apictl` directory and execute the following command:
+     Navigate back to the `apictl` directory and execute the following command:
 
      ``` bash
      ./apictl get keys -e dev -n SwaggerPetstore -v 1.0.0 -r admin
      ```
    
-    You will get an access token that can be used to invoke your API. (For more information on generating keys using apictl, 
-    see [Get keys for an API/API Product]({{base_path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/#g-get-keys-for-an-apiapi-product).)
+     You will get an access token that can be used to invoke your API. 
+     
+     
+    !!! info
+        For more information on generating keys using apictl, see [Get keys for an API/API Product]({{base_path}}/install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/#g-get-keys-for-an-apiapi-product).
 
-2. Invoke the API
+2. Invoke the API.
 
-    Execute the below cURL command to invoke the resource `GET /pet` of your API. 
-    (Make sure to enter the access token that you recieved earlier as the `Bearer` in thee request)
+     Execute the following cURL command to invoke the resource `GET /pet` of your API. 
+    
+     Make sure to enter the access token that you <a href="#step3.1">obtained in the previous step</a> as the `Bearer` in the request.
 
-    ```bash
-    curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/SwaggerPetstore/1.0.0/pet/5 -k
-    ```
+     ```bash
+     curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/SwaggerPetstore/1.0.0/pet/2 -k
+     ```
 
-     You will receive the below response.
+     You will receive the following response.
    
      ```bash
-     {"id":5,"category":{"id":5,"name":"jimmy"},"name":"jimmy","photoUrls":[],"tags":[{"id":5,"name":"jimmy"}],"status":"pending"}
+     {"id":2,"category":{"id":0,"name":"Dogs"},"name":"Crunch","photoUrls":["-"],"tags":[{"id":3,"name":"Crunchiogo"}],"status":"unavailable"}
      ```
 
     !!!note
-        Alternatively, you can consume the API as explained in the following sections 
-        using the WSO2 API-M Developer Portal.
+        Alternatively, you can consume the API as explained in the following sections using the WSO2 API-M Developer Portal.
         
          - [Subscribe to the API via the Developer Portal and generate keys](#subscribe)
          - [Invoke the API with the generated keys](#invoke)
 
-    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.jpg)]({{base_path}}/assets/img/get_started/qsg-petstore-response.jpg)
+    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
    
