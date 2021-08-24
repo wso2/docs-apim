@@ -92,7 +92,7 @@ The rest of the files are runtime configurations for eslint, jest, webpack, npm.
 
      This will install the local package dependencies in the Admin applications.
 
-3. Build with customizations
+3. Build with the UI customizations for the Admin Portal.
 
      Run the following command to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
 
@@ -149,10 +149,11 @@ You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the i
 import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
-A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+A bundler error occurs if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
 ```sh
 import NewFile from './NewFile.jsx';
+```
 
 ### Overriding files
 
