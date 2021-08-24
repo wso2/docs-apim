@@ -156,6 +156,8 @@ Now, you have successfully created and configured a Streaming API. Next, let's [
 
 Learn more by trying out an end-to-end tutorial on <a href="../../../../tutorials/streaming-api/create-and-publish-websocket-api">Creating and Publishing a WebSocket API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
 
+Once you create and publish a WebSocket API, you can also <a href="../../../../deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/">deploy the API you created</a>.
+
 ## See Also
 
 {!includes/design/stream-more-links.md!}
