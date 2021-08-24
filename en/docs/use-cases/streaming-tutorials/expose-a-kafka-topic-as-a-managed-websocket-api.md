@@ -2,8 +2,9 @@
 
 The Streaming Integrator (SI) component in WSO2 API Manager (WSO2 API-M) can consume events from a third-party streaming provider topic (e.g., Kafka topic) and publish those events to a Streaming Backend (e.g., WebSocket Streaming Backend) in a streaming manner. When a stream of events are received by the third-party streaming provider source (e.g., Kafka source), they are published to the Streaming Backend simultaneously. 
 
-Streaming integrator is one of the WSO2 API-M components that has the capability to connect with multiple external sources / sinks. Streaming Integration Tooling is another component which provides developer friendly tools. In this tutorial, Streaming integrator is used as the integration point with Kafka. Then the events received from Kafka (`SweetProductionStream`) are exposed via a web socket server using a sink in Streaming integrator. 
-Once we have the relevant sinks defined we can use the AsyncAPI generation functionality in Steaming Integration Tooling to generate the relevant AsyncAPI definition and then finally deploy it as a service in WSO2 API Manager Services. API Manager service will have the capability to create an API out of it and allowed to invoke it as a managed API. Finally the messages coming to Kafka topics will be able to received via the Streaming API. 
+Streaming integrator is one of the WSO2 API-M components that has the capability to connect with multiple external sources/sinks. Streaming Integration Tooling is another component that provides developer friendly tools. In this tutorial, Streaming integrator is used as the integration point with Kafka. Then the events received from Kafka (`SweetProductionStream`) are exposed via a web socket server using a sink in Streaming integrator. 
+
+Once we have the relevant sinks defined we can use the AsyncAPI generation functionality in Steaming Integration Tooling to generate the relevant AsyncAPI definition and then finally deploy it as a service in WSO2 API Manager service catalog. You will be able to create an API from the service and you can invoke it as a managed API. Finally, the messages coming to the Kafka topics can be received via the Streaming API. 
 
 Follow the instructions below to expose a third-party Service Provider stream as a managed API:
 
@@ -17,7 +18,7 @@ Follow the instructions below to expose a third-party Service Provider stream as
 
         Let's refer to this directory as `<KAFKA_HOME>`.
 
-    2. Install relevant kafka client libraries in SI using extension installer.
+    2. Install relevant kafka client libraries in SI using extension installer. For instructions to download and install a Siddhi extension, see [Downloading and Installing Siddhi Extensions]({{base_path}}/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/).
 
     3. Configure the basic details needed to publish siddhi application with AsyncAPI definition to the services in API Manager.
     

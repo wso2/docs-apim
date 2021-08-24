@@ -1044,6 +1044,11 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+        - Streaming Connectors:
+            - Streaming Integrator Connectors Overview: reference/streaming-connectors/connectors-overview.md
+            - Downloading and Installing Siddhi Connectors: reference/streaming-connectors/downloading-and-installing-siddhi-extensions.md
+            - Writing Custom Siddhi Extensions: reference/streaming-connectors/writing-custom-siddhi-extensions.md
+            - Configuring System Parameters for Siddhi Extensions: reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions.md
         - Integration Artifacts:
             - REST API Properties: reference/synapse-properties/rest-api-properties.md
             - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
