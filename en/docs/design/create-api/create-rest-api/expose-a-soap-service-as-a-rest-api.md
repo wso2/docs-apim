@@ -62,4 +62,6 @@ Now, the SOAP service is created and configured successfully as a RESTful API.
 
 For more information on API publishing, see [Publish API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/).
 
+Once you create and publish the API, you can also <a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/">deploy the API you created</a>.
+
 To learn more, see the tutorial on [Creating and Publishing a SOAP service as a RESTful API]({{base_path}}/tutorials/expose-a-soap-service-as-a-rest-api/).
