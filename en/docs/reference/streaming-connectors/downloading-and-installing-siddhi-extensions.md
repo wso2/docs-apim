@@ -159,7 +159,7 @@ To download the Siddhi extensions, follow the steps below
     ![Older Versions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/extensions-older-versions.png)
 
     You are directed to the maven central page where all the available versions of the extension are listed.  
-    ![All available versions](../images/downloading-and-installing-siddhi-extensions/Central Maven Repository.png)
+    ![All available versions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/Central Maven Repository.png)
 
    2. Click on the relavent version. It directs you to the download page. To download the bundle, click on it.  
     ![Download Bundle]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/maven-bundle.png)
