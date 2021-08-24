@@ -2062,6 +2062,10 @@ plugins:
               'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
               'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
               'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
+              'streaming/connectors/connectors-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/connectors-overview/'
+              'streaming/connectors/downloading-and-installing-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/'
+              'streaming/connectors/writing-custom-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/writing-custom-siddhi-extensions/'
+              'streaming/connectors/configuring-system-parameters-for-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions/'
 
     # Extra
 extra_css:
