@@ -1534,7 +1534,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.workflow.toml"
+            "exampleFile": "apim.workflow.toml" 
         },
         {
             "title": "API-M SDK configurations",
@@ -3437,8 +3437,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_http-proxy-profile.toml"
-        },
+            "exampleFile": "_http-proxy-profile.toml"        },
         {
             "title": "HTTP secured proxy profile",
             "options": [

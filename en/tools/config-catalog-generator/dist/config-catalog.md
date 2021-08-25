@@ -9046,8 +9046,20 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                 <label class="tab-selector" for="_tab_60"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_http.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport.passthru_http.sender.parameters]
+proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>8080</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+
+#Option 2
+[[transport.http.proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "8080"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -9209,8 +9221,20 @@ proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>local
                 <label class="tab-selector" for="_tab_61"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"</code></pre>
+<pre><code class="toml">#You can use one of the two options listed below for the configuration
+
+#Option 1
+[transport. passthru_https.sender.parameters]
+proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>3128</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+
+#Option 2
+[[transport.http. secured_proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "3128"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -13515,7 +13539,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Keystore name that is placed inside the &lt;API-M_HOME&gt;/repository/resources/security directory.</p>
+                                        <p>The name of the Keystore (the Keystore file should be placed inside &lt;API-M_HOME&gt;/repository/resources/security directory)</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -13572,7 +13596,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Keystore private Key Alias.</p>
+                                        <p>Private key alias of the Keystore.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -13591,7 +13615,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Private Key Key Password of the Keystore (we recommend to keep both Keystore password and Key Password as same due to known limitations)</p>
+                                        <p>The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations).</p>
                                     </div>
                                 </div>
                             </div>
