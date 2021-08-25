@@ -1,2 +1,10 @@
-[transport.passthru_https.sender.parameters]
-proxyProfiles = "<profile><targetHosts>example.com</targetHosts><proxyHost>localhost</proxyHost><proxyPort>8080</proxyPort><proxyUserName>squidUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+[transport. passthru_https.sender.parameters]
+proxyProfiles = "<targetHosts>example.one.com,example.two.com</targetHosts><proxyHost>example.proxy.com"</proxyHost><proxyPort>3128</proxyPort><proxyUserName>ProxyUser</proxyUserName><proxyPassword>password</proxyPassword></profile>"
+
+[[transport.http. secured_proxy_profile]]
+target_hosts = ["example.one.com","example.two.com"]
+proxy_host = "example.proxy.com"
+proxy_port = "3128"
+proxy_username = "ProxyUser"
+proxy_password = "password"
+bypass_hosts = ["localhost"]
