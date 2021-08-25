@@ -13515,7 +13515,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Keystore name that is placed inside the &lt;API-M_HOME&gt;/repository/resources/security directory.</p>
+                                        <p>The name of the Keystore (the Keystore file should be placed inside &lt;API-M_HOME&gt;/repository/resources/security directory)</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -13572,7 +13572,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Keystore private Key Alias.</p>
+                                        <p>Private key alias of the Keystore.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -13591,7 +13591,7 @@ key_password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The Private Key Key Password of the Keystore (we recommend to keep both Keystore password and Key Password as same due to known limitations)</p>
+                                        <p>The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations).</p>
                                     </div>
                                 </div>
                             </div>
