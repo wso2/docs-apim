@@ -126,6 +126,12 @@ Make sure you do a production build after you finish development with the comman
 npm run build:prod
 ```
 
+!!! warning "Memory issues when running the build command"
+    If you run into a "Out of Memory" issue while running the `build` command, you can solve this by allocating more memory. The default memory allocated is `512MB`, but you can increase this value according to your memory requirement. The sample command is given below.
+
+    ```js
+    export NODE_OPTIONS=--max_old_space_size=1536
+    ```
 
 !!! note
     Production build by default check ESLint errors. ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. We recommend always keep the customizations free from ESLint errors. But it's also possible to ignore these errors and run the production build by commenting out the following from `<WEBAPP>/webpack.config.js`
