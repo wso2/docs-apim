@@ -1,5 +1,8 @@
 # Message Tracing
 
+!!! Info
+    Note that this feature is deprecated is WSO2 API Manager 3.2.0. The support for this feature will be removed from subsequent versions of WSO2 API Manager 4.0.0
+
 Message Tracing refers to the process of identifying each message flow of each of the transactions that go through the 
 Gateway. You can do message tracing on WSO2 API Manager by installing the Message Tracer feature that has been 
 specifically developed for WSO2 products. You can use the Message Tracer to derive  logging, auditing, and debugging 
