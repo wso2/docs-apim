@@ -54,7 +54,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
 
 2. Access the Streaming Integration Tooling via the `http://<HOST_NAME>:<TOOLING_PORT>/editor` URL.
 
-    !!!info
+    !!! info
         The default URL is `http://<localhost:9390/editor`.
 
    The Streaming Integration Tooling opens as shown below.
@@ -224,7 +224,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
 
 
 
-5. To save this Siddhi application, click **File**, and then click **Save**. By default siddhi applications are saved in the  `<SI_HOME>/wso2/editor/deployment/workspace` directory.
+5. To save this Siddhi application, click **File**, and then click **Save**. By default, Siddhi applications are saved in the `<SI_HOME>/wso2/editor/deployment/workspace` directory.
 
 6.  To export the Siddhi application to your preferred location, click
     **File**, and then click **Export File**.
