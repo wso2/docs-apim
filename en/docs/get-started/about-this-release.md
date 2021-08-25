@@ -63,7 +63,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 
 ### Deprecated features and functionalities
 
-- **[Message Tracing]({{base_path}}/learn/api-gateway/message-tracing/#message-tracing)**
+- **[Message Tracing]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/)**
 
     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
 
