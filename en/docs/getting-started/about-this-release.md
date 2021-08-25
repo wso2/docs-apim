@@ -166,6 +166,10 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
      
      OAuth 2.1.0 has removed/discouraged the use of Implicit grant type due to security concerns. Therefore, the support for Implicit grant has been removed from WSO2 API Manager. For more information, see [OAuth 2.0 Security Best Current Practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14#section-2.1.2).
 
+- **[Message Tracing]({{base_path}}/learn/api-gateway/message-tracing/#message-tracing)**
+
+     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
+
 
 ### Removed features and functionalities
 
