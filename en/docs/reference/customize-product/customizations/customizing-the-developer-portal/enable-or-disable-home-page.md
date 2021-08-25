@@ -14,7 +14,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 ## Steps to Configure the Landing Page
 
-1. Open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the attributes accordingly.
+1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the attributes accordingly.
 
     Following JSON is an example for a `userTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components refered by the attribute names)
 
