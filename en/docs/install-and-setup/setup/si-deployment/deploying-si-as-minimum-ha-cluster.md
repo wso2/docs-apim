@@ -18,8 +18,7 @@ into the system.
 For a two-node minimum HA cluster to work, only the active node should receive events. By design, you can only send 
 events to the active node. To achieve this, you can use a load balancing mechanism that sends events in a failover manner as depicted in the diagram below.
 
-
-![overview]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png)
+[![overview]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png){: style="width:90%"}]({{base_path}}/assets/img/streaming/deploying-si-as-minimum-ha-cluster/minimum-two-node-ha.png)
 
 !!! info "Before you begin:"
     Before configuring a minimum HA cluster, you need to complete the following prerequisites:<br/>
