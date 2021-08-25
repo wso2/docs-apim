@@ -125,7 +125,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
                             tag: 'weather',
                             title: 'Checkout our Weather APIs',
                             description:
-                                'We offer online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of our platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.',
+                                'WSO2 offers online payment solutions and have more than 123 million customers worldwide. The WSO2 Finance API makes powerful functionality available to developers by exposing various features of the platform. Functionality includes but is not limited to invoice management, transaction processing, and account management.',
                             maxCount: 5,
                         },
                     ],
