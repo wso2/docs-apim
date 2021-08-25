@@ -11,7 +11,7 @@ This deployment consists of an API-M cluster with two nodes of the API-M runtime
 !!! Note 
     Two nodes of each component is used to ensure minimum high availability in all components.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png" alt="standard HA deployment" width="500"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png" alt="standard HA deployment" width="50%"></a>
 
 ### API-M cluster
 
@@ -45,7 +45,7 @@ Although API-M nodes are capable of handling in-jvm multitenancy, Micro Integrat
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the resource requirements for each tenant.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png" alt="standard HA with multitenancy" width="700"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png" alt="standard HA with multitenancy" width="80%"></a>
 
 ### API-M cluster
 
@@ -79,7 +79,7 @@ You need to set up three clusters of the different components and runtimes as th
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="650"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="simple scalability" width="80%"></a>
 
 ### API-M cluster
 
