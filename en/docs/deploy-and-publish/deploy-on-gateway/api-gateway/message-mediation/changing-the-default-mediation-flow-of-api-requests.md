@@ -51,7 +51,7 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 
 7.  Once the file is uploaded, save the API.
 
-9.  If the API is not in the `PUBLISHED` state, go to the **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
+9.  If the API is in the `PUBLISHED` state, go to the **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
 
 10. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
