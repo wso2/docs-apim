@@ -53,9 +53,9 @@ nav:
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide:
-                - Quick Start Guide API Proxy: get-started/api-manager-quick-start-guide.md
-                - Quick Start Guide Integration: get-started/integration-quick-start-guide.md
-                - Quick Start Guide Streaming: get-started/streaming-quick-start-guide.md
+                - API Management: get-started/api-manager-quick-start-guide.md
+                - Integration: get-started/integration-quick-start-guide.md
+                - Streaming: get-started/streaming-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
@@ -1044,6 +1044,11 @@ nav:
                 - SMPP Reference: reference/connectors/smpp-connector/smpp-connector-config.md
                 - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
                 - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
+        - Streaming Connectors:
+            - Streaming Integrator Connectors Overview: reference/streaming-connectors/connectors-overview.md
+            - Downloading and Installing Siddhi Connectors: reference/streaming-connectors/downloading-and-installing-siddhi-extensions.md
+            - Writing Custom Siddhi Extensions: reference/streaming-connectors/writing-custom-siddhi-extensions.md
+            - Configuring System Parameters for Siddhi Extensions: reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions.md
         - Integration Artifacts:
             - REST API Properties: reference/synapse-properties/rest-api-properties.md
             - Proxy Service Properties: reference/synapse-properties/proxy-service-properties.md
@@ -1277,6 +1282,7 @@ nav:
                 - Running the SI in Containers:
                     - Installing in Docker: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-docker.md
                     - Installing in Kubernetes: install-and-setup/install/installing-the-product/installing-in-containers/installing-si-using-kubernetes.md
+            - Installation Options: install-and-setup/install/installation-options.md
         - Setup:
             - Setting up API Manager:
                 - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
@@ -2057,6 +2063,10 @@ plugins:
               'api-analytics/viewing/analytics-pages-devices.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/view-analytics-on-devices/'
               'api-analytics/viewing/analytics-pages-report.md': 'https://apim.docs.wso2.com/en/4.0.0/api-analytics/viewing/download-api-analytics-reports/'
               'integrate/develop/deploying-in-integration-cloud.md': 'https://wso2.com/choreo/'
+              'streaming/connectors/connectors-overview.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/connectors-overview/'
+              'streaming/connectors/downloading-and-installing-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/'
+              'streaming/connectors/writing-custom-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/writing-custom-siddhi-extensions/'
+              'streaming/connectors/configuring-system-parameters-for-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions/'
 
     # Extra
 extra_css:
