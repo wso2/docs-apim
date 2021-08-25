@@ -4,7 +4,7 @@ The user interface of the WSO2 API-M Developer Portal, Publisher Portal and Admi
 
 ## Structure
 
-First, let’s see how the portal’s source code is organized. The Source of the devportal, publisher and admin apps resides in the `<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/` directory.  
+First, let’s see how the portal’s source code is organized. The Source of the devportal, publisher and admin apps resides in the `<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/` folder.  
 
  ![folder structure]({{base_path}}/assets/img/learn/ui-customize-pic0.png)
 
@@ -16,7 +16,7 @@ This folder is used to organize the React component customizations. This is empt
 
 **services**
 
-This directory contains the utility services that are required to run the web portals. Even though the React UI portals are fully client-side rendered(CSR) apps, you still need services or proxies for some operations as given below.
+This folder contains the utility services that are required to run the web portals. Even though the React UI portals are fully client-side rendered(CSR) apps, you still need services or proxies for some operations as given below.
 
 - Authentication
 - Reverse proxy
@@ -24,11 +24,11 @@ This directory contains the utility services that are required to run the web po
 
 **site**
 
-This contains all the static files rewuired to run the portals in the browser. It also has various static files from JS bundles, locale files, theme JSON to favicon. Inside the site, you can find the `<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/<WEBAPP>/site/public/dist/` directory which contains the generated ReactJS application bundles and their source map files.
+This contains all the static files rewuired to run the portals in the browser. It also has various static files from JS bundles, locale files, theme JSON to favicon. Inside the site, you can find the `<API_MANAGER_ROOT>/repository/deployment/server/jaggeryapps/<WEBAPP>/site/public/dist/` folder which contains the generated ReactJS application bundles and their source map files.
 
 **source**
 
-This directory contains the Javascript source code for both implementation and tests. None of the files here are used during runtime (get loaded into the browser). The implementation is split into two aspects, Data, and Components. Data contains pure javascript implementations of data handling (REST API innovation), utility functions, and data models (User class). The purpose of these separations is to make the data handling elements shareable and usable in non-ReactJS-based projects. And the Components directory, is used to maintain the ReactJS Component implementations. It has the whole component hierarchy of the Publisher portal.
+This folder contains the Javascript source code for both implementation and tests. None of the files here are used during runtime (get loaded into the browser). The implementation is split into two aspects, Data, and Components. Data contains pure javascript implementations of data handling (REST API innovation), utility functions, and data models (User class). The purpose of these separations is to make the data handling elements shareable and usable in non-ReactJS-based projects. And the Components folder, is used to maintain the ReactJS Component implementations. It has the whole component hierarchy of the Publisher portal.
 
 **jaggery.conf**
 
@@ -45,9 +45,9 @@ If you are new to JaggeryJS, JaggeryJS is a javascript backend server that can r
 
 The rest of the files are runtime configurations for eslint, jest, webpack, npm. You would probably recognize them by their names.
 
-## Adding advanced UI customizations to WSO2 API-M UIs (Publisher, Developer Portal and Admin web-apps)
+## Adding advanced UI customizations to WSO2 API-M UIs (Publisher and Developer Portal web-apps)
 
-1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` directory in a terminal and run the following command.
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps` folder in a terminal and run the following command.
 
      ```js
      npm install
@@ -55,7 +55,7 @@ The rest of the files are runtime configurations for eslint, jest, webpack, npm.
 
      This will install the dependencies for the `lerna` package manager.
      
-2. Run the following command from the same directory in a terminal.
+2. Run the following command from the same folder in a terminal.
 
      ```js
      npm run bootstrap
@@ -77,6 +77,94 @@ The rest of the files are runtime configurations for eslint, jest, webpack, npm.
         ```
         npm run build:prod
         ```
+
+### Admin Portal advanced UI customizations 
+
+!!! note "Prerequisites"
+    - **NodeJS** - This is a JavaScript runtime environment required for ReactJS development.
+    - **NPM**
+
+1. Navigate to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin` folder in a terminal and run the following command.
+
+     ```js
+     npm ci
+     ```
+
+     This will install the local package dependencies in the Admin applications.
+
+3. Build with the UI customizations for the Admin Portal.
+
+     Run the following command to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
+
+    ```js
+    npm run build:dev
+    ```
+
+    !!! note "Production deployment"
+        The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
+        ```
+        npm run build:prod
+        ```
+3. Make the UI related changes in the respective folder based on the WSO2 API-M Console.
+
+     - If you need to rewrite the admin UI completely, you can make changes in the following folder.
+         - `admin/source`
+     - If you want to override a specific React component or a file from the `source/src/` folder, you need to make the changes in the following folder by only copying the desired file/files.
+         - `admin/override/src`
+
+#### Overriding the API Documentation and Overview components
+
+Any file inside `<APP-ROOT>/override/src` folder can override the original file at `<APP-ROOT>/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+
+* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
+
+An example for the `<APP-ROOT>/override/src` folder is shown below.
+
+```
+override
+└── src
+    ├── Readme.txt
+    └── app
+        └── components
+            └── Apis
+                └── Details
+                    ├── Documents
+                    │   └── Documentation.jsx
+                    └── Overview.jsx
+```
+
+#### Adding new files to the override folder
+You can add your own files to customize the UI in the `admin/override/src` folder.
+
+For example, you can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
+
+```
+import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
+```
+
+After importing the **NewFile.jsx** the folder structure will be as follows:
+
+```
+override
+└── src
+    ├── Readme.txt
+    └── app
+        └── components
+            └── Apis
+                └── Details
+                    ├── Documents
+                    │   └── Documentation.jsx
+                    └── Overview.jsx
+                    └── NewFile.jsx
+                    
+```
+
+A bundler error occurs if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+
+```
+import NewFile from './NewFile.jsx';
+```
 
 ### Overriding files
 
@@ -101,7 +189,7 @@ override
                     
 ```
 
-You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
+You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
 
 ```
 import NewFile from 'AppOverride/src/app/components/Apis/Details/Documents/NewFile.jsx';
@@ -176,7 +264,7 @@ Let's see how you can override and display a custom API listing page.
 
     If you see a tree of `<Anonymous>` tags, it means that you are running a production build. It's hard to identify the relevant components with a production build. Make sure to run a development build running the following command.
 
-    ```sh
+    ```
     npm run build:dev
     ```
 
@@ -228,7 +316,7 @@ Let's see how you can override and display a custom API listing page.
     ```
     npm run build:prod
     ```
-    This will generate minified and optimized JS bundles in `devportal/site/public/dist` directory and these bundles will contain the customizations you have put in the override directory. If you want to apply the same customizations to other API Manager instances, simply replace this directory. No server restart is necessary.
+    This will generate minified and optimized JS bundles in `devportal/site/public/dist` folder and these bundles will contain the customizations you have put in the override folder. If you want to apply the same customizations to other API Manager instances, simply replace this folder. No server restart is necessary.
 
 ### Example 2 - Adding a new page to API details section ( publisher )
 
@@ -346,7 +434,7 @@ Let's see how you can override and display a custom API listing page.
     ```
     npm run build:prod
     ```
-    This will generate minified and optimized JS bundles in `publisher/site/public/dist` directory and these bundles will contain the customizations you have put in the override directory. If you want to apply the same customizations to other API Manager instances, simply replace this directory. No server restart is necessary.
+    This will generate minified and optimized JS bundles in `publisher/site/public/dist` folder and these bundles will contain the customizations you have put in the override folder. If you want to apply the same customizations to other API Manager instances, simply replace this folder. No server restart is necessary.
 
 ### Example 3 - Add a new input parameter to API create page ( publisher)
 
@@ -381,4 +469,4 @@ Let’s assume you want to add a new input parameter to API create page. Where A
     ```
     npm run build:prod
     ```
-    This will generate minified and optimized JS bundles in `publisher/site/public/dist` directory and these bundles will contain the customizations you have put in the override directory. If you want to apply the same customizations to other API Manager instances, simply replace this directory. No server restart is necessary.
+    This will generate minified and optimized JS bundles in `publisher/site/public/dist` folder and these bundles will contain the customizations you have put in the override folder. If you want to apply the same customizations to other API Manager instances, simply replace this folder. No server restart is necessary.
