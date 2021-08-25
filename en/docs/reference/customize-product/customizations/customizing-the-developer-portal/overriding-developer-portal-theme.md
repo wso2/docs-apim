@@ -175,7 +175,7 @@ The CSS file is referenced in the `defaultTheme.json` in the following manner. I
    "tenantCustomCss": "/site/public/tenant_themes/<tenant-domain>/apim/css/custom.css",
 ```
 
-### Content of defaultTheme.json
+### Content of defaultTheme.js
 
 The following is the Devportal app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
 
