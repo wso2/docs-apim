@@ -168,7 +168,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **[Message Tracing]({{base_path}}/learn/api-gateway/message-tracing/#message-tracing)**
 
-     The support for this feature will be removed from subsequent versions of WSO2 API Manager 4.0.0
+     The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
 
 
 ### Removed features and functionalities
