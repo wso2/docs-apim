@@ -39,7 +39,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
 
      Let's use a mock REST service to create a REST API from scratch.
  
-     A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
+     A mock service with a JSON response `{"hello": "world"}` is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
 
     !!! tip
         Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
@@ -211,12 +211,12 @@ __Congratulations!__ You have successfully created your first API, subscribed to
  
 ## Automate API development and deployment
 
-Let's look at how you can use **WSO2 API Controller (apictl)** which is the command-line tool to move APIs, 
+Let's look at how you can use **WSO2 API Controller (apictl)**, which is the command-line tool to move APIs, 
 API Products, and Applications across WSO2 API-M environments and to perform CI/CD operations.
 
 ### Before you begin...
 
-1. [Make sure that WSO2 API Manager (WSO2 API-M) 4.0.0 is started]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
+1. [Make sure that you run WSO2 API Manager (WSO2 API-M) 4.0.0]({{base_path}}/get-started/api-manager-quick-start-guide/#before-you-begin).
 
 2. Download the apictl.
 
@@ -320,7 +320,7 @@ API Products, and Applications across WSO2 API-M environments and to perform CI/
 
     !!! note
 
-        - If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on WSO2 API-M. 
+        - If you are working with a specific environment for the first time, you are prompted to enter your account credentials on WSO2 API-M. 
         - You can use the default admin credentials as **`admin/admin`**.
 
      ``` bash
