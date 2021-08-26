@@ -126,6 +126,9 @@ Create an optimized distribution for a particular API-M profile.
 
 Start the server using the script based on your operating system, using the command given below.
 
+!!! warning
+    Before running this command you are expected to do the configuration changes in the `deployment.toml` file manually in the pack.
+
 ``` tab="Sample Format"
 sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile>
 ```
@@ -192,6 +195,8 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker
 
     ```
 
+Passing the `--skipConfigOptimization` option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
+
 ``` tab="Sample Format"
 sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
 ```
@@ -203,8 +208,6 @@ sh <PRODUCT_HOME>/bin/api-manager.sh --optimize -Dprofile=gateway-worker --skipC
 ``` tab="Example:Windows"
 <PRODUCT_HOME>/bin/api-manager.bat --optimize -Dprofile=gateway-worker --skipConfigOptimization
 ```  
-        
-Before running this command (with the `--skipConfigOptimization` option) you are expected to do the configuration changes in the `deployment.toml` file manually in the pack. Passing this option allows you to preserve the configurations that you previously manually applied while optimizing the profile.
 
 !!! Note
     Profile optimization using scripts is the recommended approach. Manually optimizing and including the usage of the `--skipConfigOptimization` option should be done only in the cases where it can't be avoided. 
