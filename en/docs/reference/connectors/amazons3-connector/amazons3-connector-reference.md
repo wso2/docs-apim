@@ -1798,6 +1798,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             <td>Confirms that the requester knows that they will be charged for the request.</td>
             <td>Optional</td>
         </tr>
+        <tr>
+            <td>destinationFilePath</td>
+            <td>Specifies the path to the local file where the contents of the response needs to be written. If the destination file already exists or if the file is not writable by the current user, an exception will be thrown.
+            <br>
+            **Note**: This parameter is available only with Amazon S3 connector v2.0.1 and above.</td>
+            <td>Optional</td>
+        </tr>
     </table>
 
     **Sample configuration**
