@@ -42,7 +42,9 @@ You can add advanced rate limiting policies to both APIs and resources.
      <li>IP based throttling is enabled by default.
      </li>
      <li>
-     Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `enable_header_based_throttling` , `enable_jwt_claim_based_throttling` or `enable_query_param_based_throttling` element to `true` (depending on which condition you need) under `[apim.throttling]` in the `repository/conf/deployment.toml` file.</li></ul>
+     Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `enable_header_based_throttling` , `enable_jwt_claim_based_throttling` or `enable_query_param_based_throttling` element to `true` (depending on which condition you need) under `[apim.throttling]` in the `repository/conf/deployment.toml` file.</li>
+     <li>This JWT is the backend JWT and not the one you use to invoke it. Also. you need to enable the Backend JWT token to get this rate limiting flow to work.
+     </li></ul>
      </p>
     </div>
 

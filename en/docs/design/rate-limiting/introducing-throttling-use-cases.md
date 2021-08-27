@@ -49,7 +49,7 @@ Advanced rate limiting policies allow an API Publisher to control access per API
 
 -   IP address and address range
 -   HTTP request headers
--   Introducingrate limitingUse-Cases-JWTclaims
+-   Introducing rate limiting use cases - JWT claims
 -   Query parameters
 
 Let’s look at how each of these can be important for serving requests through your APIs.
@@ -69,9 +69,13 @@ Advanced policies allow you to apply limits to APIs by filtering requests based 
 Here is a sample for configuring a header condition by considering the "Content-Type" header.
 
 [![New header condition regex]({{base_path}}/assets/img/learn/new-header-condition-regex.png)]({{base_path}}/assets/img/learn/new-header-condition-regex.png)
+
 ##### JWT claims
 
 A JWT claim contains meta information of an API request. It can include application details, API details, user claims, etc. Advanced rate limiting policies based on JWT claims allow you to filter requests by JWT claim values and apply limits for requests. For example, if you need to allow special limits for users in a specific user role, you can create an advanced policy that checks for a particular regular expression on the role claim of the user and apply special limits for the ones that match.
+
+!!! note
+    This JWT claim is the backend JWT and not the one you use to invoke it. Also. you need to enable the Backend JWT token to get this rate limiting flow to work.
 
 The following image shows an example for configuring JWT claim condition by considering the version of the API (http://wso2.org/claims/subscribe).
 
