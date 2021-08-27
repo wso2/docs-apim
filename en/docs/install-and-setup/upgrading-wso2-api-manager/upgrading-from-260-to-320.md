@@ -1173,7 +1173,7 @@ Follow the instructions below to move all the existing API Manager configuration
         DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = ''  / 
         ```
 
-        ```tab="MSSQL"
+        ```tab="MSSQL"      		
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
         CREATE TABLE AM_SYSTEM_APPS (
             ID INTEGER IDENTITY,
@@ -1490,13 +1490,13 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO VARBINARY(MAX);
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT app_key_unique_cns UNIQUE (APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
-        DECLARE @ap_keymap as VARCHAR(8000);
-        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK');
+        DECLARE @ap_keymap as VARCHAR(8000)
+        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK')
         EXEC('ALTER TABLE AM_APPLICATION_KEY_MAPPING
-        drop CONSTRAINT ' + @ap_keymap);
+        drop CONSTRAINT ' + @ap_keymap)
 
-        DECLARE @am_appreg as VARCHAR(8000);
-        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        DECLARE @am_appreg as VARCHAR(8000)
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ')
         EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
         drop CONSTRAINT ' + @am_appreg);
 
