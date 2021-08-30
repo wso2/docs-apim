@@ -7,9 +7,10 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
-
+3. Download and install [Apache Ant](https://ant.apache.org/).
+   
 ### What you'll build
-In this sample scenario, you will aggregate the data relating to the raw material purchases of a sweet production factory and publishers the data to a WebSocket receiver.
+In this sample scenario, you aggregate the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket receiver.
                                 
 
 ### Step 1: Start the Streaming Integrator
@@ -19,12 +20,9 @@ To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory fr
 - **For Linux**: `./server.sh`
 - **For Windows**: `server.bat --run`
 
-### Step 2: Start the Streaming Integrator Tooling
-To start WSO2 Streaming Integrator Tooling, navigate to the `<SIT_HOME>/samples/sample-clients/websocket-receiver` directory from the CLI, and issue `ant`.
-This will 
-
-- **For Linux**: `./server.sh`
-- **For Windows**: `server.bat --run`
+### Step 2: Start the Streaming Integrator Tooling 
+Here, we are going to use the sample Websocket Receiver shipped with the Streaming Integrator Tooling.
+To start the sample, navigate to the `<SIT_HOME>/samples/sample-clients/websocket-receiver` directory from the CLI, and issue `ant` command.
 
 ### Step 3: Create and deploy a simple Siddhi application
 
@@ -38,7 +36,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 2. Open a text file and copy-paste the following Siddhi application into it.
 
     !!! tip
-        Here, a sample Siddhi application is provided to minimize the time spend following this guide. But we recommend using Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information to design the Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
+        Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
 
     ```
     @App:name('ManageStats')
@@ -67,7 +65,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
     This deploys the `ManageStats` in the Streaming Integrator. The following message appears to indicate that the Siddhi application installed successfully.
 
-    `INFO {org.wso2.carbon.siddhi.editor.core.internal.WorkspaceDeployer} - Siddhi App ManageStats.siddhi successfully deployed.`
+    ```INFO {org.wso2.carbon.siddhi.editor.core.internal.WorkspaceDeployer} - Siddhi App ManageStats.siddhi successfully deployed.```
 
 
 ## Step 4: Test your Siddhi application
@@ -92,12 +90,13 @@ To test the `ManageStats` Siddhi application you created, follow the steps below
 
     Save your changes.
 
-2. To observe the MI console output.
-
+2. Observe the SI console output.
 
 You can see the following message in the SI console log.
 
-![]({{base_path}}/assets/img/streaming/qsg/gsg-streaming-output.png)
+```jvm
+INFO {io.siddhi.core.stream.output.sink.LogSink} - ManageStats : ProductionSumAlertStream : [Event{timestamp=1630310556288, data=[Almond cookie, 170.0], isExpired=false}, Event{timestamp=1630310556288, data=[Baked alaska, 70.0], isExpired=false}, Event{timestamp=1630310556288, data=[Toffee, 100.0], isExpired=false}]
+```
 
 !!! tip "What's Next?"
     Once you try out this quick start guide, you can proceed to one of the following sections.

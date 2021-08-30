@@ -7,7 +7,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 2. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
-3. Optionally, Go to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
+3. Optionally, navigate to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
 
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
@@ -24,7 +24,7 @@ Most healthcare centers have a system that is used to make doctor appointments. 
 ![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
 
     !!! Tip
-        You may export <mi-qsg-home>/HealthcareIntegrationProject to Integration Studio to view the project structure.
+        You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
 In the above scenario, the following takes place:
 
@@ -65,7 +65,7 @@ Let’s implement a simple integration solution that can be used to query the av
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
-1. Go to the `<mi-qsg-home>` directory. 
+1. Navigate to the `<mi-qsg-home>` directory. 
 The following project files and executable back-end services are available in the `<mi-qsg-home>`.
 
 - **HealthcareIntegrationProject/HealthcareIntegrationProjectConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
@@ -185,7 +185,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
         micro-integrator.bat
         ```
 
-4. (Optional) Start the Dashboard
+4. (Optional) Start the Dashboard.
 
     If you want to view the integration artifacts deployed in the Micro Integrator, you can start the dashboard. The instructions on running the MI dashboard is given in the installation guide:
 
@@ -193,7 +193,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     2.  [Start]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) the MI dashboard.
     
 
-5. Invoke the healthcare service
+5. Invoke the healthcare service.
 
     Open a terminal and execute the following curl command to invoke the service:
 
@@ -294,7 +294,6 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 ### Step 4 - Create a managed API using the Integration Service
 
-
 1.  Click on the `HealthcareAPI` that is in the service catalog.
 
 2.  Click **Create API**.
@@ -319,9 +318,9 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 ### Step 5 - Publish the managed API
 
-1. Goto **Deployments** and Click **Deploy** to create a revision to deploy in the default gateway environment. 
+1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Goto **Lifecycle** and Click  **Publish** to publish the API in the gateway environment.
+2. Navigate to **Lifecycle** and click  **Publish** to publish the API in the Gateway environment.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"></a>
     
@@ -329,13 +328,13 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 ### Step 6 - Invoke the Managed `HealthcareAPI` via Developer Portal
 
-1. Goto **Developer Portal** by clicking on the `View In Dev Portal` at the top menu.
+1. Navigate to  the **Developer Portal** by clicking on the `View In Dev Portal` at the top menu.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/view-in-dev-portal.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/view-in-dev-portal.png"></a>
 
-2. Sign In using the default username/pssword `admin/admin`
+2. Sign in using the default username/password `admin/admin`. You will be redirected to the **APIs**.
 
-3. Go to the Overview of the `HealthcareAPI`.
+3. Under **APIs**, you will see the published `HealthcareAPI`. Click on it to navigate to the Overview of the API.
 
 4. Click `Try Out`. This will create a subscription to the API using `Default Application`.
 
