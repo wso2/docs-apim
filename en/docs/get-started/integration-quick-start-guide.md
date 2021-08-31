@@ -2,7 +2,7 @@
 
 Let's get started with WSO2 Micro Integrator by running a simple integration use case in your local environment. 
 
-### Before you begin...
+## Before you begin...
 
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
@@ -15,7 +15,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 4. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this folder as `<mi-qsg-home>`.
 5. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
 
-### What you'll build
+## What you'll build
 
 This is a simple service orchestration scenario. The scenario is about a basic healthcare system where the Micro Integrator is used to integrate two back-end hospital services to provide information to the client.
 
@@ -231,10 +231,14 @@ Follow the steps given below to run the integration artifacts we developed on a 
        ]
     ]
     ```
-
-### Step 3 - Exposing an Integration Service as a Managed API
+    Congratulation!
+    Now, you have created a your first integration service. You may follow steps given below to expose the service as a Managed API in API Manager.
+    
+## Exposing an Integration Service as a Managed API
 
 The REST API you deployed in the Micro Integrator is an **integration service** for the API Manager. Now, let's look at how you can expose the integration service to the API Management layer and generate a managed API by using the service.
+
+### Step 1 - Expose as a service 
 
 1. Start the API Manager runtime:
 
@@ -292,7 +296,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
         
     3. See that the `HealthcareAPI` is listed as a service.
 
-### Step 4 - Create a managed API using the Integration Service
+### Step 2 - Create a managed API using the Integration Service
 
 1.  Click on the `HealthcareAPI` that is in the service catalog.
 
@@ -316,7 +320,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
      Now, you have successfully created an API using the service.
 
-### Step 5 - Publish the managed API
+### Step 3 - Publish the managed API
 
 1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
@@ -326,7 +330,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
     
     If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
 
-### Step 6 - Invoke the Managed `HealthcareAPI` via Developer Portal
+### Step 4 - Invoke the Managed `HealthcareAPI` via Developer Portal
 
 1. Navigate to  the **Developer Portal** by clicking on the `View In Dev Portal` at the top menu.
 
