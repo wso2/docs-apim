@@ -109,7 +109,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
               [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
-          2. Click **(+)** to add a new resource.
+          2. Select an appropriate **HTTP Verb** from the dropdown and click **(+)** to add a new resource.
          
              [![Add new resource]({{base_path}}/assets/img/learn/add-new-resource.png)]({{base_path}}/assets/img/learn/add-new-resource.png)
       
@@ -124,7 +124,7 @@ Follow the instructions below to create a REST API using the basic flow.
              
                 [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
              
-             3. In addition, you can add the resource **Parameters** using the **Parameters** section.
+             3. In addition, you can add the resource parameters using the **Parameters** section.
 
                 [![]({{base_path}}/assets/img/learn/adding-params-to-resources.png)]({{base_path}}/assets/img/learn/adding-params-to-resources.png)
 
