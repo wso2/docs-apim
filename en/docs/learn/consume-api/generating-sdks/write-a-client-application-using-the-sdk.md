@@ -253,10 +253,18 @@ public class APIClient {
     public static void main(String[] args) throws ApiException {
         DefaultApi defaultApi = new DefaultApi();
         ApiClient apiClient = defaultApi.getApiClient();
-
+        
         // Creates an interceptor that intercepts every requests sent by the client to include the Authorization header
         Interceptor renewTokenInterceptor = new Interceptor() {
             String accessToken = null;
+        
+        // Set the interceptor to the client and generate a new OKHTTPClient
+        OkHttpClient okHttpClient = apiClient.getHttpClient().newBuilder().addInterceptor(renewTokenInterceptor).build();
+        apiClient.setHttpClient(okHttpClient);
+        apiClient.addDefaultHeader("Accept", "application/json");
+        apiClient.setLenientOnJson(true);
+        // Parse the base path
+        apiClient.setBasePath("http://localhost:8280/test/1.0.0");
 
             public Response intercept(Chain chain) throws IOException {
                 // If there is an access token already, use it for the next request, otherwise generate a token
@@ -270,13 +278,15 @@ public class APIClient {
 
                 // If the response failed, retry the request with a new access token
                 if (!response.isSuccessful()) {
+                    //closing the previous response.
+                    response.close();
+                    //getting the new access token.
                     getAccessToken();
-                    Request newRequest = originalRequest.newBuilder().removeHeader("Authorization")
-                            .addHeader("Authorization", accessToken).build();
+                    //Initiating the API request with the access token.
+                    Request newRequest = originalRequest.newBuilder().removeHeader("Authorization").addHeader("Authorization", accessToken).build();
+                    //Capture the response
                     response = chain.proceed(newRequest);
                 }
-                return response;
-            }
 
             private void getAccessToken() throws IOException {
                 // Implement this method to call the token API and retrieve the access token
