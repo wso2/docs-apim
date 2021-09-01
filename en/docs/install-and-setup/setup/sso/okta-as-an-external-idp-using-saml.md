@@ -160,7 +160,7 @@ Before you begin, make sure you do the following.
         </tbody>
     </table>
 
-5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below.
+5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below. The `role` drop-down menu contains the roles you configured in Okta (Step 1). Select the `Identity Provider Claim URIs` according to the configurations in the Okta Developer Console in **Step 1**.
 
     [![]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png)]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png) 
 
