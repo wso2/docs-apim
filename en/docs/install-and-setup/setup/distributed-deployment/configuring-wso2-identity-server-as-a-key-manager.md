@@ -114,8 +114,10 @@ Open the `<IS_KM_HOME>/repository/conf/deployment.toml` file and add following c
 #### Step 5.1 Configure the key manager (WSO2 IS-KM) to connect to the traffic manager
 
 The following configuration should be applied to the key manager node(s). It allows the key manager to establish a connection with the traffic manager node(s) to immediately notify any access token revocations to the gateways via the traffic manager.
+
+You need to change the default token expiry time based on your requirements. For more information on how to do this, see [Changing the Default Token Expiration Time]({{base_path}}/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time/).
  
- Follow the steps below to configure the traffic manager endpoints. 
+Follow the steps below to configure the traffic manager endpoints. 
  
  1. Open the `<IS_KM_HOME>/repository/conf/deployment.toml` file.
  
