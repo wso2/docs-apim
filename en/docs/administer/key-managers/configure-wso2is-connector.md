@@ -9,10 +9,10 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
 1. Download and install the [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/).
      
      If you downloaded the archive, extract it.
-   `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
+     `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
    
-   !!! tip
-       Refer to the [Release Matrix](https://wso2.com/products/carbon/release-matrix/) for compatible product versions.
+     !!! tip
+         Refer to the [Release Matrix](https://wso2.com/products/carbon/release-matrix/) for compatible product versions.
 
 2. Add following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -339,3 +339,5 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
       </tr>
       </tbody>
       </table>
+
+You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
