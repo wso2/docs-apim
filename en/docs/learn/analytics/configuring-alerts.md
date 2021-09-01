@@ -32,7 +32,7 @@ WSO2 API Manager analytics-based alerts are disabled by default. Follow the inst
 
 !!! note
     - If you do not require to subscribe to email notifications for alerts, you can skip these steps. 
-    - Admin users can view analytics by logging into the analytics dashboard portal and navigating to the 'Alerts' tab in the Monitoring dashboard to view these statistics.
+    - Admin users can view analytics by logging into the Analytics Dashboard Portal and navigating to the 'Alerts' tab in the Monitoring dashboard to view these statistics.
      
 The users of your APIs can subscribe to analytics-related alerts from the API Publisher and the API Developer Portal. Follow the instructions below to configure an email address with WSO2 API Manager to send email alerts to subscribers.
 
