@@ -4,7 +4,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 ### Before you begin...
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
      
      For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 
