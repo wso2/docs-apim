@@ -325,7 +325,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Navigate to **Lifecycle** and click  **Publish** to publish the API in the Gateway environment.
+2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"></a>
     
