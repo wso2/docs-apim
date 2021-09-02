@@ -77,11 +77,11 @@ The Gateway configuration process varies based on the Gateway that you are using
 
 If your system connects to the service through a proxy server/firewall, you need to grant access to the following endpoints to access the Choreo Analytics Cloud service to publish data.
 
-```
-analytics-prod-incoming.servicebus.windows.net  5671
-analytics-prod-incoming.servicebus.windows.net  5672
-analytics-event-auth.choreo.dev
-```
+| Host                                             | Port | Protocol |
+|--------------------------------------------------|------|----------|
+| `analytics-prod-incoming.servicebus.windows.net` | 5671 | AMQP     |
+| `analytics-prod-incoming.servicebus.windows.net` | 5672 | AMQP     |
+| `analytics-event-auth.choreo.dev`                | 443  | HTTPS    |
 
 ### API Gateway
 
