@@ -167,7 +167,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ```
    
 
-2. Deploy the Healthcare service
+2. Deploy the Healthcare service.
 
     Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
