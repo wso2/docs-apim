@@ -177,7 +177,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Navigate to **Lifecycle** and click  **Publish** to publish the API in the Gateway environment.
+2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
     
     If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
 
