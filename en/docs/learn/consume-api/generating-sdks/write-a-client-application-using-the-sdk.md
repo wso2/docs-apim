@@ -281,24 +281,7 @@ public class APIClient {
 
             private void getAccessToken() throws IOException {
                 // Implement this method to call the token API and retrieve the access token
-                String token = "";
-                try {
-                    OAuthClient client = new OAuthClient(new URLConnectionClient());
-                    OAuthClientRequest request = OAuthClientRequest.tokenLocation("http://localhost:8280/token")
-                            .setGrantType(GrantType.CLIENT_CREDENTIALS)
-                            .setClientId("KSFWq9Tk_0uN41OPLgIhAgJBgkga")
-                            .setClientSecret("4jHkK72ZxmDoPqZwoAapCC4goPEa")
-                            .setScope("")
-                            .buildBodyMessage();
-
-                    //fetching the token from the token response
-                    token = client.accessToken(request).getAccessToken();
-
-                    System.out.println(token); //access token
-                } catch (Exception exn) {
-                    exn.printStackTrace();
-                }
-                accessToken = "Bearer "+token; // set access token here with the Bearer keyword
+                accessToken = "Bearer " + // set access token here
             }
         };
 
@@ -313,13 +296,9 @@ public class APIClient {
         //parse the base path
         apiClient.setBasePath("http://localhost:8280/pizzashack/1.0.0");
 
-        try{
-            //invoke the API resource.
-            defaultApi.testResourceGet();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        List<MenuItem> menuItems = (List<MenuItem>) defaultApi.menuGet();
+        System.out.println(menuItems);
+
     }
 }
 
