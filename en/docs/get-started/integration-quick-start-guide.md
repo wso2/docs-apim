@@ -247,7 +247,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
     2.  Extract the ZIP file.
     3.  Start WSO2 API Manager:
     
-        Open a terminal, navigate to the `<API-M_HOME>/bin` folder and execute the relevant command. 
+        Open a terminal, navigate to the `<API-M_HOME>/bin` folder, and execute the relevant command. 
    
         
         ```bash tab="On MacOS/Linux"
