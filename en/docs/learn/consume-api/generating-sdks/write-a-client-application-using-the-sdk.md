@@ -1,6 +1,5 @@
 # Write a Client Application Using the SDK
 
-
 1.  Follow the steps in the [Quick Start Guide]({{base_path}}/GettingStarted/quick-start-guide), to deploy the sample API, subscribe and generate keys.
 
     <div class="admonition info">
@@ -250,10 +249,7 @@ import java.util.Map;
 
 public class APIClient {
 
-    public static void main(String[] args) throws ApiException {
-        DefaultApi defaultApi = new DefaultApi();
-        ApiClient apiClient = defaultApi.getApiClient();
-
+    public static void main(String[] args){
         // Creates an interceptor that intercepts every requests sent by the client to include the Authorization header
         Interceptor renewTokenInterceptor = new Interceptor() {
             String accessToken = null;
@@ -268,11 +264,16 @@ public class APIClient {
                 Request originalRequest = chain.request().newBuilder().addHeader("Authorization", accessToken).build();
                 Response response = chain.proceed(originalRequest);
 
-                // If the response failed, retry the request with a new access token
+                // If the response fails, retry the request with a new access token
                 if (!response.isSuccessful()) {
+                    //Closing the previous response.
+                    response.close();
+                    //Getting the new access token.
                     getAccessToken();
+                    //Initiating the API request with the access token.
                     Request newRequest = originalRequest.newBuilder().removeHeader("Authorization")
                             .addHeader("Authorization", accessToken).build();
+                    //Capture the response
                     response = chain.proceed(newRequest);
                 }
                 return response;
@@ -284,17 +285,22 @@ public class APIClient {
             }
         };
 
-        // Set the interceptor to the client
-        apiClient.getHttpClient().interceptors().add(renewTokenInterceptor);
+        DefaultApi defaultApi = new DefaultApi();
+        ApiClient apiClient = defaultApi.getApiClient();
 
+        // Set the interceptor to the client and generate a new OKHTTPClient
+        OkHttpClient okHttpClient = apiClient.getHttpClient().newBuilder().addInterceptor(renewTokenInterceptor).build();
+        apiClient.setHttpClient(okHttpClient);
         apiClient.addDefaultHeader("Accept", "application/json");
         apiClient.setLenientOnJson(true);
+        //parse the base path
         apiClient.setBasePath("http://localhost:8280/pizzashack/1.0.0");
-        List<MenuItem> menuItems = (List<MenuItem>) defaultApi.menuGet();
 
+        List<MenuItem> menuItems = (List<MenuItem>) defaultApi.menuGet();
         System.out.println(menuItems);
     }
 }
+
 ```
 <details class="admonition info">
     <summary>Expand to see the pom file</summary>
@@ -332,4 +338,3 @@ public class APIClient {
     </project>
     ```
 </details>
-
