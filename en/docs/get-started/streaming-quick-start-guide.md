@@ -169,7 +169,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
     The overview page of the API that you just created appears. 
 
-4. Optionally, Update the portal configurations and API configurations as required.
+4. Optionally, update the portal configurations and API configurations as required.
 
      Now, you have successfully created a Web Socket API using the service.
 
