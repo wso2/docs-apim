@@ -315,7 +315,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 4.  Navigate to **Develop -> API Configurations -> Endpoints** from the left menu. You will see that **HTTP/REST Endpoint** is already selected and the production endpoint is already provided .
 
-     Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare` and **Save**.
+     Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare`, and **Save**.
      
 5.  Update the portal configurations and API configurations as required.
 
