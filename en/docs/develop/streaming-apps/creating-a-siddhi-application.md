@@ -55,7 +55,7 @@ To create a Siddhi application via the source view of the Streaming Integrator T
 2. Access the Streaming Integration Tooling via the `http://<HOST_NAME>:<TOOLING_PORT>/editor` URL.
 
     !!! info
-        The default URL is `http://<localhost:9390/editor`.
+        The default URL is `http://localhost:9390/editor`.
 
    The Streaming Integration Tooling opens as shown below.
 
