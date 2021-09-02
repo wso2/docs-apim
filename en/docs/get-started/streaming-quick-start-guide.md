@@ -4,7 +4,7 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 
 ## Before you begin...
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
 3. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.

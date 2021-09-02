@@ -4,7 +4,7 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
 
 ## Before you begin...
 
-1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
+1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 2. Go to the [WSO2 Micro Integrator web page](https://wso2.com/integration/micro-integrator/#), click **Download**, and then click **Zip Archive** to download the Micro Integrator distribution as a ZIP file.
 3. Optionally, navigate to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
@@ -233,7 +233,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
        ]
     ]
     ```
-    Congratulation!
+    Congratulations!
     Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
     
 ## Exposing an Integration Service as a Managed API
