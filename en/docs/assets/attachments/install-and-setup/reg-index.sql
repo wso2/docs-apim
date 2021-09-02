@@ -1,6 +1,7 @@
 CREATE TABLE reg_log_ids_to_KEEP (
              REG_LOG_ID INTEGER,
-             REG_TENANT_ID INTEGER
+             REG_TENANT_ID INTEGER,
+             PRIMARY KEY (REG_LOG_ID)
 );
 
 INSERT INTO reg_log_ids_to_KEEP (REG_LOG_ID, REG_TENANT_ID) 
