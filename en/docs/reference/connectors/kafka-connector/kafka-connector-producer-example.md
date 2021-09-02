@@ -20,9 +20,20 @@ Before you begin, set up Kafka by following the instructions in [Setting up Kafk
 
 ## Configure the connector in WSO2 Integration Studio
 
-Follow these steps to set up the Integration Project and the Connector Exporter Project.
+Follow these steps to set up the Integration Project and the Connector Exporter Project. 
 
 {!reference/connectors/importing-connector-to-integration-studio.md!}
+
+6. Now, let's use the File connector to check if the file containing employee information already exists in the file system. 
+
+    1.  Add the <b>checkExist</b> operation of the File connector to the canvas.
+    2.  Create a new file connection pointing to the working directory we already set up. Keep this as the File connection for the operation.  
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/>
+
+    3.  Configure the file path as `/dataCollection/employees/employees.csv`. This file will store the employee information. 
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/filecon11.png" title="checkExist operation" width="800" alt="checkExist operation"/>
 
 1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
 
