@@ -298,7 +298,6 @@ public class APIClient {
 
         List<MenuItem> menuItems = (List<MenuItem>) defaultApi.menuGet();
         System.out.println(menuItems);
-
     }
 }
 
