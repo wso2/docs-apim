@@ -239,7 +239,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
 The REST API you deployed in the Micro Integrator is an **integration service** for the API Manager. Now, let's look at how you can expose the integration service to the API Management layer and generate a managed API by using the service.
 
-### Step 1 - Expose as a service 
+### Step 1 - Expose your integration as a service 
 
 1. Start the API Manager runtime:
 
