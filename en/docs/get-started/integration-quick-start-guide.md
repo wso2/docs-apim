@@ -167,11 +167,11 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ```
    
 
-2. Deploy the Healthcare service
+2. Deploy the Healthcare service.
 
     Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
-3. Start the Micro Integrator
+3. Start the Micro Integrator.
 
     Follow the steps relevant to your OS as shown below.
 
@@ -233,13 +233,13 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ]
     ```
     Congratulation!
-    Now, you have created a your first integration service. You may follow steps given below to expose the service as a Managed API in API Manager.
+    Now you have created your first integration service. You may follow the steps given below to expose the service as a Managed API in API Manager.
     
 ## Exposing an Integration Service as a Managed API
 
 The REST API you deployed in the Micro Integrator is an **integration service** for the API Manager. Now, let's look at how you can expose the integration service to the API Management layer and generate a managed API by using the service.
 
-### Step 1 - Expose as a service 
+### Step 1 - Expose your integration as a service 
 
 1. Start the API Manager runtime:
 
@@ -247,7 +247,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
     2.  Extract the ZIP file.
     3.  Start WSO2 API Manager:
     
-        Open a terminal, navigate to the `<API-M_HOME>/bin` folder and execute the relevant command. 
+        Open a terminal, navigate to the `<API-M_HOME>/bin` folder, and execute the relevant command. 
    
         
         ```bash tab="On MacOS/Linux"
@@ -315,7 +315,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 4.  Navigate to **Develop -> API Configurations -> Endpoints** from the left menu. You will see that **HTTP/REST Endpoint** is already selected and the production endpoint is already provided .
 
-     Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare` and **Save**.
+     Select the `Sandbox Endpoint`, add the endpoint `http://localhost:8290/healthcare`, and **Save**.
      
 5.  Update the portal configurations and API configurations as required.
 
@@ -325,7 +325,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Navigate to **Lifecycle** and click  **Publish** to publish the API in the Gateway environment.
+2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/healthcareapi-lifecycle.png"></a>
     

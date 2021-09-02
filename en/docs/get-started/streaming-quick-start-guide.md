@@ -169,15 +169,15 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
     The overview page of the API that you just created appears. 
 
-4. Optionally, Update the portal configurations and API configurations as required.
+4. Optionally, update the portal configurations and API configurations as required.
 
      Now, you have successfully created a Web Socket API using the service.
 
 ### Step 3 - Publish the managed API
 
-1. Navigate  to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
+1. Navigate to **Deployments** and click **Deploy** to create a revision to deploy in the default Gateway environment. 
 
-2. Navigate to **Lifecycle** and click  **Publish** to publish the API in the Gateway environment.
+2. Navigate to **Lifecycle** and click **Publish** to publish the API in the Gateway environment.
     
     If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
 
