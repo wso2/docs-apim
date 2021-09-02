@@ -1,4 +1,5 @@
 1. Open WSO2 Integration Studio and create an **Integration Project**.
+
   <img src="{{base_path}}/assets/img/integrate/new-project/new-integration-project.png" title="Creating a new Integration Project" width="800" alt="Creating a new Integration Project" />
 
 2. Right-click the project that you created and click on **Add or Remove Connector** -> **Add Connector**. You will get directed to the WSO2 Connector Store.
