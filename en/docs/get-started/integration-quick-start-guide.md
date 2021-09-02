@@ -12,8 +12,9 @@ Let's get started with WSO2 Micro Integrator by running a simple integration use
     !!! Info
         For more information, see the [installation instructions]({{base_path}}/install-and-setup/install-and-setup-overview/#installing_1).
 
-4. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this folder as `<mi-qsg-home>`.
+4. Download the [sample files]({{base_path}}/assets/attachments/quick-start-guide/mi-qsg-home.zip). From this point onwards, let's refer to this directory as `<mi-qsg-home>`.
 5. Download [curl](https://curl.haxx.se/) or a similar tool that can call an HTTP endpoint.
+6. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
 
 ## What you'll build
 
@@ -233,7 +234,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ]
     ```
     Congratulation!
-    Now you have created your first integration service. You may follow the steps given below to expose the service as a Managed API in API Manager.
+    Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
     
 ## Exposing an Integration Service as a Managed API
 
@@ -243,11 +244,10 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
 1. Start the API Manager runtime:
 
-    1.  Go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
-    2.  Extract the ZIP file.
+    1.  Extract the API Manager ZIP file.
     3.  Start WSO2 API Manager:
     
-        Open a terminal, navigate to the `<API-M_HOME>/bin` folder, and execute the relevant command. 
+        Open a terminal, navigate to the `<API-M_HOME>/bin` directory, and execute the relevant command. 
    
         
         ```bash tab="On MacOS/Linux"

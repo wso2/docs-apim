@@ -7,6 +7,7 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11 or 1.8 and set the `JAVA_HOME` environment variable.
    For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/).
 2. Download the Streaming Integrator and Streaming Integrator Tooling distributions from the [WSO2 Streaming Integrator site](https://wso2.com/integration/streaming-integrator/) and extract them to a location of your choice. Hereafter, the extracted location is referred to as `<SI_HOME>` and `<SIT_HOME>` respectively.<br/><br/>
+3. Optionally, go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
    
 ## What you'll build
 In this sample scenario, you aggregate the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket server.
@@ -74,7 +75,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
 
     Specify the Streaming Integrator host `localhost` and port `9443`.
     
-5. Select the `ManageProductionStats` and the Server and **Deploy**.
+5. Select the `ManageProductionStats` and the `Server` and **Deploy**.
 The following message appears to indicate that the Siddhi application deployed successfully in the Streaming Integrator console.
 
     ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
@@ -82,7 +83,7 @@ The following message appears to indicate that the Siddhi application deployed s
 
 ### Step 4: Test your Siddhi application
 
-To test the `ManageProductionStats` Siddhi application above created, follow the steps below.
+To test the `ManageProductionStats` Siddhi application created above, follow the steps below.
 
 1. Copy the `sampledata.xml` file in the `/Users/foo/files` directory. 
 
@@ -96,7 +97,7 @@ You can see the following message in the SI console log.
 
 </br>
  Congratulations!
- Now, you have created a your first Streaming service. You may follow steps given below to expose the service as a Managed API in API Manager.
+ Now, you have created your first Streaming service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
       
 ## Exposing an Streaming Service as a Managed API
 
@@ -106,11 +107,10 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 1. Start the API Manager runtime:
 
-    1.  Go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
-    2.  Extract the ZIP file.
-    3.  Start WSO2 API Manager:
+    1.  Extract the API Manager ZIP file.
+    2.  Start WSO2 API Manager:
     
-        Open a terminal, navigate to the `<API-M_HOME>/bin` folder and execute the relevant command. 
+        Open a terminal, navigate to the `<API-M_HOME>/bin` directory and execute the relevant command. 
    
         
         ```bash tab="On MacOS/Linux"
@@ -183,7 +183,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 ### Step 4 - Invoke the Managed API via Developer Portal
 
-1. Navigate to  the **Developer Portal** by clicking on the `View In Dev Portal` at the top menu.
+1. Navigate to the **Developer Portal** by clicking on `View In Dev Portal` at the top menu.
 
 2. Sign in using the default username/password `admin/admin`. You will be redirected to the **APIs**.
 
