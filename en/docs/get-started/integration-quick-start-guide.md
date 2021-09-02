@@ -171,7 +171,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
     Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
 
-3. Start the Micro Integrator
+3. Start the Micro Integrator.
 
     Follow the steps relevant to your OS as shown below.
 
