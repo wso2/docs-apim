@@ -233,7 +233,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     ]
     ```
     Congratulation!
-    Now, you have created a your first integration service. You may follow steps given below to expose the service as a Managed API in API Manager.
+    Now you have created your first integration service. You may follow the steps given below to expose the service as a Managed API in API Manager.
     
 ## Exposing an Integration Service as a Managed API
 
