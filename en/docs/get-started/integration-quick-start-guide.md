@@ -23,6 +23,7 @@ Most healthcare centers have a system that is used to make doctor appointments. 
 
 ![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
 
+
     !!! Tip
         You may export` <mi-qsg-home>/HealthcareIntegrationProject` to Integration Studio to view the project structure.
 
@@ -176,14 +177,14 @@ Follow the steps given below to run the integration artifacts we developed on a 
 
     1. Open a terminal and navigate to the `<MI_HOME>/bin` folder.
     2. Execute the relevant command:
-
-        ```bash tab= 'On MacOS/Linux/CentOS'
-        sh micro-integrator.sh
-        ```
-
-        ```bash tab= 'On Windows'
-        micro-integrator.bat
-        ```
+ 
+      ```bash tab='On MacOS/Linux/CentOS'
+      sh micro-integrator.sh
+      ```
+          
+      ```bash tab='On Windows'
+      micro-integrator.bat
+      ```
 
 4. (Optional) Start the Dashboard.
 
@@ -254,7 +255,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
         ```
         
         ```bash tab="On Windows"
-        api-manager.bat
+        api-manager.bat --run
         ```
 
 2. Update and start the Micro Integrator runtime:
