@@ -11,10 +11,11 @@ By default, the Micro Integrator is configured to use [WSO2 secure vault for enc
 ## Before you begin
 
 -   Generate the required secrets in your HashiCorp vault. 
--   Select the server authentication method that you want to use when connecting the Micro Integrator with HashiCorp. There are two authentication methods available for HashiCorp:
+-   Select the server authentication method that you want to use when connecting the Micro Integrator with HashiCorp. There are three authentication methods available for HashiCorp:
 
     -   [Static Token](https://learn.hashicorp.com/tutorials/vault/tokens?in=vault/auth-methods) authentication
     -   [AppRole Pull](https://learn.hashicorp.com/tutorials/vault/approle) authentication
+    -   [LDAP](https://learn.hashicorp.com/tutorials/vault/openldap) authentication
 
     If you select <b>Static Token</b> authentication, you need to generate a tokenID from HashiCorp. If you select <b>AppRole Pull</b> authentication, you need to generate a secret ID and role ID. See the HashiCorp documentation for details and instructions.
 
