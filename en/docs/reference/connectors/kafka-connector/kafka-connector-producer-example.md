@@ -24,7 +24,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 {!reference/connectors/importing-connector-to-integration-studio.md!}
 
-6. Now, let's use the File connector to check if the file containing employee information already exists in the file system. 
+5. Now, let's use the File connector to check if the file containing employee information already exists in the file system. 
 
     1.  Add the <b>checkExist</b> operation of the File connector to the canvas.
     2.  Create a new file connection pointing to the working directory we already set up. Keep this as the File connection for the operation.  
@@ -44,16 +44,9 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     <api context="/publishMessages" name="KafkaTransport" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="POST">
             <inSequence>
-                <kafkaTransport.init>
-                    <name>Sample_Kafka</name>
-                    <bootstrapServers>localhost:9092</bootstrapServers>
-                    <keySerializerClass>org.apache.kafka.common.serialization.StringSerializer</keySerializerClass>
-                    <valueSerializerClass>org.apache.kafka.common.serialization.StringSerializer</valueSerializerClass>
-                    <maxPoolSize>100</maxPoolSize>
-                </kafkaTransport.init>
                 <kafkaTransport.publishMessages>
                     <topic>test</topic>
-                </kafkaTransport.publishMessages>
+                </kafkaTransport.publishMessages configKey="KAFKA_CONNECTION">
             </inSequence>
             <outSequence/>
             <faultSequence/>
