@@ -349,7 +349,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-get-test-key.png" size="800"></a>
 
-6. Click **GET** resource `/doctor​/{doctorType}`. Use  **Ophthalmologist** as the doctorType. And Execute.
+6. Click **GET** resource `/doctor​/{doctorType}`. Click on **Try It Out** at   the right side. Use  `Ophthalmologist` as the doctorType. And then click on **Execute**.
 
     <a href="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/devportal-invoke.png" size="800"></a>
 

@@ -189,7 +189,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
 3. Under **APIs**, you will see the published `SweetProductionApplication`. Click on it to navigate to the Overview of the API.
 
-4. Click `Subscriptions` on the left Menu and click `SUBSCRIBE` This will create a subscription to the API using the `DefaultApplication`.
+4. Click `Subscriptions` on the left menu and click `SUBSCRIBE` This creates a subscription to the API using the `DefaultApplication`.
 
     <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png.png" size="800"></a>
 
@@ -197,9 +197,9 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
     
     <a href="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png"><img src="{{base_path}}/assets/img/streaming/qsg/streaming-api-subscribe.png" size="800"></a>
 
-6. Copy the generated access token for future use. Alternatively you can generate a new access token by using `GENERATE ACCESS TOKEN`.
+6. Copy the generated access token for future use. Alternatively, you can generate a new access token by using `GENERATE ACCESS TOKEN`.
 
-7. Click `Try Out` on the left Menu Cllick on the **SUB** topic.
+7. Click `Try Out` on the left menu Click on the **SUB** topic.
   You can see the sample command to access the API.
   
   ```jvm
