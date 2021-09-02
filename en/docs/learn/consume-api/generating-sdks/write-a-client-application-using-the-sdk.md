@@ -1,6 +1,5 @@
 # Write a Client Application Using the SDK
 
-
 1.  Follow the steps in the [Quick Start Guide]({{base_path}}/GettingStarted/quick-start-guide), to deploy the sample API, subscribe and generate keys.
 
     <div class="admonition info">
@@ -250,21 +249,10 @@ import java.util.Map;
 
 public class APIClient {
 
-    public static void main(String[] args) throws ApiException {
-        DefaultApi defaultApi = new DefaultApi();
-        ApiClient apiClient = defaultApi.getApiClient();
-        
+    public static void main(String[] args){
         // Creates an interceptor that intercepts every requests sent by the client to include the Authorization header
         Interceptor renewTokenInterceptor = new Interceptor() {
             String accessToken = null;
-        
-        // Set the interceptor to the client and generate a new OKHTTPClient
-        OkHttpClient okHttpClient = apiClient.getHttpClient().newBuilder().addInterceptor(renewTokenInterceptor).build();
-        apiClient.setHttpClient(okHttpClient);
-        apiClient.addDefaultHeader("Accept", "application/json");
-        apiClient.setLenientOnJson(true);
-        // Parse the base path
-        apiClient.setBasePath("http://localhost:8280/test/1.0.0");
 
             public Response intercept(Chain chain) throws IOException {
                 // If there is an access token already, use it for the next request, otherwise generate a token
@@ -276,35 +264,65 @@ public class APIClient {
                 Request originalRequest = chain.request().newBuilder().addHeader("Authorization", accessToken).build();
                 Response response = chain.proceed(originalRequest);
 
-                // If the response failed, retry the request with a new access token
+                // If the response fails, retry the request with a new access token
                 if (!response.isSuccessful()) {
-                    //closing the previous response.
+                    //Closing the previous response.
                     response.close();
-                    //getting the new access token.
+                    //Getting the new access token.
                     getAccessToken();
                     //Initiating the API request with the access token.
-                    Request newRequest = originalRequest.newBuilder().removeHeader("Authorization").addHeader("Authorization", accessToken).build();
+                    Request newRequest = originalRequest.newBuilder().removeHeader("Authorization")
+                            .addHeader("Authorization", accessToken).build();
                     //Capture the response
                     response = chain.proceed(newRequest);
                 }
+                return response;
+            }
 
             private void getAccessToken() throws IOException {
                 // Implement this method to call the token API and retrieve the access token
-                accessToken = "Bearer " + // set access token here
+                String token = "";
+                try {
+                    OAuthClient client = new OAuthClient(new URLConnectionClient());
+                    OAuthClientRequest request = OAuthClientRequest.tokenLocation("http://localhost:8280/token")
+                            .setGrantType(GrantType.CLIENT_CREDENTIALS)
+                            .setClientId("KSFWq9Tk_0uN41OPLgIhAgJBgkga")
+                            .setClientSecret("4jHkK72ZxmDoPqZwoAapCC4goPEa")
+                            .setScope("")
+                            .buildBodyMessage();
+
+                    //fetching the token from the token response
+                    token = client.accessToken(request).getAccessToken();
+
+                    System.out.println(token); //access token
+                } catch (Exception exn) {
+                    exn.printStackTrace();
+                }
+                accessToken = "Bearer "+token; // set access token here with the Bearer keyword
             }
         };
 
-        // Set the interceptor to the client
-        apiClient.getHttpClient().interceptors().add(renewTokenInterceptor);
+        DefaultApi defaultApi = new DefaultApi();
+        ApiClient apiClient = defaultApi.getApiClient();
 
+        // Set the interceptor to the client and generate a new OKHTTPClient
+        OkHttpClient okHttpClient = apiClient.getHttpClient().newBuilder().addInterceptor(renewTokenInterceptor).build();
+        apiClient.setHttpClient(okHttpClient);
         apiClient.addDefaultHeader("Accept", "application/json");
         apiClient.setLenientOnJson(true);
+        //parse the base path
         apiClient.setBasePath("http://localhost:8280/pizzashack/1.0.0");
-        List<MenuItem> menuItems = (List<MenuItem>) defaultApi.menuGet();
 
-        System.out.println(menuItems);
+        try{
+            //invoke the API resource.
+            defaultApi.testResourceGet();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
+
 ```
 <details class="admonition info">
     <summary>Expand to see the pom file</summary>
@@ -342,4 +360,3 @@ public class APIClient {
     </project>
     ```
 </details>
-
