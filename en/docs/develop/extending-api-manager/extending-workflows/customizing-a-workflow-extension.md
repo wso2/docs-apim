@@ -155,7 +155,7 @@ After the implementation of the class is done, follow the steps below to impleme
         </WorkFlowExtensions>
     ```
 
-    Note that the `adminEmail` , `emailAddress` and `emailPassword` properties will be assigned to the appropriate variables defined in the class through the public **`setter`** methods of those variables.
+    Note that the `adminEmail`, `emailAddress`, and `emailPassword` properties will be assigned to the appropriate variables defined in the class through the public **`setter`** methods of those variables.
 
 !!! note
     If you use the same or similar sample to return an email, you must remove the `org.jaggeryjs.hostobjects.email_0.9.0.ALPHA4_wso2v1.jar` file from the `<API-M_HOME>/repository/components/plugins` directory. Removing it results in a `ClassNotFoundException` thrown at server startup, but it does not affect the server's functionality.
