@@ -95,7 +95,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
     3. Add the following configuration to add a new Key Manager.
     
-         [![Add Key Cloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
+         [![Add Keycloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
          
          !!! tip
              * Configuring the well-known URL populates all the default configurations in the table once you click **Import**. 
