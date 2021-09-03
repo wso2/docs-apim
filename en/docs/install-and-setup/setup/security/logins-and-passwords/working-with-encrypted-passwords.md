@@ -119,7 +119,6 @@ Follow the instructions below to secure the endpoint's password that is given in
     
     !!! warning "Important"
         This configuration should be added before all the other `[apim]` elements or this will result in an error.
-        
 
 3.  Run the Cipher tool script, which is available in the `<APIM_HOME>/bin` directory. 
 
