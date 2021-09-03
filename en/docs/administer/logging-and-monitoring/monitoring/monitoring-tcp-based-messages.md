@@ -62,9 +62,6 @@ To download TCPMon from Apache and run the tool:
 
 TCPMon is primarily used for message monitoring. Additionally, TCPMon can also be used for sending requests to web services and as a proxy service.
 
--   Sending Requests for Web Services
--   As a Proxy
--   Advanced Settings
 
 #### Sending Requests for Web Services
 
