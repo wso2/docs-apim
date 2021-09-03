@@ -219,7 +219,7 @@ Make sure to update the pom file for the above project you created(or downloaded
 
     ``` java
     <handlers xmlns="http://ws.apache.org/ns/synapse">
-    <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
+    <handler class="org.wso2.carbon.test.CustomAPIAuthenticationHandler" />
         #foreach($handler in $handlers)
             #if(!($handler.className == "org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"))
                 <handler xmlns="http://ws.apache.org/ns/synapse" class="$handler.className">
