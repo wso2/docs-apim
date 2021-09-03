@@ -333,4 +333,4 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
 !!! tip
      * If you want to generate the tokens with scopes, those scopes should have been defined in Keycloak as mentioned in the <a href="#step12">Step 1 - (2)</a>.
-     * When generating a token in the Dev Portal, you need to have code and implicit grant types selected and you need to enter the response type as none. Without these, token generation fails.
+     * When generating a token in the Developer Portal, you need to have the `code` and `implicit` grant types selected and you need to enter the response type as `none`. Without these, the token generation process fails.
