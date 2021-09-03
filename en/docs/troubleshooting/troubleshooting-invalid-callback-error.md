@@ -11,7 +11,7 @@ This error has been occurred due to the mismatch of the API Publisher or API Dev
  
 Please follow below steps to fix the login failure due to callback URL mismatch.
 
-1.  Log in to the Management Console (`https://<hostname>:9443/carbon`).
+1.  Sign in to the Management Console (`https://<hostname>:9443/carbon`).
 2.  Navigate to service providers list.
 
     <a href="{{base_path}}/assets/img/troubleshooting/service-providers.png" ><img src="{{base_path}}/assets/img/troubleshooting/service-providers.png" alt="SP list" 
