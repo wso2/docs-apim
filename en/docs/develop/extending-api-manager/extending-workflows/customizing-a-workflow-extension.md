@@ -116,7 +116,7 @@ To customize the default workflow extension, you override the `execute()` and `c
 
 Note the following regarding the above sample:
 
--   The **`execute()`** method takes in a `WorkflowDTO` object ( `SubscriptionWorkflowDTO` class) that contains information about the subscription that is being created.
+-   The **`execute()`** method takes in a `WorkflowDTO` object (`SubscriptionWorkflowDTO` class) that contains information about the subscription that is being created.
 -   The `adminEmail` , `emailAddress` and `emailPassword` are private String variables with public **`getter`** and **`setter`** methods. The values for these variables are populated through the server configuration.
 -   After sending the email, a call is made to the super class's **`execute()`** method in order to create a reference entry in the database. This entry is generally used to look up the workflow when the workflow happens asynchronously (via a human approval).
 -   The **`complete()`** method contains the code to mark the subscription active. Until then, the subscription is in ON\_HOLD state.
