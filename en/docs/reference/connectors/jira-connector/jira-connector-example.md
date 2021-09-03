@@ -339,5 +339,5 @@ Follow these steps to deploy the exported CApp in the integration runtime.
 
 ## What's Next
 
-* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/setup/installation/run_in_containers).
+* You can deploy and run your project on Docker or Kubernetes. See the instructions in [Deploying your Integrations on Containers]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-deployments/).
 * To customize this example for your own scenario, see [Jira Connector Configuration]({{base_path}}/reference/connectors/jira-connector/jira-connector-config) documentation for all operation details of the connector.
