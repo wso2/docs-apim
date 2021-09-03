@@ -11,4 +11,4 @@
 5. You can drag and drop the operations to the design canvas and build your integration logic.
   <a href="{{base_path}}/assets/img/integrate/connectors/drag-connector-operation.png"><img src="{{base_path}}/assets/img/integrate/connectors/drag-connector-operation.png" title="Drag connector operations" width="800" alt="Drag connector operations" /></a>
   
-6. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
+6. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API. 
