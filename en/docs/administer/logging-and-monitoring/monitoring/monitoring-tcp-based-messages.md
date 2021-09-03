@@ -4,9 +4,6 @@ Users can view and monitor the messages passed along a TCP-based conversation us
 
 TCPMon is not dependent on any third party libraries. Its user interface is based on a swing UI and works on almost all platforms that support Java.
 
--   Starting TCPMon
--   Message Monitoring with TCPMon
--   Other Usages of TCPMon
 
 ## Starting TCPMon
 
