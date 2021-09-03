@@ -26,7 +26,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
 
 5. Create a new Kafka connection by selecting a particular operation.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/filecon10.png"><img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/><a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/filecon10.png"><img src="{{base_path}}/assets/img/integrate/connectors/filecon10.png" title="working directory" width="800" alt="working directory"/></a>
 
 
 1. Right click on the created Integration Project and select **New** -> **Rest API** to create the REST API.
