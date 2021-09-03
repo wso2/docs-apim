@@ -1,11 +1,11 @@
 # Customizing a Workflow Extension
 
-Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor         `** abstract class, which has the following abstract methods:
+Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor`** abstract class, which has the following abstract methods:
 
--   **`execute          `** : contains the implementation of the workflow execution
--   **`complete          `** : contains the implementation of the workflow completion
--   **`getWorkflowType          `** : abstract method that returns the type of the workflow as a String
--   **`getWorkflowDetails(String workflowStatus          `** : abstract method that returns a list of `WorkflowDTO` objects. This method is not used at the moment and it returns null for the time being.
+-   **`execute`** : contains the implementation of the workflow execution
+-   **`complete`** : contains the implementation of the workflow completion
+-   **`getWorkflowType`** : abstract method that returns the type of the workflow as a String
+-   **`getWorkflowDetails(String workflowStatus`** : abstract method that returns a list of `WorkflowDTO` objects. This method is not used at the moment and it returns null for the time being.
 
 To customize the default workflow extension, you override the `execute()` and `complete()` methods with your custom implementation. For example, the following class is a sample implementation of the Subscription Creation workflow. It returns an email to an address provided through the configuration on each subscription creation:
 
@@ -116,15 +116,15 @@ To customize the default workflow extension, you override the `execute()` and `c
 
 Note the following regarding the above sample:
 
--   The **`execute()          `** method takes in a `WorkflowDTO` object ( `SubscriptionWorkflowDTO` class) that contains information about the subscription that is being created.
--   The `adminEmail` , `emailAddress` and `emailPassword` are private String variables with public **`getter          `** and **`setter          `** methods. The values for these variables are populated through the server configuration.
--   After sending the email, a call is made to the super class's **`execute()          `** method in order to create a reference entry in the database. This entry is generally used to look up the workflow when the workflow happens asynchronously (via a human approval).
--   The **`complete()          `** method contains the code to mark the subscription active. Until then, the subscription is in ON\_HOLD state.
--   In this sample, the **`complete()          `** method is called immediately to make the subscription active instantly. If the completion of your workflow happens asynchronously, you must not call the **`complete()          `** method from the **`execute()          `** method.
+-   The **`execute()`** method takes in a `WorkflowDTO` object ( `SubscriptionWorkflowDTO` class) that contains information about the subscription that is being created.
+-   The `adminEmail` , `emailAddress` and `emailPassword` are private String variables with public **`getter`** and **`setter`** methods. The values for these variables are populated through the server configuration.
+-   After sending the email, a call is made to the super class's **`execute()`** method in order to create a reference entry in the database. This entry is generally used to look up the workflow when the workflow happens asynchronously (via a human approval).
+-   The **`complete()`** method contains the code to mark the subscription active. Until then, the subscription is in ON\_HOLD state.
+-   In this sample, the **`complete()`** method is called immediately to make the subscription active instantly. If the completion of your workflow happens asynchronously, you must not call the **`complete()`** method from the **`execute()`** method.
 -   The `WorkflowException` is thrown to roll back the subscription in case of a failure.
 
 !!! info
-In a distributed setup, the custom workflows should be deployed in the Developer Portal node.
+    In a distributed setup, the custom workflows should be deployed in the Developer Portal node.
 
 
 After the implementation of the class is done, follow the steps below to implement the new workflow extension in the API Manager:
@@ -155,9 +155,9 @@ After the implementation of the class is done, follow the steps below to impleme
         </WorkFlowExtensions>
     ```
 
-    Note that the `adminEmail` , `emailAddress` and `emailPassword` properties will be assigned to the appropriate variables defined in the class through the public **`setter           `** methods of those variables.
+    Note that the `adminEmail`, `emailAddress`, and `emailPassword` properties will be assigned to the appropriate variables defined in the class through the public **`setter`** methods of those variables.
 
 !!! note
-If you use the same or similar sample to return an email, you must remove the `org.jaggeryjs.hostobjects.email_0.9.0.ALPHA4_wso2v1.jar` file from the `<API-M_HOME>/repository/components/plugins` directory. Removing it results in a `ClassNotFoundException` thrown at server startup, but it does not affect the server's functionality.
+    If you use the same or similar sample to return an email, you must remove the `org.jaggeryjs.hostobjects.email_0.9.0.ALPHA4_wso2v1.jar` file from the `<API-M_HOME>/repository/components/plugins` directory. Removing it results in a `ClassNotFoundException` thrown at server startup, but it does not affect the server's functionality.
 
 
