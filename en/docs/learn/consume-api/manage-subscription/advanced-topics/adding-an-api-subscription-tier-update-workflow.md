@@ -25,12 +25,12 @@ When the API subscription update workflow is enabled, when the subscription tier
 
 3.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`) and click **Applications**. Select the application which has the subscriptions you wish to modify.
 
-    ![[applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]
+    [![applications overview tab]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
 
 
-4. Click **Subscriptions** to list the subscriptions of the application.
+4.  Click **Subscriptions** to list the subscriptions of the application.
     
-   ![[subscriptions overview_tab]({{base_path}}/assets/img/learn/subscriptions-overview-tab.png)]
+    ![[subscriptions overview_tab]({{base_path}}/assets/img/learn/subscriptions-overview-tab.png)
 
      
 5.  Select the subscription which the tier needs to be changed and click the **EDIT** icon to open the **Subscription Update** popup.
