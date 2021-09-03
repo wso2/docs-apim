@@ -93,7 +93,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step B - Migrate IS from 5.3.0 to 5.10.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/#step-2-upgrade-api-manager-to-320) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.1.0 to 3.2.0. This will be used as the `identity_db` in IS 5.10.0.
+1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320/#step-2-upgrade-api-manager-to-320) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.1.0 to 3.2.0. This will be used as the `identity_db` in IS 5.10.0.
 
 2. Folllow the guidelines in [WSO2 IS 5.10.0 migration guide](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) to migrate your current IS as KM 5.3.0 distribution to IS 5.10.0.
 
