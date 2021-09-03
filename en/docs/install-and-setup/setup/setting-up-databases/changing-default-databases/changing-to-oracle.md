@@ -111,7 +111,7 @@ Follow the instructions below to change the type of the default datasource.
     ``` tab="Example"
     [database.shared_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/shared_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -119,7 +119,7 @@ Follow the instructions below to change the type of the default datasource.
     
     [database.apim_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/apim_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -162,7 +162,7 @@ Follow the instructions below to change the type of the default datasource.
     ``` tab="Example"
     [database.shared_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/shared_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl1"
     username = "sharedadmin"
     password = "sharedadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -173,7 +173,7 @@ Follow the instructions below to change the type of the default datasource.
     
     [database.apim_db]
     type = "oracle"
-    url = "jdbc:oracle:thin:@localhost:1521/apim_db"
+    url = "jdbc:oracle:thin:@localhost:1521/orcl2"
     username = "apimadmin"
     password = "apimadmin"
     driver = "oracle.jdbc.driver.OracleDriver"
@@ -207,7 +207,7 @@ Follow the instructions below to change the type of the default datasource.
         ``` tab="Example"
         [database.local]
         type = "oracle"
-        url = "jdbc:oracle:thin:@localhost:1521/carbon_db"
+        url = "jdbc:oracle:thin:@localhost:1521/orcl"
         username = "carbonadmin"
         password = "carbonadmin"
         driver = "oracle.jdbc.driver.OracleDriver"
