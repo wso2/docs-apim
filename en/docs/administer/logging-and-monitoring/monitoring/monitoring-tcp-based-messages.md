@@ -9,8 +9,6 @@ TCPMon is not dependent on any third party libraries. Its user interface is base
 
 TCPMon is available in the `<PRODUCT_HOME>/bin` directory of any WSO2 Carbon based product distribution. Alternatively, you can download TCPMon from Apache and run the tool.
 
--   Running TCPMon (from Carbon product pack
--   Running TCPMon (downloaded from Apache
 
 ### Running TCPMon (from Carbon product pack)
 
