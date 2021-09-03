@@ -12,6 +12,7 @@ Let's get started with WSO2 Streaming Integrator(SI) by running a simple streami
 ## What you'll build
 In this sample scenario, you aggregate the data relating to the raw material purchases of a sweet production factory and publish the data to a WebSocket server.
                                 
+![Scenario]({{base_path}}/assets/img/streaming/qsg/streaming-integration-qsg-diagram.png)
 
 ### Step 1: Start the Streaming Integrator
 
@@ -36,7 +37,12 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
     !!! info
         In this example, the file is located in the `/Users/foo` directory.
 
-2. Navigate to `http://localhost:9390/editor`, click on `New`, and copy and paste the content given below.
+2. Navigate to `http://localhost:9390/editor`, 
+
+    !!! Tip
+        Use `admin` as the username and password.
+        
+click on `New`, and copy and paste the content given below.
     
     !!! tip
         Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
@@ -96,7 +102,7 @@ You can see the following message in the SI console log.
 ```
 
 </br>
- Congratulations!
+ **Congratulations!**
  Now, you have created your first Streaming service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
       
 ## Exposing an Streaming Service as a Managed API
@@ -147,7 +153,7 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
     1.  Sign in to the API Publisher portal: `https://localhost:9443/publisher`. 
 
     !!! Tip
-        Use `admin` as the user name and password.
+        Use `admin` as the username and password.
 
     2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
