@@ -42,7 +42,7 @@ Let's create a simple Siddhi application that reads data from a XML file, does a
     !!! Tip
         Use `admin` as the username and password.
         
-click on `New`, and copy and paste the content given below.
+3. Click on `New`, and copy and paste the content given below.
     
     !!! tip
         Here, a sample Siddhi application is provided to minimize the time spent following this guide. However, WSO2 recommends that you use the Streaming Integration Tooling that offers features such as syntax checking, event simulation for testing purposes, reformatting code, the option to design applications in a graphical interface or by writing code, and many more. For more information on designing Siddhi applications, see [Streaming Integrator Tooling Overview]({{base_path}}/develop/streaming-apps/streaming-integrator-studio-overview).
@@ -73,15 +73,15 @@ click on `New`, and copy and paste the content given below.
     insert into ProductionAlertStream;
     ```
     
-3. Save this file as `ManageProductionStats.siddhi`.
+4. Save this file as `ManageProductionStats.siddhi`.
 
-4. Click on **Deploy** and then **Deploy To Server** to deploy the Siddhi Application in Streaming Integrator.
+5. Click on **Deploy** and then **Deploy To Server** to deploy the Siddhi Application in Streaming Integrator.
 
-4. Add Streaming Integrator server details by clicking on `Add New Server`
+6. Add Streaming Integrator server details by clicking on `Add New Server`
 
     Specify the Streaming Integrator host `localhost` and port `9443`.
     
-5. Select the `ManageProductionStats` and the `Server` and **Deploy**.
+7. Select the `ManageProductionStats` and the `Server` and **Deploy**.
 The following message appears to indicate that the Siddhi application deployed successfully in the Streaming Integrator console.
 
     ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
