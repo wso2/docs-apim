@@ -481,7 +481,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>The recommended JDK version is JDK 1.8 or 1.11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
+            <p>The recommended JDK version is JDK 11. See the <a href="{{base_path}}/install-and-setup/install/installation-prerequisites/">installation pre-requisites</a> for more information.</p>
             <p><strong>Tip</strong>: To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
          </td>
       </tr>
