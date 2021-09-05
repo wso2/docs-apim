@@ -67,7 +67,9 @@ Let’s implement a simple integration solution that can be used to query the av
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
-1. Navigate to the `<mi-qsg-home>` directory. 
+1. Extract the downloaded WSO2 Micro Integrator and sample files into a same directory location.
+
+2. Navigate to the `<mi-qsg-home>` directory. 
 The following project files and executable back-end services are available in the `<mi-qsg-home>`.
 
 - **HealthcareIntegrationProject/HealthcareIntegrationProjectConfigs**: This is the ESB Config module with the integration artifacts for the healthcare service. This service consists of the following REST API:
@@ -154,25 +156,44 @@ The following project files and executable back-end services are available in th
 
 - **Backend**: This contains an executable .jar file that contains mock back-end service implementations for the Pine Valley Hospital and Grand Oak Hospital.
 
+- **bin**: This contains a script to copy artifacts and run the backend service.
+
 ### Step 2 - Running the integration artifacts
 
 Follow the steps given below to run the integration artifacts we developed on a Micro Integrator instance that is installed on a VM.
 
-1. Start the back-end services.
+1. Run `run.sh/run.bat` script in `<mi-qsg-home>/bin` based on the OS to up the workspace.
+    1. Open a terminal and navigate to the `<mi-qsg-homeE>/bin` folder.
+    2. Execute the relevant command:
+ 
+        ```bash tab='On MacOS/Linux/CentOS'
+        sh run.sh 
+        ```
+            
+        ```bash tab='On Windows'
+        run.bat 
+        ```  
+      
+        !!! Tip
+            Script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. 
+        
+        Here we carry out below steps.
 
-    Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
-    Open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder and use the following command to start the services:
+        - Start the back-end services.
+
+            Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
     
-    ```bash
-    java -jar DoctorInfo.jar
-    ```
+            To manually start  the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder and use the following command to start the services:
+    
+            ```bash
+            java -jar DoctorInfo.jar
+            ```
    
+        - Deploy the Healthcare service.
 
-2. Deploy the Healthcare service.
-
-    Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
-
-3. Start the Micro Integrator.
+            Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+              
+2. Start the Micro Integrator.
 
     Follow the steps relevant to your OS as shown below.
 
@@ -194,8 +215,11 @@ Follow the steps given below to run the integration artifacts we developed on a 
     1.  [Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the MI dashboard.
     2.  [Start]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) the MI dashboard.
     
+ **Voila!!!** You can now test the **HealthcareIntegrationService** that you just generated.
+ 
+### Step 3 - Testing the integration servie
 
-5. Invoke the healthcare service.
+1. Invoke the healthcare service.
 
     Open a terminal and execute the following curl command to invoke the service:
 
@@ -233,7 +257,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
        ]
     ]
     ```
-    Congratulations!
+    **Congratulations!**
     Now you have created your first integration service. Optionally, you can follow the steps given below to expose the service as a Managed API in API Manager.
     
 ## Exposing an Integration Service as a Managed API
@@ -296,7 +320,7 @@ The REST API you deployed in the Micro Integrator is an **integration service** 
         <img src="{{base_path}}/assets/img/integrate/quick-start-guide/select-services.png" width="500">
         
     3. See that the `HealthcareAPI` is listed as a service.
-
+`   `
 ### Step 2 - Create a managed API using the Integration Service
 
 1.  Click on the `HealthcareAPI` that is in the service catalog.
