@@ -86,7 +86,7 @@ If you want to edit an already attached mediation policy,
 
 If you want to dis-engage any mediation policy that is already engaged,
 
-1.  Go to the Edit option in the **Message Mediation** section.
+1.  Go to the **Edit** option in the **Message Mediation** section.
 You can do this for Request, Response and/or Fault message flows.
 
 2.  Select **None** as the mediation policy and save the API.
