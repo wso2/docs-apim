@@ -18,7 +18,7 @@ In this example, you have constructed the `service_ep` property dynamically and 
 `http://jsonplaceholder.typicode.com/posts/`. 
 
 !!! info
-    The dynamic endpoint functionality is suitable for scenarios where the application client can send an attribute in the request correlating to the intended endpoint (such as an HTTP transport header or as part of the payload) which can be used in the mediation extension.
+    The dynamic endpoint functionality is suitable for scenarios where the application client can send an attribute in the request correlating to the intended endpoint (such as an HTTP transport header or as part of the payload), which can be used in the mediation extension.
 
 !!! note
     The mediation extension is applied to all resources of the API. Therefore, all resources will contain a similar logic to construct the endpoint.
