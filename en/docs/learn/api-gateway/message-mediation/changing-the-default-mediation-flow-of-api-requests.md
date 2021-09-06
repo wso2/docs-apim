@@ -37,7 +37,7 @@ Following is a manually created sample custom mediation policy. This custom sequ
 
 Follow the below steps to upload the above sequence as a custom mediation policy in the **Request** message flow.
 
-1. You can copy the above mediation sequence into a **XML** file.
+1. You can copy the above mediation sequence into an **XML** file.
 2.  Log in to the **API Publisher Portal**.
 3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
