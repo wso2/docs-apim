@@ -4,7 +4,7 @@ title: Introduction to the API Analytics Dashboard - API Manager Documentation 4
 
 # Introduction to the API Analytics Dashboard
 
-The new cloud analytics portal [https://analytics.choreo.dev/](https://analytics.choreo.dev/) consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
+Choreo Insights [https://console.choreo.dev/insights](https://console.choreo.dev/insights) consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
 You can use these pages to get the complete business analytics on your API management system. 
 
 See the topics given below to get an overview of the main capabilities of **Analytics Pages**.

@@ -89,7 +89,7 @@ If your system connects to the service through a proxy server/firewall, you need
 
 ## Step 4 - View the Analytics Dashboards
 
-Invoke APIs and sign in to the Analytics Portal [https://analytics.choreo.dev/](https://analytics.choreo.dev/) to view the dashboards.
+Invoke APIs and open Choreo Insights [https://console.choreo.dev/insights](https://console.choreo.dev/insights) to view the dashboards.
 
 For more detailed information on the Analytics Portal dashboards and their usage, see the [Analytics Portal Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
 
