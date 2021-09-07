@@ -61,6 +61,12 @@ It is now available to download from [here](https://wso2.com/api-management/#).
 - Defaulting code and configs to do with event based
 -->
 
+### Deprecated features and functionalities
+
+- **[Message Tracing]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing/)**
+
+    The support for this feature will be removed from subsequent versions starting from WSO2 API Manager 4.0.0.
+
 ### Removed features and functionalities
 
 - Microgateway Labels

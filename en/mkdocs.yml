@@ -1227,6 +1227,7 @@ nav:
               - Configuring XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
               - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
               - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
+              - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
         - FAQ: reference/faq.md
     - Administer:
         - Administer Overview: administer/admin-overview.md

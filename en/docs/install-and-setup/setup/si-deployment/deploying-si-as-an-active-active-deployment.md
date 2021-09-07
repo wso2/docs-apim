@@ -4,10 +4,9 @@ The recommended deployment for WSO2 Streaming Integrator (SI) is the Minimum HA 
 not scalable beyond that. If you want to configure WSO2 SI as a scalable deployment, you can use the Active-Active deployment pattern. This section provides an
 overview of the Active-Active deployment pattern and instructions to configure it.
 
-
 ## Overview
 
-![overview]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png)
+[![overview]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png){: style="width:80%"}]({{base_path}}/assets/img/streaming/active-active-deployment/si-active-active-deployment-pattern.png)
 
 The above diagram represents a deployment where you are not limited to two nodes. You can scale the event processing horizontally by adding more SI
  nodes to the deployment. In this deployment, it is recommended to configure the client application to publish events to multiple SI nodes in a Round

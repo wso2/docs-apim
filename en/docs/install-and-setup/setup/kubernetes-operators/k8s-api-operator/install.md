@@ -48,108 +48,108 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
          name: api-operator
       rules:
          - apiGroups:
-            - ""
-         resources:
-            - pods
-            - services
-            - endpoints
-            - persistentvolumeclaims
-            - events
-            - configmaps
-            - secrets
-            - ingresses
-         verbs:
-            - '*'
+              - ""
+           resources:
+              - pods
+              - services
+              - endpoints
+              - persistentvolumeclaims
+              - events
+              - configmaps
+              - secrets
+              - ingresses
+           verbs:
+              - '*'
          - apiGroups:
-            - apps
-         resources:
-            - deployments
-            - daemonsets
-            - replicasets
-            - statefulsets
-            - ingresses
-         verbs:
-            - '*'
+              - apps
+           resources:
+              - deployments
+              - daemonsets
+              - replicasets
+              - statefulsets
+              - ingresses
+           verbs:
+              - '*'
          - apiGroups:
-            - monitoring.coreos.com
-         resources:
-            - servicemonitors
-         verbs:
-            - get
-            - create
+              - monitoring.coreos.com
+           resources:
+              - servicemonitors
+           verbs:
+              - get
+              - create
          - apiGroups:
-            - apps
-         resourceNames:
-            - api-operator
-         resources:
-            - deployments/finalizers
-         verbs:
-            - update
+              - apps
+           resourceNames:
+              - api-operator
+           resources:
+              - deployments/finalizers
+           verbs:
+              - update
          - apiGroups:
-            - wso2.com
-         resources:
-            - '*'
-            - ratelimitings
-            - targetendpoints
-            - securities
-            - integrations
-         verbs:
-            - '*'
+              - wso2.com
+           resources:
+              - '*'
+              - ratelimitings
+              - targetendpoints
+              - securities
+              - integrations
+           verbs:
+              - '*'
          - apiGroups:
-            - batch
-         resources:
-            - '*'
-         verbs:
-            - '*'
+              - batch
+           resources:
+              - '*'
+           verbs:
+              - '*'
          - apiGroups:
-            - autoscaling
-         resources:
-            - '*'
-         verbs:
-            - '*'
+              - autoscaling
+           resources:
+              - '*'
+           verbs:
+              - '*'
          - apiGroups:
-            - extensions
-         resources:
-            - ingresses
-            - ingress
-         verbs:
-            - '*'
+              - extensions
+           resources:
+              - ingresses
+              - ingress
+           verbs:
+              - '*'
          - apiGroups:
-            - serving.knative.dev
-         resources:
-            - '*'
-         verbs:
-            - get
-            - list
-            - create
-            - update
-            - delete
-            - patch
-            - watch
+              - serving.knative.dev
+           resources:
+              - '*'
+           verbs:
+              - get
+              - list
+              - create
+              - update
+              - delete
+              - patch
+              - watch
          - apiGroups:
-            - route.openshift.io
-         resources:
-            - '*'
-         verbs:
-            - get
-            - list
-            - create
-            - update
-            - delete
-            - patch
-            - watch
+              - route.openshift.io
+           resources:
+              - '*'
+           verbs:
+              - get
+              - list
+              - create
+              - update
+              - delete
+              - patch
+              - watch
          - apiGroups:
-            - networking.istio.io
-         resources:
-            - '*'
-         verbs:
-            - get
-            - list
-            - create
-            - update
-            - delete
-            - patch
-            - watch
+              - networking.istio.io
+           resources:
+              - '*'
+           verbs:
+              - get
+              - list
+              - create
+              - update
+              - delete
+              - patch
+              - watch
       ```
 
 -  Deploy the `ClusterRoleBinding`:
@@ -160,16 +160,16 @@ By default, the K8s API operator is configured to watch the deployed namespace. 
       kind: ClusterRoleBinding
       apiVersion: rbac.authorization.k8s.io/v1
       metadata:
-      name: api-operator
+         name: api-operator
       subjects:
-      - kind: ServiceAccount
-      name: api-operator
-      # Replace this with the namespace the operator is deployed in.
-      namespace: <OPERATOR_DEPLOYED_NAMESPACE>
+         - kind: ServiceAccount
+           name: api-operator
+            # Replace this with the namespace the operator is deployed in.
+           namespace: <OPERATOR_DEPLOYED_NAMESPACE>
       roleRef:
-      kind: ClusterRole
-      name: api-operator
-      apiGroup: rbac.authorization.k8s.io
+         kind: ClusterRole
+         name: api-operator
+         apiGroup: rbac.authorization.k8s.io
       ```
 
 -  Update API operator to watch the cluster:

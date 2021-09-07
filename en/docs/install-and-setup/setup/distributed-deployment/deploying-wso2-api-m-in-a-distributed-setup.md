@@ -84,7 +84,7 @@ Let's configure the API-M nodes in the deployment.
 
 Configure the Gateway nodes in the deployment to communicate with the Control Plane nodes.
 
-<a href="{{base_path}}/assets/img/setup-and-install/gateway-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/gateway-connections.png" width=600></a>
+<a href="{{base_path}}/assets/img/setup-and-install/gateway-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/gateway-connections.png" width="60%"></a>
 
 Follow the steps given below.
                                                          
@@ -325,7 +325,7 @@ In a typical distributed deployment, all API-M components (excluding the API-M G
 2.  Configure the Traffic Manager nodes should communicate with the Control Plane.
 3.  Configure the Key Manager, Publisher, and Developer Portal components in the Control Plane to communicate with the Traffic Manager.
 
-<a href="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png" width="500"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png"><img src="{{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png" width="60%"></a>
 
 Follow the steps given below.
 

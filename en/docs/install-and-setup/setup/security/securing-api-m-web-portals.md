@@ -34,43 +34,38 @@ session_timeout = "30m"
 
 You can restrict access to the management console of the API-M runtime by binding the management console with selected IP addresses. Note that you can either restrict access to the management console only, or you can restrict access to all web portals as explained below.
 
--   To control access only to the management console, add the IP addresses to the `<APIM-M_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file as follows:
+-   To control access only to the management console, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
-    ```xml
-    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<IP-address-01>|<IP-address-02>|<IP-address-03>"/>
+    ```toml
+    [admin_console.control_access]
+    enable = true
+    allow = ["IP1", "IP2", "IP3"]
     ```
 
-    The `RemoteAddrValve` Tomcat valve defined in this file will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
+    This adds a `RemoteAddrValve` Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file and it will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
 
--   To control access to all web applications deployed in your server, add the IP addresses to the `<APIM-M_HOME>/repository/conf/tomcat/context.xml` file as follows:
+-   To control access to all web applications deployed in your server, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
-    ```xml
-    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<IP-address-01>|<IP-address-02>|<IP-address-03>"/>
+    ```toml
+    [web_app.control_access]
+    enable = true
+    allow =  ["IP1", "IP2", "IP3"]
     ```
 
-    The `RemoteAddrValve` Tomcat valve defined in this file will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.
+    This will add a `RemoteAddrValve` Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/context.xml` file and it will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.
 
--   You can also restrict access to particular servlets in a web application by adding a Remote Address Filter to the `web.xml` file (stored in the `<APIM-M_HOME>/repository/conf/tomcat/` directory) and by mapping that filter to the servlet URL. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
+-   You can also restrict access to particular servlets in a web application by adding the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
-    The following example from a `web.xml` file illustrates how access to the management page (`/carbon/admin/login.jsp`) is granted only to one IP address:
-
-    ```xml
-    <filter> 
-        <filter-name>Remote Address Filter</filter-name> 
-        <filter-class>org.apache.catalina.filters.RemoteAddrFilter</filter-class> 
-        <init-param> 
-            <param-name>allow</param-name> 
-            <param-value>127.0.01</param-value> 
-        </init-param> 
-    </filter> 
-    <filter-mapping> 
-        <filter-name>Remote Address Filter</filter-name> 
-        <url-pattern>/carbon/admin/login.jsp</url-pattern> 
-    </filter-mapping>
+    ```toml
+    [[servlet_access_control_filter]]
+    filter_name = "Remote Address Filter"
+    allow_ip_regex = "127.0.0.1"
+    url_pattern = "/carbon/admin/login.jsp"
     ```
 
-    !!! Info
-        Any configurations (including valves defined in the `<APIM-M_HOME>/repository/conf/tomcat/catalina-server.xml` file) apply to all web applications and are available globally across the server, regardless of the host or cluster. For more information on using remote host filters, see the [Apache Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Remote_Host_Filter).
+    This will add Remote Address Filter to the web.xml file (stored in the `<APIM-M_HOME>/repository/conf/tomcat/` directory) by mapping that filter to the servlet URL. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
+
+The above example deployment.toml configuration illustrates how access to the management page (/carbon/admin/login.jsp) is granted only to one IP address.
 
 ## What's Next?
 

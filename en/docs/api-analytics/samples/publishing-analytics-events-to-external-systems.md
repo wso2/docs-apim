@@ -51,52 +51,7 @@ Accumulated analytics data can be logged with the use of a class of type `Counte
 
 In order to achieve this behavior, create a class implementing the `CounterMetric` Interface of `org.wso2.am.analytics.publisher.reporter` and override its methods.
 
-Implementation of this class should look something similar to this,
-
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
-    import org.wso2.am.analytics.publisher.exception.MetricReportingException;
-    import org.wso2.am.analytics.publisher.reporter.CounterMetric;
-    import org.wso2.am.analytics.publisher.reporter.MetricEventBuilder;
-    import org.wso2.am.analytics.publisher.reporter.MetricSchema;
-    import org.wso2.am.analytics.publisher.reporter.cloud.DefaultResponseMetricEventBuilder;
-
-    import java.util.Map;
-
-    public class <CounterMetricImplClassName> implements CounterMetric {
-
-        private static final Logger log = LoggerFactory.getLogger(<CounterMetricImplClassName>.class);
-        private String name;
-        private MetricSchema schema;
-
-        public <CounterMetricImplClassName>(String name, MetricSchema schema) {
-            this.name = name;
-            this.schema = schema;
-        }
-
-        @Override
-        public int incrementCount(MetricEventBuilder metricEventBuilder) throws MetricReportingException {
-            Map<String, Object> properties = metricEventBuilder.build();
-            log.info("Metric Name: " + name.replaceAll("[\r\n]", "") + " Metric Value: "
-                + properties.toString().replaceAll("[\r\n]", ""));
-            return 0;
-        }
-
-        @Override
-        public String getName() {
-            return this.name;
-        }
-
-        @Override
-        public MetricSchema getSchema() {
-        return this.schema;
-        }
-
-        @Override
-        public MetricEventBuilder getEventBuilder() {
-        return new DefaultResponseMetricEventBuilder();
-        }
-    }
+Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/LogCounterMetric.java).
 
 #### MetricReporter Implementation Class
 
@@ -106,41 +61,7 @@ By overriding the `createCounterMetric` Method of `MetricReporter` interface it 
 
 In order to achieve this behavior, create a class implementing the `MetricReporter` Interface of `org.wso2.am.analytics.publisher.reporter` and override its methods.
 
-Implementation of this class should look something similar to this,
-
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
-    import org.wso2.am.analytics.publisher.exception.MetricCreationException;
-    import org.wso2.am.analytics.publisher.reporter.CounterMetric;
-    import org.wso2.am.analytics.publisher.reporter.MetricReporter;
-    import org.wso2.am.analytics.publisher.reporter.MetricSchema;
-    import org.wso2.am.analytics.publisher.reporter.TimerMetric;
-    
-    import java.util.Map;
-    
-    public class <MetricReporterImplClass> implements MetricReporter {
-    
-        private static final Logger log = LoggerFactory.getLogger(<MetricReporterImplClass>.class);
-    
-        public <MetricReporterImplClass>(Map<String, String> properties) {
-            log.info("Successfully initialized");
-        }
-    
-        @Override
-        public CounterMetric createCounterMetric(String name, MetricSchema metricSchema) throws MetricCreationException {
-            <CounterMetricImplClassName> counterMetric = new <CounterMetricImplClassName>(name, metricSchema);
-            return counterMetric;
-        }
-    
-        @Override
-        public TimerMetric createTimerMetric(String s) {
-            return null;
-        }
-        @Override
-        public Map<String, String> getConfiguration() {
-            return null;
-        }
-    }
+Implementation of this class should look something similar to [this](https://github.com/wso2/samples-apim/blob/master/analytics-event-publisher/src/main/java/org.wso2.am.analytics.publisher.sample.reporter/CustomReporter.java).
 
 #### Build the Project
 

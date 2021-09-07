@@ -265,9 +265,28 @@ Now let us read the information on `wso2engineers` that we stored in the Amazon 
     curl -H "Content-Type: application/xml" --request POST --data @data.xml http://127.0.0.1:8290/s3connector/info
     ```
 **Expected Response**:
-    You will receive a response like below containing the details of the engineer requested. 
-    ```
-    Julian Garfield, Software Engineer, Integration Group
+    You receive a response similar to the following. The `Content` element contains the contents of the file requested.
+
+    !!! note
+        The `Content` element is available only with Amazon S3 connector v2.0.1 and above.
+
+    ```xml
+    <getObjectResult>
+        <success>true</success>
+        <GetObjectResponse>
+            <AcceptRanges>bytes</AcceptRanges>
+            <Content>Julian Garfield, Software Engineer, Integration Group</Content>
+            <ContentLength>12</ContentLength>
+            <ContentType>text/plain; charset=utf-8</ContentType>
+            <DeleteMarker>false</DeleteMarker>
+            <ETag>"abc"</ETag>
+            <LastModified/>
+            <metadata/>
+            <MissingMeta>0</MissingMeta>
+            <PartsCount>0</PartsCount>
+            <TagCount>0</TagCount>
+        </GetObjectResponse>
+    </getObjectResult>
     ```
 
 In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/amazons3-connector-reference) to learn more about the operations you can perform with the Amazon S3 connector.

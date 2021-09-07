@@ -1,4 +1,4 @@
-# Using Okta as an External IDP with SAML
+# Using Okta as an External IDP with SAML 
 
 Follow the instructions below to connect Okta as a third party Identity Provider to WSO2 API Manager.
 
@@ -36,13 +36,13 @@ Before you begin, make sure you do the following.
     [![Enter application details]({{base_path}}/assets/img/learn/okta-saml-create-saml-app-details.png)]({{base_path}}/assets/img/learn/okta-saml-create-saml-app-details.png)
 
     !!!warning
-        **Audience URI** should be same as the identity provider entity id name that is created in WSO2 API Manager
+        **Audience URI** should be same as the Identity Provider entity id name that is created in WSO2 API Manager.
 
 6.  Inside the SAML app you created go to **Sign On** and click **View Setup Instructions**.
 
     [![View Setup Instructions]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)
 
-    1.  Scroll up to the **Provide the following IDP metadata to your SP provider** section. Copy and save the details given to a xml file.
+    1.  Scroll up to the **Provide the following IDP metadata to your SP provider** section. Copy and save the details given to a XML file.
 
         [![Copy and save xml]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)
 
@@ -80,101 +80,65 @@ Before you begin, make sure you do the following.
         
         <a href="{{base_path}}/assets/img/learn/okta-profile-edit3.png"><img src="{{base_path}}/assets/img/learn/okta-profile-edit3.png"/></a>
 
-## Step 2 - Configure API Manager
-1.  Login in to `https://localhost:9443/carbon`.
+## Step 2 - Setup API-Manager
 
-2.  Create a role that needs to be assigned to users that will be provisioned from Okta. 
+1. Log in in to `https://localhost:9443/carbon`. 
 
-    1.  Go to **Users and Roles**.
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width="400" height="200"/></a>
+2. Create a role that needs to be assigned to users that will be provisioned from Okta.
 
-    2.  Add a new role.
-        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/></a>
+    <a href="{{base_path}}/assets/img/learn/okta-apim-add-role.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width=90%/></a>
 
-    3.  Assign the following permissions to the role and click **Save**.
+    1. Go to **Users and Roles**.
 
-    <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" width="300" height="300"/></a>
-    <br/>
-    <br/>
-    <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png" width="300" height="350"/></a>
-    <br/>
-    <br/>
-    <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width="300" height="300"/></a>
+         <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width=50%/></a>
 
-3. Add role permissions via the WSO2 API Manager Admin Portal.
+    2. Add a new role.
 
-    1. Sign in to the WSO2 API Manager Admin Portal.
-    
-         `https://localhost:9443/admin`
-         
-    2. Click **Settings** and then click **Role Permissions**.
+    3. Assign the following permissions to the role and save the role.
 
-         [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
+        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions3.png" width=25%/></a>
+        <br/>
+        <br/>
+        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions2.png" width=25%/></a>
+        <br/>
+        <br/>
+        <a href="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png"><img src="{{base_path}}/assets/img/learn/okta-apim-add-role-permissions1.png" width=25%/></a>
 
-    3. Click **Add role permission**.
-    
-    4. Enter `okta_role` in the **Provide role name** field and click **Next**.
+3. Log in to `https://localhost:9443/admin`. 
 
-         [![Edit Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit1.png) 
+    1. Expand **Settings** and click **Scope Mapping**.
 
-    5. Go to **Select permissions**, click  **Custom permissions**, and start assigning the permissions as shown below. 
-    
-         These permissions will allow a user having the `okta_role` to login to Publisher and Developer Portals.
+        <a href="{{base_path}}/assets/img/learn/okta-apim-role-scope-mapping.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-scope-mapping.png" width=25%/></a>
 
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit2.png)
+    2. Update the following scopes with the `okta_role`.
 
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit3.png)
+        [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit1.png)
+        <br/>
+        <br/>
+        [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit2.png)
+        <br/>
+        <br/>
+        [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)
 
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit4.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit5.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit6.png)
-
-        [![Okta API-M role pemission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui-edit7.png)
-
-    6. Click **Save** to save your changes.
-
-    !!! note
-        If you want your user to perform analytics-based tasks, you should add the `okta_role` to the required analytics scopes according to your preference. The steps below are given as an example.
-
-        1. Sign in to the API-M Management Console.
-             `https://localhost:9443/carbon`
-
-        2. Navigate to **Main > Resources > Browse**.
-
-        3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-
-        4. Update the `RESTAPIScopes` JSON field by adding `okta_role` to the `Roles` field under the corresponding `Name` fields as shown below for the analytics related scopes.
-            ```bash
-            {
-                "Name": "apim_analytics:api_analytics:view",
-                "Roles": "admin,Internal/creator,Internal/publisher,okta_role"
-            },
-            {
-                "Name": "apim_analytics:application_analytics:view",
-                "Roles": "admin,Internal/subscriber,okta_role"
-            },
-            ```
-        5. Click **Save Content**.
+        These permissions will allow a user having the `okta_role` to log in to Publisher and Developer Portals.
 
 4. Add an Identity Provider.
 
-     1. Sign in to the WSO2 API-M Management Console.
-     
-         `https://localhost:9443/carbon`. 
-     
-     2. Click **Main** and then click **Add** under  **Identity Providers**. 
-     
-     3. Enter the Identity Provider's Name.  
-
-         [![Add an IDP for Okta SAML]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
-
-     4. Expand **Federated authenticators** -> **OAuth2/OpenID Connect Configuration** and add the following details.
+    1. Sign in to the WSO2 API-M Management Console.
+        `https://localhost:9443/carbon`
         
-        [![API-M IDP OIDC details]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)
+    2. Click **Main** and then click **Add** under **Identity Providers**. 
+    
+    3. Enter the Identity Provider's Name. 
 
-        <table>
+        [![]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
+        <br/>
+        <br/>
+    
+    4. Expand **Federated authenticators** -> **SAML2 Web SSO Configuration** section. Under **Select Mode**, select **Metadata File Configuration**. Update the XML file obtained during the Okta setup process Step 1 - 6(a).
+        [![]({{base_path}}/assets/img/learn/okta-saml-apim-idp.png)]({{base_path}}/assets/img/learn/okta-saml-apim-idp.png) 
+
+    <table>
         <colgroup>
             <col />
             <col />
@@ -182,97 +146,52 @@ Before you begin, make sure you do the following.
         </colgroup>
         <tbody>
             <tr>
-                <th colspan="2"><b>Field</b></th>
-                <th><b>Sample value</b></th>
+                <th colspan="2">Field</th>
+                <th>Sample value</th>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Enable OAuth2/OpenIDConnect</td>
+                <td colspan="2" class="confluenceTd">Specifies if <b>SAML2 Web SSO</b> is enabled for this Identity Provider</td>
                 <td class="confluenceTd">True</td>
             </tr>
             <tr>
-                <td colspan="2" class="confluenceTd">Client id</td>
-                <td class="confluenceTd">You can find this value from the Okta application that you created.</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Client secret</td>
-                <td class="confluenceTd">You can find this value from the Okta application that you created.</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Authorization Endpoint URL</td>
-                <td class="confluenceTd">https://your_okta_url/oauth2/default/v1/authorize</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Token Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">https://your_okta_url/oauth2/default/v1/token</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">callback url</td>
-                <td class="confluenceTd">
-                    https://localhost:9443/commonauth
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Userinfo Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">
-                    https://your_okta_url/oauth2/default/v1/userinfo
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Logout Endpoint URL</td>
-                <td colspan="1" class="confluenceTd">
-                    https://your_okta_url/oauth2/default/v1/logout
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="confluenceTd">Additional Query Parameters</td>
-                <td colspan="1" class="confluenceTd">
-                    scope=openid%20profile
-                </td>
+                <td colspan="2" class="confluenceTd">Service Provider Entity ID</td>
+                <td class="confluenceTd">Entity ID specified when creating SAML app (e.g., <code>oktasaml</code>)</td>
             </tr>
         </tbody>
-        </table>
+    </table>
 
-     5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below.
-         
-         [![Okta API-M IDP claims details]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png) 
+5. Expand **Claim Configuration** -> **Basic Claim Configuration**. Add the claim configurations as shown in the image below. The `role` drop-down menu contains the roles you configured in Okta (Step 1). Select the `Identity Provider Claim URIs` according to the configurations in the Okta Developer Console in **Step 1**.
 
-     6. Expand **Role configuration** and add `okta_role` as shown below. 
+    [![]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png)]({{base_path}}/assets/img/learn/okta-saml-apim-idp-claim.png) 
+
+6. Expand **Role configuration** and add `okta_role` as shown below. 
      
-         You can check if the user logged in has the role `any` and assign the local `okta_role`.
+    You can check if the user logged in has the role `any` and assign the local `okta_role`.
 
-        <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"/></a>
+    <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-role-mapping.png" width=90%/></a>
 
-     7. Enable **Just-in-Time Provisioning** for the user to be saved in the API Manager user store.
+7. Enable **Just-in-Time Provisioning** for the user to be saved in the API Manager user store.
 
-         <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png" width="600"/></a>
+    <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png" width=70%/></a>
 
-    !!! info
-        When Just-In-Time Provisioning is enabled, the user details will be saved in the API Manager user store. User profile details will be updated via the federation following each login event. To preserve the user profile details without any changes you need to enable `SystemRolesRetainedProvisionHandler`.
-        
-        Add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
+8. Select a Service Provider.
 
-        ```
-        [authentication.framework.extensions]
-        provisioning_handler = "org.wso2.carbon.identity.application.authentication.framework.handler.provisioning.impl.SystemRolesRetainedProvisionHandler"
-        ```
+    1. Navigate to **Service Providers** -> **List**.
 
-8. Update the Service Providers.
+        <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-select.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-select.png" width=20%/></a>
+    
+    2. There are two service providers created `apim_publisher` and `apim_devportal`. Click **Edit** for `apim_publisher`.
 
-    1. Click **Service Providers** -> **List** in the WSO2 API-M Management Console.
-        
-        There are two service providers available by default; `apim_publisher` and `apim_devportal`. 
-        
-    2. Click **Edit** to edit `apim_publisher`.
-
-        !!! warning
+        !!!warning
             You need to have signed in to the Developer Portal and Publisher at least once for the two service providers to appear, as it is created during the first sign in.
 
-        [![Okta API-M role OIDC SP]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png)]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png)
+        <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png" width=90%/></a>
 
-    3. Expand **Local & Outbound Authentication Configuration** under **Federated Authentication** and select the identity provider you created.
+    3. Expand **Local & Outbound Authentication Configuration**. Select **Federated Authentication** and select the name of the Identity Provider you created from the corresponding drop-down menu.
 
-         [![Okta API-M role OIDC SP outbound]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png)]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png)
+        <a href="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png"><img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png" width=90%/></a>
     
-    4. Repeat the latter mentioned two steps for `apim_devportal`.
+    Repeat this step for `apim_devportal` as a Service Provider.
 
 Now you will be able to Sign in to the Publisher and Developer Portal using Okta.
+

@@ -4,7 +4,7 @@ WSO2 Streaming Integrator can be run as a Linux service.
 
 ## Before you begin
 
-Install JDK version 1.8.0_144 and set the `JAVA_HOME` variable.
+Install JDK version 11 and set the `JAVA_HOME` variable.
 
 ## Download and install the Streaming Integrator
 

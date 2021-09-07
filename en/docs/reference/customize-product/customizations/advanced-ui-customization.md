@@ -58,6 +58,13 @@ Follow the instructions below to add advanced UI customizations to the Developer
 
 #### Overriding the API Documentation and Overview components
 
+Any file inside `<APP-ROOT>/override/src` folder can override the original file at `<APP-ROOT>/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+
+* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
+
+An example for the `<APP-ROOT>/override/src` folder is shown below.
+
 ```sh
 override
 └── src
@@ -73,6 +80,16 @@ override
 
 #### Adding new files to the override folder
 
+You can add your own files to customize the UI in the `admin/override/src` folder.
+
+For example, you can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
+
+```sh
+import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
+```
+
+After importing the **NewFile.jsx** the folder structure will be as follows:
+
 ```sh
 override
 └── src
@@ -86,12 +103,6 @@ override
                     └── Overview.jsx
                     └── NewFile.jsx
                     
-```
-
-You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
-
-```sh
-import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
 A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
@@ -120,6 +131,7 @@ import NewFile from './NewFile.jsx';
     ```js
     npm run build:dev
     ```
+
     !!! note "Production deployment"
         The development build is not optimized and contains a large bundle size. Make sure to use the production build when the customizations are ready for production. Use the following command to get the production-ready build.
         ```
@@ -131,9 +143,17 @@ import NewFile from './NewFile.jsx';
          - `admin/source`
      - If you want to override a specific React component or a file from the `source/src/` directory, you need to make the changes in the following directory by only copying the desired file/files.
          - `admin/override/src`
+
 #### Overriding the API Documentation and Overview components
 
-```sh
+Any file inside `<APP-ROOT>/override/src` folder can override the original file at `<APP-ROOT>/source/src` folder. The name of the file and location relative to the source folder has to be identical. This concept applies to publisher and admin web-apps as well. For example, [1] is taking precedence over [2] when the npm build is running. 
+
+* [1] - devportal/**override**/src/app/components/Apis/Details/Documents/Overview.jsx
+* [2] - devportal/**source**/src/app/components/Apis/Details/Documents/Overview.jsx
+
+An example for the `<APP-ROOT>/override/src` folder is shown below.
+
+```
 override
 └── src
     ├── Readme.txt
@@ -147,8 +167,17 @@ override
 ```
 
 #### Adding new files to the override folder
+You can add your own files to customize the UI in the `admin/override/src` folder.
 
-```sh
+For example, you can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
+
+```
+import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
+```
+
+After importing the **NewFile.jsx** the folder structure will be as follows:
+
+```
 override
 └── src
     ├── Readme.txt
@@ -163,15 +192,9 @@ override
                     
 ```
 
-You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override directory.
+A bundler error occurs if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
 
-```sh
-import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
-
-A bundler error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
-
-```sh
 import NewFile from './NewFile.jsx';
 ```
 

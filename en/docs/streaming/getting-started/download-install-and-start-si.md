@@ -3,7 +3,7 @@
 First, you are required to download the Streaming Integrator and the other software needed for the scenario you are trying out. To do this, follow the topics below.
 
 !!! tip "Before you begin:"
-    - Install [Oracle Java SE Development Kit (JDK) version 1.8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).<br/>
+    - Install [Oracle Java SE Development Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/index.html).<br/>
     - [Set the Java home](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) environment variable.<br/>
     
 ## Downloading the Streaming Integrator runtime and tooling
