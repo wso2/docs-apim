@@ -150,15 +150,3 @@ You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it
 !!! note
     The mediation extension is applied to all resources of the API.
 
-## Sample Message Mediation Policies
-
-Following are some sample mediation policies which you can upload as per API or global policies based on your requirement.
-
--   [Adding Dynamic Endpoints]({{base_path}}/learn/api-gateway/message-mediation/adding-dynamic-endpoints)
--   [Removing Specific Request Headers From Response]({{base_path}}/learn/api-gateway/message-mediation/removing-specific-request-headers-from-response)
--   [Passing a Custom Authorization Token to the Backend]({{base_path}}/learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend)
--   [URL Mapping]({{base_path}}/learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls)
--   [Disabling Message Chunking]({{base_path}}/learn/api-gateway/message-mediation/disabling-message-chunking)
--   [Transforming API Message Payload]({{base_path}}/learn/api-gateway/message-mediation/transforming-api-message-payload)
--   [Adding a Non-Blocking Send Operation]({{base_path}}/learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation)
--   [Adding a Class Mediator]({{base_path}}/learn/api-gateway/message-mediation/adding-a-class-mediator)
