@@ -149,7 +149,7 @@ You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it
     If you are having a distributed setup, do the changes in **Gateway** node.
 
 !!! note
-    The mediation extension is applied to all resources of the API. Therefore, all resources will contain a similar logic to construct the endpoint.
+    The mediation extension is applied to all resources of the API.
 
 ## Sample Message Mediation Policies
 
