@@ -9,8 +9,8 @@ flows as in, out and fault. You can extend these default mediation flows to do 
     - `Call` mediator in non-blocking mode
     - `Send` mediator
 
-!!! warning    
-    When using the `Loopback` mediator, it is mandatory to set the following property before defining the `Loopback` 
+!!! warning
+    When using the `Loopback` mediator, it is mandatory to set the following property before defining the `Loopback`
     mediator in the custom mediator sequence in the following manner.
 
     ``` bash
@@ -34,9 +34,10 @@ Following is a manually created sample custom mediation policy. This custom sequ
       </log>
     </sequence>
     ```
+
 Follow the below steps to upload the above sequence as a custom mediation policy in the **Request** message flow.
 
-1.  You can copy the above mediation sequence into a **XML** file.
+1. You can copy the above mediation sequence into an **XML** file.
 2.  Log in to the **API Publisher Portal**.
 3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
@@ -85,8 +86,8 @@ If you want to edit an already attached mediation policy,
 
 If you want to dis-engage any mediation policy that is already engaged,
 
-1.  Go to the Edit option in the **Message Mediation** section.    
-You can do this for Request, Response and/or Fault message flows.    
+1.  Go to the **Edit** option in the **Message Mediation** section.
+You can do this for Request, Response and/or Fault message flows.
 
 2.  Select **None** as the mediation policy and save the API.
 
@@ -146,6 +147,9 @@ You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it
 
 !!! tip
     If you are having a distributed setup, do the changes in **Gateway** node.
+
+!!! note
+    The mediation extension is applied to all resources of the API.
 
 ## Sample Message Mediation Policies
 
