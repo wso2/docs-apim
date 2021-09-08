@@ -6,7 +6,7 @@ title: View the Overview of API Analytics - API Manager Documentation 4.0.0
 
 [![overview page full]({{base_path}}/assets/img/analytics/overview/overview-page-full.png)]({{base_path}}/assets/img/analytics/overview/overview-page-full.png)
 
-This is the welcome page of Choreo Insights [https://console.choreo.dev/insights](https://console.choreo.dev/insights). This page gives you a quick overview of the whole
+This is the welcome page of [Choreo Insights](https://console.choreo.dev/insights). This page gives you a quick overview of the whole
  management system. Targeted audience for the page are managers and business users who need quick insight. Also, this
   page can be used as a dashboard to view the current system status.
  

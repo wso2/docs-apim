@@ -35,6 +35,6 @@ Follow the instructions below to publish analytics data to the analytics cloud v
       </ul>
       </div>
 
-2. Enter the on-premise token, which you obtained via the Analytics Portal in the **Register your environment** step, as the Auth token field.
+2. Enter the on-premise token, which you obtained via the Choreo Portal in the **Register your environment** step, as the Auth token field.
    
 3. Restart the API Gateway.
