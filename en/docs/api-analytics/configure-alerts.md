@@ -4,7 +4,7 @@ title: Configuring Alerts for API Analytics - API Manager Documentation 4.0.0
 
 # Configuring Alerts for API Analytics
 
-The Analytics Portal allows you to configure alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find. 
+Choreo Insights allows you to configure alerts. These alerts allow you to proactively monitor your API ecosystem and take corrective measures for any abnormalities you find. 
 
 You can configure alerts for each environment within your organization separately. Alerts are configured per API and you can also modify/remove already-added alert configurations. Optionally, you can specify a list of emails for each alert configuration. 
 
@@ -21,7 +21,7 @@ The following topics explain how to use the different alert types.
     
 ## Alert Types
 
-The following are the alert types that you can configure via the Analytics Portal.
+The following are the alert types that you can configure via Choreo Insights.
 
 
 ### Latency Alerts 

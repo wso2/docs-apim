@@ -4,7 +4,7 @@ title: Introduction to the API Analytics Dashboard - API Manager Documentation 4
 
 # Introduction to the API Analytics Dashboard
 
-The new cloud analytics portal [https://analytics.choreo.dev/](https://analytics.choreo.dev/) consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
+[Choreo Insights](https://console.choreo.dev/insights) consists of several pages, which are divided based on different functional aspects (e.g., traffic, latency).
 You can use these pages to get the complete business analytics on your API management system. 
 
 See the topics given below to get an overview of the main capabilities of **Analytics Pages**.
@@ -65,7 +65,7 @@ Tenant Picker will be enabled if your selected environment uses multi-tenancy. I
 ## Pages
 
 ### Overview Page
-This is the welcome page of the analytics portal. This page will mainly display a quick overview of the whole
+This is the welcome page of Choreo Insights. This page will mainly display a quick overview of the whole
  deployment. This page is targeted towards providing business users with a quick overview. For more information, see [Viewing the API Analytics Overview]({{base_path}}/api-analytics/viewing/analytics-pages-overview).
   
 ### Traffic Page
