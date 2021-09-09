@@ -169,6 +169,10 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
     </tr>
 </table>
 
+!!! Note
+    Refer [ACL rules](https://www.vaultproject.io/docs/secrets/kv/kv-v2#acl-rules) and [configuration](https://www.vaultproject.io/docs/auth/approle#configuration) sections to enable AppRole auth method in HashiCorp secure vault.
+
+
 ## Accessing HashiCorp secrets in synapse configurations
 
 Once your Micro Integrator is connected to HashiCorp, you can point to the secrets stored in the HashiCorp vault from your synapse configurations.
