@@ -33,22 +33,37 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
 !!! Tip
     Be sure to apply the security tokens relevant to the [authentication method](#before-you-begin) you are using. 
 
-```toml
-[[external_vault]]
-name = "hashicorp"
-address = "http://127.0.0.1:8200"
-# If Static Token authentication is used, apply the rootToken:
-rootToken = "ROOT_TOKEN"
-# If AppRole Pull authentication is used, apply the roleId and secretId:
-roleId = "ROLE_ID"
-secretId = "SECRET_ID"
-cachableDuration = 15000
-engineVersion = 2
-namespace = "NAMESPACE"
-trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
-keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
-keyStorePassword = "KEY_STORE_PASSWORD"
-```
+
+    ```toml tab='Static Token'
+    [[external_vault]]
+    name = "hashicorp" # required
+    address = "http://127.0.0.1:8200" # required
+    rootToken = "ROOT_TOKEN" # required
+    cacheableDuration = "15000"
+    engineVersion = "2"
+    # If namespace is used, apply the namespace value:
+    namespace = "NAMESPACE"
+    # If HashiCorp vault server is hosted in HTTPS protocol, apply below fields
+    trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
+    keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
+    keyStorePassword = "KEY_STORE_PASSWORD"
+    ```
+
+    ```toml tab='AppRole'
+    [[external_vault]]
+    name = "hashicorp" # required
+    address = "http://127.0.0.1:8200" # required
+    roleId = "ROLE_ID" # required
+    secretId = "SECRET_ID" # required
+    cacheableDuration = "15000"
+    engineVersion = "2"
+    # If namespace is used, apply the namespace value:
+    namespace = "NAMESPACE"
+    # If HashiCorp vault server is hosted in HTTPS protocol, apply below fields
+    trustStoreFile = "${carbon.home}/repository/resources/security/client-truststore.jks"
+    keyStoreFile = "${carbon.home}/repository/resources/security/wso2carbon.jks"
+    keyStorePassword = "KEY_STORE_PASSWORD"
+    ```
 
 <table>
     <tr>
@@ -102,7 +117,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"
     </tr>
     <tr>
         <td>
-            cachableDuration
+            cacheableDuration
         </td>
         <td>
             All resources fetched from the HashiCorp vault are cached for this number of milliseconds.</br>
