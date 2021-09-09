@@ -91,12 +91,14 @@ The following validation response from the Gateway is displayed.
 
 2. Click on the API for which you need to enable JSON validation.
 
-3. Click **Runtime Configurations**.
+3. Click **API Configurations**.
 
-4. Enable **Schema Validation**.
+4. Click **Runtime**.
+
+5. Enable **Schema Validation**.
 
      By default, the schema validation property is set to `false`.
 
      ![Enable API schema validation]({{base_path}}/assets/img/learn/api-runtime-config.png)
 
-5. Click **SAVE**.
+6. Click **SAVE**.
