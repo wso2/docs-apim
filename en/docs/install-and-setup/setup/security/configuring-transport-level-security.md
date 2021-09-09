@@ -44,6 +44,31 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 !!! tip
     -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index), if your java installation does not have it installed.
 
+#### Configuring Passthrough transport-level ciphers and TLS versions
+
+1.  To enable preferred ciphers, add the configuration given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "<CIPHER_LIST>"
+    ```
+
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    ```
+
+2. To enable HTTP protocols (TLS versions), add the configurations given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "<TLS_VERSION_LIST>"
+    ```
+
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2,TLSv1.3"
+    ```
 
 ### Changing the server name in HTTP response headers
 
