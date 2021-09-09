@@ -112,7 +112,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
         -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
         -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
+3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as mentioned below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
 
     ```toml
     [mi_user_store]
