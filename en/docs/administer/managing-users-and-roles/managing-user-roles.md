@@ -57,7 +57,7 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
 ## Adding Role Mappings
 
-You can use role mapping to map the above created roles to existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
+You can use role mapping to map the above created roles to the existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
