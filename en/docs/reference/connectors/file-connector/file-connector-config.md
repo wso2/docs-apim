@@ -47,6 +47,7 @@ There are different connection configurations that can be used for the above pro
 <table>
     <tr>
         <th>Parameter Name</th>
+        <th>Element</th>
         <th>Type</th>
         <th>Description</th>
         <th>Default Value</th>
@@ -55,6 +56,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Connection Name
+        </td>
+        <td>
+            name
         </td>
         <td>
             String
@@ -72,6 +76,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Connection Type
+        </td>
+        <td>
+            connectionType
         </td>
         <td>
             String
@@ -106,6 +113,9 @@ There are different connection configurations that can be used for the above pro
             Working Directory
         </td>
         <td>
+            workingDir
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -121,6 +131,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             File Locking Behaviour
+        </td>
+        <td>
+            fileLockScheme
         </td>
         <td>
             String
@@ -153,6 +166,7 @@ There are different connection configurations that can be used for the above pro
 <table>
     <tr>
         <th>Parameter Name</th>
+        <th>Element</th>
         <th>Type</th>
         <th>Description</th>
         <th>Default Value</th>
@@ -161,6 +175,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Host
+        </td>
+        <td>
+            host
         </td>
         <td>
             String
@@ -180,6 +197,9 @@ There are different connection configurations that can be used for the above pro
             Port
         </td>
         <td>
+            port
+        </td>
+        <td>
             Number
         </td>
         <td>
@@ -195,6 +215,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Username
+        </td>
+        <td>
+            username
         </td>
         <td>
             String
@@ -214,6 +237,9 @@ There are different connection configurations that can be used for the above pro
             Password
         </td>
         <td>
+            password
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -229,6 +255,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             User Directory Is Root
+        </td>
+        <td>
+            userDirIsRoot
         </td>
         <td>
             Boolean
@@ -250,6 +279,7 @@ There are different connection configurations that can be used for the above pro
 <table>
     <tr>
         <th>Parameter Name</th>
+        <th>Element</th>
         <th>Type</th>
         <th>Description</th>
         <th>Default Value</th>
@@ -258,6 +288,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Is Passive
+        </td>
+        <td>
+            isPassive
         </td>
         <td>
             Boolean
@@ -286,6 +319,9 @@ There are different connection configurations that can be used for the above pro
             FTP Connection Timeout
         </td>
         <td>
+            ftpConnectionTimeout
+        </td>
+        <td>
             Number
         </td>
         <td>
@@ -301,6 +337,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             FTP Socket Timeout
+        </td>
+        <td>
+            ftpSocketTimeout
         </td>
         <td>
             Number
@@ -322,6 +361,7 @@ There are different connection configurations that can be used for the above pro
 <table>
     <tr>
         <th>Parameter Name</th>
+        <th>Element</th>
         <th>Type</th>
         <th>Description</th>
         <th>Default Value</th>
@@ -330,6 +370,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             KeyStore Path
+        </td>
+        <td>
+            keyStorePath
         </td>
         <td>
             String
@@ -349,6 +392,9 @@ There are different connection configurations that can be used for the above pro
             KeyStore Password
         </td>
         <td>
+            keyStorePassword
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -364,6 +410,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             TrustStore Path
+        </td>
+        <td>
+            trustStorePath
         </td>
         <td>
             String
@@ -383,6 +432,9 @@ There are different connection configurations that can be used for the above pro
             TrustStore Password
         </td>
         <td>
+            trustStorePassword
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -398,6 +450,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Implicit Mode Enabled
+        </td>
+        <td>
+            implicitModeEnabled
         </td>
         <td>
             Boolean
@@ -425,6 +480,9 @@ There are different connection configurations that can be used for the above pro
             Channel Protection Level
         </td>
         <td>
+            channelProtectionLevel
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -439,6 +497,7 @@ There are different connection configurations that can be used for the above pro
 <table>
     <tr>
         <th>Parameter Name</th>
+        <th>Element</th>
         <th>Type</th>
         <th>Description</th>
         <th>Default Value</th>
@@ -447,6 +506,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             SFTP Connection Timeout
+        </td>
+        <td>
+            sftpConnectionTimeout
         </td>
         <td>
             Number
@@ -466,6 +528,9 @@ There are different connection configurations that can be used for the above pro
             SFTP Session Timeout
         </td>
         <td>
+            sftpSessionTimeout
+        </td>
+        <td>
             Number
         </td>
         <td>
@@ -481,6 +546,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Strict Host Key Check
+        </td>
+        <td>
+            strictHostKeyChecking
         </td>
         <td>
             Boolean
@@ -500,6 +568,9 @@ There are different connection configurations that can be used for the above pro
             Private Key File
         </td>
         <td>
+            privateKeyFilePath
+        </td>
+        <td>
             String
         </td>
         <td>
@@ -516,6 +587,9 @@ There are different connection configurations that can be used for the above pro
     <tr>
         <td>
             Private Key Passphrase
+        </td>
+        <td>
+            privateKeyPassword
         </td>
         <td>
             String
@@ -541,6 +615,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -549,6 +624,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -566,6 +644,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Directory Path
+            </td>
+            <td>
+                directoryPath
             </td>
             <td>
                 String
@@ -595,6 +676,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -603,6 +685,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -620,6 +705,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File/Folder Path
+            </td>
+            <td>
+                path
             </td>
             <td>
                 String
@@ -650,6 +738,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -658,6 +747,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -677,6 +769,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Folder/File To Compress
             </td>
             <td>
+                sourceDirectoryPath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -694,6 +789,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Targer File Path
             </td>
             <td>
+                targetFilePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -709,6 +807,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Include Sub Directories
+            </td>
+            <td>
+                includeSubDirectories
             </td>
             <td>
                 Boolean
@@ -750,6 +851,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -758,6 +860,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -777,6 +882,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Source Path
             </td>
             <td>
+                sourcePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -792,6 +900,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Targer Path
+            </td>
+            <td>
+                targetPath
             </td>
             <td>
                 String
@@ -812,6 +923,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Source File Pattern
             </td>
             <td>
+                sourceFilePattern
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -827,6 +941,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Copy Including Source Parent
+            </td>
+            <td>
+                includeParent
             </td>
             <td>
                 Boolean
@@ -846,6 +963,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Overwrite Existing Files
             </td>
             <td>
+                overwrite
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -861,6 +981,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Rename To
+            </td>
+            <td>
+                renameTo
             </td>
             <td>
                 String
@@ -903,6 +1026,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -911,6 +1035,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -930,6 +1057,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Source Path
             </td>
             <td>
+                sourcePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -945,6 +1075,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Targer Path
+            </td>
+            <td>
+                targetPath
             </td>
             <td>
                 String
@@ -964,6 +1097,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Create Parent Directories
             </td>
             <td>
+                createParentDirectories
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -979,6 +1115,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Include Parent
+            </td>
+            <td>
+                includeParent
             </td>
             <td>
                 Boolean
@@ -998,6 +1137,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Overwrite Existing Files
             </td>
             <td>
+                overwrite
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -1015,6 +1157,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Rename To
             </td>
             <td>
+                renameTo
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1030,6 +1175,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Pattern
+            </td>
+            <td>
+                filePattern
             </td>
             <td>
                 String
@@ -1210,6 +1358,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1218,6 +1367,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1237,6 +1389,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                File Path
             </td>
             <td>
+                path
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1254,6 +1409,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Pattern
             </td>
             <td>
+                filePattern
+            </td>
+            <td>
                 String Regex
             </td>
             <td>
@@ -1269,6 +1427,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Add Result To
+            </td>
+            <td>
+                includeResultTo
             </td>
             <td>
                 String
@@ -1296,6 +1457,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Property Name
             </td>
             <td>
+                resultPropertyName
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1311,6 +1475,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Read Mode
+            </td>
+            <td>
+                readMode
             </td>
             <td>
                 String
@@ -1330,6 +1497,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Start Line Num
             </td>
             <td>
+                startLineNum
+            </td>
+            <td>
                 Number
             </td>
             <td>
@@ -1345,6 +1515,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 End Line Num
+            </td>
+            <td>
+                endLineNum
             </td>
             <td>
                 Number
@@ -1364,6 +1537,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Specific Line number
             </td>
             <td>
+                lineNum
+            </td> 
+            <td>
                 Number
             </td>
             <td>
@@ -1379,6 +1555,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 MIMEType
+            </td>
+            <td>
+                contentType
             </td>
             <td>
                 String
@@ -1398,6 +1577,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Encoding
             </td>
             <td>
+                encoding
+            </td> 
+            <td>
                 String
             </td>
             <td>
@@ -1415,6 +1597,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Enable Streaming
             </td>
             <td>
+                enableStreaming
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -1430,6 +1615,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Enable Locking
+            </td>
+            <td>
+                enableLock
             </td>
             <td>
                 Boolean
@@ -1483,6 +1671,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1491,6 +1680,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1510,6 +1702,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Path
             </td>
             <td>
+               path
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1527,6 +1722,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Rename To
             </td>
             <td>
+               renameTo
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1542,6 +1740,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Overwrite Existing Files
+            </td>
+            <td>
+               overwrite
             </td>
             <td>
                 Boolean
@@ -1582,6 +1783,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1590,6 +1792,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1609,6 +1814,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                File/Directory Path
             </td>
             <td>
+               path
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1624,6 +1832,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Pattern to Match Files
+            </td>
+            <td>
+               matchingPattern
             </td>
             <td>
                 String
@@ -1665,6 +1876,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1673,6 +1885,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1692,6 +1907,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Zip File Path
             </td>
             <td>
+                sourceFilePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1707,6 +1925,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Target Directory
+            </td>
+            <td>
+                targetDirectory
             </td>
             <td>
                 String
@@ -1772,6 +1993,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1780,6 +2002,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1799,6 +2024,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Path to the file to split
             </td>
             <td>
+                sourceFilePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1816,6 +2044,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Target Directory
             </td>
             <td>
+                targetDirectory
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1831,6 +2062,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Split Mode
+            </td>
+            <td>
+                splitMode
             </td>
             <td>
                 String
@@ -1855,6 +2089,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Chunk Size
             </td>
             <td>
+                chunkSize
+            </td>
+            <td>
                 Number
             </td>
             <td>
@@ -1872,6 +2109,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Line Count
             </td>
             <td>
+                lineCount
+            </td>
+            <td>
                 Number
             </td>
             <td>
@@ -1887,6 +2127,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 XPATH Expression
+            </td>
+            <td>
+                xpathExpression
             </td>
             <td>
                 Number
@@ -1928,6 +2171,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -1936,6 +2180,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -1955,6 +2202,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Directory Path
             </td>
             <td>
+                directoryPath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -1970,6 +2220,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Matching Pattern
+            </td>
+            <td>
+                matchingPattern
             </td>
             <td>
                 String
@@ -1989,6 +2242,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 List Files in Sub Directories
             </td>
             <td>
+                recursive
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -2004,6 +2260,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Sort Attribute
+            </td>
+            <td>
+                sortingAttribute
             </td>
             <td>
                String
@@ -2023,6 +2282,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Sort Order
             </td>
             <td>
+                sortingOrder
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2040,6 +2302,9 @@ The following operations allow you to work with the File Connector version 4. Cl
             <td>
                 Response Format
             </td>
+            <td>
+                responseFormat
+            </td> 
             <td>
                 String
             </td>
@@ -2081,6 +2346,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -2089,6 +2355,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -2106,6 +2375,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                Zip File Path
+            </td>
+            <td>
+                zipFilePath
             </td>
             <td>
                 String
@@ -2156,6 +2428,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -2164,6 +2437,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -2183,6 +2459,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Source Directory Path
             </td>
             <td>
+                sourceDirectoryPath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2198,6 +2477,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                Target File Path
+            </td>
+            <td>
+                targetFilePath
             </td>
             <td>
                 String
@@ -2217,6 +2499,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                File Pattern
             </td>
             <td>
+                filePattern
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2233,6 +2518,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                Write Mode
+            </td>
+            <td>
+                writeMode
             </td>
             <td>
                 String
@@ -2278,6 +2566,7 @@ The following operations allow you to work with the File Connector version 4. Cl
     <table>
         <tr>
             <th>Parameter Name</th>
+            <th>Element</th>
             <th>Type</th>
             <th>Description</th>
             <th>Default Value</th>
@@ -2286,6 +2575,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 File Connection
+            </td>
+            <td>
+                fileConnection
             </td>
             <td>
                 String
@@ -2305,6 +2597,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                File Path
             </td>
             <td>
+               filePath
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2322,6 +2617,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Content/Expression
             </td>
             <td>
+               contentOrExpression
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2337,6 +2635,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                MIME Type
+            </td>
+            <td>
+               mimeType
             </td>
             <td>
                 String
@@ -2357,6 +2658,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Write Mode
             </td>
             <td>
+               writeMode
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2375,6 +2679,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Append New Line
             </td>
             <td>
+               appendNewLine
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -2390,6 +2697,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                Encoding
+            </td>
+            <td>
+               encoding
             </td>
             <td>
                 String
@@ -2410,6 +2720,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Compress
             </td>
             <td>
+               compress
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -2425,6 +2738,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                Enable Streaming
+            </td>
+            <td>
+               enableStreaming
             </td>
             <td>
                 Boolean
@@ -2444,6 +2760,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                Enable Locking
             </td>
             <td>
+               enableLock
+            </td>
+            <td>
                 Boolean
             </td>
             <td>
@@ -2460,6 +2779,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Add Result To
+            </td>
+            <td>
+                includeResultTo
             </td>
             <td>
                 String
@@ -2487,6 +2809,9 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Property Name
             </td>
             <td>
+                resultPropertyName
+            </td>
+            <td>
                 String
             </td>
             <td>
@@ -2503,6 +2828,9 @@ The following operations allow you to work with the File Connector version 4. Cl
         <tr>
             <td>
                 Update Last Modified Timestamp.
+            </td>
+            <td>
+                updateLastModified
             </td>
             <td>
                 Boolean
