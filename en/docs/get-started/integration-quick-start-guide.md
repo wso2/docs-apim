@@ -175,9 +175,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
         ```  
       
         !!! Tip
-            The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. 
-        
-            It carries out the following steps.
+            The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. It carries out the following steps.
 
             - Start the back-end services.
 
