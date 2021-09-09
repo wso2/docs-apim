@@ -67,7 +67,7 @@ Let’s implement a simple integration solution that can be used to query the av
 
 To set up the integration workspace for this quick start guide, we will use an integration project that was built using WSO2 Integration Studio:
 
-1. Extract the downloaded WSO2 Micro Integrator and sample files into a same directory location.
+1. Extract the downloaded WSO2 Micro Integrator and sample files into the same directory location.
 
 2. Navigate to the `<mi-qsg-home>` directory. 
 The following project files and executable back-end services are available in the `<mi-qsg-home>`.
@@ -175,9 +175,9 @@ Follow the steps given below to run the integration artifacts we developed on a 
         ```  
       
         !!! Tip
-            Script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. 
+            The script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. 
         
-            The script carries out below steps.
+            It carries out the following steps.
 
             - Start the back-end services.
 
@@ -214,7 +214,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     
  You can now test the **HealthcareIntegrationService** that you just generated.
  
-### Step 3 - Testing the integration servie
+### Step 3 - Testing the integration service
 
 1. Invoke the healthcare service.
 
