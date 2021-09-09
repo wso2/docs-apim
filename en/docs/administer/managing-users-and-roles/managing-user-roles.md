@@ -11,7 +11,7 @@ The following roles that are typically used in many enterprises are used through
 
 Follow the instructions below to create the `creator`, `publisher`, and `subscriber` roles in the API Manager for sample purposes.
 
-## Create user roles
+## Creating user roles
 
 1.  Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as the admin (default credentials are admin/admin).
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
@@ -26,67 +26,10 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
     ![Enter role details]({{base_path}}/assets/img/administer/enter-role-details.png)
     
-    In the Domain list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on how user stores (which are repositories storing information about users and roles) are set up and configured, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores). Enter a unique name for this role (`creator`) and click **Next**.
+    In the Domain list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on how user stores (which are repositories storing information about users and roles) are set up and configured, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores). Enter a unique name for this role (`creator`) and click **Finish**.
 
     !!! tip
             The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
-
-5.  The permissions page opens. 
-
-    ![Select role permissions]({{base_path}}/assets/img/administer/permissions.png)
-
-    Select the permissions according to the role that you create. The table below lists the permissions of the `creator`, `publisher`, and `subscriber` roles which are available by default. 
-    
-    As you have created the `creator` role here, assign the permissions listed under the creator role as given in the table below.
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th><b>Roles</b></th>
-    <th><b>Permissions</b></th>
-    <th><b>UI</b></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>creator</td>
-    <td><ul>
-    <li>Configure &gt; Governance and all underlying permissions.</li>
-    <li>Login</li>
-    <li>Manage &gt; API &gt; Create</li>
-    <li>Manage &gt; Resources &gt; Govern and all underlying permissions</li>
-    </ul></td>
-    <td><div class="content-wrapper">
-    <img src="{{base_path}}/assets/img/administer/creator-role-permissions.png" />
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td>publisher</td>
-    <td><ul>
-    <li>Login</li>
-    <li>Manage &gt; API &gt; Publish</li>
-    </ul></td>
-    <td><div class="content-wrapper">
-    <img src="{{base_path}}/assets/img/administer/publisher-role-permissions.png" />
-    </div></td>
-    </tr>
-    <tr class="odd">
-    <td><p>subscriber<br />
-    </p></td>
-    <td><ul>
-    <li>Login</li>
-    <li>Manage &gt; API &gt; Subscribe</li>
-    </ul>
-    <br />
-    </td>
-    <td><div class="content-wrapper">
-    <img src="{{base_path}}/assets/img/administer/subscriber-role-permissions.png" />
-    </div></td>
-    </tr>
-    </tbody>
-    </table>
-
-6.  Click **Finish** once you are done adding permissions.
 
     !!! warning
 
@@ -101,12 +44,12 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
     When a user creates an application and generates application keys, a role is created automatically in the following format.
 
     ``` java
-    "Application/<username>_<applicationName>_PRODUCTION"
+    "Application/<username>_<applicationUUID>_PRODUCTION"
     ```
 
     This is a special case of the `internal` role that is created for a particular service provider application. Only users who are assigned the application role permission can manage the corresponding service provider application.
 
-    These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
+    These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationUUID>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
 !!! warning
     As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Dev portal applications listing page.
@@ -114,7 +57,7 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 
 ## Adding Role Mappings
 
-In the above example, you mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There you had to update every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated. Instead of using the latter mentioned method, you can use role mapping to enable users to easily map new roles to existing scopes.
+You can use role mapping to map the above created roles to the existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
@@ -223,7 +166,7 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
 !!! info
         If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
 
-### Update before the first startup (recommended)
+### Updating before the first startup (recommended)
 
 The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Change the super admin credentials]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials).
 
@@ -237,7 +180,7 @@ password = "admin"
 create_admin_account = true
 ```
 
-### Update after the product is used for some time (advanced configuration)
+### Updating the role name after the product is used for some time (advanced configuration)
 
 !!! tip
     These steps are not necessary if you have already updated the role names before the first startup of the product. 
