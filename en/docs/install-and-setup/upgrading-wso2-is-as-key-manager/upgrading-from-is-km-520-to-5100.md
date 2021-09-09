@@ -93,7 +93,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
 ### Step B - Migrate IS from 5.2.0 to 5.10.0
 
-1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/#step-2-upgrade-api-manager-to-320) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.0.0 to 3.2.0. This will be used as the `identity_db` in IS 5.10.0.
+1. Follow Step 2 and 3 under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320/#step-2-upgrade-api-manager-to-320) to backup and upgrade the WSO2 API-M `WSO2AM_DB` from 2.0.0 to 3.2.0. This will be used as the `identity_db` in IS 5.10.0.
 
 2. Folllow the guidelines in [WSO2 IS 5.10.0 migration guide](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) to migrate your current IS as KM 5.2.0 distribution to IS 5.10.0.
 
@@ -195,11 +195,11 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
               
 ## Step 2 - Upgrade API Manager 2.0.0 to 3.2.0
 
-Follow the steps mentioned in [Upgrading API-M from 2.0.0 to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/) to upgrade your API-M environment from 2.0.0 to 3.2.0.
+Follow the steps mentioned in [Upgrading API-M from 2.0.0 to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320/) to upgrade your API-M environment from 2.0.0 to 3.2.0.
 
 !!! important
 
-    -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/#step-1-migrate-the-api-manager-configurations), make sure to add
+    -   When following guidelines under [Step 1 - Migrate the API Manager configurations]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320/#step-1-migrate-the-api-manager-configurations), make sure to add
     the following to the `<API-M_HOME>/repository/conf/deployment.toml`. This is to configure your IS 5.10.0 as the **Resident Key Manager** of your API-M 3.2.0 deployment.
         ```
         [apim.key_manager]
@@ -209,13 +209,13 @@ Follow the steps mentioned in [Upgrading API-M from 2.0.0 to 3.2.0]({{base_path}
 
         -  Do NOT copy anyother Key Manager specific configurations coming from previous API-M version to the latest pointing to the IS instance.
 
-    -   When following guidelines under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/#step-2-upgrade-api-manager-to-320), make sure you **SKIP** the following
+    -   When following guidelines under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320/#step-2-upgrade-api-manager-to-320), make sure you **SKIP** the following
     steps.
 
         -   **Step 3** to upgrade the `WSO2AM_DB` from 2.0.0 to 3.2.0. You have already done this in Step 1 of [Step A - Setup IS 5.10.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100/#step-a-setup-is-5100-as-a-key-manager).
         -   **Step 5** to upgrade identity component in API-M from 5.2.0 to 5.10.0. You have already done this in Step 2 of [Step A - Setup IS 5.10.0 as a Key Manager]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100/#step-a-setup-is-5100-as-a-key-manager).
 
-    - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 3.2.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320/#step-2-upgrade-api-manager-to-320), make sure you have already started WSO2 IS 5.10.0.
+    - After configuring WSO2 IS as the **Resident Key Manager** and before starting the API-M 3.2.0 server for the first time in **Step 6** under [Step 2 - Upgrade API Manager to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320/#step-2-upgrade-api-manager-to-320), make sure you have already started WSO2 IS 5.10.0.
 
 !!! info
 
