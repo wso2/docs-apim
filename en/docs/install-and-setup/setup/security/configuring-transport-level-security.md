@@ -2,31 +2,8 @@
 
 Given below are the various transport-level security configurations that are required for WSO2 products. See the following topics for instructions.
 
--   [Enabling SSL protocols and ciphers in ThriftAuthenticationService](#enabling-ssl-protocols-and-ciphers-in-thriftauthenticationservice)
 -   [Disabling weak ciphers](#disabling-weak-ciphers)
 -   [Changing the server name in HTTP response headers](#changing-the-server-name-in-http-response-headers)
-
-### Enabling SSL protocols and ciphers in ThriftAuthenticationService
-
-Do the following to enable SSL protocols and ciphers in the `ThriftAuthenticationService.        `
-
-1.  Add the following configurations in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
-
-    ``` java
-    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
-    <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
-    ```
-
-    !!! tip
-        You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
-
-        ``` java
-        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
-        ```
-
-        If you wish to remove `TLSv1` or `TLSv1.1` protocol support, remove then from `<SSLEnabledProtocols>` configuration.
-
-2.  [Start the server]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
 
 ### Disabling weak ciphers
 
