@@ -44,11 +44,12 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
     ``` toml
     [apim.key_manager]
     service_url = "https://localhost:9443/services/"
-    username = ""
-    password = ""
+    username = "admin"
+    password = "admin"
 
-    [apim.oauth_config]
-    revoke_endpoint = "https://localhost:8243/services/"
+    [apim.throttling] 
+    service_url = "https://localhost:9443/services/"
+    throttle_decision_endpoints = ["tcp://localhost:5672"]
     ```
 
     You are done configuring the two API Gateway instances.
@@ -78,8 +79,8 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
     description = "Production Gateway Environment"
     show_as_token_endpoint_url = true
     service_url = "https://localhost:9444/services/"
-    username= ""
-    password= ""
+    username= "admin"
+    password= "admin"
     http_endpoint = "http://localhost:8281"
     https_endpoint = "https://localhost:8244"
 
@@ -90,8 +91,8 @@ In this guide, let's set up three (3) WSO2 API Manager (WSO2 API-M) instances on
     description = "Hybrid Gateway Environment"
     show_as_token_endpoint_url = true
     service_url = "https://localhost:9445/services/"
-    username= ""
-    password= ""
+    username= "admin"
+    password= "admin"
     http_endpoint = "http://localhost:8282"
     https_endpoint = "https://localhost:8245"
 
