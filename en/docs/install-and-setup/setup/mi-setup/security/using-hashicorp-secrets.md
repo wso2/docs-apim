@@ -170,7 +170,7 @@ Add the following configurations to the `deployment.toml` file (stored in the `<
 </table>
 
 !!! Note
-    Refer [ACL rules](https://www.vaultproject.io/docs/secrets/kv/kv-v2#acl-rules) and [configuration](https://www.vaultproject.io/docs/auth/approle#configuration) sections to enable AppRole auth method in HashiCorp secure vault.
+    For information on enabling AppRole auth method in HashiCorp secure vault, see the [ACL rules](https://www.vaultproject.io/docs/secrets/kv/kv-v2#acl-rules) and [configuration](https://www.vaultproject.io/docs/auth/approle#configuration) sections.
 
 
 ## Accessing HashiCorp secrets in synapse configurations
