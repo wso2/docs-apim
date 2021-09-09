@@ -22,7 +22,7 @@ This is a simple service orchestration scenario. The scenario is about a basic h
 
 Most healthcare centers have a system that is used to make doctor appointments. To check the availability of the doctors for a particular time, users typically need to visit the hospitals or use each and every online system that is dedicated to a particular healthcare center. Here, we are making it easier for patients by orchestrating those isolated systems for each healthcare provider and exposing a single interface to the users.
 
-![Scenario]({{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png)
+<a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.png" width="1600" height="600"></a>
 
 
     !!! Tip
@@ -162,9 +162,9 @@ The following project files and executable back-end services are available in th
 
 Follow the steps given below to run the integration artifacts we developed on a Micro Integrator instance that is installed on a VM.
 
-1. Run `run.sh/run.bat` script in `<mi-qsg-home>/bin` based on the OS to up the workspace.
-    1. Open a terminal and navigate to the `<mi-qsg-homeE>/bin` folder.
-    2. Execute the relevant command:
+1. Run `run.sh/run.bat` script in `<mi-qsg-home>/bin` based on your operating system to start up the workspace.
+    1. Open a terminal and navigate to the `<mi-qsg-home>/bin` folder.
+    2. Execute the relevant OS specific command:
  
         ```bash tab='On MacOS/Linux/CentOS'
         sh run.sh 
@@ -177,28 +177,25 @@ Follow the steps given below to run the integration artifacts we developed on a 
         !!! Tip
             Script assumes `MI_HOME` and `<mi-qsg-home>` are located in the same directory. 
         
-        Here we carry out below steps.
+            The script carries out below steps.
 
-        - Start the back-end services.
+            - Start the back-end services.
 
-            Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
+                Two mock hospital information services are available in the `DoctorInfo.jar` file located in the `<mi-qsg-home>/Backend/` directory. 
     
-            To manually start  the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder and use the following command to start the services:
+                To manually start the service, open a terminal window, navigate to the `<mi-qsg-home>/Backend/` folder, and use the following command to start the services:
     
-            ```bash
-            java -jar DoctorInfo.jar
-            ```
+                ```bash
+                java -jar DoctorInfo.jar
+                ```
    
-        - Deploy the Healthcare service.
+            - Deploy the Healthcare service.
 
-            Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
+                Copy the CAR file of the Healthcare service (HealthcareIntegrationProjectCompositeExporter_1.0.0-SNAPSHOT.car) from the `<mi-qsg-home>/HealthcareIntegrationProject/HealthcareIntegrationProjectCompositeExporter/target/` directory to the `<MI_HOME>/repository/deployment/server/carbonapps` directory.
               
 2. Start the Micro Integrator.
 
-    Follow the steps relevant to your OS as shown below.
-
-    1. Open a terminal and navigate to the `<MI_HOME>/bin` folder.
-    2. Execute the relevant command:
+    1. Execute the relevant command in a terminal based on the OS:
  
       ```bash tab='On MacOS/Linux/CentOS'
       sh micro-integrator.sh
@@ -215,7 +212,7 @@ Follow the steps given below to run the integration artifacts we developed on a 
     1.  [Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-mi-dashboard) the MI dashboard.
     2.  [Start]({{base_path}}/install-and-setup/install/installing-the-product/running-the-mi-dashboard) the MI dashboard.
     
- **Voila!!!** You can now test the **HealthcareIntegrationService** that you just generated.
+ You can now test the **HealthcareIntegrationService** that you just generated.
  
 ### Step 3 - Testing the integration servie
 

@@ -86,7 +86,7 @@ The following message appears to indicate that the Siddhi application deployed s
 
     ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
 
- **Voila!!!** You can now test the **SweetProductionApplication** service that you just generated.
+ You can now test the **SweetProductionApplication** service that you just generated.
 
 
 ### Step 4: Test your Siddhi application
