@@ -91,6 +91,9 @@
         !!! note
             You can define scopes for a resource when defining a Swagger2 or OpenAPI3 specification to generate an API.
 
+            !!! note
+                The following example is a template file. Do the necessary changes to the template file before using this example to generate an API.
+
             !!! example
                 ```yaml
                 openapi: 3.0.0
