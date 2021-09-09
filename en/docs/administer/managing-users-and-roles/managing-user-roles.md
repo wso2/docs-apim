@@ -11,7 +11,7 @@ The following roles that are typically used in many enterprises are used through
 
 Follow the instructions below to create the `creator`, `publisher`, and `subscriber` roles in the API Manager for sample purposes.
 
-## Create user roles
+## Creating user roles
 
 1.  Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as the admin (default credentials are admin/admin).
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
@@ -166,7 +166,7 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
 !!! info
         If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
 
-### Update before the first startup (recommended)
+### Updating before the first startup (recommended)
 
 The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Change the super admin credentials]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials).
 
@@ -180,7 +180,7 @@ password = "admin"
 create_admin_account = true
 ```
 
-### Update role name after the product is used for some time (advanced configuration)
+### Updating the role name after the product is used for some time (advanced configuration)
 
 !!! tip
     These steps are not necessary if you have already updated the role names before the first startup of the product. 
