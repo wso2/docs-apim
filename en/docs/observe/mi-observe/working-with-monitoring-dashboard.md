@@ -112,22 +112,15 @@ Follow the steps given below to configure the MI servers to publish data to the 
         -   [User management]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/managing_users) is possible only if you have an RDBMS or LDAP user store for your Micro Integrator.
         -   If you have an [external RDBMS user store]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store), be sure that the RDBMS driver is correctly added to the `<MI_HOME>/lib` folder. Without the driver, you will not be able to sign in.
 
-### Step 3 - Start the MI servers
+3.  Regardless of the user who logs in, the dashboard uses the user configured in its `deployment.toml` to fetch the data to the dashboard server. Then the dashboard renders these data in the UI according to logged-in user. Hence, configure the super admin user credentials in the user store as below in the `deployment.toml` file (stored in the `<MI-DASHBOARD_HOME>/conf/` folder).
 
-Follow the steps given below.
-
-1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
-2.    Execute one of the commands given below.
-
-      ```bash tab="On MacOS/Linux"
-      ./micro-integrator.sh
-      ```
-
-      ```bash tab="On Windows"
-      micro-integrator.bat
-      ```
-
-### Step 4 - Start the MI Dashboard
+    ```toml
+    [mi_user_store]
+    username = "admin"
+    password = "admin"
+    ```
+    
+### Step 3 - Start the MI Dashboard
 
 Follow the steps given below.
 
@@ -142,12 +135,30 @@ Follow the steps given below.
       dashboard.bat
       ```
       
+### Step 4 - Start the MI servers
+
+Follow the steps given below.
+
+1.    Open a terminal and navigate to the `<MI_HOME>/bin` folder.
+2.    Execute one of the commands given below.
+
+      ```bash tab="On MacOS/Linux"
+      ./micro-integrator.sh
+      ```
+
+      ```bash tab="On Windows"
+      micro-integrator.bat
+      ```
+      
 ### Step 5 - Sign in to the Dashboard
 
 Once you have [set up and started the dashboard](#setting-up-the-dashboard), you can access the dashboard URL.
 
 !!! Note "Before you begin"
-    Be sure to start the Micro Integrator server before attempting to sign in to the dashboard.
+    Be sure to have at least one Micro Integrator server connected to the dashboard before attempting to sign in to it. This can be verified by checking the presence of the following log.
+    ```
+    New node <node_id> in group : <group_id> is registered. Inserting heartbeat information
+    ```
   
 1.  Copy the following dashboard URL to your browser:
 
