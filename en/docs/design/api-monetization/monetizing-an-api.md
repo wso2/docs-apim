@@ -830,7 +830,7 @@ Follow the instructions below to disable monetization for an API:
 
 4.  Enter the [connect ID](#connectID) as the connected account key
 
-5.  .Click **Enable Monetization** to unselect the enable monetization option.
+5.  .Click **Enable Monetization** to deselect the enable monetization option.
 
 6.  Click **Save**.  
     
