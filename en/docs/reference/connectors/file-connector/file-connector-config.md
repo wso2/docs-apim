@@ -668,7 +668,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -729,7 +729,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -791,7 +791,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -904,7 +904,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1079,7 +1079,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1411,7 +1411,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1724,7 +1724,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1836,7 +1836,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1929,7 +1929,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2046,7 +2046,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2224,7 +2224,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2399,7 +2399,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2481,7 +2481,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2619,7 +2619,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
