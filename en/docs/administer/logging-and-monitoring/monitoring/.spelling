@@ -108,6 +108,7 @@ TCP-based
 TCPMon
 OpenTracing
 Zipkin
+15m
  - docs/administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
 rmi_server_startfalse
 p1

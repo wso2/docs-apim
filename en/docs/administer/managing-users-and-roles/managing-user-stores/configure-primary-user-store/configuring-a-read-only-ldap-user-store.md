@@ -186,7 +186,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
      UserNameSearchFilter="(&amp;(objectClass=person)(uid=?))"
      ```
 
-   5.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute as shown below.
+   5.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or back link attribute as shown below.
         To read the user/role mapping based on a membership (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
 
     -   Enable the `ReadGroups` property.
@@ -273,7 +273,7 @@ The following are the minimum configurations that are needed to be provided to c
 <tr class="even">
 <td>type</td>
 <td>User Store Type</td>
-<td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
+<td>Type of the user store manager that we are using. For Read-only LDAP user store manager this value
 should be read_only_ldap.
 </td>
 </tr>
@@ -392,7 +392,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>ReadGroups</td>
  <td>read_groups</td>
  <td>Read Groups</td>
- <td>When WriteGroups is set to falses, this Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
+ <td>When WriteGroups is set to false, this Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
  <p>Default: true
  <br />
  Possible values:<br />
@@ -452,7 +452,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>RoleDNPattern</td>
  <td>role_dn_pattern</td>
  <td>Role DN Pattern</td>
- <td>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP user store, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to traverse through the entire tree to findgroup.
+ <td>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP user store, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to traverse through the entire tree to find a group.
  <p>Sample values: cn={0},ou=Groups,dc=wso2,dc=org</p></td>
  </tr>
  <tr class="even">
@@ -473,7 +473,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>BackLinksEnabled</td>
  <td>back_links_enabled</td>
  <td>Enable Back Links</td>
- <td>Defines whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
+ <td>Defines whether the back link support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
  <br/>Default : false</td>
  </tr>
  <tr class="odd">
@@ -486,7 +486,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <tr class="even">
  <td>UsernameJava<br>ScriptRegEx</td>
  <td>username_java<br>_script_regex</td>
- <td>Username RegEx (Javascript)</td>
+ <td>Username RegEx (JavaScript)</td>
  <td>The regular expression used by the front-end components for username validation.<br />
  Default: ^[\S]{3,30}$</td>
  </tr>
@@ -507,7 +507,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <tr class="odd">
  <td>PasswordJava<br>ScriptRegEx</td>
  <td>password_java<br>_script_regex</td>
- <td>Password RegEx (Javascript)</td>
+ <td>Password RegEx (JavaScript)</td>
  <td>The regular expression used by the front-end components for password validation.<br />
  Default: ^[\S]{5,30}$</td>
  </tr>
@@ -547,7 +547,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  PLAIN_TEXT - Plain text passwords.(Default)
  <p>If you just configure as SHA, It is considered as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.<br />
  <br />
- Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA)<br />
+ Most of the LDAP servers (such as OpenLDAP, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA)<br />
  Therefore WSO2IS server just wants to feed password into the connected user store as a plain text value. Then LDAP user store can store them as salted hashed value. To feed the plain text into the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
  But; if your LDAP does not support to store user password as hashed values. You can configure WSO2 server to hash the password and feeds the hashed password into the LDAP server. Then you need to configure PasswordHashMethod property with SHA (SHA-1), SHA-256, SHA-512. Please note WSO2 server cannot create a salted hashed password (SSHA) to feed into the LDAP.</p></td>
  </tr>
