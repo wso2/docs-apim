@@ -41,9 +41,9 @@ To prevent these types of security attacks, it is encouraged to disable the weak
     From **Firefox** 39.0 onwards, the browser does not allow to access Web sites that support DHE with keys less than 1023 bits (not just DHE\_EXPORT). 768/1024 bits are considered to be too small and vulnerable to attacks if the hacker has enough computing resources.
     
 !!! tip
-    -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index), if your java installation does not have it installed.
+    -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html), if your Java installation does not have it installed.
 
-#### Configuring Passthrough transport-level ciphers and TLS versions
+#### Configuring PassThrough transport-level ciphers and TLS versions
 
 1.  To enable preferred ciphers, add the configuration given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
