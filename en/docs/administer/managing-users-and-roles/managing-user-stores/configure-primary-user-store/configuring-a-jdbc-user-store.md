@@ -15,7 +15,7 @@ You can either use the default configuration or you can change it in the followi
 
 ### Step 1: Configuring the JDBC user store manager
 
-1. To configure a JDBC user store as the primary user store, you must give the value: `database` for the config: `user_store.type` in the `<APIM_HOME>/repository/conf/deployment.toml` file.
+1. To configure a JDBC user store as the primary user store, you must give the value: `database` for the configuration: `user_store.type` in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
         [user_store]
@@ -144,7 +144,7 @@ The **admin** user is the super user that will be able to manage all other users
     create_admin_account = true
     ```
 
-In the realm configuration section, set the value of the `MultiTenantRealmConfigBuilder` property to `org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` in order to construct teant specific realm configurations.
+In the realm configuration section, set the value of the `MultiTenantRealmConfigBuilder` property to `org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` in order to construct tenant specific realm configurations.
 
 For example:
 
@@ -157,7 +157,7 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
 
 Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped by default, is configured in the `deployment.toml` file, which is stored in the `<PRODUCT_HOME>/repository/conf` directory.
 
-1. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC user store, you have to update the `deployment.toml` file with the relevant information. This can be configured by adding the `database.user` config as shown below. 
+1. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC user store, you have to update the `deployment.toml` file with the relevant information. This can be configured by adding the `database.user` configuration as shown below. 
 
     ```toml
     [database.user]

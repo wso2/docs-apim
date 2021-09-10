@@ -201,6 +201,6 @@ Message sending timeout.
 | resume()                              | Resume this transport listener/sender which is currently paused.                                                                                   |
 | resetStatistics()                     | Clear recorded transport listener/sender statistics and restart recording.                                                                         |
 | pause()                               | Pause this transport listener/sender which has been started.                                                                                       |
-| maintenenceShutdown(long gracePeriod) | Stop processing new messages, and wait the specified maximum time for in-flight requests to complete before a controlled shutdown for maintenence. |
+| maintenenceShutdown(long gracePeriod) | Stop processing new messages, and wait the specified maximum time for in-flight requests to complete before a controlled shutdown for maintenance. |
 
 
