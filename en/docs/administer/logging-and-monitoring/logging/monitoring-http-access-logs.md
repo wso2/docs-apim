@@ -10,7 +10,7 @@ In API Manager, access logs can be configured for both servlet transport and Pas
 
 ##Configuring access logs for the HTTP Servlet transport
 
-In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analysing operational/admin-level access details. 
+In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analyzing operational/admin-level access details. 
 
 Following is a sample of access log entries which can be monitored via `<APIM_HOME>repository/logs/http_access_.log` file by default.
 
