@@ -68,6 +68,32 @@ To prevent these types of security attacks, it is encouraged to disable the weak
     -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index) .
     -   From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
 
+#### Configuring Passthrough transport-level ciphers and TLS versions
+
+1.  To enable preferred ciphers, add the configuration given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "<CIPHER_LIST>"
+    ```
+
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    PreferredCiphers = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    ```
+
+2. To enable HTTP protocols (TLS versions), add the configurations given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    ``` tab="Format"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "<TLS_VERSION_LIST>"
+    ```
+
+    ``` tab="Example"
+    [transport.passthru_https.listener.parameters]
+    HttpsProtocols = "TLSv1,TLSv1.1,TLSv1.2,TLSv1.3"
+    ```
+
 ## Changing the server name in HTTP response headers
 
 By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 product stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the `deployment.toml` file.
