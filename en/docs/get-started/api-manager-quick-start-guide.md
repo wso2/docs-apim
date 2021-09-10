@@ -90,7 +90,7 @@ Follow the instructions below to create and publish an API via the Publisher Por
         
 6. Click **Create & Publish**.
 
-     This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth2.0 secured REST API that is ready to be consumed.
+     This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -112,7 +112,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
      [![API overview]({{base_path}}/assets/img/get_started/api-overview.png)]({{base_path}}/assets/img/get_started/api-overview.png)
  
-4. Register an OAuth2.0 application.
+4. Register an OAuth 2.0 application.
 
     1. Click **Subscriptions** on the left menu bar of the screen.
     
@@ -120,11 +120,11 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
     2. Click **SUBSCRIPTION & KEY GENERATION WIZARD** in the above screen.
     
-         This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.
+         This wizard walks you through 5 steps that will register an OAuth 2.0 application which you will use to consume the `HelloWorld` API.
 
          [![Key generation wizard]({{base_path}}/assets/img/get_started/key-gen-wizard.png)]({{base_path}}/assets/img/get_started/key-gen-wizard.png)
 
-    3.  Create the OAuth2.0 application.
+    3.  Create the OAuth 2.0 application.
     
          Enter the application name, and click **Next** without changing any of the other default values. 
 
@@ -171,7 +171,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
      7.  Click **Finish**.
 
- **Voila!!!** You can now test the **HelloWorld** API with the OAuth2.0 token that you just generated.
+ **Voila!!!** You can now test the **HelloWorld** API with the OAuth 2.0 token that you just generated.
 
 <a name="invoke"></a>
 
@@ -207,7 +207,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
-__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.
+__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth 2.0 application, obtained an access token for testing, and invoked your API with the access token.
  
 ## Automate API development and deployment
 
