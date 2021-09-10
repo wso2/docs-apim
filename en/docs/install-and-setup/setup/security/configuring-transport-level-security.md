@@ -65,10 +65,10 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
 !!! tip
 
-    -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index) .
+    - To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html), if your Java installation does not have it installed.
     -   From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
 
-#### Configuring Passthrough transport-level ciphers and TLS versions
+#### Configuring PassThrough transport-level ciphers and TLS versions
 
 1.  To enable preferred ciphers, add the configuration given below to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
@@ -121,7 +121,7 @@ API Manager has two HTTP transports.
 
 See the instructions given below to disable these transports.
 
-### Disabling Passthrough Transport
+### Disabling PassThrough Transport
 
 Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
 
