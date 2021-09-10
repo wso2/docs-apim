@@ -1,0 +1,62 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+MBeans
+ObjectName
+MBeanServer
+MBean
+datasources
+JConsole
+RMIRegistryPort
+RMIServerPort
+PRODUCT_HOME
+deployment.toml
+datasource
+jmxEnabled
+JMX-compliant
+localhost
+ServerAdmin
+org.wso2.carbon
+ServerStatus
+ServerData
+ServerVersion
+restartGracefully
+shutdownGracefully
+startMaintenance
+endMaintenance
+ServiceAdmin
+NumberOfActiveServices
+NumberOfInactiveServices
+NumberOfFaultyServices
+startService
+stopService
+StatisticsAdmin
+AvgSystemResponseTime
+MaxSystemResponseTime
+MinSystemResponseTime
+SystemFaultCount
+SystemRequestCount
+SystemResponseCount
+getServiceRequestCount
+getServiceResponseCount
+getServiceFaultCount
+getMaxServiceResponseTime
+getMinServiceResponseTime
+getAvgServiceResponseTime
+getOperationRequestCount
+getOperationResponseCount
+getOperationFaultCount
+getMaxOperationResponseTime
+getMinOperationResponseTime
+getAvgOperationResponseTime
+Jolokia
+JMX-HTTP
+JSR-160
+OSGi
+hostname
+ - docs/administer/logging-and-monitoring/monitoring/jmx-based-monitoring.md
+rmi_server_startfalse
+p1
+p2
