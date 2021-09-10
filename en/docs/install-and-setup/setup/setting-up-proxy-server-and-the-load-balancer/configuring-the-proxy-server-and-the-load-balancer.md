@@ -427,6 +427,7 @@ proxyPort = 443
 [server]
 hostname = "<loadbalancer_hostname>""
 ```
+
 !!!note 
     When using a load balancer with the '9443' port, you only need to update the hostname of the load balancer in the `<API-M_HOME>/repository/conf/deployment.toml` file. An example is shown below.
     ```java
