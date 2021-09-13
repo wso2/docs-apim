@@ -1,0 +1,25 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+hostname
+OpenID
+iss
+nbf
+iat
+jti
+Kerberos
+RedHat
+Solaris
+grant.jar
+http
+base64Encode
+clientId
+clientSecret
+IdP
+SAML2.0
+checkRolesFromSamlAssertion
+APIM_HOME
+ - docs/design/api-security/oauth2/grant-types/saml-extension-grant.md
+cer

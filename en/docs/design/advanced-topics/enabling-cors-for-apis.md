@@ -97,4 +97,4 @@ You have successfully enabled CORS for a specific API.
 
 Enabling CORS configuration via the `api-manager.xml` file is valid for APIs created via the WSO2 API manager Publisher application. Since **API-M 4.0.0** token related endpoints are not proxied you can enable CORS for OAuth token related Endpoints ( **/authorize, /revoke, /token, /userinfo** ) by following the respective Identity Provider documentation.
 
-For WSO2 Identity Server you may refer [CORS](https://is.docs.wso2.com/en/latest/learn/cors/)
+For WSO2 Identity Server you may refer [CORS documentation](https://is.docs.wso2.com/en/latest/learn/cors/).

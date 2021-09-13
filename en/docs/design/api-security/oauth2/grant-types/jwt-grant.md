@@ -42,7 +42,7 @@ You can use any identity provider to obtain a JWT. As an example, this step will
 
      [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)
              
-6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenId Connect Configuration** --> **Configure** to add a new OAuth2 client.
+6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
 
      [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)
 
@@ -212,7 +212,7 @@ The payload contains the claims mentioned below:
 <td>The JWT may contain an <code>iat<code> (issued at) claim that identifies the time at which the JWT was issued.</td>
 </tr>
 <tr>
-<td><code>jti</code> (json web token ID)</td>
+<td><code>jti</code> (JSON web token ID)</td>
 <td>The JWT may contain <code>jti<code> (JWT ID) claim that provides a unique identifier for the token.</td>
 </tr>
 <tr>
