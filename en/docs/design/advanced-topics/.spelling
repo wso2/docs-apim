@@ -20,3 +20,5 @@ localhost
 SOAPAction
 apikey
 userinfo
+ - docs/design/advanced-topics/enabling-cors-for-apis.md
+proxied

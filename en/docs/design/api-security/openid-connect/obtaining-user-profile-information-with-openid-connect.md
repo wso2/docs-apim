@@ -78,7 +78,7 @@ The response will be a JSON payload as shown below:
 ```
 
 !!! note
-    By default, only the username (sub claim) information will be available in the response. You can customize the user information returned in the id_token by configuring the user claims for the corresponding Service Provider generated for the Application created in API DevPortal. 
+    By default, only the username (sub claim) information will be available in the response. You can customize the user information returned in the id_token by configuring the user claims for the corresponding Service Provider generated for the Application created in API Developer Portal. 
     
     In order to modify the service provider, you can login to APIM Management console(`https://localhost:9443/carbon`), locate the relevant service provider(The corresponding service provider generated for a given application created in API DevPortal will be in 
     `<username>_<application-name>_<environment>` format. ie: `john_pizzashackapp_PRODUCTION`) and follow the steps given in [Service Provider Claim Configuration](https://is.docs.wso2.com/en/5.10.0/learn/configuring-claims-for-a-service-provider/#claim-mapping) to configure the required user claims.
