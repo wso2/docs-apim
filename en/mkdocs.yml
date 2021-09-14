@@ -741,14 +741,6 @@ nav:
                     #- Choreo Connect: api-analytics/gateways/configure-choreo-connect.md
             - Viewing API Analytics:
                 - Introduction: api-analytics/viewing/introduction-to-api-analytics-dashboard.md
-                - Overview: api-analytics/viewing/view-overview-of-api-analytics.md
-                - Traffic: api-analytics/viewing/view-api-analytics-on-traffic.md
-                - Errors: api-analytics/viewing/view-api-analytics-on-errors.md
-                - Latency: api-analytics/viewing/view-api-analytics-on-latency.md
-                #- TODO Cache: api-analytics/viewing/analytics-pages-cache.md
-                - Devices: api-analytics/viewing/view-analytics-on-devices.md
-                - Alerts: api-analytics/viewing/view-api-analytics-on-alerts.md
-                - Download Reports: api-analytics/viewing/download-api-analytics-reports.md
                 #- Usecases:
                     #TODO- Identifying Faulty APIs: api-analytics/viewing/usecases/finding-faulty-apis.md
                 #- Quality of Service: api-analytics/qos.md
