@@ -7,7 +7,7 @@ Log4j2 supports two main log rotation options.
 - Rollover based on log file size.
 - Rollover based on a time period.
 
-By default wso2 supports rollover based on a time period. This interval is by default one day. The log4j-based logging mechanism uses appenders to append all the log messages into a file, then at the end of the log rotation period, a new file will be created with the appended logs and archived. The name of the archived log file will always contain the date on which the file is archived.
+By default WSO2 supports rollover based on a time period. This interval is by default one day. The log4j-based logging mechanism uses appenders to append all the log messages into a file, then at the end of the log rotation period, a new file will be created with the appended logs and archived. The name of the archived log file will always contain the date on which the file is archived.
 
 #### Managing the growth of Carbon logs
 

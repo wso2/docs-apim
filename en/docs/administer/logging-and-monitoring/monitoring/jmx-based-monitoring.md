@@ -1,6 +1,6 @@
-# JMX-Based Monitoring
+# JMX-based Monitoring Monitoring
 
-Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX, is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adaptors.
+Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX, is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adapters.
 
 ## Configuring JMX in a WSO2 product
 
@@ -8,7 +8,7 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 
 ### Configuring JMX ports for the server
 
-The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below config into 
+The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below configuration into 
 `<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can 
 update them as required.
 
@@ -29,9 +29,9 @@ You can disable the JMX server for your product by adding the `rmi_server_start`
 
 ### Enabling JMX for a datasource
 
-You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` xml file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
+You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` XML file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
 
-TODO: Update with toml config with jmxEnabled=true
+TODO: Update with TOML configuration with jmxEnabled=true
  
 ``` java
 <datasource>
@@ -60,7 +60,7 @@ TODO: Update with toml config with jmxEnabled=true
 
 ## Monitoring a WSO2 product with JConsole
 
-Jconsole is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 and newer versions. You can find this tool inside your `<JDK_HOME>/bin` directory. 
+JConsole is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 and newer versions. You can find this tool inside your `<JDK_HOME>/bin` directory. 
 
 ### Starting the WSO2 product with JMX
 
@@ -77,7 +77,7 @@ First, start the WSO2 product:
     ```
 
 
-Once the product server is started, you can start the jConsole tool as follows:
+Once the product server is started, you can start the JConsole tool as follows:
 
 1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
 2.  Execute the j `console` command to open the log-in screen of the **Java Monitoring & Management Console** as shown below.

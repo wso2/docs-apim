@@ -116,7 +116,7 @@ In API Manager, by default the important methods are marked with the `@MethodSt
     </table>
 
 !!! tip
-    By default, we log only certain methods we suspect that can introduce a latency. If you need to log all the methods that correspond to a package, you need to specify the package name as the value of the `logAllMethods` system property. This is further explained lateron.
+    By default, we log only certain methods we suspect that can introduce a latency. If you need to log all the methods that correspond to a package, you need to specify the package name as the value of the `logAllMethods` system property. This is further explained later on.
 
 ### External call logs
 
@@ -280,7 +280,7 @@ All external calls done by the API Manager is logged via this category. Note tha
 
 #### External call logs with transport level information
 
-In contrast to the information provided by the Synapse global handler level, the passthrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse passthrough transport level external call log entry is as follows:
+In contrast to the information provided by the Synapse global handler level, the PassThrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse PassThrough transport level external call log entry is as follows:
 
 *Format*
 
@@ -289,7 +289,7 @@ In contrast to the information provided by the Synapse global handler level, the
 !!! example
     `2018-11-28` `10:10:56,314|a783f7c3-647f-4d10-9b72-106faa01bba8|HTTPS-Sender I/O dispatcher-1|1|HTTP State Transition|http-outgoing-1|GET|https://localhost:9443/am/sample/pizzashack/v1/api/menu|RESPONSE_DONE`
 
-??? "Click here for more details on the Synapse passthrough transport level external call log entry."
+??? "Click here for more details on the Synapse PassThrough transport level external call log entry."
     <table>
     <thead>
     <tr class="header">
@@ -695,7 +695,7 @@ This can happen due to several reasons,
 
 1. Due to an programming error
 2. Due to a backend service call taking time
-3. Due to a database/ ldap call taking time
+3. Due to a database/ LDAP call taking time
 
 Follow the following steps to pinpoint the bottleneck,
 
@@ -734,7 +734,7 @@ The following are the advanced use cases that you may run into when working with
 
 Currently, when using method logging, it only logs special methods that are suspected to give latencies, because logging all methods can pose performance issues. There can be instances where you may need to log other methods too.
 
-In order to configure the logging of all methods, add the following configuration as a system property to the APIM startup script. This will log all methods executied in the given package.
+In order to configure the logging of all methods, add the following configuration as a system property to the APIM startup script. This will log all methods executed in the given package.
 
 *Format*
 
@@ -753,7 +753,7 @@ In order to configure the logging of all methods, add the following configuratio
 
 #### Blacklisting threads
 
-Blacklisting of threads is needed because some threads keep on printing unnecessary jdbc logs continuously. Therefore, by blacklisting these unwanted threads from printing logs, it helps to reduce the cluttering of the logs.
+Blacklisting of threads is needed because some threads keep on printing unnecessary JDBC logs continuously. Therefore, by blacklisting these unwanted threads from printing logs, it helps to reduce the cluttering of the logs.
 
 In order to enable blacklisting of threads, add the following configuration as a system property to the the APIM startup script.
 

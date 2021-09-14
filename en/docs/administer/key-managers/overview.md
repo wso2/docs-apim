@@ -21,7 +21,7 @@ If the Key Manager is enabled, the token is validated through the JWT validator.
 
 For non JWT tokens, the token is validated based on the token handling options provided in the Key Manager configurations of the intended Key Manager.
 
-After token validation takes place by retrieveing the consumer key, subscription validation takes place at the Gateway.
+After token validation takes place by retrieving the consumer key, subscription validation takes place at the Gateway.
 
 If the subscription validation is successful, the scope validation takes place.
 
@@ -39,4 +39,4 @@ Finally if the backend JWT generation is enabled, it generates the JWT.
 
 - [Configure PingFederate as a Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)
 
-- [Configure Forgerock as a Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)
+- [Configure ForgeRock as a Key Manager]({{base_path}}/administer/key-managers/configure-forgerock-connector/)

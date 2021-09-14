@@ -7,7 +7,7 @@ SAML 2.0 is an XML-based protocol. It uses security tokens containing assert
 Enterprise applications that have SAML2 based SSO infrastructures sometimes need to consume OAuth-protected resources through APIs. However, these apps prefer to use the existing trust relationship with the IdP, even if the OAuth authorization server is entirely different from the IdP. The API Manager leverages this trust relationship by exchanging the SAML2.0 token to an OAuth token with the authorization server. It acts as the OAuth authorization server.
 
 !!! info
-    When SAML bearer token is used, the roles of the user can be retrieved from either the user store or the SAML assertion. When **checkRolesFromSamlAssertion** system property is set to true, the roles will be checked from the SAML assertion, not the user store. Refere the stepe below to set this property:
+    When SAML bearer token is used, the roles of the user can be retrieved from either the user store or the SAML assertion. When **checkRolesFromSamlAssertion** system property is set to true, the roles will be checked from the SAML assertion, not the user store. Refer the steps below to set this property:
 
     1.  Set the property `-DcheckRolesFromSamlAssertion=true` in the `<API-M_HOME>/bin/api-manager.(sh|bat)` file.
     2.  Restart the server.

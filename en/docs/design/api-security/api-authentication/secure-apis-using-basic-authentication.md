@@ -15,19 +15,19 @@ the Basic Authentication as follow.
 
 ## Understanding multiple authentication schemes
 
-The WSO2 API Gateway is able to authenticate requests using Mutual SSl, Basic, OAuth2 and API Key authentication schemes. 
+The WSO2 API Gateway is able to authenticate requests using Mutual SSL, Basic, OAuth2 and API Key authentication schemes. 
 In addition to using these schemes  individually, it is also possible to use the multiple schemes at the same time.
 
  
 If someone enable multiple schemes, the priority will be given in the order of Mutual SSL, OAuth2, Basic Auth and API Key. 
-Between oauth2/Basic Auth and API Key, it will authenticate with only one authentication type based on the above order.
+Between OAuth2/Basic Auth and API Key, it will authenticate with only one authentication type based on the above order.
 
 Mutual SSL treats as a transport level authentication scheme and it's separate out from the Application security schemes.
 
-Additionally, the user will required to specify either one of Mutual SSL or oauth2/Basic Auth/API Key mandatory as without 
+Additionally, the user will required to specify either one of Mutual SSL or OAuth2/Basic Auth/API Key mandatory as without 
 anyone of mandatory will skip the authentication.
  
-Note : If oauth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
+Note : If OAuth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
 
 ## Invoking an API using Basic Authentication

@@ -18,7 +18,7 @@ This section guides you through deploying the Carbon Health Check components in 
 
      `https://github.com/wso2/carbon-health-check`
      
-2. Navigate to the place where you want to clone the repo and clone the forked repository.
+2. Navigate to the place where you want to clone the repository and clone the forked repository.
 
      The forked repository is referred to as `<HEALTH_CHECK_HOME>` in this document. 
 
@@ -70,9 +70,9 @@ order = 98
 
 | **Configuration**                               | **Description**                          |
 | ---------------------------------------------| ------------------------------------ |
-| enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this config will get enabled by default.  |
+| enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this configuration will get enabled by default.  |
 | order                                         | The execution order in which the User Store Health Checker is executed. The default value is `98`. The lowest value is given priority. |
-| monitored.user.stores                         | This config is used to specify the user stores as comma-separated values. The default value is `PRIMARY`. |
+| monitored.user.stores                         | This configuration is used to specify the user stores as comma-separated values. The default value is `PRIMARY`. |
 
 !!! example "Response"
     When you invoke the API and the User Stores are healthy, you can see a response similar to the following:
@@ -109,8 +109,8 @@ order = "97"
 
 | **Configuration**                               | **Description**                          |
 | ---------------------------------------------| ------------------------------------ |
-| enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this config will get enabled by default.  |
-| pool_usage_limit_percentage                   | This config is used to specify a healthy percentage limit of the maximum allowed connections count. The Data Health Checker checks if the active connection count surpasses the given healthy percentage limit. The default value is `80`. |
+| enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this configuration will get enabled by default.  |
+| pool_usage_limit_percentage                   | This configuration is used to specify a healthy percentage limit of the maximum allowed connections count. The Data Health Checker checks if the active connection count surpasses the given healthy percentage limit. The default value is `80`. |
 | order                                         | The execution order in which the DataSource Health Checker is executed. The default value is `97`.|
 | monitored.datasources                         | This configuration is used to specify the Data Sources to be monitored as comma-separated values.|
 
@@ -186,7 +186,7 @@ Follow the instructions below to add a custom health checker:
 
 1. Add a new custom health checker.
 
-    You can use the WSO2 [carbon-health-check repo](https://github.com/wso2/carbon-health-check) to implement your custom health checkers.
+    You can use the WSO2 [carbon-health-check repository](https://github.com/wso2/carbon-health-check) to implement your custom health checkers.
 
     Follow the instructions below to extend the base classes of current health checker implementation and formulate a logic.
 

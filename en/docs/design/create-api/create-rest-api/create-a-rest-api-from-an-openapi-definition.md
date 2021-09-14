@@ -131,7 +131,7 @@ You will notice that all the API resources are created automatically when the Op
      |---------------------|-------------------------------------------------------|
      | Endpoint type       | HTTP/REST endpoint                                    |
      | Production endpoint | http://petstore.swagger.io/v2/                        |
-     | Sandbox endpoint    | Let's only work with the production endpoint for this sample. Therefore, uncheck the sandbox endpoint option. |
+     | Sandbox endpoint    | Let's only work with the production endpoint for this sample. Therefore, deselect the sandbox endpoint option. |
 
      <html>
      <img src="{{base_path}}/assets/img/learn/endpoint-menu.png" width="200">
@@ -180,7 +180,7 @@ The Transport Level Security defines the transport protocol on which the API is 
      <img src="{{base_path}}/assets/img/learn/subscriptions-menu.png" width="200">
      </html>
 
-2. Select **Gold** and **Silver** as the Bussiness plans.
+2. Select **Gold** and **Silver** as the Business plans.
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>

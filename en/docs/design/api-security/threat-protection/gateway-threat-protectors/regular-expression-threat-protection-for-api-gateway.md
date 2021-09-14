@@ -1,12 +1,12 @@
 # Am300Regular Expression Threat Protection for API Gateway
 
-WSO2 API Manager provides pre-defined regex patterns to sanitize the request from SQL injection attacks. The attacks may depend on the API traffic at runtime. The API developers should identify the common attacks and select the appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers and validates the content against pre defined regular expressions. If any predefined regex keyword is matched with the content, the API request is considered as a threat and it is blocked and rejected. This secures the backend resources from activities that make the system vulnerable.  You can configure your own restriction patterns to thwart various attacks such as the following:
+WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks may depend on the API traffic at runtime. The API developers should identify the common attacks and select the appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers and validates the content against pre defined regular expressions. If any predefined regex keyword is matched with the content, the API request is considered as a threat and it is blocked and rejected. This secures the backend resources from activities that make the system vulnerable.  You can configure your own restriction patterns to thwart various attacks such as the following:
 
--   Javascript Injection
+-   JavaScript Injection
 -   Server-side Include Injection
 -   XPath Injection
 -   Java Exception Injection
--   XPath Abbreiviated Syntax Injection
+-   XPath Abbreviated Syntax Injection
 
 #### Blacklisting patterns
 
@@ -40,7 +40,7 @@ We recommend the following patterns for blacklisting.
 <code>              .*create table.*|.*CREATE VIEW.*|.*DELETE.*|.*DROP DATABASE.*|.*DROP PROCEDURE.*|.*DROP.*|.*SELECT.*             </code></p></td>
 </tr>
 <tr class="odd">
-<td>Javascript Exception</td>
+<td>JavaScript Exception</td>
 <td><p><code>              &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;             </code></p></td>
 </tr>
 <tr class="even">
