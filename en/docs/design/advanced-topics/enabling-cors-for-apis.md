@@ -50,7 +50,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
      After you enable CORS, you will be able to see the CORS response header configuration section. 
 
     !!! note
-        When creating a new API by using a Swagger or Open API definition, response caching can be set up by defining an API-M supported Open API extension **“x-wso2-cors”**.
+        When creating a new API by using a Swagger or Open API definition, CORS can be set up by defining an API-M supported Open API extension **“x-wso2-cors”**.
 
         !!! example
             ```yaml
@@ -95,6 +95,6 @@ You have successfully enabled CORS for a specific API.
 
 ## Enabling CORS for OAuth Token related Endpoints
 
-Enabling CORS configuration via the `api-manager.xml` file is valid for APIs created via the WSO2 API manager Publisher application. Since **API-M 4.0.0** token related endpints are not proxied you can enable CORS for OAuth token related Endpoints ( **/authorize, /revoke, /token, /userinfo** ) by following the respective Identity Provider documentation.
+Enabling CORS configuration via the `api-manager.xml` file is valid for APIs created via the WSO2 API manager Publisher application. Since **API-M 4.0.0** token related endpoints are not proxied you can enable CORS for OAuth token related Endpoints ( **/authorize, /revoke, /token, /userinfo** ) by following the respective Identity Provider documentation.
 
-For WSO2 Identity Server you may refer [cors](https://is.docs.wso2.com/en/latest/learn/cors/)
+For WSO2 Identity Server you may refer [CORS documentation](https://is.docs.wso2.com/en/latest/learn/cors/).

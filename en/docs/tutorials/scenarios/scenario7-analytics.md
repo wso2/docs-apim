@@ -48,7 +48,7 @@ curl -X GET "https://localhost:8243/info/1.0.0/passenger-count" -H "accept: appl
 
 ```
 
-Go to [https://analytics.choreo.dev/overview](https://analytics.choreo.dev/overview) to view statistics. Following are some of the graphs.
+Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. Following are some of the graphs.
 
 ![Usage]({{base_path}}/assets/img/tutorials/scenarios/usage-graph.png)
 

@@ -86,6 +86,8 @@ The following message appears to indicate that the Siddhi application deployed s
 
     ```INFO {org.wso2.carbon.streaming.integrator.core.internal.StreamProcessorService} - Siddhi App ManageProductionStats1 deployed successfully```
 
+ You can now test the **SweetProductionApplication** service that you just generated.
+
 
 ### Step 4: Test your Siddhi application
 
@@ -152,12 +154,12 @@ The `ManageProductionStats` Siddhi Application you deployed in the Micro Integra
 
     1.  Sign in to the API Publisher portal: `https://localhost:9443/publisher`. 
 
-    !!! Tip
-        Use `admin` as the username and password.
+        !!! Tip
+            Use `admin` as the username and password.
 
     2.  You can also click the **hamburger** icon on the upper-left and click **Services** to see the available services.
 
-        <img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png" width="400">
+        <img src="{{base_path}}/assets/img/streaming/qsg/streaming-service-catalog.png" width="400">
   
     3. See that the `SweetProductionApplication` is listed as a service.
 

@@ -8,7 +8,7 @@ To configure this feature, follow the instructions below.
 
 ### Enabling log masking
 
-1. Log masking in not enabled by default in API Manager. Therefore, you need to manaully enable it and configure the required masking patterns. 
+1. Log masking in not enabled by default in API Manager. Therefore, you need to manually enable it and configure the required masking patterns. 
 
 2. To enable log masking, navigate to `<APIM-HOME>/repository/conf/log4j2.properties` and do the necessary changes. The masking feature can be enabled by adding an additional `m` after the `%m` in the `layout.pattern`. Therefore you can add an additional `m` to the log files in which you want the values to be masked as shown below.
 

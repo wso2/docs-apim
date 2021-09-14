@@ -65,7 +65,7 @@ Let's generate some traffic to see the Analytics in Choreo cloud.
 
 1. Deploy your API - Follow [this]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/) according to your setup.
 2. Let's Invoke the API few times - [Invoke the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#invoke-the-api)
-3. Go to [https://analytics.choreo.dev/overview](https://analytics.choreo.dev/overview) to view statistics. 
+3. Go to [Choreo Insights](https://console.choreo.dev/insights) to view statistics. 
 
 Here are some of the graphs generated in Choreo cloud.
 

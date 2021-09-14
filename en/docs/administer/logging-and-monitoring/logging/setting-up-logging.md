@@ -2,7 +2,7 @@
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
-WSO2 API Manager uses various types of logs to track realtime internal and external activities. Separate log files are created for each of those log types in the `<APIM_HOME>/repository/logs` directory. Following illustrates the log types supported by the APIM and how those logs can be configured.
+WSO2 API Manager uses various types of logs to track real time internal and external activities. Separate log files are created for each of those log types in the `<APIM_HOME>/repository/logs` directory. Following illustrates the log types supported by the APIM and how those logs can be configured.
 
 ##Carbon Logs
 
@@ -117,7 +117,7 @@ Listed below are the log levels that can be configured:
 
 ##Gateway Wire Logs
 
-Gateway wire logs can be configure to monitor the HTTP message flow through API Gateway. Wire logs allow you to track the request headers, request payloads, response headers, response payloads etc of incoming and outgoing http traffic. 
+Gateway wire logs can be configure to monitor the HTTP message flow through API Gateway. Wire logs allow you to track the request headers, request payloads, response headers, response payloads etc of incoming and outgoing HTTP traffic. 
 
 !!!Warning
     Please note that wire logs should be enabled for troubleshooting purposes only. It is not recommended to run production systems with wire logs enabled.
