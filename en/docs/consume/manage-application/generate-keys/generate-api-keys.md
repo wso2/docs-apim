@@ -57,9 +57,9 @@ Let's assume that you are working in a production environment.
 !!! note
     If you need an Access Token with scopes, make sure that you have created the scopes in advance on the Okta side.
 
-## Generate application keys using KeyCloak Key Manager
+## Generate application keys using Keycloak Key Manager
 
-Follow the instructions below to generate keys using the KeyCloak Key Manager:
+Follow the instructions below to generate keys using the Keycloak Key Manager:
 
 1. Sign in to WSO2 API Developer Portal (`https://<hostname>:9443/devportal`).
 
