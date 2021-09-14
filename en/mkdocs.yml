@@ -2060,6 +2060,13 @@ plugins:
               'streaming/connectors/downloading-and-installing-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/downloading-and-installing-siddhi-extensions/'
               'streaming/connectors/writing-custom-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/writing-custom-siddhi-extensions/'
               'streaming/connectors/configuring-system-parameters-for-siddhi-extensions.md': 'https://apim.docs.wso2.com/en/4.0.0/reference/streaming-connectors/configuring-system-parameters-for-siddhi-extensions/'
+              'api-analytics/viewing/view-overview-of-api-analytics.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#overview'
+              'api-analytics/viewing/view-api-analytics-on-traffic.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#traffic'
+              'api-analytics/viewing/view-api-analytics-on-errors.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#errors'
+              'api-analytics/viewing/view-api-analytics-on-latency.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#latency'
+              'api-analytics/viewing/view-analytics-on-devices.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#devices'
+              'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#alerts'
+              'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#reports'
 
     # Extra
 extra_css:
