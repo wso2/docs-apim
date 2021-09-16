@@ -3,7 +3,9 @@
     
 # Viewing Stream Statistics
 
-![Stream statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/stream_statistics_dashboard.png)
+This dashboard displays statistics related to streams in the Siddhi applications currently deployed in your WSO2 Streaming Integrator server.
+
+[![Stream statistics dashboard]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/stream_statistics_dashboard.png)]({{base_path}}/assets/img/streaming/streaming-integrator-grafana-dashboard/stream_statistics_dashboard.png)
 
 This dashboard displays the following information for your Streaming Integrator deployment:
 

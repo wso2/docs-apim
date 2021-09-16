@@ -9,7 +9,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
 1.  Sign in to API Publisher as an API Creator. 
 
-     For more information on User Roles, see [Managing Users and Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/).
+     For more information on User Roles, see [Managing Users and Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/).
 
 2.  [Create a new API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/). 
 

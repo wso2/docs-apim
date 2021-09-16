@@ -219,7 +219,7 @@ files. For details on how to configure log rotation and manage log growth detail
 used in the pattern layout to log a UUID. For example, the log pattern can be set as following for <code>AUDIT</code> 
 logs so that the UUID is printed at the beginning of each log record.</p>
 <code>appender.AUDIT_LOGFILE.layout.pattern = [%u] TID: [%tenantId] [%d] %5p {&#37;c} - %m%ex%n </code>
-<p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/setting-up-logging/">Setting up 
+<p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/">Setting up 
 logging in API Manage</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -462,8 +462,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth/">this</a> guide can be used.</p>
-            <p>See <a href="{{base_path}}/observe/mi-observe/logs/monitoring_logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+            <p>See <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -472,7 +472,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="{{base_path}}/observe/mi-observe/logs/configure-log4j-properties/">configuring logs</a> in the Micro Integrator.</p>
+            <p>Read about <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/">configuring logs</a> in the Micro Integrator.</p>
          </td>
       </tr>
       <tr class="even">

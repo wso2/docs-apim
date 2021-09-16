@@ -49,5 +49,5 @@ Once you set up the basic deployment, you can integrate message tracing capabili
 
 ## What's Next?
 
--	Set up <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm">cloud-native observability on a VM</a>.
--	Set up <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.
+-	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">cloud-native observability on a VM</a>.
+-	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.

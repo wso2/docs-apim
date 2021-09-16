@@ -10,9 +10,9 @@ In API Manager, access logs can be configured for both servlet transport and Pas
 
 ## Configuring access logs for the HTTP Servlet transport
 
-In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analysing operational/admin-level access details. 
+In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analyzing operational/admin-level access details. 
 
-Following is a sample of access log entries which can be monitored via `<APIM_HOME>repository/logs/http_access_.log` file by default.
+Following is a sample of access log entries which can be monitored via `<API-M_HOME>/repository/logs/http_access_.log` file by default.
 
 ```
 - 127.0.0.1 - - [12/Dec/2019:16:53:29 +0530] "POST /token HTTP/1.1" - 125 "-" "-"
@@ -33,14 +33,14 @@ By default, access logs related to service/API invocation are disabled for perfo
 
 Follow the steps given below to enable access logs for the PassThrough or NIO transport.
 
-1.  Open `<APIM_HOME>/conf/log4j2.properties` file and add following configuration for `PassThroughAccess` logger.
+1.  Open `<API-M_HOME>/conf/log4j2.properties` file and add following configuration for `PassThroughAccess` logger.
 
     ```
     logger.PassThroughAccess.name = org.apache.synapse.transport.http.access
     logger.PassThroughAccess.level = INFO
     ```
 
-2.  Append `PassThroughAccess` logger name to `loggers` configuration which is a comma separated list of all active loggers.
+2.  Append `PassThroughAccess` logger name to `loggers` configuration, which is a comma-separated list of all active loggers.
 
     ```
     loggers = PassThroughAccess, AUDIT_LOG, SERVICE_LOGGER, trace-messages,
@@ -68,7 +68,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     #access_log_directory=”/logs”
     ```
     
-    You can customize the default format and the configurations of gateway access logs using following properties that you can define in `access-log.properties`.
+    You can customize the default format and the configurations of gateway access logs using the following properties that you can define in `access-log.properties`.
 
     <table>
         <tbody>
@@ -128,7 +128,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
                    <p>The attribute defines the format for the log pattern, which consists of the information fields from the requests and responses that should be logged. The pattern format is created using the following attributes:</p>
                    <ul>
                       <li>
-                         <p>A standard value to represent a particular string. For example, "%h" represents the remote host name in the request. Note that all the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by Tomcat</a> are NOT supported for the PassThrough transport's access logs. The list of supported values are <a href="#supported-log-pattern-formats-for-the-passthrough-and-nio-transports">given below</a> .</p>
+                         <p>A standard value to represent a particular string. For example, "%h" represents the remote hostname in the request. Note that all the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by Tomcat</a> are NOT supported for the PassThrough transport's access logs. The list of supported values are <a href="#supported-log-pattern-formats-for-the-passthrough-transport">given below</a>.</p>
                       </li>
                       <li><strong>%{xxx}i</strong> is used to represent the header in the incoming request (xxx=header value).</li>
                       <li><strong>%{xxx}o</strong> is used to represents the header in the outgoing request (xxx=header value).</li>
@@ -170,7 +170,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
         </tbody>
     </table>                                                                                                                
     
-4.  Add the following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
+4.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
     ```properties
     [n_http]
@@ -179,7 +179,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     
 5.  Then [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-6.  Invoke an API in API Gateway. Then, navigate to `<APIM_HOME>/repository/logs/` directory and you will see a newly created log file called `http_gw.log` which contain API invocation related access logs.
+6.  Invoke an API in API Gateway. Then, navigate to `<API-M_HOME>/repository/logs/` directory, and you will see a newly created log file called `http_gw.log`, which contains API invocation related access logs.
 
 ### Supported log pattern formats for the PassThrough transport
 
@@ -193,7 +193,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 <tbody>
 <tr class="odd">
 <td><pre><code>%a</code></pre></td>
-<td><p>Remote IP address</p></td>
+<td><p>User Agent</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%A</code></pre></td>
@@ -220,74 +220,78 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 <td><p>Accept Encoding</p></td>
 </tr>
 <tr class="even">
+<td><pre><code>%f</code></pre></td>
+<td><p>Referer</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%E</code></pre></td>
 <td><p>Transfer Encoding</p></td>
 </tr>
-<tr class="odd">
-<td><pre><code>%h</code></pre></td>
-<td><p>Remote host name (or IP address if enableLookups for the connector is false)</p></td>
-</tr>
 <tr class="even">
+<td><pre><code>%h</code></pre></td>
+<td><p>Remote hostname (or IP address if enableLookups for the connector is false)</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%l</code></pre></td>
 <td><p>Remote logical username from identd (always returns '-')</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%L</code></pre></td>
 <td><p>Accept Language</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%k</code></pre></td>
 <td><p>Keep Alive</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%m</code></pre></td>
 <td><p>Request method (GET, POST, etc.)</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%n</code></pre></td>
 <td><p>Content Encoding</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%r</code></pre></td>
 <td><p>Request Element</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%s</code></pre></td>
 <td><p>HTTP status code of the response</p></td>
 </tr>
-<tr class="odd">
-<td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
-</tr>
 <tr class="even">
+<td><pre><code>%S</code></pre></td>
+<td><p>Accept Charset</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%t</code></pre></td>
 <td><p>Date and time, in Common Log Format</p></td>
 </tr>
-<tr class="odd">
-<td><pre><code>%T</code></pre></td>
-<td><p>Time taken to process the request in seconds.</p></td>
-</tr>
 <tr class="even">
+<td><pre><code>%T</code></pre></td>
+<td><p>Content Type</p></td>
+</tr>
+<tr class="odd">
 <td><pre><code>%u</code></pre></td>
 <td><p>Remote user that was authenticated (if any), else '-'</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%U</code></pre></td>
 <td><p>Requested URL path</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%v</code></pre></td>
 <td><p>Local server name</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%V</code></pre></td>
 <td><p>Vary Header</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><pre><code>%x</code></pre></td>
 <td><p>Connection Header</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><pre><code>%Z</code></pre></td>
 <td><p>Server Header</p></td>
 </tr>

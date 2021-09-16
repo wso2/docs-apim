@@ -1172,4 +1172,4 @@ For example:
  logger.JsonStreamBuilder.name = org.apache.synapse.commons.json.JsonStreamBuilder
  logger.JsonStreamBuilder.level = DEBUG
  ```
-For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/observe/mi-observe/logs/configure-log4j-properties).
+For more instructions on adding loggers, see [Configuring Log4j Properties]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties).

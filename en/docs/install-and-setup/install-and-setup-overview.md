@@ -723,10 +723,10 @@ To set up and configure the Micro Integrator runtime, see the topics given below
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:
         <li>
-            <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">Setting up Cloud-Native Observability on a VM</a>
         </li>
         <li>
-            <a href="{{base_path}}/observe/mi-observe/set-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
+            <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">Setting up Cloud-Native Observability on Kubernetes</a>
         </li>
         <li>
             <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment">Setting up Classic Observability Deployment</a>
@@ -735,16 +735,16 @@ To set up and configure the Micro Integrator runtime, see the topics given below
             <a>Configuring Logs</a>
         </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/enabling_component_logs">Enabling Logs for a Component</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/enabling-logs-for-a-component">Enabling Logs for a Component</a>
             </li>
             <li>
-                <a href="{{base_path}}/observe/mi-observe/logs/configure-log4j-properties">Configuring Logs</a>
+                <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties">Configuring Logs</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth">Managing Log Growth</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth">Managing Log Growth</a>
             </li>
             <li>
-                <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/masking_sensitive_info_in_logs">Masking Sensitive Information in Logs</a>
+                <a href="{{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs">Masking Sensitive Information in Logs</a>
             </li>                                                                                           
     </td>
 </tr>
