@@ -17,7 +17,7 @@ The management API is secured using JWT authentication by default. Therefore, wh
 Follow the steps given below to acquire the JWT token.
 
 1.	First, encode your username:password in Basic Auth format (encoded in base64). For example, use the default `admin:admin` credentials.
-2.	Invoke the `/login` resource of the API with your encoded credintials as shown below.
+2.	Invoke the `/login` resource of the API with your encoded credentials as shown below.
   	```bash
   	curl -X GET "https://localhost:9164/management/login" -H "accept: application/json" -H "Authorization: Basic YWRtaW46YWRtaW4=" -k -i
   	```
@@ -33,7 +33,7 @@ Follow the steps given below to acquire the JWT token.
 You can now use this token when you invoke a [resource](#accessing-api-resources).
 
 !!! Info
-     When the default JWT security handler is engaged, all the management API resources except `/login` is protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
+     When the default JWT security handler is engaged, all the management API resources except `/login` are protected by JWT auth. Therefore, it is necessary to send the token as a bearer token when invoking the API resources.
 
 ```bash
 curl -X GET "https://localhost:9164/management/inbound-endpoints" -H "accept: application/json" -H "Authorization: Bearer %AccessToken%”

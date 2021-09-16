@@ -50,7 +50,7 @@ In addition to the above, the following roles exist by default.
 -  Internal/publisher
 -  Internal/subscriber
 
-For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles)
+For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/managing-users-and-roles/managing-user-roles)
 
 You will be able to log in to the management console of the product with the **admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **admin** role. The possibility of managing users, roles, and permissions is granted by the **User Management** permission. For more information, see [Configuring the User Realm](https://is.docs.wso2.com/en/5.10.0/setup/configuring-the-realm/).
 

@@ -100,7 +100,7 @@ The following are the main use cases of WSO2 Streaming Integrator.
 <table>
     <tr>
         <td>
-            <a href="{{base_path}}/observe/si-observe/setting-up-grafana-dashboards">Monitoring Streaming Integrator</a>
+            <a href="{{base_path}}/observe/streaming-integrator/setting-up-si-statistics-dashboards">Monitoring Streaming Integrator</a>
         </td>
     </tr>
 </table>
