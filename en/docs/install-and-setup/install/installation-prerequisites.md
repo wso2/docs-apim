@@ -46,7 +46,7 @@ Check the following system requirements for the API-M and Micro Integrator runti
 <ul><li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
 <li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
 <li>10 GB free disk space</li>
-<li>  ~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.
+<li>  ~ Recommended minimum - 2 Cores. For high concurrences and better performances - 4 Cores.
 
 Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</li></ul>
 </td>

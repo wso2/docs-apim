@@ -14,7 +14,7 @@ Be sure to determine the following depending on your business-continuity require
 We also recommend the following:
 
 * Align your artifact deployment and recovery processes.
-* Schedule disaster recovery drills to test the recoverability of the system.
+* Schedule disaster recovery drills to test the system's ability to recover.
 * Test your artifacts in an environment that is identical to the production environment before deploying them into production.
 
 ## Recovery strategy

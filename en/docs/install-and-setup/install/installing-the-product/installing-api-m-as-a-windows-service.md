@@ -189,7 +189,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 
 ### Working with the WSO2CARBON service
 
-To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
+To install the Carbon-based product WSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
 installService.bat
