@@ -189,7 +189,7 @@ The following is a sample Gateway Wire Log for an API request.
 ### Enabling the Gateway Wire Logs
 
 1.  Open the `<API-M_HOME>/repository/conf/log4j2.properties` file.
-2.  Locate the `synapse-wire` logger which is already defined in the default `log4j2.properties` file.
+2.  Locate the `synapse-wire` logger, which is already defined in the default `log4j2.properties` file.
 
      ``` 
      logger.synapse-wire.name = org.apache.synapse.transport.http.wire
