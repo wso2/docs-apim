@@ -10,7 +10,7 @@ Log growth in [Carbon logs]({{base_path}}/install-and-setup/setup/mi-setup/obser
 -   **Configurable log rotation**: By default, log rotation is on a daily
     basis.
 -   **Log rotation based on time as opposed to size**: This helps to inspect the events that occurred during a specific time.
--   Log files are archived to maximise the use of space.
+-   Log files are archived to maximize the use of space.
 
 The log4j2-based logging mechanism uses appenders to
 append all the log messages into a file. That is, at the end of the log

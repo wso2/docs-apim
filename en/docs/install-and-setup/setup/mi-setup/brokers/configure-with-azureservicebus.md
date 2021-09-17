@@ -13,7 +13,7 @@ Follow the instructions below to set up and configure Micro Integrator to work w
 
 ### Setting up Azure Service Bus
 
-To set this up, configure a queue in Azure Service Bus to work with the synapse config. 
+To set this up, configure a queue in Azure Service Bus to work with the synapse configuration. 
 
 Service Bus queues can be used to communicate between various on-premise and cloud applications and components. Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
 

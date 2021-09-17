@@ -22,7 +22,7 @@ messageType property before your mediators in the configuration:
 
 ## Default message builders and formatters
 
-Listed below are the default message builders and formattters that are enabled for WSO2 Micro Integrator by default:
+Listed below are the default message builders and formatters that are enabled for WSO2 Micro Integrator by default:
 
 ```toml tab='Default Message Builders'
 application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"

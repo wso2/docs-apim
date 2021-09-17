@@ -11,7 +11,7 @@ By default, the Micro Integrator is configured to generate the basic log files t
 The following topics explain how you can use the default logs that are configured in the Micro Integrator. If you have additional logs configured,
 you will be able to access those logs as well.
 
-See [Configuring Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) for details on how logs are configured in the Micro Integator.
+See [Configuring Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) for details on how logs are configured in the Micro Integrator.
 
 ## Download Log Files
 

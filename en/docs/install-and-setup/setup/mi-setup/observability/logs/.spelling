@@ -1,0 +1,23 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+log4j2
+appenders
+consoleAppender
+RollingFile
+loggger
+activity_id
+Callout
+MessageProcessor
+PassThroughAccess
+org.apache.synapse.transport.http.access
+identd
+Chatset
+img
+src
+png
+UserInfoRESTAPI
+ - docs/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties.md
+Params

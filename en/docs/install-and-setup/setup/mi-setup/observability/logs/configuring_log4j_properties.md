@@ -345,7 +345,7 @@ These logs are disabled by default by setting the log level to `OFF`. You can en
 !!! Info
     It is not recommended to use these logs in production environments. Developers can enable them for testing and troubleshooting purposes. Note that appenders are not specified for these loggers, and therefore, the logs will be printed as specified for the [root logger](#root-logs).
 
--   The following loggers configure wire logs for the Passthrough HTTP transport:
+-   The following loggers configure wire logs for the PassThrough HTTP transport:
 
     !!! Tip
         The Passthrough HTTP transport is the main transport that handles HTTP/HTTPS messages in the Micro Integrator.
@@ -684,7 +684,7 @@ You can hide the 'Current Params' in the printed logs by passing the following s
 
 ## Using Custom Log Appenders
 
-Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storages.
+Custom log appenders for Log4j2 can be used to store application logs in various environments/systems such as cloud storage.
 
 However, since WSO2 Micro Integrator works in an OSGi environment, such Log4j2 extensions cannot be used as they are. Therefore, you need to modify those extensions to be compatible with WSO2 Micro Integrator. Follow the steps given below to modify an existing Log4j2 extension:
 

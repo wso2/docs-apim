@@ -1,11 +1,11 @@
 # Configuration Overview
 
 The configurations of the K8s API Operator are stored in K8s secrets and configmaps. Users are able to change the
-configurations by changing the secrets and config maps in K8s.
+configurations by changing the secrets and configuration maps in K8s.
 
 ### API Controller
 
-- Control deploying to the API microgateway and API Manager.
+- Control deploying to the API Microgateway and API Manager.
 
   ```yaml
   apiVersion: v1
@@ -21,7 +21,7 @@ configurations by changing the secrets and config maps in K8s.
 
 ### API Manager
 
-- Configure key manager endpoints, API publisher endpoint, ssl verification and secret name for API Manager credentials.
+- Configure key manager endpoints, API publisher endpoint, SSL verification and secret name for API Manager credentials.
 
   ```yaml
   apiVersion: v1
@@ -46,7 +46,7 @@ configurations by changing the secrets and config maps in K8s.
 
 ### API Microgateway 
 
-- Configure adapter connection url and ssl verification.
+- Configure adapter connection URL and SSL verification.
 
   ```yaml
   apiVersion: v1

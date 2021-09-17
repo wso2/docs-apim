@@ -41,7 +41,7 @@ following topics cover the configuration steps.
     can be saved in any location of your computer. In this example, a
     directory named `jndidirectory` will be created
     in the `G` folder.
-2.  Go to IBM Websphere MQ, and right-click on **JMS Administered
+2.  Go to IBM WebSphere MQ, and right-click on **JMS Administered
     Objects** , and then click **Add Initial Context** .  
     ![JMS Administered Objects]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130339.jpg)
 3.  Select the **File system** option in the **Connection Details**
@@ -182,7 +182,7 @@ The following will be displayed in the command prompt.
     parameter.password = "password"
     ```
 
-### Copying IBM Websphere MQ libraries
+### Copying IBM WebSphere MQ libraries
 
 Follow the instructions below to build and install IBM WebSphere MQ client JAR files to WSO2 Micro Integrator.
 
@@ -319,7 +319,7 @@ In this section, the following simple proxy service is deployed to listen to the
 
 ### Testing the proxy service
 
-Open IBM Websphere MQ and publish a message to `LocalQueue1`.
+Open IBM WebSphere MQ and publish a message to `LocalQueue1`.
 
 ![Publish Message to Queue]({{base_path}}/assets/img/integrate/broker-configs/ibm-websphere-mq/119130337.jpg)
 
