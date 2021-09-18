@@ -102,7 +102,7 @@ file based on your requirement:
 
 -   `          processors         ` - A list of processors on which you
     want the tool run. The processors that you can specify are
-    pre-defined. Possible values are `          RDBMS         ` and
+    predefined. Possible values are `          RDBMS         ` and
     `          log-file         ` .
 -   `          directories         ` - The definitions of directories on
     which you want the tool to run. When you specify a directory

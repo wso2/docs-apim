@@ -2,13 +2,13 @@
 
 The **WSO2 API Controller (apictl)** can inject dynamic values based on environment variables to various project files. The use of environment variables is a very convenient way of controlling inputs in almost every CI/CD platform.
 
-## Add dynamic data to environment configs
+## Add dynamic data to environment configurations
 
 To allow easily configuring environment-specific details, by default, the apictl supports an additional parameter file. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
 The file supports detecting environment variables during the API (or API Product) import process. You can use the notation `${DEV_URL}` to specify environment variables to any attribute in this file. 
 
-Follow the instructions below to add dynamic data to environment configs of an API.
+Follow the instructions below to add dynamic data to environment configurations of an API.
 
 1. Initialize an API Project using the below command.
 
@@ -64,7 +64,7 @@ Once the project is successfully imported, sign-in to the WSO2 API Manager (WSO2
 
 [![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png)]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png) 
 
-## Add dynamic data to Custom Medation Policies in an API project
+## Add dynamic data to Custom Mediation Policies in an API project
 
 Other than the API (or API Product) Environment Configuration (`params.yaml`), the apictl supports environment variable substitution in custom mediation policies.
 

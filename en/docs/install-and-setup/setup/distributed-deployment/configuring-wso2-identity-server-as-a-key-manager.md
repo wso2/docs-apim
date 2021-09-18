@@ -22,7 +22,7 @@ It is assumed that you have already downloaded WSO2 API Manager.
 !!! note
     This is only required if you are running both WSO2 API Manager and WSO2 Identity Server on the same Virtual Machine (VM). For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset).
 
-Open the `<IS_HOME>/repository/conf/deployment.toml` file and change the offset to 1 by applying the following config as follows:
+Open the `<IS_HOME>/repository/conf/deployment.toml` file and change the offset to 1 by applying the following configuration as follows:
 
 ``` yaml
 [server]
@@ -242,7 +242,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 By default, WSO2 API Manager and WSO2 Identity Server comes with a JDBC User Store as the primary userstore. However, if you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, that particular user store has to be configured in the API Manager nodes as well. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
 
-1. Add below config in `<APIM_HOME>/repository/conf/deployment.toml`
+1. Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
 
 ```java
    [apim.key_manager]

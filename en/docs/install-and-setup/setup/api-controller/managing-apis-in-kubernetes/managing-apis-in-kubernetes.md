@@ -24,7 +24,7 @@
 
 ## Add an API to Kubernetes cluster
 
-1.  Run the following command to add an API to the Kubernetes cluster using either a swagger file, zip file, or an API project folder. When you add the API to the Kubernetes cluster, the API operator successfully deploys the project zip to the WSO2 microgateway Adapter component.
+1.  Run the following command to add an API to the Kubernetes cluster using either a swagger file, zip file, or an API project folder. When you add the API to the Kubernetes cluster, the API operator successfully deploys the project zip to the WSO2 Microgateway Adapter component.
 
     -   **Command** 
 
@@ -61,7 +61,7 @@
 
 ## Update an API in Kubernetes cluster
 
-1.  Run the following command to update an API in the Kubernetes cluster using either a swagger file, zip file, or an API project folder. When you update the API in the Kubernetes cluster, the API operator successfully deploys the updated project zip to the WSO2 microgateway Adapter component.
+1.  Run the following command to update an API in the Kubernetes cluster using either a swagger file, zip file, or an API project folder. When you update the API in the Kubernetes cluster, the API operator successfully deploys the updated project zip to the WSO2 Microgateway Adapter component.
 
     -   **Command** 
 
@@ -195,7 +195,7 @@
 
 2.  You can add [kustomization.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomization.yaml), [kustomize-config.yaml]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-in-kubernetes/resources/kustomize-config.yaml) and project zip file (Eg: PizzaShackAPI_1.0.0.zip).
 
-3.  Run the following command to generate the related config maps.
+3.  Run the following command to generate the related configuration maps.
 
     -   **Command** 
 

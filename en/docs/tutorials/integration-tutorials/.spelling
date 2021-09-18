@@ -1,0 +1,39 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+PayloadFactory
+Configs
+SampleServicesConfigs
+HospitalServicesEP
+GrandOakEP
+ClemencyEP
+PineValleyEP
+ChannelingFeeEP
+SettlePaymentEP
+json
+Args
+PayloadFactoryArgument
+SampleServicesCompositeExporter
+Runtime
+MySQL
+Smooks
+smooks
+MailTo
+middleware
+IDoc
+JCo
+32-bit
+jcolibrary
+64-bit
+jco
+Progid
+snc
+X509-certificate
+unicodemode
+IDocs
+Uncomment
+BAPIs
+i.e.
+wso2-user

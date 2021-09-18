@@ -1,0 +1,66 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+WS-Security
+anonymousAccessAllowed
+wildcards
+artemis-jms-client-all-2
+6.1.jar
+my-mq
+geronimo-jms_2
+netty-transport-native-epoll-4
+0.40.Final.jar
+27.1.jar
+Qpid-jms-client-0
+32.0.jar
+HornetQ
+JBoss
+WebSphere
+samplequeue
+QueueConnectionFactory
+com.ibm.ws.runtime.jar
+com.ibm.ws.admin.client_7.0.0.jar
+com.ibm.ws.sib.client.thin.jms_7.0.0.jar
+com.ibm.ws.webservices.thinclient_7.0.0.jar
+bootstrap.jar
+ESBQManager
+myChannel
+ConfigurewithIBMWebSphereMQ-Qmanager
+wmq
+JBossMQ
+msmq
+ByteBuffer
+allocateDirect
+msmqQueueName
+wso2v2.jar
+andes-client-0
+13.wso2v10.jar
+MB_HOME
+EI_HOME
+RabbitMQ
+fail_if_no_peer_cert
+30000ms
+SwiftMQ
+jms.jar
+jndi.jar
+swiftmq.jar
+Tibco
+tibcrypt.jar
+jms-2
+tibjms.jar
+tibjmsadmin.jar
+tibjmsapps.jar
+tibrvjms.jar
+WebLogic
+WSO2_MB
+andes-client-3
+2.19.jar
+org.wso2.securevault
+1.0.wso2v1.jar
+QPid
+EI-Broker
+testJMSProxy
+example.MyQueue
+jndi.properties

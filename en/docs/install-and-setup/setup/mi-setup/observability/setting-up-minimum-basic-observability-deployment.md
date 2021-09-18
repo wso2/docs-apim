@@ -70,13 +70,13 @@ To set up the Grafana server:
 
 ### Importing dashboards to Grafana
 
-The Micro Integrator provides pre-configured Grafana dashboards in which you can visualize EI statistics.
+The Micro Integrator provides preconfigured Grafana dashboards in which you can visualize EI statistics.
 
 You can directly import the required dashboards to Grafana using the <b>dashboard ID</b>:
 
 1.  Go to [Grafana labs](https://grafana.com/orgs/wso2/dashboards).
 2.  Select the required dashboard and copy the dashboard ID.
-3.  Provde this ID to Grafana and import the dashboard.
+3.  Provide this ID to Grafana and import the dashboard.
 4.  Repeat the above steps to import all other Micro Integrator dashboards.
 
 These dashboards are provided as JSON files that can be manually imported to Grafana. To import the dashboards as JSON files:
@@ -408,4 +408,4 @@ Once Grafana is successfully configured to visualize statistics, you should be c
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
+If you have successfully set up your analytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).

@@ -2,8 +2,8 @@
 
 The performance of WSO2 Micro Integrator Manager was measured using the following scenarios.
 
-- Direct Proxy: This is a passthrough Proxy Service, which directly invokes the back-end service.
-- Direct API: This is a passthrough API Service, which directly invokes the back-end service.
+- Direct Proxy: This is a PassThrough Proxy Service, which directly invokes the back-end service.
+- Direct API: This is a PassThrough API Service, which directly invokes the back-end service.
 - CBR Transport Header Proxy: This is a Proxy Service which routes the message based on an HTTP header in the message.
 - XSLT Proxy: This is a Proxy Service which has XSLT transformations in request and response paths.
 

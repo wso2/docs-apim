@@ -18,7 +18,7 @@ changes in the round trip of a single HTTP request. A correlation ID
 assigned to the incoming HTTP request is assigned to all the log entries
 corresponding to the request. Therefore, you can use this correlation ID
 to easily locate the logs relevant to the round trip of a specific HTTP
-request and, thereby, analyze the behaviour of the message flow.
+request and, thereby, analyze the behavior of the message flow.
  
 ## Enabling correlation logs
 

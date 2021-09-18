@@ -1,0 +1,27 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+OpenAPI
+npm
+nodejs
+SampleStore
+Webhook
+WebHook
+dev
+DevOps
+Petstore
+templating
+microservices
+prod.wso2.com
+prod.sandbox.wso2.com
+macOS
+Pizzashack-1
+PetsInfo
+PetsApp
+OAEPWithSHA1AndMGF1Padding
+PKCS1Padding
+MacOS
+32-bit
+64-bit

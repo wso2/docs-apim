@@ -1,4 +1,4 @@
-# Sample 2 - Deployment Params and Certs
+# Sample 2 - Deployment Parameters and Certs
 
 Let's deploy a backend using Target Endpoint resource on your Kubernetes environment and apply API management.
 
@@ -10,7 +10,7 @@ Let's deploy a backend using Target Endpoint resource on your Kubernetes environ
  -  Install the [Kubernetes API Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install).
  -  Setup Choreo Connect
     1.  Download the Choreo Connect v0.9.0 from
-        [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
+        [GitHub release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
         to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
     
     2.  Using the kubectl tool, apply Kubernetes configurations for Choreo Connect.
@@ -21,7 +21,7 @@ Let's deploy a backend using Target Endpoint resource on your Kubernetes environ
 
  -  Install API controller
     Download the api controller (apictl) from the 
-    [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
+    [GitHub release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
     extract them to a folder of your choice.
 
     ```bash
@@ -56,7 +56,7 @@ kubectl create cm cert-products-certs \
     --from-file products-certs.crt
 ```
 
-## Step 3: Create Params ConfigMap
+## Step 3: Create Parameters ConfigMap
 
 Let's generate the deployment directory using apictl.
 

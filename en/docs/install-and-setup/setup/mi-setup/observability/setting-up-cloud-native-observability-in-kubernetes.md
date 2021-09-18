@@ -181,7 +181,7 @@ To do this, set the following pod level annotation to the Micro Integrator pod.
 
 `fluentbit.io/parser: wso2`
 
-### Configuring the Micro Integator to publish tracing information
+### Configuring the Micro Integrator to publish tracing information
 
 !!! Tip
     This step is only required if you have message tracing capabilities in your observability deployment.
@@ -210,4 +210,4 @@ For more information about the Micro Integrator Kubernetes development flow, see
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).
+If you have successfully set up your analytics deployment, see the instructions on [using the Grafana dashboards]({{base_path}}/observe/mi-observe/cloud-native-observability-dashboards).

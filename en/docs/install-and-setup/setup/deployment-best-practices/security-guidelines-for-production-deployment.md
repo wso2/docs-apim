@@ -101,7 +101,7 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
 <ul>
 <li>DES/3DES are deprecated and should not be used.</li>
 <li>MD5 should not be used due to known collision attacks.</li>
-<li>RC4 should not be used due to crypto-analytical attacks.</li>
+<li>RC4 should not be used due to analytical cryptographic attacks.</li>
 <li>DSS is limited to a small 1024 bit key size.</li>
 <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
 <li>GCM based ciphers are recommended over CBC ciphers.</li>
@@ -241,10 +241,10 @@ been removed from Hotspot JVM.</p>
 </td>
 </tr>
 <tr class="odd">
-<td><p>Use a seperate admin user account to login into the system</p>
+<td><p>Use a separate admin user account to login into the system</p>
 <p><br />
 </p></td>
-<td><p>WSO2 recommends that you use two seperate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
+<td><p>WSO2 recommends that you use two separate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
 <p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
 </td>
 </tr>
@@ -578,7 +578,7 @@ This section provides a list of security guidelines for configuring the network
 <p><br />
 </p></td>
 <td>In the cloud native deployment, high-availability should be achieved via the container orchestration system (e.g., Kubernetes ). 
-<p>In a VM deployment, there should be atleast two nodes with the failover configuration. When your servers are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
+<p>In a VM deployment, there should be at least two nodes with the failover configuration. When your servers are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
 </td>
 </tr>
 <tr class="even">

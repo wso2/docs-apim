@@ -4,7 +4,7 @@ The following diagram depicts the complete **cloud-native** observability soluti
 
 ![Cloud Native Deployment Architecture]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-deployment-architecture.png)
 
-You can also set up different flavours of this solution depending on your requirement.
+You can also set up different flavors of this solution depending on your requirement.
 
 The cloud-native solution is more suitable in the following scenarios:
 
