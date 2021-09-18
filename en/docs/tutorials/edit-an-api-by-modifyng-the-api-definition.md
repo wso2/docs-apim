@@ -199,7 +199,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 10. Complete the rest of the API creation process.
     For more information, see step 7 onwards under [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
-11. Click **View in Dev Portal** and the API you just published appears.
+11. Click **View in Developer Portal** and the API you just published appears.
 12. Click **Try Out**.
     Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
