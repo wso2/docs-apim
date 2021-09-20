@@ -61,7 +61,7 @@ Set up the back-end service:
 Set up the SOAPUI client. 
 
 1. Download and Install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
-2. Create a new SOAP project in the SoapUI using following wsdl file:
+2. Create a new SOAP project in the SoapUI using following WSDL file:
 
    ```bash
    http://localhost:8290/services/StockQuoteProxy?wsdl

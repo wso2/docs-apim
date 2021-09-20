@@ -17,7 +17,7 @@ For example, let's generate a database password:
 kubectl create secret generic db-password --from-literal=password=1234567
 ```
 
-See the [kubernetes guide](https://kubernetes.io/docs/concepts/configuration/secret/) for more information on creating secrets.
+See the [Kubernetes guide](https://kubernetes.io/docs/concepts/configuration/secret/) for more information on creating secrets.
 
 ## Step 2: Adding the secret to a Pod
 

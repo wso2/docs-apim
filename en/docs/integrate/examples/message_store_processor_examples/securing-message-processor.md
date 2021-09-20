@@ -59,4 +59,4 @@ shows the encrypted message flowing to the service and the encrypted
 response being received by the Micro Integrator.
 
 The security policy file `policy1.xml` can be downloaded from  [policy1.xml](https://github.com/wso2-docs/WSO2_EI/blob/master/sec-policies/policy1.xml). 
-The security policy file uri needs to be updated with the path to the policy1.xml file.
+The security policy file URI needs to be updated with the path to the policy1.xml file.

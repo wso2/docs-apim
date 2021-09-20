@@ -40,4 +40,4 @@ Shown below is the sample configuration that is created. You can now update the 
 
 ## Examples
 
--	<a href="{{base_path}}/integrate/examples/data_integration/carbon-data-service">Exposing a Cabon Datasource</a>
+-	<a href="{{base_path}}/integrate/examples/data_integration/carbon-data-service">Exposing a Carbon Datasource</a>

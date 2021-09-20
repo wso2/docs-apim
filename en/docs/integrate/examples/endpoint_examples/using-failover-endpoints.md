@@ -48,7 +48,7 @@ Following is a sample REST API configuration that we can used to implement this 
 In the above example, the `         Sample_First        ` endpoint is
 marked as `         Timeout        ` if a connection times out, closes,
 or sends IO errors after retrying for `         60000        `
-miliseconds.
+milliseconds.
 
 When one of the errors of the specified codes occur (i.e.,
 `         101504, 101505        ` and `         101500)        ` , the
@@ -56,7 +56,7 @@ failover will retry using the first non-suspended endpoint. In this
 case, it is the same endpoint ( `         Sample_First        ` ). It
 will retry until the retry count (i.e. 3 in the above example) becomes 0
 with a delay as specified by the `         <retryDelay>        `
-property (i.e., `         10        ` miliseconds in the above example).
+property (i.e., `         10        ` milliseconds in the above example).
 
 For all the other errors, it will be marked as
 `         Suspended        ` . For more information about these states
@@ -107,7 +107,7 @@ sending the message with the first endpoint, the failover endpoint will
 go through the endpoint list again from the beginning and will try to
 send the requests using the next endpoint, which is in the
 `         Active        ` or `         Timeout        ` state.
-Neverthless, when the first endpoint becomes ready to send again, it
+Nevertheless, when the first endpoint becomes ready to send again, it
 will try again on the first endpoint, even though the second endpoint is
 still active. For more information about these states and properties,
 see [Endpoint Error Handling]({{base_path}}/integrate/examples/endpoint_examples/endpoint_error_handling).

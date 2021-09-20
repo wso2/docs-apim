@@ -114,7 +114,7 @@ Create the artifacts:
 Let's send a request with multiple transactions to the data service:
 
 1. Download and Install [SoapUI](https://www.soapui.org/downloads/soapui.html) to run this SOAP service.
-2. Create a new SOAP Project in the SoapUI using following wsdl file:
+2. Create a new SOAP Project in the SoapUI using following WSDL file:
    ```bash
    http://localhost:8290/services/request_box_example?wsdl
    ```
