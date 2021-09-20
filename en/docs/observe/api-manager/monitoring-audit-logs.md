@@ -1,33 +1,37 @@
+---
+title: Monitoring Audit Logs - WSO2 API Manager 4.0.0
+---
+
 # Monitoring Audit Logs
 
-Auditing is a primary requirement when it comes to monitoring production servers. For examples, DevOps need to have a clear mechanism for identifying who did what, and to filter possible system violations or breaches.
-Audit logs or audit trails contain a set of log entries that describe a sequence of actions that occurred over a period of time. Audit logs allow you to trace all the actions of a single user, or all the actions or changes introduced to a certain module in the system etc. over a period of time. For example, it captures all the actions of a single user from the first point of logging in to the server. 
-By default the audit logs that get created when running WSO2 API-M are stored in the `audit
-.log` file, which is located in the `<API-M_HOME>/repository/logs` directory.
+Auditing is a primary requirement when it comes to monitoring production servers. For example, DevOps need to have a clear mechanism for identifying who did what, and to filter possible system violations or breaches.
+Audit logs or audit trails contain a set of log entries that describe a sequence of actions that occurred over a period of time. Audit logs allow you to trace all the actions of a single user or all the actions or changes introduced to a certain module in the system, etc., over a period of time. For example, it captures all the actions of a single user from the first point of logging in to the server. 
+By default, the audit logs that get created when running WSO2 API-M are stored in the `audit.log` file, which is located in the `<API-M_HOME>/repository/logs` directory.
 
-##Configuring Audit Logs
+## Configuring Audit Logs
+
 Audit logs are enabled by default in WSO2 API Manager (WSO2 API-M) via the following configurations, which are in the `<API-M-HOME>/repository/conf/log4j2.properties` file. 
 
-    ``` 
-    appender.AUDIT_LOGFILE.type = RollingFile
-    appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
-    appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
-    appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
-    appender.AUDIT_LOGFILE.layout.type = PatternLayout
-    appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-    appender.AUDIT_LOGFILE.policies.type = Policies
-    appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-    appender.AUDIT_LOGFILE.policies.time.interval = 1
-    appender.AUDIT_LOGFILE.policies.time.modulate = true
-    appender.AUDIT_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-    appender.AUDIT_LOGFILE.policies.size.size=10MB
-    appender.AUDIT_LOGFILE.strategy.type = DefaultRolloverStrategy
-    appender.AUDIT_LOGFILE.strategy.max = 20
-    appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
-    appender.AUDIT_LOGFILE.filter.threshold.level = INFO
-    ```
+``` 
+appender.AUDIT_LOGFILE.type = RollingFile
+appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
+appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
+appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
+appender.AUDIT_LOGFILE.layout.type = PatternLayout
+appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+appender.AUDIT_LOGFILE.policies.type = Policies
+appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+appender.AUDIT_LOGFILE.policies.time.interval = 1
+appender.AUDIT_LOGFILE.policies.time.modulate = true
+appender.AUDIT_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+appender.AUDIT_LOGFILE.policies.size.size=10MB
+appender.AUDIT_LOGFILE.strategy.type = DefaultRolloverStrategy
+appender.AUDIT_LOGFILE.strategy.max = 20
+appender.AUDIT_LOGFILE.filter.threshold.type = ThresholdFilter
+appender.AUDIT_LOGFILE.filter.threshold.level = INFO
+```
 
-   The log growth of audit logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
+The log growth of audit logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth) guide.
    
 ## Audit log actions
 
@@ -53,5 +57,4 @@ In WSO2 API-M, audit logs can be enabled for the following user actions in the P
 | Delete an application           | `[2017-06-07 22:45:59,093]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\"}"}`|
 | Subscribe to an application     | `[2017-06-07 22:36:48,826]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"DefaultApplication\",\"tier\":\"Gold\",\"provider\":\"admin\",\"api_name\":\"PhoneVerification\",\"application_id\":1}"}` |
 | Unsubscribe from an application | `[2017-06-07 22:38:08,277]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Subscription","info":"{\"application_name\":\"DefaultApplication\",\"provider\":\"admin\",\"api_name\":\"PhoneVerification\",\"application_id\":1}"}`|
-
 

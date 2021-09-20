@@ -1,5 +1,5 @@
 ---
-title: Access the MI Analytics Portal - API Manager Documentation 4.0.0
+title: Access the MI Analytics Portal - WSO2 API Manager 4.0.0
 ---
 
 # Access the MI Analytics Portal

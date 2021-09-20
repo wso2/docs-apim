@@ -1,18 +1,18 @@
+---
+title: Monitoring HTTP Access Logs - WSO2 API Manager 4.0.0
+---
+
 # Monitoring HTTP Access Logs
 
 HTTP access logs help you monitor your application's usage with information such as the persons who access it, how many hits it received, what the errors are, etc. This information is useful for troubleshooting errors. 
 
 In API Manager, access logs can be configured for both servlet transport and PassThrough or NIO transports in API Gateway.
 
--   [Configuring access logs for the HTTP Servlet transport](#configuring-access-logs-for-the-http-servlet-transport)
--   [Configuring access logs for PassThrough or NIO transports in API Gateway](#configuring-access-logs-for-passthrough-or-nio-transports-in-api-gateway)
-
-
-##Configuring access logs for the HTTP Servlet transport
+## Configuring access logs for the HTTP Servlet transport
 
 In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analyzing operational/admin-level access details. 
 
-Following is a sample of access log entries which can be monitored via `<APIM_HOME>repository/logs/http_access_.log` file by default.
+Following is a sample of access log entries which can be monitored via `<API-M_HOME>/repository/logs/http_access_.log` file by default.
 
 ```
 - 127.0.0.1 - - [12/Dec/2019:16:53:29 +0530] "POST /token HTTP/1.1" - 125 "-" "-"
@@ -27,20 +27,20 @@ Following is a sample of access log entries which can be monitored via `<APIM_HO
 
 As the runtime of WSO2 API Manager   is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport:
 
-##Configuring access logs for PassThrough or NIO transports in API Gateway
+## Configuring access logs for PassThrough or NIO transports in API Gateway
 
 By default, access logs related to service/API invocation are disabled for performance reasons in the above products. You should enable these access log only for troubleshooting errors. 
 
 Follow the steps given below to enable access logs for the PassThrough or NIO transport.
 
-1.  Open `<APIM_HOME>/conf/log4j2.properties` file and add following configuration for `PassThroughAccess` logger.
+1.  Open `<API-M_HOME>/conf/log4j2.properties` file and add following configuration for `PassThroughAccess` logger.
 
     ```
     logger.PassThroughAccess.name = org.apache.synapse.transport.http.access
     logger.PassThroughAccess.level = INFO
     ```
 
-2.  Append `PassThroughAccess` logger name to `loggers` configuration which is a comma separated list of all active loggers.
+2.  Append `PassThroughAccess` logger name to `loggers` configuration, which is a comma-separated list of all active loggers.
 
     ```
     loggers = PassThroughAccess, AUDIT_LOG, SERVICE_LOGGER, trace-messages,
@@ -68,7 +68,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     #access_log_directory=”/logs”
     ```
     
-    You can customize the default format and the configurations of gateway access logs using following properties that you can define in `access-log.properties`.
+    You can customize the default format and the configurations of gateway access logs using the following properties that you can define in `access-log.properties`.
 
     <table>
         <tbody>
@@ -128,7 +128,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
                    <p>The attribute defines the format for the log pattern, which consists of the information fields from the requests and responses that should be logged. The pattern format is created using the following attributes:</p>
                    <ul>
                       <li>
-                         <p>A standard value to represent a particular string. For example, "%h" represents the remote host name in the request. Note that all the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by Tomcat</a> are NOT supported for the PassThrough transport's access logs. The list of supported values are <a href="#supported-log-pattern-formats-for-the-passthrough-and-nio-transports">given below</a> .</p>
+                         <p>A standard value to represent a particular string. For example, "%h" represents the remote hostname in the request. Note that all the <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by Tomcat</a> are NOT supported for the PassThrough transport's access logs. The list of supported values are <a href="#supported-log-pattern-formats-for-the-passthrough-transport">given below</a>.</p>
                       </li>
                       <li><strong>%{xxx}i</strong> is used to represent the header in the incoming request (xxx=header value).</li>
                       <li><strong>%{xxx}o</strong> is used to represents the header in the outgoing request (xxx=header value).</li>
@@ -170,7 +170,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
         </tbody>
     </table>                                                                                                                
     
-4.  Add the following configuration in the `<APIM_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
+4.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
     ```properties
     [n_http]
@@ -179,9 +179,9 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     
 5.  Then [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-6.  Invoke an API in API Gateway. Then, navigate to `<APIM_HOME>/repository/logs/` directory and you will see a newly created log file called `http_gw.log` which contain API invocation related access logs.
+6.  Invoke an API in API Gateway. Then, navigate to `<API-M_HOME>/repository/logs/` directory, and you will see a newly created log file called `http_gw.log`, which contains API invocation related access logs.
 
-###Supported log pattern formats for the PassThrough transport
+### Supported log pattern formats for the PassThrough transport
 
 <table>
 <thead>
@@ -229,7 +229,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 </tr>
 <tr class="even">
 <td><pre><code>%h</code></pre></td>
-<td><p>Remote host name (or IP address if enableLookups for the connector is false)</p></td>
+<td><p>Remote hostname (or IP address if enableLookups for the connector is false)</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%l</code></pre></td>

@@ -1,5 +1,5 @@
 ---
-title: Role-based Access Control for API Analytics - API Manager Documentation 4.0.0
+title: Role-based Access Control for API Analytics - WSO2 API Manager 4.0.0
 ---
 
 # Role-based Access Control for API Analytics
