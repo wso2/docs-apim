@@ -84,7 +84,7 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
 
 6. Let's define Siddhi queries to calculate the average production per minute, filter production runs where the average production per minute is greater than 100, and direct the logs to be published to the output stream.
 
-    a. To calculate the average per minute, add a Siddi query named `CalculateAverageProductionPerMinute` as follows:
+    a. To calculate the average per minute, add a Siddhi query named `CalculateAverageProductionPerMinute` as follows:
 
         ```
         @info(name = 'CalculateAverageProductionPerMinute')

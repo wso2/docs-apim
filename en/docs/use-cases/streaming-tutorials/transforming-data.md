@@ -34,7 +34,7 @@ To understand how the Streaming Integrator can transform streaming data from one
     !!! info
         Replace `Users/foo` with the actual path to the location in which you saved the `flights.csv` file.
    
-   The above stream definition receives events with values for the `flight` and `passengers` fields. The source annotation connected to it specifies that these events are counsumed from a file named `flights.csv` in the `/Users/foo/` directory in the `CSV` format. This file is tailed for new events. 
+   The above stream definition receives events with values for the `flight` and `passengers` fields. The source annotation connected to it specifies that these events are consumed from a file named `flights.csv` in the `/Users/foo/` directory in the `CSV` format. This file is tailed for new events. 
    
 5. To generate the output in `JSON`, define an output stream as follows.
 

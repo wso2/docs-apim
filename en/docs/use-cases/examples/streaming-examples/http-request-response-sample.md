@@ -1,7 +1,7 @@
 # Publishing HTTP Requests and Processing the Responses
 
 ## Purpose:
-This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via HTTP transport in JSON default format, Receive response from the http server and process the response using siddhi.
+This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via HTTP transport in JSON default format, Receive response from the HTTP server and process the response using Siddhi.
 
 ## Prerequisites:
 * Save this sample. If there is no syntax error, the following message is shown on the console:
@@ -16,9 +16,9 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 ## Testing the Sample:
 1. Open a terminal and navigate to {WSO2SIHome}/samples/sample-clients/http-server and run "ant" command without any arguments.
 2. Send events using one or more of the following methods.
-    * Send events with http server through the event simulator:
+    * Send events with HTTP server through the event simulator:
         1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
-	    2. In the Single Simulation tab of the panel, specifiy the values as follows:
+	    2. In the Single Simulation tab of the panel, specify the values as follows:
             * Siddhi App Name  : HttpRequestResponseSample
             * Stream Name     : SweetProductionStream
         3. In the name and amount fields, enter 'toffees' and '75.6' respectively and then click Send to send the event.
@@ -39,10 +39,10 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
             *  "status": "OK",
             *  "message": "Single Event simulation started successfully"
 3. When publishing the events,
-http-request sink will send the request to the http server and the server will echo the received request as the response with a 200 http status code.
+http-request sink will send the request to the HTTP server and the server will echo the received request as the response with a 200 HTTP status code.
 Then,
-- That successful response will be received by the defined http-response source which has the relevant http status code.
-- Received response will be converted to a siddhi event using using json default mapping and pushed to the ResponseStream.
+- That successful response will be received by the defined http-response source which has the relevant HTTP status code.
+- Received response will be converted to a Siddhi event using using JSON default mapping and pushed to the ResponseStream.
 
 ## Viewing the Results:
 The received responses will be logged in the terminal/editor console as following.

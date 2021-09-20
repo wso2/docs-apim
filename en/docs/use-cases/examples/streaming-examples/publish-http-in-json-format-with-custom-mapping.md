@@ -25,7 +25,7 @@ This application demonstrates how to configure the Streaming Integrator to send 
 
 2. To send events, follow one or more of the following methods.
 
-    * **Send events with http server through the event simulator:**
+    * **Send events with HTTP server through the event simulator:**
 
         a. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 
@@ -38,7 +38,7 @@ This application demonstrates how to configure the Streaming Integrator to send 
 
         d.  Send more events as required.
 
-    * **Send events to the http endpoint defined by 'publish.url' in the Sink configuration through the curl command:**
+    * **Send events to the HTTP endpoint defined by 'publish.url' in the Sink configuration through the curl command:**
 
         a. Open a new terminal and issue the following command
 

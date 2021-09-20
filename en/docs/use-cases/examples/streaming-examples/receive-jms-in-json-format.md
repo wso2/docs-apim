@@ -41,7 +41,7 @@ To convert ActiveMQ lib to OSGI,
 		- INFO: Running jar to bundle conversion [timestamp] org.wso2.carbon.tools.converter.utils.BundleGeneratorUtils convertFromJarToBundle
 		- INFO: Created the OSGi bundle activemq_client_5.x.x_1.0.0.jar for JAR file <absolute_path>/activemq-client-5.x.x/activemq-client-5.x.x.jar
 		```
-3) You can find the osgi converted libs in `activemq-client-5.x.x` folder. You can copy `activemq-client-5.x.x/activemq_client_5.x.x_1.0.0.jar` to `{WSO2SIHome}/lib` and `activemq-client-5.x.x/activemq-client-5.x.x.jar` to `{WSO2SIHome}/samples/sample-clients/lib`.
+3) You can find the OSGi converted libs in `activemq-client-5.x.x` folder. You can copy `activemq-client-5.x.x/activemq_client_5.x.x_1.0.0.jar` to `{WSO2SIHome}/lib` and `activemq-client-5.x.x/activemq-client-5.x.x.jar` to `{WSO2SIHome}/samples/sample-clients/lib`.
 
 ## Executing the Sample:
 1. Navigate to `{apache-activemq-5.x.x}` unzipped directory.
