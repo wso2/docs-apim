@@ -2,7 +2,7 @@
 
 This is a tutorial that is part of a series and can be used as a standalone tutorial on how to use connectors. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 10 mins_**
+**_Time to Complete : 10 minutes_**
 
 ## User story
 
@@ -12,7 +12,7 @@ When you integrate the systems in your organization, it is also necessary to int
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario13.png" alt="Integrating with Connectors" title="Integrating with Connectors" width="60%" />
 
-To develop the service you can use Integration Studio, where you can import and package the connector with the Composite application. To listen for a file, you can use an Inbound Endpoint, which will be listening to a particular location which you provide. Once a file is added to that location it will pick up the file and process it. Inbound Endpoints support various protocols such as HTTP, JMS, RabbitMQ, Websocket etc, 
+To develop the service you can use Integration Studio, where you can import and package the connector with the Composite application. To listen for a file, you can use an Inbound Endpoint, which will be listening to a particular location which you provide. Once a file is added to that location it will pick up the file and process it. Inbound Endpoints support various protocols such as HTTP, JMS, RabbitMQ, WebSocket etc, 
 
 While developing you can try it out in the Embedded Micro Integrator inside the Studio. Once the development is complete you can export it as a Compose Application and add it to the Micro Integrator runtime.
 
