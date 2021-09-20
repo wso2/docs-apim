@@ -6,7 +6,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 ## Prerequisites:
 1. Save this sample.
 2. Install snmp agent on your network node.
-    * for linux can install snmpd / for windows it can be configured by 'windows features'.
+    * for Linux can install snmpd / for windows it can be configured by 'windows features'.
     * configure snmp agent ex:- community string = public,
 3. If there is no syntax error, the following message is shown on the console:
        * - SNMP-set-request-app successfully deployed.

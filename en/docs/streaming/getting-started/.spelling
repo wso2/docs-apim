@@ -1,0 +1,33 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Siddhi
+MacOS
+MySQL
+SweetFactoryApp
+InsertSweetProductionStream
+Kubernetes
+SweetFactoryApp.siddhi
+templating
+templated
+e.g.
+MongoDB
+runtime
+Debezium
+binlog
+i.e.
+SI_HOME
+deployment.yaml
+wso2.transport.http
+msf4j-https
+pre-configured
+Grafana
+Statistics.json
+Perometheus
+json
+substep
+uid
+SweetProductionTable
+cdc-statistics

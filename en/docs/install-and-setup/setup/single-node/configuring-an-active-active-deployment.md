@@ -101,23 +101,13 @@ system such as Network File System (NFS) or any other shared file system that is
 
 You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
 
-1.  `<APIM_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
-2.  `<APIM_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
+1.  `<API-M_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
+2.  `<API-M_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
 
-??? info "If you are unable to maintain a shared file system"
-
-    However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For 
-    information on setting up a rsync based deployment synchronization, see [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization).
-
-    !!! warning
-        **Shared file system** is the **first preference** that WSO2 recommends to synchronize the artifacts among the nodes, 
-        because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the  vulnerability 
-        of a single point of failure that is present when using remote synchronization (rsync).
     
 ## Step 6 - Configure Publisher with the Gateway
 
@@ -131,33 +121,6 @@ can publish the API artifacts to their own nodes. Therefore, you can point the `
 service_url = "https://localhost:${mgt.transport.https.port}/services/"
 ...
 ```
-
-??? info "If you are using RSYNC for artifact synchronization"  
-
-    The API artifacts will be synchronized in one direction. The synchronization will take place from manager to the worker as explained in the [Configuring rsync for Deployment 
-    Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
-    for the purpose of artifact synchronization. Follow the instructions below to configure the manager node:
-
-    Let's assume that `node-1` is the manager node for artifact synchronization.
-
-    1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in `node-1`.
-    2.  Configure the Gateway Service URL to point to it's self (localhost):
-        ``` toml
-        [[apim.gateway.environment]]
-        ...
-        service_url = "https://localhost:${mgt.transport.https.port}/services/"
-        ...
-        ```
-
-    3.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in `node-2`.
-    4.  Configure the Gateway Service URL to point to `node-1`:
-        ``` toml
-        [[apim.gateway.environment]]
-        ...
-        service_url = "https://<node1-hostname>:<node-1-mgt-transport-port>/services/"
-        ...
-        ```
-        Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
 ## Step 7 - Configure Gateway URLs to Expose APIs
 

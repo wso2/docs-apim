@@ -117,7 +117,7 @@ You can create sub-projects under this parent MMM project.
 
 You can import existing sub projects (ESB Config project, Registry resource project, Composite project, etc.) into an existing Maven Multi Module Project (Integration Project).
 
-Right-click the project, and click <b>Import to Maven Muti Module</b>.
+Right-click the project, and click <b>Import to Maven Multi Module</b>.
 
 <img src="{{base_path}}/assets/img/integrate/create_project/import-to-mmm.png" width="400" title="import to maven multi module" alt="import to maven multi module">
 

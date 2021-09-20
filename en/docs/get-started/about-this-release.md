@@ -458,7 +458,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Kafka and HTTP metrics monitoring**
     
-	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC(Change Data Capture). The metrics can be published to a preconfigured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
+	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC (Change Data Capture). The metrics can be published to a preconfigured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows]({{base_path}}/observe/streaming-integrator/viewing-etl-flows/) documentation page.
 	 
 
 <hr style="border:8px solid gray"> </hr>

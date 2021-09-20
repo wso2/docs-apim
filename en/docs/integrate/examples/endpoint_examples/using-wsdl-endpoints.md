@@ -38,8 +38,8 @@ Create the artifacts:
 3. [Create a proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-The wsdl file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
-The wsdl uri of the endpoint needs to be updated with the path to the `sample_proxy_1.wsdl` file.
+The WSDL file `sample_proxy_1.wsdl` can be downloaded from  [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl). 
+The WSDL URI of the endpoint needs to be updated with the path to the `sample_proxy_1.wsdl` file.
 
 Set up the back-end service:
 

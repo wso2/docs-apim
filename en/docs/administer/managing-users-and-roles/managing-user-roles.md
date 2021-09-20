@@ -187,7 +187,7 @@ create_admin_account = true
 
 The following steps guide you through updating the role names after you have used the product for some time.
 
-1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
+1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
 
 2.  Do the following user store level changes for existing users:
 

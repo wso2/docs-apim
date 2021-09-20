@@ -58,7 +58,7 @@ To test the sample Siddhi application, simulate random events for it via the Str
 
     ![Start]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/start.png)
 
-    In the **Run or Debug** dialog box that appears, select **Run** and click **Start Similation**.
+    In the **Run or Debug** dialog box that appears, select **Run** and click **Start Simulation**.
 
     ![Start Simulation]({{base_path}}/assets/img/streaming/aggregate-over-time-sample/start-simulation-dialog-box.png)
 

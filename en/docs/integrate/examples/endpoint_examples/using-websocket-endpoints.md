@@ -15,7 +15,7 @@ back-end to client mediation. Finally you need to configure the
 WebSocket inbound endpoint of WSO2 MI to use the
 created sequences and listen on port 9092.
 
-For sample synapse configs, see [Websocket Inbound]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket).
+For sample synapse configurations, see [WebSocket Inbound]({{base_path}}/integrate/examples/inbound_endpoint_examples/inbound-endpoint-secured-websocket).
 
 If you analyze the log, you will see that a connection from the
 WebSocket client to WSO2 MI is established, and the
@@ -28,7 +28,7 @@ transformed.
 
 If you need to send a message from a HTTP client to a WebSocket endpoint
 via the Micro Integrator, you need to establish
-a persistent Websocket connection from WSO2 MI to the
+a persistent WebSocket connection from WSO2 MI to the
 WebSocket back-end.
 
 To demonstrate this scenario, you need to create two dispatching
@@ -90,7 +90,7 @@ Create the artifacts:
 3. Create the [mediation sequences]({{base_path}}/integrate/develop/creating-artifacts/creating-reusable-sequences) and the [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 4. [Deploy the artifacts]({{base_path}}/integrate/develop/deploy-artifacts) in your Micro Integrator.
 
-Starting the Websocket server:
+Starting the WebSocket server:
 
 -  Download the netty artifacts zip file from [here](https://github.com/wso2-docs/ESB) and extract it. The extracted folder will be shown as `ESB`.
 -  Open a terminal, navigate to `ESB/ESB-Artifacts/Netty_artifacts_for_WebSocket_samples` and execute the following command to start the WebSocket server on port 8082:
@@ -107,5 +107,5 @@ curl -v --request POST -d "<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:En
 ```
 
 If you analyze the log, you will see that an HTTP request is sent to the
-Websocket server, and that the Websocket server injects the response to
+WebSocket server, and that the WebSocket server injects the response to
 the out sequence.

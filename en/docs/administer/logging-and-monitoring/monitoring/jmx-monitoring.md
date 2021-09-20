@@ -1,6 +1,6 @@
 # JMX Monitoring
 
-Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. **JConsole** is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 or later versions. Therefore, when you use a WSO2 product, JMX is enabled by default, which allows you to monitor the product using JConsole.
+Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. **JConsole** is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK). Therefore, when you use a WSO2 product, JMX is enabled by default, which allows you to monitor the product using JConsole.
 
 !!! info
 Go to the [WSO2 Administration Guide](https://docs.wso2.com/display/ADMIN44x/JMX-Based+Monitoring) for detailed instructions on how to configure JMX for a WSO2 product and how to use **JConsole** for monitoring a product.
@@ -8,7 +8,7 @@ Go to the [WSO2 Administration Guide](https://docs.wso2.com/display/ADMIN44x/JMX
 
 ### MBeans for WSO2 API Manager
 
-When JMX is enabled, WSO2 ESBAPI Manager exposes a number of management resources as JMX MBeans that can be used for managing and monitoring the running server. When you start JConsole, you can monitor these MBeans from the **MBeans** tab. While some of these MBeans ( **ServerAdmin** and **DataSource** ) are common to all WSO2 products, some MBeans are specific to WSO2 API Manager.
+When JMX is enabled, WSO2 ESBAPI Manager exposes a number of management resources as JMX MBeans that can be used for managing and monitoring the running server. When you start JConsole, you can monitor these MBeans from the **MBeans** tab. While some of these MBeans (**ServerAdmin** and **DataSource**) are common to all WSO2 products, some MBeans are specific to WSO2 API Manager.
 
 !!! tip
 The common MBeans are explained in detail in the [WSO2 Administration Guide](https://docs.wso2.com/display/ADMIN44x/JMX-Based+Monitoring) . Listed below are the MBeans that are specific to WSO2 API Manager.

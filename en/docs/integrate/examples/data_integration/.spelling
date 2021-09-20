@@ -1,0 +1,22 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+addEmployeeOp
+batch_requesting_sampleSOAP11Binding
+input_validator_sample.SOAP12Binding
+FirstName
+RDBMSs
+OfficeDetails
+EmployeeDetails
+RDBMSDataService
+MongoDB
+OData
+Boxcarting
+boxcarting
+request_box
+Boxcarring
+request_box_exampleSOAP12Binding
+OpenApi
+custom_data_service_swagger.yaml

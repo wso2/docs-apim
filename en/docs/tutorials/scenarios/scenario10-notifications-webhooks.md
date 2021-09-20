@@ -1,18 +1,18 @@
-# Scenario 10 - Notifications Using Webhooks
+# Scenario 10 - Notifications Using WebHooks
 
-This is a tutorial that is part of a series and can be used as a standalone tutorial on how to work with notifications using webhook. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
+This is a tutorial that is part of a series and can be used as a standalone tutorial on how to work with notifications using WebHook. For more details on the scenario and general prerequisites, please see [the scenario overview page]({{base_path}}/tutorials/scenarios/scenario-overview).
 
-**_Time to Complete : 5 mins_**
+**_Time to Complete : 5 minutes_**
 
 ## User Story
 
-From time to time GoGo transit provides notifications to the Train companies. (For e.g., platform unavailability, revised fees, etc.). GoGo transit is planning to provide this information as webhooks so that the Train companies can subscribe to these notifications without continuously polling.
+From time to time GoGo transit provides notifications to the Train companies. (For e.g., platform unavailability, revised fees, etc.). GoGo transit is planning to provide this information as WebHooks so that the Train companies can subscribe to these notifications without continuously polling.
 
 WebHooks only allow one-way communication, from a caller web app to caller web app. The client who intends to receive the events from the server/web app/publisher has to register its URL against the interesting events in the publisher. When an event occurs, if a client is registered for that event, the publisher will make an HTTP POST request to the registered URL of the client to notify the event.
 
 <img src="{{base_path}}/assets/img/tutorials/scenario-tutorials/scenario10.png" alt="Webhook notifications" title="Webhook notifications" width="60%" />
 
-You can view the Webhook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis) 
+You can view the WebHook API created in WSO2 API Manager by going to the publisher (Super tenant - admin). [https://localhost:9443/publisher/apis](https://localhost:9443/publisher/apis) 
 
 You can publish notifications under different topics.
 
@@ -30,17 +30,17 @@ To subscribe to the API, you need to go to the Developer Portal.
 
 To receive notifications, you need to register a service that will be called for each event. 
 
-1. You can use [https://webhook.site/](https://webhook.site/) for this purpose. You can use the webhook site unique URL to subscribe yourself to the **general** topic. 
+1. You can use [https://webhook.site/](https://webhook.site/) for this purpose. You can use the WebHook site unique URL to subscribe yourself to the **general** topic. 
 2. Go to the **Try out** tab and enter the following details under **general** topic.
 
     <img src="{{base_path}}/assets/img/tutorials/scenarios/notification_subscribe_devportal.png" alt="Subscribing to Topic" title="Subscribing to Topic" width="60%" />
-3. Click on **Generate Curl**, copy the Curl command, and run it on your terminal. This will subscribe your client (webhook site) to the API Manager. You can verify that the subscription was successful by checking the event that was received on the Webhook site.
+3. Click on **Generate Curl**, copy the Curl command, and run it on your terminal. This will subscribe your client (WebHook site) to the API Manager. You can verify that the subscription was successful by checking the event that was received on the WebHook site.
 
 ## Step 3: Send notifications
 
 To send a notification, you need to retrieve the callback URL for a topic from the publisher. 
 
-1. Sign in to the publisher again with admin user credentials and select NotificationsAPI.
+1. Sign in to the publisher again with admin user credentials and select NotificationAPI.
 2. You can get the Callback URL by visiting the Topics tab and selecting the topic you require. Since you have subscribed to the **general** topic above, let’s get the URL for that topic.
 
     <img src="{{base_path}}/assets/img/tutorials/scenarios/notification_topic_configuration.png" alt="Topic Configuration" title="Topic Configuration" width="60%" />
@@ -57,7 +57,7 @@ To send a notification, you need to retrieve the callback URL for a topic from t
 
 5. You need to calculate the hmac value for the above payload using the secret we have generated in the publisher. We can do this on the following website: [https://www.freeformatter.com/hmac-generator.html](https://www.freeformatter.com/hmac-generator.html) (Use SHA1).
 
-6. With the hmac value derived above, you can invoke the below request that will send an event in the **general** topic. This event will be received on the webhook site.
+6. With the hmac value derived above, you can invoke the below request that will send an event in the **general** topic. This event will be received on the WebHook site.
 
     ```
     curl -X POST 'http://localhost:9021/notification/1.0.0/webhooks_events_receiver_resource?topic=/general' \

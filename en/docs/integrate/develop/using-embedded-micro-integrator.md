@@ -26,7 +26,7 @@ Once you have the [integration artifacts packaged]({{base_path}}/integrate/devel
 
 Use the <b>Runtime Services</b> tab in WSO2 Integration Studio to view the endpoint URLs of the artifacts deployed in the embedded Micro Integrator.
 
-When you [deploy tha artifacts and start](#deploy-and-run-artifacts-in-the-embedded-server) the embedded Micro Integrator, the <b>Console</b> tab prints the server startup logs and the <b>Runtime Services</b> tab will open as shown below. 
+When you [deploy the artifacts and start](#deploy-and-run-artifacts-in-the-embedded-server) the embedded Micro Integrator, the <b>Console</b> tab prints the server startup logs and the <b>Runtime Services</b> tab will open as shown below. 
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/deployed-endpoints.jpg">
 
@@ -34,7 +34,7 @@ If you have closed the tab and you want to open it again, go to <b>Window -> Sho
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/show-deployed-endpoints.jpg" width="300">
 
-## Update (embedded) server configs and libraries
+## Update (embedded) server configurations and libraries
 
 For some integrations, it is necessary to update the server configurations. For example, if you are integrating with an external broker, you need to update broker connection details and also add the broker's connection JARs to the server's `/lib` folder.
 
@@ -45,7 +45,7 @@ Click the <img src="{{base_path}}/assets/img/integrate/testing-integrations/serv
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel.png">
 
-In the upper section, update the server configuration file (`deployment.toml` file). In the lower section, add any requried third-party libraries to the `/lib` folder of the server.
+In the upper section, update the server configuration file (`deployment.toml` file). In the lower section, add any required third-party libraries to the `/lib` folder of the server.
 
 ## Encrypt static (embedded) server secrets
 

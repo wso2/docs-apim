@@ -79,7 +79,7 @@ username = "admin"
 password = "admin"
 ```
 
-See the descriptions of the [service catalog paramaters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
+See the descriptions of the [service catalog parameters]({{base_path}}/reference/config-catalog-mi/#service-catalog-client).
 
 ## Step 3 - Start the servers
 

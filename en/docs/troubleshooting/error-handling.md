@@ -54,7 +54,7 @@ Given below are some error codes and their meanings.
 <td><code>900422</code></td>
 <td>Invalid GraphQL query</td>
 <td>Syntax of the provided GraphQL query is invalid</td>
-<td>Invoking a GraphQL api which has a invalid query</td>
+<td>Invoking a GraphQL API which has a invalid query</td>
 </tr>
 <tr class="odd">
 <td> <code>900800</code> </td>
