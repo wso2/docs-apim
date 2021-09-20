@@ -33,7 +33,7 @@ x-auth-type could be any of the following values:
 !!! danger "Deprecated feature"
     The Application and Application User separation used in API-M 2.x is deprecated from API-M 3.x and later. Security for the resources is `enabled` or `disabled`(Application and Application User in API definition is treated as security enabled).
 
-    Therefore, it is recommended to use the use scopes to restrict the API resource invocation. For instructions on how to do this see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes)
+    Therefore, it is recommended to use scopes to restrict the API resource invocation. For instructions on how to do this, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes)
 
 The following example applies Application User authentication type to the given API resource:
        ```
