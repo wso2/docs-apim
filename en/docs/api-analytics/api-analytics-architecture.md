@@ -1,5 +1,5 @@
 ---
-title: API Analytics Architecture - API Manager Documentation 4.0.0
+title: API Analytics Architecture - WSO2 API Manager 4.0.0
 ---
 
 # API Analytics Architecture

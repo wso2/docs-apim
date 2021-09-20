@@ -1,5 +1,5 @@
 ---
-title: Introduction to the API Analytics Dashboard - API Manager Documentation 4.0.0
+title: Introduction to the API Analytics Dashboard - WSO2 API Manager 4.0.0
 ---
 
 # Introduction to the API Analytics Dashboard

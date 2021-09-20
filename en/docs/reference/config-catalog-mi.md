@@ -8125,7 +8125,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8829,7 +8829,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[transport.rabbitmq]</code>
                             
                             <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8859,7 +8859,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[[transport.rabbitmq.sender]]</code>
                             
                             <p>
-                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">

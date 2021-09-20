@@ -17,7 +17,7 @@ content-type is properly set in the outgoing message, etc.
 
 ## Enabling wire logs
 
-See [Configuring Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/#wire-logs-and-header-logs) for instructions.
+See [Configuring Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#wire-logs-and-header-logs) for instructions.
 
 ## Sample wire log
 

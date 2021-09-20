@@ -1,8 +1,10 @@
+---
+title: Monitoring Logs - WSO2 API Manager 4.0.0
+---
+
 # Monitoring Logs
 
-Logging is one of the most important aspects of a production-grade
-server. A properly configured logging system is vital for identifying
-errors, security threats, and usage patterns.
+Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
 By default, the Micro Integrator is configured to generate the basic log files that are required for monitoring the server. These log files are stored in the `<MI_HOME>/repository/logs` directory by default. 
 
@@ -11,19 +13,19 @@ By default, the Micro Integrator is configured to generate the basic log files t
 The following topics explain how you can use the default logs that are configured in the Micro Integrator. If you have additional logs configured,
 you will be able to access those logs as well.
 
-See [Configuring Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties) for details on how logs are configured in the Micro Integator.
+See [Configuring Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties) for details on how logs are configured in the Micro Integrator.
 
-## Download Log Files
+## Downloading Log Files
 
 You can easily download them from the [Micro Integrator Dashboard]({{base_path}}/observe/mi-observe/working-with-monitoring-dashboard). 
 
 !!! Info
-    Alternatively, you can open the the log file from the `<MI_HOME>/repository/logs` directory.
+    Alternatively, you can open the log file from the `<MI_HOME>/repository/logs` directory.
 
 1.  Sign in to the dashboard. 
 2.  Click <b>Log Files</b> as shown below to view the complete list.
 
-    <img alt="download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="700">
+    <img alt="download log files" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/log-files-dashboard.png" width="80%">
 
 3.  User the <b>Search</b> option to find a specific log file.
 4.  Click the log file to download.
@@ -52,7 +54,7 @@ TID: [2020-09-24 23:00:04,634]  INFO {org.wso2.config.mapper.ConfigParser} - Ini
 
 ## Monitoring API Logs
 
-The API log file covers the logs related to APIs deployed in the Micro Integrator. By default, all APIs in the server will print logs to this common log file (`wso2-mi-api.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI is being used.
+The API log file covers the logs related to APIs deployed in the Micro Integrator. By default, all APIs in the server will print logs to this common log file (`wso2-mi-api.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
 
 If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-api/) configured for APIs, you can download the log file that is specific to the API.
 
@@ -69,9 +71,9 @@ If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs
 
 ## Monitoring Service Logs
 
-The service log file covers the logs related to proxy services deployed in the Micro Integrator. By default, all services in the server will print logs to this common log file (`wso2-mi-service.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI is being used.
+The service log file covers the logs related to proxy services deployed in the Micro Integrator. By default, all services in the server will print logs to this common log file (`wso2-mi-service.log`). Shown below are some sample logs printed when the Healthcare API and the UserInfoRESTAPI are being used.
 
-If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-services/) configured services, you can download the log file that is specific to the service.
+If you have [individual log files]({{base_path}}/integrate/develop/enabling-logs-for-services/) configured for services, you can download the log file that is specific to the service.
 
 ```bash
 [2020-10-14 10:16:15,399]  INFO {SERVICE_LOGGER.hl7testproxy} - Building Axis service for Proxy service : hl7testproxy
@@ -131,7 +133,7 @@ HTTP access logs (requests and responses) help you monitor information such as t
 In the Micro Integrator, access logs are generated for the PassThrough transport. The PassThrough transport works on 8290/8253 ports and is used for API/Service invocations. By default, all access logs from the PassThrough transport are written to a common access log file - `http_access_.log`.
 
 !!! Note
-    See [Configuring Access Logs]({{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/#configuring-http-access-logs) for instructions on configuring access logs.
+    See [Configuring Access Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/#configuring-http-access-logs) for instructions on configuring access logs.
 
 ```xml
 [10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" - - "-" "curl/7.64.1"
@@ -142,7 +144,7 @@ In the Micro Integrator, access logs are generated for the PassThrough transport
 
 ## Monitoring Patch Logs 
 
-The Patch log file contain details related to patches applied to the product. Patch logs cannot be customized.
+The Patch log file contains details related to patches applied to the product. Patch logs cannot be customized.
 
 ```bash
 [2020-09-24 23:00:05,319]  FINE {org.wso2.micro.integrator.server.util.PatchUtils processPatches} - Checking for patch changes ...  
@@ -157,7 +159,7 @@ The Patch log file contain details related to patches applied to the product. Pa
 
 Correlation logs are used for monitoring the round trip of a message that is sent to the Micro Integrator.
 
-See [Monitoring Message Round Trip]({{base_path}}/observe/mi-observe/logs/monitoring-correlation-logs) for details.
+For more information, see [Monitoring Correlation Logs]({{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-correlation-logs).
 
 ## Monitoring Console Logs
 
