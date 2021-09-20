@@ -15,7 +15,7 @@
 
 ### Setting up API Analytics as a Windows Service
 
-Use the following steps to install APIM-Analytics-3.2.0 as a Windows Service.
+Use the following steps to install API Manager Analytics 3.2.0 as a Windows Service.
 
 1. Download the `wrapperconfs.zip` file and unzip it.
 

@@ -24,7 +24,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 2. Send events using one or more of the following methods:
 
-    - **Send events with http server through the event simulator:**
+    - **Send events with HTTP server through the event simulator:**
 
         a. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 

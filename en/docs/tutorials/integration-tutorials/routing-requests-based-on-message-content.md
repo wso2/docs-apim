@@ -10,7 +10,7 @@ When the client sends the appointment reservation request to the Micro Integrato
 
 -   REST API
 -   HTTP Endpoint
--   Property Meditor
+-   Property Mediator
 -   Call Mediator
 
 ## Let's get started!
@@ -368,7 +368,7 @@ You can now start configuring the API resource.
     </tr>
     </table>
 
-8.  Drag a **Call** mediator from the **Mediators** pallete after the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Call mediator. 
+8.  Drag a **Call** mediator from the **Mediators** pallette after the Log mediator and add the **GrandOakEP endpoint** from **Defined Endpoints** palette to the empty box adjoining the Call mediator. 
 
 9.  Add **Log mediators** in the other two **Case boxes** in the Switch mediator and then enter the same properties. Make sure to name the two Log mediators as follows:
 

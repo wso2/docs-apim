@@ -108,7 +108,7 @@ To set up this cluster, see the instructions on <a href="{{base_path}}/install-a
 
 ### Integration cluster
 
-The integration cluster consist of a minimum of two ndes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
+The integration cluster consist of a minimum of two nodes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
 
 <ul>
     <li>

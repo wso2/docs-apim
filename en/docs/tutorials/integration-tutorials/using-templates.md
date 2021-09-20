@@ -3,7 +3,7 @@
 ## What you'll build
 
 In this sample scenario, you will use a **Sequence Template**
-and reuse it in multiple places of the medation flow.
+and reuse it in multiple places of the mediation flow.
 
 ## Let's get started!
 
@@ -433,7 +433,7 @@ You can now start configuring the API resource.
     'Pine Valley' hospitals. Add **clemency** and **pinevalley** as the
     respective parameter values.
 
-10. Drag a **Call** mediators from the **Mediators** pallete after the **Call Template** mediators in each switch sequence. 
+10. Drag a **Call** mediators from the **Mediators** pallette after the **Call Template** mediators in each switch sequence. 
 
 11. Then, add the **GrandOakEP**, **ClemencyEP**, and **PineValleyEP** endpoints from the **Defined Endpoints** palette to the empty boxes adjoining the Call mediator. 
 

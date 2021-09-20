@@ -70,7 +70,7 @@ Alternately, you can use the following.
 <property name="queryParam" expression="$url:q1"></property>
 ```
 
-**Readng a path parameter**
+**Reading a path parameter**
 
 The following sample indicates how the expressions can be defined using `get-property('uri.var.yyy')` to read a path parameter.
 

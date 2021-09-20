@@ -1,0 +1,39 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+yaml
+api.yaml
+Undeploy
+undeploy
+deployment_environments
+v4.0.0
+displayOnDevportal
+deploymentEnvironment
+Label1
+Label2
+client_certificates
+Alias1
+Alias1.crt
+tierName
+apiIdentifier
+providerName
+apiName
+LeasingAPIProduct
+Alias2
+Alias2.crt
+documentId
+7be89b14-6b7c-4e1f-8bee-f72295dd65cb
+Doc1
+sourceType
+fileName
+pdf
+API_LEVEL
+PizzaShackAPI
+endpoint_certificates
+Alias4
+Alias4.crt
+Alias3
+Alias3.crt
+deployment_environments.yaml

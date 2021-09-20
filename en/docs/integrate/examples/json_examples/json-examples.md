@@ -217,7 +217,7 @@ JSON representation of empty XML element will change as below by adding `'synaps
 ```
 
 !!! Info
-    `'synapse.commons.enableXmlNullForEmptyElement` property surrounded with single quotation to identify it as whole string rather dot separated toml object.
+    `'synapse.commons.enableXmlNullForEmptyElement` property surrounded with single quotation to identify it as whole string rather dot separated TOML object.
 
 ### Empty XML elements with the 'nil' attribute
 
@@ -235,7 +235,7 @@ By default, the above XML element converts to JSON as shown below.
 {"object":{"@nil":"true"}}
 ```
 
-If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation]` section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribue is set to true will be represented in JSON as null objects as shown below.
+If you set the `synapse.enable_xml_nil=true` property in the `deployment.toml` file `[mediation]` section (stored in the `MI_HOME/conf/` directory), XML elements where the 'nil' attribute is set to true will be represented in JSON as null objects as shown below.
 
 ``` javascript
 {"object":null}

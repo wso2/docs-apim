@@ -437,7 +437,7 @@ The K8s API operator allows you to update the Docker images used in Kubernetes p
 kubectl delete pod <POD-NAME>
 ```
 
-When you run the above command, Kubernetes will spawn another temporary pod, which has the same behaviour of the pod we have deleted. Then the deleted pod will restart by pulling the latest tag from the Docker image path. 
+When you run the above command, Kubernetes will spawn another temporary pod, which has the same behavior of the pod we have deleted. Then the deleted pod will restart by pulling the latest tag from the Docker image path. 
 
 !!! Note 
     Here we are recommending to use a different image path for the updated integration solution. Otherwise, (because the Docker image is re-pulled from the existing deployment) some traffic from outside might get lost. 
@@ -566,7 +566,7 @@ The operator gives you the flexibility of defining liveness and readiness probes
 
 You can configure the default probe definition in the `integration_controller_conf.yaml` file as shown below. 
 
-The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on the passthrough port (default 8290). Liveness of the Micro Integrator pod is checked by a ping to that port.
+The Micro Integrator is considered **live** when it is accepting HTTP/HTTPS traffic. Usually, it listens for HTTP traffic on the PassThrough port (default 8290). Liveness of the Micro Integrator pod is checked by a ping to that port.
 
 The  Micro Integrator is **ready** to accept traffic only when all the CApps are successfully deployed. The API with the `/healthz` path, which is exposed through the HTTP inbound port (default 9201) is used to check the readiness.
 

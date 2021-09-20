@@ -1,0 +1,28 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Anonymization
+anonymizing
+config.json
+wso2carbon.jks
+jks
+id_token
+CAs
+keytool
+OpenSSL
+pfx
+anonymize
+anonymized
+how-the-wso2-micro-integrator-persists-pii
+prerequisites-for-removing-pii
+wso2carbon.log
+audit.log
+warn.log
+ei-patterns
+newcertreq.csr
+Comodo
+newcert
+JWT-based
+tokenID

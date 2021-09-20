@@ -10,7 +10,7 @@ Be sure to [configure a user store]({{base_path}}/install-and-setup/setup/mi-set
 
 Follow the instructions given below to create a **WS-Policy** resource in your registry project. This will be your security policy file.
 
-1.  Once you have created a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project), right-click the roject in the left navigation panel, click **New** , and then click **Registry Resource**. This will open the **New Registry Resource** window.  
+1.  Once you have created a [registry resource project]({{base_path}}/integrate/develop/create-integration-project/#registry-resource-project), right-click the project in the left navigation panel, click **New** , and then click **Registry Resource**. This will open the **New Registry Resource** window.  
     ![]({{base_path}}/assets/img/integrate/apply-security/119130870/119130887.jpg)
 2.  Select the **From existing template** option as shown below and
     click **Next** .  
@@ -26,7 +26,7 @@ Follow the instructions given below to create a **WS-Policy** resource in your r
 5.  Double-click the policy file to open the file. Note that you get a
     **Design View** and **Source View** of the policy.
 
-6.  Let's use the **Design View** to enable the required security scenario. For example, enable the **Sign and Encyrpt** security scenario as shown below.
+6.  Let's use the **Design View** to enable the required security scenario. For example, enable the **Sign and Encrypt** security scenario as shown below.
 
     !!! Tip
         Click the icon next to the scenario to get details of the scenario.
@@ -114,7 +114,7 @@ Create a Soap UI project with the relevant security settings and then send the r
 
 ### General guidelines on testing with SOAP UI
 
-1.  Create a “SOAP Project” in SOAP UI using the WSDL URL of the proxy service (eg: http://localhost:8280/services/SampleProxy?wsdl)
+1.  Create a “SOAP Project” in SOAP UI using the WSDL URL of the proxy service (e.g.: http://localhost:8280/services/SampleProxy?wsdl)
 
     <img src="{{base_path}}/assets/img/integrate/apply-security/soapui/create-soapui-project.jpg" width="600">
 

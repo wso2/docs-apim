@@ -12,7 +12,7 @@ You will also use the **PayloadFactory** mediator to take the response from one 
 
 -   REST API
 -   HTTP Endpoint
--   Property Meditor
+-   Property Mediator
 -   Call Mediator
 -   PayloadFactory Mediator
 
@@ -47,7 +47,7 @@ You will now see the projects listed in the **Project Explorer**.
 
 #### Create new Endpoints
 
-Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channelling Service, Payment Service.
+Let's create three HTTP endpoints to represent all three back-end services: Hospital Service, Channeling Service, Payment Service.
 
 1.  Right-click **SampleServicesConfigs** in the project explorer and click **New -> Endpoint**. 
 2.  Ensure **Create a New Endpoint** is selected and click **Next**.
@@ -113,7 +113,7 @@ Let's create three HTTP endpoints to represent all three back-end services: Hosp
     </table>
 
 4.  Click **Finish**.
-5.  Create another endpoint for the Channelling back-end service and specify the details given below:
+5.  Create another endpoint for the Channeling back-end service and specify the details given below:
     <table>
         <tr>
             <th>Property</th>
@@ -409,7 +409,7 @@ You can now start updating the API resource with the mediation flow.
       </tr>
     </table>
 
-6.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+6.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
     !!! Info
         Using the Call mediator allows us to define other service invocations following this mediator.
@@ -693,9 +693,9 @@ You can now start updating the API resource with the mediation flow.
 
 14.  Add a PayloadFactory mediator (from the **mediators** palette) next to the Property mediator to construct the above message payload.
 
-15. With the Payloadfactory mediator selected, access the properties tab of the mediator and specify the following details:
+15. With the PayloadFactory mediator selected, access the properties tab of the mediator and specify the following details:
 
-    | Property       |Descripttion                                                                                            |
+    | Property       |Description                                                                                            |
     |----------------|--------------------------------------------------------------------------------------------------------|
     | Payload Format | Select <strong>Inline</strong>                                                                         |
     | Media Type     | Select <strong>json</strong>                                                                           |

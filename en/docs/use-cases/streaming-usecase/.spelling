@@ -1,0 +1,51 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+deviceID
+roomNo
+sttribute
+equalled
+e1
+e2
+e3
+Siddhi-execution-env
+GraphQL
+AsycAPI
+storages
+real-tme
+PostgreSQL
+statitstics
+fileeventlistener
+productions.csv
+on.error
+rdbms
+mongodb
+redis
+elasticsearch
+CosmosDB
+azuredatalake
+protobuf
+realtime
+PurchaseRecords
+pre-configured
+ETL-related
+Grafana
+http
+tcp
+grpc
+rabbitmq
+sqs
+nats
+granularities
+persistedAggregation
+window.time
+pastFourMinTotalpastFourMinAvg#window
+timeBatch
+lastBatchTotallastBatchAvg#window
+lengthBatch
+lastBatchTotallastBatchAvgProductionStreamdoughnuts101602486060000doughnuts101602486120000doughnuts101602486180000doughnuts101602486240000doughnuts201602486300000doughnuts201602486360000doughnuts201602486420000doughnuts301602486480000
+Siddhi-execution-unitconversion
+siddhi-script-js
+Siddhib

@@ -791,7 +791,7 @@ To deploy the Micro Integrator runtime, see the topics given below.
 
 ### CI/CD
 
-To implement continuous integration and continuous deployment pipelined for integrations, see the topics given below.
+To implement continuous integration and continuous deployment pipelines for integrations, see the topics given below.
 
 <table>
     <tr>

@@ -108,7 +108,7 @@ The endpoint of this proxy service uses the properties listed below to connect t
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><strong>address uri</strong></p></td>
+<td><p><strong>address URI</strong></p></td>
 <td><p><code>              jms:/SMSStore             </code></p></td>
 <td>The destination in which the request received by the proxy service is stored. Note that there are two ways to define the URL: </br>
   <ul>

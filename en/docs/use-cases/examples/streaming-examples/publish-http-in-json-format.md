@@ -16,7 +16,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 ## Testing the Sample:
 1. Open a terminal and navigate to {WSO2SIHome}/samples/sample-clients/http-server and run the "ant" command without any arguments.
 2. Send events through one or more of the following methods:
-    * Send events with http server through the event simulator:
+    * Send events with HTTP server through the event simulator:
         1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 	    2. In the Single Simulation tab of the panel, specify the values as follows:
             * Siddhi App Name  : PublishHttpInJsonFormat

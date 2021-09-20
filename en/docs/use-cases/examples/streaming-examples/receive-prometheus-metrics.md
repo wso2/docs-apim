@@ -3,7 +3,7 @@
 ## Purpose:
 This application demonstrates how to use prometheus-source to retrieve Prometheus metrics that are exported at an HTTP endpoint.
 
-Pre-requisites:
+Prerequisites:
 1. The following steps must be executed to enable WSO2 SP to publish and retrieve events via Prometheus.
     1. Download and copy the prometheus client jars to the {WSO2SIHome}/lib directory as follows.
         1. Download the following jars from https://mvnrepository.com/artifact/io.prometheus and copy them to {WSO2SIHome}/lib directory.

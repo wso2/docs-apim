@@ -3,7 +3,7 @@
 WSO2 Streaming Integrator can be deployed natively on Kubernetes via the Siddhi Kubernetes Operator.
 
 The Streaming Integrator can be configured in the `<SI-TOOLING_HOME>/wso2/server/resources/decker/export/siddhi-process.yaml` file and passed to the CRD(Custom Resource Definition)for deployment.
-Siddhi logic can be directly written in the `<SI-TOOLING_HOME>/wso2/server/resources/decker/export/siddhi-process.yaml` file or passed as `.siddhi` files via config maps.
+Siddhi logic can be directly written in the `<SI-TOOLING_HOME>/wso2/server/resources/decker/export/siddhi-process.yaml` file or passed as `.siddhi` files via configuration maps.
 
 To install WSO2 Streaming Integrator via Kubernetes, follow the steps below:
 
@@ -149,7 +149,7 @@ To change the default configurations in WSO2 Streaming Integrator that are defin
               - /stores/* 
 ```
 
-Here, you have included a configuration for `auth.configs` to over-ride the default values that are applicable to the Streaming Integrator (i.e., vlues configured under `auth.configs` in the `<SI-TOOLING_HOME>/conf/server/deployment.yaml` file.
+Here, you have included a configuration for `auth.configs` to over-ride the default values that are applicable to the Streaming Integrator (i.e., values configured under `auth.configs` in the `<SI-TOOLING_HOME>/conf/server/deployment.yaml` file.
 
 To apply the configurations in the `siddhi-process.yaml` to your Kubernetes cluster, save the file in a preferred location and then issue the following command.
 

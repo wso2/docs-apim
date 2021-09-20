@@ -26,7 +26,7 @@ Both the Grand Oak service and Pine Valley service are exposed over the HTTP pro
   http://<HOST_NAME>:<PORT>/grandOak/doctors/<DOCTOR_TYPE>
   ```
 
-- The Pine Vallery service accepts POST requests in the following service endpoint URL:
+- The Pine Valley service accepts POST requests in the following service endpoint URL:
   ```bash
   http://<HOST_NAME>:<PORT>/pineValley/doctors
   ```

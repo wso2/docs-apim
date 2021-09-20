@@ -2,7 +2,7 @@
 
 Let's consider a scenario where you have a SOAP-based backend and a JSON client. The SOAP backend is exposed as a REST API in the Micro Integrator. 
 
-When the JSON client sends a message to the SOAP backend, the REST Api in the Micro Integrator should convert the JSON message to SOAP. The backend will process the SOAP request and generate a response for the JSON client. The Micro Integrator should then convert the SOAP response back to JSON and return it to the client.
+When the JSON client sends a message to the SOAP backend, the REST API in the Micro Integrator should convert the JSON message to SOAP. The backend will process the SOAP request and generate a response for the JSON client. The Micro Integrator should then convert the SOAP response back to JSON and return it to the client.
 
 The following examples explain different methods of converting JSON messages to SOAP using the Micro Integrator.
 
@@ -11,7 +11,7 @@ The following examples explain different methods of converting JSON messages to 
 Let's convert JSON messages to SOAP using the [PayloadFactory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator).
 
 ### Synapse configuration
-Following is a sample REST Api configuration that we can use to implement this scenario. 
+Following is a sample REST API configuration that we can use to implement this scenario. 
 See the instructions on how to [build and run](#build-and-run-example-1) this example.
 
 ```xml
@@ -88,7 +88,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-Invoke the REST Api:
+Invoke the REST API:
 
 - HTTP method: POST
 - Request URL: http://localhost:8290/stockorder_api
@@ -211,7 +211,7 @@ Set up the back-end service:
       axis2server.bat
       ```
 
-Invoke the REST Api:
+Invoke the REST API:
 
 - HTTP method: POST
 - Request URL: http://localhost:8290/stockorder_api

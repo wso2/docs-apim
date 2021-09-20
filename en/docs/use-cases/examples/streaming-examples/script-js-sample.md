@@ -1,7 +1,7 @@
-# Using Javascript Functions in Siddhi Applications
+# Using JavaScript Functions in Siddhi Applications
 
 ## Purpose:
-This sample demonstrate how javascript functions can be used in Siddhi Applications.
+This sample demonstrate how JavaScript functions can be used in Siddhi Applications.
 
 ## Prerequisites:
 1. Save this sample.
@@ -22,7 +22,7 @@ This sample demonstrate how javascript functions can be used in Siddhi Applicati
 4. Send some more events.
 
 ## Viewing the Results:
-See the output on the console. Description of the raw material with the passed details are shown in the logger.You will get the output as follows:
+See the output on the console. Description of the raw material with the passed details are shown in the logger. You will get the output as follows:
 ```
 [2017-12-20_14-26-03_120] INFO {io.siddhi.core.stream.output.sink.LogSink} - Script-js-sample : logStream : Event{timestamp=1513760163112, data=[toffee, 45.25, There are 45.25kg of toffee in the store], isExpired=false}
 ```

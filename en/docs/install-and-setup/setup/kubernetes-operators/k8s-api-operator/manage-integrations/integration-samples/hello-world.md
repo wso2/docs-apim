@@ -13,7 +13,7 @@ Let's define a basic Hello World scenario using WSO2 Micro Integrator and deploy
 Let's use an integration template in WSO2 Integration Studio to generate a sample integration solution that returns a 'Hello World' response when invoked.
 
 1.	Open WSO2 Integration Studio.
-2.	In the <b>Getting Started</b> view, select the <b>Hello kubernetes</b> template.
+2.	In the <b>Getting Started</b> view, select the <b>Hello Kubernetes</b> template.
 
 	<img src="{{base_path}}/assets/img/integrate/create_project/docker_k8s_project/k8s-hello-world-template.jpg" alt="getting started view">
 
@@ -66,7 +66,7 @@ Run the `docker image ls` command to verify that the Docker image is created.
 ## Step 3 - Deploy the solution in K8s
 
 !!! Info
-    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your kubernetes environment.
+    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your Kubernetes environment.
 
 Follow the steps given below.
 

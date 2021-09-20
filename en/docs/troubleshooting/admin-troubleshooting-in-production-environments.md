@@ -81,7 +81,7 @@ The tool captures the following information about the system:
 -   Memory information of the Java process \*\* Java heap memory dump
     -   Histogram of the heap
     -   Objects waiting for finalization
-    -   Java heap summary. GC algo used, etc.
+    -   Java heap summary. GC algorithm used, etc.
     -   Statistics on permgen space of Java heap
 -   Information about the running Carbon instance \*\* Product name and version
     -   Carbon framework version (This includes the patched version)
@@ -115,7 +115,7 @@ The following information provides insight on whether a Solaris process is paral
 
 ### Checking the health of a cluster
 
-In Hazelcast, the health of a member in the cluster is determined by the heartbeats the member sends. If the well-known member does not receive a heartbeat within a given amount of time (this can be configured), then the node is assumed dead. By default, the given amount of time is 600 seconds (or 10mins), which might be too much for some scenarios.
+In Hazelcast, the health of a member in the cluster is determined by the heartbeats the member sends. If the well-known member does not receive a heartbeat within a given amount of time (this can be configured), then the node is assumed dead. By default, the given amount of time is 600 seconds (or 10 minutes), which might be too much for some scenarios.
 
 Failure detectors used in distributed systems can be unreliable. In these sort of scenarios, Hazelcast uses heartbeat monitoring as a fault detection mechanism and the nodes send heartbeats to other nodes.
 
