@@ -1,0 +1,16 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+apictl
+petstore
+obtain-jwt
+invoke-api-with-jwt
+choreo-connect
+deploy-api
+VHosts
+Hostnames
+deploy-api-via-apictl
+WebSocket
+OAuth2

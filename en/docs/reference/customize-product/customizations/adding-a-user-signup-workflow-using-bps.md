@@ -3,7 +3,7 @@
 This section explains how to attach a custom workflow to the user signup operation in the API Manager. 
 
 !!! note
-    You can either use the **Entreprise Integrator(EI)** or the **Business Process Server(BPS)** for the business process tasks with API Manager during the Workflow configuration process.
+    You can either use the **Enterprise Integrator(EI)** or the **Business Process Server(BPS)** for the business process tasks with API Manager during the Workflow configuration process.
 
 !!! tip
     **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes :
@@ -24,7 +24,7 @@ This section explains how to attach a custom workflow to the user signup operati
 #### Configuring the Enterprise Integrator
 
 !!! note
-    Follow this sub section, only if you will be using the **Entreprise Integrator(EI)** for the business process tasks. If not please refer the sub section for [Configuring the Business Process Server.](/learn/consume-api/customizations/adding-a-user-signup-workflow/#configuring-the-business-process-server)
+    Follow this sub section, only if you will be using the **Enterprise Integrator(EI)** for the business process tasks. If not please refer the sub section for [Configuring the Business Process Server.](/learn/consume-api/customizations/adding-a-user-signup-workflow/#configuring-the-business-process-server)
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration).
 
@@ -98,7 +98,7 @@ This section explains how to attach a custom workflow to the user signup operati
 #### Configuring the Business Process Server
 
 !!! note
-    Follow this sub section, only if you will be using the **Business Process Server(BPS)** for the business process tasks. If not please refer the sub section for [Configuring the Entreprise Integrator.](/learn/consume-api/customizations/adding-a-user-signup-workflow/#configuring-the-enterprise-integrator)
+    Follow this sub section, only if you will be using the **Business Process Server(BPS)** for the business process tasks. If not please refer the sub section for [Configuring the Enterprise Integrator.](/learn/consume-api/customizations/adding-a-user-signup-workflow/#configuring-the-enterprise-integrator)
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
 

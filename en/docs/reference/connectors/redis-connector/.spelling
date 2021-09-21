@@ -1,0 +1,28 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+v1.0.1
+jedis-2
+v2.1.x
+jedis-3
+6.0.jar
+sudo
+redis-server
+Stockquote
+hashmap
+getstockquote
+SimpleStockQuoteService
+soapenv
+ns
+getQuoteResponse
+ax21
+getstockvolumedetails
+redisKey
+StockVolume
+deletestockvolumedetails
+redisFields
+StockQuoteAPI.xml
+hyperlogs
+geospatial

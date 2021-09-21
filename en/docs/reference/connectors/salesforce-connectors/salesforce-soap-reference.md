@@ -1701,7 +1701,7 @@ To use the Salesforce SOAP connector, add the `<salesforcerest.init>` element in
 ## Working with User
 
 ??? note "salesforcebulk.emptyRecycleBin"
-    To retrieve information about the user who is currently logged in, use salesforce.getUserInfo. The information provided includes the name, ID, and contact information of the user. See, the [Salesforce documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo_getuserinforesult.htm) for details of the information that is returned using this operation.If you want to get additional information about the user that is not returned by this operation, use retrieve operation on the User object providing the ID returned from getUserInfo. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo.htm) for more information.
+    To retrieve information about the user who is currently logged in, use salesforce.getUserInfo. The information provided includes the name, ID, and contact information of the user. See, the [Salesforce documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo_getuserinforesult.htm) for details of the information that is returned using this operation. If you want to get additional information about the user that is not returned by this operation, use retrieve operation on the User object providing the ID returned from getUserInfo. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getuserinfo.htm) for more information.
 
     **Sample configuration**
 
@@ -1827,7 +1827,7 @@ To use the Salesforce SOAP connector, add the `<salesforcerest.init>` element in
 ## Working with Utility
 
 ??? note "salesforcebulk.getServerTimestamp"
-    The salesforcerest.getServerTimestamp operation retrieve the timestampt of the server. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getservertimestamp.htm) for more information.
+    The salesforcerest.getServerTimestamp operation retrieve the timestamp of the server. See the [related API documentation](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_calls_getservertimestamp.htm) for more information.
 
     **Sample configuration**
 

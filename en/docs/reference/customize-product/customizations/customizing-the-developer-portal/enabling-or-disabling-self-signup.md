@@ -57,7 +57,7 @@ In order to disable self signup for a particular tenant, follow the steps below.
 
     ![Account Management Policies]({{base_path}}/assets/img/learn/account-management-policies.png)
 
-4. Expand the **User Self Registration** tab and uncheck the **Enable Self User Registration** property and update the content.
+4. Expand the **User Self Registration** tab and deselect the **Enable Self User Registration** property and update the content.
 
     ![Uncheck Enable Self User Registration]({{base_path}}/assets/img/learn/uncheck-enable-self-signup.png)
 

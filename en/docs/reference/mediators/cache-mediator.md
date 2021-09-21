@@ -124,7 +124,7 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 </tbody>
 </table>
 
-### Cache Mediatior as a Collector
+### Cache Mediator as a Collector
 
 The parameters available to configure the Cache mediator as a **Collector** are as follows.
 

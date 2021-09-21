@@ -66,7 +66,7 @@ Apart from defining a schema, you can also add properties to control XML to JSON
 
 ### Converting an array of one from XML to JSON
    
-Let's say we do a search and get the results in XML. We want the results to be converted to JSON array when returned to the client. A blind XML to JSON tranformation would look like this.
+Let's say we do a search and get the results in XML. We want the results to be converted to JSON array when returned to the client. A blind XML to JSON transformation would look like this.
    
 ```xml
    <books>
@@ -161,7 +161,7 @@ With JSON Transform mediator, we can use a JSON schema to tackle this issue.
 }
 ```
 
-With this schema correction, the JSON payload would come out as below. This gives granular level control over individual field datatypes rather than using a global property.
+With this schema correction, the JSON payload would come out as below. This gives granular level control over individual field data types rather than using a global property.
 
 ```json
 {

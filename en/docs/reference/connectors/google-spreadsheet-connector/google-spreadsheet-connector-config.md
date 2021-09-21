@@ -760,7 +760,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ``` 
     
 ??? note "googlespreadsheet.getCellData"
-    The getCellData method allows you to retrieve any set of cell data from a sheet. It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/get).
+    The getCellData method allows you to retrieve any set of cell data from a sheet. It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/get).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -852,7 +852,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
                     
 ??? note "googlespreadsheet.getMultipleCellData"
-    The getMultipleCellData method allow you to retrieve any set of cell data from a sheet (including multiple ranges). It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchGet).
+    The getMultipleCellData method allow you to retrieve any set of cell data from a sheet (including multiple ranges). It return cell contents not only as input values (as would be entered by a user at a keyboard) but also it grants full access to values, formulas, formatting, hyperlinks, data validation, and other properties. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchGet).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -967,7 +967,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
           
 ??? note "googlespreadsheet.editCell"
-    The editCell method allow you to edit the content of the cell with new values.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/update).
+    The editCell method allow you to edit the content of the cell with new values. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/update).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1051,7 +1051,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.editMultipleCell"
-    The editMultipleCell method allow you to edit the content of multiple cell with new values.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchUpdate).
+    The editMultipleCell method allow you to edit the content of multiple cell with new values. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets.values/batchUpdate).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1212,7 +1212,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.appendDimensionBatchRequest"
-    The appendDimensionBatchRequest method allows you to appends empty rows and columns to the end of the sheet.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#appenddimensionrequest).
+    The appendDimensionBatchRequest method allows you to appends empty rows and columns to the end of the sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#appenddimensionrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1279,7 +1279,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
      
 ??? note "googlespreadsheet.updateBordersBatchRequest"
-    The updateBordersBatchRequest method allow you to edit cell borders.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
+    The updateBordersBatchRequest method allow you to edit cell borders. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1367,7 +1367,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.updateBordersBatchRequest"
-    The updateBordersBatchRequest method allow you to edit cell borders.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
+    The updateBordersBatchRequest method allow you to edit cell borders. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#updatebordersrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1455,7 +1455,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.repeatCellsBatchRequest"
-    The repeatCellsBatchRequest method allow you to updates all cells in the range to the values in the given Cell object. Only the fields listed in the fields(within the requests property)will be updated. Others are unchanged.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#repeatcellrequest).
+    The repeatCellsBatchRequest method allow you to updates all cells in the range to the values in the given Cell object. Only the fields listed in the fields(within the requests property)will be updated. Others are unchanged. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#repeatcellrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1534,7 +1534,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.mergeCellsBatchRequest"
-    The mergeCellsBatchRequest  method allow you to merges all cells in the range.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#mergecellsrequest).
+    The mergeCellsBatchRequest  method allow you to merges all cells in the range. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#mergecellsrequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1674,7 +1674,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.copyPasteBatchRequest"
-    The copyPasteBatchRequest method allows you to copy cell formatting in one range and paste it into another range on the same sheet.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#copypasterequest).
+    The copyPasteBatchRequest method allows you to copy cell formatting in one range and paste it into another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#copypasterequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1754,7 +1754,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.cutPasteBatchRequest"
-    The cutPasteBatchRequest method allows you to cuts the one range and pastes its data, formats, formulas, and merges to the another range on the same sheet.see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#cutpasterequest).
+    The cutPasteBatchRequest method allows you to cuts the one range and pastes its data, formats, formulas, and merges to the another range on the same sheet. See [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#cutpasterequest).
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2152,7 +2152,7 @@ To use the Google Spreadsheet connector, add the <googlespreadsheet.init> elemen
     ```
     
 ??? note "googlespreadsheet.autoResizeDimensionsBatchRequest"
-    The autoResizeDimensionsBatchRequest method allows you to automatically resizes one or more dimensions based on the contents of the cells in that dimension,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#autoresizedimensionsrequest).
+    The autoResizeDimensionsBatchRequest method allows you to automatically resize one or more dimensions based on the contents of the cells in that dimension,see [the Google Spreadsheet documentation](https://developers.google.com/sheets/reference/rest/v4/spreadsheets/request#autoresizedimensionsrequest).
     <table>
         <tr>
             <th>Parameter Name</th>

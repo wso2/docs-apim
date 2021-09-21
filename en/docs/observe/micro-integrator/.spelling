@@ -1,0 +1,21 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Kubernetes
+i.e.
+AppDynamics
+add-ons
+Grafana
+UIs
+JaegerHost
+integration_cr.yaml
+pre-configured
+Upload.json
+fluentBit
+loki
+grafana
+v1.6.1
+JaegerTracer
+undeploy

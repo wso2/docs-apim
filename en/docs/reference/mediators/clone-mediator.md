@@ -90,7 +90,7 @@ The parameters available to configure the target are as follows.
 <ul>
 <li><strong>None</strong>: If this is selected, no further mediation will be performed for the cloned messages.</li>
 <li><strong>Anonymous</strong>: If this is selected, you can define an anonymous <b>sequence</b> for the cloned messages by adding the required mediators as children to <strong>Target</strong> in the mediator tree.</li>
-<li><strong>Pick From Registry</strong>: If this is selected, you can refer to a pre-defined <b>sequence</b> that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required <b>sequence</b> from the resource tree.</li>
+<li><strong>Pick From Registry</strong>: If this is selected, you can refer to a predefined <b>sequence</b> that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required <b>sequence</b> from the resource tree.</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -99,7 +99,7 @@ The parameters available to configure the target are as follows.
 <ul>
 <li><strong>None</strong> : If this is selected, the cloned messages are not sent to an <b>endpoint</b>.</li>
 <li><strong>Anonymous</strong> : If this is selected, you can define an anonymous endpoint within the iterate target configuration to which the cloned messages should be sent. Click the <strong>Add</strong> link which appears after selecting this option to add the anonymous endpoint. </li>
-<li><strong>Pick from Registry</strong> : If this is selected, you can refer to a pre-defined endpoint that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
+<li><strong>Pick from Registry</strong> : If this is selected, you can refer to a predefined endpoint that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
 </ul></td>
 </tr>
 </tbody>

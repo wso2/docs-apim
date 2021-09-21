@@ -1,6 +1,6 @@
 # HL7 Parameters
 
-When you implement an integration use case that handles HL7 messsages, you can use the following HL7 parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
+When you implement an integration use case that handles HL7 messages, you can use the following HL7 parameters in your [proxy service]({{base_path}}/integrate/develop/creating-artifacts/creating-a-proxy-service) artifact.
 
 !!! Info
     The Micro Integrator can receive HL7 messages or send HL7 messages only if the HL7 transport listener and sender are enabled and configured at the server level. Read about the [HL7 transport]({{base_path}}/install-and-setup/transport_configurations/configuring-transports/#configuring-the-hl7-transport).

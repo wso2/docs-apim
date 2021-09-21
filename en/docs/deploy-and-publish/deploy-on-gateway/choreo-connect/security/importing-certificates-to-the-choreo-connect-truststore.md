@@ -29,7 +29,7 @@ volumes:
 
 This mounts both the key store and truststore locations to the container.
 
-To add a new certificate Choreo Connect component, it should be done by adding the pem formated certificate to the *truststore* location of that particular component.
+To add a new certificate Choreo Connect component, it should be done by adding the pem formatted certificate to the *truststore* location of that particular component.
 
 For an example, if a new certificate (router/enforcer or control plane) needs to be added to the adapter component,
 

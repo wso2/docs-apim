@@ -14,7 +14,7 @@ The OAuth token is enabled by default in the Choreo Connect. Adding the followin
   expiryTime = 15
 ```
 
-| Config Element           | Description|
+| Configuration Element           | Description|
 |--------------------------|--------------------------------------|
 | enabled     | Enable/ disable enforcer token cache. |
 | maximumSize| The maximum number of tokens that the cache can store.|

@@ -18,9 +18,9 @@ APIM control plane, therefore the user actions like API deploying, application c
 
 ### Step 1 - Find the APIM IP Address
 
-In order to tell Choreo Connect where API Manager (APIM) is located, find out the IP that can be used to access the API Manager instance. If you are trying out WSO2 API Manager locally, the private IP retrived using `hostname -I` or `ipconfig` would do.
+In order to tell Choreo Connect where API Manager (APIM) is located, find out the IP that can be used to access the API Manager instance. If you are trying out WSO2 API Manager locally, the private IP retrieved using `hostname -I` or `ipconfig` would do.
 
-### Step 2 - Update the Choreo Connect Config File
+### Step 2 - Update the Choreo Connect Configuration File
 
 Open the `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file in a text editor and update it as follows.
 
@@ -100,7 +100,7 @@ Choreo Connect supports [resource level]({{base_path}}/deploy-and-publish/deploy
 #### Distributed rate limiting
 In a deployment with multiple Choreo Connect instances, throttling becomes a challenge with node local throttling as the throttling
 decision is made based on the local counter within each node. If we proceed with the node local throttling in such
-environment, the API user would be allowed to send multiples of the throttling limit.I.e. if the throttling limit is set to 10,
+environment, the API user would be allowed to send multiples of the throttling limit. I.e., if the throttling limit is set to 10,
 if we have 3 gateways in a cluster, it will allow 30 requests to pass to the backend before all three gateways
 throttle out requests. This will put an unexpected load on the backend. To address this requirement, Choreo Connect
 supports distributed throttling where it is able to work with a central traffic management solution. In this case,

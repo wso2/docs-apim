@@ -1,6 +1,6 @@
 # Salesforce Bulk Connector Example
 
-The Salesforce Bulk Connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm) from an integration sequence. SalesforceBulk is a RESTful API that allows you to quickly load large sets of your organisation’s data into Salesforce or delete large sets of your organisation’s data from Salesforce. You can use SalesforceBulk to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
+The Salesforce Bulk Connector allows you to access the [Salesforce Bulk REST API](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm) from an integration sequence. SalesforceBulk is a RESTful API that allows you to quickly load large sets of your organization's data into Salesforce or delete large sets of your organization's data from Salesforce. You can use SalesforceBulk to query, insert, update, upsert or delete a large number of records asynchronously, by submitting the records in batches. Salesforce can process these batches in the background.
 
 ## What you'll build
 
@@ -91,7 +91,7 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
 
     1. Setup the `fileconnector.read` configurations. In this operation we are going to read the CSV file content by using the [WSO2 File Connector]({{base_path}}/reference/connectors/file-connector/file-connector-overview).
     
-        - **contentType** : Content type of the files processsed by the connector.
+        - **contentType** : Content type of the files processed by the connector.
         - **source** : The location of the file. This can be a file on the local physical file system or a file on an FTP server. 
         - **filePattern** : The pattern of the file to be read.
                 

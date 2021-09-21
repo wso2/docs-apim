@@ -1,0 +1,51 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+JWTValidator
+validateToken
+loadTokenIssuerConfiguration
+KeyValidationHandler
+validateSubscription
+validateScopes
+GenerateConsumerToken
+validateScope
+generateConsumerToken
+allowlisting
+allowlist
+KeyManager
+createApplication
+updateApplication
+retrieveApplication
+getNewApplicationAccessToken
+getTokenMetaData
+getKeyManagerConfiguration
+buildAccessTokenRequestFromJSON
+AccessTokenRequest
+mapOAuthApplication
+buildAccessTokenRequestFromOAuthApp
+loadConfiguration
+registerNewResource
+APIResource
+getResourceByApiId
+updateRegisteredResource
+resourceId
+deleteRegisteredResourceByAPIId
+deleteMappedApplication
+getActiveTokensByConsumerKey
+getAccessTokenByConsumerKey
+updateApplicationOwner
+deleteApplication
+buildFromJSON
+registerScope
+getScopeByName
+attachResourceScopes
+updateResourceScopes
+detachResourceScopes
+deleteScope
+updateScope
+isScopeExists
+getUserClaims
+refresh_token
+saml2-bearer

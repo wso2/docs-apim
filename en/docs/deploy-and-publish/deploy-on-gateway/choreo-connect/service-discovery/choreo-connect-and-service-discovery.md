@@ -31,7 +31,7 @@ For more instructions, see the [Consul official documentation](https://www.consu
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
 ```
 <ol>
-<li> Change the `url` to the url of the Consul agent you want to connect to.<br></li>
+<li> Change the `url` to the URL of the Consul agent you want to connect to.<br></li>
 <li>Change the `aclToken` to the token you generated from the previous step.<br></li> 
 <li>`serviceMeshEnabled` should be set to `false`.<br></li>
 <li>You can leave the `mgwServiceName` empty as the property is not needed.<br></li>

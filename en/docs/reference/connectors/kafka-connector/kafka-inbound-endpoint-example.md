@@ -4,7 +4,7 @@ The Kafka inbound endpoint acts as a message consumer. It creates a connection t
 
 ## What you'll build
 This sample demonstrates how one way message bridging from Kafka to HTTP can be done using the inbound Kafka endpoint.
-See [Configuring kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) for more information.
+See [Configuring Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) for more information.
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build. In this example, you only need to consider about the scenario of message consuming.
 
@@ -109,7 +109,7 @@ You can download the ZIP file and extract the contents to get the project code.
    ```
    {"test":"wso2"}
    ```
-   **Expected respons**
+   **Expected response**
    
    You can see the following Message content in the Micro Integrator:
    
@@ -124,4 +124,4 @@ You can download the ZIP file and extract the contents to get the project code.
 ## What's next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers]({{base_path}}/install-and-setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.
+* To customize this example for your own scenario, see [Kafka Connector Configuration]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.

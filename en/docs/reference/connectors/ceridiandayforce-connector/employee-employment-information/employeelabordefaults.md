@@ -8,7 +8,7 @@ The following operations allow you to retrieve the default labour of an employee
 
 | Operation | Description |
 | ------------- |-------------|
-|[GET Employee Labor Defaults](#retrieving-employee-labour-defaults)| Retrieve employee labor defaults. Labor defaults specify an employee default postion, project, docket or other timesheet information. |
+|[GET Employee Labor Defaults](#retrieving-employee-labour-defaults)| Retrieve employee labor defaults. Labor defaults specify an employee default position, project, docket or other timesheet information. |
 
 ### Operation details
 

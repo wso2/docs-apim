@@ -16,7 +16,7 @@ To see the Ceridian Dayforce Connector, navigate to the [connector store](https:
 
 For older versions, see the details in the connector store.
 
-## Ceredian Dayforce Connector documentation
+## Ceridian Dayforce Connector documentation
 
 * **[Setting up the Ceridian Dayforce Environment]({{base_path}}/reference/connectors/ceridiandayforce-connector/ceridiandayforce-connector-config/)**: You need to have a Ceridian Dayforce developer account and obtain test user credentials to try this out.
 

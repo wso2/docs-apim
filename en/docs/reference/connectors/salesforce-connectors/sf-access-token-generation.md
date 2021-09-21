@@ -1,6 +1,6 @@
 # Salesforce Access Token Generation
 
-First, we will create a Salesforce App (Connected App) and obtain the OAuth 2tokens from Salesforce REST API.
+First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 tokens from Salesforce REST API.
 
 1. Navigate in to the [Salesforce developer edition](https://developer.salesforce.com/signup) and create a Salesforce account.
    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-developer-edition-signup.png" title="Create salesforce account" width="800"/> 

@@ -1,0 +1,49 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+baseURI
+definedwithinthe
+enableBatchRequest
+enableBoxcarring
+theboxcarringfeature
+txManagerJNDIName
+serviceNamespace
+serviceGroup
+serviceStatus
+useConfig
+returnGeneratedKeys
+sqlType
+paramType
+defaultValue
+validateCustom
+validateLength
+validatePattern
+sql
+jdbcdriver
+usesql-dialects
+sparql
+rowName
+defaultNamespace
+requiredRoles
+boxcarring
+exportType
+xsdType
+QName
+call-querry
+dbs
+enableSec
+Validators
+validators
+xs
+base64Binary
+DataHandler
+Varchar
+UDTs
+YYYY-MM-DD
+hh
+mmm
+customernumber
+customername
+targetNamespace

@@ -34,7 +34,7 @@ pairs. To do this, follow the procedure below:
         The archetypes of extensions supported are `source`, `sink`, `execution`, `io`, `map` , `script`, and `store`.
     
 
-5. Add a subsection named properties to overide the system properties. Then add the system properties with the required 
+5. Add a subsection named properties to override the system properties. Then add the system properties with the required 
    values as key value pairs, as shown below.
 
     ``` xml

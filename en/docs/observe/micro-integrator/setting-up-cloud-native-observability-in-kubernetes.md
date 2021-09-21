@@ -214,4 +214,4 @@ For more information about the Micro Integrator Kubernetes development flow, see
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe/micro-integrator/viewing-cloud-native-observability-statistics/).
+If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe/micro-integrator/viewing-cloud-native-observability-statistics/).

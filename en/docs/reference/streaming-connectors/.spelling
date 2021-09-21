@@ -1,0 +1,21 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Siddhi
+pre-written
+cartesian
+sink_type
+static_option_key1
+static_option_value1
+NOT_INSTALLED
+PARTIALLY_INSTALLED
+gRPC
+uninstallation
+substeps
+siddhi-execution
+siddhi-io
+siddhi-map
+siddhi-script
+siddhi-store

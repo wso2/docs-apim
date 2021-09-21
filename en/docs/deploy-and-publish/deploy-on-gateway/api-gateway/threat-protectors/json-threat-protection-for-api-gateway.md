@@ -42,7 +42,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the JSON validator policy
 
-You can apply the pre-defined JSON Policy through the UI. Follow the instructions below to apply the json\_validator 
+You can apply the predefined JSON Policy through the UI. Follow the instructions below to apply the json\_validator 
 in sequence.
 
 -   Create an API or edit an existing API.

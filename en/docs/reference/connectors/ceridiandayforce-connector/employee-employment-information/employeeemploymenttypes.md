@@ -8,7 +8,7 @@ The following operations allow you to retrieve employment type of an employee
 
 | Operation | Description |
 | ------------- |-------------|
-|[GET Employee Employment Types](#retrieving-employee-employment-types)| Retrieve employee employment types (i.e: contractor, pensioner, etc.). |
+|[GET Employee Employment Types](#retrieving-employee-employment-types)| Retrieve employee employment types (i.e.: contractor, pensioner, etc.). |
 
 ### Operation details
 

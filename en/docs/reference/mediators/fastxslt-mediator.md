@@ -130,7 +130,7 @@ Pass the following XML payload using SOAP UI.
     example, the following payload passes the `         drinkName        `
     as 'Coffee'. The style sheet traverses through the incoming payload and
     finds the `         <lunch>        ` elements, which contains 'Coffee'
-    as `         drinkName        ` . When it finds matching ectries, it
+    as `         drinkName        ` . When it finds matching entries, it
     adds the prices of those elements under a new
     `         <Payment>        ` element. Therefore, when the message flow
     comes out of XSLT mediator, the payload changes the

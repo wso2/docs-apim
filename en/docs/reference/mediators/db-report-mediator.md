@@ -111,7 +111,7 @@ The parameters available to configure the DB Report mediator are as follows.
 <td><strong>Use Transaction</strong></td>
 <td><div class="content-wrapper">
 <p>This parameter specifies whether the database operation should be performed within a transaction or not. Click <strong>Yes</strong> or <strong>No</strong> as relevant.</p>
-<p>To include multiple database reports within the same database transaction i nside a particular message flow, set the value of this <strong>Use Transaction</strong> property to <strong>Yes</strong> .<br />
+<p>To include multiple database reports within the same database transaction inside a particular message flow, set the value of this <strong>Use Transaction</strong> property to <strong>Yes</strong> .<br />
 </p>
 <p>However, when you have more reports it takes more time to complete a transaction and when multiple messages flow in, then multiple transactions can become active at the same time.</p>
 <p>By default, the maximum number of active transactions is 50 as imposed by the Atomikos JTA implementation. To override this, create a file named <code>                  transaction.properties                 </code> by including the following property and add it to the <code>                  &lt;MI_HOME&gt;/lib                 </code> directory:</p>
@@ -368,7 +368,7 @@ This example demonstrates simple database write operations. The DB Report mediat
 
 ### Database write operation within a transaction
 
-In this example, `         <transaction action="new"/>        ` is a Transaction Mediator configuration that starts a new transaction. The DBReport mediator configuration performs a few write operations incuding deleting records when the name matches a specific value derived via an
+In this example, `         <transaction action="new"/>        ` is a Transaction Mediator configuration that starts a new transaction. The DBReport mediator configuration performs a few write operations including deleting records when the name matches a specific value derived via an
 expression as well as a few insertions. Once the database operations are
 complete, they are committed via
 `         <transaction action="commit"/>        ` , which is another
