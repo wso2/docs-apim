@@ -184,7 +184,7 @@ For example, the following Synapse configuration retrieves the
 ```
 
 !!! Info
-    You can use the following syntax to read properties or resources stored in the `         gov        ` or `         conf        ` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `         gov        ` or `         conf        ` prefixes.
+    You can use the following syntax to read properties or resources stored in the `gov` or `conf` Registries. When specifying the path to the resource, do not give the absolute path. Instead, use the `gov` or `conf` prefixes.
 
 #### Reading a property stored under a collection
 
