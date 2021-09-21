@@ -113,7 +113,7 @@ Let's invoke the API.
 
 ## Invoke the API
 
-First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and Developer portal.
+First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and Developer Portal.
 Add the following entry to `/etc/hosts` file
 
 ```sh
