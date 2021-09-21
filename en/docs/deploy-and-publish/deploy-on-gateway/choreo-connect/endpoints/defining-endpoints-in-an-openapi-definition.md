@@ -122,7 +122,7 @@ x-wso2-production-endpoints:
     - <endpoint_URL>
 ```
 
-The purpose of URLs field is to include the backend service URLs. .
+The purpose of URLs field is to include the backend service URLs.
 
 If you have added resource level endpoints and you have repeated the same endpoint in multiple resources, it will cause data duplication in the OpenAPI definition. In order to avoid repetition, the endpoints can be provided under a reference model as shown below. 
 
