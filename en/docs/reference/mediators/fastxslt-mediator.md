@@ -132,7 +132,7 @@ Pass the following XML payload using SOAP UI.
     finds the `         <lunch>        ` elements, which contains 'Coffee'
     as `         drinkName        ` . When it finds matching entries, it
     adds the prices of those elements under a new
-    `         <Payment>        ` element. Therefore, when the message flow
+    `<Payment>` element. Therefore, when the message flow
     comes out of XSLT mediator, the payload changes the
     `         <Payment>        ` entry, where it contains the
     `         drinkPrice        ` values of matching elements.
