@@ -147,7 +147,7 @@ Given below is a sample response for this operation.
 
 Following example illustrates how to connect to Dayforce with the init operation and query operation.
 
-1. Create a sample proxy as below :
+1. Create a sample proxy as shown below:
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <proxy xmlns="http://ws.apache.org/ns/synapse"
