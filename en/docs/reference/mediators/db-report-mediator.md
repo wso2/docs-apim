@@ -371,7 +371,7 @@ This example demonstrates simple database write operations. The DB Report mediat
 In this example, `         <transaction action="new"/>        ` is a Transaction Mediator configuration that starts a new transaction. The DBReport mediator configuration performs a few write operations including deleting records when the name matches a specific value derived via an
 expression as well as a few insertions. Once the database operations are
 complete, they are committed via
-`         <transaction action="commit"/>        ` , which is another
+`<transaction action="commit"/>` , which is another
 Transaction Mediator configuration.
 
 ``` java
