@@ -58,7 +58,7 @@ Refer to the Adapter section to the main configuration file of Choreo Connect (`
   keyFile = "/home/wso2/security/truststore/consul/local-dc-client-consul-0-key.pem"
 ```
 <ol>
-<li>Change the `url` to the url of the Consul agent you want to connect to.<br></li>
+<li>Change the `url` to the URL of the Consul agent you want to connect to.<br></li>
 <li>Change the `aclToken` to the token you generated from the previous step.<br></li>
 <li>Make sure the property `serviceMeshEnabled` is set to `true`.<br></li>
 <li>`mgwServiceName` should be the name you registered Choreo Connect as Consul service.<br></li>

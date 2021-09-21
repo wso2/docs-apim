@@ -1,0 +1,36 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+filterAvailabilityStartDate
+2017-01-01T00
+filterAvailabilityEndDate
+FilterTransactionStartTimeUTC
+FilterTransactionEndTimeUTC
+filterTransactionStartTimeUTC
+filterTransactionEndTimeUTC
+locationXRefCode
+positionXRefCode
+departmentXRefCode
+jobXRefCode
+docketXRefCode
+projectXRefCode
+payAdjustmentXRefCode
+shiftStatus
+filterShiftTimeStart
+timeframe
+filterShiftTimeEnd
+businessDate
+pageSize
+employeeBadge
+punchState
+punchTypes
+Punch_In
+Break_Out
+Job_Transfer
+filterScheduleStartDate
+filterScheduleEndDate
+isPosted
+filterTAFWStartDate
+filterTAFWEndDate

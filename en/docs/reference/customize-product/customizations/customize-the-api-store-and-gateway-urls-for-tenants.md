@@ -1,6 +1,6 @@
 # Customizing the Developer Portal and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrate how to configure devportal and gateway custom urls for a given tenant.
+The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrate how to configure devportal and gateway custom URLs for a given tenant.
 
 -   [Configure per tenant custom domain mappings](#configure-per-tenant-custom-domain-mappings)
 -   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
@@ -64,7 +64,7 @@ The default URL of WSO2 API Manager Developer Portal (`https://<HostName>:9443/d
 
 ## Configure per tenant service provider creation for devportal
 
-By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom urls are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback urls) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
+By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom URLs are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback URLs) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
 
 1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the **tenant admin**.
 

@@ -24,7 +24,7 @@ Let's define virtual hosts (VHosts) in API Manager server instance by editing th
     for more information.
 
 1. Open `<APIM-HOME>/repository/conf/deployment.toml` file.
-2. Add the following config under the **Default** `[[apim.gateway.environment]]` to define the VHost `us.wso2.com`.
+2. Add the following configuration under the **Default** `[[apim.gateway.environment]]` to define the VHost `us.wso2.com`.
     ```toml
     [[apim.gateway.environment.virtual_host]]
     ws_endpoint = "ws://us.wso2.com:9099"
@@ -113,7 +113,7 @@ Let's invoke the API.
 
 ## Invoke the API
 
-First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and dev portal.
+First we need to add the host entry to `/etc/hosts` file in order to access the API Manager publisher and Developer Portal.
 Add the following entry to `/etc/hosts` file
 
 ```sh

@@ -66,7 +66,7 @@ You can click <strong>NameSpaces</strong> to add namespaces if you are providing
 <td><div class="content-wrapper">
 <p>The key for the schema location. It can be specified using one of the following methods.</p>
 <ul>
-<li>If the key is a static value, select <strong>Static Key</strong> from the list and enter a static key in the data field. This value should be pre-defined and saved as a resource in the Registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required key from the resource tree.</li>
+<li>If the key is a static value, select <strong>Static Key</strong> from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required key from the resource tree.</li>
 <li>If the key is a dynamic value, Select <strong>Dynamic Key</strong> from the list and enter an expression to calculate the value in the data field.</li>
 </ul>
 <p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p>
@@ -238,7 +238,7 @@ E.g: <code>json-eval($.msg)</code>
 <td><strong>Schema keys defined for Validate Mediator</strong></td>
 <td><p>The key for the schema location. It can be specified using one of the following methods.</p>
 <ul>
-<li>If the key is a static value, select Static Key from the list and enter a static key in the data field. This value should be pre-defined and saved as a resource in the Registry . Click either Configuration Registry or Governance Registry as relevant to select the required key from the resource tree.</li>
+<li>If the key is a static value, select Static Key from the list and enter a static key in the data field. This value should be predefined and saved as a resource in the Registry . Click either Configuration Registry or Governance Registry as relevant to select the required key from the resource tree.</li>
 <li>If the key is a dynamic value, Select Dynamic Key from the list and enter an expression to calculate the value in the data field.</li>
 </ul>
 <p>Click <strong>Add Key</strong> to add a new schema key. Click <strong>Delete</strong> in the relevant row to delete a schema key.</p></td>

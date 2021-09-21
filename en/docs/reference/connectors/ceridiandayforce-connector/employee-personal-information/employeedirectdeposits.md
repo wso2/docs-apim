@@ -130,7 +130,7 @@ Following example illustrates how to connect to Dayforce with the init operation
 ```bash
 curl http://localhost:8280/services/query -H "Content-Type: application/json" -d @query.json
 ```
-5.Dayforce returns HTTP Code 200 and the following reponse
+5.Dayforce returns HTTP Code 200 and the following response
 
 ```json
 {

@@ -111,7 +111,7 @@ We need to acquire the identity information by configuring claims to use Authent
 
     If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI**.
     
-5. Add **Identitity Provide Roles** under **Role Configurations** as follows.
+5. Add **Identity Provide Roles** under **Role Configurations** as follows.
 
     | Identity Provider Role      | Local Role                          |
     |-----------------------------|-------------------------------------|

@@ -19,7 +19,7 @@ There are different connection configurations that can be used for the above pro
 
 
 !!! Note
-    The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection urls will be generated.
+    The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection URLs will be generated.
 
     ```bash tab='Local File'
     [file://] absolute-path

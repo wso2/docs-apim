@@ -2,7 +2,7 @@
 
 The Microsoft Dynamics 365 (Microsoft Dynamics CRM) Connector allows you to access the [Microsoft Dynamics 365 Web API](https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/mt593051(v=crm.8)?redirectedfrom=MSDN) through the WSO2 integration runtime. The Microsoft Dynamics CRM system (now known as Microsoft Dynamics 365) is a standalone CRM product from Microsoft that provides sales, marketing, and service management capabilities only via individual modules.
 
-To use the Microsoft Dynamics 365, you must have folowing accounts. 
+To use the Microsoft Dynamics 365, you must have following accounts. 
 
 * A Microsoft Dynamics 365 (online) system user account with administrator role for the Microsoft Office 365 subscription
 * A Microsoft Azure subscription for application registration
@@ -145,7 +145,7 @@ Body: x-www-form-urlencoded
 | Key        | Value |
 | ------------- |-------------|
 | client_id    | Application ID of the registered app in Azure. |
-| resource      |https://trial.crm.dynamics.com (Dynamics 365 Online Insance URL |
+| resource      |https://trial.crm.dynamics.com (Dynamics 365 Online Instance URL |
 | Client_secret |Key value from the registered app in Azure|
 | Grant_type    |client_credentials|
 

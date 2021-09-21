@@ -16,7 +16,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the attributes accordingly.
 
-    Following JSON is an example for a `userTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components refered by the attribute names)
+    Following JSON is an example for a `userTheme.js` to define the look and feel, and the behavior of the landing page. You can set the attributes (components) such as `carousel`, `listByTag`, `parallax` and `contact` as shown in the below example. (Refer to the above screenshot to identify the components referred by the attribute names)
 
     <div>
     <div class="jsonTreeOutput"></div>
@@ -168,5 +168,5 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 
 2. Refresh the Developer Portal to view the changes.  
 
-The Landing Page provides a headstart for developers who try to rebrand the developer portal for their needs. If the requirements are much complicated, then you need to override the relevant components. The steps to override only specific react components can be found [here]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/).
+The Landing Page provides a head start for developers who try to rebrand the developer portal for their needs. If the requirements are much complicated, then you need to override the relevant components. The steps to override only specific react components can be found [here]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/).
 

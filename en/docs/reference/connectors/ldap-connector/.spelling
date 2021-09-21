@@ -1,0 +1,15 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+init_sequence
+student_data.json
+search_student.json
+ldap.init
+configKey
+MyLDAPConfig
+addEntry
+searchEntry
+updateEntry
+deleteEntry

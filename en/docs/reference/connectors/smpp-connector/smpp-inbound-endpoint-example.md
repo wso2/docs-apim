@@ -131,7 +131,7 @@ You can download the ZIP file and extract the contents to get the project code.
      ```
    SMPP Inbound Endpoint will consume message from the SMSC.
    
-   **Expected respons**
+   **Expected response**
    
      ```
      [2020-05-18 10:56:05,495]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - MessageId = 0, SourceAddress = null, DataCoding = 0, ScheduleDeliveryTime = null, SequenceNumber = 7, ServiceType = null

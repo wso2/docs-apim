@@ -286,7 +286,7 @@ timestamp | CorrelationID | threadName | duration(BE latency) | callType | apiNa
 
 #### External Call Logs with transport level information
 
-In contrast to the information provided by the Synapse global handler level, the passthrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse Passthrough Transport Level External Call Log entry is as follows:
+In contrast to the information provided by the Synapse global handler level, the PassThrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse PassThrough Transport Level External Call Log entry is as follows:
 
 ``` tab="Format"
 timestamp|correlationID|threadName|duration|callType|connectionName|methodType|connectionURL|httpState
@@ -296,7 +296,7 @@ timestamp|correlationID|threadName|duration|callType|connectionName|methodType|c
 2021-11-28` `10:10:56,314|a783f7c3-647f-4d10-9b72-106faa01bba8|HTTPS-Sender I/O dispatcher-1|1|HTTP State Transition|http-outgoing-1|GET|https://localhost:9443/am/sample/pizzashack/v1/api/menu|RESPONSE_DONE
 ```
 
-??? "Click here for more details on the Synapse Passthrough Transport Level External Call Log Entry"
+??? "Click here for more details on the Synapse PassThrough Transport Level External Call Log Entry"
     <table>
     <thead>
     <tr class="header">

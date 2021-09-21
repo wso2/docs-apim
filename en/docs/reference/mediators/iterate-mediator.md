@@ -96,7 +96,7 @@ follows.
 <tr class="odd">
 <td><strong>Iterate Expression</strong></td>
 <td><div class="content-wrapper">
-<p>The XPath expression used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. E ach iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
+<p>The XPath expression used to split the message.. This expression selects the set of XML elements from the request payload that are applied to the mediation defined within the iterate target. Each iteration of the iterate mediator will get one element from that set. New messages are created for each and every matching element and processed in parallel or in sequence based on the value specified for the <strong>Sequential Mediation</strong> parameter.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 
 </div></td>
@@ -143,7 +143,7 @@ follows:
 <ul>
 <li><strong>None</strong> : If this is selected, no further mediation will be performed for the split messages.</li>
 <li><strong>Anonymous</strong> : If this is selected, you can define an anonymous sequence for the split messages by adding the required mediators as children to <strong>Target</strong> in the mediator tree.</li>
-<li><strong>Pick From Registry</strong> : If this is selected, you can refer to a pre-defined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
+<li><strong>Pick From Registry</strong> : If this is selected, you can refer to a predefined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -152,7 +152,7 @@ follows:
 <ul>
 <li><strong>None</strong>: If this is selected, the split messages are not sent to an endpoint.</li>
 <li><strong>Anonymous</strong>: If this is selected, you can define an anonymous endpoint within the iterate target configuration to which the split messages should be sent.</li>
-<li><strong>Pick from Registry</strong>: If this is selected, you can refer to a pre-defined endpoint that is currently saves as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
+<li><strong>Pick from Registry</strong>: If this is selected, you can refer to a predefined endpoint that is currently saves as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
 </ul></td>
 </tr>
 </tbody>

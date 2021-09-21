@@ -1,6 +1,6 @@
 # Internal Key Authentication
 
-This authentication is used to testing APIs that are created in the Publisher to make sure that the APIs meet the required functionalities and behaviour.
+This authentication is used to testing APIs that are created in the Publisher to make sure that the APIs meet the required functionalities and behavior.
 
 ### Step 1 - Deploy a created API to Choreo Connect via APIM
 Follow the documentation [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager),

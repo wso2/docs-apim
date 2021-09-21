@@ -10,11 +10,11 @@ API Manager product. Following is a list of key features supported by Choreo Con
 - Test APIs with internal test keys from publisher portal 
 - Deploy/undeploy APIs using the command line tool APICTL.
 - Web socket APIS (JWT authentication and throttling supported) 
-- JWT based oauth2 authentication.
+- JWT based OAuth2 authentication.
 - JWT revocation.  
 - Subscription validation.
 - Subscription blocking/unblocking from publisher portal.
-- Scope validation for JWT oauth2 bearer tokens.
+- Scope validation for JWT OAuth2 bearer tokens.
 - Applying CORS configuration from publisher portal.
 - Support full lifecycle states of APIs like created, prototyped, blocked, deprecated, published and etc.
 - Support virtual hosts(Vhosts) to expose the APIs.  
@@ -39,7 +39,7 @@ The following key features are not supported by the Choreo Connect as of now the
 - GraphQL APIs
 - API Products.  
 - Mutual SSL authentication for APIs.
-- Application level securities like basic auth and api keys.
+- Application level securities like basic auth and API keys.
 - Message transformation and mediation.
 - Bandwidth based throttling.
   

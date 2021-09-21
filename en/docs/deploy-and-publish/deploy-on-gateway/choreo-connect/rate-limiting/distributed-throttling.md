@@ -6,7 +6,7 @@ To learn about the concepts of throttling in Choreo Connect, please follow the [
 
 Throttling (Rate Limiting) in Choreo Connect works with API Manager (Traffic Manager).
 
-To enable distributed throttling, change the below configs in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file as required.
+To enable distributed throttling, change the below configurations in `<CHOREO-CONNECT_HOME>/docker-compose/choreo-connect/conf/config.toml` file as required.
 
 ``` toml
   # Throttling configurations
@@ -106,5 +106,5 @@ Conditional throttling is done via the Advanced throttling policies in API Manag
     ```
 
 3. Define the Advance Throttle Policy containing the required conditions in WSO2 API Manager. To do this follow [Adding a new advanced throttling policy]({{apim_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-throttling-policy)
-4. Create an API in API Publisher and assign the created Advanced Thorttling policy to the API. [Advanced throttling (API publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-throttling-api-publisher)
+4. Create an API in API Publisher and assign the created Advanced Throttling policy to the API. [Advanced throttling (API publisher)]({{base_path}}/design/rate-limiting/setting-throttling-limits/#advanced-throttling-api-publisher)
 5. Deploy the API in Choreo-Connect ([Deploy an API via API Manager]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/deploy-api/deploy-api-to-choreo-connect/#via-api-manager)).
