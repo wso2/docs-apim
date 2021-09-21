@@ -92,7 +92,7 @@ Define the upstream endpoints to the Consul service catalog based services using
 ### Define Consul service catalog based services in WSO2 API Manager
 
 Define the upstream endpoints to the Consul service catalog based services in WSO2 API Manager using the syntax described above via the WSO2 API Manger publisher portal.<br>
-You have to define the service using the above mentioned syntax and put it in the Production endpoint of Sandbox endpoint or both.<br>
+You have to define the service using the above mentioned syntax and put it in the Production endpoint, the Sandbox endpoint or both.<br>
 [![reference]({{base_path}}/assets/img/deploy/consul-apim.png)]({{base_path}}/assets/img/deploy/consul-apim.png)
 
 ### Define Consul service catalog based services in an Open API definition (when using APICTL)
