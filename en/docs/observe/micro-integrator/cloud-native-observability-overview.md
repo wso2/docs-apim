@@ -12,7 +12,7 @@ The following diagram depicts the complete **cloud native** observability soluti
 
 The basic deployment offers you metrics capabilities. You can set up the basic deployment with only Prometheus and Grafana to view and explore with the available Prometheus metrics.
 
-![Cloud Native Deployment - Minimum]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-metrics.png)
+[![Cloud Native Deployment - Minimum]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-metrics.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-metrics.png)
 
 ## Cloud native observability add ons
 
