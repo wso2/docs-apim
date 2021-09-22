@@ -22,7 +22,7 @@ You can also set up different flavours of the observability solution depending o
  
 Once you set up the basic deployment, you can integrate log-processing capabilities. To use this, you need to install **Fluent-Bit** as the logging agent and **Grafana Loki** as the log aggregator.
 
-![Cloud Native Deployment with Logs]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-logs.png)
+[![Cloud Native Deployment with Logs]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-logs.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-logs.png)
 
 ### Message tracing add on
 
