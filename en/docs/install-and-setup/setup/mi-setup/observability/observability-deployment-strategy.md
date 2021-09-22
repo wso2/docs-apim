@@ -17,7 +17,7 @@ The cloud-native solution is more suitable in the following scenarios:
 
 ### Technologies
 
-The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and future-roof. Following are the technologies used in the current solution:
+The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and future-proof. Following are the technologies used in the current solution:
 
 | **Feature**   | **Technology**              |
 |---------------|-----------------------------|
