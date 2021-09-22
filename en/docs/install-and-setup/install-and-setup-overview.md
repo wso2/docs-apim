@@ -718,7 +718,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
 </tr>
 <tr>
     <th>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy">Observability</a>
+        <a href="{{base_path}}/observe/micro-integrator/cloud-native-observability-overview">Observability</a>
     </th>
     <td>
         There are two possible observability solutions that you can enable for the Micro Integrator component. This section explains how to set them up and well as how to configure logging. The topics covered are as follows:

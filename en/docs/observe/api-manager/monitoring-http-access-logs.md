@@ -136,7 +136,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
                    <p>While you can use the above attributes to define a custom pattern, the standard patterns shown below can be used.</p>
                    <ul>
                       <li>
-                         <p><strong>common</strong> ( <a href="http://httpd.apache.org/docs/1.3/logs.html#common">Apache common log pattern</a> ):</p>
+                         <p><strong>common</strong> ( <a href="http://httpd.apache.org/docs/2.4/logs.html#common">Apache common log pattern</a> ):</p>
                          <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
                                <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -146,7 +146,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
                          </div>
                       </li>
                       <li>
-                         <p><strong>combined</strong> ( <a href="http://httpd.apache.org/docs/1.3/logs.html#combined">Apache combined log pattern</a> ):</p>
+                         <p><strong>combined</strong> ( <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log pattern</a> ):</p>
                          <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
                                <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
