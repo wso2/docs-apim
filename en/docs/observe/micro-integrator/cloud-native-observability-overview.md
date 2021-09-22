@@ -28,7 +28,7 @@ Once you set up the basic deployment, you can integrate log-processing capabilit
 
 Once you set up the basic deployment, you can integrate message tracing capabilities. To use this you need to install **Jaeger**.  
 
-![Cloud Native Deployment with Tracing]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-tracing.png)
+[![Cloud Native Deployment with Tracing]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-tracing.png)]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-tracing.png)
 
 ## Observability solutions
 
