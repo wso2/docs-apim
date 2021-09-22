@@ -1,10 +1,10 @@
 ---
-title: Setting up Cloud-Native Observability on Kubernetes - WSO2 API Manager 4.0.0
+title: Setting up Cloud Native Observability on Kubernetes - WSO2 API Manager 4.0.0
 ---
 
-# Setting up Cloud-Native Observability on Kubernetes Getting Started Guide
+# Setting up Cloud Native Observability on Kubernetes
 
-Follow the instructions given below to set up a cloud-native observability solution in a Kubernetes environment. 
+Follow the instructions given below to set up a cloud native observability solution in a Kubernetes environment. 
 
 To streamline the deployment of the cloud native observability solution in Kubernetes, the Micro Integrator provides a Helm chart via which you can deploy the solution to your Kubernetes cluster. The deployment installs the relevant products and adds the required configurations. After the installation, you can directly use the observability solution with a few additional configurations. 
 

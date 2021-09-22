@@ -763,7 +763,7 @@ nav:
             - Metrics:
                 - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
         - Micro Integrator Profile:
-            - Cloud-Native Observability:
+            - Cloud Native Observability:
                 - Overview: observe/micro-integrator/cloud-native-observability-overview.md
                 - Getting Started Guide - VM Deployment: observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm.md
                 - Getting Started Guide - K8s Deployment: observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes.md
@@ -1391,8 +1391,6 @@ nav:
                 - Multi-HTTPS Transport: install-and-setup/setup/mi-setup/transport_configurations/multi-https-transport.md
                 - Message Builders and Formatters: install-and-setup/setup/mi-setup/message_builders_formatters/message-builders-and-formatters.md
                 - Message Relay: install-and-setup/setup/mi-setup/message_builders_formatters/message-relay.md
-                - Observability:
-                    - Observability Deployment Strategy: install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md
                 - Managing Configurations across Environments: install-and-setup/setup/mi-setup/dynamic_server_configurations.md
                 - Load Balancer and Proxy Server:
                     - Load Balancing: install-and-setup/setup/mi-setup/deployment/setting_up_lb.md
@@ -2091,6 +2089,7 @@ plugins:
               'api-analytics/viewing/view-analytics-on-devices.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#devices'
               'api-analytics/viewing/view-api-analytics-on-alerts.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#alerts'
               'api-analytics/viewing/download-api-analytics-reports.md': 'https://wso2.com/choreo/docs/insights/derive-insights/#reports'
+              'install-and-setup/setup/mi-setup/observability/observability-deployment-strategy.md': 'https://apim.docs.wso2.com/en/4.0.0/observe/micro-integrator/cloud-native-observability-overview/'
 
     # Extra
 extra_css:

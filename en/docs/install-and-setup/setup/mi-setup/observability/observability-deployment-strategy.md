@@ -17,7 +17,7 @@ The cloud-native solution is more suitable in the following scenarios:
 
 ### Technologies
 
-The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and future proof. Following are the technologies used in the current solution:
+The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and future-roof. Following are the technologies used in the current solution:
 
 | **Feature**   | **Technology**              |
 |---------------|-----------------------------|
@@ -41,7 +41,7 @@ Once you set up the basic deployment, you can integrate log-processing capabilit
 
 ### Message tracing add on
 
-Once you set up the basic deployment, you can integrate message tracing capabilities. To use this you need to install **Jaeger**.  
+Once you set up the basic deployment, you can integrate message tracing capabilities. To use this, you need to install **Jaeger**.  
 
 ![Cloud Native Deployment with Tracing]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-tracing.png)
 

@@ -456,7 +456,7 @@ You can customize the format of this access log by changing the following proper
                <p>While you can use the above attributes to define a custom pattern, the standard patterns shown below can be used.</p>
                <ul>
                   <li>
-                     <p><strong>common</strong> ( <a href="http://httpd.apache.org/docs/1.3/logs.html#common">Apache common log pattern</a> ):</p>
+                     <p><strong>common</strong> ( <a href="http://httpd.apache.org/docs/2.4/logs.html#common">Apache common log pattern</a> ):</p>
                      <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
                            <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -466,7 +466,7 @@ You can customize the format of this access log by changing the following proper
                      </div>
                   </li>
                   <li>
-                     <p><strong>combined</strong> ( <a href="http://httpd.apache.org/docs/1.3/logs.html#combined">Apache combined log pattern</a> ):</p>
+                     <p><strong>combined</strong> ( <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log pattern</a> ):</p>
                      <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
                            <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
@@ -476,7 +476,7 @@ You can customize the format of this access log by changing the following proper
                      </div>
                   </li>
                </ul>
-               <p>By default, a modified version of the <a href="http://httpd.apache.org/docs/1.3/logs.html#combined">Apache combined log format</a> is enabled in the ESB, as shown below. Note that the "X-Forwarded-For" header is appended to the beginning of the usually <strong>combined</strong> log format. This correctly identifies the original node that sent the request (in situations where requests go through a proxy such as a load balancer). The "X-Forwarded-For" header must be present in the incoming request for this to be logged.</p>
+               <p>By default, a modified version of the <a href="http://httpd.apache.org/docs/2.4/logs.html#combined">Apache combined log format</a> is enabled in the ESB, as shown below. Note that the "X-Forwarded-For" header is appended to the beginning of the usually <strong>combined</strong> log format. This correctly identifies the original node that sent the request (in situations where requests go through a proxy such as a load balancer). The "X-Forwarded-For" header must be present in the incoming request for this to be logged.</p>
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">

@@ -74,7 +74,7 @@ Once the product server is started, you can start the JConsole tool as follows:
      1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#starting-the-wso2-product-with-jmx).
 
         !!! info
-            If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `<API-M_HOME>/bin` directory (`api-manager.sh` for Linux and `api-manager.bat` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole).
+            If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `<API-M_HOME>/bin` directory (`api-manager.sh` for Linux and `api-manager.bat` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://newbedev.com/debugging-jconsole-connection-failed).
 
         ``` java
         -Djava.rmi.server.hostname=<IP_ADDRESS_WHICH_YOU_USE_TO_CONNECT_TO_SERVER>
