@@ -67,13 +67,23 @@ Follow the steps given below to configure the MI servers to publish data to the 
     node_id = "dev_node_2"
     ```
     
-    If MI server is deployed in a Kubernetes environment, add following configuration too to the `deployment.toml`. 
+    If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
     
-    Note: "This capability is released as a product update on todo. If you do not have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/#!) now."
-    Limitation: "Currently the dashboard does not support deployments with replicas"
+    Note: This capability is released as a product update on <b>22/09/2021</b>. If you do not have this update, you can [get the latest updates](https://updates.docs.wso2.com/en/latest/updates/overview/#!) now.
+    
+    Limitation: Currently the dashboard does not support deployments with replicas.
+
+    If communicating via Ingress, use the following configuration:
     ```toml
-    management_hostname = "management.mi.wso2.com"
-    management_port = 9165
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<INGRESS_HOSTNAME>"
+    ```
+    
+    If communicating via Service instead, use the following configuration:
+    ```toml
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<SERVICE_NAME>"
+    management_port = <SERVICE_PORT>
     ```
 
     <table>
