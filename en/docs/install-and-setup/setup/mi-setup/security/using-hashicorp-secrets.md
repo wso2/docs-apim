@@ -183,6 +183,19 @@ Given below is a sample synapse property that uses a HashiCorp secret:
 <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('path-name', 'field-name') />
 ```
 
+!!! Note
+    Support to access HashiCorp secrets using environment variables in synapse configurations is available as an update. To use this feature update your product version to 4.0.0.19 or higher. You may refer to [Updating WSO2 Micro Integrator]({{base_path}}/install-and-setup/setup/mi-setup/updating-mi) to get the latest updates.
+    
+## Accessing HashiCorp secrets using environment variables in synapse configurations
+
+You can point to the secret stored in the HashiCorp vault from your synapse configurations using environment variables.
+
+Given below is a sample synapse property to retrieve HashiCorp secret using environment variables,
+
+```xml
+ <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('$env:path-name', '$env:field-name')" />
+```
+
 ## Renewing security token (AppRole Pull authentication)
 
 When you generate the secret token from HashiCorp (for enabling AppRole Pull authentication), you have the option of limiting the number of times the secret ID token can be used. This is done using the `secret_id_num_uses` parameter in HashiCorp. In this case, the secret ID will expire after it is used for the specified number of times. 
