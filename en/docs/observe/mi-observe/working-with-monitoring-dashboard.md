@@ -66,6 +66,23 @@ Follow the steps given below to configure the MI servers to publish data to the 
     group_id = "mi_dev"
     node_id = "dev_node_2"
     ```
+    
+    If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
+
+    Limitation: Currently the dashboard does not support deployments with replicas.
+
+    If communicating via Ingress, use the following configuration:
+    ```toml
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<INGRESS_HOSTNAME>"
+    ```
+    
+    If communicating via Service instead, use the following configuration:
+    ```toml
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<SERVICE_NAME>"
+    management_port = <SERVICE_PORT>
+    ```
 
     <table>
         <tr>
@@ -81,7 +98,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 heartbeat_interval
             </th>
             <td>
-                <b>Required</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server.
+                <b>Optional</b>. The time interval (in seconds) between two heartbeats sent from the Micro Integrator to the dashboard server. By default, the heartbeat_interval is set to `5`. 
             </td>
         </tr>
         <tr>
@@ -99,6 +116,22 @@ Follow the steps given below to configure the MI servers to publish data to the 
             </th>
             <td>
                 <b>Optional</b>. By default, in a clustered deployment, the relevant `node_id` is used as this configuration. For more information about the cluster node ID, see the instructions on <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#node-id">configuring an MI cluster</a>. In a non-clustered deployment, a random UUID is used if the `node_id` is not set for this configuration.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                management_hostname
+            </th>
+            <td>
+                <b>Required if MI server is deployed in a Kubernetes environment</b>. Hostname for the Micro Integrator management endpoint.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                management_port
+            </th>
+            <td>
+                <b>Optional</b>. Port of the Micro Integrator management endpoint.
             </td>
         </tr>
     </table> 
