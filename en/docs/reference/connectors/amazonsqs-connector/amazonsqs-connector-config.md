@@ -10,6 +10,11 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
 ??? note "init"
     The init operation is used to initialize the connection to Amazon SQS.
+
+    !!! note
+        1. Either `secretAccessKey` and `accessKeyId` or `iamRole` is mandatory.
+        2. When the server is running in an EC2 instance, you can use the [IAM role for authentication](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html). The `iamRole` parameter is available only with Amazon SQS connector v1.1.1 and above.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -19,12 +24,22 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         <tr>
             <td>secretAccessKey</td>
             <td>The secret access key (a 40-character sequence).</td>
-            <td>Yes</td>
+            <td>Optional</td>
         </tr>
         <tr>
             <td>accessKeyId</td>
             <td>The access key ID that corresponds to the secret access key that you used to sign the request (a 20-character, alphanumeric sequence).</td>
-            <td>Yes</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>iamRole</td>
+            <td>The IAM role associated with the EC2 instance.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>enableIMDSv1</td>
+            <td>Whether to use IMDSv1 to access EC2 instance metadata. By default, IMDSv2 will be used.</td>
+            <td>Optional</td>
         </tr>
         <tr>
             <td>version</td>
@@ -53,12 +68,25 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
         </tr>
     </table>
 
-    **Sample configuration**
+    **Sample configuration using secretAccessKey and accessKeyId**
 
     ```xml
     <amazonsqs.init>
-       <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
+        <secretAccessKey>{$ctx:secretAccessKey}</secretAccessKey>
         <accessKeyId>{$ctx:accessKeyId}</accessKeyId>
+        <version>{$ctx:version}</version>
+        <region>{$ctx:region}</region>
+        <enableSSL>{$ctx:enableSSL}</enableSSL>
+        <contentType>{$ctx:contentType}</contentType>
+        <blocking>{$ctx:blocking}</blocking>
+    </amazonsqs.init>
+    ```
+
+    **Sample configuration using IAM role**
+
+    ```xml
+    <amazonsqs.init>
+        <iamRole>{$ctx:iamRole}</iamRole>
         <version>{$ctx:version}</version>
         <region>{$ctx:region}</region>
         <enableSSL>{$ctx:enableSSL}</enableSSL>
