@@ -37,7 +37,7 @@ Following is a sample of access log entries which can be monitored via `<APIM_HO
 - 127.0.0.1 - - [12/Dec/2019:16:54:38 +0530] "GET /am/sample/pizzashack/v1/api/menu HTTP/1.1" - - "https://localhost:9443/devportal/apis/462a90a2-9f2b-423f-9f58-28b95c30a184/test" "Synapse-PT-HttpComponents-NIO"
 ```
 
-As the runtime of WSO2 API Manager   is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport.
+As the runtime of WSO2 API Manager is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport.
 
 ##Configuring access logs for PassThrough or NIO transports in API Gateway
 
