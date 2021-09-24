@@ -7,7 +7,7 @@ To implement custom grant types for the API Manager, see [Writing a Custom OAuth
 !!! Info 
     **If you are using a GA released API-M 3.2.0 distribution or a WUM updated API-M 3.2.0 distribution on or before 23rd of October 2020,**
 
-    Note that API Manager has already customized the Grant Type handlers for `authorization_code` , `password` , `client_credentials` and `saml2-bearer` grant types. If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
+    Note that API Manager has already customized the Grant Type handlers for `authorization_code`, `password`, `client_credentials`, and `saml2-bearer` grant types. If you require any additional functionality for these grant types, it is advisable to extend the following grant handler implementations.
 
     | Grant Type                                                               | Existing Handler Class (which can be extended if required)                                              |
     |--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
