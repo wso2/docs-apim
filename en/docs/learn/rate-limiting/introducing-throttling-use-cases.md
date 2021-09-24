@@ -82,7 +82,7 @@ Filtering based on query parameters almost always apply to HTTP GET requests whe
 
 Eg : 'sales' category can be allocated with more requests than 'hr' category
 
-For more information on how to define advanced throttling policies, see [Adding a new advanced rate limiting policy](../adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
+For more information on how to define advanced throttling policies, see [Adding a new advanced rate limiting policy]({{base_path}}/learn/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
 
 ### Implications on applications that consume APIs
 
