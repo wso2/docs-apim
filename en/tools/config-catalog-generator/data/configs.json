@@ -5115,6 +5115,27 @@
                 }
             ],
             "exampleFile": "custom_keystore.toml"
-        }                                                                                    
+        },
+        {
+            "title": "HTTP Access Logs",
+            "options": [
+                {
+                    "name": "http_access_log",
+                    "required": false,
+                    "description": "This includes configuration for HTTP access log records.",
+                    "params": [
+                        {
+                            "name": "useLogger",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "http_access_log.toml"
+        }
     ]
 }
