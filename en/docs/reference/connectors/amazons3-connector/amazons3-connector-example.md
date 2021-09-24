@@ -55,7 +55,7 @@ Right click on the API Resource and go to **Properties** view. We use a URL temp
     In the popup window, the following parameters must be provided.
 
     - Connection Name - Unique name to identify the connection by.
-    - Connection Type - Type of the connection which specifies the protocol to be used.
+    - Connection Type - Type of the connection that specifies the protocol to be used.
     - AWS Access Key ID - Access key associated with your Amazon user account.
     - AWS Secret Access Key - Secret Access key associated with your Amazon user account.
     - Region - Region which is used to select a regional endpoint to make requests
