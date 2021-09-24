@@ -1550,6 +1550,7 @@ nav:
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Exposing an Integration Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial.md
+          - Exposing an Integration SOAP Service as a Managed API: tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services.md
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md

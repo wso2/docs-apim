@@ -322,6 +322,11 @@ Learn how to implement various integration use cases, deploy them in the Micro I
             <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial">Exposing an Integration Service as a Managed API</a>
         </td>
     </tr>
+    <tr>
+        <td>
+            <a href="{{base_path}}/tutorials/integration-tutorials/service-catalog-tutorial-for-proxy-services">Exposing an Integration SOAP Service as a Managed API</a>
+        </td>
+    </tr>
     </table>
 
 -   Message mediation tutorials
