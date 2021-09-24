@@ -48,6 +48,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     set AWS_ACCESS_KEY_ID=AKIXXXXXXXXXXA
     set AWS_SECRET_ACCESS_KEY=qHZXXXXXXQc4oMQMnAOj+340XXxO2s
 
+    > **Note**: If the application is running in an EC2 instance and credentials are not defined in the init configuration, the credentials will be obtained from the [IAM role](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) assigned for the Amazon EC2 instance. This option is available only with Amazon S3 connector v2.0.2 and above.
+
     **Sample configuration**
 
     ```xml
@@ -1851,6 +1853,10 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     When uploading an object, you can specify the accounts or groups that should be granted specific permissions on the object. There are two ways to grant the appropriate permissions using the request parameters: either specify a canned (predefined) ACL using the "acl", or specify access permissions explicitly using the "grantRead", "grantReadACP", "grantWriteACP", and "grantFullControl" parameters. These parameters map to the set of permissions that Amazon S3 supports in an ACL. Use only one approach, not both.
 
     See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/clouddirectory/model/putObjectRequest.html) for more information.
+
+    !!! note
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1870,7 +1876,12 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <tr>
             <td>filePath</td>
             <td>The path of the source file to be uploaded.</td>
-            <td>Yes</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>fileContent</td>
+            <td>Content of the file.</td>
+            <td>Optional</td>
         </tr>
         <tr>
             <td>acl</td>
@@ -2452,6 +2463,10 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     To ensure that data is not corrupted when traversing the network, specify the Content-MD5 parameter in the upload part request. Amazon S3 checks the part data against the provided MD5 value. If they do not match, Amazon S3 returns an error. After the multipart upload is initiated and one or more parts are uploaded, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload will Amazon S3 free up the parts storage and stop charging you for the parts storage.
 
     See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/UploadPartRequest.html) for more information.
+
+    !!! note
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2480,8 +2495,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         </tr>
         <tr>
             <td>filePath</td>
-            <td>Path of the file to be uploaded.</td>
-            <td>Yes</td>
+            <td>The path of the source file to be uploaded.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>fileContent</td>
+            <td>Content of the file.</td>
+            <td>Optional</td>
         </tr>
         <tr>
             <td>sseCustomerAlgorithm</td>
@@ -2957,6 +2977,9 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     Following is the proxy configuration for init and multipartUpload. The init section has connection parameters.
 
+    !!! note
+        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either `filePath` or `fileContent` parameter is mandatory.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -2980,8 +3003,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         </tr>
         <tr>
             <td>filePath</td>
-            <td>Path of the file to be uploaded.</td>
-            <td>Yes</td>
+            <td>The path of the source file to be uploaded.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>fileContent</td>
+            <td>Content of the file.</td>
+            <td>Optional</td>
         </tr>
         <tr>
             <td>requestPayer</td>
