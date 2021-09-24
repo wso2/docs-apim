@@ -13627,6 +13627,8 @@ key_password = "wso2carbon"</code></pre>
     </section>
 </div>
 
+
+
 ## HTTP Access Logs
 
 
@@ -13649,7 +13651,7 @@ useLogger = true</code></pre>
                             <code>[http_access_log]</code>
                             
                             <p>
-                                This includes configuration for HTTP access log records. 
+                                This includes configuration for HTTP access log records.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -13669,7 +13671,7 @@ useLogger = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
+                                        <p>Allows logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console.</p>
                                     </div>
                                 </div>
                             </div>
