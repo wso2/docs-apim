@@ -190,7 +190,7 @@ Given below is a sample synapse property that uses a HashiCorp secret:
 
 You can point to the secret stored in the HashiCorp vault from your synapse configurations using environment variables.
 
-Given below is a sample synapse property to retrieve HashiCorp secret using environment variables,
+Given below is a sample synapse property to retrieve a HashiCorp secret using environment variables.
 
 ```xml
  <property name="HashiCorpSecret" expression="hashicorp:vault-lookup('$env:path-name', '$env:field-name')" />
