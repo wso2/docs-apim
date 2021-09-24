@@ -43,7 +43,7 @@ Right click on the API Resource and go to **Properties** view. We use a URL temp
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-create-bucket-api.jpg" title="Adding the createbucket resource" width="800" alt="Amazon S3 use case"/>
 
-3. Next drag and drop the 'createBucket' operation of the S3 Connector to the Design View as shown below. Here we are going to receive the following inputs from the user,
+3. Next drag and drop the 'createBucket' operation of the S3 Connector to the Design View as shown below. Here, you will receive the following inputs from the user.
     - bucketName - Name of the bucket
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-drop-create-bucket.jpg" title="Adding the createbucket operation" width="800" alt="Amazon S3 use case"/>
