@@ -58,7 +58,7 @@ Right click on the API Resource and go to **Properties** view. We use a URL temp
     - Connection Type - Type of the connection that specifies the protocol to be used.
     - AWS Access Key ID - Access key associated with your Amazon user account.
     - AWS Secret Access Key - Secret Access key associated with your Amazon user account.
-    - Region - Region which is used to select a regional endpoint to make requests
+    - Region - Region that is used to select a regional endpoint to make requests.
 
     !!! note
         1. You can either defince the credentials or let the the AWS SDK to manage the credentials. The SDK will look for AWS credentials in system/user environment variables or use the IAM role for authentication if the application is running in an EC2 instance.
