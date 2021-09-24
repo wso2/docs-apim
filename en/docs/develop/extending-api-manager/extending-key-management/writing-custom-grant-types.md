@@ -20,7 +20,7 @@ To implement custom grant types for the API Manager, see [Writing a Custom OAuth
 !!! Info 
     **If you are using a WUM updated API-M 3.2.0 distribution after 23rd of October 2020 or an Update 2.0 based API-M 3.2.0 distribution,**
 
-    If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
+    If you require any additional functionality for these grant types, it is advisable to extend the following grant handler implementations.
 
     | Grant Type                                                               | Existing Handler Class (which can be extended if required)                                              |
     |--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
