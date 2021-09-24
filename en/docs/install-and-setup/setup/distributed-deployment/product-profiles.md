@@ -90,7 +90,7 @@ You can start an API Manager profile in the following methods, based on your req
 
 !!! note
     Make sure to update the API-M pack to the latest using the "WSO2 in-place updates tool" before running the profile 
-    optimization. If you update the server after running the profile optimization. You may need to follow [Method 2](#method-2-optimizing-while-starting-the-server), as 
+    optimization. If you update the server after running the profile optimization, you may need to follow [Method 2](#method-2-optimizing-while-starting-the-server), as 
     the updates would have fetched irrelevant files for this profile
 
 
