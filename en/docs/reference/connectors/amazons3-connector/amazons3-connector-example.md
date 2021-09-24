@@ -61,7 +61,7 @@ Right click on the API Resource and go to **Properties** view. We use a URL temp
     - Region - Region that is used to select a regional endpoint to make requests.
 
     !!! note
-        1. You can either defince the credentials or let the the AWS SDK to manage the credentials. The SDK will look for AWS credentials in system/user environment variables or use the IAM role for authentication if the application is running in an EC2 instance.
+        1. You can either define the credentials or allow the AWS SDK to manage the credentials. The SDK will look for AWS credentials in system/user environment variables or use the IAM role for authentication if the application is running in an EC2 instance.
         2. The [IAM role for authentication](https://docs.amazonaws.cn/en_us/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) is available only with Amazon S3 connector v2.0.2 and above.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/s3-connector-2x/s3-connector-connection.jpg" title="Creating a new connection" width="500" alt="Amazon S3 use case"/>
