@@ -12,6 +12,18 @@ In API Manager, access logs can be configured for both servlet transport and Pas
 
 In WSO2 API Manager, the access logs can be generated for HTTP servlet transport which works on 9443/9763 default ports. HTTP servlet transport access logs are useful for analysing operational/admin-level access details. 
 
+In the API Manager access logs of applications get recorded or written into the `<APIM_HOME>repository/logs/http_access_.log` file. The following config enables a new valve which allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console.
+
+1. Open the <IS_HOME>/repository/conf/deployment.toml file.
+
+2. Add the following configuration.
+
+    ```properties
+    [http_access_log]
+    useLogger = true
+    ```
+3. Restart the server.
+
 Following is a sample of access log entries which can be monitored via `<APIM_HOME>repository/logs/http_access_.log` file by default.
 
 ```
@@ -25,7 +37,7 @@ Following is a sample of access log entries which can be monitored via `<APIM_HO
 - 127.0.0.1 - - [12/Dec/2019:16:54:38 +0530] "GET /am/sample/pizzashack/v1/api/menu HTTP/1.1" - - "https://localhost:9443/devportal/apis/462a90a2-9f2b-423f-9f58-28b95c30a184/test" "Synapse-PT-HttpComponents-NIO"
 ```
 
-As the runtime of WSO2 API Manager   is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport:
+As the runtime of WSO2 API Manager   is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport.
 
 ##Configuring access logs for PassThrough or NIO transports in API Gateway
 
