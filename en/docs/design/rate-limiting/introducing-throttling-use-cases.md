@@ -85,7 +85,10 @@ The following image shows an example for configuring JWT claim condition by cons
 Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `category` as a query parameter, you can have different limits for searching different categories.
 
 [![New advanced rate limiting query condition]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)]({{base_path}}/assets/img/learn/new-advanced-throttling-query-conidtion.png)
+
 Eg : 'sales' category can be allocated with more requests than 'hr' category
+
+For more information on how to define advanced throttling policies, see [Adding a new advanced rate limiting policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
 
 ### Implications on applications that consume APIs
 
