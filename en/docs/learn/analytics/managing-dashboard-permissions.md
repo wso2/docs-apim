@@ -148,7 +148,7 @@ The following table illustrates the default mapping between the permission level
 
 Further, you can add custom scopes for WSO2 API Manager Analytics. Follow the instructions below to add custom scopes.
 
-1. Add the custom scope and role mapping to `RESTAPIScopes` value of `APIM_HOME/repository/resources/tenant-conf.json` file. This file contains the mapping between scopes and roles. The custom scope and the roles that need the scope should be listed as key-value pairs.
+1. Add the custom scope and role mapping to `RESTAPIScopes` value of `API-M_HOME/repository/resources/tenant-conf.json` file. This file contains the mapping between scopes and roles. The custom scope and the roles that need the scope should be listed as key-value pairs.
 
     For example, if you need to create a custom scope `apim_analytics:reports:view`, and map with `Internal/analytics` and `Internal/creator` role, then you have to add the following entry to `RESTAPIScopes` value.
     
@@ -164,6 +164,19 @@ Further, you can add custom scopes for WSO2 API Manager Analytics. Follow the in
             ]
         }
     ```
+
+    !!! important "Custom scope and role mapping via the Management Console "
+        After adding a new role to the exisiting scope in the `API-M_HOME/repository/resources/tenant-conf.json` file do the following before restarting the server.
+
+        1.  Open the [Management Console](``https://localhost:9443/carbon``) (`https://<hostname>:9443/carbon`).
+        2.  Navigate to `/ _system/config/apimgt/applicationdata/tenant-conf.json`
+        3.  Replicate adding the role again, as shown in the example below.
+            ```
+            {
+                    "Name": "apim_analytics:api_analytics:view",
+                    "Roles": "admin,Internal/creator,Internal/publisher,Internal/Provisioning_Developer"
+                },
+            ```
    
 2. Append the custom scope to the `allScopes` property under `auth.configs` configuration in `ANALYTICS_HOME/conf/dashboard/deployment.yaml`.
 
@@ -177,4 +190,4 @@ Further, you can add custom scopes for WSO2 API Manager Analytics. Follow the in
         adminScope: apim_analytics:admin_carbon.super
         allScopes: apim_analytics:admin openid apim:api_view apim:subscribe apim_analytics:monitoring_dashboard:own apim_analytics:monitoring_dashboard:edit apim_analytics:monitoring_dashboard:view apim_analytics:business_analytics:own apim_analytics:business_analytics:edit apim_analytics:business_analytics:view apim_analytics:api_analytics:own apim_analytics:api_analytics:edit apim_analytics:api_analytics:view apim_analytics:application_analytics:own apim_analytics:application_analytics:edit apim_analytics:application_analytics:view apim_analytics:reports:view
     ```
-    
+
