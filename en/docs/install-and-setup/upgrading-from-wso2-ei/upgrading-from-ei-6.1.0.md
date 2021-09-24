@@ -153,7 +153,7 @@ Given below are the main configurations that have changed in the Micro integrato
 
     If you are using EI Analytics with your new Micro Integrator solution, you can follow the instructions in [Setting up the EI Analytics Profile for Observability]({{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-classic-observability-deployment).
 
-Given below are some of the most critical XML configuraton files in the ESB profile of EI 6.1.0. Expand each section to find the TOML configurations corresponding to the XML configurations in the file.
+Given below are some of the most critical XML configuration files in the ESB profile of EI 6.1.0. Expand each section to find the TOML configurations corresponding to the XML configurations in the file.
 
 ??? note "carbon.xml"
 

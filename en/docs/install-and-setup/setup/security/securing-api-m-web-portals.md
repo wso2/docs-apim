@@ -2,7 +2,7 @@
 
 The WSO2 API Manager runtime contains the following web portals/applications: **Management Console**, **API Publisher**, and the **Developer Portal**. See the topics given below to configure these portals for better security before you use them.
 
-## Update SSL certifacates
+## Update SSL certificates
 
 The Web portals of API-M are based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to the server for security reasons. 
 

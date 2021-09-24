@@ -219,7 +219,7 @@ In the Top APIS BY Request COUNT gadget, click `HealthcareAPI` to open the **OVE
 
 ### Per endpoint requests
 
-In the **Top Endpoints by Request Count** gadget, click one of the endpoints to view simillar statistics per endpoint.
+In the **Top Endpoints by Request Count** gadget, click one of the endpoints to view similar statistics per endpoint.
 
 -   `ChannelingFeeEP`
 -   `SettlePaymentEP`

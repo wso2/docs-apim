@@ -7,7 +7,7 @@ Follow the instructions below to configure load balancing together with reverse 
 ### Step 1 - Create an SSL certificate for the load balancer
 
 !!! warning
-    This step is only applicable for a High Availablity (HA) setup where multiple nodes are fronted by a load balancer.
+    This step is only applicable for a High Availability (HA) setup where multiple nodes are fronted by a load balancer.
 
 Create an SSL certificate for the load balancer using the following instructions.
 

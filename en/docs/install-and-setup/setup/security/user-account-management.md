@@ -106,7 +106,7 @@ PasswordJavaRegEx = "^[\\S]{6,30}$"
 
 #### Identity management password policies
 
-You can define custom password policies for the Developer portal, Publisher user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
+You can define custom password policies for the Developer portal, Publisher user sign up. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
 
 ``` java
 [identity_mgt.events.schemes]

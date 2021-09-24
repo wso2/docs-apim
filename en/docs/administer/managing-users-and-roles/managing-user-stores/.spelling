@@ -1,0 +1,31 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+i.e.
+jndi
+isCascadeDeleteEnabled
+UM_USER_PERMISSION
+UM_ROLE_PERMISSION
+UM_PERMISSION
+validationQuery
+AdminUser
+AddAdmin
+wso2Person
+EnableEmailUserName
+UsernameWithEmailJavaScriptRegEx
+CaseInsensitiveUsername
+rolename
+MultiTenantRealmConfigBuilder
+AbstractUserStoreManager
+preparePassword
+programmatically
+deletedRoles
+newRoles
+deletedUsers
+newUsers
+URIs
+IntelliJ
+Jasypt
+pom.xml

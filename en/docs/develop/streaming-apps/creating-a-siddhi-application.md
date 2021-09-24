@@ -372,7 +372,7 @@ To create a Siddhi application via the design view of the Streaming Integrator T
 
     ![Aligned Siddhi components]({{base_path}}/assets/img/streaming/creating-siddhi-applications/siddhi-application-design-view.png)
 
-11. Click **Source View**. The siddhi application is displayed as follows.
+11. Click **Source View**. The Siddhi application is displayed as follows.
 
     ![Source view]({{base_path}}/assets/img/streaming/creating-siddhi-applications/siddhi-application-source-view.png)
 

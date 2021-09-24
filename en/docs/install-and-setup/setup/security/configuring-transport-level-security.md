@@ -134,7 +134,7 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 [transport.http]
 enable = false
 ```
-### Disabling the Websocket Transport
+### Disabling the WebSocket Transport
 
 Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
 

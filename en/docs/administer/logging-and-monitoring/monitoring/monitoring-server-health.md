@@ -186,7 +186,7 @@ Follow the instructions below to add a custom Health Checker:
 
 1. Add a new custom Health Checker.
 
-    You can use the WSO2 [carbon-health-check repo](https://github.com/wso2/carbon-health-check) to implement your custom Health Checkers.
+    You can use the WSO2 [carbon-health-check repository](https://github.com/wso2/carbon-health-check) to implement your custom Health Checkers.
 
     Follow the instructions below to extend the base classes of the current Health Checker implementation and to formulate a logic:
 

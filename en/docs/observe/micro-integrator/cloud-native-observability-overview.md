@@ -16,7 +16,7 @@ The basic deployment offers you metrics capabilities. You can set up the basic d
 
 ## Cloud native observability add ons
 
-You can also set up different flavours of the observability solution depending on your requirement.
+You can also set up different flavors of the observability solution depending on your requirement.
 
 ### Log processing add on
  

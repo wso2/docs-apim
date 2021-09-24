@@ -959,7 +959,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "putBucketCORS"
-    The putBucketCORS operation returns the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:putBucketCORS action. By default, the bucket owner has this permission and can grant it to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutBucketCorsRequest.html) for more information.
+    The putBucketCORS operation returns the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:putBucketCORS action. By default, the bucket owner has this permission and can grant it to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutBucketCorsRequest.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -1004,7 +1004,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "getBucketCORS"
-    The getBucketCORS operation returns the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:getBucketCORS action. By default, the bucket owner has this permission and can grant it to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/GetBucketCorsRequest.html) for more information.
+    The getBucketCORS operation returns the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:getBucketCORS action. By default, the bucket owner has this permission and can grant it to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/GetBucketCorsRequest.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>

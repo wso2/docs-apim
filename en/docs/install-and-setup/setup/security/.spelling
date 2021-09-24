@@ -1,0 +1,20 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+RemoteIpValve
+signJar.sh
+alex.doe
+TOOL_HOME
+alex
+forgetme
+carbon.super
+pu
+123-343-435-545-dfd-4
+CARBON_HOME
+usr
+wso2am
+wso2am4.0.0
+servlets
+login.jsp

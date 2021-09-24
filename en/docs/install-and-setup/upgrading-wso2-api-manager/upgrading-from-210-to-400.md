@@ -3604,7 +3604,7 @@ This concludes the upgrade process.
             <am:description>The requested resource is not available.</am:description>
          </am:fault>
       
-     In API-M 4.0.0 onwards the above resopnse will changed as follows.
+     In API-M 4.0.0 onwards the above response will changed as follows.
      
          {
             "code":"404",

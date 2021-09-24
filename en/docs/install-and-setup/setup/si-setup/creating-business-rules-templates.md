@@ -217,7 +217,7 @@ Possible deployment statuses are as follows:
 
 - **Partially Deployed:** The business rule is created and deployed only in some of the required nodes in the Streaming Integrator cluster.
 
-- **Partially Undeployed:** The business rule has been previously deployed, and then un-deployed only in some of the nodes in the Streaming Integrator cluster.
+- **Partially Undeployed:** The business rule has been previously deployed, and then undeployed only in some of the nodes in the Streaming Integrator cluster.
 
 !!!info
     **Required nodes** are configured with respect to a rule template. For detailed instructions, see [Deploying business rules in SI server](#deploying-business-rules-in-si-server).
