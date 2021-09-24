@@ -88,6 +88,12 @@ You can start an API Manager profile in the following methods, based on your req
     
 #### Method 1- Optimizing before starting the server
 
+!!! note
+    Make sure to update the API-M pack to the latest using the "WSO2 in-place updates tool" before running the profile 
+    optimization. If you update the server after running the profile optimization, you may need to follow [Method 2](#method-2-optimizing-while-starting-the-server), as 
+    the updates would have fetched irrelevant files for this profile
+
+
 Create an optimized distribution for a particular API-M profile.
 
 1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
@@ -138,20 +144,16 @@ Create an optimized distribution for a particular API-M profile.
 
 5.  Start the server with the specified profile.
 
-    If the product pack is "in-place updated" using the "WSO2 in-place updates tool" after the initial profile optimization, it would have fetched irrelevant files for this profile. With the `--optimize` option, the pack will be profile-optimized again and it will make sure that the pack will be in a correctly optimized state.
-    
-    Configuration optimization is one of the steps in profile optimization process. This replaces the `deployment.toml` file with a pre-configured profile-specific TOML file that exists in the pack. If required, you can skip this step from the profile optimization process via passing the additional `--skipConfigOptimization` option. This prevents the existing `deployment.toml` file in the pack from being overridden.  
-    
     ``` tab="Sample Format"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> --optimize --skipConfigOptimization
+    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile> 
     ```
     
     ``` tab="Example:Linux/Solaris/MacOS"
-    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher --optimize --skipConfigOptimization
+    sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher --optimize --skipConfigOptimization
+    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher
     ```    
 
 #### Method 2 - Optimizing while starting the server
