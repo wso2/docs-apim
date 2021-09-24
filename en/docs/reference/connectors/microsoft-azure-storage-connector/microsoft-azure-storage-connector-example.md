@@ -18,7 +18,7 @@ All six operations are exposed via an API. The API with the context `/resources`
 * `/createcontainer` : Creates a new container in the Microsoft Azure Storage account with the specified container name for store employee details.
 * `/listcontainer` : Retrieve information about the created containers from the Microsoft Azure Storage account.
 * `/adddetails`: Upload text or binary employee data (blob) and stored into the specified container.
-* `/listdetails` : Retrieve information about the added employee deta (blobs).
+* `/listdetails` : Retrieve information about the added employee data (blobs).
 * `/deletedetails` : Remove added employee data from the specified text or binary employee data (blob).
 * `/deletecontainer` : Remove created container in the Microsoft Azure Storage account.
 

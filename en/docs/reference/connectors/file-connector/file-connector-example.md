@@ -162,7 +162,7 @@ Follow these steps to set up the Integration Project and the Connector Exporter.
 20. Finally, use the <b>Respond</b> mediator to send the transformed message to the API caller. 
 21. Now, let's configure a fault sequence to generate an error message when an error occurs in the message flow.
 
-    1.  Creat a fault sequence with a <b>Log</b> mediator and <b>Respond</b> mediator.
+    1.  Create a fault sequence with a <b>Log</b> mediator and <b>Respond</b> mediator.
 
         <img src="{{base_path}}/assets/img/integrate/connectors/filecon19.png" title="fault sequence" width="800" alt="fault sequence"/>
 

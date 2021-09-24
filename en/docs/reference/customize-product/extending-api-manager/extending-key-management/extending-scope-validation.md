@@ -4,7 +4,7 @@ OAuth scopes, allow you to have fine grained access control to API resources bas
 
 API Manager uses scopes as a way of defining permissions for a resource. If a resource is assigned a scope, then the token accessing the resource should be generated with that scope. By associating a scope with a role, you can control which users are permitted to have tokens under certain scopes. In this instance, associating a role to a scope seems legitimate.
 
-Validating the role of a requester does not make much sense in some scenarios. For instance, when the scope is used as a means of generating an access token and not for securing a resource (e.g., openID scope). In such situations, scope validation can be extended to skip role validation for certain scopes.
+Validating the role of a requester does not make much sense in some scenarios. For instance, when the scope is used as a means of generating an access token and not for securing a resource (e.g., OpenID scope). In such situations, scope validation can be extended to skip role validation for certain scopes.
 
 ### Skipping role validation for scopes
 

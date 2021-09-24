@@ -67,8 +67,8 @@ Now follow the steps below to add configurations to the sequence.
 
     1. Setup the `create` sequence configurations. In this operation we are going to create a `sObjects` in the Salesforce account. An `SObject` represents a specific table in the database that you can discretely query. It describes the individual metadata for the specified object. Please find the `create` operation parameters listed here.
        
-        - **sObjectName** : Name of the sObject which we need to create in the salesforce.
-        - **fieldAndValue** : The field and value need to store in the created salesforce sObject.
+        - **sObjectName** : Name of the sObject that you need to create in Salesforce.
+        - **fieldAndValue** : The field and value you need to store in the created Salesforce sObject.
         
         While invoking the API, the above two parameters values come as a user input.
     
@@ -102,7 +102,7 @@ Now follow the steps below to add configurations to the sequence.
     
 #### Configure a sequence for the retrieve operation
 
-Create the sequence to retrive the Salesforce objects created.
+Create the sequence to retrieve the Salesforce objects created.
 
 1. Initialize the connector.
     
@@ -112,7 +112,7 @@ Create the sequence to retrive the Salesforce objects created.
 
     1. To retrieve data from the created objects in the Salesforce account, you need to add the `query` operation to the `retrieve` sequence. 
     
-        - **queryString** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrive `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
+        - **queryString** :  This variable contains specified SOQL query. In this sample this SOQL query executes to retrieve `id` and `name` from created `Account`. If the query results are too large, the response contains the first batch of results.
 
     2. Navigate into the **Palette** pane and select the graphical operations icons listed under **Salesforce Connector** section. Then drag and drop the `query` operations into the Design pane.      
     

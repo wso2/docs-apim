@@ -1,7 +1,7 @@
 # Overriding Endpoints for deployed APIs
 
 The API deployed from the API Manager once deployed in Choreo Connect, it needs to be moved across different environments. When moving from one environment to the other backend service details can be altered. In those cases, we need to override the endpoint details of the API
-The following section describes how this can be overriden on the APIs that are imported from the WSO2 API Manager.
+The following section describes how this can be overridden on the APIs that are imported from the WSO2 API Manager.
 
 ## Overriding endpoints using environment variables 
 

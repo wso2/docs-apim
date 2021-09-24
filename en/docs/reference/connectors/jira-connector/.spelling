@@ -1,0 +1,65 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Jira
+getDashboards
+getDashboardById
+getFilterById
+getFavouriteFilters
+createFilter
+updateFilterById
+deleteFilter
+getGroup
+listGroupPicker
+substrings
+listGroupUserPicker
+getIssue
+createIssue
+updateIssue
+updateIssueAssignee
+getTransitions
+doTransition
+getComments
+postComment
+updateComment
+deleteComment
+addAttachmentToIssueId
+getIssuePriorities
+getIssuePriorityById
+getIssueTypes
+getIssueTypeById
+getVotesForIssue
+createBulkIssue
+assignIssueToUser
+getCommentById
+sendNotification
+addVotesForIssue
+getWatchersForIssue
+removeUserFromWatcherList
+getProject
+getAvatarsForProject
+deleteAvatarForProject
+getComponentsOfProject
+getStatusesOfProject
+getVersionsOfProject
+getRolesOfProject
+getRolesByIdOfProject
+getUserAssignableProjects
+setActorsToRoleOfProject
+searchJira
+getUser
+getUserPermissions
+searchUser
+searchIssueViewableUsers
+searchAssignableUser
+getAttachmentById
+getAttachmentContent
+createComponent
+getComponent
+updateComponent
+countComponentRelatedIssues
+createIssueLink
+getIssueLinkById
+v2

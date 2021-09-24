@@ -15,7 +15,7 @@ The following operations allow you to retrieve the high compensation status of a
 This section provides more details on each of the operations.
 
 #### Retrieving Employee High Compensation
-We can use GET Employee ighly Compensated Employees operation with required parameters to find if an employee is highly compensated.
+We can use GET Employee Highly Compensated Employees operation with required parameters to find if an employee is highly compensated.
 
 **GET Employee Addresses**
 ```xml

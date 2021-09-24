@@ -8,7 +8,7 @@ The following operations allow you to retrieve, create or update addresses of an
 
 | Operation | Description |
 | ------------- |-------------|
-|[GET Employee Pay Adjustment Code Groups](#retrieving-employee-pay-adjustment-code-groups)| etrieve employee pay adjustment groups that control which pay codes can be used in an employee's timesheet. |
+|[GET Employee Pay Adjustment Code Groups](#retrieving-employee-pay-adjustment-code-groups)| retrieve employee pay adjustment groups that control which pay codes can be used in an employee's timesheet. |
 
 ### Operation details
 

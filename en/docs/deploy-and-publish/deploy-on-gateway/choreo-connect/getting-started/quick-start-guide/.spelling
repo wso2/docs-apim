@@ -1,0 +1,18 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+PizzaShack
+PizzaShackAPI
+undeploy
+oas
+Kubernetes
+kubectl
+v1.14
+2vCPU
+K8s
+v0.9.0
+API-CTL
+ConfigMap
+proxied

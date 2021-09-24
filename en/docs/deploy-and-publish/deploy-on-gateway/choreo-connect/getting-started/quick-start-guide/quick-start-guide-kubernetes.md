@@ -21,7 +21,7 @@ Let's get started...
 ## Step 1 - Setup Choreo Connect and K8s API Operator in Kubernetes
 
 1.  Download the Choreo Connect v0.9.0 from
-    [github release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
+    [GitHub release page's](https://github.com/wso2/product-microgateway/releases/tag/v0.9.0) assets and extract them
     to a folder of your choice. We will refer to this folder as the `CHOREO-CONNECT_HOME`.
 
 2.  Apply the Kubernetes configurations for Choreo Connect using the kubectl tool.
@@ -52,8 +52,8 @@ Let's create our first project with the name "petstore" by adding the [OpenAPI d
 
 1.  Create a Kubernetes ConfigMap with the API-CTL project.
     
-    Download the api controller (apictl) from the 
-    [github release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
+    Download the API controller (apictl) from the 
+    [GitHub release page's](https://github.com/wso2/product-apim-tooling/releases/tag/v4.0.0) assets and 
     extract them to a folder of your choice.
 
     ```bash

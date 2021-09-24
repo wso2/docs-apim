@@ -1,16 +1,16 @@
 ---
-title: Setting up Cloud-Native Observability on a VM - WSO2 API Manager 4.0.0
+title: Setting up Cloud Native Observability on a VM - WSO2 API Manager 4.0.0
 ---
 
-# Setting up Cloud-Native Observability on a VM Getting Started Guide
+# Setting up Cloud Native Observability on a VM
 
-Follow the instructions given below to set up a cloud-native observability solution for your Micro Integrator (MI) deployment in a VM environment. 
+Follow the instructions given below to set up a cloud native observability solution for your Micro Integrator (MI) deployment in a VM environment. 
 
 You need to start with the [minimum deployment](#step-1-set-up-the-minimum-deployment), which enables metric monitoring. Once you have set up the minimum deployment, you can add [log processing](#step-2-optionally-integrate-the-log-processing-add-on) and [message tracing](#step-3-optionally-integrate-the-message-tracing-add-on) capabilities to your solution.
 
 ## Step 1 - Set up the minimum deployment
 
-The minimum cloud-native observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
+The minimum cloud native observability deployment requires <b>Prometheus</b> and <b>Grafana</b>. The Micro Integrator uses Prometheus to expose its statistics to Grafana. Grafana is used to visualize the statistics.
 
 ### Step 1.1 - Set up Prometheus
 
@@ -209,7 +209,7 @@ Follow the instructions below to set up Fluent Bit:
     
         `make fluent-bit-plugin`
         
-        For more details, see [Fluent Bit Output Plugin readme file](https://github.com/grafana/loki/blob/master/cmd/fluent-bit/README.md#fluent-bit-output-plugin).
+        For more details, see [Fluent Bit Output Plugin readme file](https://github.com/grafana/loki/blob/main/clients/cmd/fluent-bit/README.md#fluent-bit-output-plugin).
         
     3. Copy and save the path of the `out_loki.so` file. 
    
@@ -418,4 +418,4 @@ Once Grafana is successfully configured to visualize statistics, you should be c
 
 ## What's Next?
 
-If you have successfully set up your anlaytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe/micro-integrator/viewing-cloud-native-observability-statistics/).
+If you have successfully set up your analytics deployment, see the instructions on [viewing cloud native observability statistics]({{base_path}}/observe/micro-integrator/viewing-cloud-native-observability-statistics/).

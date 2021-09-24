@@ -1,4 +1,4 @@
-# Integration Server Configs
+# Integration Server Configurations
 
 All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
@@ -9394,7 +9394,7 @@ listener.server_port = 1883
 listener.client_id = "client-id-1234"
 listener.topic_name = "esb.test"
 
-# not reqired parameter list
+# not required parameter list
 listener.subscription_qos = 0
 listener.session_clean = false
 listener.enable_ssl = false
@@ -10153,7 +10153,7 @@ sender.parameter.customParameter = ""</code></pre>
 </div>
 
 
-## Websocket Transport
+## WebSocket Transport
 
 <div class="mb-config-catalog">
     <section>
@@ -10276,7 +10276,7 @@ sender.parameter.customParameter = ""</code></pre>
 </div>
 
 
-## Secure Websocket Transport
+## Secure WebSocket Transport
 
 <div class="mb-config-catalog">
     <section>
@@ -11137,7 +11137,7 @@ class = <handler_class>
 </div>
 
 
-## External Valut Configurations
+## External Vault Configurations
 
 <div class="mb-config-catalog">
     <section>

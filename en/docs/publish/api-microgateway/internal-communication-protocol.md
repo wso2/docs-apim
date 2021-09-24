@@ -6,7 +6,7 @@ Envoy xDS protocol is implemented on top of gRPC. This allows both the server an
 
 ## WSO2 xDS Implementation
 
-WSO2 xDS implementation is mainly used for communication between Adapter and Enforcer. Using this communication link, Enforcer receives all latest updates of resources required during the startup and runtime. These resources can be APIs, Configurations, Subscriptions, Revoked Tokens etc. Enfocer then uses above data to populate in memory data structures and validate requests based on provided configurations.
+WSO2 xDS implementation is mainly used for communication between Adapter and Enforcer. Using this communication link, Enforcer receives all latest updates of resources required during the startup and runtime. These resources can be APIs, Configurations, Subscriptions, Revoked Tokens etc. Enforcer then uses above data to populate in memory data structures and validate requests based on provided configurations.
 
 Following is the request/response flow of Adapter -> Enforcer xDS communication.
 1. During startup the Enforcer sends the initial [`DiscoveryRequest`](https://www.envoyproxy.io/docs/envoy/latest/api-v3/service/discovery/v3/discovery.proto#service-discovery-v3-discoveryrequest) to the Adapter.
@@ -19,6 +19,6 @@ Following is the request/response flow of Adapter -> Enforcer xDS communication.
 3. When the Enforcer receives a new `DiscoveryResponse` it extracts the resources from the response and populates in the memory data structures for request validation.
 4. Then the Enforcer would Ack/Nack `DiscoveryRequest` to the Adapter.
     - If the Enforcer is able to process the `DiscoveryResponse` successfully, it sends a new `DiscoveryRequest` as `Ack` to the last received version of the resource.
-    - If the Enforcer is unable to process the `DiscoveryResponse` successfully, it sends a new `DiscoveryRequest` as `Nack` to the last received version of the resource. Version infomation of this request containa the version of last successfully processed resource version.
+    - If the Enforcer is unable to process the `DiscoveryResponse` successfully, it sends a new `DiscoveryRequest` as `Nack` to the last received version of the resource. Version information of this request contains the version of last successfully processed resource version.
 5. The Adapter keeps track of the last `Ack`ed version of resource by an Enforcer node and uses that information to decide when and what to send in the next `DiscoveryResponse` to the Enforcer.
-    - When a new resource cache update happens in the Adapter, it notifies this change to all subscribed Enforcer nodes. If an Enforcer node `Ack`ed the response, the Adapter will send another response to that Enforcer node only if a new resourse version update happens in Adapter resource cache.
+    - When a new resource cache update happens in the Adapter, it notifies this change to all subscribed Enforcer nodes. If an Enforcer node `Ack`ed the response, the Adapter will send another response to that Enforcer node only if a new resource version update happens in Adapter resource cache.

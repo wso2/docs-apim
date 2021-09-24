@@ -1,6 +1,6 @@
 # Regular Expression Threat Protection for API Gateway
 
-WSO2 API Manager provides pre-defined regex patterns to sanitize the request from SQL injection attacks. The attacks 
+WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks 
 may depend on the API traffic at runtime. The API developers should identify the common attacks and select the 
 appropriate restrictive measures. This feature extracts the data from XML, JSON payloads, Queryparam, URI path, headers 
 and validates the content against pre defined regular expressions. If any predefined regex keyword is matched with the 
@@ -12,7 +12,7 @@ attacks such as the following:
 -   Server-side Include Injection
 -   XPath Injection
 -   Java Exception Injection
--   XPath Abbreiviated Syntax Injection
+-   XPath Abbreviated Syntax Injection
 
 ### Denying request patterns
 

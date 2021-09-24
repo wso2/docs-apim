@@ -17,7 +17,7 @@ This dashboard displays the following information for your Streaming Integrator 
 
 ## Filtering stream statistics
 
-- If you want to view stream statistics only for a specific time interval, you can select a pre-defined time interval or define a custom time interval in the following field. This field is is located in the top right of the dashboard.
+- If you want to view stream statistics only for a specific time interval, you can select a predefined time interval or define a custom time interval in the following field. This field is is located in the top right of the dashboard.
 
     ![Monitoring SI Performance]({{base_path}}/assets/img/streaming/monitoring-si-performance/select-time-interval.png)
 
