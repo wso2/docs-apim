@@ -14,7 +14,7 @@ In WSO2 API Manager, the access logs can be generated for HTTP servlet transport
 
 In the API Manager access logs of applications get recorded or written into the `<APIM_HOME>repository/logs/http_access_.log` file. The following config enables a new valve that allows logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console.
 
-1. Open the <IS_HOME>/repository/conf/deployment.toml file.
+1. Open the <API-M_HOME>/repository/conf/deployment.toml file.
 
 2. Add the following configuration.
 
