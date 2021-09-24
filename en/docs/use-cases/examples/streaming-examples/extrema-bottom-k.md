@@ -26,7 +26,7 @@ You can publish events in the `JSON` format to the HTTP endpoint via CURL comman
 
 `curl -X POST -d "{\"event\": {\"name\":\"sugar\",\"amount\": 20}}"  http://localhost:8006/productionStream --header "Content-Type:application/json"`
 
-### Option2: Publish events with Postman
+### Option 2: Publish events with Postman
 
 1. Install the `Postman` application from Chrome web store.
 
@@ -45,7 +45,7 @@ You can publish events in the `JSON` format to the HTTP endpoint via CURL comman
 
 4. Send some more events in the same format, with different values for the `name` and `amount` parameters.
 
-### Option3: Publish events with http sample client
+### Option 3: Publish events with HTTP sample client
 
 Navigate to the `<WSO2SIHome>/samples/sample-clients/http-client` directory and run the following command.
 

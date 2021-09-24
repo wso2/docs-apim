@@ -1,4 +1,4 @@
-# Integration Server Configs
+# Integration Server Configurations
 
 All the server-level configurations of your Micro Integrator instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
@@ -8125,7 +8125,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8829,7 +8829,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[transport.rabbitmq]</code>
                             
                             <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required for enabling the RabbitMQ listener in the Micro Integrator. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8859,7 +8859,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[[transport.rabbitmq.sender]]</code>
                             
                             <p>
-                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integrator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9394,7 +9394,7 @@ listener.server_port = 1883
 listener.client_id = "client-id-1234"
 listener.topic_name = "esb.test"
 
-# not reqired parameter list
+# not required parameter list
 listener.subscription_qos = 0
 listener.session_clean = false
 listener.enable_ssl = false
@@ -10153,7 +10153,7 @@ sender.parameter.customParameter = ""</code></pre>
 </div>
 
 
-## Websocket Transport
+## WebSocket Transport
 
 <div class="mb-config-catalog">
     <section>
@@ -10276,7 +10276,7 @@ sender.parameter.customParameter = ""</code></pre>
 </div>
 
 
-## Secure Websocket Transport
+## Secure WebSocket Transport
 
 <div class="mb-config-catalog">
     <section>
@@ -11137,7 +11137,7 @@ class = <handler_class>
 </div>
 
 
-## External Valut Configurations
+## External Vault Configurations
 
 <div class="mb-config-catalog">
     <section>

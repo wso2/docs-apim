@@ -91,7 +91,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
          [![Transport-level security]({{base_path}}/assets/img/learn/runtime-configs.png)]({{base_path}}/assets/img/learn/runtime-configs.png)
 
-       2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
+       2. If you wish to limit the API availability to only one transport (e.g., HTTPS), deselect the **Transport Level Security** checkbox.
            
            Both HTTP and HTTPS transports are selected by default.
 

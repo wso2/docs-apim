@@ -1,0 +1,38 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+console.cloud.google.com
+www.google.com
+URIs
+x-www-form-urlencoded
+authorization_code
+Dataset
+datasets
+runQuery
+gettabledetails
+tableId
+json-eval
+insertAllTableData
+datasetId
+dataset
+projectId
+skipInvalidRows
+boolean
+ignoreUnknownValues
+jsonPay
+listTabledata
+defaultProjectId
+defaultDatasetId
+maxResults
+timeoutMs
+dryRun
+useQueryCache
+bigquery#tableDataInsertAllResponse
+bigquery-testAPI
+bigquery.init
+bigquery.getAccessTokenFromServiceAccount
+getDataset
+listDatasets
+listProjects

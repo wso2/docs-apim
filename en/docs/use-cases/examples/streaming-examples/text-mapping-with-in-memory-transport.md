@@ -18,7 +18,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 ## Testing the Sample
 In order to publish events with TCP client,
 1. Go to `{WSO2SIHome}/samples/sample-clients/tcp-client/` directory.
-2. Run ant commant as following.
+2. Run ant command as following.
     ```bash
     ant -Dtype=binary
     ```

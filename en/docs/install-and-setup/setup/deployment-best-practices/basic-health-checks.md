@@ -67,12 +67,12 @@ readinessProbe:
 
 ### Liveness Probe
 
-The liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
-example, if the server stops serving requests on the http port, even though the server is alive, the container needs to 
-be restarted so that the Micro Integrator instances serve the requests flawlessly. The default http socket of WSO2 Micro 
-Integrator can be used to health check for liveness.
+The Liveness probe is a primary configuration in Kubernetes since it is used for knowing when to restart a container. For 
+example, if the server stops serving requests on the HTTP port, even though the server is alive, the container needs to 
+be restarted so that the Micro Integrator instances serve the requests flawlessly. The default HTTP socket of WSO2 Micro 
+Integrator can be used to health check for Liveness.
 
-Add the following configurations to your `deployment.yaml` file in order to configure the liveness probe for
+Add the following configurations to your `deployment.yaml` file in order to configure the Liveness probe for
 the server. **Initial delay** and the **period** have to be fine-tuned according to your deployment.
 
 ```yaml

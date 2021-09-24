@@ -101,7 +101,7 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
 <ul>
 <li>DES/3DES are deprecated and should not be used.</li>
 <li>MD5 should not be used due to known collision attacks.</li>
-<li>RC4 should not be used due to crypto-analytical attacks.</li>
+<li>RC4 should not be used due to analytical cryptographic attacks.</li>
 <li>DSS is limited to a small 1024 bit key size.</li>
 <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
 <li>GCM based ciphers are recommended over CBC ciphers.</li>
@@ -219,7 +219,7 @@ files. For details on how to configure log rotation and manage log growth detail
 used in the pattern layout to log a UUID. For example, the log pattern can be set as following for <code>AUDIT</code> 
 logs so that the UUID is printed at the beginning of each log record.</p>
 <code>appender.AUDIT_LOGFILE.layout.pattern = [%u] TID: [%tenantId] [%d] %5p {&#37;c} - %m%ex%n </code>
-<p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/setting-up-logging/">Setting up 
+<p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/">Setting up 
 logging in API Manage</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -241,10 +241,10 @@ been removed from Hotspot JVM.</p>
 </td>
 </tr>
 <tr class="odd">
-<td><p>Use a seperate admin user account to login into the system</p>
+<td><p>Use a separate admin user account to login into the system</p>
 <p><br />
 </p></td>
-<td><p>WSO2 recommends that you use two seperate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
+<td><p>WSO2 recommends that you use two separate admin user accounts in production - one account for logging into the system and the other one as the system user doing configurations (for internal service communications).</p>
 <p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
 </td>
 </tr>
@@ -462,8 +462,8 @@ Given below are the security guidelines for the Micro Integrator runtime.
             <p><br /></p>
          </td>
          <td>
-            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/managing_log_growth/">this</a> guide can be used.</p>
-            <p>See <a href="{{base_path}}/observe/mi-observe/logs/monitoring_logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
+            <p>Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for Micro Integrator can be configured in the <code>              &lt;MI_HOME&gt;/conf/log4j2.properties             </code> file. To roll the <strong>wso2carbon.log</strong> based on size, <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">this</a> guide can be used.</p>
+            <p>See <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/monitoring-logs/">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p>
          </td>
       </tr>
       <tr class="odd">
@@ -472,7 +472,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
          </td>
          <td>
             <p>Log forging can be prevented by appending a UUID to the log message.</p>
-            <p>Read about <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/logs/configuring_log4j_properties/">configuring logs</a> in the Micro Integrator.</p>
+            <p>Read about <a href="{{base_path}}/observe/micro-integrator/classic-observability-logs/configuring-log4j2-properties/">configuring logs</a> in the Micro Integrator.</p>
          </td>
       </tr>
       <tr class="even">
@@ -578,7 +578,7 @@ This section provides a list of security guidelines for configuring the network
 <p><br />
 </p></td>
 <td>In the cloud native deployment, high-availability should be achieved via the container orchestration system (e.g., Kubernetes ). 
-<p>In a VM deployment, there should be atleast two nodes with the failover configuration. When your servers are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
+<p>In a VM deployment, there should be at least two nodes with the failover configuration. When your servers are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
 </td>
 </tr>
 <tr class="even">

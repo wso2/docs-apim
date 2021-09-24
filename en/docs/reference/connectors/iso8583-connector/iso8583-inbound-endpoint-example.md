@@ -6,7 +6,7 @@ The ISO8583 inbound endpoint of WSO2 acts as a message consumer. The ISO8583 inb
 
 ## What you'll build
 
-This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program.In here inside the banking network functionality simulates using the test client program.
+This scenario demonstrates how the ISO8583 inbound endpoint works as an ISO8583 message consumer. In this scenario, to generate ISO8583 messages we use a sample Java client program here inside the banking network functionality simulates using the test client program.
 
 The ISO8583 inbound endpoint listens on port 5000 and acts as a ISO8583 standard message consumer. When a sample Java client connects on port 5000, the ISO8583 inbound endpoint consumes ISO8583 standard messages, converts the messages to XML format, and then injects messages to a sequence in the integration runtime.
 
@@ -76,13 +76,13 @@ For example, while transferring bank and financial sector information using the 
 
 ## Testing  
 
-1. Run Test Client programme. Use a ISO8583 standard message as input;
+1. Run Test Client program. Use a ISO8583 standard message as input;
 
    ```
    0200B220000100100000000000000002000020134500000050000001115221801234890610000914XYRTUI5269TYUI021ABCDEFGHIJ 1234567890 
    ```
    
-   **Expected respons**
+   **Expected response**
    
    ```   
    [2020-03-26 15:47:26,003]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - To: , MessageID: urn:uuid:FB34DB1FB26FB57D561585217845823, Direction: request, Log_Message for ISO8583 Inbound Endpoint = Message received from sample1-source, Envelope: 

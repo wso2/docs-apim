@@ -25,9 +25,9 @@ There are two versions of REST APIs available for the Admin Portal.
   
 </table>
 
-## QuickStart
+## Quick Start
 
-Following Postman collection provides quickstart guide for WSO2 API Manager REST APIs. It can be used to,
+Following Postman collection provides quick start guide for WSO2 API Manager REST APIs. It can be used to,
  
  * Create, publish, subscribe and invoke a sample REST API
  * Create, subscribe and invoke a sample API Product 

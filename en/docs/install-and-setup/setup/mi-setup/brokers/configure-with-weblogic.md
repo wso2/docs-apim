@@ -6,7 +6,7 @@ This section describes how to configure WSO2 Micro Integrator to connect with Or
 
 1.  Download and set up [Oracle WebLogic Server](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html).
 2.  Download and [start WSO2 Micro Integrator](https://docs.wso2.com/display/EI650/Running+the+Product) .
-3.  Wrap the weblogic client jar and build a new OSGi bundle using the following [pom.xml](https://svn.wso2.org/repos/wso2/scratch/lasantha/weblogic-wrapper/pom.xml). The exporting of `javax.jms` package and `javax.xml.namespace` package of the client JAR should be prevented.
+3.  Wrap the WebLogic client jar and build a new OSGi bundle using the following [pom.xml](https://svn.wso2.org/repos/wso2/scratch/lasantha/weblogic-wrapper/pom.xml). The exporting of `javax.jms` package and `javax.xml.namespace` package of the client JAR should be prevented.
 4.  Copy the client libraries file (`wlfullclient.jar`) from the `WEBLOGIC_HOME/wlserver_XX/server/lib` directory to the `MI_HOME/dropins` directory.
 
 ## Configuring the WebLogic server
@@ -29,11 +29,11 @@ When you start the WebLogic server with the above changes, you can see the follo
 <Jun 25, 2013 11:20:02 AM IST> <Notice> <WebLogicServer> <BEA-000360> <Server started in RUNNING mode> 
 ```
 
-## Setting up the JMS listener amd Sender
+## Setting up the JMS listener and Sender
 
-If you want the Micro Integrator to receive messages from Weblogic instance, or to send messages to a Weblogic instance, you need to update the deployment.toml file with the relevant connection parameters.
+If you want the Micro Integrator to receive messages from the WebLogic instance, or to send messages to a WebLogic instance, you need to update the deployment.toml file with the relevant connection parameters.
 
-Add the following configurations to enable the JMS sender and listener with Weblogic connection parameters.
+Add the following configurations to enable the JMS sender and listener with WebLogic connection parameters.
     
 ```toml
 [transport.jms]

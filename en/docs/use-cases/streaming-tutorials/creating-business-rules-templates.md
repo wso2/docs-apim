@@ -217,7 +217,7 @@ Possible deployment statuses are as follows:
 
 - **Partially Deployed:** The business rule is created and deployed only in some of the required nodes in the Streaming Integrator cluster.
 
-- **Partially Undeployed:** The business rule has been previously deployed, and then un-deployed only in some of the nodes in the Streaming Integrator cluster.
+- **Partially Undeployed:** The business rule has been previously deployed, and then undeployed only in some of the nodes in the Streaming Integrator cluster.
 
 !!!info
     **Required nodes** are configured with respect to a rule template. For detailed instructions, see [Deploying business rules in SI server](#deploying-business-rules-in-si-server).
@@ -613,7 +613,7 @@ Developers can use this script for:
 <li>validating purposes.</li>
 <li>deriving values for a templated parameter by combining some other entered parameters</li>
 </ul>
-<p>You need to mention each templated element that needs to be derived from entered parameters as a variable in the global scope of the javascript.</p>
+<p>You need to mention each templated element that needs to be derived from entered parameters as a variable in the global scope of the JavaScript.</p>
 <p>You also need to template the entered parameters in the script itself. These values are later replaced with their respective entered values.</p>
 <p>Consider the following script</p>
 <div class="code panel pdl" style="border-width: 1px;">

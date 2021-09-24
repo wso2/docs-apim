@@ -112,7 +112,7 @@ You have added a new advanced rate limiting policy. You can now apply it to an A
      
 <p><b> Adding multiple conditional groups</b></p> 
 
-<p> You can configure multiple conditional groups when defining a tier for advanced rate limiting policies. For example, it is possible to apply both an IP based rate limiting and a query param condition in a single advanced policy. </p>
+<p> You can configure multiple conditional groups when defining a tier for advanced rate limiting policies. For example, it is possible to apply both an IP based rate limiting and a query parameter condition in a single advanced policy. </p>
 </div>
 
 ## Adding a new application-level rate limiting tier

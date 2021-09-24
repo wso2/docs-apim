@@ -24,7 +24,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 To convert Kafka libs to OSGI,
 1. Create a folder (Eg: Kafka) and copy Kafka libs to be added from `{KafkaHome}/libs`.
 2. Create another folder(Eg: Kafka-osgi, This folder will have the libs that converted to OSGI).
-3. Navigate to `{WSO2SIHome}/bin` and issue the follwing command.
+3. Navigate to `{WSO2SIHome}/bin` and issue the following command.
 	* For Linux:
 		```bash
 		./jartobundle.sh <path/kafka> <path/kafka-osgi>
@@ -37,7 +37,7 @@ To convert Kafka libs to OSGI,
 	```
 	- INFO: Created the OSGi bundle <kafka-lib-name>.jar for JAR file <absolute_path>/kafka/<kafka-lib-name>.jar
 	```
-5. You can find the osgi converted libs in kafka-osgi folder. You can copy that to `{WSO2SIHome}/lib`.
+5. You can find the OSGi converted libs in kafka-osgi folder. You can copy that to `{WSO2SIHome}/lib`.
 
 ## Executing the Sample:
 1. Navigate to `{KafkaHome}` and start zookeeper node using following command.

@@ -22,7 +22,7 @@ The failure of this single worker node will take down the entire Micro Integrato
 
 ## Multiple Replicas
 
-The following diagram depicts a kubernetes cluster with multiple replicas of an integration deployment, which is scaled across multiple worker nodes. 
+The following diagram depicts a Kubernetes cluster with multiple replicas of an integration deployment, which is scaled across multiple worker nodes. 
 
 !!! Note
 	In this example, one node only carries one replica of a pod. However, depending on the capacity of your worker node, you can maintain multiple pod replicas in a single worker node.
@@ -37,7 +37,7 @@ This deployment pattern is suitable for handling high incoming traffic because t
 
 ### High availability
 
-This approach ensures high availability in your cluster. If one worker node fails, the traffic will be routed to another worker node. Similarly, if one pod replica fails, the traffic will be routed to another replica that runs concurrently at a given point of time. The pods will not experience any downtime because new pods don't need to be spawned everytime one pod fails.
+This approach ensures high availability in your cluster. If one worker node fails, the traffic will be routed to another worker node. Similarly, if one pod replica fails, the traffic will be routed to another replica that runs concurrently at a given point of time. The pods will not experience any downtime because new pods don't need to be spawned every time one pod fails.
 
 ### Rolling updates
 

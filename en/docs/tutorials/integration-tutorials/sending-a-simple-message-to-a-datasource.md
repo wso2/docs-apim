@@ -62,7 +62,7 @@ Data Service Module. Follow the steps given below to create a module:
 All the data services' artifacts that you create should be stored in a
 Data Service Module. Follow the steps given below to create a module:
 
-1.  Right click on the created **Maven Multi Module Project** and goto 
+1.  Right click on the created **Maven Multi Module Project** and go to 
     **New -> Data Service Configs**.  
 2.  In the **New Data Service Configs** dialog box that opens, give a name
     for the config module and click **Next**.

@@ -154,7 +154,7 @@ Create a resource that sets up Redis hash map and sets a specific field in a has
    
 2. Set up the  operation.
    
-   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane.The `hDel` operation deletes one or more hash fields
+   Navigate into the **Palette** pane and select the graphical operations icons listed under **Redis Connector** section. Then drag and drop the `hDel` operation into the Design pane. The `hDel` operation deletes one or more hash fields
         
       - **redisKey** : The name of the key where the hash is stored.
       - **redisFields** : The fields that you want to delete.
@@ -353,7 +353,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      4) "7791"
      127.0.0.1:6379>
      ```
-2. Retrieve all stock volume details from the redis server.
+2. Retrieve all stock volume details from the Redis server.
  
    **Sample request**
 
@@ -384,7 +384,7 @@ Invoke the API as shown below using the curl command. Curl Application can be do
      }
      ```
      
-   **Sample request 2 : Check the remainning stock volume details**
+   **Sample request 2 : Check the remaining stock volume details**
     
    **Sample request**
    

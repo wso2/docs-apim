@@ -1,0 +1,34 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+values.yamldockerRegistryvalues.yaml
+KUBERNETES_HOME
+v2
+RDBMS-based
+EI_1758
+server_startup_time
+artifact_deployment_time
+stateful
+service.yaml
+ConfigMap.yaml
+CRD.yaml
+submodule
+scm
+WebHooks
+Jenkins_casc_vm.yaml
+CApp
+descriptor.yaml
+docker-vm-artifacts
+nexus_casc.yaml
+xxx.xxx.xxx.xx1
+VHost
+xxx.xxx.xxx.xx2
+pid
+Carbondump
+carbondump
+PermGen
+Checksum
+11g
+10g

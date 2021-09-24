@@ -20,7 +20,7 @@ The `userTheme.js` file is located in following path in the API Manager server d
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file that resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file.
     You can refer to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to the `userTheme.js` file.
-    The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file.
+    The parameters you can override via the theme are listed at the bottom. Additionally, the default theme parameters available with React Material Design library can be overridden via this file.
 
 Example:
 
@@ -74,7 +74,7 @@ The following documents describe some of the most commonly used customizations, 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `userTheme.json` file and archive it back. The name of the archive does not matter. But make sure that the `userTheme.json` file name remains the same.
-     Uses of resources in `login` folder will be discussed in [Applying thems for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
+     Uses of resources in `login` folder will be discussed in [Applying themes for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages).
 
       ```
       └──apim
@@ -566,7 +566,7 @@ The following is the Devportal app theme object merging with the React Material 
 ```
 
 !!!Note
-    Please note that it is not allowed to define both a header.title and a logo for the login customizations. You can only define either a header.title or a logo.
+    Please note that it is not allowed to define both a header, title, and a logo for the login customizations. You can only define either a header, title, or a logo.
     
-4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fileds. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
+4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fields. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
 5. Zip this file along with other resources in the tenant theme and upload it via the Admin Portal. Or you can make changes manually if you have access to the server's file system.

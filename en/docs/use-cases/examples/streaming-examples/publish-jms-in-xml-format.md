@@ -1,7 +1,7 @@
 # Publishing Key-value events via JMS
 
 ## Purpose:
-This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via JMS transport in Xml format.
+This application demonstrates how to configure WSO2 Streaming Integrator Tooling to send sweet production events via JMS transport in XML format.
 
 ## Prerequisites:
 1. Setup ActiveMQ
@@ -41,7 +41,7 @@ To convert ActiveMQ lib to OSGI,
 	- INFO: Running jar to bundle conversion [timestamp] org.wso2.carbon.tools.converter.utils.BundleGeneratorUtils convertFromJarToBundle
 	- INFO: Created the OSGi bundle activemq_client_5.x.x_1.0.0.jar for JAR file <absolute_path>/activemq-client-5.x.x/activemq-client-5.x.x.jar
 	```
-3. You can find the osgi converted libs in `activemq-client-5.x.x` folder. You can copy `activemq-client-5.x.x/activemq-client-5.x.x_1.0.0.jar` to `{WSO2SIHome}/lib` and `activemq-client-5.x.x/activemq-client-5.x.x.jar` to `{WSO2SIHome}/samples/sample-clients/lib`.
+3. You can find the OSGi converted libs in `activemq-client-5.x.x` folder. You can copy `activemq-client-5.x.x/activemq-client-5.x.x_1.0.0.jar` to `{WSO2SIHome}/lib` and `activemq-client-5.x.x/activemq-client-5.x.x.jar` to `{WSO2SIHome}/samples/sample-clients/lib`.
 
 ## Executing the Sample:
 1. Navigate to `{apache-activemq-5.x.x}` unzipped directory and start ActiveMQ server node using `bin/activemq`.
@@ -67,7 +67,7 @@ To convert ActiveMQ lib to OSGI,
 	```
 4. Send some more events.
 
-##### Option 2: Publish events with Curl command to the simulator http endpoint
+##### Option 2: Publish events with Curl command to the simulator HTTP endpoint
 1. Open a new terminal and issue the following command:
 	```bash
 	curl -X POST -d '{"streamName": "SweetProductionStream", "siddhiAppName": "PublishJmsInXmlFormat","data": ["chocolate cake", 50.50]}' http://localhost:9390/simulation/single -H 'content-type: text/plain'
@@ -77,7 +77,7 @@ To convert ActiveMQ lib to OSGI,
 	{"status":"OK","message":"Single Event simulation started successfully"}
 	```
 
-##### Option 3: Publish events with Postman to the simulator http endpoint
+##### Option 3: Publish events with Postman to the simulator HTTP endpoint
 1. Install 'Postman' application from Chrome web store.
 2. Launch the application.
 3. Make a 'Post' request to the 'http://localhost:9390/simulation/single' endpoint. Set the Content-Type to 'text/plain' and set the request body in text as follows:

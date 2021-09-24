@@ -139,7 +139,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 ## Step 3 - Invoke the API
 
-1. Click **View in Dev Portal** to navigate to the Developer Portal after the API is deployed.
+1. Click **View in Developer Portal** to navigate to the Developer Portal after the API is deployed.
 
 2. Click **Try Out** to navigate to the API Console.
 

@@ -4,7 +4,7 @@ The following diagram depicts the complete **cloud-native** observability soluti
 
 ![Cloud Native Deployment Architecture]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-deployment-architecture.png)
 
-You can also set up different flavours of this solution depending on your requirement.
+You can also set up different flavors of this solution depending on your requirement.
 
 The cloud-native solution is more suitable in the following scenarios:
 
@@ -17,7 +17,7 @@ The cloud-native solution is more suitable in the following scenarios:
 
 ### Technologies
 
-The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and future proof. Following are the technologies used in the current solution:
+The cloud-native observability solution is based on proven projects from the **Cloud Native Computing Foundation**, which makes the solution cloud native and not susceptible to changes in future trends. Following are the technologies used in the current solution:
 
 | **Feature**   | **Technology**              |
 |---------------|-----------------------------|
@@ -41,7 +41,7 @@ Once you set up the basic deployment, you can integrate log-processing capabilit
 
 ### Message tracing add on
 
-Once you set up the basic deployment, you can integrate message tracing capabilities. To use this you need to install **Jaeger**.  
+Once you set up the basic deployment, you can integrate message tracing capabilities. To use this, you need to install **Jaeger**.  
 
 ![Cloud Native Deployment with Tracing]({{base_path}}/assets/img/integrate/monitoring-dashboard/cloud-native-observability-tracing.png)
 
@@ -49,5 +49,5 @@ Once you set up the basic deployment, you can integrate message tracing capabili
 
 ## What's Next?
 
--	Set up <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-minimum-basic-observability-deployment">cloud-native observability on a VM</a>.
--	Set up <a href="{{base_path}}/install-and-setup/setup/mi-setup/observability/setting-up-cloud-native-observability-in-kubernetes">cloud-native observability on Kubernetes</a>.
+-	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-on-a-vm">cloud-native observability on a VM</a>.
+-	Set up <a href="{{base_path}}/observe/micro-integrator/setting-up-cloud-native-observability-in-kubernetes/">cloud-native observability on Kubernetes</a>.

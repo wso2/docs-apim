@@ -1,6 +1,6 @@
 # Step 7: Monitor Statistics
 
-This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistices related to ETL activities carried out by the Streaming Integrator.For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/si-observe/viewing-dashboards)
+This step shows how you can monitor the CDC and file statistics of the WSO2 Streaming Integrator deployment you started and the `SweetFactoryApp` Siddhi application you created and deployed in the previous steps. For this purpose, you are using the some of the pre-configured dashboards provided by WSO2 Streaming Integrator. You can host these dashboards in Grafana and view statistices related to ETL activities carried out by the Streaming Integrator. For more information about these dashboards, see [Monitoring ETL Statistics with Grafana]({{base_path}}/observe/si-observe/viewing-etl-flow-dashboards)
 
 ## Configuring WSO2 SI to visualize statistics
 
@@ -108,7 +108,7 @@ The pre-configured dashboards provided by WSO2 Streaming Integrator which you pr
         
     2. To load a new dashboard, click the plus icon **(+)** in the side panel. Then click **Import**.
         
-    3. In the **Import** page, click **Upload .json** file. Then browse and select the .json file of the preconfigured dashboard that you downloaded (i.e., in step 5, substep 1).
+    3. In the **Import** page, click **Upload .json** file. Then browse and select the .json file of the pre-configured dashboard that you downloaded (i.e., in step 5, substep 1).
         
     4. If required, change the unique identifier displayed in the **Unique Identifier (uid)**.
         

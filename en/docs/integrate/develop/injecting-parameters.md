@@ -10,7 +10,7 @@ If you want to inject parameter values as environment variables, you need to app
 
 **Configuring the synapse artifacts**
 
-Define your synapse artifacts using "$SYSTEM:parameter_key" as the parameter value. Note that parameter_key represents a place holder representing the parameter. For example, shown below is an endpoint artifact, where the endpoint uri configured for this feature:
+Define your synapse artifacts using "$SYSTEM:parameter_key" as the parameter value. Note that parameter_key represents a place holder representing the parameter. For example, shown below is an endpoint artifact, where the endpoint URI configured for this feature:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -21,7 +21,7 @@ Define your synapse artifacts using "$SYSTEM:parameter_key" as the parameter val
 
 **Exporting the environment variable**
 
-In a VM deployment, you can export the environment variables as shown below. Here VAR is the url you need to have set as environment property.
+In a VM deployment, you can export the environment variables as shown below. Here VAR is the URL you need to have set as environment property.
 
 ```bash
 export stockQuoteEP=http://localhost:61616/...
@@ -33,7 +33,7 @@ If you want to inject parameter values using a configuration file, you need to a
 
 **Configuring the synapse artifacts**
 
-Define your synapse artifacts using "$FILE:parameter_key" as the parameter value. For example, shown below is an endpoint artifact, where the endpoint uri is configured for the purpose injecting values using a configuration file:
+Define your synapse artifacts using "$FILE:parameter_key" as the parameter value. For example, shown below is an endpoint artifact, where the endpoint URI is configured for the purpose injecting values using a configuration file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -226,7 +226,7 @@ See the list of inbound endpoint parameters that can be dynamically injected.
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/http-inbound-endpoint-properties">HTTP/HTTPS Inbound Protocol</a>
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties">HL7 Inbound Protocol</a>
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties">CXF WS-RM Inbound Protocol</a>
--   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties">Websocket Inbound Protocol</a>
+-   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties">WebSocket Inbound Protocol</a>
 
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties">File Inbound Protocol</a>
 -   <a href="{{base_path}}/reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties">JMS Inbound Protocol</a>

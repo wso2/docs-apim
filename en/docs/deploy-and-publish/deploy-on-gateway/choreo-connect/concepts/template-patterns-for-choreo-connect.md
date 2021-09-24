@@ -17,7 +17,7 @@ Note that you cannot define two resources in the same service with only a path t
 ## Resource Ordering
 
 Choreo Connect router is backed by Envoy. All the resource paths defined in the OpenAPI/ Swagger definition are applied through a single Envoy configuration as routes.
-The routes are matched in the order which they have been configured. Therefore, it's mandetory to order the resources in such a way that, correct resource path is matched when invoking the API.
+The routes are matched in the order which they have been configured. Therefore, it's mandatory to order the resources in such a way that, correct resource path is matched when invoking the API.
 
 The resources in the Swagger/ OpenAPI definition will be ordered as below.
 
@@ -48,6 +48,6 @@ The resources in the Swagger/ OpenAPI definition will be ordered as below.
 ## Considerations
 
 - The concrete paths are matched first for a given pattern
-- Any path with . character gets higher precidence
-- Precedence decreases when the number of path parameters increses.
+- Any path with . character gets higher precedence
+- Precedence decreases when the number of path parameters increases.
 - The wild card path is matched last.

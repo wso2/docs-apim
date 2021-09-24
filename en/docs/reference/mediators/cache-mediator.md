@@ -124,7 +124,7 @@ The parameters available to configure the Cache mediator as a **Finder** are as 
 </tbody>
 </table>
 
-### Cache Mediatior as a Collector
+### Cache Mediator as a Collector
 
 The parameters available to configure the Cache mediator as a **Collector** are as follows.
 
@@ -288,6 +288,6 @@ response message.
 
 ### Invalidating cached responses remotely
 
-You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole]({{base_path}}/observe/mi-observe/jmx_monitoring) via the exposed MBeans. You can use the `         invalidateTheWholeCache()        ` operation of the `         org.wso2.carbon.mediation        ` MBean for this as shown below.
+You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole]({{base_path}}/observe/micro-integrator/classic-observability-metrics/jmx-monitoring) via the exposed MBeans. You can use the `         invalidateTheWholeCache()        ` operation of the `         org.wso2.carbon.mediation        ` MBean for this as shown below.
 
 ![]({{base_path}}/assets/img/integrate/jmx/jmx_monitoring_cache_mediator.png)

@@ -18,9 +18,9 @@
 
 ## Add a Choreo Connect Environment
 
-A Choreo Connect here refers to the entire cluster which includes all three components: adapter, router and enforcer. By adding a Choreo Connect environment, the url to the adapter will be stored in a config file, and therefore enables login.
+A Choreo Connect here refers to the entire cluster which includes all three components: adapter, router and enforcer. By adding a Choreo Connect environment, the URL to the adapter will be stored in a configuration file, and therefore enables login.
 
-Once you have added a Choreo Connect environment, and logged in, other commands such as `apictl mg deploy api` can be used by only specifying an environment. This allows you to use such commands without entering the Choreo Connect adapter url, username, and password every time.
+Once you have added a Choreo Connect environment, and logged in, other commands such as `apictl mg deploy api` can be used by only specifying an environment. This allows you to use such commands without entering the Choreo Connect adapter URL, username, and password every time.
 
 - **Command**
 
@@ -277,7 +277,7 @@ This command can be used to logout from a Choreo Connect adapter environment. On
 
 ## Remove a Choreo Connect Environment
 
-This command can be used to remove a Choreo Connect environment from apictl. Once this command is executed, it will delete the adapter url and its access token first, and then remove the Choreo Connect environment from apictl.
+This command can be used to remove a Choreo Connect environment from apictl. Once this command is executed, it will delete the adapter URL and its access token first, and then remove the Choreo Connect environment from apictl.
 
 -   **Command**
     ```bash

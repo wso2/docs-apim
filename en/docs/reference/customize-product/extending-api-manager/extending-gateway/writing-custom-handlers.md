@@ -202,7 +202,7 @@ Make sure to update the pom file for the above project you created(or downloaded
 ```
 ## Engaging the custom handler
 
-1.  Build the custom authenticaor code created/downloaded previously, and copy the resulting jar to 
+1.  Build the custom authenticator code created/downloaded previously, and copy the resulting jar to 
 `<APIM_HOME>/repository/components/lib` directory.
 
     !!! note

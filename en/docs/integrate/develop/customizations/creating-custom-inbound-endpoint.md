@@ -14,7 +14,7 @@ To support such scenarios, you can write your own custom inbound endpoint by ext
 
 - To create a **custom event-based inbound endpoint**, download the maven artifact used in the [sample custom event-based inbound endpoint configuration](https://github.com/wso2-docs/ESB/tree/master/ESB-Artifacts/inbound/custom_inbound_waiting).
 
-### Step 2: Deploying the Custom Inbound Endpint
+### Step 2: Deploying the Custom Inbound Endpoint
 
 You need to copy the built jar file to the `MI_HOME/lib` directory and restart the Micro Integrator to load the class.
 To copy the jar file to the <b>Embedded Micro Integrator</b>, open the <b>Embedded Micro 

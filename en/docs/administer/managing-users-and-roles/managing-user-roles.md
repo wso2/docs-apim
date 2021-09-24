@@ -11,7 +11,7 @@ The following roles that are typically used in many enterprises are used through
 
 Follow the instructions below to create the `creator`, `publisher`, and `subscriber` roles in the API Manager for sample purposes.
 
-## Create user roles
+## Creating user roles
 
 1.  Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as the admin (default credentials are admin/admin).
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
@@ -52,12 +52,12 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationUUID>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
 !!! warning
-    As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Dev portal applications listing page.
+    As a limitation, when you delete a user and create another with the same username, applications of the previous user will be visible on the Developer Portal applications listing page.
     However the new user will not be able to access the details of the application as the service provider is already deleted.
 
 ## Adding Role Mappings
 
-You can use role mapping to map the above created roles to existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
+You can use role mapping to map the above created roles to the existing default internal roles of API-M. This enables users with new roles to use REST API scopes of API-M Portals easily.
 
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
@@ -166,7 +166,7 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
 !!! info
         If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
 
-### Update before the first startup (recommended)
+### Updating before the first startup (recommended)
 
 The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Change the super admin credentials]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials).
 
@@ -180,14 +180,14 @@ password = "admin"
 create_admin_account = true
 ```
 
-### Update role name after the product is used for some time (advanced configuration)
+### Updating the role name after the product is used for some time (advanced configuration)
 
 !!! tip
     These steps are not necessary if you have already updated the role names before the first startup of the product. 
 
 The following steps guide you through updating the role names after you have used the product for some time.
 
-1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
+1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
 
 2.  Do the following user store level changes for existing users:
 

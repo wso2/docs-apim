@@ -118,7 +118,7 @@ The JWT contains the list of user claims added when you enable the `apim.jwt.ena
 
 Follow the instructions below to change the existing functionality of retrieving end user related claims to the JWT:
 
-1. Write your own Claim Retriever implementation by implmenting `org.wso2.carbon.apimgt.impl.token.ClaimsRetriever`.
+1. Write your own Claim Retriever implementation by implementing `org.wso2.carbon.apimgt.impl.token.ClaimsRetriever`.
 
     ``` java
     package org.wso2.carbon.test;

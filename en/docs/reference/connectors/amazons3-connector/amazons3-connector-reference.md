@@ -703,7 +703,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
     ```
 
 ??? note "deleteBucketCORS"
-    The deleteBucketCORS operation deletes the cors configuration information set for the bucket. To use this operation, you must have permission to perform the s3:PutCORSConfiguration action. The bucket owner has this permission by default and can grant this permission to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/DeleteBucketCorsRequest.html) for more information.
+    The deleteBucketCORS operation deletes the CORS configuration information set for the bucket. To use this operation, you must have permission to perform the s3:PutCORSConfiguration action. The bucket owner has this permission by default and can grant this permission to others. See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/DeleteBucketCorsRequest.html) for more information.
     <table>
         <tr>
             <th>Parameter Name</th>

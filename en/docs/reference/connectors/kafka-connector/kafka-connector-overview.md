@@ -4,7 +4,7 @@ Kafka is a distributed publish-subscribe messaging system that maintains feeds o
 
 Kafka mainly operates based on a topic model. A topic is a category or feed name to which records get published. Topics in Kafka are always multi-subscriber.
 
-To see the Kafka Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "kafka".
+To see the Kafka Connector, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Kafka".
 
 <img src="{{base_path}}/assets/img/integrate/connectors/kafka-store.png" title="Kafka Connector Store" width="200" alt="Kafka Connector Store"/>
 

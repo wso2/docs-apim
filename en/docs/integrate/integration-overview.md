@@ -234,7 +234,7 @@ Learn about the dashboards, tools, and solutions that are available for managing
         </div>
         <!-- end card -->
         <!-- card -->
-        <div class="card" onclick="location.href='{{base_path}}/install-and-setup/setup/mi-setup/observability/observability-deployment-strategy';">
+        <div class="card" onclick="location.href='{{base_path}}/observe/micro-integrator/cloud-native-observability-overview';">
             <div class="line"></div>
             <div class="card-content">
                 <p class="title">Observability for Integrations</p>

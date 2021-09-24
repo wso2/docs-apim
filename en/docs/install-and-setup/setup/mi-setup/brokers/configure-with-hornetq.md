@@ -227,7 +227,7 @@ Install JBoss EAP server and create a message queue within the server.
     -   On Windows: `<EAP_HOME>\bin\standalone.bat -c standalone-full.xml`
     -   On Linux/Mac: `<EAP_HOME>/bin/standalone.sh -c standalone-full.xml`
 
-5.  Acess the management console of the JBoss EAP server using the following URL: `http://127.0.0.1:9990`
+5.  Access the management console of the JBoss EAP server using the following URL: `http://127.0.0.1:9990`
 6.  Log in to the Management Console using **admin** as both the username and password. In the **Profile** menu, click **Messaging ->
     Destinations** and you will be able to see the queue you added in Step 4 in the **Queues/Topics** section.
 

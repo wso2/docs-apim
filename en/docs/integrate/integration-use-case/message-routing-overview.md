@@ -4,7 +4,7 @@
 
 Message routing is one of the most fundamental requirements when integrating systems/services. It considers content-based routing, header-based routing, rules-based routing, and policy-based routing as ways of routing a message. WSO2 Micro Integrator enables these routing capabilities using the concepts of mediators and endpoints.
 
-The following image depicts a form of message routing where a message is routed through the Micro Integrator to the apropriate service. In this case, the Switch/Send mediator can be used.
+The following image depicts a form of message routing where a message is routed through the Micro Integrator to the appropriate service. In this case, the Switch/Send mediator can be used.
 
 <img src="{{base_path}}/assets/img/integrate/use-cases-overview/message-routing.png" title="Message Routing" width="500" alt="Message Routing"/>
 
@@ -45,7 +45,7 @@ The following image depicts a form of message routing where a message is routed 
 
 The integration of systems that communicate in various message formats is a common business case in enterprise integration. WSO2 Micro Integrator facilitates this use case as the intermediary system bridging the communication gap among the systems.
 
-The following image depicts a typical message transormation scenario using the Transform mediator. 
+The following image depicts a typical message transformation scenario using the Transform mediator. 
 
 <img src="{{base_path}}/assets/img/integrate/use-cases-overview/message-transformation.png" title="Message Transformation" width="600" alt="Message Transformation"/>
 

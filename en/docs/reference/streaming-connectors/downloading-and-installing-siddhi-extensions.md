@@ -114,7 +114,7 @@ To uninstall a specific Siddhi application, issue the appropriate command out of
 !!! info
     Here, the `<EXTENSION_NAME>` refers to the name of the extension. When you use the command line to view the list of extensions that are currently installed or to view the installation status of all the supported Siddhi extensions, the extension names are displayed in the `name` column.<br/><br/>e.g., The extension name of the gRPC extension is `grpc`.
      
-e.g., To un-install the `grpc` Siddhi extension, issue the following command.
+e.g., To uninstall the `grpc` Siddhi extension, issue the following command.
 
 - **For Windows**     : `extension-installer.bat uninstall grpc`
 - **For Linux/MacOS** : `./extension-installer.sh uninstall grpc` 
@@ -123,7 +123,7 @@ A message appears to inform you of any other extension that shares dependencies 
 
 ![uninstall extension log]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/uninstall-extension-log.png)
 
-If you enter `y` and proceed with the un-installation, the following log appears to inform you of the progress of the un-installation and then prompt you to restart the Streaming Integrator server once the un-installation is complete.
+If you enter `y` and proceed with the uninstallation, the following log appears to inform you of the progress of the uninstallation and then prompt you to restart the Streaming Integrator server once the uninstallation is complete.
 
 ![uninstall extension]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/uninstall-extension.png)
 
@@ -161,7 +161,7 @@ To download the Siddhi extensions, follow the steps below
     You are directed to the maven central page where all the available versions of the extension are listed.  
     ![All available versions]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/central-maven-repository.png)
 
-   2. Click on the relavent version. It directs you to the download page. To download the bundle, click on it.  
+   2. Click on the relevant version. It directs you to the download page. To download the bundle, click on it.  
     ![Download Bundle]({{base_path}}/assets/img/streaming/downloading-and-installing-siddhi-extensions/maven-bundle.png)
 
 ### Installing Siddhi extensions

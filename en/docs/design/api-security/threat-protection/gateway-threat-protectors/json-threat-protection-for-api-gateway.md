@@ -1,6 +1,6 @@
 # Am300JSON Threat Protection for API Gateway
 
-The JSON threat protector in WSO2 API Manager validates the request body of the JSON message based on pre-configured to thwart payload attacks.
+The JSON threat protector in WSO2 API Manager validates the request body of the JSON message based on preconfigured to thwart payload attacks.
 
 -   [Editing the sequence through registry artifacts](#Am300JSONThreatProtectionforAPIGateway-Editingthesequencethroughregistryartifacts)
 -   [Applying the JSON validator policy](#Am300JSONThreatProtectionforAPIGateway-ApplyingtheJSONvalidatorpolicy)
@@ -44,7 +44,7 @@ To edit the existing sequence follow the steps below.
 
 ### Applying the JSON validator policy
 
-You can apply the pre-defined JSON Policy through the UI. Follow the instructions below to apply the json\_validator in sequence.
+You can apply the predefined JSON Policy through the UI. Follow the instructions below to apply the json\_validator in sequence.
 
 -   Create an API or edit an existing API.
 
@@ -56,7 +56,7 @@ You can apply the pre-defined JSON Policy through the UI. Follow the instruction
 
 ### Testing the JSON threat protector
 
-You can edit the sequence to set the property values accoring to your requirements. A sample request and response for each property value set to 5 is given below.
+You can edit the sequence to set the property values according to your requirements. A sample request and response for each property value set to 5 is given below.
 
 -   [**Request**](#2fabe5e92ef64a3a999bb756d894221e)
 -   [**Response**](#6da49ce3d2cf4091a885d78334d2513e)

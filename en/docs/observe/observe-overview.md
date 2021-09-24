@@ -1,16 +1,12 @@
 # Observability Overview
 
-This section explains how to set up the observability solutions and perform management tasks with WSO2 API Manager.
-
-## Observability
-
-Observability can be viewed as a superset of monitoring where monitoring is enriched with capabilities to perform debugging and profiling through rich context, log analysis, correlation, and tracing. Modern day observability resides on three pillars of **logs**, **metrics**, and **tracing**. Modern businesses require observability systems to self-sufficiently emit their current state(overview), generate alerts for any abnormalities detected to proactively identify failures, and to provide information to find the root causes of a system failure.
+Observability can be viewed as a superset of monitoring where monitoring is enriched with capabilities to perform debugging and profiling through rich context, log analysis, correlation, and tracing. Modern day observability resides on three pillars of **logs**, **metrics**, and **tracing**. Modern businesses require observability systems to self-sufficiently emit their current state (overview), generate alerts for any abnormalities detected to proactively identify failures, and to provide information to find the root causes of a system failure.
 
 WSO2 API Manager currently offers multiple observability solutions that can be broadly classified into the following categories:
 
-- **APIM Analytics**
+- **API Manager observability solutions**
 
-    This mainly refers to the APIM Analytic solution that allows you to analyze APIM statistics to derive business insights from APIs.
+    The API Manager observability solution allows you to monitor the requests and the responses that correspond to a specific API call, monitor your application's usage, monitor production servers, enable distributed tracing and monitor API Manager via the JConsole tool.
     
 - **Integration observability solutions**
 

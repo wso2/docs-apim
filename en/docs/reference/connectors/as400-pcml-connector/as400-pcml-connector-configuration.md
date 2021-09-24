@@ -20,7 +20,7 @@ Follow the steps below to create public IBM iSeries server.
     
 3. You will receive an email response with the client credentials to your email account (it will take a few hours).
 
-4. Navigate in to the [IBM i Access - Client Soluthetions](https://www.ibm.com/support/pages/ibm-i-access-client-solutions) page. IBM i Access Client Solutions consolidates the most commonly used tasks for managing your IBM i into one simplified location. 
+4. Navigate in to the [IBM i Access - Client Solutions](https://www.ibm.com/support/pages/ibm-i-access-client-solutions) page. IBM i Access Client Solutions consolidates the most commonly used tasks for managing your IBM i into one simplified location. 
 
 5. Download the **IBM i Access Client Solutions**.
 

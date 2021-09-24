@@ -88,7 +88,7 @@ It is now available to download from [here](https://wso2.com/api-management/#).
     | `https://<gateway-host>/authorize`      | `https://<keymanager-host>/oauth2/authorize`      |
     | `https://<gateway-host>/userInfo` | `https://<keymanager-host>/oauth2/userInfo` |
 
-- Distributed setup profiles were refactored to three profiles from APIM-4.0.0 onwards.
+- Distributed setup profiles were refactored to three profiles from API Manager 4.0.0 and future releases.
       
     | **Profile**        | **Description**           | **Startup Argument**  |
     | :------------- |:-------------| :-----|
@@ -418,7 +418,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 
 - **[Deploy AsyncAPI definitions to WSO2 API-M Services]({{base_path}}/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/)**
     
-	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
+	 WSO2 Streaming Integrator has the inbuilt capability to directly deploy Siddhi applications with Async API definitions to WSO2 API Manager services. These services can then be used to create an API and deploy in the API Manager runtime.
 
 - **SSE Sink / Source support over HTTP**
     
@@ -426,7 +426,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **WebSub Sink / Source support over HTTP**
     
-	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification.WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
+	 Above Source and Sink implementation are based on the [WebSub](https://www.w3.org/TR/websub/) protocol specification. WebSubs only allows one-way communication, from a caller web app to a callee web app. For more information , see [WebSub Sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink) , [WebSub Source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source).
 
 - **Improved MongoDB Store**
     
@@ -458,7 +458,7 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 - **Kafka and HTTP metrics monitoring**
     
-	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC(Change Data Capture). The metrics can be published to a pre-configured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows](https://apim.docs.wso2.com/en/4.0.0/observe/si-observe/viewing-dashboards/) documentation page.
+	 This release provides Kafka and HTTP metrics monitoring capability. In the previous release, this was only available for File, RDBMS and CDC (Change Data Capture). The metrics can be published to a preconfigured [Prometheus](https://prometheus.io/) server and then you can either create your own [Grafana](https://grafana.com/) dashboard or use the ETL dashboard which is already created by us. For more information on how to configure metrics, refer to [Monitoring ETL Flows]({{base_path}}/observe/streaming-integrator/viewing-etl-flows/) documentation page.
 	 
 
 <hr style="border:8px solid gray"> </hr>
@@ -476,13 +476,13 @@ It is now available to download from [here](https://wso2.com/api-management/tool
 - Support import/export revisioning of APIs and API Products
 - [Adding proxy environment variables support for apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-proxy-environment-variables-for-apictl)
 - Resolve parameters at server-side while importing an API/API Product project
-- [Params file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
+- [Parameter file support for API Products]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product)
 - Introducing new schemas for apictl API/API Product/Application project artifacts
-- [Support to override subscription policies of an API using the params file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
+- [Support to override subscription policies of an API using the parameters file]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api)
 - [Support TLS renegotiation configuration]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-tls-renegotiation-mode)
 - [Support apictl bundle command (archives an API Project)]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
 - [Introducing a structure for deployment and source repositories]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
-- Support endpoint security separately for Production and Sandbox endpoints via params file
+- Support endpoint security separately for Production and Sandbox endpoints via parameters file
 - VCS support for both the deployment and source repositories
 - Support for import/export of Streaming APIs
 - [Ability to extract APIs from the AWS API-Gateway and to initialize an apictl API project]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal)
@@ -612,13 +612,13 @@ It is now available to download from [here](https://github.com/wso2/streaming-in
 	 
 	 Using the Async API View, you can generate an [Async API](https://www.asyncapi.com/) specification for a given Siddhi app. 
 	 
-	 The following sinks/sources can be exposed as an Async API : [websocket-server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [websocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [sse-server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [websubhub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
+	 The following sinks/sources can be exposed as an Async API : [WebSocket server (sink)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-sink),  [web socket-server (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-server-source), [WebSocket (source)](https://siddhi-io.github.io/siddhi-io-websocket/api/3.0.2/#websocket-source), [SSE server (sink)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#sse-server-sink), [WebSubHub (source)](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source)
      
       See the [example use case](https://apim.docs.wso2.com/en/4.0.0/use-cases/streaming-usecase/exposing-stream-as-managed-api-in-service-catalog/).
 
-- **Tooling support for webhubsub Source and webhubsub Sink**
+- **Tooling support for WebSubHub Source and WebSubHub Sink**
     
-	 Tooling support is added for the newly introduced [webhubsub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [webhubsub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
+	 Tooling support is added for the newly introduced [WebSubHub source](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-source) and [WebSubHub sink](https://siddhi-io.github.io/siddhi-io-http/api/2.3.3/#websubhub-sink). For details, see the **Streaming Integrator - New Features** section above.
 
 - **Tooling support for SSE Source and SSE-server Sink**
 

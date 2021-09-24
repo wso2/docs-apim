@@ -14,7 +14,7 @@ This lists all the source mappers from all the Siddhi applications in your Strea
 
 - The stream to which the source mapper is connected
 
-- The type of the source to whichthe mapper is connected
+- The type of the source to which the mapper is connected
 
 - The type of the mapper
 

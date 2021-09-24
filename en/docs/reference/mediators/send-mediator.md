@@ -44,7 +44,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <ul>
 <li><strong>None</strong>: If this is selected for a Send mediator included in the Out sequence, the message is not sent to any endpoint, but it will be sent back to the client. If this option is selected for a Send mediator included in the In sequence, the message will be sent to the URL specified in its <code>                To               </code> header.</li>
 <li><strong>Define Inline</strong>: If this is selected, the endpoint to which the message should be sent can be included within the Send mediator configuration. Click <strong>Add</strong> to add the required endpoint.</li>
-<li><strong>Pick from Registry</strong>: If this is selected, the message can be sent to a pre-defined endpoint which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
+<li><strong>Pick from Registry</strong>: If this is selected, the message can be sent to a predefined endpoint which is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required endpoint from the resource tree.</li>
 <li><p><strong>XPath</strong>: If this is selected, the endpoint to which the message should be sent will be derived via an XPath expression. You are required to enter the relevant XPath expression in the text field that appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 </p></li>
@@ -57,7 +57,7 @@ If the message is to be sent to one or more endpoints, use the following syntax:
 <p>The sequence to use for handling the response from the endpoint. Possible options are as follows.</p>
 <ul>
 <li><strong>Default</strong>: If this is selected, the mediation sequence in the Out sequence will be used.</li>
-<li><strong>Static</strong>: If this is selected, the sequence will be static. You can select a pre-defined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
+<li><strong>Static</strong>: If this is selected, the sequence will be static. You can select a predefined sequence that is currently saved as a resource in the registry. Click either <strong>Configuration Registry</strong> or <strong>Governance Registry</strong> as relevant to select the required sequence from the resource tree.</li>
 <li><p><strong>Dynamic</strong>: If this is selected, the sequence will be derived via an XPath expression. The XPath expression should be entered in the <strong>Receiving Sequence</strong> parameter which appears when this option is selected.</p>
 <p>You can click <strong>NameSpaces</strong> to add namespaces if you are providing an expression. Then the <strong>Namespace Editor</strong> panel would appear where you can provide any number of namespace prefixes and URLs used in the XPath expression.</p>
 </p></li>

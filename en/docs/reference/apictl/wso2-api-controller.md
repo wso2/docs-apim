@@ -938,7 +938,7 @@ Managing APIs in a Kubernetes API-M environment.
 
 ### apictl aws
 
-AWS Api-gateway related commands such as init. Be sure to install and configure the AWS CLI before executing the aws init command. See the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) for more information.
+AWS API Gateway related commands such as init. Be sure to install and configure the AWS CLI before executing the aws init command. See the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) for more information.
 
 -   Usage
 

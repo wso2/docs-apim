@@ -34,7 +34,7 @@ When a create/remove/an update operation happens for the keyManagers resides on 
 
 Multiple event listening endpoints can be defined as an array to use for the connection, along with optional failover parameters. 
 
-Sample configuration for `eventListeningEndpoints` for JMS reciever can be defined as follows.
+Sample configuration for `eventListeningEndpoints` for JMS receiver can be defined as follows.
 ```
 [controlPlane.eventHub.jmsConnectionParameters]
  eventListeningEndpoints = ["amqp://admin:$env{cp_admin_pwd}@apim:5672?retries='10'&connectdelay='30'",

@@ -79,7 +79,7 @@ Once containers are up and running, we can monitor the status of the containers 
 #### Step 4.1 - Add Choreo Connect Cluster as Environment to APICTL
 
 To use APICTL with Choreo Connect, we need to add the Choreo Connect cluster as an environment in the APICTL.
-Basically the adapter url will be added as the gateway environment, and the added environment can be used in the subsequent commands.
+Basically the adapter URL will be added as the gateway environment, and the added environment can be used in the subsequent commands.
 
 ``` java tab="Format"
 apictl mg add env <ENVIRONMENT_NAME> --adapter <ADAPTER_URL>
@@ -91,8 +91,7 @@ apictl mg add env dev --adapter https://localhost:9843
 
 #### Step 4.2 - Login to Choreo Connect Cluster
 
-Next we need to login to the Choreo Connect environment(login to the adpater) in order
-deploy the API in Choreo Connect.
+Next you need to log in to the Choreo Connect environment (log in to the adapter) in order to deploy the API in Choreo Connect.
 
 ``` java tab="Format"
 apictl mg login dev -u <AUTHORIZED_USER_USERNAME> -p <USER_PASSWORD> -k

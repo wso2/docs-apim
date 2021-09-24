@@ -1,6 +1,6 @@
 # Transport Security
 
-Transport Security is a point-to-point security mechanism that can be used for authentication, message intergrity and confidentiality. Valid Digital certificates are required when running secure HTTP transport (HTTPS) using secure socket layer (SSL).
+Transport Security is a point-to-point security mechanism that can be used for authentication, message integrity and confidentiality. Valid Digital certificates are required when running secure HTTP transport (HTTPS) using secure socket layer (SSL).
 ## Using secured backends with Choreo Connect
 
 When using endpoints secured with self signed certificates, the public certificate of the backend should be added as trusted certificate to the router.
@@ -75,7 +75,7 @@ To add a new certificate please follow the steps below.
     `docker restart <router_container_name>`
 
 
-## Adding Certificates to Specific Cluters
+## Adding Certificates to Specific Clusters
 
 The above section explains how a certificate can be added to the Choreo Connect router's global trusted certificates. However, if the certificate should be added only to a specific API backend, it could be done as follows.
 
@@ -85,9 +85,9 @@ The above section explains how a certificate can be added to the Choreo Connect 
 
 #### via API CTL
 
-1. Create a new API Project by following the [Importing APIs via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/)
+1. Create a new API Project by following the [Importing APIs via Developer First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/)
 2. Copy the backend certificate to `<API_PROJECT_HOME>/Endpoint-certificates` directory in PEM format.
-3. Genrate the Deployment directory for the API project following [Generating the Deployment Directory]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
-4. Following [Defining the params file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api), edit the params.yaml file in the generated deployment directory.
+3. Generate the Deployment directory for the API project following [Generating the Deployment Directory]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory)
+4. Following [Defining the parameters file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api), edit the params.yaml file in the generated deployment directory.
 5. Bundle the generated Deployment directory with the project, [Bundling the generated directory before Import]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#bundling-the-generated-directory-before-import)
 6. Deploy the API project into Choreo Connect [Deploy an API]({{base_path}}/install-and-setup/setup/api-controller/managing-choreo-connect/managing-choreo-connect-with-ctl/#deploy-an-api)

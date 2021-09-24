@@ -75,7 +75,7 @@ You can access the Amazon Lambda service using the root user credentials but the
   
   This sample explains how to create a sample Python program as a deployment package.
    
-  1. Create a sample Python function (e.g., lambda_function.py) file (on Linux and macOS, use your preferred shell and package manager. On Windows 10, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get a Windows-integrated version of Ubuntu and Bash).
+  1. Create a sample Python function (e.g., lambda_function.py) file (on Linux and MacOS, use your preferred shell and package manager. On Windows 10, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get a Windows-integrated version of Ubuntu and Bash).
   2. Create a ZIP archive.
      ```
      ~/my-function$ zip function.zip lambda_function.py

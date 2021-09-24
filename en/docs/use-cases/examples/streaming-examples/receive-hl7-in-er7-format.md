@@ -15,7 +15,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
     * ReceiveHl7InER7Format.siddhi - Started Successfully!
 
 ## Testing the Sample:
-1. In the HAPI testpanel create a sending connection with port that provided in the siddhi app.
+1. In the HAPI testpanel create a sending connection with port that provided in the Siddhi app.
 2. Send this message 'MSH|^~\&|sendingSystemA|senderFacilityA|receivingSystemB|receivingFacilityB|20080925161613||ADT^A01|589888ADT30502184808|P|2.3' from the testpanel
 
 ## Viewing the Results:
