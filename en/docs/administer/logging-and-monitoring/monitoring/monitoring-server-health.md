@@ -190,7 +190,7 @@ Follow the instructions below to add a custom Health Checker:
 
     Follow the instructions below to extend the base classes of the current Health Checker implementation and to formulate a logic:
 
-    1. Extend the [HealthChecker method](https://github.com/wso2/carbon-health-check/blob/3f8e1cc064acc56e15c28e4d692edd10fda7eac2/components/org.wso2.carbon.healthcheck.api.core/src/main/java/org/wso2/carbon/healthcheck/api/core/HealthChecker) to write your custom Health Checker.
+    1. Extend the [HealthChecker method](https://github.com/wso2/carbon-health-check/blob/3f8e1cc064acc56e15c28e4d692edd10fda7eac2/components/org.wso2.carbon.healthcheck.api.core/src/main/java/org/wso2/carbon/healthcheck/api/core/HealthChecker.java) to write your custom Health Checker.
 
     2. Write your logic for that implementation in the `checkHealth()` method.
 
