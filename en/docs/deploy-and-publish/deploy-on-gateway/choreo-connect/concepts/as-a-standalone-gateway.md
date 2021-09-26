@@ -12,7 +12,7 @@ self-contained token.
 ## Defining gateway specific properties
 
 OpenAPI specification doesn't define all required properties for an API gateway. It's meant to be a descriptor of an REST endpoint.
-In this case that'd be the OpenAPI definition of backend service or microservice. However, a developer of an API gateway should be able to define,
+In this case that would be the OpenAPI definition of backend service or microservice. However, a developer of an API gateway should be able to define,
 
 - Different types of endpoints
 - Gateway security
@@ -26,33 +26,33 @@ List of available extensions are documented [here]({{base_path}}/deploy-and-publ
 
 ### How to work with standard open API definition
 
-In Choreo Connect, version 3.0.x series the open API definition required 2 mandatory wso2 specific extensions at leaset. Those were
+In Choreo Connect, version 3.0.x series the open API definition required 2 mandatory WSO2 specific extensions at least. Those were
 
 1. x-wso2-basePath
 2. x-wso2-production-endpoints
 
 `x-wso2-basePath` is used to group all HTTP resources of the OpenAPI under a single context. Therefore, it will be exposed as a sub resource of a single API using Choreo Connect. This is how Choreo Connect logically separates one API from the other. The `x-wso2-production-endpoints` refers to the actual backend service implementation of the API. Therefore, the latter mentioned details are mandatory to expose an API using Choreo Connect.
 
-**But with 3.1.0 onwards none of the wso2 specific open API extensions are mandatory.** Choreo Connect resolves base path and back end url as below
+**But with 3.1.0 onwards none of the WSO2 specific open API extensions are mandatory.** Choreo Connect resolves base path and back end URL as below
 
 1. **For swagger 2.0**
-    The swagger 2.0 specification  defines a way of providing the [base path and the host](https://swagger.io/docs/specification/2-0/api-host-and-base-path/) of the service. If the swagger specifies the combination of **schemes, basePath and host** attributes, Choreo Connect will drive the back end service url using host and schemes, and derive the base path using the base path attribute
+    The swagger 2.0 specification  defines a way of providing the [base path and the host](https://swagger.io/docs/specification/2-0/api-host-and-base-path/) of the service. If the swagger specifies the combination of **schemes, basePath and host** attributes, Choreo Connect will drive the back end service URL using host and schemes, and derive the base path using the base path attribute
 2. **For Open API 3.0**
-    The open API 3.0 specification defines a way of providing [server](https://swagger.io/docs/specification/api-host-and-base-path/) url of the API defines by the open API definition. Choreo Connect derive the base path and the back end service url using the **servers** object defined in the open API definition.
-    For if the server url is defined as ex: `http://test.com/v2` then Choreo Connect will resolve backend service url as the given URL and it will also expose the API using the base path(context) /v2.
+    The open API 3.0 specification defines a way of providing [server](https://swagger.io/docs/specification/api-host-and-base-path/) URL of the API defines by the open API definition. Choreo Connect derive the base path and the back end service URL using the **servers** object defined in the open API definition.
+    For if the server URL is defined as ex: `http://test.com/v2` then Choreo Connect will resolve backend service URL as the given URL and it will also expose the API using the base path(context) /v2.
 
 ### Updating the API
 
 Updating of the API is done by editing the existing open API definition. In order to update the API, the project must be built and Choreo Connect should be re deployed again as API updates are not hot deployable.
 
-Following properties of the open API is not recommended to be editied, as it will behave as a new API if those were edited.
+Following properties of the open API is not recommended to be edited, as it will behave as a new API if those were edited.
 
 - Title
 - Version
 - basePath - If swagger 2.0. version is used
 - x-wso2-basePath
 - [servers](https://swagger.io/docs/specification/api-host-and-base-path/) objects basePath section if `x-wso2-basePath` is not present in the open API (this is explained in the above section **How to work with standard open API definition** ).
-    For ex if servers url is defined as below.
+    For ex if servers URL is defined as below.
 
     **Open API servers object**
 
@@ -61,8 +61,8 @@ Following properties of the open API is not recommended to be editied, as it wil
         - url: https://api.example.com/v1 
     ```
 
- Then Choreo Connect will expose the API using the base path(or context) /v1 if the `x-wso2-basePath` extension is not present. Then editing the last part of the servers url(/v1) will expose API as a different context.
- If editing the servers url is a must due to the changes in the actual back end service, then we can use the x-wso2-basePath extension as a fixed context and edit the servers url. So API will be exposed with the same base bath as it was before.
+ Then Choreo Connect will expose the API using the base path(or context) /v1 if the `x-wso2-basePath` extension is not present. Then editing the last part of the servers URL(/v1) will expose API as a different context.
+ If editing the servers URL is a must due to the changes in the actual back end service, then we can use the x-wso2-basePath extension as a fixed context and edit the servers URL. So API will be exposed with the same base bath as it was before.
 
 ## OpenAPI Extensions
   

@@ -5,7 +5,7 @@ Given below is a sample scenario that demonstrates how to create an Amazon Lambd
 ## What you'll build
 To use the Amazon Lambda connector, add the <amazonlambda.init> element in your configuration before carrying out any Amazon Lambda operations. This Amazon Lambda configuration authenticates with Amazon Lambda by specifying the AWS access key ID and secret access key ID, which are used for every operation. The signature is used with every request and thus differs based on the request the user makes.
 
-This example demonstrates how to use Amazon Lambda Connector to use `createFunction` opertaion.
+This example demonstrates how to use Amazon Lambda Connector to use `createFunction` operation.
 
 Here we exposed the `createFunction` operation via an API. The API has one resource with the context `/createFunction`.
 

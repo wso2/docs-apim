@@ -22,7 +22,7 @@ To start WSO2 Streaming Integrator, navigate to the `<SI_HOME>/bin` directory fr
 - **For Windows**: `server.bat --run`
 
 ### Step 2: Start the Streaming Integrator Tooling 
-Here, we are going to use the sample Websocket Receiver shipped with the Streaming Integrator Tooling.
+Here, we are going to use the sample WebSocket Receiver shipped with the Streaming Integrator Tooling.
 To start the sample, navigate to the `<SIT_HOME>/bin` directory from the CLI, and issue the appropriate command based on your operating system:
 
 - **For Linux**: `./tooling.sh`

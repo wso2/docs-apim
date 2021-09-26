@@ -164,7 +164,7 @@ Given below is a sample configuration for the external read/write user store in 
         
 3.  In WSO2 products based on Carbon 4.5.x, you can set the `LDAPConnectionTimeout` property: If the connection to the LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated.
 
-4.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupNameSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute as shown below.
+4.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupNameSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or back link attribute as shown below.
     To read the user/role mapping based on a membership (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
 
     -   Enable the `ReadGroups` property.
@@ -241,7 +241,7 @@ Following are the minimum configurations that are needed to be provided to confi
 <tr class="even">
 <td>type</td>
 <td>User Store Type</td>
-<td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
+<td>Type of the user store manager that we are using. For Read-only LDAP user store manager this value
 should be active_directory.
 </td>
 </tr>
@@ -325,7 +325,7 @@ In this case, the search operation only provides the objects created from the pe
 <td>ReadGroups</td>
 <td>read_groups</td>
 <td>Read Groups</td>
-<td>When WriteGroups is set to falses, this Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
+<td>When WriteGroups is set to false, this Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
 <p>Default: true
 <br />
 Possible values:<br />
@@ -405,7 +405,7 @@ Default: memberOf</td>
 <td>BackLinksEnabled</td>
 <td>back_links_enabled</td>
 <td>Enable Back Links</td>
-<td>Defines whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
+<td>Defines whether the back link support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
 <br/>Default : false</td>
 </tr>
 <tr class="odd">
@@ -418,7 +418,7 @@ Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
 <tr class="even">
 <td>UsernameJava<br />ScriptRegEx</td>
 <td>username_java_<br />script_regex</td>
-<td>Username RegEx (Javascript)</td>
+<td>Username RegEx (JavaScript)</td>
 <td>The regular expression used by the front-end components for username validation.<br />
 Default: ^[\S]{3,30}$</td>
 </tr>
@@ -439,7 +439,7 @@ Default: ^[\S]{5,30}$</td>
 <tr class="odd">
 <td>PasswordJava<br />ScriptRegEx</td>
 <td>password_java_<br />script_regex</td>
-<td>Password RegEx (Javascript)</td>
+<td>Password RegEx (JavaScript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
@@ -479,7 +479,7 @@ MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.(Default)</p>
 <p>If you just configure as SHA, It is considered as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.<br />
 <br />
-Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA).
+Most of the LDAP servers (such as OpenLDAP, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA).
 If your LDAP does not support to store user password as hashed values. You can configure WSO2 server to hash the password and feeds the hashed password into the LDAP server. Then you need to configure PasswordHashMethod property with SHA (SHA-1), SHA-256, SHA-512. Please note WSO2 server cannot create a salted hashed password (SSHA) to feed into the LDAP.</p></td>
 </tr>
 <tr class="even">
@@ -540,7 +540,7 @@ False: Disable connection pooling
 Default: false<br /></td>
 </tr>
 <tr class="even">
-<td>LDAPConnectionT<br>imeout</td>
+<td>LDAPConnectionT<br>timeout</td>
 <td>ldap_connection<br>_timeout</td>
 <td>LDAP Connection Timeout</td>
 <td>Timeout in making the initial LDAP connection. This is configured in milliseconds.<br />

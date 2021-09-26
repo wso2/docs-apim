@@ -31,7 +31,7 @@ components:
             admin: Grants access to admin operations
 ```
 
-Then, list the scopes requires by each operation or API by listing oauth2 security with relevant scopes.
+Then, list the scopes requires by each operation or API by listing OAuth2 security with relevant scopes.
 
 List the scopes required by each operation in the `security` section of that operation:
 
@@ -47,7 +47,7 @@ paths:
 ```
 
 !!! note
-    When an oauth2 type security scheme is given under operation or API, it will secure the operation or API with OAuth2 security (JWT and opaque security tokens).
+    When an OAuth2 type security scheme is given under operation or API, it will secure the operation or API with OAuth2 security (JWT and opaque security tokens).
 
 ### Validating scopes through JWT authentication
 

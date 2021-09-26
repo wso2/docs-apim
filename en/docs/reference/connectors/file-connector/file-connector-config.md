@@ -19,7 +19,7 @@ There are different connection configurations that can be used for the above pro
 
 
 !!! Note
-    The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection urls will be generated.
+    The File connector internally uses the [Apache VFS Library](https://commons.apache.org/proper/commons-vfs/). According to the selected connection type, the following VFS connection URLs will be generated.
 
     ```bash tab='Local File'
     [file://] absolute-path
@@ -668,7 +668,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -729,7 +729,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -791,7 +791,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -904,7 +904,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1079,7 +1079,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1411,7 +1411,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1724,7 +1724,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1836,7 +1836,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -1929,7 +1929,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2046,7 +2046,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2224,7 +2224,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2399,7 +2399,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2481,7 +2481,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String
@@ -2619,7 +2619,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 File Connection
             </td>
             <td>
-                fileConnection
+                name
             </td>
             <td>
                 String

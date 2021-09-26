@@ -279,7 +279,7 @@ Run the `docker image ls` command to verify that the Docker image is created.
 ## Step 4 - Deploy the solution in K8s
 
 !!! Info
-    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your kubernetes environment.
+    **Before you begin**, the [API Kubernetes Operator]({{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/install) should be installed in your Kubernetes environment.
 
 Follow the steps given below:
 

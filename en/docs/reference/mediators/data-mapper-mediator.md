@@ -419,7 +419,7 @@ The sample input JSON payload is as follows.
 }
 ```
 
-The sample o utput XML is as follows.
+The sample output XML is as follows.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>  

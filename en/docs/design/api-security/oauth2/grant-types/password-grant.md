@@ -46,7 +46,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
 
 2.  Access the Token API by using a REST client such as cURL, with the following parameters.
 
-    -   Assuming that both the client and the API Gateway are running on same server, the token API url is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login)
+    -   Assuming that both the client and the API Gateway are running on same server, the token API URL is [https://localhost:9443/oauth2/token](https://localhost:9443/oauth2/login)
     -   payload - `"grant_type=password&username=<username>&password=<password>&scope=<scope>"`. Replace the `<username>` and `<password>` values as appropriate.
 
         !!! tip

@@ -518,7 +518,7 @@ Generic properties allow you to configure messages as they're processed by the 
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>By default, Axis2 spawns a new thread to handle each outgoing message. This property holds the primary thread until a VFS proxy writes to a VFS endpoint. You need to r emove this property from the message to change this behavior when queuing transports like JMS are involved.</p></td>
+<td><p>By default, Axis2 spawns a new thread to handle each outgoing message. This property holds the primary thread until a VFS proxy writes to a VFS endpoint. You need to remove this property from the message to change this behavior when queuing transports like JMS are involved.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>

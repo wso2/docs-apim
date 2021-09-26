@@ -69,7 +69,7 @@ at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
 … 15 more
 ```
 
-This error is because the **Docker UI** installation on your MacOs has a feature that stores Docker credentials on Mac Keychain. To fix this, you must disable this feature from the Docker UI. Also, this will automatically be saved in your `~/.docker/config.json` file.
+This error is because the **Docker UI** installation on your MacOS has a feature that stores Docker credentials on Mac Keychain. To fix this, you must disable this feature from the Docker UI. Also, this will automatically be saved in your `~/.docker/config.json` file.
 
 ![docker ui]({{base_path}}/assets/img/integrate/docker-ui.png)
 
@@ -114,7 +114,7 @@ Follow the steps given below.
 
     ![Docker Desktop menu]({{base_path}}/assets/img/integrate/docker-desktop-menu-windows.png)
 
-3.  In the **Settings** dialog box that opens, select **Expose daemon on tcp without TLS**.
+3.  In the **Settings** dialog box that opens, select **Expose daemon on TCP without TLS**.
 
     ![Docker settings tab]({{base_path}}/assets/img/integrate/docker-ui-setting-windows.png)
 

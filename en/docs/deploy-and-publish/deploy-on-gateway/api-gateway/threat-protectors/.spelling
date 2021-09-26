@@ -1,0 +1,24 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+pre-configured
+validator
+maxPropertyCount
+maxStringLength
+maxArrayElementCount
+maxKeyLength
+maxJsonDepth
+Queryparam
+dtdEnabled
+externalEntitiesEnabled
+maxXMLDepth
+maxElementCount
+maxAttributeCount
+maxAttributeLength
+entityExpansionLimit
+maxChildrenPerElement
+userapi
+addResource
+xsd

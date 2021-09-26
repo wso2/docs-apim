@@ -1,0 +1,17 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+keystore
+Url
+provisioning-out-of-band-oauth-clients
+register-oauth-app
+ba13cf7473cfbde970ae6e8b60973f64.0000015fc1ebabde.67830f2f2886256eb80faa9dab85c3d2c9be7db1
+timestamp
+oauth-hmac-extension
+foreach
+template.xml
+300s
+CON_APP_KEY
+IDN_OAUTH2_ACCESS_TOKEN

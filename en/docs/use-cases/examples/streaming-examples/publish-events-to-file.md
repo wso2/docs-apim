@@ -1,7 +1,7 @@
 # Publishing JSON Events to Files
 
 ## Purpose:
-This application demonstrates how to configure WSO2 Streaming Integrator Tooling to publish data events in to files in Json format.
+This application demonstrates how to configure WSO2 Streaming Integrator Tooling to publish data events in to files in JSON format.
 
 ## Prerequisites:
 * Edit the uri '{WSO2SIHome}/samples/artifacts/PublishEventsToFile/files/sink/{{name}}.txt' by replacing {WSO2SIHome} with the absolute path of your WSO2SP home directory. You can also change the path for 'file.uri' in the sink, if you want to publish your event file to a different location.

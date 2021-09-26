@@ -70,7 +70,7 @@ Follow the instructions below to add documentation to an API:
 
     #### Add a document using a URL based on a Public Forum/Support Forum
 
-    1.  Click **Add New Document** to add another documenation type.
+    1.  Click **Add New Document** to add another documentation type.
 
     2.  Enter the following information to create another doc using a URL of a Public or Support forum.
 

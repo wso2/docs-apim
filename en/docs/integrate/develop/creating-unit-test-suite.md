@@ -65,7 +65,7 @@ Once you have created a Unit Test Suite in WSO2 Integration Studio, you can find
         !!! Note
             For APIs, you also need to specify the **Request Path** and **Request Method** in the this section. The **Request Path** indicates the URL mapping of the API resource. If the URL mapping consists some parameter(s), replace those with values. Also the **Request Method** indicates the REST method of the resource.   
     
-    3.  In the **Assertions** section, you can add multiple assertion belonging to two types: **AssertEquals** check the whether the mediated result and expected values are equeal. **AssertNotNull** checks whether the mediated result is not null.
+    3.  In the **Assertions** section, you can add multiple assertion belonging to two types: **AssertEquals** check the whether the mediated result and expected values are equal. **AssertNotNull** checks whether the mediated result is not null.
     
         ![Add Assertions]({{base_path}}/assets/img/integrate/create_project/synapse_unit_test/add-assertion.png)
     

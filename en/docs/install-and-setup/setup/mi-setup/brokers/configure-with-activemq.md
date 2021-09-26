@@ -188,7 +188,7 @@ Simple Authentication: ActiveMQ comes with an authentication plugin, which provi
     - The **anonymousAccessAllowed** attribute defines whether or not to allow anonymous access. 
     - The groups and users defined in step 1 are used to provide authorization schemes. Refer to section [Authorization](#authorization) for more information.
 
-3.  When you configure the JMS listener in the deployment.toml file of your Micro Integrator, use the ActiveMQ user name and password you cofigured above.
+3.  When you configure the JMS listener in the deployment.toml file of your Micro Integrator, use the ActiveMQ user name and password you configured above.
       ```toml
       [[transport.jms.listener]]
       name = "myTopicListener"
@@ -265,7 +265,7 @@ transports="http" startOnLoad="true" trace="disable">
 </proxy> 
 ```
 
-Note `java.naming.provider.url=failover:(tcp://localhost:61616,tcp://localhost:61617)?randomize=false` inside the address endpoint uri attribute. The `randomize=false` parameter allows the fail-over configuration to be prioratized. This ensures that when the first instance fails, it moves to the next. For more information on ActiveMQ fail-over transport and its parameters, refer the [official documentation of ActiveMQ](http://activemq.apache.org/failover-transport-reference.html).
+Note `java.naming.provider.url=failover:(tcp://localhost:61616,tcp://localhost:61617)?randomize=false` inside the address endpoint URI attribute. The `randomize=false` parameter allows the fail-over configuration to be prioritized. This ensures that when the first instance fails, it moves to the next. For more information on ActiveMQ fail-over transport and its parameters, refer the [official documentation of ActiveMQ](http://activemq.apache.org/failover-transport-reference.html).
 
 ### Integrity
 

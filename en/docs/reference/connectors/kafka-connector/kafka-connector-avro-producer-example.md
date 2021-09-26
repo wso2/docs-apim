@@ -170,4 +170,4 @@ This demonstrates how the Kafka connector publishes Avro messages to Kafka broke
 ## What's next
 
 * You can deploy and run your project on Docker or Kubernetes. See the instructions in [Running the Micro Integrator on Containers](../../../../setup/installation/run_in_containers).
-* To customize this example for your own scenario, see [kafka Connector Configuration](kafka-connector-config.md) documentation.
+* To customize this example for your own scenario, see [Kafka Connector Configuration](kafka-connector-config.md) documentation.

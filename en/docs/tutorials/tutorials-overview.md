@@ -35,7 +35,7 @@ The scenario tutorials provide a real world example that can be solved using API
 
 ## API Management Tutorials
 
-The following list of tutorials guide you to use the API-first approach when creating a managed API and exposing it to the API markertplace.
+The following list of tutorials guide you to use the API-first approach when creating a managed API and exposing it to the API marketplace.
 
 <table>
     <tr>

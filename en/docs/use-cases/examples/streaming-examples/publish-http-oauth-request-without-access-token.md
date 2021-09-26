@@ -6,13 +6,13 @@ endpoint without access token
 ## Prerequisites:
 1. Replace the Sink configuration values for following options.
     - publisher.url : publisher URL (Ex:- 'https://localhost:8005/abc')
-    - consumer.key  : consumer key for the http request (Ex:- 'abcdef')
-    - consumer.secret: consumer secret for the http request (Ex:- 'abcdef')
+    - consumer.key  : consumer key for the HTTP request (Ex:- 'abcdef')
+    - consumer.secret: consumer secret for the HTTP request (Ex:- 'abcdef')
     - token.url     : URL of the token end point (Ex:- 'https://localhost:8005/token')
     - method        : method type (Eg:- POST)
 
     optional (You can fill this if it is different from default values)
-    - header (Authorization header)  : access token for the http request (Ex:- 'abcdef') <= by default
+    - header (Authorization header)  : access token for the HTTP request (Ex:- 'abcdef') <= by default
     it automatically get the access token using the password/client-credential/refresh grant. Here the grantype depends on the user input.
     - https.truststore.file : API trust store path (Ex:- '/user/../../../client-truststore.jks') <= by default
     it get from product pack (Ex:- ${carbon.home}/resources/security/client-truststore.jks)
@@ -30,7 +30,7 @@ endpoint without access token
 
 ## Testing the Sample:
 Send events through one or more of the following methods:
-* Send events with http server through the event simulator:
+* Send events with HTTP server through the event simulator:
     1. Open the event simulator by clicking on the second icon or pressing Ctrl+Shift+I.
 	2. In the Single Simulation tab of the panel, specify the values as follows:
         * Siddhi App Name  : PublishHttpOAuthRequestWithoutAccessToken

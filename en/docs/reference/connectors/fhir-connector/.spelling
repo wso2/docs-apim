@@ -1,0 +1,30 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+fhir.init
+getConformance
+fhir.getConformance
+fhir.create
+fhir.update
+conditionalUpdate
+fhir.conditionalUpdate
+fhir.delete
+conditionalDelete
+fhir.conditionalDelete
+readResource
+fhir.readResource
+readSpecificResourceById
+fhir.readSpecificResourceById
+vReadResource
+fhir.vReadResource
+fhir.history
+historyAll
+fhir.historyAll
+historyType
+fhir.historyType
+fhir.search
+searchPost
+fhir.searchPost
+fhir

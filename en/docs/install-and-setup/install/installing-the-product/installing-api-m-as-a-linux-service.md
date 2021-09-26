@@ -79,7 +79,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
     -   Add a link to `/etc/init.d/` : `sudo ln -snf /opt/WSO2/prodserver /etc/init.d/prodserver           `
 
 
-3.  Install the startup script to respective runlevels using the `update-rc.d` command. For example, give the following command for the sample script shown in step1:
+3.  Install the startup script to respective run levels using the `update-rc.d` command. For example, give the following command for the sample script shown in step 1:
 
     ``` java
      sudo update-rc.d prodserver defaults 

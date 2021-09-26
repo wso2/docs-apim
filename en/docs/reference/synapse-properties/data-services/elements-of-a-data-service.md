@@ -230,7 +230,7 @@ element:
 <td>result</td>
 <td></td>
 <td></td>
-<td>A REQUIRED element descriibing how the table resulting from executing the query will be converted to an XML element. If any &lt;column&gt; or &lt;query&gt; child elements are present, then ONLY those are transferred as child elements of the result element (or elements, depending on whether result/@rowName is given or not). The order of the nested &lt;column&gt; or &lt;query&gt; elements defines the order of elements in the result element.</td>
+<td>A REQUIRED element describing how the table resulting from executing the query will be converted to an XML element. If any &lt;column&gt; or &lt;query&gt; child elements are present, then ONLY those are transferred as child elements of the result element (or elements, depending on whether result/@rowName is given or not). The order of the nested &lt;column&gt; or &lt;query&gt; elements defines the order of elements in the result element.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -248,7 +248,7 @@ element:
 <td></td>
 <td>defaultNamespace</td>
 <td></td>
-<td>An OPTIONAL URI being the default namespace to use for the namespace name of elements and attributesthat result columnsare mapped to. Defaultsto "" (meaning no namespace).</td>
+<td>An OPTIONAL URI being the default namespace to use for the namespace name of elements and attributes that result columns are mapped to. Defaults to "" (meaning no namespace).</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -278,7 +278,7 @@ element:
 <td></td>
 <td></td>
 <td>element/@requiredRoles</td>
-<td>An OPTIONAL string giving the names of roles that have permission to see the result element. Bydefaultit has set to all users.</td>
+<td>An OPTIONAL string giving the names of roles that have permission to see the result element. By default it has set to all users.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -326,13 +326,13 @@ element:
 <td></td>
 <td></td>
 <td>attribute/@requiredRoles</td>
-<td>an OPTIONAL string giving the names of roles that who has permission to see the result attribute. Bydefaultit has set to all users.</td>
+<td>an OPTIONAL string giving the names of roles that who has permission to see the result attribute. By default it has set to all users.</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
 <td>attribute/@export</td>
-<td>an OPTIONAL name giving to the attribute that to be export outside of query. This feature is used withboxcarringsupport.</td>
+<td>an OPTIONAL name giving to the attribute that to be export outside of query. This feature is used with boxcarring support.</td>
 </tr>
 <tr class="odd">
 <td></td>

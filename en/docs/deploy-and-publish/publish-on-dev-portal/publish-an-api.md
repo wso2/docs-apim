@@ -34,6 +34,6 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      [![Published lifecycle state]({{base_path}}/assets/img/learn/api-state-change-to-publish.png)]({{base_path}}/assets/img/learn/api-state-change-to-publish.png) 
      
-5. Nagivate to the Developer Portal (`https://<hostname>:9443/devportal`).
+5. Navigate to the Developer Portal (`https://<hostname>:9443/devportal`).
      
      Note that the API that you published is visible under the **APIs** listing.

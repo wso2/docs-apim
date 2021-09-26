@@ -1,0 +1,33 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+WS-Policy
+e.g.
+WS-Security-Configuration
+Keystores
+keystore
+WS-Security
+WS-policy
+mvn
+i.e.
+Dev
+http
+config
+HelloWorldDevResources
+HelloWorldServices
+HelloWorldProxy
+HelloWorldEP
+CApps
+HelloWorldDevCApp
+Undeploy
+HelloWorldQACApp
+HelloWorldQAResources
+HelloWorldEP.xml
+gedit
+HelloWorldResources
+datasource
+dbs
+datasources
+dataservice

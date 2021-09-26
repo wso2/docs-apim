@@ -134,7 +134,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
     [![sample IDP]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-idp.png)
 
 6. Enable JIT Provisioning users since the userstore is not shared between IS and APIM.
-    The users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successsfully login to Publisher and Devportal.
+    The users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successfully login to Publisher and Devportal.
 
     [![JIT Provisioning]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-jit-provisioning.png)
 

@@ -1,0 +1,22 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+failover
+mediations
+backends
+MutualSSL
+env
+envs
+apim
+api_import_export
+api
+export-apis
+api_product_import_export
+app_import_export
+app_manage
+sub_manage
+api_view
+backend
+SwaggerPetstore

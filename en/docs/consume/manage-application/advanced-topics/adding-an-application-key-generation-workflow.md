@@ -33,13 +33,13 @@ First, enable the application registration workflow.
     ```
     The application key generation Approve Workflow Executor is now engaged.
 
-4.  Sign in to the API Developer Portal (<https://localhost:9443/devportal>) as a Developer Portal user and open the application with which you subscribed to the API.Click **Applications** and click on an **ACTIVE** application.
+4.  Sign in to the API Developer Portal (<https://localhost:9443/devportal>) as a Developer Portal user and open the application with which you subscribed to the API. Click **Applications** and click on an **ACTIVE** application.
 
 
     !!! note
         If you do not have an API already created and an Application subscribed to it, follow [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/), [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/), and [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) to create an API and subscribe to it.
 
-5.  Select **Production Keys** or **Sandbox Keys** from the side navbar and click on **GENERATE KEYS**.
+5.  Select **Production Keys** or **Sandbox Keys** from the side navigation bar and click on **GENERATE KEYS**.
     
     ![Generate keys for an application]({{base_path}}/assets/img/learn/application-registration-generate-keys.png)
 

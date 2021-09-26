@@ -30,7 +30,7 @@ Follow the steps below to add a certificate to an endpoint:
     |-------------|---------------------------------------------------|
     | interval    | The time taken to load the newly added certificate in **milliseconds**. Default 10 mins. (600000ms) Minimum interval : 60000ms (1 min)|
 
-- If you are using a different default truststore/keystore configuration and defined it in the `[transport.passthru_https.sender]` or `[keystore.primary]` sections within the `deployment.toml` file, make sure to modify the keystore and truststore configurations for **default ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
+- If you are using a different default truststore/keystore configuration and defined it in the `[transport.passthru_https.sender]` or `[keystore.primary]` sections within the `deployment.toml` file, make sure to modify the keystore and truststore configurations for **default SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` tab="Format"
     [keystore.tls]
@@ -58,7 +58,7 @@ Follow the steps below to add a certificate to an endpoint:
     password = "wso2carbon"
     ```
 
-- If you are using a seperate keystore and truststore pair (per custom ssl profile) for each endpoint domain, add the configuration for each **custom ssl profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
+- If you are using a separate keystore and truststore pair (per custom SSL profile) for each endpoint domain, add the configuration for each **custom SSL profile** in  `<API-M_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` tab="Format"
     [[keystore.ssl_profile.custom]]

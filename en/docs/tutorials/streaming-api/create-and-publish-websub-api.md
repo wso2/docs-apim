@@ -89,13 +89,13 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
            <a href="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-subscriptions.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websub-api-subscriptions.png" width="80%" alt="Subscriptions of Websub API"></a>
 
-Now, you have created and configured the Websub API (WebHook API) successfully.
+Now, you have created and configured the WebSub API (WebHook API) successfully.
 
 ### Step 2 - Forward a Public URL
 
-A public URL should be forwarded to `localhost:9021`, so that your local server can be accessible to the WebHook provider (GitHub). [ngrock](https://ngrok.com) can be used for this purpose.
+A public URL should be forwarded to `localhost:9021`, so that your local server can be accessible to the WebHook provider (GitHub). [ngrok](https://ngrok.com) can be used for this purpose.
 
-1. Download [ngrock](https://ngrok.com/download), and start it. 
+1. Download [ngrok](https://ngrok.com/download), and start it. 
 
       This will forward a public URL to `localhost:9021`.
 
@@ -103,7 +103,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
      ./ngrok http 9021
      ```
 
-2. Copy the HTTP URL that is forwarded to `http://localhost:9021`, as shown in ngrock's terminal. 
+2. Copy the HTTP URL that is forwarded to `http://localhost:9021`, as shown in ngrok's terminal. 
 
       In the following example, it is `http://3b1*******c9.ngrok.io`.
 

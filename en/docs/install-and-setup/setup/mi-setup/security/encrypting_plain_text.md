@@ -133,4 +133,4 @@ export env_carbon_sec=<ENCRYPTED_VALUE>
 
 ### In a Kubernetes environment
 
-If you are in a Kubernetes enviroment, you should have generated a .yaml file with the encrypted secrets using the WSO2 API Controller, **apictl**. See [defining dynamic secrets](#dynamic-secrets).
+If you are in a Kubernetes environment, you should have generated a .yaml file with the encrypted secrets using the WSO2 API Controller, **apictl**. See [defining dynamic secrets](#dynamic-secrets).

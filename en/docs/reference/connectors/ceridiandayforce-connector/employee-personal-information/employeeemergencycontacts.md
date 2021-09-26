@@ -189,7 +189,7 @@ Following is a sample request that can be handled by this operation.
 
 **Sample response**
 
-This method returns a HTTP code 200 and no reponse body
+This method returns a HTTP code 200 and no response body
 
 **Related Dayforce documentation**
 

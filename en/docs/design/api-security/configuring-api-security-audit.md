@@ -10,7 +10,7 @@ WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), the only enterp
 
 Follow the instructions below to obtain the API token and collection ID from 42Crunch:
 
-1.  Navigate to the [42crunch platform](https://platform.42crunch.com) and register or sign in.
+1.  Navigate to the [42Crunch platform](https://platform.42crunch.com) and register or sign in.
 
 2.  Click **Settings**.
 

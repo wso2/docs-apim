@@ -142,7 +142,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 </tr>
 <tr class="even">
 <td><p><strong>Description</strong></p></td>
-<td><p>The JMS coorelation ID is used to match responses with specific requests. This property can be used to set the JMS coorrelation ID as a dynamic or a hard coded value in a request. As a result, responses with the matching JMS correlation IDs will be matched with the request.</p></td>
+<td><p>The JMS corelation ID is used to match responses with specific requests. This property can be used to set the JMS corelation ID as a dynamic or a hard coded value in a request. As a result, responses with the matching JMS correlation IDs will be matched with the request.</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>Example</strong></p></td>

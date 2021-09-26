@@ -1,6 +1,6 @@
 # Control the number of retries and delay message in case of error
 
-This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
+This sample demonstrates how the WSO2 Micro Integrator can guarantee message delivery to an endpoint by controlling the number of delivery retries during errors. You can also configure a delay in message delivery from the RabbitMQ broker.
 
 <img src="{{base_path}}/assets/img/integrate/rabbitmq/rabbitmq-retry-delay-messages.png">
 

@@ -5,8 +5,8 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 
 ## Prerequisites:
 1. Set up Kafka as follows:
-	1. Create a folder called kafka and another folder called kafka-osgi.
-    2. Copy the following files from {KafkaHome}/libs to the kafka folder you just created:
+	1. Create a folder called Kafka and another folder called kafka-osgi.
+    2. Copy the following files from {KafkaHome}/libs to the Kafka folder you just created:
         * kafka_2.11_2.2.0.jar
         * kafka_clients_2.2.0.jar
         * metrics-core-2.2.0.jar
@@ -15,7 +15,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
         * zookeeper_3.4.13.jar
     3. Copy these same files to the {WSO2SIHome}/samples/sample-clients/lib folder.
     4. Navigate to {WSO2SIHome}/bin and issue the following command:
-        - For Linux: ./jartobundle.sh <path/kafka> <path/kafka-osgi>
+        - For Linux: ./jartobundle.sh <path/Kafka> <path/kafka-osgi>
         - For Windows: ./jartobundle.bat <path/kafka> <path/kafka-osgi>  
 If converted successfully, the following messages are shown on the terminal for each lib file:
         - INFO: Created the OSGi bundle <kafka-lib-name>.jar for JAR file <absolute_path>/kafka/<kafka-lib-name>.jar

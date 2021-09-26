@@ -97,7 +97,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
     
 #### Create a REST API
 
-A REST API is required for receving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
+A REST API is required for receiving the client response and the REST resource within the API will define the mediation logic that will send requests to the Healthcare back-end service and retrieve the available doctor information.
 
 1.  In the Project Explorer, right-click **SampleServicesConfigs** and click **New -> REST API**.
 2.  Ensure **Create A New API Artifact** is selected and click **Next**.

@@ -83,7 +83,7 @@ Advanced rate limiting policies are applied when you are Publishing an API. It c
 
 #### API level rate limiting
 
-API level policies can be engaged via the resources section of an API in the Publisher portal by selecting **API Level** under **Rate limitting level** as shown below.
+API level policies can be engaged via the resources section of an API in the Publisher portal by selecting **API Level** under **Rate limiting level** as shown below.
 
 [![API level advanced policy]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)
 

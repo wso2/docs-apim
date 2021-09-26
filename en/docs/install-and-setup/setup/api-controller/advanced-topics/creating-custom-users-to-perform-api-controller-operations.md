@@ -53,17 +53,17 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>-</td>
 </tr>
 <tr class="even">
-<td>get apis</td>
+<td>get APIs</td>
 <td><strong>API Create</strong> or <strong>API Publish</strong> or <strong>API Subscribe</strong></td>
 <td>apim:api_import_export</td>
 </tr>
 <tr class="odd">
-<td>delete api</td>
+<td>delete API</td>
 <td><strong>API Create</strong></td>
 <td>apim:api_import_export</td>
 </tr>
 <tr class="even">
-<td>change-status api</td>
+<td>change-status API</td>
 <td><strong>API Publish</strong></td>
 <td>apim:api_import_export</td>
 </tr>

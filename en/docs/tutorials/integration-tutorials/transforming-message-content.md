@@ -206,7 +206,7 @@ Let's create an Endpoint to represent the Hospital Service back-end service.
 
 #### Define the mediation flow
 
-Let's configure the API resource with the data transforrmation logic.
+Let's configure the API resource with the data transformation logic.
 
 1.  Drag a **Property** mediator from the **Mediators** palette to the In Sequence of the API resource and name it **Get Hospital**. 
 
@@ -391,7 +391,7 @@ Let's configure the API resource with the data transforrmation logic.
 
     <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/data-mapper-properties.png">
 
-16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpont from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
+16.  Add a Call mediator from the **Mediators** palette and add the HospitalServicesEP endpoint from the **Defined Endpoints** palette to the empty box adjoining the Call mediator.
 
       <img src="{{base_path}}/assets/img/integrate/tutorials/message-transformation/add-call-mediator-for-transformation.png">
 
