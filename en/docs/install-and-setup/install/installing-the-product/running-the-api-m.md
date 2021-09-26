@@ -97,7 +97,7 @@ To sign in to each web portal:
 
 ## Troubleshooting server startup errors
 
--   If you are in a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bind-address in `<API-M_HOME>/repository/resources/security/listenerprofiles.xml` to avoid errors during SSL reloads.
+-   If you are in a Windows environment, the HTTPS listener would have started on a host address of 0:0:0:0:0:0:0:0. You can verify that from the Carbon logs. In that case, you need to define 0:0:0:0:0:0:0:0 as the bind-address in `<API-M_HOME>\repository\resources\security\listenerprofiles.xml` to avoid errors during SSL reloads. In order to make the change to listenerprofiles.xml, you will need to modify `<API-M_HOME>\repository\resources\conf\templates\repository\resources\security\listenerprofiles.xml.j2`.
 -   If you are on a Mac OS, you may encounter the following startup error with similar logs.
 
     ```bash
