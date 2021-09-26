@@ -166,11 +166,12 @@ Further, you can add custom scopes for WSO2 API Manager Analytics. Follow the in
     ```
 
     !!! important "Custom scope and role mapping via the Management Console "
-        After adding a new role to the exisiting scope in the `API-M_HOME/repository/resources/tenant-conf.json` file do the following before restarting the server.
+        After adding a new role to the existing scope in the `<API-M_HOME>/repository/resources/tenant-conf.json` file do the following before restarting the server.
 
-        1.  Open the [Management Console](``https://localhost:9443/carbon``) (`https://<hostname>:9443/carbon`).
+        1.  Open the [Management Console](`https://localhost:9443/carbon`) (`https://<hostname>:9443/carbon`).
         2.  Navigate to `/ _system/config/apimgt/applicationdata/tenant-conf.json`
         3.  Replicate adding the role again, as shown in the example below.
+
             ```
             {
                     "Name": "apim_analytics:api_analytics:view",
