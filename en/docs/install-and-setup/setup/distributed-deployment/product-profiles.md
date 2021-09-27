@@ -153,7 +153,7 @@ Create an optimized distribution for a particular API-M profile.
     ```
     
     ``` tab="Example:Windows"
-    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher
+    <API-M_HOME>/bin/wso2server.bat -Dprofile=api-publisher
     ```    
 
 #### Method 2 - Optimizing while starting the server
