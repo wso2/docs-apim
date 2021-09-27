@@ -47,7 +47,7 @@ version.
 test your functional and non-functional requirements.
 
 
-7.  Before start the upgrading process, Please make sure that you have read the whole documentation specific to the version upgarde and have a clear understanding of the upgrading process.
+7.  Before start the upgrading process, Please make sure that you have read the whole documentation specific to the version upgrade and have a clear understanding of the upgrading process.
 
 8. If you have expired certificates in client-trustore, follow [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore)
 

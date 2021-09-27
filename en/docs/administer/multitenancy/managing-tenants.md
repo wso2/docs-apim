@@ -41,7 +41,7 @@ When you create multiple tenants in an API Manager deployment, the API developer
 
     For example, if you are a user in the `domain1.com` tenant domain,
 
-    -   Click the **Go To Public Dev Portal** option available in the Navigation bar, go to the `domain1.com` developer portal, log in to it and subscribe to its APIs.
+    -   Click the **Go To Public Developer Portal** option available in the Navigation bar, go to the `domain1.com` developer portal, log in to it and subscribe to its APIs.
   
          [![]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)
 

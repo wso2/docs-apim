@@ -25,7 +25,7 @@ WSO2 Micro Integrator requires <b>user</b> credentials for <i>authentication</i>
 Micro Integrator users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/mi-setup/user_stores/setting_up_a_userstore/#configuring-an-rdbms-user-store) user store that is connected to the Micro Integrator server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
 
 !!! Tip
-	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> previliges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
+	Admin users can basically access any resource (of the Micro Integrator's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
 
 	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/mi-setup/security/securing_management_api/#authorization).
 

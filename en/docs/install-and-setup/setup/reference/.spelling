@@ -1,0 +1,30 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+webapps
+solr
+CorrettoJDK
+AdoptOpenJDK
+OpenJDK
+12c
+19c
+JDK1.8.0_20
+JDK1.8.0_144
+JDK1.8.0_152
+JDK1.8.0_162
+JDK1.8.0_151
+JDK1.8.0_161
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+TLS_ECDHE_RSA_WITH_RC4_128_SHA
+SSL_RSA_WITH_RC4_128_SHA
+TLS_ECDH_ECDSA_WITH_RC4_128_SHA
+TLS_ECDH_RSA_WITH_RC4_128_SHA
+SSL_RSA_WITH_RC4_128_MD5

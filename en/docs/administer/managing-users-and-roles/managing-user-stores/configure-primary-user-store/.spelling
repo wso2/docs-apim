@@ -134,6 +134,12 @@ MultiAttributeSeparator
 multi_attribute_separator
 max_user_name_
 LDAPConnectionT
+schemas
+org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager
+read_write_ldap
+org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager
+org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager
+org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager
  - docs/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
 xml
 4.5.x

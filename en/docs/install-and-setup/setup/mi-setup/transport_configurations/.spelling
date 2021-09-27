@@ -1,0 +1,32 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+sslprotocol
+TestSSLServer.jar
+DBReport
+QuickFix
+Quickfix
+mina-core
+quickfixj-core
+quickfixj-messages-fix40
+quickfixj-messages-fix41
+quickfixj-messages-fix42
+quickfixj-messages-fix43
+quickfixj-messages-fix44
+slf4j-api
+slf4j-log4j12
+2.17.jar
+reveiver
+banzai.cfg
+quickfixj-examples-banzai-2
+quickfix
+executor.cfg
+quickfixj-examples-executor-2
+HL7_ZIP
+MailTo
+JavaMail
+Middleware
+Weblogic
+truststores

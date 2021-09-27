@@ -59,7 +59,7 @@ wso2.carbon:
 | 9643 | HTTPS netty transport |
 
 !!! tip
-    The following example shows how to overide the default netty port for the Streaming Integrator Tooling by updating the required parameters in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file.
+    The following example shows how to override the default netty port for the Streaming Integrator Tooling by updating the required parameters in the `<SI_TOOLING_HOME>/conf/server/deployment.yaml` file.
 
     ``` xml
         wso2.transport.http:
@@ -95,4 +95,4 @@ Other than the ports used in clustering setups (i.e., a Minimum HA Deployment or
 
 |      |                                                                                                                                                                                                    |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 9092 | Ports of the two separate instances of the broker deployed in each data center (e.g., `bootstrap.servers= 'host1:9092, host2:9092'. The default is `9092` where the external kafka servers start.) |
+| 9092 | Ports of the two separate instances of the broker deployed in each data center (e.g., `bootstrap.servers= 'host1:9092, host2:9092'. The default is `9092` where the external Kafka servers start.) |

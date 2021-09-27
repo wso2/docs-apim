@@ -5,7 +5,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 ## Pre-requisites
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
--   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
         For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 Identity Server on the same server, go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
@@ -43,7 +43,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
         [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
 
-    2.  Expand the **Inbound Authentication Configuration** secition and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+    2.  Expand the **Inbound Authentication Configuration** section and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
 
         !!! Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
 
@@ -65,7 +65,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     3. Update the Service Provider configurations.
 
-    !!! Info "In Mutl-tenanted environments"
+    !!! Info "In Multitenanted environments"
         Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
 
         1.  Click the **SaaS Application** option that appears after registering the service provider.

@@ -132,7 +132,7 @@ Change the values of the relevant elements accordingly. **
 
 ***Configuring registry.xml file***
 
-4. Navigate to $CARBON\_ HOME/repository/conf/registry.xm l file and specify the following configurations for both server instances setup in step 1.
+4. Navigate to $CARBON\_ HOME/repository/conf/registry.xml file and specify the following configurations for both server instances setup in step 1.
 
 Add a new db config to the datasource configuration done in step 3 above. For example,
 

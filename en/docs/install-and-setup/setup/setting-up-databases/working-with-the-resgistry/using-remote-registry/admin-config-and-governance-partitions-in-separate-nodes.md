@@ -38,7 +38,7 @@ Database configurations are stored in $CARBON\_HOME/repository/conf/datasources/
 
 1. Download and extract WSO2 Governance Registry distribution from [http://wso2.com/products/governance-registry.](http://wso2.com/products/governance-registry/)
 
-2. First, navigate to $G-REG\_HOME/repository/conf/datasources/master-datasources.xml file where G-REG\_HOME is the distribution home of Governance Registry of G-Reg 1. R eplace the existing WSO2\_CARBON\_DB datasource with the following configuration:
+2. First, navigate to $G-REG\_HOME/repository/conf/datasources/master-datasources.xml file where G-REG\_HOME is the distribution home of Governance Registry of G-Reg 1. Replace the existing WSO2\_CARBON\_DB datasource with the following configuration:
 
 ``` html/xml
     <datasource>

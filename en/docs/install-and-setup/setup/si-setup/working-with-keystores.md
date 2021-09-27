@@ -95,7 +95,7 @@ By default, the following files provide paths to these keystores:
 
    - Databridge configurations
 
-    This specifies the key store to be used when the Streaming Integrator is publishing events via databrige using a secure network, and the password to access the key store.
+    This specifies the key store to be used when the Streaming Integrator is publishing events via databridge using a secure network, and the password to access the key store.
 
    - Secure vault configurations
 

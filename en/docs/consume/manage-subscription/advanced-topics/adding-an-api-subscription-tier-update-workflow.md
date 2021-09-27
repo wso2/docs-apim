@@ -49,7 +49,7 @@ When the API subscription update workflow is enabled, when the subscription tier
 
     [![Subscription Update Admin]({{base_path}}/assets/img/learn/subscription-update-admin-entry.png)]({{base_path}}/assets/img/learn/subscription-update-admin-entry.png)
 
-9.  After approving go back to the API Devportal Application Subscriptions tab, the subscription status will be **UNBLOCKED** and, the requested tier will also be assigned.
+9.  After approving go back to the API Developer Portal Application Subscriptions tab, the subscription status will be **UNBLOCKED** and, the requested tier will also be assigned.
      
     [![Subscription Update completed]({{base_path}}/assets/img/learn/subscription-update-completed.png)]({{base_path}}/assets/img/learn/subscription-update-completed.png)
 
