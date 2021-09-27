@@ -61,7 +61,6 @@ You can start an API Manager profile in the following methods, based on your req
     optimization. If you update the server after running the profile optimization, you may need to follow [Method 2](#method-2-optimizing-while-starting-the-server), as
     the updates would have fetched irrelevant files for this profile
 
-
 Create an optimized distribution for a particular API-M profile.
 
 1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
