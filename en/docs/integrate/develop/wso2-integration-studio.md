@@ -4,7 +4,7 @@ WSO2 Integration Studio is your development environment for designing, developin
 
 !!! Tip
     The base of the WSO2 Integration Studio is Eclipse IDE. You can install any supported Eclipse plugin for Integration
-    Studio by navigating Help-> Install New Software
+    Studio by navigating to **Help** -> **Install New Software**.
 
 ## Getting Started
 
